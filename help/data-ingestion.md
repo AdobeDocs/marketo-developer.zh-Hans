@@ -1,0 +1,282 @@
+---
+title: "数据摄取"
+description: “数据摄取API概述”
+source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+workflow-type: tm+mt
+source-wordcount: '952'
+ht-degree: 8%
+
+---
+
+
+# 数据摄入
+
+数据摄取API是一种高容量、低延迟、高度可用的服务，旨在以最小的延迟有效处理大量人员和人员相关数据的摄取。 
+
+通过提交异步执行的请求来摄取数据。 请求状态可通过订阅以下位置的事件： [Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/). &#x200B;
+
+界面提供两种对象类型：人员、自定义对象。 记录操作仅限“插入或更新”。
+
+数据摄取API处于私有测试阶段。 受邀者须拥有以下权益： [Marketo Engage性能层软件包](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+
+## 身份验证
+
+数据摄取API使用与Marketo REST API相同的OAuth 2.0身份验证方法来生成访问令牌，但访问令牌必须通过HTTP标头传递 `X-Mkto-User-Token`. 您不能通过查询参数传递访问令牌。
+
+通过标头访问令牌示例：
+
+`X-Mkto-User-Token: 11606815-aa7a-405a-80a1-f9683efa528b:ab`
+
+## 权限
+
+数据摄取使用与Marketo REST API相同的权限模型，无需任何其他特殊权限即可使用，不过每个端点需要特定权限。
+
+| 终结点 | 权限 |
+|---|---|
+| 人员 | 读写潜在客户 |
+| 自定义对象 | 读写自定义对象 |
+
+## 标头
+
+数据摄取使用以下自定义HTTP标头。
+
+### 请求
+
+| 键 | 值 | 必需 | 描述 |
+|---|---|---|---|
+| X-Correlation-Id | 任意字符串（最大长度255个字符）。 | 否 | 可用于通过系统跟踪请求。 请参阅Marketo可观察性数据流 |
+| X-Request-Source | 任意字符串（最大长度50个字符）。 | 否 | 可用于通过系统跟踪请求的源。 请参阅Marketo可观察性数据流 |
+
+### 响应
+
+| 键 | 值 | 必需 | 描述 |
+|---|---|---|---|
+| X-Request-Id | 唯一请求ID。 | 是 | |
+
+## 请求
+
+使用HTTPPOST方法将数据发送到服务器。
+
+数据表示以application/json形式包含在请求正文中。
+
+域名是： `mkto-ingestion-api.adobe.io`
+
+路径开头为 `/subscriptions/_MunchkinId_` 位置 `_MunchkinId_` 特定于您的Marketo实例。 您可以在Marketo EngageUI中的 **管理员** >**我的帐户** > **支持信息**. 路径的其余部分用于指定感兴趣的资源。
+
+人员示例URL：
+
+`https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/persons`
+
+自定义对象的示例URL：
+
+`https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/customobjects/purchases`
+
+## 响应
+
+所有响应都将通过 `X-Request-Id` 标题。
+
+通过标头发送的请求ID示例：
+
+`X-Request-Id: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
+
+### 成功
+
+呼叫成功后，将返回202状态。 未返回响应正文。
+
+成功响应示例：
+
+`HTTP/1.1 202 Accepted` `X-Request-Id: e3d92152-0fb1-444a-8f8f-29d5a2338598` `Content-Length: 0` `Date: Wed, 18 Oct 2023 18:56:49 GMT`
+
+### 错误
+
+当调用产生错误时，会返回非202状态以及包含其他错误详细信息的响应正文。 响应正文为application/json，并包含一个具有成员的对象 `error_code` 和 `message`.
+
+以下是Adobe Developer Gateway中可重复使用的错误代码。
+
+| HTTP状态代码 | error_code | 条消息 |
+|--- |--- |--- |
+| 401 | 401013 | Oauth令牌无效 |
+| 403 | 403010 | 缺少Oauth令牌 |
+| 404 | 404040 | 未找到资源 |
+| 429 | 429001 | 达到服务使用限制 |
+
+以下是数据摄取API特有的错误代码，这些错误代码由三个区段组成。 前三位是状态(由AdobeIO网关返回)，后面是零“0”，后面是三位。
+
+| HTTP状态代码 | error_code | 条消息 |
+|--- |--- |--- |
+| 400 | 4000801 | 请求无效 |
+| 400 | 4000802 | 数据无效 |
+| 403 | 4030801 | 未授权 |
+| 429 | 4290801 | 已达到每日配额 |
+| 500 | 5000801 | 内部服务器错误 |
+
+错误响应示例：
+
+`HTTP/1.1 403 Forbidden` `Content-Type: application/json` `Content-Length: 54` `Date: Wed, 18 Oct 2023 19:10:07 GMT` `X-Request-Id: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw` `{"error_code":"403010","message":"Oauth token is missing"}`
+
+## 重试
+
+检测到临时错误时，服务将重试操作三次。 第一次重试在5分钟的等待时段后发生，第二次在30分钟后发生，最后第三次在30分钟后发生。 重试有多种原因，主要是在从属服务超时或暂时不可用时。
+
+## 端点
+
+摄取端点适用于人员和自定义对象。
+
+### 人员
+
+用于更新插入人员记录的端点。
+
+| 方法 |
+|---|
+| POST |
+
+| 路径 |
+|---|
+| /subscriptions/{munchkinId}/persones |
+
+| 标头键 | 值 |
+|---|---|
+| Content-Type | application/json |
+| X-Mkto-User-Token | {accessToken} |
+
+请求正文
+
+| 键 | 数据类型 | 必需 | 值 | 默认值 |
+|---|---|---|---|---|
+| 优先级 | 字符串 | 否 | 请求的优先级：normalhigh | 普通 |
+| partitionName | 字符串 | 否 | 人员分区的名称 | 默认 |
+| 删除重复字段 | 对象 | 否 | 要消除重复的属性。 允许一个或两个属性名称。 在AND操作中使用两个属性。 例如，如果两者 `email` 和 `firstName` 指定时，两者都用于使用AND操作查找人员。 支持的属性包括：`idemail`， `sfdcAccountId`， `sfdcContactId`， `sfdcLeadId`， `sfdcLeadOwnerIdCustom` 属性（仅限“string”和“integer”类型） | 电子邮件 |
+| 人 | 对象数组 | 是 | 人员的属性名称 — 值对列表 | - |
+
+| 权限 |
+|---|
+| 读写潜在客户 |
+
+#### 人员示例
+
+```
+POST /subscriptions/{munchkinId}/persons
+```
+
+```
+Content-Type: application/json
+X-Mkto-User-Token: {accessToken}
+```
+
+```json
+{
+   "priority": "high",
+   "partitionName": "EMEA",
+   "dedupeFields": {
+      "field1": "email",
+      "field2": "firstName"
+   },
+   "persons":[
+      {
+         "email": "brooklyn.parker@karnv.com",
+         "firstName": "Brooklyn",
+         "lastName": "Parker"
+      },
+      {
+         "email": "johnny.neal@yvu30.com",
+         "firstName": "Johnny",
+         "lastName": "Neal"
+      }
+   ]
+}
+```
+
+```
+HTTP/1.1 202
+X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
+```
+
+### 自定义对象
+
+用于更新插入自定义对象记录的端点。
+
+| 方法 |
+|---|
+| POST |
+
+| 路径 |
+|---|
+| /subscriptions/{munchkinId}/customobjects/{customObjectAPIName} |
+
+标头
+
+| 键 | 值 |
+|---|---|
+| Content-Type | application/json |
+| X-Mkto-User-Token | {accessToken} |
+
+请求正文 | 键 | 数据类型 | 必填 | 值 | 默认值 | |—|—|—|—|—| | 优先级 | 字符串 | 否 | 请求的优先级：normalhigh | 普通 | | 重复数据删除者 | 字符串 | 否 | 要重复数据删除的属性：dedupeFieldsmarketoGUID | 删除重复字段 | | customObject | 对象数组 | 是 | 对象的属性名称 — 值对列表。 | - |
+
+| 权限 |
+|---|
+| 读写自定义对象 |
+
+#### 人员不存在
+
+如果在请求中指定了某人链接字段，且该人员不存在，则会发生多次重试。 如果在重试窗口（65分钟）期间添加该人员，则更新成功。 例如，如果链接字段为 `email` 在“人员”上，但“人员”不存在，则会发生重试。
+
+#### 自定义对象示例
+
+```
+POST /subscriptions/{munchkinId}/customobjects/{customObjectAPIName}
+```
+
+```
+Content-Type: application/json
+X-Mkto-User-Token: {accessToken}
+```
+
+```json
+{
+   "dedupeBy": "dedupeFields",
+   "priority": "high",
+   "customObjects": [
+      {
+         "email": "brooklyn.parker@karnv.com",
+         "vin": "20UYA31581L000000",
+         "make": "BMW",
+         "model": "3-Series 330i",
+         "year": 2003
+      },
+      {
+         "email": "johnny.neal@yvu30.com",
+         "vin": "19UYA31581L000000",
+         "make": "BMW",
+         "model": "3-Series 325i",
+         "year": 1989
+      }
+   ]
+}
+```
+
+```
+HTTP/1.1 202
+X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
+```
+
+## 限制
+
+以下是护栏的列表用法：
+
+- 最大请求大小：1 MB
+- 每种对象类型每个请求的最大对象数：1,000
+- 每个客户端每秒最大请求数ID：5,000
+- 每天最大对象数：10,000,000
+
+## 数据摄取API与REST API
+
+以下是数据摄取API与其他Marketo REST API之间的差异列表：
+
+- 这不是完整的CRUD接口，它仅支持“upsert”
+- 要进行身份验证，您必须使用传递访问令牌 `X-Mkto-User-Token` 标题
+- URL域名是 `mkto-ingestion-api.adobe.io`
+- URL路径的开头为 `/subscriptions/_MunchkinId_`
+- 没有查询参数
+- 如果调用成功，将返回202状态，并且响应正文为空
+- 如果调用失败，将返回非202状态，并且响应正文包含 `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
+- 请求ID通过以下方式返回 `X-Request-Id` 标题
