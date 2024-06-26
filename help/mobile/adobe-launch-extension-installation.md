@@ -1,14 +1,14 @@
 ---
-title: “[！DNLAadobe Launch]扩展安装”
-feature: "Mobile Marketing"
-description: '"[!DNL Adobe Launch] 扩展安装概述”'
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: ’[!DNL Adobe Launch] 扩展安装'
+feature: Mobile Marketing
+description: ’[!DNL Adobe Launch] 扩展安装概述
+exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
+source-git-commit: 2b6fd22becb0eb692dbcf48686c23f7a878cd812
 workflow-type: tm+mt
-source-wordcount: '703'
+source-wordcount: '701'
 ht-degree: 0%
 
 ---
-
 
 # [!DNL Adobe Launch] 扩展安装
 
@@ -151,7 +151,7 @@ ProGuard配置（可选）
 
 ## Firebase Cloud Messaging支持
 
-适用于Android的MME软件开发工具包(SDK)已更新为更加现代化、稳定和可扩展的框架，其中包含更灵活的功能和面向Android应用程序开发人员的新工程功能。
+适用于Android的MME软件开发工具包(SDK)已更新到一个更现代、稳定和可扩展的框架，其中包含更灵活的功能和面向Android应用程序开发人员的新工程功能。
 
 Android应用程序开发人员现在可以直接使用Google的 [Firebase云消息](https://firebase.google.com/docs/cloud-messaging/) (FCM)集成该SDK。
 
@@ -171,7 +171,7 @@ Android应用程序开发人员现在可以直接使用Google的 [Firebase云消
       1. 单击“Cloud Messaging”选项卡。 复制“服务器密钥”和“发件人ID”。 向Marketo提供这些“服务器密钥”和“发件人ID”。
    1. 在Android应用程序中配置FCM更改
       1. 切换到Android Studio中的“项目”视图，查看项目根目录
-         1. 移动下载的 `google-services.json` 将文件放入Android应用程序模块的根目录中
+         1. 移动下载的 `google-services.json` 文件放入您的Android应用程序模块根目录中
          1. 在项目级别中 `build.gradle` 添加以下内容：
 
             ```
@@ -220,7 +220,7 @@ Android应用程序开发人员现在可以直接使用Google的 [Firebase云消
 
 **问：可在何处找到更新到MME SDK最新版本的说明？** 相关说明，请访问Marketo开发人员网站 [此处](installation.md).
 
-**问：更新到最新版本的SDK是否需要我将Android应用程序的更新版本发布到现有用户？** 不适用。
+**问：要更新到SDK的最新版本，是否需要我将Android应用程序的更新版本发布到现有用户？** 不适用。
 
 **问：对于已发布与Marketo Android SDK集成的Android应用程序的现有MME客户，它会有什么影响？** 他们可以将Android上的现有GCM客户端应用程序迁移到Firebase Cloud Messaging (FCM)，如下所示：
 
