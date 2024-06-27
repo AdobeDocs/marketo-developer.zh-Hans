@@ -1,16 +1,16 @@
 ---
-title: "React Native"
-feature: "Mobile Marketing"
-description: “安装React Native for Marketo”
-source-git-commit: 416044a6cce4dac229640058a9cb0013070c9d9c
+title: React Native
+feature: Mobile Marketing
+description: 安装适用于Marketo的React Native
+exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '822'
 ht-degree: 0%
 
 ---
 
-
-# React本机
+# React Native
 
 本文介绍了如何安装和设置Marketo的本机SDK，以将您的移动应用程序与我们的平台集成。
 
@@ -47,7 +47,7 @@ build script {
 
 #### iOS SDK集成
 
-在为React本机项目创建桥之前，务必要在Xcode项目中设置我们的SDK。
+在为React Native项目创建桥接之前，务必要在Xcode项目中设置我们的SDK。
 
 **SDK集成 — 使用CocoaPods**
 
@@ -81,11 +81,11 @@ build script {
 
 ## 本机模块安装说明
 
-有时，React本机应用程序需要访问JavaScript中默认不可用的本机平台API，例如用于访问Apple或Google Pay的本机API。 您可能希望重用一些现有的Objective-C、Swift、Java或C++库，而无需在JavaScript中重新实施它，或者编写一些高性能、多线程代码用于图像处理等。
+有时React Native应用程序需要访问JavaScript中默认不可用的本机平台API，例如用于访问Apple或Google Pay的本机API。 您可能希望重用一些现有的Objective-C、Swift、Java或C++库，而无需在JavaScript中重新实施它，或者编写一些高性能、多线程代码用于图像处理等。
 
-NativeModule系统向JavaScript (JS)公开Java/Objective-C/C++ （本机）类的实例作为JS对象，从而允许您从JS内执行任意本机代码。 虽然我们不期望此功能成为常规开发过程的一部分，但必须具备此功能。 如果React Native不导出JS应用程序所需的本机API，您应该能够自行导出！
+NativeModule系统向JavaScript (JS)公开Java/Objective-C/C++ （本机）类的实例作为JS对象，从而允许您从JS内执行任意本机代码。 虽然我们不期望此功能成为常规开发过程的一部分，但必须具备此功能。 如果React Native未导出JS应用程序所需的本机API，您应该能够自行导出！
 
-React本机网桥用于JSX和本机应用程序层之间的通信。 在本例中，主机应用程序将能够编写可以调用Marketo SDK方法的JSX代码。
+React Native bridge用于JSX和本机应用程序层之间的通信。 在本例中，主机应用程序将能够编写可以调用Marketo SDK方法的JSX代码。
 
 ### Android
 
@@ -226,7 +226,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 在以下指南中，您将创建一个本机模块， _RNMarketoModule_，允许您从JavaScript访问Marketo的API。
 
-要开始配置，请在Xcode中的React本机应用程序中打开iOS项目。 您可以在React本机应用程序中在此处找到您的iOS项目。 我们建议使用Xcode来编写您的本机代码。 Xcode是为iOS开发而构建的，使用它有助于快速解决较小的错误，如代码语法。
+要开始配置，请在Xcode的React Native应用程序中打开iOS项目。 您可以在React Native应用程序中在此处找到您的iOS项目。 我们建议使用Xcode来编写您的本机代码。 Xcode是为iOS开发而构建的，使用它有助于快速解决较小的错误，如代码语法。
 
 创建主自定义原生模块标头和实施文件。 创建一个名为的新文件 `MktoBridge.h` 并在其中添加以下内容：
 
