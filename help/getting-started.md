@@ -69,7 +69,7 @@ Marketo Engage是一个营销自动化平台，它使营销人员能够向潜在
 
 ## 资源
 
-资产是指在项目中使用的登陆页面、电子邮件、表单和图像。 资源可以是给定项目的本地资源，也可以是全局资源。 全局资产可在任何项目中使用。
+Assets是指在项目中使用的登陆页面、电子邮件、表单和图像。 Assets可以是给定项目的本地项目，也可以是全局项目。 全局资产可在任何项目中使用。
 
 相关API： [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
@@ -87,7 +87,7 @@ Marketo Engage是一个营销自动化平台，它使营销人员能够向潜在
 
 ## 自定义对象
 
-Marketo自定义对象允许在您的Marketo潜在客户与自定义对象记录之间创建一对多或多对多(Edge-Bridge-Edge)关系。 创建并发布Marketo自定义对象后，您可以通过Marketo API对自定义对象执行CRUD操作。 可以找到有关自定义对象创建的更多信息 [此处](https://experienceleague.adobe.com/en/docs/marketo/using/home). 在将新记录添加到自定义对象时，您可以使用智能列表触发器做出响应。 您还可以在智能列表（分段）中使用自定义对象数据作为过滤器，或者在电子邮件中使用 [电子邮件脚本](email-scripting.md).
+Marketo自定义对象允许在您的Marketo潜在客户与自定义对象记录之间创建一对多或多对多关系(Edge-Bridge-Edge)。 创建并发布Marketo自定义对象后，您可以通过Marketo API对自定义对象执行CRUD操作。 可以找到有关自定义对象创建的更多信息 [此处](https://experienceleague.adobe.com/en/docs/marketo/using/home). 在将新记录添加到自定义对象时，您可以使用智能列表触发器做出响应。 您还可以在智能列表（分段）中使用自定义对象数据作为过滤器，或者在电子邮件中使用 [电子邮件脚本](email-scripting.md).
 
 相关API： [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects)， [SOAP](soap-api/custom-objects.md)
 

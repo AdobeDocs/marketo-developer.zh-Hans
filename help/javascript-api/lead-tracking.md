@@ -1,14 +1,14 @@
 ---
-title: "潜在客户跟踪"
-description: "潜在客户跟踪API"
+title: 商机跟踪
+description: 商机跟踪API
 feature: Munchkin Tracking Code, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '766'
 ht-degree: 0%
 
 ---
-
 
 # 商机跟踪API
 
@@ -74,7 +74,7 @@ Munchkin的行为可以通过使用Munchkin来修改 [配置设置](lead-trackin
 
 - 潜在客户必须访问包含 `mkt_tok` 参数作为查询字符串的参数，该字符串来自跟踪的Marketo电子邮件链接。
 - 潜在客户必须填写Marketo表单。
-- 肥皂 [syncLead](../soap-api/leads.md) 或REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) 必须发送调用。
+- SOAP [syncLead](../soap-api/leads.md) 或REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) 必须发送调用。
 
 一旦满足了这些条件之一，Cookie和所有关联的Web活动就会关联到已知商机。
 
@@ -96,7 +96,7 @@ Munchkin Cookie特定于每个二级域，即， `example.com`. Cookie的默认�
 
 ## Beta
 
-要选择启用登陆页面的Munchkin测试版渠道，请转到 [管理员 — > Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) 菜单并启用“Munchkin测试版登陆页面”设置。 这会在以下位置提供新的代码片段： **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** 菜单，让您能够在外部网站上使用测试版。
+要选择启用登陆页面的Munchkin测试版渠道，请转到 [管理员 — > Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) 菜单并启用“Munchkin Beta on Landing Pages”设置。 这会在以下位置提供新的代码片段： **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** 菜单，让您能够在外部网站上使用测试版。
 
 ## 选择禁用
 
