@@ -1,14 +1,14 @@
 ---
-title: "SOAP API"
+title: SOAP API
 feature: SOAP
-description: "Marketo SOAP概述"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Marketo SOAP概述
+exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '242'
+source-wordcount: '230'
 ht-degree: 0%
 
 ---
-
 
 # SOAP API
 
@@ -20,7 +20,7 @@ Marketo SOAP API允许创建、检索和删除存储在Marketo中的实体和数
 
 ## SOAP WSDL
 
-要检索SOAP WSDL文档，请从您的 **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** 菜单。
+要检索SOAP SOAP WSDL文档，请从您的 **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** 菜单。
 
 ![SOAP端点](assets/endpoint-soap.png)
 
@@ -40,10 +40,10 @@ Marketo SOAP API允许创建、检索和删除存储在Marketo中的实体和数
 
 ## Marketo中的SOAP API设置
 
-1. 转到“管理员”部分，然后单击“Web服务”。
+1. 转到 **[!UICONTROL Admin]** 部分并单击 **[!UICONTROL Web Services]**.
 
 ![admin-web-services2](assets/admin-web-services2.png)
 
-1. 设置适当的加密密钥，单击“保存更改”并使用SOAP API端点、用户ID和加密密钥值生成正确的密钥 [身份验证签名](authentication-signature.md) 用于每个SOAP API调用。
+1. 设置适当的 [!UICONTROL Encryption Key]，单击 **[!UICONTROL Save Changes]** 和使用SOAP API [!UICONTROL Endpoint]， [!UICONTROL User ID]、和 [!UICONTROL Encryption Key] 值以生成正确的 [身份验证签名](authentication-signature.md) 用于每个SOAP API调用。
 
 ![admin-web-services3](assets/admin-web-services3.png)

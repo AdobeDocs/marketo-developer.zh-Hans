@@ -3,9 +3,9 @@ title: ’[!DNL Adobe Launch] 扩展安装'
 feature: Mobile Marketing
 description: ’[!DNL Adobe Launch] 扩展安装概述
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 2b6fd22becb0eb692dbcf48686c23f7a878cd812
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '701'
+source-wordcount: '665'
 ht-degree: 0%
 
 ---
@@ -25,11 +25,11 @@ ht-degree: 0%
 
 ### 设置Swift桥接标头
 
-1. 转到“文件”>“新建”>“文件”，然后选择“头文件”。
+1. 转到 [!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File] 并选择 **[!UICONTROL Header File]**.
 
 1. 将文件命名为“&lt;”_项目名称_>-Bridging-Header”。
 
-1. 转到“项目”>“Target”>“生成设置”>“Swift编译器”>“代码生成”。 将以下路径添加到“目标桥接”标头：
+1. 转到 [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Build Settings] > [!UICONTROL Swift Compiler] > [!UICONTROL Code Generation]. 将以下路径添加到“目标桥接”标头：
 
 `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
@@ -63,7 +63,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ## iOS测试设备
 
-1. 选择 [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Info] > URL类型。
+1. 选择 **[!UICONTROL Project]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL Types]**.
 1. 添加标识符： ${PRODUCT_NAME}
 1. 设置URL方案：mkto-&lt;s_ecret key_=&quot;&quot;>
 1. 包括 `application:openURL:sourceApplication:annotation:` 到 `AppDelegate.m file` (Objective-C)
@@ -160,15 +160,15 @@ Android应用程序开发人员现在可以直接使用Google的 [Firebase云消
 1. 在Android应用程序中集成最新的Marketo Android SDK。  相关步骤位于 [GitHub](https://github.com/Marketo/android-sdk).
 1. 在Firebase控制台上配置Firebase应用程序。
    1. 创建/添加项目 [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase控制台。
-      1. 在 [Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)，选择 [!UICONTROL Add Project].
-      1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 [!UICONTROL Add Firebase].
-      1. 在Firebase欢迎屏幕中，选择“将Firebase添加到Android应用程序”。
-      1. 提供包名称和SHA-1，然后选择 [!UICONTROL Add App]. 新 `google-services.json` Firebase应用程序的文件已下载。
-      1. 选择 [!UICONTROL Continue] 并按照有关在Android Studio中添加Google Services插件的详细说明操作。
+      1. 在 [Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)，选择 **[!UICONTROL Add Project]**.
+      1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 **[!UICONTROL Add Firebase]**.
+      1. 在Firebase欢迎屏幕中，选择 **[!UICONTROL Add Firebase to your Android App]**.
+      1. 提供包名称和SHA-1，然后选择 **[!UICONTROL Add App]**. 新 `google-services.json` Firebase应用程序的文件已下载。
+      1. 选择 **[!UICONTROL Continue]** 并按照有关在Android Studio中添加Google Services插件的详细说明操作。
 
-   1. 在项目概述中导航到“项目设置”
-      1. 单击“常规”选项卡。 下载 `google-services.json` 文件。
-      1. 单击“Cloud Messaging”选项卡。 复制“服务器密钥”和“发件人ID”。 向Marketo提供这些“服务器密钥”和“发件人ID”。
+   1. 导航到 **[!UICONTROL Project Settings]** 在 [!UICONTROL Project Overview]
+      1. 单击 **[!UICONTROL General]** 选项卡。 下载 `google-services.json` 文件。
+      1. 单击 **[!UICONTROL Cloud Messaging]** 选项卡。 复制 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID]. 提供这些 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID] Marketo。
    1. 在Android应用程序中配置FCM更改
       1. 切换到Android Studio中的“项目”视图，查看项目根目录
          1. 移动下载的 `google-services.json` 文件放入您的Android应用程序模块根目录中
@@ -192,7 +192,7 @@ Android应用程序开发人员现在可以直接使用Google的 [Firebase云消
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. 最后，单击“[!UICONTROL Sync now]”显示在ID中的栏中
+         1. 最后，单击 **[!UICONTROL Sync now]** 在ID中显示的栏中
    1. 编辑应用程序的清单FCM SDK会自动添加所有必需权限和必需的接收器功能。 确保从应用程序的清单中删除以下过时（且可能有害的，因为它们可能会导致消息重复）元素：
 
       ```xml
@@ -224,7 +224,7 @@ Android应用程序开发人员现在可以直接使用Google的 [Firebase云消
 
 **问：对于已发布与Marketo Android SDK集成的Android应用程序的现有MME客户，它会有什么影响？** 他们可以将Android上的现有GCM客户端应用程序迁移到Firebase Cloud Messaging (FCM)，如下所示：
 
-1. 在 [Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)，选择 [!UICONTROL Add Project].
+1. 在 [Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)，选择 **[!UICONTROL Add Project]**.
 1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 **[!UICONTROL Add Firebase]**.
 1. 在Firebase欢迎屏幕中，选择 **[!UICONTROL Add Firebase to your Android App]**.
 1. 提供包名称和SHA-1，然后选择 **[!UICONTROL Add App]**. 适用于您的的新google-services.json文件

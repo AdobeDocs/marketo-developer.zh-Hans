@@ -1,14 +1,14 @@
 ---
-title: "PhoneGap"
-feature: "Mobile Marketing"
-description: “在移动设备上将PhoneGap与Marketo结合使用”
-source-git-commit: 2e4eb416846de3ad62ff0626f536630278e1c0cd
+title: PhoneGap
+feature: Mobile Marketing
+description: 在移动设备上将PhoneGap与Marketo结合使用
+exl-id: 99f14c76-9438-4942-9309-643bca434d07
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '797'
 ht-degree: 0%
 
 ---
-
 
 # PhoneGap
 
@@ -67,13 +67,13 @@ repositories{
 
 1. 在Firebase控制台上配置Firebase应用程序。
    1. 创建/添加项目 [](https://console.firebase.google.com/)Firebase控制台。
-      1. 在 [Firebase控制台](https://console.firebase.google.com/)，选择 [!UICONTROL Add Project].
-      1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 [!UICONTROL Add Firebase].
+      1. 在 [Firebase控制台](https://console.firebase.google.com/)，选择 **[!UICONTROL Add Project]**.
+      1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 **[!UICONTROL Add Firebase]**.
       1. 在Firebase欢迎屏幕中，选择“将Firebase添加到Android应用程序”。
-      1. 提供包名称和SHA-1，然后选择 [!UICONTROL Add App]. 新 `google-services.json` Firebase应用程序的文件已下载。
-   1. 在项目概述中导航到“项目设置”
-      1. 单击“常规”选项卡。 下载“google-services.json”文件。
-      1. 单击“Cloud Messaging”选项卡。 复制“服务器密钥”和“发件人ID”。 向Marketo提供这些“服务器密钥”和“发件人ID”。
+      1. 提供包名称和SHA-1，然后选择 **[!UICONTROL Add App]**. 新 `google-services.json` Firebase应用程序的文件已下载。
+   1. 导航到 **[!UICONTROL Project Settings]** 在 [!UICONTROL Project Overview]
+      1. 单击 **[!UICONTROL General]** 选项卡。 下载“google-services.json”文件。
+      1. 单击 **[!UICONTROL Cloud Messaging]** 选项卡。 复制 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID]. 提供这些 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID] Marketo。
    1. 在Phonegap应用程序中配置FCM更改
       1. 将下载的`google-services.json`文件移到Phonegap应用程序模块的根目录中
       1. 从位置删除文件“MyFirebaseInstanceIDService” `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` （已弃用）
@@ -148,7 +148,7 @@ sharedInstance.trackPushNotification(launchOptions)
 
 ### 5.初始化Marketo框架
 
-要确保在应用程序启动时启动Marketo框架，请在下添加以下代码 `onDeviceReady` 函数中。
+要确保在应用程序启动时启动Marketo框架，请在下添加以下代码 `onDeviceReady` JavaScript函数中。
 
 请注意，我们必须通过 `phonegap` 作为PhoneGap应用程序的框架类型。
 

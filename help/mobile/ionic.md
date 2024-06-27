@@ -1,30 +1,30 @@
 ---
-title: “爱奥尼亚语”
-feature: "Mobile Marketing"
-description: “将Ionic与Marketo结合使用于移动设备”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: ’[!DNL Ionic]’
+feature: Mobile Marketing
+description: 使用 [!DNL Ionic] 使用适用于移动设备的Marketo
+exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '613'
+source-wordcount: '606'
 ht-degree: 1%
 
 ---
 
-
 # 离子型
 
-本主题介绍如何集成Marketo Cordova插件。 目前不支持离子电容器。
+本主题介绍如何集成Marketo Cordova插件。 [!DNL Ionic] 当前不支持电容器。
 
 ## 先决条件
 
 1. [在Marketo管理中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) （获取您的应用程序密钥和Munchkin ID）。
 1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md) )。
-1. 安装 [离子型](https://ionicframework.com/getting-started/) 和 [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. 安装 [[!DNL Ionic]](https://ionicframework.com/getting-started/) 和 [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## 安装说明
 
-### 设置Marketo离子插件
+### 设置Marketo [!DNL Ionic] 插件
 
-1. 如果已安装Cordova CLI，请转到您的Ionic应用程序目录并运行以下命令以将Marketo插件添加到您的应用程序中：
+1. 如果已安装Cordova CLI，请转到 [!DNL Ionic] 应用程序目录并运行以下命令以将Marketo插件添加到应用程序中：
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### 初始化Marketo框架
 
-要确保在应用程序启动时启动Marketo框架，请在下添加以下代码 `onDeviceReady` 函数中。
+要确保在应用程序启动时启动Marketo框架，请在下添加以下代码 `onDeviceReady` JavaScript函数中。
 
-您必须通过 `ionicCordova` 作为Ionic Cordova应用程序的框架类型。
+您必须通过 `ionicCordova` 作为框架类型 [!DNL Ionic] Cordova应用程序。
 
 #### 语法
 

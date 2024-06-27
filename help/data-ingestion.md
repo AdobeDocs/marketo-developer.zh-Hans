@@ -1,10 +1,10 @@
 ---
 title: "数据摄取"
 description: “数据摄取API概述”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '952'
-ht-degree: 8%
+source-wordcount: '945'
+ht-degree: 9%
 
 ---
 
@@ -132,7 +132,7 @@ ht-degree: 8%
 
 | 路径 |
 |---|
-| /subscriptions/{munchkinId}/persones |
+| `/subscriptions/{munchkinId}/persons` |
 
 | 标头键 | 值 |
 |---|---|
@@ -201,7 +201,7 @@ X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
 
 | 路径 |
 |---|
-| /subscriptions/{munchkinId}/customobjects/{customObjectAPIName} |
+| `/subscriptions/{munchkinId}/customobjects/{customObjectAPIName}` |
 
 标头
 
@@ -210,7 +210,13 @@ X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
 | Content-Type | application/json |
 | X-Mkto-User-Token | {accessToken} |
 
-请求正文 | 键 | 数据类型 | 必填 | 值 | 默认值 | |—|—|—|—|—| | 优先级 | 字符串 | 否 | 请求的优先级：normalhigh | 普通 | | 重复数据删除者 | 字符串 | 否 | 要重复数据删除的属性：dedupeFieldsmarketoGUID | 删除重复字段 | | customObject | 对象数组 | 是 | 对象的属性名称 — 值对列表。 | - |
+请求正文
+
+| 键 | 数据类型 | 必需 | 值 | 默认值 |
+|---|---|---|---|---|
+| 优先级 | 字符串 | 否 | 请求的优先级：normalhigh | 普通 |
+| 重复数据删除者 | 字符串 | 否 | 要重复数据删除的属性：dedupeFieldsmarketoGUID | 删除重复字段 |
+| customObject | 对象数组 | 是 | 对象的属性名称 — 值对列表。 | - |
 
 | 权限 |
 |---|

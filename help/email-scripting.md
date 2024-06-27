@@ -1,14 +1,14 @@
 ---
-title: “电子邮件脚本”
+title: 电子邮件脚本
 feature: Email Programs
-description: “电子邮件脚本概述”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: 电子邮件脚本概述
+exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '961'
+source-wordcount: '947'
 ht-degree: 0%
 
 ---
-
 
 # 电子邮件脚本
 
@@ -98,7 +98,7 @@ $date.whenIs($birthday).days ##outputs 1
 
 ![脚本令牌](assets/script-token.png)
 
-在此处，您可以编辑令牌的名称，并通过单击以编辑选项打开编辑器：
+在此处，您可以编辑令牌的名称，并通过打开编辑器 [!UICONTROL Click to Edit] 选项：
 
 ![编辑脚本](assets/script-edit.png)
 
@@ -112,11 +112,11 @@ $date.whenIs($birthday).days ##outputs 1
 
 ![电子邮件脚本](assets/email-script-marketo-email.png)
 
-您可以使用Marketo Email Designer中的“发送示例电子邮件”电子邮件操作测试脚本。 要使脚本正确处理，您必须在Lead字段中选择要模拟的现有商机。 如果您正在使用 `$TriggerObject`中，您可以通过“触发器”参数选择触发对象。 它使用该类型的最近更新对象的数据作为 `$TriggerObject` 变量。
+您可以使用以下代码测试脚本： [!UICONTROL Send Sample Email] Marketo email designer中的电子邮件操作。 要使脚本正确处理，您必须选择要在中模拟的现有潜在客户 [!UICONTROL Lead] 字段。 如果您正在使用 `$TriggerObject`，您可以通过以下方式选择触发对象： [!UICONTROL Trigger] 参数 它使用该类型的最近更新对象的数据作为 `$TriggerObject` 变量。
 
 ![测试电子邮件脚本](assets/velocity-test.png)
 
-您还可以使用电子邮件预览来测试脚本。 为此，您必须选择“查看方式：销售线索详细信息”，然后从可用静态列表中选择销售线索。 这还有另一个好处，即输出脚本执行期间可能发生的任何异常：
+您也可以使用 [!UICONTROL Email Preview] 以测试您的脚本。 为此，您必须选择 **[!UICONTROL View As: Lead Detail]**，并从可用的静态列表中选择潜在客户。 这还有另一个好处，即输出脚本执行期间可能发生的任何异常：
 
 ![查看电子邮件的方式](assets/view-as.png)
 
@@ -126,7 +126,7 @@ $date.whenIs($birthday).days ##outputs 1
 
 - 电子邮件脚本中引用的变量必须存在于Marketo中且位于脚本可用的某个对象上。
 - 您可以引用来自本机集成CRM的第一级和第二级自定义对象，这些自定义对象直接连接到Lead或Contact，但不包括第三级自定义对象。 自定义对象不能是潜在客户或公司的父级
-- 对于Marketo自定义对象，您可以引用具有父子关系的二级自定义对象。 例如 `Lead <- Parent <- Child`. 无法引用具有Edge-Bridge关系的第二级自定义对象。 例如，  `Lead <- Bridge -> Edge`
+- 对于Marketo自定义对象，您可以引用具有父子关系的二级自定义对象。 例如 `Lead <- Parent <- Child`. 您无法引用具有Edge-Bridge关系的第二级自定义对象。 例如，  `Lead <- Bridge -> Edge`
 - 您可以引用连接到Lead、Contact或Account的自定义对象，但不能引用多个对象。
 - 只能通过单个连接、潜在客户、联系人或帐户引用自定义对象
 - 您必须在脚本编辑器中选中正在使用的字段的框，否则这些字段将不会处理

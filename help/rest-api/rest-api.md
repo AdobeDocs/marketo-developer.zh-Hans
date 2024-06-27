@@ -1,14 +1,14 @@
 ---
-title: "REST API"
+title: REST API
 feature: REST API
-description: “REST API概述”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: REST API概述
+exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '643'
-ht-degree: 0%
+source-wordcount: '626'
+ht-degree: 1%
 
 ---
-
 
 # REST API
 
@@ -30,15 +30,15 @@ Marketo会公开一个REST API，该API允许远程执行系统的多项功能�
 
 ![管理员用户和角色](assets/admin-users-and-roles.png)
 
-单击 [!UICONTROL Roles] 选项卡，然后新建角色，并至少将“只读潜在客户”（或“只读人员”）权限分配给访问API组中的角色。 请确保为其提供描述性名称，然后单击 [!UICONTROL Create].
+单击 **[!UICONTROL Roles]** 选项卡，然后新建角色，并至少将“只读潜在客户”（或“只读人员”）权限分配给访问API组中的角色。 请确保为其提供描述性名称，然后单击 **[!UICONTROL Create]**.
 
 ![新建角色](assets/new-role.png)
 
-现在返回到“用户”选项卡，然后单击“邀请新用户”。 为用户提供说明性名称和Email Address ，并点击 **[!UICONTROL Next]**.
+现在返回至 [!UICONTROL Users] 选项卡，然后单击 **[!UICONTROL Invite New User]**. 为用户提供说明性名称和Email Address ，并点击 **[!UICONTROL Next]**.
 
 ![新建用户信息](assets/new-user-info.png)
 
-然后，选中仅限API选项，并向用户授予您创建的API角色，然后单击 **[!UICONTROL Next]**.
+然后，查看 [!UICONTROL API Only] 选项并向您的用户授予您创建并单击的API角色 **[!UICONTROL Next]**.
 
 ![新用户权限](assets/new-user-permissions.png)
 
@@ -46,23 +46,23 @@ Marketo会公开一个REST API，该API允许远程执行系统的多项功能�
 
 ![新建用户消息](assets/new-user-message.png)
 
-接下来，转到管理员菜单并单击 **[!UICONTROL LaunchPoint]**.
+接下来，转到 [!UICONTROL Admin] 菜单并单击 **[!UICONTROL LaunchPoint]**.
 
 ![启动点](assets/admin-launchpoint.png)
 
-单击“新建”菜单并选择 [!UICONTROL New Service]. 为您的服务提供一个描述性名称，然后从服务下拉菜单中选择“自定义”。 提供说明，然后从仅API用户下拉菜单中选择新用户，然后单击 [!UICONTROL Create].
+单击 **[!UICONTROL New]** 菜单并选择 **[!UICONTROL New Service]**. 为您的服务提供一个描述性名称，然后选择 **[!UICONTROL Custom]** 从 [!UICONTROL Service] 下拉菜单。 提供描述，然后从中选择您的新用户 [!UICONTROL API Only User] 下拉菜单，然后单击 **[!UICONTROL Create]**.
 
 ![新建Launchpoint服务](assets/admin-launchpoint-new-service.png)
 
-单击新服务的查看详细信息，以访问客户端ID和客户端密钥。 现在，您可以单击 [!UICONTROL Get Token] 按钮以生成有效期为一小时的访问令牌。 暂时将令牌保存在注释中。
+单击 **[!UICONTROL View Details]** 用于访问客户端ID和客户端密钥的新服务。 现在，您可以单击 **[!UICONTROL Get Token]** 按钮以生成有效期为一小时的访问令牌。 暂时将令牌保存在注释中。
 
 ![获取令牌](assets/get-token.png)
 
-接下来，转到管理员菜单，然后转到 **[!UICONTROL Web Services]**.
+接下来，转到 **[!UICONTROL Admin]** 菜单，然后转到 **[!UICONTROL Web Services]**.
 
 ![Web服务](assets/admin-web-services.png)
 
-暂时在REST API框中查找端点并保存在注释中。
+查找 [!UICONTROL Endpoint] ，并暂时保存在注释中。
 
 ![REST端点](assets/admin-web-services-rest-endpoint-1.png)
 
