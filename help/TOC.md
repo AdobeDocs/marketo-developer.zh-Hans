@@ -1,7 +1,7 @@
 ---
-user-guide-title: '"[!DNL Marketo] 开发人员指南”'
-user-guide-description: “本指南提供了有关使用 [!DNL Marketo] API。”
-breadcrumb-title: '"[!DNL Marketo] 开发人员指南”'
+user-guide-title: '[!DNL Marketo]开发人员指南'
+user-guide-description: “本指南提供了使用 [!DNL Marketo] API的说明。”
+breadcrumb-title: '[!DNL Marketo]开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
@@ -13,7 +13,7 @@ ht-degree: 7%
 ---
 
 
-# [!DNL Marketo] 开发人员 {#marketo}
+# [!DNL Marketo]开发人员 {#marketo}
 
 - [主页](home.md)
 - [快速入门](getting-started.md)
@@ -32,9 +32,9 @@ ht-degree: 7%
    - [社交](javascript-api/social.md)
    - [触发器](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
-- 移动设备 {#mobile}
-   - [安装 [!DNL Adobe Launch] 扩展名](mobile/adobe-launch-extension-installation.md)
-   - [[!DNL Adobe Launch] 扩展名](mobile/adobe-launch-extension.md)
+- 移动设备{#mobile}
+   - [安装 [!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension-installation.md)
+   - [[!DNL Adobe Launch]扩展名](mobile/adobe-launch-extension.md)
    - [高级安全模式](mobile/advanced-security-access-mode.md)
    - [自定义操作](mobile/custom-actions.md)
    - [深层链接](mobile/enabling-deep-links-in-your-app.md)
@@ -72,13 +72,13 @@ ht-degree: 7%
    - [身份验证签名](rest-api/authentication-signature.md)
    - [基本URL](rest-api/base-url.md)
    - [最佳实践](rest-api/marketo-integration-best-practices.md)
-   - 批量提取 {#bulk-extract}
+   - 批量提取{#bulk-extract}
       - [批量活动](rest-api/bulk-activity-extract.md)
       - [批量自定义对象](rest-api/bulk-custom-object-extract.md)
       - [批量提取](rest-api/bulk-extract.md)
       - [批量潜在客户](rest-api/bulk-lead-extract.md)
       - [批量计划成员](rest-api/bulk-program-member-extract.md)
-   - 批量导入 {#bulk-import}
+   - 批量导入{#bulk-import}
       - [批量自定义对象](rest-api/bulk-custom-object-import.md)
       - [批量导入](rest-api/bulk-import.md)
       - [批量潜在客户](rest-api/bulk-lead-import.md)
@@ -88,7 +88,7 @@ ht-degree: 7%
    - [下载Swagger定义](rest-api/swagger.md)
    - [终结点引用](rest-api/endpoint-reference.md)
    - [错误代码](rest-api/error-codes.md)
-   - 潜在客户数据库 {#lead-database}
+   - 潜在客户数据库{#lead-database}
       - [公司](rest-api/companies.md)
       - [字段列表](rest-api/fields.md)
       - [字段类型](rest-api/field-types.md)
@@ -108,47 +108,47 @@ ht-degree: 7%
    - [用户上下文](rest-api/user-context.md)
    - [User Management](rest-api/user-management.md)
 - SOAP {#soap}
-   - 活动 {#activities}
+   - 活动{#activities}
       - [活动](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
       - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
    - [活动类型过滤器](soap-api/activity-type-filters.md)
    - [身份验证签名](soap-api/authentication-signature.md)
-   - 营销活动 {#campaigns}
+   - 营销活动{#campaigns}
       - [[!DNL getCampaignsForSource]](soap-api/getcampaignsforsource.md)
       - [[!DNL requestCampaign]](soap-api/requestcampaign.md)
       - [[!DNL scheduleCampaign]](soap-api/schedulecampaign.md)
-   - 自定义对象 {#custom-objects}
+   - 自定义对象{#custom-objects}
       - [自定义对象](soap-api/custom-objects.md)
       - [[!DNL deleteCustomObjects]](soap-api/deletecustomobjects.md)
       - [[!DNL getCustomObjects]](soap-api/getcustomobjects.md)
       - [[!DNL syncCustomObjects]](soap-api/synccustomobjects.md)
    - [错误代码](soap-api/error-codes.md)
-   - 潜在客户 {#leads}
+   - 潜在客户{#leads}
       - [[!DNL getLead]](soap-api/getlead.md)
       - [[!DNL getMultipleLeads]](soap-api/getmultipleleads.md)
       - [[!DNL mergeLeads]](soap-api/mergeleads.md)
       - [潜在客户](soap-api/leads.md)
       - [[!DNL syncLead]](soap-api/synclead.md)
       - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
-   - Marketo对象 {#marketo-objects}
+   - Marketo对象{#marketo-objects}
       - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
       - [[!DNL describeMObjects]](soap-api/describemobject.md)
       - [[!DNL getMObjects]](soap-api/getmobjects.md)
       - [[!DNL listMObjects]](soap-api/listmobjects.md)
       - [Marketo对象](soap-api/marketo-objects.md)
       - [[!DNL syncMObjects]](soap-api/syncmobjects.md)
-   - 程序 {#programs}
+   - 项目群{#programs}
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
    - [SOAP常见问题解答](soap-api/soap-faq.md)
-   - 静态列表 {#static-lists}
+   - 静态列表{#static-lists}
       - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
       - [[!DNL importToList]](soap-api/importtolist.md)
       - [[!DNL listOperation]](soap-api/listoperation.md)
    - [流位置](soap-api/stream-position.md)
-- Webhooks {#webhooks}
+- Webhook {#webhooks}
    - [错误数](webhooks/errors.md)
    - [响应映射](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
