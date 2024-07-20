@@ -13,15 +13,15 @@ ht-degree: 9%
 
 数据摄取API是一种高容量、低延迟、高度可用的服务，旨在以最小的延迟有效处理大量人员和人员相关数据的摄取。 
 
-通过提交异步执行的请求来摄取数据。 请求状态可通过订阅以下位置的事件： [Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/). &#x200B;
+通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/)中的事件，可以检索请求状态。&#x200B;
 
 界面提供两种对象类型：人员、自定义对象。 记录操作仅限“插入或更新”。
 
-数据摄取API处于私有测试阶段。 受邀者须拥有以下权益： [Marketo Engage性能层软件包](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+数据摄取API处于私有测试阶段。 受邀者需要拥有[Marketo Engage性能层包](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)的权利。
 
 ## 身份验证
 
-数据摄取API使用与Marketo REST API相同的OAuth 2.0身份验证方法来生成访问令牌，但访问令牌必须通过HTTP标头传递 `X-Mkto-User-Token`. 您不能通过查询参数传递访问令牌。
+数据摄取API使用与Marketo REST API相同的OAuth 2.0身份验证方法来生成访问令牌，但必须通过HTTP标头`X-Mkto-User-Token`传递访问令牌。 您不能通过查询参数传递访问令牌。
 
 通过标头访问令牌示例：
 
@@ -61,7 +61,7 @@ ht-degree: 9%
 
 域名是： `mkto-ingestion-api.adobe.io`
 
-路径开头为 `/subscriptions/_MunchkinId_` 位置 `_MunchkinId_` 特定于您的Marketo实例。 您可以在Marketo EngageUI中的 **管理员** >**我的帐户** > **支持信息**. 路径的其余部分用于指定感兴趣的资源。
+路径以`/subscriptions/_MunchkinId_`开头，其中`_MunchkinId_`特定于您的Marketo实例。 您可以在Marketo EngageUI中的&#x200B;**管理员** >**我的帐户** > **支持信息**&#x200B;下找到您的Munchkin ID。 路径的其余部分用于指定感兴趣的资源。
 
 人员示例URL：
 
@@ -73,7 +73,7 @@ ht-degree: 9%
 
 ## 响应
 
-所有响应都将通过 `X-Request-Id` 标题。
+所有响应都通过`X-Request-Id`标头返回唯一的请求ID。
 
 通过标头发送的请求ID示例：
 
@@ -89,7 +89,7 @@ ht-degree: 9%
 
 ### 错误
 
-当调用产生错误时，会返回非202状态以及包含其他错误详细信息的响应正文。 响应正文为application/json，并包含一个具有成员的对象 `error_code` 和 `message`.
+当调用产生错误时，会返回非202状态以及包含其他错误详细信息的响应正文。 响应正文是application/json，并且包含一个具有成员`error_code`和`message`的对象。
 
 以下是Adobe Developer Gateway中可重复使用的错误代码。
 
@@ -145,7 +145,7 @@ ht-degree: 9%
 |---|---|---|---|---|
 | 优先级 | 字符串 | 否 | 请求的优先级：normalhigh | 普通 |
 | partitionName | 字符串 | 否 | 人员分区的名称 | 默认 |
-| 删除重复字段 | 对象 | 否 | 要消除重复的属性。 允许一个或两个属性名称。 在AND操作中使用两个属性。 例如，如果两者 `email` 和 `firstName` 指定时，两者都用于使用AND操作查找人员。 支持的属性包括：`idemail`， `sfdcAccountId`， `sfdcContactId`， `sfdcLeadId`， `sfdcLeadOwnerIdCustom` 属性（仅限“string”和“integer”类型） | 电子邮件 |
+| 删除重复字段 | 对象 | 否 | 要消除重复的属性。 允许一个或两个属性名称。 在AND操作中使用两个属性。 例如，如果同时指定了`email`和`firstName`，则它们都用于使用AND操作查找人员。 支持的属性为：`idemail`、`sfdcAccountId`、`sfdcContactId`、`sfdcLeadId`、`sfdcLeadOwnerIdCustom`属性（仅限“字符串”和“整数”类型） | 电子邮件 |
 | 人 | 对象数组 | 是 | 人员的属性名称 — 值对列表 | - |
 
 | 权限 |
@@ -224,7 +224,7 @@ X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
 
 #### 人员不存在
 
-如果在请求中指定了某人链接字段，且该人员不存在，则会发生多次重试。 如果在重试窗口（65分钟）期间添加该人员，则更新成功。 例如，如果链接字段为 `email` 在“人员”上，但“人员”不存在，则会发生重试。
+如果在请求中指定了某人链接字段，且该人员不存在，则会发生多次重试。 如果在重试窗口（65分钟）期间添加该人员，则更新成功。 例如，如果Person上的链接字段为`email`，而Person不存在，则会发生重试。
 
 #### 自定义对象示例
 
@@ -279,10 +279,10 @@ X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
 以下是数据摄取API与其他Marketo REST API之间的差异列表：
 
 - 这不是完整的CRUD接口，它仅支持“upsert”
-- 要进行身份验证，您必须使用传递访问令牌 `X-Mkto-User-Token` 标题
-- URL域名是 `mkto-ingestion-api.adobe.io`
-- URL路径的开头为 `/subscriptions/_MunchkinId_`
+- 若要进行身份验证，必须使用`X-Mkto-User-Token`标头传递访问令牌
+- URL域名是`mkto-ingestion-api.adobe.io`
+- URL路径以`/subscriptions/_MunchkinId_`开头
 - 没有查询参数
 - 如果调用成功，将返回202状态，并且响应正文为空
-- 如果调用失败，将返回非202状态，并且响应正文包含 `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
-- 请求ID通过以下方式返回 `X-Request-Id` 标题
+- 如果调用失败，则返回非202状态，并且响应正文包含`{ "error_code" : "_Error Code_", "message" : "_Message_" }`
+- 请求ID通过`X-Request-Id`标头返回

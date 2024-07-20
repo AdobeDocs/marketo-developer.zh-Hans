@@ -1,14 +1,14 @@
 ---
-title: "字段"
+title: 字段
 feature: REST API, Field Management
-description: “支持的字段名称列表。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 支持的字段名称列表。
+exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '194'
 ht-degree: 2%
 
 ---
-
 
 # 字段
 
@@ -35,4 +35,4 @@ REST API和SOAP API对潜在客户字段使用不同的命名约定。
 
 ### 为什么REST API字段sfdcId始终返回值null？
 
-字段 `sfdcId` 是一个公式字段，错误地包含在REST API的原始字段映射中。 通过REST API检索的记录不会计算公式字段的值，因此该值将始终为空。 要捕获真正的SFDC ID，您应使用名为 `sfdcLeadId` 和 `sfdcContactId`.
+字段`sfdcId`是一个公式字段，该字段错误地包含在REST API的原始字段映射中。 通过REST API检索的记录不会计算公式字段的值，因此该值将始终为空。 要捕获真正的SFDC ID，您应该使用名为`sfdcLeadId`和`sfdcContactId`的字段。

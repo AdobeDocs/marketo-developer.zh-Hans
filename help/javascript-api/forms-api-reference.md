@@ -1,18 +1,18 @@
 ---
-title: “Forms API参考”
-description: “Forms API参考”
+title: Forms API参考
+description: Forms API参考
 feature: Forms, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 1%
 
 ---
 
-
 # Forms API参考
 
-您将使用Forms 2.0 API与以下两个主要对象进行交互。 此 `MktoForms2` 对象和 `Form` 对象。 此 `MktoForms2` 对象是Forms2功能的顶级公开可见命名空间，包含用于创建、加载和提取表单对象的函数。
+您将使用Forms 2.0 API与以下两个主要对象进行交互。 `MktoForms2`对象和`Form`对象。 `MktoForms2`对象是Forms2功能的顶级公开可见命名空间，包含用于创建、加载和提取表单对象的函数。
 
 ## MktoForms2方法
 
@@ -178,11 +178,11 @@ ht-degree: 1%
     <tr valign="top">
       <td>.onSuccess(callback)</td>
       <td>添加一个回调，该回调将在成功提交表单时但在潜在客户转发到后续页面之前调用。 可用于防止在成功提交后将商机转发到后续页面。</td>
-      <td>callback — 成功提交表单时将调用的函数。 此回调将传递两个参数。 一个JS对象，其中包含已提交的值和用户将转发到的跟进页面的字符串URL；如果没有已配置的跟进页面，则包含Null或空字符串。 特殊行为：如果此回调返回“false”(使用===测量)，则访客将不会转发到跟进页面，并且也不会重新加载页面。 这允许实施者对跟进URL执行额外的处理，或使用JavaScript在页面上执行操作而不是离开页面。</td>
+      <td>callback — 成功提交表单时将调用的函数。 此回调将传递两个参数。 一个JS对象，其中包含已提交的值和用户将转发到的跟进页面的字符串URL；如果没有已配置的跟进页面，则包含Null或空字符串。 特殊行为：如果此回调返回“false”(使用===测量)，则访客将不会转发到跟进页面，并且也不会重新加载页面。 这允许实施者对跟进URL执行额外的处理，或在使用JavaScript而不是离开页面的页面上执行操作。</td>
       <td>表单对象 — 用于链接目的的调用方法的相同表单对象。</td>
     </tr>
     <tr valign="top">
-      <td>.submittable(canSubmit) <em>也可作为：</em> <em>.submitable(canSubmit)</em></td>
+      <td>.submittable(canSubmit) <em>也可用为： </em> <em>.submitable(canSubmit)</em></td>
       <td>获取或设置是否可以提交表单。 如果使用无参数调用，则它将获取值；如果使用一个参数调用，则它将设置值。这可用于阻止提交表单，而必须满足普通表单之外的其他条件。</td>
       <td>canSubmit （可选）（布尔值） — 将表单设置为可提交或不可提交。</td>
       <td>布尔值或表单对象 — 如果使用无参数调用，则返回一个布尔值，指示表单是否可提交。 如果使用某个参数调用，则返回此表单对象以进行链接。 </td>

@@ -16,9 +16,9 @@ Marketo PhoneGap插件的集成
 
 ## 先决条件
 
-1. [在Marketo管理中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) （获取您的应用程序密钥和Munchkin ID）。
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）。
 1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md))。
-1. [安装PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [安装PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 
 ## 安装说明
 
@@ -48,7 +48,7 @@ Marketo PhoneGap插件的集成
 
 **Cordova版本8.0.0 (Cordova@Android7.0.0)及更高版本**
 
-构建Cordova Android平台后，使用Android Studio打开应用程序并更新 `dirs` 的值 `Marketo.gradle` 文件位于 `com.marketo.plugin` 文件夹。
+构建Cordova Android平台后，使用Android Studio打开该应用程序，并更新在`com.marketo.plugin`文件夹中找到的`Marketo.gradle`文件的`dirs`值。
 
 ```
 repositories{    
@@ -59,25 +59,25 @@ repositories{
 }
 ```
 
-添加应用程序的目标平台 `$cordova platform add android` `$ cordova platform add ios`
+添加应用程序`$cordova platform add android` `$ cordova platform add ios`的目标平台
 
-检查添加的平台列表 `$cordova platform ls`
+检查添加了`$cordova platform ls`的平台列表
 
 1. Firebase Cloud Messaging支持
 
 1. 在Firebase控制台上配置Firebase应用程序。
-   1. 创建/添加项目 [](https://console.firebase.google.com/)Firebase控制台。
-      1. 在 [Firebase控制台](https://console.firebase.google.com/)，选择 **[!UICONTROL Add Project]**.
-      1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 **[!UICONTROL Add Firebase]**.
+   1. 在[](https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
+      1. 在[Firebase控制台](https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
+      1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
       1. 在Firebase欢迎屏幕中，选择“将Firebase添加到Android应用程序”。
-      1. 提供包名称和SHA-1，然后选择 **[!UICONTROL Add App]**. 新 `google-services.json` Firebase应用程序的文件已下载。
-   1. 导航到 **[!UICONTROL Project Settings]** 在 [!UICONTROL Project Overview]
-      1. 单击 **[!UICONTROL General]** 选项卡。 下载“google-services.json”文件。
-      1. 单击 **[!UICONTROL Cloud Messaging]** 选项卡。 复制 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID]. 提供这些 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID] Marketo。
+      1. 提供您的包名称和SHA-1，然后选择&#x200B;**[!UICONTROL Add App]**。 已下载Firebase应用程序的新`google-services.json`文件。
+   1. 在[!UICONTROL Project Overview]中导航到&#x200B;**[!UICONTROL Project Settings]**
+      1. 单击&#x200B;**[!UICONTROL General]**&#x200B;选项卡。 下载“google-services.json”文件。
+      1. 单击&#x200B;**[!UICONTROL Cloud Messaging]**&#x200B;选项卡。 复制[!UICONTROL Server Key]和[!UICONTROL Sender ID]。 将这些[!UICONTROL Server Key]和[!UICONTROL Sender ID]提供给Marketo。
    1. 在Phonegap应用程序中配置FCM更改
       1. 将下载的`google-services.json`文件移到Phonegap应用程序模块的根目录中
-      1. 从位置删除文件“MyFirebaseInstanceIDService” `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` （已弃用）
-      1. 修改位置中的“MyFirebaseMessagingService”文件 `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` 如下所示：
+      1. 从位置`platforms/android/app/src/main/java/com/gae/scaffolder/plugin`删除文件“MyFirebaseInstanceIDService”（已弃用）
+      1. 按如下方式修改位置`platforms/android/app/src/main/java/com/gae/scaffolder/plugin`中的文件“MyFirebaseMessagingService”：
 
          ```
          import com.marketo.Marketo;
@@ -120,13 +120,13 @@ repositories{
 
 ### 4.跟踪推送通知
 
-将以下代码粘贴到 `application:didFinishLaunchingWithOptions:` 函数。
+将以下代码粘贴到`application:didFinishLaunchingWithOptions:`函数中。
 
 >[!BEGINTABS]
 
 >[!TAB 目标C]
 
-更新 `applicationDidBecomeActive` 方法，如下所示
+更新`applicationDidBecomeActive`方法，如下所示
 
 ```
 Marketo *sharedInstance = [Marketo sharedInstance];
@@ -136,7 +136,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 >[!TAB Swift]
 
-更新 `applicationDidBecomeActive` 方法，如下所示
+更新`applicationDidBecomeActive`方法，如下所示
 
 ```
 let sharedInstance: Marketo = Marketo.sharedInstance()
@@ -148,9 +148,9 @@ sharedInstance.trackPushNotification(launchOptions)
 
 ### 5.初始化Marketo框架
 
-要确保在应用程序启动时启动Marketo框架，请在下添加以下代码 `onDeviceReady` JavaScript函数中。
+要确保在应用程序启动时启动Marketo框架，请在主JavaScript文件的`onDeviceReady`函数下添加以下代码。
 
-请注意，我们必须通过 `phonegap` 作为PhoneGap应用程序的框架类型。
+请注意，我们必须将`phonegap`作为PhoneGap应用的框架类型传递。
 
 ### 语法
 
@@ -197,7 +197,7 @@ marketo.initializeMarketoPush(
 
 - 成功回调：Marketo推送通知初始化成功时要执行的函数。
 - 失败回调：当Marketo推送通知初始化失败时要执行的函数。
-- GCM_PROJECT_ID ：在以下位置找到了GCM项目ID： [Google开发人员控制台](https://console.developers.google.com/) 创建应用程序之后。
+- GCM_PROJECT_ID ：创建应用程序后，在[Google开发人员控制台](https://console.developers.google.com/)中找到了GCM项目ID。
 
 注销时也可以注销令牌。
 
@@ -255,7 +255,7 @@ marketo.associateLead(
 
 ## 报表操作
 
-您可以通过调用 `reportaction` 函数。
+您可以通过调用`reportaction`函数来报告用户执行的任何操作。
 
 ### 语法
 

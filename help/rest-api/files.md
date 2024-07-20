@@ -1,14 +1,14 @@
 ---
-title: "文件"
+title: 文件
 feature: REST API
-description: “存储和操作Marketo文件。”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: 存储和操作Marketo文件。
+exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '267'
 ht-degree: 1%
 
 ---
-
 
 # 文件
 
@@ -18,7 +18,7 @@ Marketo订阅允许存储任意文件，如图像、脚本、文档和样式表�
 
 ## 查询
 
-查询文件非常简单，并遵循的标准查询类型 [按id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET)， [按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)、和 [浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+查询文件非常简单，并遵循id为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)的[以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET)的标准查询类型。
 
 ### 按Id
 
@@ -53,7 +53,7 @@ GET /rest/asset/v1/file/{id}.json
 
 ### 按名称
 
-使用所需的指定文件名 `name` 参数。
+使用所需的`name`参数指定文件的名称。
 
 ```
 GET /rest/asset/v1/file/byName.json?name=foo.png
@@ -155,7 +155,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## 创建和更新
 
-[创建文件](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) 使用multipart/form-data类型的请求完成。 最低限度，请求中需要名称、文件夹和文件，具有可选描述和insertOnly标志，这可以防止创建调用更新具有相同名称的现有文件。 对于文件参数，除了名称参数之外，Content-Disposition标头中还需要“filename”。 您还必须为文件传递Content-Type标头，它是Marketo将用于为文件提供服务的MIME类型。
+[创建文件](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST)的过程是使用multipart/form-data类型的请求完成的。 最低限度，请求中需要名称、文件夹和文件，具有可选描述和insertOnly标志，这可以防止创建调用更新具有相同名称的现有文件。 对于文件参数，除了名称参数之外，Content-Disposition标头中还需要“filename”。 您还必须为文件传递Content-Type标头，它是Marketo将用于为文件提供服务的MIME类型。
 
 ```
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[更新文件](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) 可以基于其id完成。 唯一一个参数是文件参数，其要求与创建参数相同。
+[可以根据文件ID更新文件](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST)。 唯一一个参数是文件参数，其要求与创建参数相同。
 
 ```
 POST /rest/asset/v1/file/{id}/content.json

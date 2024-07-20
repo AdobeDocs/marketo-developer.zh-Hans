@@ -1,14 +1,14 @@
 ---
-title: "用户配置文件"
+title: 用户配置文件
 feature: Mobile Marketing, Users and Roles
-description: “在Marketo Mobile中使用用户配置文件”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: 在Marketo Mobile中使用用户配置文件
+exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '83'
 ht-degree: 0%
 
 ---
-
 
 # 用户配置文件
 
@@ -65,7 +65,7 @@ profile.setLinkedInId("linkedinid")
 profile.setTwitterId("twitterid")
 ```
 
-添加更多 [标准字段](../rest-api/list-of-standard-fields.md).
+添加更多[标准字段](../rest-api/list-of-standard-fields.md)。
 
 >[!BEGINTABS]
 
@@ -135,7 +135,7 @@ marketo.associateLead(profile)
    }
    ```
 
-1. 添加更多 [标准字段](../rest-api/list-of-standard-fields.md).
+1. 添加更多[标准字段](../rest-api/list-of-standard-fields.md)。
 
    ```java
    // Add other custom fields

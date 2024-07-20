@@ -1,30 +1,30 @@
 ---
-title: "getCustomObjects"
+title: getCustomObjects
 feature: SOAP, Custom Objects
-description: “getCustomObjects SOAP调用”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getCustomObjects SOAP调用
+exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '156'
 ht-degree: 4%
 
 ---
 
-
 # getCustomObjects
 
 使用由零或一个自定义对象键组成的条件组合检索一个或多个自定义对象。
 
-返回匹配自定义对象的列表，这些对象全部为单一类型，一个批处理中最多有100个，并且 [流位置](stream-position.md) 用于检索连续批次的令牌。
+返回匹配自定义对象的列表，这些对象全部为单一类型，一个批次中最多有100个，以及用于检索连续批次的[流位置](stream-position.md)令牌。
 
 ## 请求
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
 | objTypeName | 必需 | 自定义对象的名称 |
-| customObjKeyList->keyList->属性 | 必需 | 属性是用于标识要检索的自定义对象的键/值对。 您可以在中指定多个属性 `customObjKeyLists` |
+| customObjKeyList->keyList->属性 | 必需 | 属性是用于标识要检索的自定义对象的键/值对。 您可以在`customObjKeyLists`中指定多个属性 |
 | includeAttributes | 必需 | 要检索的自定义对象的字段列表。 传递none将返回所有值。 |
 | batchSize | 可选 | 要返回的对象的数量（最大为100） |
-| streamPosition | 可选 | 用于在多个结果集中分页。 传递的值是上一页返回的值 `getCustomObjects` 呼叫。 |
+| streamPosition | 可选 | 用于在多个结果集中分页。 传递的值是上一个`getCustomObjects`调用返回的值。 |
 
 ## 请求XML
 

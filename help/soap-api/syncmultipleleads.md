@@ -1,35 +1,35 @@
 ---
-title: "syncMultipleLeads"
+title: syncMultipleLeads
 feature: SOAP
-description: “syncMultipleLeads SOAP调用”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncMultipleLeads SOAP调用
+exl-id: 91980b82-dff9-48a7-b03e-20dce9d0d046
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '221'
 ht-degree: 3%
 
 ---
 
-
 # syncMultipleLeads
 
-此函数请求对执行插入或更新（更新插入）操作 _多个_ 潜在客户记录。 在更新现有潜在客户时，可以使用以下键之一标识该潜在客户：
+此函数请求&#x200B;_多个_&#x200B;潜在客户记录的插入或更新(upsert)操作。 在更新现有潜在客户时，可以使用以下键之一标识该潜在客户：
 
 - Marketo ID
 - 外部系统ID
 - 电子邮件
 
-如果存在多个键，则Marketo ID的优先级将高于 `ForeignSysPersonId`，并将更新后者。 但是，如果电子邮件也以键的形式存在，则不会更新电子邮件，除非在属性列表中指定了该电子邮件。
+如果存在多个键，则Marketo ID优先于`ForeignSysPersonId`，并将更新后者。 但是，如果电子邮件也以键的形式存在，则不会更新电子邮件，除非在属性列表中指定了该电子邮件。
 
 我们的建议是批量大小不得大于300。 不支持更大的尺寸，这可能会导致超时并在极端情况下进行限制。
 
-通过此函数调用，您可以关闭重复数据消除功能。 如果dedupEnabled设置为true ，并且没有提供其他唯一标识符(`foreignSysPersonId` 或Marketo潜在客户ID)，然后使用该电子邮件地址为潜在客户记录消除重复。 请记住，传入false将在Marketo中创建重复项。
+通过此函数调用，您可以关闭重复数据消除功能。 如果dedupEnabled设置为true ，并且没有提供其他唯一标识符(`foreignSysPersonId`或Marketo潜在客户ID)，则使用电子邮件地址对潜在客户记录进行重复数据删除。 请记住，传入false将在Marketo中创建重复项。
 
 ## 请求
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
 | leadRecordList->leadRecord | 必需 | 要同步的LeadRecords数组。 LeadRecords必须指定潜在客户ID、电子邮件或ForeignSysPersonId |
-| dedupEnabled | 可选 | 可选值，您可以使用该值关闭重复数据消除功能。 传入值 `false` 将在Marketo中创建重复项 |
+| dedupEnabled | 可选 | 可选值，您可以使用该值关闭重复数据消除功能。 传入值`false`将在Marketo中创建重复项 |
 
 ## 请求XML
 

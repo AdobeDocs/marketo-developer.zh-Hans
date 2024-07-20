@@ -1,24 +1,24 @@
 ---
 title: 电子邮件模板
 feature: REST API
-description: “使用Marketo API创建电子邮件模板。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 使用Marketo API创建电子邮件模板。
+exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '569'
 ht-degree: 1%
 
 ---
 
-
 # 电子邮件模板
 
-[电子邮件模板端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[电子邮件模板终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-电子邮件模板构成了Marketo中每个新电子邮件的基础。  虽然可以通过HTML替换来取消电子邮件与模板的链接，但最初创建电子邮件时必须以模板为基础。  在Marketo中，模板是作为纯HTML文档创建的，带有诸如名称和描述之类的元数据。  对内容的限制很少，但模板的HTML必须有效，并且必须至少包含一个符合要求的可编辑部分 [此处概述](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+电子邮件模板构成了Marketo中每个新电子邮件的基础。  虽然可以通过HTML替换来取消电子邮件与模板的链接，但最初创建电子邮件时必须以模板为基础。  在Marketo中，模板是作为纯HTML文档创建的，带有诸如名称和描述之类的元数据。  对内容的限制很少，但模板的HTML必须有效，并且必须至少包含一个可编辑部分，该部分遵循此处[概述的要求](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)。
 
 ## 查询
 
-查询电子邮件模板遵循资产的标准模式，允许查询 [按id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET)， [按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET) 和 [浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET) 给定文件夹。
+查询电子邮件模板遵循资产的标准模式，允许按ID ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET)查询[、按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET)查询[和[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET)给定文件夹。
 
 ### 按Id
 
@@ -192,7 +192,7 @@ GET /rest/asset/v1/emailTemplates.json
 
 ## 创建和更新
 
-[正在创建](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) 或 [正在更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) 模板相当简单。 每个模板的内容存储为HTML文档，必须使用POST的多部分/表单数据类型传递到Marketo中。 您必须传递包含边界的相应Content-Type标头，如的RFC中所述 [多部分](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) 和 [多部分/表单数据](https://www.ietf.org/rfc/rfc2388.txt).
+[创建](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST)或[更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST)模板相当简单。 每个模板的内容存储为HTML文档，必须使用POST的多部分/表单数据类型传递到Marketo中。 必须传递相应的Content-Type标头，该标头包括[multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)和[multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt)的RFC中所述的边界。
 
 创建模板需要您包含三个参数：名称、文件夹和内容。 可包括一个可选的描述参数。  HTML文档在content参数中传递，该参数还必须包括常规文件名参数作为其Content-Disposition标头的一部分。
 
@@ -257,7 +257,7 @@ Create email template using API
 }
 ```
 
-使用更新内容 [单独的端点](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) 需要电子邮件模板的ID。 此端点仅允许提交正文中的内容参数。 进行更新时，如果更新了已批准的版本，则内容参数中传递的任何内容都将完全替换新草稿中的电子邮件现有内容；如果资产处于仅草稿状态，则替换当前草稿。
+使用需要电子邮件模板的ID的[单独终结点](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST)更新内容。 此端点仅允许提交正文中的内容参数。 进行更新时，如果更新了已批准的版本，则内容参数中传递的任何内容都将完全替换新草稿中的电子邮件现有内容；如果资产处于仅草稿状态，则替换当前草稿。
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}/content.json
@@ -299,7 +299,7 @@ Content-Type: text/html
 
 ## 更新元数据
 
-至 [更新模板的元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST)、名称和描述时，您可以使用与相同的端点来更新内容，但可以传递application/x-www-url-formencodedPOST，并包含name和description参数。
+要[更新模板的元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST)、名称和描述，您可以使用与相同的端点来更新POST，但可以传递带有name和description参数的application/x-www-url-formencoded内容。
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}.json
@@ -459,7 +459,7 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 ## 克隆
 
-Marketo提供了简单的方法，用于 [克隆电子邮件模板](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). 与创建不同，此类型的请求使用application/x-www-url-formencodedPOST发出，并使用名称和文件夹这两个必需的参数，即具有ID和类型的嵌入式JSON对象。  Description也是一个可选参数。
+Marketo为[克隆电子邮件模板](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST)提供了一种简单的方法。 与创建不同，此类型的请求使用application/x-www-url-formencodedPOST发出，并使用名称和文件夹这两个必需的参数，即具有ID和类型的嵌入式JSON对象。  Description也是一个可选参数。
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}/clone.json
@@ -501,9 +501,9 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## 查询电子邮件依赖关系
 
-使用 [获取使用的电子邮件模板](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) 端点检索依赖于给定电子邮件模板的电子邮件列表。  此 `id` path参数指定父电子邮件模板。
+使用[获取](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET)端点使用的电子邮件模板检索依赖于给定电子邮件模板的电子邮件列表。  `id`路径参数指定父电子邮件模板。
 
-有2个可选参数。 `maxReturn`  是一个整数，用于限制结果数量（默认值为20，最大值为200），并且 `offset` 是一个整数，可用于 `maxReturn` 读取大型结果集（默认值为0）。
+有2个可选参数。 `maxReturn`  是一个限制结果数的整数（默认值为20，最大值为200），`offset`是一个可与`maxReturn`一起用于读取大型结果集的整数（默认值为0）。
 
 ```
 GET /rest/asset/v1/emailTemplates/{id}/usedBy.json

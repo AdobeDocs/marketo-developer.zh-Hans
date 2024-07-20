@@ -1,20 +1,20 @@
 ---
-title: “机会角色”
+title: 机会角色
 feature: REST API
-description: “在Marketo中处理机会角色。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 在Marketo中处理机会角色。
+exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '253'
 ht-degree: 0%
 
 ---
 
-
 # 机会角色
 
-[机会角色端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[机会角色终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
-潜在客户通过中间商与机会关联 `opportunityRole` 对象。
+潜在客户通过中间`opportunityRole`对象链接到商机。
 
 机会角色API仅对未启用本机CRM同步的订阅公开。
 
@@ -106,7 +106,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 ## 查询
 
-请注意，两者 `dedupeFields` 和 `searchableFields` 和机会有些不同。 `dedupeFields` 实际上提供了一个复合键，其中三个 `externalOpportunityId`， `leadId`、和 `role` 是必需的。 目标实例中必须同时存在按ID字段排列的商机和商机链接，才能成功创建记录。 对象 `searchableFields`， `marketoGUID`， `leadId`、和 `externalOpportunityId` 都适用于自己的查询，并且所使用的模式与机会相同，但还有一个选项，即使用复合键进行查询，该选项要求通过POST提交JSON对象，以及附加的查询参数 `_method=GET`.
+请注意，`dedupeFields`和`searchableFields`都与机会稍有不同。 `dedupeFields`实际上提供了一个复合键，其中`externalOpportunityId`、`leadId`和`role`的所有三个都是必需的。 目标实例中必须同时存在按ID字段排列的商机和商机链接，才能成功创建记录。 对于`searchableFields`、`marketoGUID`、`leadId`和`externalOpportunityId`，它们都自己对查询有效，并且使用的模式与“机会”相同，但有一个附加选项，即使用复合键进行查询，该选项要求通过POST提交JSON对象，并使用附加查询参数`_method=GET`。
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET

@@ -1,14 +1,14 @@
 ---
-title: "getCampaignsForSource"
+title: getCampaignsForSource
 feature: SOAP
-description: "getCampaignsForSource SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getCampaignsForSource SOAP调用
+exl-id: bd8803ef-f462-4346-a381-73f40dc5d9ee
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '131'
 ht-degree: 5%
 
 ---
-
 
 # getCampaignsForSource
 
@@ -22,7 +22,7 @@ ht-degree: 5%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| 源 | 必需 | 源可以是 `MKTOWS` 或 `SALES`. 后者提供了可用于Sales Insight的促销活动列表。 |
+| 源 | 必需 | 源可以是`MKTOWS`或`SALES`。 后者提供了可用于Sales Insight的促销活动列表。 |
 | name | 可选 | 使用此项可按名称筛选。 这是一个字符串，而不是字符串数组。 |
 | exactName | 可选 | 布尔值，表明您是否希望与name参数完全匹配 |
 

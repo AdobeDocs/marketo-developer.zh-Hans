@@ -1,20 +1,20 @@
 ---
-title: "标准字段"
+title: 标准字段
 feature: REST API, Field Management
-description: “标准Marketo字段的表。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 标准Marketo字段的表。
+exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1140'
 ht-degree: 11%
 
 ---
 
-
 # 标准字段
 
 以下是可通过API访问的Marketo中可用标准字段列表。
 
-您可以使用REST检索潜在客户记录中所有支持的字段名称列表 [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/) 端点。
+您可以使用REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/)端点检索潜在客户记录中可用的所有受支持字段名称的列表。
 
 | REST API名称 | SOAP API名称 | 友好标签 | 描述 |
 | --- | --- | --- | --- |
@@ -82,7 +82,7 @@ ht-degree: 11%
 | 评级 | 评级 | 潜在客户评级 | 商机的营销/销售评级 |
 | salutation | 称谓 | 称谓 | 潜在顾客首选的称呼，即先生、小姐……等。 |
 | sicCode | SICCode | SIC 代码 | 潜在客户公司的标准行业分类代码 |
-| 站点 | 网站 | 网站 |  |
+| 站点 | 地点 | 地点 |  |
 | state | 州 | 州 | 商机的状态 |
 | 标题 | 标题 | 职务 | 潜在客户的工作职位 |
 | 已取消订阅 | 退订 | 退订 | 商机的电子邮件取消订阅状态。 部分系统受管理。 如果设置为true，将阻止接收非操作电子邮件。 |

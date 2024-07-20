@@ -1,24 +1,24 @@
 ---
-title: "代码片段"
+title: 代码片段
 feature: REST API, Snippets
-description: “通过Marketo API管理代码片段。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 通过Marketo API管理代码片段。
+exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '438'
 ht-degree: 1%
 
 ---
 
-
 # 代码片段
 
-[代码片段端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[代码片段终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
 
 片段是可重复使用的HTML组件，可以嵌入到电子邮件和登陆页面中，并且可以针对动态内容进行分段。 代码片段没有关联的模板，可以在Marketo中的其他资源中创建和部署。
 
 ## 查询
 
-查询代码片段遵循资产的标准模式，只是它没有By Name方法。 两者都是 [按Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) 和 [浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET) 方法允许使用status字段检索片段的已批准版本或草稿版本。
+查询代码片段遵循资产的标准模式，只是它没有By Name方法。 [By ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET)和[Browse](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET)方法都允许使用状态字段检索该代码片段的已批准版本或草稿版本。
 
 ### 按Id
 
@@ -139,11 +139,11 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-该调用将返回内容节的列表，这些节包括HTML类型或DynamicContent类型的节，也可以是文本类型的节。
+该调用返回内容部分的列表，  包含类型为HTML或类型为DynamicContent的部分，以及可选的包含类型为Text的部分。
 
 ## 创建和更新
 
-代码片段遵循复杂的资源创建模式，其中调用 [创建代码片段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST)及其内容是单独进行的，因此第一次调用必须是创建端点，并带有可选描述。   数据以x-www-form-urlencoded形式传递，而不是以JSON形式传递。
+代码片段遵循复杂的资源创建模式，其中对[创建代码片段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST)的调用及其内容是单独进行的，因此第一个调用必须是使用可选描述来创建终结点。   数据以x-www-form-urlencoded形式传递，而不是以JSON形式传递。
 
 ```
 POST /rest/asset/v1/snippets.json
@@ -211,7 +211,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-[更新元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) 也按id完成。 只能更新名称和描述：
+[元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST)的更新也已按ID完成。 只能更新名称和描述：
 
 ```
 POST /rest/asset/v1/snippet/{id}.json
@@ -344,7 +344,7 @@ POST /rest/asset/v1/snippet/{id}/approveDraft.json
 
 ### 取消批准
 
-此 `unapprove` 端点只能用于已批准的代码片段。
+`unapprove`终结点只能用于已批准的代码片段。
 
 ```
 POST /rest/asset/v1/snippet/{id}/unapprove.json
@@ -400,7 +400,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## 克隆
 
-[克隆代码片段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) 中的API非常简单，它遵循标准模式，具有必需的名称、原始代码片段和文件夹的ID以及可选的描述。  如果不存在批准的版本，则会克隆草稿版本。
+[使用API克隆代码片段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST)非常简单，它遵循标准模式，具有必需的名称、原始代码片段和文件夹的ID以及可选描述。  如果不存在批准的版本，则会克隆草稿版本。
 
 ```
 POST /rest/asset/v1/snippet/{id}/clone.json

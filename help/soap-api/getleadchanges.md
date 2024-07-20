@@ -1,48 +1,48 @@
 ---
-title: "getLeadChanges"
+title: getleadchanges
 feature: SOAP
-description: "getLeadChanges SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLeadChanges SOAP调用
+exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '402'
 ht-degree: 1%
 
 ---
 
-
 # getleadchanges
 
-此API类似于 `getLeadActivity` 只是它同时在多条线索上运作。 该操作会检查已创建的新商机、商机字段更新和其他活动。
+此API与`getLeadActivity`类似，不同之处在于它同时在多个Lead上运行。 该操作会检查已创建的新商机、商机字段更新和其他活动。
 
-结果中包含导致更改的活动，以及 [流位置](stream-position.md) 对大型结果集进行分页。
+结果包含导致更改以及[流位置](stream-position.md)在大型结果集中分页的活动。
 
 必须包括一个输入参数，用于标识希望在结果中返回的活动过滤器。 如果您需要所有活动，则可以传递一个空白值。 对于多个活动过滤器，传入活动过滤器列表。
 
 一些示例活动类型为：“访问网页”、“填写表单”和“单击链接”。
 
-在SOAP API版本2_2之后，您可以包括 `leadSelector`.
+在SOAP API版本2_2之后，您可以包含`leadSelector`。
 
-对象 `LastUpdateAtSelector`， `oldestUpdatedAt` 值将对应于 `oldestCreatedAt` 中的值 `startPosition`. 以及 `latestUpdatedAt` 值将对应于 `latestCreatedAt` 中的值 `startPosition`.
+对于`LastUpdateAtSelector`，`oldestUpdatedAt`值将对应于`startPosition`中的`oldestCreatedAt`值。 并且`latestUpdatedAt`值将对应于`startPosition`中的`latestCreatedAt`值。
 
-注意：限制中支持的潜在客户数 `LeadKeySelector` 是100。 如果潜在客户数超过100，则API会引发参数异常并返回SOAP错误。
+注意： `LeadKeySelector`中支持的潜在客户数限制为100。 如果潜在客户数超过100，则API会引发参数异常并返回SOAP错误。
 
 ## 请求
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| activityFilter->includeAttributes->activityType | 可选（已弃用）使用 `activityNameFilter` 相反 | 将响应限制为仅包含指定的那些活动类型。 有关所有活动类型，请参阅WSDL 。 |
-| activityFilter->excludeAttributes->activityType | 可选 | 将响应限制为排除指定的活动类型。 有关所有活动类型，请参阅WSDL 。 注：不能同时指定两者 `includeAttributes` 和 `excludeAttributes` 在同一调用中。 |
+| activityFilter->includeAttributes->activityType | 可选（已弃用）改用`activityNameFilter` | 将响应限制为仅包含指定的那些活动类型。 有关所有活动类型，请参阅WSDL 。 |
+| activityFilter->excludeAttributes->activityType | 可选 | 将响应限制为排除指定的活动类型。 有关所有活动类型，请参阅WSDL 。 注意：您不能在同一调用中同时指定`includeAttributes`和`excludeAttributes`。 |
 | activityNameFilter | 可选 | 将响应限制为仅包含指定的活动过滤器。 |
-| batchSize | 可选 | 要返回的最大记录数。 系统限制为1,000或 `batchSize`，以较小者为准。 |
+| batchSize | 可选 | 要返回的最大记录数。 系统限制为1,000或`batchSize`，以较小者为准。 |
 | startPosition | 必需 | 用于在大量活动响应中分页。 |
 | startPosition->offset | 可选 | 偏移值由以前的调用响应字段newStartPosition->offset返回。 |
-| startPosition->oldestCreatedAt | 可选 | 用于筛选结果以仅包含自oldestCreatedAt以来创建的潜在客户的时间戳。 注意：您可以使用 `LastUpdateAtSelector->oldestUpdatedAt` 要指定的时间戳 `oldestCreatedAt`. |
-| startPosition->activityCreatedAt | 可选 | 用于筛选结果以仅包含自activityCreatedAt以来具有活动的潜在客户的时间戳。 注意：您可以使用 `LastUpdateAtSelector->latestUpdatedAt` 要指定的时间戳 `activityCreatedAt`. |
-| 商机选择器 | 可选 | 可以是以下3种类型之一： `LeadKeySelector`， `StaticListSelector`， `LastUpdateAtSelector` |
-| LeadKeySelector： leadSelector->keyType | 必需 | 您希望查询的ID类型。 值包括 `IDNUM`， `COOKIE`， `EMAIL`， `LEADOWNEREMAIL`， `SFDCACCOUNTID`， `SFDCCONTACTID`， `SFDCLEADID`， `SFDCLEADOWNERID`， `SFDCOPPTYID`. |
+| startPosition->oldestCreatedAt | 可选 | 用于筛选结果以仅包含自oldestCreatedAt以来创建的潜在客户的时间戳。 注意：您可以使用`LastUpdateAtSelector->oldestUpdatedAt`时间戳指定`oldestCreatedAt`。 |
+| startPosition->activityCreatedAt | 可选 | 用于筛选结果以仅包含自activityCreatedAt以来具有活动的潜在客户的时间戳。 注意：您可以使用`LastUpdateAtSelector->latestUpdatedAt`时间戳指定`activityCreatedAt`。 |
+| 商机选择器 | 可选 | 可以是以下3种类型之一： `LeadKeySelector`、`StaticListSelector`、`LastUpdateAtSelector` |
+| LeadKeySelector： leadSelector->keyType | 必需 | 您希望查询的ID类型。 值包括`IDNUM`、`COOKIE`、`EMAIL`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID`。 |
 | LeadKeySelector： leadSelector->keyValues->stringItem | 必需 | 键值列表。 即，“lead@email.com” |
-| StaticListSelector： leadSelector->staticListName | 可选时间 `leadSelector->staticListId` 存在 | 静态列表的名称 |
-| StaticListSelector： leadSelector->staticListId | 可选时间 `leadSelector->staticListName` 存在 | 静态列表的ID |
+| StaticListSelector： leadSelector->staticListName | `leadSelector->staticListId`存在时可选 | 静态列表的名称 |
+| StaticListSelector： leadSelector->staticListId | `leadSelector->staticListName`存在时可选 | 静态列表的ID |
 
 ## 请求XML
 

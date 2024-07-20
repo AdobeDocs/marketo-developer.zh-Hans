@@ -16,18 +16,18 @@ Marketo允许使用Webhook与第三方Web服务进行通信。 Webhook支持使�
 
 - [创建Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
 - [调用Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [在Smart Campaign中使用Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [在智能营销活动中使用Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 每个webhook都有以下属性：
 
-- [!UICONTROL URL]  — 输入用于向Web服务提交请求的URL。
+- [!UICONTROL URL] — 输入用于向Web服务提交请求的URL。
 - [!UICONTROL Request Type] - HTTP方法。
-- [!UICONTROL Payload Template]  — 如果要在POST正文中传输信息，请输入模板。 使用支持HTTPPOST的任何数据格式，包括XML、JSON或SOAP。 序列化格式必须允许在字符串周围使用双引号。 要在模板中插入令牌，请单击 **[!UICONTROL Insert Token]**.  字符串类型的令牌会自动用双引号引住。
-- [!UICONTROL Request Token Encoding]  — 如果令牌值包含特殊字符（例如与号、“&amp;”），请指示请求的格式（JSON或表单/Url）。 应为主体选择正确的编码，以确保Webhook与Web服务正确通信。
-- [!UICONTROL Response Type]  — 选择您从服务收到的响应的格式（JSON或XML）。 必须选择正确的响应类型，才能将响应的属性映射回Marketo中的潜在客户字段
-- [!UICONTROL Custom Headers]  — 访问方式 [!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header]，此菜单允许添加任意数量的自定义键值对作为HTTP标头。
+- [!UICONTROL Payload Template] — 如果要在POST正文中传输信息，请输入模板。 使用支持HTTPPOST的任何数据格式，包括XML、JSON或SOAP。 序列化格式必须允许在字符串周围使用双引号。 要在模板中插入令牌，请单击&#x200B;**[!UICONTROL Insert Token]**。  字符串类型的令牌会自动用双引号引住。
+- [!UICONTROL Request Token Encoding] — 如果令牌值包含特殊字符（例如&amp;符号、&#39;&amp;&#39;），请指示请求的格式（JSON或表单/URL）。 应为主体选择正确的编码，以确保Webhook与Web服务正确通信。
+- [!UICONTROL Response Type] — 选择您从服务收到的响应的格式（JSON或XML）。 必须选择正确的响应类型，才能将响应的属性映射回Marketo中的潜在客户字段
+- [!UICONTROL Custom Headers] — 通过[!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header]访问，此菜单允许添加任意数量的自定义键值对作为HTTP标头。
 
-通过使用，可以从Web服务响应将数据写回潜在客户 [响应映射](response-mappings.md)
+可以使用[响应映射](response-mappings.md)将数据写回到Web服务响应的潜在客户
 
 ## 令牌
 
@@ -37,13 +37,13 @@ Webhook中的所有传出字段（URL、模板和自定义标头）都会在流�
 - [系统令牌术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
 - [有趣时刻的令牌](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
-这种情况的一个常见情况是，项目或营销策划被显式映射到第三方资源。 可以在项目级别将ID设置为 `My Token`，然后作为令牌传递到Webhook请求中。
+这种情况的一个常见情况是，项目或营销策划被显式映射到第三方资源。 ID可以在程序级别设置为`My Token`，然后作为令牌传递到Webhook请求中。
 
 ## 自定义标题
 
-Webhook允许使用任意数量的自定义标头字段随传出请求一起发送。 可以通过添加这些字段 **[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]**. 每个标头记录为一个简单的键值对。 令牌可在此区域使用。
+Webhook允许使用任意数量的自定义标头字段随传出请求一起发送。 可以通过&#x200B;**[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]**&#x200B;添加这些项。 每个标头记录为一个简单的键值对。 令牌可在此区域使用。
 
-![自定义标题](assets/custom-headers.png)
+![自定义标头](assets/custom-headers.png)
 
 ## 提示
 

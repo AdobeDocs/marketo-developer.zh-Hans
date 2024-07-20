@@ -1,14 +1,14 @@
 ---
-title: "getTags"
+title: getTags
 feature: SOAP, Tags
-description: "getTags SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getTags SOAP调用
+exl-id: 4fd9de1a-9362-479a-afe1-09ef0aaf5e6e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '94'
 ht-degree: 4%
 
 ---
-
 
 # getTags
 
@@ -23,7 +23,7 @@ ht-degree: 4%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| tagList->标记 | 可选 | 您希望查询的标记列表。 每个标记可以将一个类型和一组值作为字符串。 如果 `<tagList>` 将被忽略，您将收到有关所有渠道的信息 |
+| tagList->标记 | 可选 | 您希望查询的标记列表。 每个标记可以将一个类型和一组值作为字符串。 如果忽略`<tagList>`，您将收到有关所有渠道的信息 |
 
 ## 请求XML
 

@@ -1,7 +1,7 @@
 ---
-title: ’[!DNL Ionic]’
+title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: 使用 [!DNL Ionic] 使用适用于移动设备的Marketo
+description: 在移动设备的Marketo中使用 [!DNL Ionic]
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -12,19 +12,19 @@ ht-degree: 1%
 
 # 离子型
 
-本主题介绍如何集成Marketo Cordova插件。 [!DNL Ionic] 当前不支持电容器。
+本主题介绍如何集成Marketo Cordova插件。 当前不支持[!DNL Ionic]电容器。
 
 ## 先决条件
 
-1. [在Marketo管理中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) （获取您的应用程序密钥和Munchkin ID）。
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）。
 1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md) )。
-1. 安装 [[!DNL Ionic]](https://ionicframework.com/getting-started/) 和 [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. 安装[[!DNL Ionic]](https://ionicframework.com/getting-started/)和[Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 
 ## 安装说明
 
-### 设置Marketo [!DNL Ionic] 插件
+### 设置Marketo [!DNL Ionic]插件
 
-1. 如果已安装Cordova CLI，请转到 [!DNL Ionic] 应用程序目录并运行以下命令以将Marketo插件添加到应用程序中：
+1. 如果已安装Cordova CLI，请转到[!DNL Ionic]应用程序目录并运行以下命令以将Marketo插件添加到应用程序中：
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -48,7 +48,7 @@ ht-degree: 1%
 
 ### 跟踪推送通知
 
-将以下代码粘贴到 `application:didFinishLaunchingWithOptions:` 函数。
+将以下代码粘贴到`application:didFinishLaunchingWithOptions:`函数中。
 
 >[!BEGINTABS]
 
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### 初始化Marketo框架
 
-要确保在应用程序启动时启动Marketo框架，请在下添加以下代码 `onDeviceReady` JavaScript函数中。
+要确保在应用程序启动时启动Marketo框架，请在主JavaScript文件的`onDeviceReady`函数下添加以下代码。
 
-您必须通过 `ionicCordova` 作为框架类型 [!DNL Ionic] Cordova应用程序。
+您必须将`ionicCordova`作为[!DNL Ionic] Cordova应用的框架类型传递。
 
 #### 语法
 
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - 成功回调：Marketo推送通知初始化成功时要执行的函数。
 - 失败回调：当Marketo推送通知初始化失败时要执行的函数。
-- GCM_PROJECT_ID ：在以下位置找到了GCM项目ID： [Google开发人员控制台](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) 创建应用程序之后。
+- GCM_PROJECT_ID ：创建应用程序后，在[Google开发人员控制台](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard)中找到了GCM项目ID。
 
 注销时也可以注销令牌。
 
@@ -177,7 +177,7 @@ marketo.associateLead(
 
 ## 报表操作
 
-您可以通过调用 `reportaction` 函数。
+您可以通过调用`reportaction`函数来报告用户执行的任何操作。
 
 ### 语法
 

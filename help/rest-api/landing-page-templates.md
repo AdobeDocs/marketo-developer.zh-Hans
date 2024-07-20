@@ -1,28 +1,28 @@
 ---
-title: "登陆页面模板"
+title: 登陆页面模板
 feature: REST API, Landing Pages
-description: “构建和编辑登陆页面模板。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 构建和编辑登陆页面模板。
+exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '533'
 ht-degree: 0%
 
 ---
 
-
 # 登陆页面模板
 
-[登陆页面模板端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
+[登陆页面模板终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
 
 登陆页面模板是父资源，依赖于各个Marketo登陆页面。 登陆页面从父模板派生其内容的骨架。
 
 ## 模板类型
 
-Marketo提供两种类型的登陆页面模板：自由表单和引导式。 自由表单登陆页面模板为从这些模板派生的页面提供松散结构的编辑体验。 引导式模板提供了一个结构化的体验，其中可在模板级别限制元素类型和位置。 有关两者之间区别的更多信息，请参阅 [本文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo提供两种类型的登陆页面模板：自由表单和引导式。 自由表单登陆页面模板为从这些模板派生的页面提供松散结构的编辑体验。 引导式模板提供了一个结构化的体验，其中可在模板级别限制元素类型和位置。 有关差异的详细信息，请参阅[此文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages)。
 
 ## 查询
 
-登陆页面模板支持资产的标准查询类型 [按id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET)， [按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET)、和 [浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). 这些端点返回模板的元数据。 必须通过模板的ID按模板检索HTML内容。
+登陆页面模板支持[按ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET)的资产标准查询类型。 这些端点返回模板的元数据。 必须通过模板的ID按模板检索HTML内容。
 
 ## 创建和更新
 
@@ -66,11 +66,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-模板的内容必须通过 [更新登陆页面模板内容](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) 端点。
+必须通过[更新登陆页面模板内容](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST)端点单独填充模板的内容。
 
 ### 更新元数据
 
-可以通过更新登陆页面模板的元数据 [更新登陆页面模板元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) 端点。 名称、描述和enableMunchkin设置可按此方式更新。
+可以通过[更新登陆页面模板元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST)端点更新登陆页面模板的元数据。 名称、描述和enableMunchkin设置可按此方式更新。
 
 ### 更新内容
 
@@ -114,13 +114,13 @@ Content-Type: text/plain
 
 Marketo提供了一种克隆登陆页面模板的简单方法。 这是application/x-www-url-formencodedPOST请求。
 
-此 `id` path参数指定要克隆的源登陆页面模板的id。
+`id`路径参数指定要克隆的源登陆页面模板的ID。
 
-此 `name` 参数用于指定新登陆页面模板的名称。
+`name`参数用于指定新登陆页面模板的名称。
 
-此 `folder` 参数用于指定将放置新登陆页面模板的父文件夹。 其形式为嵌入JSON对象，包含  `id` 和 `type`.
+`folder`参数用于指定新登陆页面模板将驻留的父文件夹。 其形式为嵌入JSON对象，包含  `id`和`type`。
 
-可选 `description` 参数用于描述新的登陆页面模板。
+可选的`description`参数用于描述新的登陆页面模板。
 
 ```
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
@@ -167,7 +167,7 @@ name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 
 要批准模板，该模板必须符合其类型的规则，无论是在自由格式的引导下。 有关创建和批准相应类型模板要求的更多信息，请参阅各自的创建文档：
 
-- [自由格式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [自由表单登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
 - [引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
 - [引导式模板示例](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 

@@ -1,22 +1,22 @@
 ---
-title: “自定义服务”
+title: 自定义服务
 feature: REST API
-description: “使用Marketo进行身份验证的凭据。”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Marketo的身份验证凭据。
+exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '968'
 ht-degree: 0%
 
 ---
 
-
 # 自定义服务
 
-自定义服务提供用于通过Marketo进行身份验证的凭据。 从Marketo获取访问令牌需要凭据 [标识服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). 每个自定义服务的作用范围限定于一个仅限API的用户，从该用户获取其权限。
+自定义服务提供用于通过Marketo进行身份验证的凭据。 需要凭据才能从Marketo [Identity服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获取访问令牌。 每个自定义服务的作用范围限定于一个仅限API的用户，从该用户获取其权限。
 
 ## 角色
 
-创建自定义服务的第一步是创建可应用于相关仅限API用户的角色。 这是从以下位置完成的 **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Roles]** 菜单。
+创建自定义服务的第一步是创建可应用于相关仅限API用户的角色。 此操作从&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Roles]**&#x200B;菜单完成。
 
 角色是单个权限的容器，允许或限制对特定功能的访问。 在启用了工作区和分区的订阅中，将按工作区授予权限。 如果用户在一个工作区中拥有权限，但在另一个工作区中没有，则他们只能在该工作区中执行允许的操作。 要创建角色，请单击新建角色按钮。
 
@@ -24,13 +24,13 @@ ht-degree: 0%
 
 请确保为您的角色提供一个描述性名称。 仅API用户具有一组特定的权限，这些权限与正常用户权限不同且互不相同。 API权限存在于“Access API”树下的其自己的层次结构中。
 
-![新建角色权限](assets/new-role-access-api-permissions.png)
+![新角色权限](assets/new-role-access-api-permissions.png)
 
 ### 角色权限
 
 仅“访问API”组中的权限适用于API用户，也就是说，授予所有管理员权限不会将任何API权限授予用户。
 
-在构建角色时，请仔细考虑您应该允许应用程序使用该角色执行哪些操作。 仅授予执行这些操作所需的最低权限集。 允许不必要地授予权限集可允许集成在您的订阅中执行不需要的操作。 您可以使用 [权限工具](endpoint-reference.md) 以确定您的最低权限集。 查看完整列表 [权限](#permission_list).
+在构建角色时，请仔细考虑您应该允许应用程序使用该角色执行哪些操作。 仅授予执行这些操作所需的最低权限集。 允许不必要地授予权限集可允许集成在您的订阅中执行不需要的操作。 您可以使用[权限工具](endpoint-reference.md)确定最小权限集。 查看[权限](#permission_list)的完整列表。
 
 ## 用户
 
@@ -42,10 +42,10 @@ ht-degree: 0%
 
 >[!MORELIKETHIS]
 >
->要创建仅限API的用户，请转到 **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** 菜单并单击 [!UICONTROL Invite New User].
+>要创建仅限API的用户，请转到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]**&#x200B;菜单并单击[!UICONTROL Invite New User]。
 
 
-![新建用户信息](assets/new-user-info.png)
+![新用户信息](assets/new-user-info.png)
 
 根据用户将用于的服务和应用程序，为其提供描述性名称和电子邮件地址（不一定有效）。 填写对话框菜单中的必填字段，单击“仅限API”复选框，然后将您的某个API角色授予用户。 这会将该角色的权限集分配给用户。
 
@@ -57,13 +57,13 @@ ht-degree: 0%
 
 ## 自定义服务
 
-自定义服务提供使用Marketo实例执行身份验证所需的实际凭据、客户端ID和客户端密钥。 要配置一个，请转到 **[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]** 菜单，然后选择 **[!UICONTROL New Service]**.
+自定义服务提供使用Marketo实例执行身份验证所需的实际凭据、客户端ID和客户端密钥。 要预配一个，请转到您的&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]**&#x200B;菜单，然后选择&#x200B;**[!UICONTROL New Service]**。
 
-为您的服务提供一个描述性名称，然后从“服务”列表中选择“自定义”。 为您的服务提供详细描述，并从仅API用户列表中选择适当的用户，然后单击 [!UICONTROL Create].
+为您的服务提供一个描述性名称，然后从“服务”列表中选择“自定义”。 为服务提供详细描述，并从仅API用户列表中选择适当的用户，然后单击[!UICONTROL Create]。
 
-![新建自定义服务](assets/admin-launchpoint-new-service.png)
+![新自定义服务](assets/admin-launchpoint-new-service.png)
 
-这会向LaunchPoint服务列表中添加一个新服务，以及“查看详细信息”选项。 单击“查看详细信息”，系统会为您提供身份验证所需的客户端ID和客户端密钥、拥有的用户以及获取令牌以进行短期测试的选项。 从此对话框获得的令牌与通常从 [标识服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) 和的有效期限为创建后的3,600秒。
+这会向LaunchPoint服务列表中添加一个新服务，以及“查看详细信息”选项。 单击“查看详细信息”，系统会为您提供身份验证所需的客户端ID和客户端密钥、拥有的用户以及获取令牌以进行短期测试的选项。 从此对话框获得的令牌与通常从[Identity服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获得的令牌的生命周期相同，在创建令牌后3,600秒内有效。
 
 ![获取令牌](assets/get-token.png)
 
@@ -71,7 +71,7 @@ ht-degree: 0%
 
 在具有工作区和分区的订阅中，根据用户在给定工作区中的角色所具有的权限，授予访问给定记录或资产的能力。 每个工作区都可以访问“工作区和分区”菜单中的一个或多个分区，并且潜在客户属于单个分区。 如果仅API用户有权读取或写入工作区中的潜在客户记录，则它将能够访问该工作区有权访问的分区中的所有记录。
 
-资源属于工作区，因此读取或写入资源的能力取决于用户在相关工作区中是否具有相应角色，该角色有权在工作区中读取或写入此类资源记录。
+Assets属于工作区，因此读取或写入资源的能力取决于用户在相关工作区中是否具有有权在工作区中读取或写入该类型资源记录的角色。
 
 ## 权限列表
 
@@ -79,11 +79,11 @@ ht-degree: 0%
 
 | 角色权限 | 授予对……的访问权限 |
 | --- | --- |
-| 批准资产 | 批准资源 |
+| 批准Assets | 批准资源 |
 | 执行营销活动 | 请求或计划营销活动 |
 | 只读活动 | 检索潜在客户活动 |
 | 只读活动元数据 | 检索潜在客户活动元数据 |
-| 只读资产 | 检索资源详细信息 |
+| 只读Assets | 检索资源详细信息 |
 | 只读营销活动 | 检索营销活动详细信息 |
 | 只读公司 | 检索公司详细信息 |
 | 只读自定义对象 | 检索自定义对象详细信息 |
@@ -94,7 +94,7 @@ ht-degree: 0%
 | 只读销售人员 | 检索销售人员详细信息 |
 | 读写活动 | 检索和创建潜在客户活动 |
 | 读写活动元数据 | 检索和创建潜在客户活动元数据 |
-| 读写资产 | 检索、创建和更新资源 |
+| 读写Assets | 检索、创建和更新资源 |
 | 读写营销活动 | 检索、创建和更新营销活动 |
 | 读写公司 | 检索、创建和更新公司 |
 | 读写自定义对象 | 检索、创建和更新自定义对象 |

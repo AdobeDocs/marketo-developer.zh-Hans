@@ -1,14 +1,14 @@
 ---
-title: “错误代码”
+title: 错误代码
 feature: SOAP
-description: “SOAP调用的错误代码”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP调用的错误代码
+exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '390'
 ht-degree: 10%
 
 ---
-
 
 # 错误代码
 

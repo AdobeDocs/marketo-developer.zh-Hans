@@ -1,7 +1,7 @@
 ---
-title: ’[!DNL Adobe Launch] 扩展安装'
+title: “[!DNL Adobe Launch]扩展安装”
 feature: Mobile Marketing
-description: ’[!DNL Adobe Launch] 扩展安装概述
+description: “[!DNL Adobe Launch]扩展安装概述”
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -10,26 +10,26 @@ ht-degree: 0%
 
 ---
 
-# [!DNL Adobe Launch] 扩展安装
+# [!DNL Adobe Launch]扩展安装
 
-的安装说明 [!DNL Adobe Launch] Marketo扩展。 发送推送通知和/或应用程序内消息需要执行以下步骤。
+[!DNL Adobe Launch] Marketo扩展的安装说明。 发送推送通知和/或应用程序内消息需要执行以下步骤。
 
 ## 先决条件
 
-1. [在Marketo管理中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) （获取您的应用程序密钥和Munchkin ID）
-1. [在中配置属性 [!DNL Adobe Launch] 门户](https://experience.adobe.com/#/@amc/data-collection/home)
-1. 在中为属性配置应用程序密钥和Munchkin ID [!DNL Adobe Launch] 门户
-1. [设置推送通知](push-notifications.md) （可选）
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）
+1. [在 [!DNL Adobe Launch] 门户](https://experience.adobe.com/#/@amc/data-collection/home)中配置属性
+1. 在[!DNL Adobe Launch]门户中配置属性的应用程序密钥和Munchkin ID
+1. [设置推送通知](push-notifications.md)（可选）
 
 ## 如何在iOS上安装Marketo扩展
 
 ### 设置Swift桥接标头
 
-1. 转到 [!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File] 并选择 **[!UICONTROL Header File]**.
+1. 转到[!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File]并选择&#x200B;**[!UICONTROL Header File]**。
 
-1. 将文件命名为“&lt;”_项目名称_>-Bridging-Header”。
+1. 将文件命名为“&lt;_ProjectName_>-Bridging-Header”。
 
-1. 转到 [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Build Settings] > [!UICONTROL Swift Compiler] > [!UICONTROL Code Generation]. 将以下路径添加到“目标桥接”标头：
+1. 转到[!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Build Settings] > [!UICONTROL Swift Compiler] > [!UICONTROL Code Generation]。 将以下路径添加到“目标桥接”标头：
 
 `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
@@ -39,7 +39,7 @@ ht-degree: 0%
 
 >[!TAB 目标C]
 
-更新 `applicationDidBecomeActive` 方法，如下所示
+更新`applicationDidBecomeActive`方法，如下所示
 
 ```
 (void)applicationDidBecomeActive:(UIApplication*) application
@@ -50,7 +50,7 @@ ht-degree: 0%
 
 >[!TAB Swift]
 
-更新 `applicationDidBecomeActive` 方法，如下所示
+更新`applicationDidBecomeActive`方法，如下所示
 
 ```
 func applicationDidBecomeActive(_ application: UIApplication)
@@ -63,10 +63,10 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ## iOS测试设备
 
-1. 选择 **[!UICONTROL Project]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL Types]**.
+1. 选择&#x200B;**[!UICONTROL Project]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL Types]**。
 1. 添加标识符： ${PRODUCT_NAME}
-1. 设置URL方案：mkto-&lt;s_ecret key_=&quot;&quot;>
-1. 包括 `application:openURL:sourceApplication:annotation:` 到 `AppDelegate.m file` (Objective-C)
+1. 设置URL方案： mkto-&lt;S_Ecret Key_>
+1. 包括`application:openURL:sourceApplication:annotation:`到`AppDelegate.m file` (Objective-C)
 
 ### 在AppDelegate中处理自定义Url类型
 
@@ -111,11 +111,11 @@ func application(_ application: UIApplication, open url: URL, sourceApplication:
 
 ### Android扩展设置
 
-按照中的说明操作 [!DNL Adobe Launch] 门户
+按照[!DNL Adobe Launch]门户中的说明操作
 
 ### 配置权限
 
-打开 `AndroidManifest.xml` 并添加以下权限。 您的应用程序必须请求“INTERNET”和“ACCESS_NETWORK_STATE”权限。 如果您的应用程序已经请求这些权限，请跳过此步骤。
+打开`AndroidManifest.xml`并添加以下权限。 您的应用程序必须请求“INTERNET”和“ACCESS_NETWORK_STATE”权限。 如果您的应用程序已经请求这些权限，请跳过此步骤。
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
@@ -126,7 +126,7 @@ func application(_ application: UIApplication, open url: URL, sourceApplication:
 
 ProGuard配置（可选）
 
-如果您的应用程序使用的是ProGuard，请在应用程序中添加以下行 `proguard.cfg` 文件。 该文件位于 `project` 文件夹。 添加此代码会将Marketo SDK排除在模糊处理过程之外。
+如果您正在使用应用程序的ProGuard，请在`proguard.cfg`文件中添加以下行。 该文件位于您的`project`文件夹中。 添加此代码会将Marketo SDK排除在模糊处理过程之外。
 
 ```
 -dontwarn com.marketo.*
@@ -134,9 +134,9 @@ ProGuard配置（可选）
 -keep class com.marketo.**{ *; }
 ```
 
-## Android测试设备
+## Android  测试  设备
 
-将“MarketoActivity”添加到 `AndroidManifest.xml` 在应用程序标记中。
+将“MarketoActivity”添加到应用程序标记中的`AndroidManifest.xml`。
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity"  android:configChanges="orientation|screenSize" >
@@ -153,26 +153,26 @@ ProGuard配置（可选）
 
 适用于Android的MME软件开发工具包(SDK)已更新到一个更现代、稳定和可扩展的框架，其中包含更灵活的功能和面向Android应用程序开发人员的新工程功能。
 
-Android应用程序开发人员现在可以直接使用Google的 [Firebase云消息](https://firebase.google.com/docs/cloud-messaging/) (FCM)集成该SDK。
+Android应用程序开发人员现在可以直接将Google的[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM)与此SDK一起使用。
 
 ### 将FCM添加到应用程序
 
-1. 在Android应用程序中集成最新的Marketo Android SDK。  相关步骤位于 [GitHub](https://github.com/Marketo/android-sdk).
+1. 在Android应用程序中集成最新的Marketo Android SDK。  步骤位于[GitHub](https://github.com/Marketo/android-sdk)。
 1. 在Firebase控制台上配置Firebase应用程序。
-   1. 创建/添加项目 [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase控制台。
-      1. 在 [Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)，选择 **[!UICONTROL Add Project]**.
-      1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 **[!UICONTROL Add Firebase]**.
-      1. 在Firebase欢迎屏幕中，选择 **[!UICONTROL Add Firebase to your Android App]**.
-      1. 提供包名称和SHA-1，然后选择 **[!UICONTROL Add App]**. 新 `google-services.json` Firebase应用程序的文件已下载。
-      1. 选择 **[!UICONTROL Continue]** 并按照有关在Android Studio中添加Google Services插件的详细说明操作。
+   1. 在[](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
+      1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
+      1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
+      1. 在Firebase欢迎屏幕中，选择&#x200B;**[!UICONTROL Add Firebase to your Android App]**。
+      1. 提供您的包名称和SHA-1，然后选择&#x200B;**[!UICONTROL Add App]**。 已下载Firebase应用程序的新`google-services.json`文件。
+      1. 选择&#x200B;**[!UICONTROL Continue]**，然后按照在Android Studio中添加Google Services插件的详细说明操作。
 
-   1. 导航到 **[!UICONTROL Project Settings]** 在 [!UICONTROL Project Overview]
-      1. 单击 **[!UICONTROL General]** 选项卡。 下载 `google-services.json` 文件。
-      1. 单击 **[!UICONTROL Cloud Messaging]** 选项卡。 复制 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID]. 提供这些 [!UICONTROL Server Key] 和 [!UICONTROL Sender ID] Marketo。
+   1. 在[!UICONTROL Project Overview]中导航到&#x200B;**[!UICONTROL Project Settings]**
+      1. 单击&#x200B;**[!UICONTROL General]**&#x200B;选项卡。 下载`google-services.json`文件。
+      1. 单击&#x200B;**[!UICONTROL Cloud Messaging]**&#x200B;选项卡。 复制[!UICONTROL Server Key]和[!UICONTROL Sender ID]。 将这些[!UICONTROL Server Key]和[!UICONTROL Sender ID]提供给Marketo。
    1. 在Android应用程序中配置FCM更改
       1. 切换到Android Studio中的“项目”视图，查看项目根目录
-         1. 移动下载的 `google-services.json` 文件放入您的Android应用程序模块根目录中
-         1. 在项目级别中 `build.gradle` 添加以下内容：
+         1. 将下载的`google-services.json`文件移到Android应用程序模块的根目录中
+         1. 在项目级别`build.gradle`中添加以下内容：
 
             ```
             buildscript {
@@ -192,7 +192,7 @@ Android应用程序开发人员现在可以直接使用Google的 [Firebase云消
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. 最后，单击 **[!UICONTROL Sync now]** 在ID中显示的栏中
+         1. 最后，单击ID中显示的栏中的&#x200B;**[!UICONTROL Sync now]**
    1. 编辑应用程序的清单FCM SDK会自动添加所有必需权限和必需的接收器功能。 确保从应用程序的清单中删除以下过时（且可能有害的，因为它们可能会导致消息重复）元素：
 
       ```xml
@@ -218,17 +218,17 @@ Android应用程序开发人员现在可以直接使用Google的 [Firebase云消
 
 有关Firebase Cloud Messaging支持的常见问题。
 
-**问：可在何处找到更新到MME SDK最新版本的说明？** 相关说明，请访问Marketo开发人员网站 [此处](installation.md).
+**问：可在何处找到更新到MME SDK最新版本的说明？在Marketo开发人员网站[此处](installation.md)找到**&#x200B;说明。
 
-**问：要更新到SDK的最新版本，是否需要我将Android应用程序的更新版本发布到现有用户？** 不适用。
+**问：更新到最新版本的SDK是否需要我将Android应用程序的更新版本发布到现有用户？**&#x200B;编号
 
-**问：对于已发布与Marketo Android SDK集成的Android应用程序的现有MME客户，它会有什么影响？** 他们可以将Android上的现有GCM客户端应用程序迁移到Firebase Cloud Messaging (FCM)，如下所示：
+**问：它如何影响已发布与Marketo Android SDK集成的Android应用程序的现有MME客户？**&#x200B;他们可以将Android上的现有GCM客户端应用程序迁移到Firebase Cloud Messaging (FCM)，如下所示：
 
-1. 在 [Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)，选择 **[!UICONTROL Add Project]**.
-1. 从现有Google Cloud项目列表中选择GCM项目，然后选择 **[!UICONTROL Add Firebase]**.
-1. 在Firebase欢迎屏幕中，选择 **[!UICONTROL Add Firebase to your Android App]**.
-1. 提供包名称和SHA-1，然后选择 **[!UICONTROL Add App]**. 适用于您的的新google-services.json文件
+1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
+1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
+1. 在Firebase欢迎屏幕中，选择&#x200B;**[!UICONTROL Add Firebase to your Android App]**。
+1. 提供您的包名称和SHA-1，然后选择&#x200B;**[!UICONTROL Add App]**。 适用于您的的新google-services.json文件
 1. 已下载Firebase应用程序。
-1. 选择 **[!UICONTROL Continue]** 并按照有关在Android Studio中添加Google Services插件的详细说明操作。
+1. 选择&#x200B;**[!UICONTROL Continue]**，然后按照在Android Studio中添加Google Services插件的详细说明操作。
 
-**问：我们能否定位使用使用GCM应用程序的旧Marketo SDK创建的潜在客户？** 是的。 所有使用Marketo SDK创建的潜在客户均可被定位来发送推送通知。
+**问：我们能否定位使用旧版Marketo SDK（使用GCM应用程序）创建的潜在客户？**&#x200B;是。 所有使用Marketo SDK创建的潜在客户均可被定位来发送推送通知。

@@ -1,13 +1,13 @@
 ---
-title: “数据流”
-description: “Data Streams概述”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: 数据流
+description: 数据流概述
+exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1589'
 ht-degree: 0%
 
 ---
-
 
 # 数据流
 
@@ -19,7 +19,7 @@ ht-degree: 0%
 - 减少API限制方案，生成更少的警报消息。
 - 由于具有数据流式处理功能，因此无需执行批量导出即可提取数据。
 
-已购买的用户可以使用数据流 [Marketo Engage性能层软件包](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+数据流可用于已购买[Marketo Engage性能层包](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)的数据流。
 
 ## 潜在客户活动数据流概述
 
@@ -185,7 +185,7 @@ ht-degree: 0%
    1. 步骤1中的端点的URL
    1. 他们希望收到的活动类型（以上完整的列表）
    1. 一种身份验证方法，以便客户可以验证请求是否合法。 可以：
-      1. OAuth的身份提供程序URL、客户端ID和客户端密钥 [客户端凭据身份验证](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+      1. OAuth [客户端凭据身份验证](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)的标识提供程序URL、客户端ID和客户端密钥
       1. API令牌，可以包含在潜在客户活动数据流发送的请求中（查询参数中）或授权标头（客户选择）中
 
 然后，Adobe会启用数据流，此时客户将开始接收数据。
@@ -239,7 +239,7 @@ app.listen(port,()=>{
 })
 ```
 
-您可以找到使用Marketo潜在客户活动数据流的应用程序的代码示例 [此处](https://github.com/ihgrant/activity-stream-consumer-example).
+使用Marketo潜在客户活动数据流的应用程序的代码示例可在[此处](https://github.com/ihgrant/activity-stream-consumer-example)找到。
 
 ### 用户审核数据流和通知数据流
 
@@ -254,26 +254,26 @@ app.listen(port,()=>{
    1. 此步骤需要Adobe组织
    1. 要求Adobe组织用户具有开发人员或系统管理员角色
 
-要设置AdobeIO，请参阅 [使用AdobeIO设置Marketo用户审核数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) 在公共文档部分中。
+要设置AdobeIO，请参阅公共文档部分中的[使用AdobeIO设置Marketo用户审核数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/)。
 
 ### 在Marketo中设置用户审核数据流
 
-用户审计数据流当前作为性能包及其他3个数据流的一部分提供。 有关软件包的更多信息，请参阅 [产品描述页面](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) 产品限制和功能。
+用户审计数据流当前作为性能包及其他3个数据流的一部分提供。 有关软件包的详细信息，请参阅[产品描述页](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html)以了解产品限制和功能。
 
 ### 设置Adobe I/O
 
-[请参阅Adobe I/O事件快速入门](https://developer.adobe.com/runtime/docs/guides/getting-started/)
+[请参阅Adobe I/O活动快速入门](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
-有关此用例的基本说明，请从 [console.adobe.io](https://developer.adobe.com/console)：
+有关此用例的基本说明，请从[console.adobe.io](https://developer.adobe.com/console)开始：
 
-出现提示时，选择 **[!UICONTROL Create New Project]** 或 **[!UICONTROL Add Event]**.
+出现提示时，选择&#x200B;**[!UICONTROL Create New Project]**&#x200B;或&#x200B;**[!UICONTROL Add Event]**。
 
 ### 新项目入门
 
-要开始使用Adobe服务，请添加API、事件或运行时，查看我们的 [文档](https://developer.adobe.com/runtime/docs/).
+要开始使用Adobe服务，请添加API、事件或运行时，查看我们的[文档](https://developer.adobe.com/runtime/docs/)。
 
 ## 公共文档
 
 - [Marketo数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [AdobeIO活动和Webhook简介](https://developer.adobe.com/events/docs/guides/)
-- [Data Streams博客](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)
+- [数据流博客](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

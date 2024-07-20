@@ -1,20 +1,20 @@
 ---
-title: "Redirect"
-description: "Redirect"
+title: 重定向
+description: 重定向
 feature: Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '468'
 ht-degree: 6%
 
 ---
 
-
 # 重定向
 
 RTP重定向API允许您将分段受众重定向到目标URL。
 
-- 您必须成为Web个性化客户并拥有 [已部署RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) 使用用户上下文API之前，将其放在您的网站上。
+- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 使用情况
@@ -34,16 +34,16 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 
 | 条件 | 数据层次结构 | 示例 |
 |-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
-| 匹配区段（仅在首次单击后生效） | matchedSegments.name | rtp( &#39;发送&#39;， &#39;重定向&#39; ， &#39;matchedSegments.name&#39; ， [“财富1000强”、“企业”] ， &#39;http://www.marketo.com&#39;)； |
-| 匹配区段（仅在首次单击后生效） | matchedSegments.id | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;matchedSegments.id&#39; ， [106 、 107 、 190] ， &#39;http://www.marketo.com&#39;)； |
-| ABM列表 | abm.name | rtp( &#39;发送&#39;， &#39;重定向&#39; ， &#39;abm.name&#39; ， [&#39;top_key_accounts&#39;， &#39;active_customers&#39;] ， &#39;http://www.marketo.com&#39;)； |
-| ABM列表 | abm.code | rtp( &#39;发送&#39;， &#39;重定向&#39; ， &#39;abm.code&#39; ， [13 ， 15] ， &#39;http://www.marketo.com&#39;)； |
-| 组织 | org | rtp( &#39;发送&#39;， &#39;重定向&#39; ， &#39;组织&#39;， [&#39;ebay&#39;]， &#39;http://www.marketo.com&#39;)； |
-| 位置 | location.country | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;location.country&#39; ， [“美国”]， &#39;http://www.marketo.com&#39;)； |
+| 匹配区段（仅在首次单击后生效） | matchedSegments.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;matchedSegments.name&#39; ， [&#39;Fortune 1,000&#39; ， &#39;Enterprise&#39;] ， &#39;http://www.marketo.com&#39;)； |
+| 匹配区段（仅在首次单击后生效） | matchedSegments.id | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;matchedSegments.id&#39; ， [106 ， 107 ， 190] ， &#39;http://www.marketo.com&#39;)； |
+| ABM列表 | abm.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;abm.name&#39; ， [&#39;top_key_accounts&#39;， &#39;active_customers&#39;] ， &#39;http://www.marketo.com&#39;)； |
+| ABM列表 | abm.code | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;abm.code&#39; ， [13 ， 15] ， &#39;http://www.marketo.com&#39;)； |
+| 组织 | org | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;org&#39;， [&#39;ebay&#39;]， &#39;http://www.marketo.com&#39;)； |
+| 位置 | location.country | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.country&#39;， [&#39;United States&#39;]， &#39;http://www.marketo.com&#39;)； |
 | 位置 | location.state | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.state&#39;， [&#39;ca&#39;]， &#39;http://www.marketo.com&#39;)； |
-| 位置 | location.city | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;location.city&#39;， [‘圣马特奥’]， &#39;http://www.marketo.com&#39;)； |
-| 行业 | 行业 | rtp( &#39;发送&#39;， &#39;重定向&#39; ， &#39;行业&#39; ， [&#39;教育&#39;]， &#39;http://www.marketo.com&#39;)； |
-| ISP | isp | rtp( &#39;发送&#39;， &#39;重定向&#39; ， isp ， [&#39;假&#39;]， &#39;http://www.marketo.com&#39;)； |
+| 位置 | location.city | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.city&#39;， [&#39;San Mateo&#39;]， &#39;http://www.marketo.com&#39;)； |
+| 行业 | 行业 | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;industries&#39;， [&#39;Education&#39;]， &#39;http://www.marketo.com&#39;)； |
+| ISP | isp | rtp( &#39;send&#39;， &#39;redirect&#39; ， isp ， [&#39;False&#39;]， &#39;http://www.marketo.com&#39;)； |
 
 
 ## 备注
@@ -91,7 +91,7 @@ rtp('get','campaign');
 1. 创建名为“由RTP重定向”的区段
 1. 使用“特定页面”参数，通过下面显示的参数定位查看任何页面的访客。
 
-![跟踪重定向访客](assets/tracking-redirected-vistors.png)
+![跟踪重定向的访客](assets/tracking-redirected-vistors.png)
 
 ## 如何使用不同的目标URL定义多个条件
 

@@ -1,14 +1,14 @@
 ---
-title: “启用深层链接”
-feature: "Mobile Marketing"
-description: “启用深层链接的说明”
-source-git-commit: cb000968c78e062b3c17be7d0faa6236c73e7358
+title: 启用深层链接
+feature: Mobile Marketing
+description: 启用深层链接的说明
+exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '376'
 ht-degree: 0%
 
 ---
-
 
 # 启用深层链接
 
@@ -22,18 +22,18 @@ ht-degree: 0%
 
 这要求您为应用程序定义自定义URI结构；在应用程序的清单中注册该方案；然后添加代码以处理深层链接事件并路由到应用程序中的适当位置。
 
-对于iOS，请参阅有关的Apple文档 [为您的应用程序定义自定义URL方案](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
+对于iOS，请参阅有关[为您的应用程序定义自定义URL方案](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app)的Apple文档。
 
-对于Android，请参阅关于的Google文档 [为应用程序内容启用深层链接](https://developer.android.com/training/app-links/deep-linking).
+对于Android，请参阅有关[启用应用程序内容的深层链接](https://developer.android.com/training/app-links/deep-linking)的Google文档。
 
-对于PhoneGap应用程序，深层链接不像本机iOS或Android应用程序那样直接，但通过一些插件，您的混合应用程序可以响应深层链接自定义URL方案以及iOS和Android上的通用/应用程序链接。 考虑 [这些插件](https://cordova.apache.org/plugins/?q=deeplink).
+对于PhoneGap应用程序，深层链接不像本机iOS或Android应用程序那么直接，但有一些插件可让您的混合应用程序对iOS和Android上的深层链接自定义URL方案以及通用/应用程序链接做出响应。 考虑[这些插件](https://cordova.apache.org/plugins/?q=deeplink)。
 
 在应用程序中启用深层链接后，请将自定义URI与Marketo用户共享，以便他们能够将这些URI插入到推送消息的点按操作中。
 
-设置测试设备时，Marketo使用预定义的URI结构。 请参阅的“测试设备”部分 [安装指南](installation.md) 以了解更多信息。
+设置测试设备时，Marketo使用预定义的URI结构。 有关详细信息，请参阅[安装指南](installation.md)的“测试设备”部分。
 
 ## 定义URI结构的最佳实践
 
-如果您的品牌现有移动网站，则最佳实践为也遵循深层链接URI的URL结构。 例如，如果 `https://myappname.com/products/purple-shirt` 是相关产品的网站地址，则 `myappname://products/purple-shirt` 将成为您应用程序中使用的良好深层链接URI结构。
+如果您的品牌现有移动网站，则最佳实践为也遵循深层链接URI的URL结构。 例如，如果`https://myappname.com/products/purple-shirt`是相关产品的网站地址，则`myappname://products/purple-shirt`将是可在您的应用程序中使用的良好深层链接URI结构。
 
-通常，您的方案应该特定于您的品牌。 虽然目前没有法规要求方案在全球范围内是唯一的，但一种有助于确保方案唯一性的方法是，反转您的域名(例如， `org.companyname`)。
+通常，您的方案应该特定于您的品牌。 虽然目前没有法规规定方案应具有全球唯一性，但一种有助于确保方案唯一性的方法是：反转域名（例如，`org.companyname`）。

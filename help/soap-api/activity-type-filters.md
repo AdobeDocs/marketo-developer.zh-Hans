@@ -1,14 +1,14 @@
 ---
-title: "活动类型过滤器"
+title: 活动类型过滤器
 feature: SOAP
-description: “SOAP调用的活动类型过滤器。”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP调用的活动类型过滤器。
+exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '210'
 ht-degree: 0%
 
 ---
-
 
 # 活动类型过滤器
 

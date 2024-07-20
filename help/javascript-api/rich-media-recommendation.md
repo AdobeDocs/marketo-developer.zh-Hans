@@ -1,14 +1,14 @@
 ---
-title: “富媒体推荐”
-description: “富媒体推荐”
+title: 富媒体推荐
+description: 富媒体推荐
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 3%
 
 ---
-
 
 # 富媒体推荐
 
@@ -21,14 +21,14 @@ ht-degree: 3%
 1. 在页面正文中
    1. 将模板标记（div类）放置在要显示该模板的位置
 
-更多信息可用 [此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
 
 ## 模板标记
 
 | 属性 | 可选/必填 | 描述 |
 |---|---|---|
 | 类 | 必需 | 指定此divHTML元素为RTP建议div。 |
-| data-rtp-template-id | 必需 | 模板id。 这会确定推荐的对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行仅包含标题和描述的垂直对齐。 脚本将匹配的模板注入到此 `div.Permissible` 值： template1、template2和template3。 |
+| data-rtp-template-id | 必需 | 模板id。 这会确定推荐的对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行仅包含标题和描述的垂直对齐。 该脚本将匹配的模板注入此`div.Permissible`值：template1、template2、template3。 |
 
 ### 示例
 
@@ -50,11 +50,11 @@ ht-degree: 3%
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-查看模板对齐的屏幕截图 [此处](#example_of_rich_media_recommendation_template_1).
+在[此处](#example_of_rich_media_recommendation_template_1)查看模板对齐的屏幕截图。
 
 ## 填充推荐
 
-此方法填充所有富媒体 `<divs>` 在包含推荐的页面上。
+此方法使用推荐填充页面上的所有富媒体`<divs>`。
 
 ### 使用情况
 
@@ -149,7 +149,7 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.background.color | &quot;rcmd.cta.background.color&quot; ： &quot;green&quot; | 更改按钮的背景颜色。 此属性支持所有css颜色值（颜色名称、rgb、...） |
 | rcmd.cta.font.color | “rcmd.cta.font.color” ：“rgb(90， 84， 164)” | 更改按钮字体颜色。 此属性支持所有字体颜色值（rgb、十六进制、...） |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; ：&quot;推送&quot; | 更改按钮文本。 所有按钮的文本都相同。 |
-| 类别 | &quot;category&quot; ： [&quot;一个类别&quot;] | 更改此模板支持的推荐类别。 模板仅显示具有此配置设置的某个类别的推荐。 |
+| 类别 | &quot;category&quot; ： [&quot;one category&quot;] | 更改此模板支持的推荐类别。 模板仅显示具有此配置设置的某个类别的推荐。 |
 
 
 注意：每个模板的配置支持可能会发生更改。
@@ -232,16 +232,16 @@ rtp('get','rcmd', 'richmedia');
 
 #### 富媒体推荐模板#1示例
 
-**名称**：template1 **描述**：水平内容，包括图像、标题和描述以及行动号召按钮。
+**名称**：模板1 **描述**：包含图像、标题和描述的水平内容以及行动号召按钮。
 
 ![富媒体模板](assets/rich-media-template1.png)
 
 #### 富媒体推荐模板#2示例
 
-**名称**：template2 **描述**：垂直内容，包括图像、标题和描述以及行动号召按钮。
+**名称**：模板2 **描述**：垂直内容，包括图像、标题和描述，以及行动号召按钮。
 
 ![富媒体模板](assets/rich-media-template2.png)
 
 #### 富媒体推荐模板#3示例
 
-**名称**：template3 **描述**：垂直内容，仅包括标题和描述。 鼠标悬停时，标题会更改颜色并超链接到内容URL。 描述还链接到不发生颜色更改的内容。 ![富媒体模板](assets/rich-media-template3.png)
+**名称**：模板3 **描述**：仅包含标题和描述的垂直内容。 鼠标悬停时，标题会更改颜色并超链接到内容URL。 描述还链接到不发生颜色更改的内容。 ![富媒体模板](assets/rich-media-template3.png)

@@ -1,18 +1,18 @@
 ---
-title: "批量活动提取"
+title: 批量活动提取
 feature: REST API
-description: “从Marketo批量处理活动数据。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 从Marketo批量处理活动数据。
+exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1381'
 ht-degree: 1%
 
 ---
 
-
 # 批量活动提取
 
-[批量活动提取端点引用](https://developer.adobe.com/marketo-apis/api/mapi/)
+[批量活动提取终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/)
 
 REST API的批量活动提取集提供了一个编程接口，用于从Marketo中检索大量活动数据。  对于不要求低延迟，并且必须从Marketo中传输大量活动数据的情况，例如CRM集成、ETL、数据仓库存储和数据存档。
 
@@ -40,13 +40,13 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
       <td>activityTypeIds</td>
       <td>数组[整数]</td>
       <td>否</td>
-      <td>接受具有一个成员activityTypeIds的JSON对象。 该值必须是一个整数数组，对应于所需的活动类型。不支持“删除潜在客户”活动(使用 <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET">获取已删除的潜在客户</a>终结点)。使用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET">获取活动类型</a>端点。</td>
+      <td>接受具有一个成员activityTypeIds的JSON对象。 该值必须为整数数组，对应于所需的活动类型。不支持“删除潜在客户”活动（请改用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET">获取已删除的潜在客户</a>端点）。使用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET">获取活动类型</a>端点检索活动类型ID。</td>
     </tr>
     <tr>
       <td>primaryAttributeValueIds</td>
       <td>数组[整数]</td>
       <td>否</td>
-      <td>接受具有一个成员primaryAttributeValueIds的JSON对象。 该值是一个ID数组，其中指定要过滤的主属性。 最多可以指定50个id。这些id是潜在客户字段或资产的唯一标识符，可以通过调用相应的REST API端点进行检索。 例如，要筛选“填写表单”活动的特定表单，请将表单名称传递给 <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET">按名称获取表单</a> 端点以检索表单ID。以下是支持主属性过滤的活动类型列表。
+      <td>接受具有一个成员primaryAttributeValueIds的JSON对象。 该值是一个ID数组，其中指定要过滤的主属性。 最多可以指定50个id。这些id是潜在客户字段或资产的唯一标识符，可以通过调用相应的REST API端点进行检索。 例如，要筛选“填写表单”活动的特定表单，请将表单名称传递给<a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET">按名称获取表单</a>端点以检索表单ID。以下是支持主属性筛选的活动类型列表。
         <table>
           <tbody>
             <tr>
@@ -93,13 +93,13 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
             </tr>
           </tbody>
         </table>
-        使用primaryAttributeValueIds时，activityTypeIds过滤器必须存在，并且仅包含与相应资产组匹配的活动ID。例如：如果您正在筛选Web窗体资产，则activityTypeIds中仅允许“填写表单”活动类型ID。示例请求正文：{"filter"：{"createdAt"：{"startAt"： "2021-07-01T23:59:59-00:00”，“endAt”：“2021-07-02T23:59:59-00:00"}，"activityTypeIds"：[2]，"primaryAttributeValueIds" ： [16,102,95,8]}}primaryAttributeValueIds和primaryAttributeValues不能一起使用。</td>
+        使用primaryAttributeValueIds时，activityTypeIds过滤器必须存在，并且仅包含与相应资产组匹配的活动ID。例如：如果您正在筛选Web窗体资产，则activityTypeIds中仅允许“填写表单”活动类型ID。示例请求正文：{"filter"：{"createdAt"：{"startAt"： "2021-07-01T23:59:59-00:00"，"end2 1-07-02T23:59:59-00:00"}，"activityTypeIds"：[2]，"primaryAttributeValueIds" ： [16,102,95,8]}}primaryAttributeValueIds和primaryAttributeValues不能一起使用。</td>
     </tr>
     <tr>
       <td>primaryAttributeValue</td>
       <td>Array[String]</td>
       <td>否</td>
-      <td>接受具有一个成员primaryAttributeValues的JSON对象。 值是一个名称数组，其中指定要过滤的主属性。 最多可以指定50个名称。这些名称是潜在客户字段或资产的唯一标识符，可通过调用相应的REST API端点进行检索。 例如，要筛选“填写表单”活动的特定表单，请将表单ID传递给 <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5">按ID获取表单</a> 端点以检索表单名称。以下是支持主属性过滤的活动类型列表。
+      <td>接受具有一个成员primaryAttributeValues的JSON对象。 值是一个名称数组，其中指定要过滤的主属性。 最多可以指定50个名称。这些名称是潜在客户字段或资产的唯一标识符，可通过调用相应的REST API端点进行检索。 例如，要筛选“填写表单”活动的特定表单，请将表单ID传递给<a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5">按ID获取表单</a>端点以检索表单名称。以下是支持主属性筛选的活动类型列表。
         <table>
           <tbody>
             <tr>
@@ -146,7 +146,7 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
             </tr>
           </tbody>
         </table>
-        请注意，您必须使用“&lt;<em>项目</em>&gt;.&lt;<em>资产</em>&gt;”表示法，用于为以下资产组唯一指定名称：营销计划、静态列表、Web窗体。例如：例如，位于名为“GL_OP_ALL_2021”的计划下且名称为“MPS Outbound”的表单将指定为“GL_OP_ALL_2021.MPS Outbound”。示例请求正文：{"filter"：{"createdAt"：{"startAt"： "2021-07-01T2 3:59:59-00:00”，“endAt”：“2021-07-02T23:59:59-00:00"}，"activityTypeIds"：[2]，"primaryAttributeValues"：["GL_OP_ALL_2021.MPS Outbound"]}}使用primaryAttributeValues时，必须存在activityTypeIds过滤器，并且仅包含与相应资产组匹配的活动ID。 例如，如果您筛选Web表单资产，则activityTypeIds.primaryAttributeValues中仅允许“填写表单”活动类型ID，而primaryAttributeValueIds不能一起使用。</td>
+        请注意，您必须使用“&lt;<em>程序</em>&gt;”。&lt;<em>asset</em>&gt;”表示法，用于为以下资产组唯一指定名称：营销计划、静态列表、Web窗体。例如：位于名为“GL_OP_ALL_2021”的计划下且名称为“MPS Outbound”的表单将指定为“GL_OP_ALL_2021.MPS Outbound”。请求正文示例：{"filter"：{"createdAt"：{"startAt"： "2021-07 -01T23:59:59-00:00"，"endAt"： "2021-07-02T23:59:59-00:00"}，"activityTypeIds"：[2]，"primaryAttributeValues"：["GL_OP_ALL_2021.MPS Outbound"]}使用primaryAttributeValues时，actics过滤器必须存在并且仅包含匹配相应活动ID资产组。 例如，如果您筛选Web表单资产，则activityTypeIds.primaryAttributeValues中仅允许“填写表单”活动类型ID，而primaryAttributeValueIds不能一起使用。</td>
     </tr>
   </tbody>
 </table>
@@ -158,12 +158,12 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
 | 筛选 | 数组[对象] | 是 | 接受过滤器数组。 数组中必须正好包含一个createdAt过滤器。 可包含可选的activityTypeIds过滤器。这些过滤器将应用于可访问的活动集，并且导出作业将返回生成的活动集。 |
 | 格式 | 字符串 | 否 | 接受以下项之一：CSV、TSV、SSV如果设置，导出的文件将分别呈现为逗号分隔值、制表符分隔值或空格分隔值文件。如果未设置，则将默认为CSV。 |
 | columnHeaderName | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 值是该字段的导出列标题的名称。 |
-| 字段 | 数组[字符串] | 否 | 包含字段值的可选字符串数组。 列出的字段包含在导出的文件中。默认情况下，返回以下字段： `marketoGUIDleadId` `activityDate` `activityTypeId` `campaignId` `primaryAttributeValueId` `primaryAttributeValueattributes`，此参数可用于通过从上述列表中指定子集来减少返回的字段数。示例：&quot;fields&quot;： [&quot;leadId&quot;、&quot;activityDate&quot;、&quot;activityTypeId&quot;]可以指定附加字段“actionResult”以包含活动操作（“succeeded”、“skipped”或“failed”）。 |
+| 字段 | 数组[字符串] | 否 | 包含字段值的可选字符串数组。 列出的字段包含在导出的文件中。默认情况下，返回以下字段：`marketoGUIDleadId` `activityDate` `activityTypeId` `campaignId` `primaryAttributeValueId` `primaryAttributeValueattributes`。此参数可用于减少通过从上述列表中指定子集返回的字段数。示例：&quot;fields&quot;： [&quot;leadId&quot;、&quot;activityDate&quot;、&quot;activityTypeId&quot;]可指定附加字段&quot;actionResult&quot;以包含活动操作（&quot;succeeded&quot;、&quot;skipped&quot;或&quot;failed&quot;）。 |
 
 
 ## 创建作业
 
-要导出记录，必须先定义作业和要检索的记录集。  使用创建作业 [创建导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST) 端点。  导出活动时，可以应用两个主要过滤器： `createdAt`，始终是必需的，并且 `activityTypeIds`，可选。  createdAt过滤器用于定义创建活动的日期范围，使用 `startAt` 和 `endAt` 参数，两者都是日期时间字段，分别表示允许的最早创建日期和允许的最晚创建日期。  您也可以选择仅过滤某些类型的活动，使用 `activityTypeIds` 筛选。  这对于删除与用例无关的结果非常有用。
+要导出记录，必须先定义作业和要检索的记录集。  使用[创建导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST)终结点创建作业。  导出活动时，有两个可应用的主要筛选器：`createdAt`和`activityTypeIds`，前者始终是必需的，后者是可选的。  createdAt筛选器用于使用`startAt`和`endAt`参数定义创建活动的日期范围，这两个参数都是日期时间字段，分别表示允许的最早创建日期和允许的最晚创建日期。  您还可以选择使用`activityTypeIds`筛选器仅筛选某些类型的活动。  这对于删除与用例无关的结果非常有用。
 
 ```
 POST /bulk/v1/activities/export/create.json
@@ -202,7 +202,7 @@ POST /bulk/v1/activities/export/create.json
 }
 ```
 
-作业现在处于“已创建”状态，但尚未在处理队列中。  要将其放入队列以便开始处理，我们必须调用 [将导出活动作业排入队列](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) 终结点使用创建状态响应中的exportId。
+作业现在处于“已创建”状态，但尚未在处理队列中。  若要将其放入队列中以便开始处理，我们必须使用创建状态响应中的exportId调用[排入队列导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST)端点。
 
 ```
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -230,7 +230,7 @@ POST /bulk/v1/activities/export/{exportId}/enqueue.json
 
 只能检索同一API用户创建的作业的作业状态。
 
-Marketo的批量活动提取是一个异步端点，因此必须轮询作业状态以确定作业何时完成。  使用轮询 [获取导出活动作业状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) 如下所示的端点：
+Marketo的批量活动提取是一个异步端点，因此必须轮询作业状态以确定作业何时完成。  使用[获取导出活动作业状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET)终结点进行轮询，如下所示：
 
 ```
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -268,7 +268,7 @@ GET /bulk/v1/activities/export/{exportId}/status.json
 
 ## 检索数据
 
-作业完成后，使用 [获取导出活动文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET) 端点。
+作业完成后，使用[获取导出活动文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET)端点检索数据。
 
 ```
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -276,7 +276,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。
 
-如果请求的潜在客户字段为空（不包含数据）， `then null` 放置在导出文件的相应字段中。  在以下示例中，返回的活动的campaignId字段为空。
+如果请求的潜在客户字段为空（不包含数据），则`then null`将被放置在导出文件中的相应字段中。  在以下示例中，返回的活动的campaignId字段为空。
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes
@@ -286,11 +286,11 @@ marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueI
 783961924,5316669,2022-02-13T14:27:21Z,104,11614,2333,Nurture Automation,"{""Program Member ID"":3240306,""Acquired By"":false,""Old Status"":""Not in Program"",""New Status ID"":27,""Success"":false,""New Status"":""Member"",""Old Status ID"":26}"
 ```
 
-为了支持提取数据的部分和恢复友好检索，文件端点可以选择支持HTTP标头 `Range` 类型 `bytes`.  如果未设置标头，则将返回所有内容。  您可以阅读有关在Marketo中使用范围标头的更多信息 [批量提取](bulk-extract.md).
+为了支持对提取的数据进行部分检索和便于恢复检索，文件终结点可以选择性地支持类型为`bytes`的HTTP标头`Range`。  如果未设置标头，则将返回所有内容。  您可以阅读有关将Range标头与Marketo [批量提取](bulk-extract.md)结合使用的更多信息。
 
 ## 取消作业
 
-如果作业配置不正确或变得不必要，可以使用轻松取消 [取消导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) 端点：
+如果作业配置不正确或变得不必要，可以使用[取消导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST)端点轻松取消该作业：
 
 ```
 POST /bulk/v1/activities/export/{exportId}/cancel.json

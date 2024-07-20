@@ -1,14 +1,14 @@
 ---
-title: "syncCustomObjects"
+title: syncCustomObjects
 feature: SOAP
-description: “syncCustomObjects SOAP调用”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncCustomObjects SOAP调用
+exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 3%
 
 ---
-
 
 # syncCustomObjects
 
@@ -20,7 +20,7 @@ ht-degree: 3%
 
 在单个API调用中，某些更新可能会成功，而某些更新可能会失败。 每次失败都会返回一条错误消息。
 
-对于使用新的自定义对象UI预配的自定义对象，仅限指定为 `dedupe` UI中的字段可以作为属性传递到 `CustomObjKeyList`. 链接字段不是 `dedupe` 字段必须作为属性传递到 `customObjAttributeList`.
+对于使用新的自定义对象UI设置的自定义对象，只有在UI中指定为`dedupe`字段的字段才能作为`CustomObjKeyList`中的属性传递。 不是`dedupe`字段的链接字段必须作为`customObjAttributeList`中的属性传递。
 
 ## 请求
 

@@ -1,14 +1,14 @@
 ---
-title: "mergeLeads"
+title: mergeLeads
 feature: SOAP
-description: "mergeLeads SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: mergeLeads SOAP调用
+exl-id: a667cb76-525d-4583-b26a-1181d320a68c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '83'
 ht-degree: 7%
 
 ---
-
 
 # mergeLeads
 
@@ -18,7 +18,7 @@ ht-degree: 7%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| winningLeadKeyList | 必需 | 用于标识入选商机的键。 可能的值包括： `IDNUM`， `EMAIL`， `SFDCLEADID`， `LEADOWNEREMAIL`， `SFDCACCOUNTID`， `SFDCCONTACTID`， `SFDCLEADID`， `SFDCLEADOWNERID`， `SFDCOPPTYID` |
+| winningLeadKeyList | 必需 | 用于标识入选商机的键。 可能的值为： `IDNUM`、`EMAIL`、`SFDCLEADID`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID` |
 | lowingLeadKeyList | 必需 | 用于识别失去的潜在客户的键值列表。 |
 | mergeInSales | 可选 | 作为布尔值传递，可以为“True”或“False” |
 

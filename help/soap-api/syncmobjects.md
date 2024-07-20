@@ -1,18 +1,18 @@
 ---
-title: "syncMObjects"
+title: syncMObjects
 feature: SOAP
-description: “syncMObjects SOAP调用”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncMObjects SOAP调用
+exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '421'
 ht-degree: 3%
 
 ---
 
-
 # syncMObjects
 
-接受数组 [MObject](marketo-objects.md) 创建或更新，每个调用最多可达100个，并返回操作的结果（状态）(CREATED、UPDATED、FAILED、UNCHANGED、SKIPPED)和MObject的Marketo ID。 API可通过以下三种操作模式之一进行调用：
+接受要创建或更新的[MObjects](marketo-objects.md)的数组，每个调用最多为100个，并返回操作(CREATED、UPDATED、FAILED、UNCHANGED、SKIPPED)的结果（状态）和MObject的Marketo ID。 API可通过以下三种操作模式之一进行调用：
 
 1. 插入 — 仅插入新对象，跳过现有对象
 1. UPDATE — 仅更新现有对象，跳过新对象。
@@ -25,10 +25,10 @@ UPDATE和UPSERT操作使用ID作为密钥。 在单个API调用中，某些更�
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| mObjectList->mObject->type | 必需 | 可以是以下任一项：`Program`， `Opportunity`， `OpportunityPersonRole` |
+| mObjectList->mObject->type | 必需 | 可以是：`Program`、`Opportunity`、`OpportunityPersonRole`之一 |
 | mObjectList->mObject->id | 必需 | MObject的ID。 每个调用最多可以指定100个MObjects。 |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrType | 必需 | 成本（仅在更新项目群对象时使用）可以是以下之一： `Cost`， `Tag` |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | 必需 | 对于程序MObject，以下属性可作为名称 — 值对传递。 对于成本：`Month (Required)`， `Amount (Required)`， `Id (Cost Id - Optional)`， `Note (Optional)`. 对于标记/渠道： `Type (Required)`， `Value (Required)`. 对于Opportunity MoObject，其输出中 [describeMObject](describemobject.md) 可以作为名称 — 值对传递。 以下列表是所有可选字段和标准属性集。 您在Opportunity对象中可能有通过支持请求创建的其他字段。 |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrType | 必需 | 成本（仅在更新项目群时使用）可以是： `Cost`、`Tag`之一 |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | 必需 | 对于程序MObject，以下属性可作为名称 — 值对传递。 对于成本： `Month (Required)`、`Amount (Required)`、`Id (Cost Id - Optional)`、`Note (Optional)`。 对于标记/渠道： `Type (Required)`，`Value (Required)`。 对于Opportunity MObject，[describeMObject](describemobject.md)输出中的所有字段都可以作为名称 — 值对传递。 以下列表是所有可选字段和标准属性集。 您在Opportunity对象中可能有通过支持请求创建的其他字段。 |
 
 1. 数量
 1. 关闭日期
@@ -50,7 +50,7 @@ UPDATE和UPSERT操作使用ID作为密钥。 在单个API调用中，某些更�
 1. 阶段
 1. 类型
 
-对于OpportunityPersonRole MObject ，您可以提供 [describeMObject](./describemobject.md) 作为名称 — 值对。 此处列出了OpportunityPersonRole对象上的标准属性集：
+对于OpportunityPersonRole MObject，您可以提供[describeMObject](./describemobject.md)输出中的所有字段作为名称 — 值对。 此处列出了OpportunityPersonRole对象上的标准属性集：
 
 1. OpportunityId（必需）
 1. PersonId（必需）
@@ -60,7 +60,10 @@ UPDATE和UPSERT操作使用ID作为密钥。 在单个API调用中，某些更�
 1. IsPrimary（可选）
 1. 角色（可选）
 
-| | mObjAssociationList->mObjAssociation->mObjType | 可选 | 用于使用关联对象的ID或外部键更新Opportunity/OpportunityPersonRole对象。 关联的对象可以是：公司（用于更新Opportunity对象）、潜在客户（用于更新OpportunityPersonRole对象）、Opportunity（用于更新OpportunityPersonRole对象）| | mObjAssociationList->mObjAssociation->id | 可选 | 关联对象（潜在客户/公司/机会）的ID | | mObjAssociationList->mObjAssociation->externalKey | 可选 | 关联对象的自定义属性 |
+|
+| mObjAssociationList->mObjAssociation->mObjType | 可选 | 用于使用关联对象的ID或外部键更新Opportunity/OpportunityPersonRole对象。 关联的对象可以是：公司（用于更新Opportunity对象）、潜在客户（用于更新OpportunityPersonRole对象）、Opportunity（用于更新OpportunityPersonRole对象）|
+| mObjAssociationList->mObjAssociation->id | 可选 | 关联对象（潜在客户/公司/机会）的ID |
+| mObjAssociationList->mObjAssociation->externalKey | 可选 | 关联对象的自定义属性 |
 
 ## 请求XML
 

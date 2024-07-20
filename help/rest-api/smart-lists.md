@@ -1,14 +1,14 @@
 ---
-title: “智能列表”
+title: 智能列表
 feature: REST API
-description: “创建和编辑智能列表。”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: 创建和编辑智能列表。
+exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '419'
 ht-degree: 0%
 
 ---
-
 
 # 智能列表
 
@@ -16,15 +16,15 @@ ht-degree: 0%
 
 Marketo提供了一组REST API用于对智能列表执行操作。 这些API遵循资产API的标准界面模式，提供查询、删除和克隆选项。
 
-注意：仅用户创建的智能列表支持这些API。 它们不能用于 [内置/系统智能列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+注意：仅用户创建的智能列表支持这些API。 它们不能用于[内置/系统智能列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists)。
 
 ## 查询
 
-查询智能列表遵循以下资源的标准查询类型： [按id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET)， [按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)、和 [浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET).
+查询智能列表遵循ID为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)的[以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET)的标准查询类型。
 
 ### 按Id
 
-[按ID查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) 采用单个智能列表 `id` 作为路径参数，并返回单个智能列表记录。 或者，您可以传递 `includeRules` 布尔参数，用于将智能列表规则包含在响应中。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET)进行查询，将单个智能列表`id`作为路径参数并返回单个智能列表记录。 或者，您可以传递`includeRules`布尔参数以在响应中包含智能列表规则。
 
 ![智能列表规则](assets/smartlist-rules.png)
 
@@ -99,7 +99,7 @@ GET /rest/asset/v1/smartList/{id}.json?includeRules=true
 
 ### 按智能营销活动Id
 
-[按智能营销活动ID查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) 需要单个智能营销活动 `id` 作为路径参数，并返回单个智能列表记录。 或者，您可以传递 `includeRules` 布尔参数，用于将智能列表规则包含在响应中。
+[按智能营销活动ID查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET)将单个智能营销活动`id`作为路径参数并返回单个智能列表记录。 或者，您可以传递`includeRules`布尔参数以在响应中包含智能列表规则。
 
 ```
 GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
@@ -130,7 +130,7 @@ GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
 
 ### 按项目ID
 
-[按程序ID查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getSmartListByProgramIdUsingGET) 需要单个电子邮件程序 `id` 作为路径参数，并返回单个智能列表记录。 或者，您可以传递 `includeRules` 布尔参数，用于将智能列表规则包含在响应中。
+[按程序ID查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getSmartListByProgramIdUsingGET)将单个电子邮件程序`id`作为路径参数并返回单个智能列表记录。 或者，您可以传递`includeRules`布尔参数以在响应中包含智能列表规则。
 
 ```
 GET /rest/asset/v1/program/{programId}/smartList.json
@@ -161,7 +161,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### 按名称
 
-[按名称查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) 采用智能列表 `name` 作为参数，并返回单个智能列表记录。  对实例中的所有智能列表名称执行完全匹配的字符串，并返回与该名称匹配的智能列表的结果。
+[按名称查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)将智能列表`name`作为参数并返回单个智能列表记录。  对实例中的所有智能列表名称执行完全匹配的字符串，并返回与该名称匹配的智能列表的结果。
 
 ```
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -191,7 +191,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### 浏览
 
-智能列表还可以 [在批次中检索](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). 此 `folder` 参数用于指定执行查询的父文件夹。 其格式为包含的JSON对象 `id` 和 `type`. 像其他批量资产检索端点一样， `offset` 和 `maxReturn` 是可用于分页的可选参数。 可选 `earliestUpdatedAt` 和 `latestUpdatedAt` 日期时间参数可用于按UpdatedAt日期范围筛选结果。
+智能列表也可在批次](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET)中检索[。 `folder`参数用于指定执行查询的父文件夹。 它被格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 可选的`earliestUpdatedAt`和`latestUpdatedAt`日期时间参数可用于按UpdatedAt日期范围筛选结果。
 
 ```
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
@@ -245,7 +245,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 
 ## 克隆
 
-[克隆智能列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST) 使用application/x-www-form-urlencodedPOST执行。 要克隆的智能列表在 `id` path参数。 此 `folder` 参数用于指定要在其下创建智能列表的父文件夹，并将其格式化为包含ID和类型的JSON对象。 父文件夹必须是程序或智能列表文件夹。 此 `name` 参数用于命名新的智能列表，且必须是唯一的。 （可选） `description` 参数可用于描述智能列表。
+[使用application/x-www-form-urlencodedPOST执行智能列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST)的克隆。 在`id`路径参数中指定要克隆的智能列表。 `folder`参数用于指定要在其下创建智能列表的父文件夹，其格式为包含ID和类型的JSON对象。 父文件夹必须是程序或智能列表文件夹。 `name`参数用于命名新的智能列表，必须是唯一的。 （可选）可以使用`description`参数描述智能列表。
 
 ```
 POST /rest/asset/v1/smartList/{id}/clone.json
@@ -283,7 +283,7 @@ folder={"id":31,"type":"Folder"}&name=2018 Leads Qualified
 
 ## 删除
 
-[删除智能列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) 采用单个智能列表 `id` 作为路径参数。
+[删除智能列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST)需要一个智能列表`id`作为路径参数。
 
 ```
 POST /rest/asset/v1/smartList/{id}/delete.json

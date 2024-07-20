@@ -1,30 +1,30 @@
 ---
-title: "Forms"
+title: Forms
 feature: REST API, Forms
-description: “通过API创建和管理表单。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 通过API创建和管理表单。
+exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1598'
 ht-degree: 0%
 
 ---
 
-
 # Forms
 
-[Forms端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
+[Forms终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
 
-[表单字段端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
+[表单字段终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
 
 Marketo forms具有一组复杂的端点，允许从远程系统完全控制表单管理。 表单的结构可能很复杂，因为作为表单的一部分，必须管理许多不同类型的对象：Forms、字段、字段集、可见性规则和后续页面规则。
 
 ## 查询
 
-Forms支持资源检索的标准方法， [按id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET)， [按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET)、和 [通过浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET). 每个表单响应都包含其所有属性，但字段列表除外。
+Forms支持资源检索的标准方法，即[按id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET)和[通过浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET)。 每个表单响应都包含其所有属性，但字段列表除外。
 
 ### 按ID
 
-[按ID获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) 需要表单 `id` 作为路径参数并返回表单记录。
+[通过ID获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET)将表单`id`作为路径参数并返回表单记录。
 
 ```
 GET /rest/asset/v1/form/{id}.json
@@ -78,7 +78,7 @@ GET /rest/asset/v1/form/{id}.json
 
 ### 按名称
 
-[按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) 需要表单 `name` 作为路径参数并返回表单记录。
+[按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET)将表单`name`作为路径参数并返回表单记录。
 
 ```
 GET /rest/asset/v1/form/byName.json?name=newForm
@@ -132,7 +132,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 ### 浏览
 
-[获取Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET) 表单的工作方式与其他资产API浏览端点类似，并且允许对进行可选过滤 `status`， `maxReturn`、和 `offset`. 状态可以是：已批准、带草稿的已批准或草稿。
+[获取Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET)表单的工作方式与其他Asset API浏览端点类似，允许对`status`、`maxReturn`和`offset`进行可选筛选。 状态可以是：已批准、带草稿的已批准或草稿。
 
 ```
 GET /rest/asset/v1/forms.json
@@ -309,7 +309,7 @@ GET /rest/asset/v1/form/{id}/fields.json
 
 ### 依赖关系
 
-此 [获取表单使用者](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) 端点采用表单 `id` 作为path参数并返回依赖于表单的资源列表。 Forms可用于以下资源类型：登陆页面、智能列表、智能营销活动、报表、电子邮件项目。
+[Get Form Used By](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET)端点将表单`id`作为路径参数并返回依赖该表单的资源列表。 Forms可用于以下资源类型：登陆页面、智能列表、智能营销活动、报表、电子邮件项目。
 
 ```
 GET /rest/asset/v1/form/{id}/usedBy.json
@@ -335,7 +335,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## 创建和更新
 
-时间 [创建表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) 只有两个必填字段：表单的父文件夹和表单的名称。 所有其他参数均为可选参数，且使用默认值。 创建表单时带有三个默认字段：名字、姓氏、电子邮件。
+在[创建表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST)时，只有两个必填字段：表单的父文件夹、表单的名称。 所有其他参数均为可选参数，且使用默认值。 创建表单时带有三个默认字段：名字、姓氏、电子邮件。
 
 ```
 POST /rest/asset/v1/forms.json
@@ -395,7 +395,7 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 }
 ```
 
-Forms是 [已更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) 通过其id进行类似的调用。 在创建或更新期间，任何基本样式参数均可访问和编辑，从而允许您修改向最终用户显示表单的方式。
+Forms通过其ID使用类似的调用[更新了](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST)。 在创建或更新期间，任何基本样式参数均可访问和编辑，从而允许您修改向最终用户显示表单的方式。
 
 ```
 POST /rest/asset/v1/form/736.json
@@ -460,7 +460,7 @@ name=updated name&description=This is a test for updateapi&language=English&prog
 
 要正确添加或编辑属于表单的字段，必须检索目标实例的有效字段列表。 字段交互始终根据为结果中的每个项目显示的字段id属性来完成。
 
-对于Lead字段，可使用 [获取可用的表单字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) 端点，并在将字段添加到表单时包括字段的数据类型和默认元数据。
+对于“潜在客户”字段，可使用[获取可用的表单字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET)端点完成此操作，并且包括字段的数据类型和默认元数据（添加到表单时）。
 
 ```
 GET /rest/asset/v1/form/fields.json
@@ -592,7 +592,7 @@ GET /rest/asset/v1/form/fields.json
 }
 ```
 
-对于项目群成员自定义字段，请调用 [获取可用的表单计划成员字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  端点，用于检索程序成员自定义字段数据类型和默认元数据。 要在表单中使用这些字段，表单必须位于程序下（而不是在Design Studio中）。 包含使用这些字段的表单的登陆页面还必须位于程序下（不能位于Design Studio中，也不能克隆到Design Studio中）。
+对于计划成员自定义字段，请调用[获取可用的表单计划成员字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  端点，用于检索程序成员自定义字段数据类型和默认元数据。 要在表单中使用这些字段，表单必须位于程序下（而不是在Design Studio中）。 包含使用这些字段的表单的登陆页面还必须位于程序下（不能位于Design Studio中，也不能克隆到Design Studio中）。
 
 ```
 GET /rest/asset/v1/form/programMemberFields.json
@@ -631,7 +631,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 每个表单都包含一个可编辑的字段列表，在加载时将会显示给最终用户。 通过每个字段各自的端点，一次在字段列表中添加、更新或删除一个字段。
 
-[添加字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) 只需要父表单的ID和字段的fieldId。 所有其他字段将为空或者其默认值基于其数据类型和字段元数据。 数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
+[添加字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST)只需要父表单的ID和字段的fieldId。 所有其他字段将为空或者其默认值基于其数据类型和字段元数据。 数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
 
 ```
 POST /rest/asset/v1/form/{id}/fields.json
@@ -715,7 +715,7 @@ label=enter the last name here
 }
 ```
 
-在上述示例中，我们将更新简单字符串形式的LastName字段。 有些表单字段比较复杂。 例如，“称谓”字段是“选择”字段类型，其中包含项目列表和默认值。 如果添加或更新选择类型字段，除非将其中一个选项设置为 `isDefault` 值为true，则第一个选择没有值，并标记为“选择……”
+在上述示例中，我们将更新简单字符串形式的LastName字段。 有些表单字段比较复杂。 例如，“称谓”字段是“选择”字段类型，其中包含项目列表和默认值。 如果添加或更新选择类型字段，除非将其中一个选项设置为`isDefault`值true，否则第一个选项没有值，且标记为“Select...”
 
 ![致敬](assets/form-field-salutation.png)
 
@@ -795,7 +795,7 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
 
 ### 重新排列字段
 
-表单中的字段必须通过 [更改表单字段位置](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) 端点。 端点需要一个名为的参数 `positions`，这是一个由三个成员组成的对象的JSON数组：
+表单中的字段必须通过[更改表单字段位置](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)端点以单个单元的方式重新排列所有。 终结点需要一个名为`positions`的参数，该参数是一个包含三个成员的JSON对象数组：
 
 - 列号
 - rowNumber
@@ -833,7 +833,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### 富文本
 
-富文本字段是通过 [单独的端点](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) 来自潜在客户字段。 字段内容以multipart/form-data形式传递。 它应结构化为不包含任何脚本、元标记或链接标记的HTML内容。
+富文本字段是通过[与潜在客户字段分开的终结点](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST)添加的。 字段内容以multipart/form-data形式传递。 它应结构化为不包含任何脚本、元标记或链接标记的HTML内容。
 
 ```
 POST /rest/asset/v1/form/{id}/richText.json
@@ -874,7 +874,7 @@ Content-Type: text/html
 
 Marketo forms具有称为字段集的可选组件。 字段集是被视为顶级字段列表中的单个字段的字段组，用于按照可见性规则移动和处理字段。 例如，如果存在符合性要求字段，并且客户端选择“是”，则它可能会显示包含HIPAA和PCI符合性要求字段的字段集。
 
-字段集中的字段在整个表单中是唯一的，因此重复字段可能不在表单的父字段列表和子字段集中。 字段集是通过 [将字段集添加到表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) 端点，并将出现在结果中 [获取表单字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). 通过以下方式将字段移动到字段集的fieldList中，从而将字段添加到字段集 [更新字段位置](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). 对于这些端点，数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
+字段集中的字段在整个表单中是唯一的，因此重复字段可能不在表单的父字段列表和子字段集中。 字段集是通过[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST)端点添加的，然后将显示在[获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET)的字段的结果中。 通过通过[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)将字段移动到字段集的fieldList中，可向字段集添加字段。 对于这些端点，数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
 
 ## 可见性规则
 
@@ -917,15 +917,15 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 }
 ```
 
-有关可用运算符的完整列表，请参阅 [添加表单字段可见性规则](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST).
+有关可用运算符的完整列表，请参阅[添加表单字段可见性规则](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST)的端点引用页面。
 
 ## 跟进
 
-Marketo表单可能有动态的跟进页面行为，其中在提交时可能会根据指定字段的内容应用要重定向到给定页面或停留在当前页面的规则。 规则可以交替称为“感谢页面”规则或“跟进页面”规则。 这些规则表示为包含成员的JSON数组 `followupType`， `followupValue`， `operator`， `subjectField`， `values`、和 `default`. `default` 是一个布尔值，数组中只有一个记录可能为true。 当访客没有其他规则资格时，将使用指定为默认值的规则。 `followupType` 可以是lp或url，其中lp表示的Marketo登录页面id `followupValue`、和url将指示指向其他页面的URL。 运算符用于比较主题字段的值与提供的值列表。
+Marketo表单可能有动态的跟进页面行为，其中在提交时可能会根据指定字段的内容应用要重定向到给定页面或停留在当前页面的规则。 规则可以交替称为“感谢页面”规则或“跟进页面”规则。 这些规则表示为成员`followupType`、`followupValue`、`operator`、`subjectField`、`values`和`default`的JSON数组。 `default`是一个Boolean值，数组中只有一个记录可能为true。 当访客没有其他规则资格时，将使用指定为默认值的规则。 `followupType`可以是lp或url，其中lp表示`followupValue`的Marketo登录页面ID，而url表示指向其他页面的URL。 运算符用于比较主题字段的值与提供的值列表。
 
 ## 提交按钮
 
-表单的提交按钮样式由管理 [更新提交按钮](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormSubmitButtonUsingPOST) 端点。 可以修改buttonPosition、buttonStyle、label和waitingLabel（提交待处理时显示的标签）。
+表单的提交按钮样式使用[更新提交按钮](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormSubmitButtonUsingPOST)端点进行管理。 可以修改buttonPosition、buttonStyle、label和waitingLabel（提交待处理时显示的标签）。
 
 这是破坏性更新。
 

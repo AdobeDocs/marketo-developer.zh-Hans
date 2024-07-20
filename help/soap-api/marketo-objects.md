@@ -1,14 +1,14 @@
 ---
-title: "Marketo对象"
+title: Marketo对象
 feature: SOAP
-description: “Marketo对象概述”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Marketo对象概述
+exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '249'
 ht-degree: 0%
 
 ---
-
 
 # Marketo对象
 
@@ -31,7 +31,7 @@ MObject包括：
 
 ### 外部密钥
 
-外部键是在Marketo对象（如Lead或Opportunity ）上定义的自定义字段。 名称是字段名称，值是在外部系统中生成的字段值。 **Marketo不对这些值强制实施唯一约束。** API用户负责确保值的唯一性。 如果发生重复，Marketo将使用最近添加的对象。 这类似于电子邮件地址标准字段的行为。
+外部键是在Marketo对象（如Lead或Opportunity ）上定义的自定义字段。 名称是字段名称，值是在外部系统中生成的字段值。 **Marketo不对这些值强制唯一约束。** API用户负责确保值是唯一的。 如果发生重复，Marketo将使用最近添加的对象。 这类似于电子邮件地址标准字段的行为。
 
 ### 可用API
 

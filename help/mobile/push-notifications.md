@@ -1,14 +1,14 @@
 ---
-title: "推送通知"
-feature: "Mobile Marketing"
-description: “为Marketo Mobile启用推送通知”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: 推送通知
+feature: Mobile Marketing
+description: 为Marketo Mobile启用推送通知
+exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
 
 ---
-
 
 # 推送通知
 
@@ -24,29 +24,29 @@ ht-degree: 0%
 
 ### 在Apple开发人员帐户上配置推送通知
 
-1. 登录Apple开发人员 [成员中心](http://developer.apple.com/membercenter).
+1. 登录Apple开发人员[成员中心](http://developer.apple.com/membercenter)。
 1. 单击“Certificates， Identifiers &amp; Profiles”（证书、标识符和配置文件）。
 1. 单击“iOS， tvOS， watchOS”下的“Certificates->All”文件夹。
-1. 选择左上角屏幕上的证书旁边的“+” ![](assets/certificates-plus.png)
+1. 选择左上角屏幕上的证书![](assets/certificates-plus.png)旁边的“+”
 1. 启用“Apple推送通知服务SSL（沙盒和生产）”复选框，然后单击“继续”。
-1. 选择您在构建应用程序时使用的应用程序标识符。![](assets/push-appid.png)
-1. 创建并上传CSR以生成推送证书。 ![](assets/push-ssl.png)
-1. 将证书下载到本地计算机并双击进行安装。 ![](assets/certificate-download.png)
-1. 打开“密钥链访问”，右键单击证书，然后将2个项目导出到 `.p12` 文件。![key_chain](assets/key-chain.png)
+1. 选择您正在使用生成应用程序的应用程序标识符。![](assets/push-appid.png)
+1. 创建并上传CSR以生成推送证书。![](assets/push-ssl.png)
+1. 将证书下载到本地计算机并双击进行安装。![](assets/certificate-download.png)
+1. 打开“密钥链访问”，右键单击证书，然后将2个项目导出到`.p12`文件中。![key_chain](assets/key-chain.png)
 1. 通过MarketoAdmin Console上传此文件以配置通知。
 1. 更新应用程序设置配置文件。
 
 ### 在xCode中启用推送通知
 
-在xCode项目中打开推送通知功能。![](assets/push-xcode.png)
+在xCode项目中启用推送通知功能。![](assets/push-xcode.png)
 
 ### 使用Marketo SDK在应用程序中启用推送通知
 
-将以下代码添加到 `AppDelegate.m` 文件，用于将推送通知发送到客户的设备。
+将以下代码添加到`AppDelegate.m`文件以将推送通知交付到客户的设备。
 
-**注意**  — 如果使用 [!DNL Adobe Launch] 扩展，使用 `ALMarketo` 作为类名
+**注意** — 如果使用[!DNL Adobe Launch]扩展，则使用`ALMarketo`作为类名
 
-在中导入以下内容 `AppDelegate.h`.
+在`AppDelegate.h`中导入以下内容。
 
 >[!BEGINTABS]
 
@@ -64,7 +64,7 @@ import UserNotifications
 
 >[!ENDTABS]
 
-添加 `UNUserNotificationCenterDelegate` 到 `AppDelegate` 如下所示。
+将`UNUserNotificationCenterDelegate`添加到`AppDelegate`，如下所示。
 
 >[!BEGINTABS]
 
@@ -125,9 +125,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 >[!ENDTABS]
 
-调用此方法可启动Apple推送服务的注册流程。 如果注册成功，应用程序将调用您的应用程序委托对象的 `application:didRegisterForRemoteNotificationsWithDeviceToken:` 方法并向其传递一个设备令牌。
+调用此方法可启动Apple推送服务的注册流程。 如果注册成功，应用程序将调用应用程序委托对象的`application:didRegisterForRemoteNotificationsWithDeviceToken:`方法，并向其传递设备令牌。
 
-如果注册失败，应用程序将调用其应用程序委托的 `application:didFailToRegisterForRemoteNotificationsWithError:` 方法。
+如果注册失败，应用程序将改为调用其应用程序委托的`application:didFailToRegisterForRemoteNotificationsWithError:`方法。
 
 在Marketo中注册推送令牌。 要从Marketo接收推送通知，您必须在Marketo中注册设备令牌。
 
@@ -257,9 +257,9 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 如果您的应用程序在后台运行（或未处于活动状态），则设备将收到推送通知，如下所示。 Marketo将跟踪用户点击通知的时间。
 
-![mobile8](assets/mobile8.png)
+![移动设备8](assets/mobile8.png)
 
-如果设备收到推送通知，则会将其传递到 `application:didReceiveRemoteNotification:` 对应用程序委托进行回调。
+如果设备收到推送通知，则会将其传递到应用程序委托的`application:didReceiveRemoteNotification:`回调。
 
 以下是Marketo中的Marketo活动日志，其中显示应用程序事件和推送通知事件。
 
@@ -269,7 +269,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 1. 在应用程序标记中添加以下权限。
 
-   打开 `AndroidManifest.xml` 并添加以下权限。 您的应用程序必须请求“INTERNET”和“ACCESS_NETWORK_STATE”权限。 如果您的应用程序已经请求这些权限，请跳过此步骤。
+   打开`AndroidManifest.xml`并添加以下权限。 您的应用程序必须请求“INTERNET”和“ACCESS_NETWORK_STATE”权限。 如果您的应用程序已经请求这些权限，请跳过此步骤。
 
    ```xml
    <uses‐permission android:name="android.permission.INTERNET"/>
@@ -285,9 +285,9 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. 使用HTTPv1设置FCM (Google具有 [已弃用的XMPP协议](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) （2023年6月12日生效，将于2024年6月被免职） 
+1. 使用HTTPv1设置FCM(Google在2023年6月12日已[弃用的XMPP协议](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref)，将于2024年6月删除) 
 
-- 在Marketo功能管理器中启用MME FCM HTTPv1 ![](assets/feature-manager.png)
+- 在Marketo功能管理器![](assets/feature-manager.png)中启用MME FCM HTTPv1
    - 在MLM中上载应用程序的服务帐户Json文件。
    - 您可以从Firebase控制台下载服务帐户Json文件。   ![](assets/fcm-console.png)
    - 在Marketo中上传服务帐户Json文件后等待一小时，然后再发送推送通知。  
@@ -309,7 +309,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 ## 注册Marketo推送服务
 
-1. 要从Marketo接收推送通知，必须将Firebase消息服务添加到您的 `AndroidManifest.xml`. 在结束应用程序标记之前添加。
+1. 要从Marketo接收推送通知，必须将Firebase消息服务添加到`AndroidManifest.xml`。 在结束应用程序标记之前添加。
 
    ```xml
    <meta-data
@@ -323,7 +323,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    </service>
    ```
 
-1. 在文件中添加Marketo SDK方法 `MyFirebaseMessagingService` 如下所示
+1. 按如下方式在文件`MyFirebaseMessagingService`中添加Marketo SDK方法
 
    ```java
    import com.marketo.Marketo;
@@ -348,7 +348,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    }
    ```
 
-   **注意**  — 如果使用Adobe扩展，请按照以下方式添加
+   **注意** — 如果使用Adobe扩展，请按照以下方式添加
 
    ```java
    import com.marketo.Marketo;
@@ -371,7 +371,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    }
    ```
 
-**注意**： FCM SDK会自动添加所有必需权限以及所需的接收器功能。 如果您使用的是以前版本的SDK，请确保从应用程序清单中删除以下过时（并且可能带来危害，因为它们可能会导致消息重复）元素
+**注意**： FCM SDK会自动添加所有必需的权限以及必需的接收程序功能。 如果您使用的是以前版本的SDK，请确保从应用程序清单中删除以下过时（并且可能带来危害，因为它们可能会导致消息重复）元素
 
 ```xml
 <receiver android:name="com.marketo.MarketoBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -399,14 +399,14 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    marketoSdk.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   如果使用 [!DNL Adobe Launch] 扩展，请按照以下说明操作
+   如果使用[!DNL Adobe Launch]扩展，请按照以下说明操作
 
    ```java
    // Enable push notification here. The push notification channel name can by any string
    ALMarketo.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   如果您没有SENDER_ID，请完成中详述的步骤以启用Google Cloud Messaging Service。 [本教程](https://developers.google.com/cloud-messaging/).
+   如果您没有SENDER_ID，请完成[本教程](https://developers.google.com/cloud-messaging/)中详述的步骤以启用Google Cloud Messaging Service。
 
    用户注销时也可以注销令牌。
 
@@ -414,7 +414,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    marketoSdk.uninitializeMarketoPush();
    ```
 
-   如果使用 [!DNL Adobe Launch] 扩展，请按照下面的说明进行操作
+   如果使用[!DNL Adobe Launch]扩展，请使用下面的说明
 
    ```java
    ALMarketo.uninitializeMarketoPush();
@@ -464,7 +464,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 ### .p12文件缺少证书或密钥(iOS)
 
-导出证书时，请确保导出密钥 _和_ 证书。
+导出证书时，请确保将密钥&#x200B;_和_&#x200B;导出到证书。
 
 ### 配置配置文件已过期(iOS)
 

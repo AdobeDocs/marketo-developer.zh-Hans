@@ -1,20 +1,20 @@
 ---
-title: "importToList"
+title: importToList
 feature: SOAP
-description: "importToList SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: importToList SOAP调用
+exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '317'
 ht-degree: 3%
 
 ---
 
-
 # importToList
 
 通过此函数，您可以将潜在客户列表导入Marketo中的现有静态列表，类似于Marketo UI中的导入列表函数。
 
-**导入格式：** 这些值与列表导入中使用的CSV的结构相同。
+**导入格式：**&#x200B;这些值与列表导入中使用的CSV结构相同。
 
 **示例：**
 
@@ -24,9 +24,9 @@ ht-degree: 3%
 | mary@company.com | 玛丽 | 罗杰斯 |
 | wanda@megacorp.com | 万达 | 威廉姆斯 |
 
-**注意：** `displayName` 值应用在 `importFileHeader` 而不是 `name` 值。
+**注意：** `displayName`值应在`importFileHeader`中使用，而不是`name`值。
 
-**动态电子邮件内容：** 或者，您也可以根据每个潜在客户传递值，以通过电子邮件替换我的令牌。
+**动态电子邮件内容：**&#x200B;或者，您可以按潜在客户传递值，以代替电子邮件中的“我的令牌”。
 
 | 电子邮件 | 第一 | 最后一个 | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
@@ -34,9 +34,9 @@ ht-degree: 3%
 | mary@company.com | 玛丽 | 罗杰斯 | 鸡肉 | 棕色 |
 | wanda@megacorp.com | 万达 | 威廉姆斯 | 维吉 | 黑兹尔 |
 
-**重要提示：** 如果为潜在客户添加令牌，则必须指定使用它们的Smart Campaign。 下次运行指定的Smart Campaign时，将使用列表中的值，而不是正常的“我的令牌”值。 运行该单个营销活动后，令牌将被丢弃。
+**重要信息：**&#x200B;如果您为潜在客户添加了令牌，则必须指定使用它们的Smart Campaign。 下次运行指定的Smart Campaign时，将使用列表中的值，而不是正常的“我的令牌”值。 运行该单个营销活动后，令牌将被丢弃。
 
-**注意：** `importToList` 可能需要一些时间才能完成，尤其是对于大型列表。 如果您打算在其他API调用中使用新导入的列表，则应使用 `importToListStatus` 以检查操作是否完成。
+**注意：** `importToList`可能需要一些时间才能完成，尤其是大型列表。 如果您计划在其他API调用中使用新导入的列表，您应使用`importToListStatus`来检查操作是否完成。
 
 ## 请求
 
@@ -47,7 +47,7 @@ ht-degree: 3%
 | listName | 必需 | 将潜在客户添加到的Marketo中的静态列表的名称 |
 | importfileheader | 必需 | 要导入的潜在客户的列标题，包括潜在客户属性和我的令牌名称。 |
 | importFileRows->stringItem | 必需 | 逗号分隔值，每个潜在客户占一行 |
-| importListMode | 必需 | 有效选项： `UPSERTLEADS` 和 `LISTONLY` |
+| importListMode | 必需 | 有效选项： `UPSERTLEADS`和`LISTONLY` |
 | clearList | 可选 | 如果为true，则在导入之前清除静态列表；如果为false，则附加潜在客户。 |
 
 ## 请求XML

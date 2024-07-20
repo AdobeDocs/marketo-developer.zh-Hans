@@ -1,14 +1,14 @@
 ---
-title: "describeMObject"
+title: describeMObject
 feature: SOAP
-description: "describeMObjects SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: describeMObjects SOAP调用
+exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '71'
 ht-degree: 7%
 
 ---
-
 
 # describeMObject
 
@@ -18,7 +18,7 @@ ht-degree: 7%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| 对象名称 | 必需 | 要为其获取元数据的对象的名称。 `objectName` 可以是以下任一项： `ActivityRecord`， `LeadRecord`， `Opportunity`， `OpportunityPersonRole` |
+| 对象名称 | 必需 | 要为其获取元数据的对象的名称。 `objectName`可以是：`ActivityRecord`、`LeadRecord`、`Opportunity`、`OpportunityPersonRole`之一 |
 
 ## 请求XML
 

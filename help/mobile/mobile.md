@@ -1,14 +1,14 @@
 ---
-title: "Mobile"
-feature: "Mobile Marketing"
-description: "使用Marketo Mobile"
-source-git-commit: 2454f126dc4275697ef6773420453ad8853eae73
+title: 移动
+feature: Mobile Marketing
+description: 使用Marketo Mobile
+exl-id: d5fa5640-01f5-49a1-944a-9f81a1f83617
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '129'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
-
 
 # 移动
 
@@ -24,4 +24,4 @@ Marketo Mobile Engagement由两个组件组成：
 
    营销人员使用Marketo定义受众、创建通知、启动定向消息传递营销活动，以及查看详细的客户分析。
 
-将Marketo SDK集成到移动应用程序后，您将能够从Marketo将移动推送通知和应用程序内消息发送给客户。 要了解如何在Marketo中设置并部署移动消息传送，请参阅 [移动营销](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) 部分。
+将Marketo SDK集成到移动应用程序后，您将能够从Marketo将移动推送通知和应用程序内消息发送给客户。 要了解如何在Marketo中设置和部署移动消息传递，请参阅我们的产品文档中的[移动营销](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)部分。

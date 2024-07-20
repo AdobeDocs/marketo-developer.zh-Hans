@@ -1,18 +1,18 @@
 ---
-title: "响应映射"
+title: 响应映射
 feature: Webhooks
-description: “Marketo的响应映射”
-source-git-commit: bcc0c0c8e8209cf9fb962a85c8e7da354d95a8fe
+description: Marketo的响应映射
+exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '460'
 ht-degree: 0%
 
 ---
 
-
 # 响应映射
 
-Marketo可以翻译Webhook从两种内容类型接收的数据，并将这些值返回潜在客户字段：JSON和XML。 Marketo字段参数将始终使用 [SOAP API名称](../rest-api/fields.md) 字段的。 每个Webhook可以有无限数量的响应映射，可通过单击 [!UICONTROL Edit] Webhook的“响应映射”窗格中的按钮：
+Marketo可以翻译Webhook从两种内容类型接收的数据，并将这些值返回潜在客户字段：JSON和XML。 Marketo字段参数将始终使用字段的[SOAP API名称](../rest-api/fields.md)。 每个Webhook可以有无限数量的响应映射，可通过单击Webhook的“响应映射”窗格中的[!UICONTROL Edit]按钮来添加和编辑这些映射：
 
 ![响应映射](assets/response-mapping.png)
 
@@ -28,7 +28,7 @@ Marketo可以翻译Webhook从两种内容类型接收的数据，并将这些值
 { "foo":"bar"}
 ```
 
-要访问 `foo` 在响应映射中，使用 `name` 属性的，因为它在JSON对象的第一级， `foo`. 以下是Marketo中的外观：
+要在响应映射中访问`foo`属性，请使用属性的`name`，因为该属性位于JSON对象的第一个级别`foo`。 以下是Marketo中的外观：
 
 ![响应映射](assets/json-resp.png)
 
@@ -67,9 +67,9 @@ Marketo可以翻译Webhook从两种内容类型接收的数据，并将这些值
 </example>
 ```
 
-要在此处访问foo资产，请使用以下内容： `example.foo`
+要在此处访问foo属性，请使用以下内容： `example.foo`
 
-访问之前必须首先引用示例元素 `foo`. 要访问属性，必须在映射中引用层级中的所有元素。 带有数组的XML文档要复杂一些。 使用以下示例：
+访问`foo`之前必须先引用示例元素。 要访问属性，必须在映射中引用层级中的所有元素。 带有数组的XML文档要复杂一些。 使用以下示例：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -86,8 +86,8 @@ Marketo可以翻译Webhook从两种内容类型接收的数据，并将这些值
 </elementList>
 ```
 
-文档由父数组组成 `elementList`，带子项，元素包含一个属性： `foo`. 在Marketo响应映射中，数组被引用为 `elementList.element`，因此可通过访问elementList的子项 `elementList.element[i]`. 为了从elementList的第一个子项中获取foo的值，我们使用此响应属性： `elementList.element[0].foo` 这会将“baz”值返回到我们的指定字段。 尝试访问包含唯一和非唯一元素名称的元素内的属性会导致未定义的行为。 每个元素必须是单个属性或数组，不能混合使用类型。
+该文档由父数组`elementList`和子元素组成，该元素包含一个属性： `foo`。 在Marketo响应映射中，数组被引用为`elementList.element`，因此可通过`elementList.element[i]`访问elementList的子项。 为了从elementList的第一个子项中获取foo的值，我们使用此响应属性： `elementList.element[0].foo`这会将值“baz”返回到我们的指定字段。 尝试访问包含唯一和非唯一元素名称的元素内的属性会导致未定义的行为。 每个元素必须是单个属性或数组，不能混合使用类型。
 
 ## 类型
 
-将属性映射到字段时，必须确保webhook响应中的类型与目标字段兼容。 例如，如果响应中的值为字符串，并且所选字段的类型为整数，则不会写入该值。 阅读关于 [字段类型](../rest-api/field-types.md).
+将属性映射到字段时，必须确保webhook响应中的类型与目标字段兼容。 例如，如果响应中的值为字符串，并且所选字段的类型为整数，则不会写入该值。 了解[字段类型](../rest-api/field-types.md)。

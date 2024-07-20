@@ -1,30 +1,30 @@
 ---
 title: 静态列表
 feature: REST API, Static Lists
-description: “对静态列表执行CRUD操作。”
-source-git-commit: e8bb45a7b3bee71c3d0ab6117296a75c8959d72e
+description: 对静态列表执行CRUD操作。
+exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '741'
 ht-degree: 0%
 
 ---
 
-
 # 静态列表
 
 [静态列表终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
 
-[列表成员资格端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[列表成员资格终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
 
 Marketo提供了一组REST API，用于对静态列表执行CRUD操作。 这些API遵循资产API的标准界面模式，提供查询、创建、更新和删除选项。
 
 ## 查询
 
-查询静态列表遵循以下资源的标准查询类型： [按id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)， [按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET)、和 [浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET).
+查询静态列表遵循[按ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET)的标准查询类型。
 
 ### 按Id
 
-[按ID查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) 采用单个静态列表 `id` 作为路径参数，并返回单个静态列表记录。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)进行查询，将单个静态列表`id`作为路径参数并返回单个静态列表记录。
 
 ```
 GET /rest/asset/v1/staticList/{id}.json
@@ -53,7 +53,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### 按名称
 
-[按名称查询](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) 采用静态列表 `name` 作为参数，并返回单个静态列表记录。 对实例中的所有静态列表名称执行完全匹配的字符串，并返回与该名称匹配的静态列表的结果。
+[按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)查询将静态列表`name`作为参数并返回单个静态列表记录。 对实例中的所有静态列表名称执行完全匹配的字符串，并返回与该名称匹配的静态列表的结果。
 
 ```
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -82,7 +82,7 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### 浏览
 
-静态列表也可以 [在批次中检索](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET). 此 `folder` 参数可用于指定要在其中执行查询的父文件夹，并将其格式化为包含ID和类型的JSON对象。 像其他批量资产检索端点一样， `offset` 和 `maxReturn` 是可用于分页的可选参数。 此 `earliestUpdatedAt` 和 `latestUpdatedAt` 参数允许您为返回在给定范围内创建或更新的静态列表设置下限和上限日期时间水印。 日期时间值必须是有效的ISO-8601字符串，并且不应包括毫秒
+静态列表也可在批次](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET)中检索[。 `folder`参数可用于指定将在其中执行查询的父文件夹，并将其格式化为包含ID和类型的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 `earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回在给定范围内创建或更新的静态列表设置低日期时间水印和高日期时间水印。 日期时间值必须是有效的ISO-8601字符串，并且不应包括毫秒
 
 ```
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
@@ -133,7 +133,7 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## 创建和更新
 
-[创建静态列表](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) 使用application/x-www-form-urlencodedPOST和两个必需的参数执行。 此 `folder` 参数用于指定将在其下创建静态列表的父文件夹，并将其格式化为包含ID和类型的JSON对象。 此 `name` 参数用于命名静态列表，必须是唯一的。 （可选） `description` 参数可用于描述静态列表。
+[创建静态列表](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST)是使用application/x-www-form-urlencodedPOST和两个必需的参数执行的。 `folder`参数用于指定要在其下创建静态列表的父文件夹，其格式为包含ID和类型的JSON对象。 `name`参数用于命名静态列表，必须是唯一的。 （可选）可以使用`description`参数描述静态列表。
 
 ```
 POST /rest/asset/v1/staticLists.json
@@ -168,7 +168,7 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 }
 ```
 
-[静态列表的更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST) 通过带有两个可选参数的单独端点生成。 此 `description` 参数可用于更新静态列表描述。 此 `name` 参数可用于更新静态列表名称，且必须是唯一的。
+[对静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST)的更新是通过带有两个可选参数的单独终结点进行的。 `description`参数可用于更新静态列表描述。 `name`参数可用于更新静态列表名称，并且必须是唯一的。
 
 ```
 POST /rest/asset/v1/staticList/{id}.json
@@ -206,7 +206,7 @@ description=This is a static list used for testing
 
 ### 删除
 
-[删除静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) 采用单个静态列表 `id` 作为路径参数。 无法删除导入或导出操作正在使用的静态列表，或其他资产正在使用的静态列表。
+[删除静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST)需要一个静态列表`id`作为路径参数。 无法删除导入或导出操作正在使用的静态列表，或其他资产正在使用的静态列表。
 
 ```
 POST /rest/asset/v1/staticList/{id}/delete.json
@@ -231,9 +231,9 @@ POST /rest/asset/v1/staticList/{id}/delete.json
 
 ### 添加到列表
 
-此 [添加到列表](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) 终结点用于将一个或多个成员添加到列表。 端点需要一个 `listId` 路径参数以及一个或多个包含潜在客户id的id查询参数（允许的最大值为300）。
+[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST)终结点用于将一个或多个成员添加到列表。 终结点采用必需的`listId`路径参数，以及一个或多个ID查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
 
-响应包含 `result` 数组由JSON对象组成，其状态对应于请求中指定的每个商机ID。
+响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
 
 ```
 POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
@@ -264,9 +264,9 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ### 从列表中删除
 
-此 [从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) 终结点用于从列表中删除一个或多个成员。 端点需要一个 `listId` 路径参数，以及一个或多个参数 `id` 包含潜在客户id的查询参数（允许的最大值为300）。
+[从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE)终结点用于从列表中删除一个或多个成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
 
-响应包含 `result` 数组由JSON对象组成，其状态对应于请求中指定的每个商机ID。
+响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
 
 ```
 DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
@@ -301,15 +301,15 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ### 查询列表
 
-此 [按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) 端点用于检索列表的成员。 端点需要一个 `listId` 路径参数，并允许使用多个可选查询参数指定筛选条件。
+[按列表ID ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
 
-此 `batchSize` 参数用于指定在单个调用中返回的潜在客户记录数（默认值为300，最大值为300）。
+`batchSize`参数用于指定在单个调用中返回的潜在客户记录数（默认值为300，最大值为300）。
 
-此 `nextPageToken` 参数用于在大型结果集中分页。 此参数不是在第一次调用中传递，而是仅在分页的后续调用中传递。
+`nextPageToken`参数用于在大型结果集中分页。 此参数不是在第一次调用中传递，而是仅在分页的后续调用中传递。
 
-此 `fields` 参数包含响应中要返回的以逗号分隔的字段名称列表。 如果此请求中未包含字段参数，则返回以下默认字段： email、updatedAt、createdAt、lastName、firstName和id。
+`fields`参数包含响应中要返回的以逗号分隔的字段名称列表。 如果此请求中未包含字段参数，则返回以下默认字段： email、updatedAt、createdAt、lastName、firstName和id。
 
-响应包含 `result` 由包含请求中指定的潜在客户字段的JSON对象组成的数组。
+响应包含一个`result`数组，该数组由包含请求中指定的潜在客户字段的JSON对象组成。
 
 ```
 GET /rest/v1/lists/{listId}/leads.json?batchSize=3
@@ -351,9 +351,9 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 #### 按潜在客户Id查询列表成员资格
 
-此 [列表成员](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) 端点用于查看一个或多个潜在客户是否为列表的成员。 端点需要一个 `listId` 路径参数，以及一个或多个参数 `id` 包含潜在客户id的查询参数（允许的最大值为300）。
+List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)终结点的[成员用于查看一个或多个潜在客户是否为列表的成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
 
-响应包含 `result` 数组由JSON对象组成，其状态对应于请求中指定的每个商机ID。
+响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
 
 ```
 GET /rest/v1/lists/{listId}/leads/ismember.json?id=309901&id=318603&id=999999

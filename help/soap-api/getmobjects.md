@@ -1,39 +1,39 @@
 ---
-title: "getMObjects"
+title: getMObjects
 feature: SOAP
-description: "getMObjects SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getMObjects SOAP调用
+exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 3%
 
 ---
 
-
 # getMObjects
 
-检索一个或多个 [MObject](marketo-objects.md) 使用由以下各项组成的标准组合：
+使用以下条件组合检索一个或多个[MObjects](marketo-objects.md)：
 
 - 零个或一个唯一ID，即Marketo ID或外部ID
 - 零个或多个属性过滤器，如名称/值/比较三项
 - 零个或多个关联的对象筛选器作为对象名称/ID对
 
-返回一个匹配MObjects的列表，所有对象都属于一种类型，一个批处理中最多有100个，并且 [流位置](stream-position.md) 用于检索连续批次的令牌。
+返回匹配的MObjects列表，所有为单一类型，一个批次中最多为100个，以及用于检索连续批次的[流位置](stream-position.md)令牌。
 
 ## 请求
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| 类型 | 必需 | 要查询的对象类型。 可以是以下任一类型： `Opportunity`， `OpportunityPersonRole`，或 `Program` |
+| 类型 | 必需 | 要查询的对象类型。 可以是以下任一项：`Opportunity`、`OpportunityPersonRole`或`Program` |
 | ID | 可选 | 对象的ID |
 | includeDetails | 可选 | 如果为true，将返回给定MObject的所有属性。 此参数仅适用于与程序MObjects一起使用时 |
-| mObjCriteriaList->mObjCriteria->attrName | 可选 | 可以使用以下一个或多个输入参数：`Name`， `Role`， `Type`， `Stage`， `CRM Id`， `Created At`， `Updated At` 或 `Tag Type` （只能指定一个）， `Tag Value`， `Workspace Name`， `Workspace Id`， `Include Archive` |
+| mObjCriteriaList->mObjCriteria->attrName | 可选 | 可以使用以下一个或多个输入参数：`Name`、`Role`、`Type`、`Stage`、`CRM Id`、`Created At`、`Updated At`或`Tag Type`（只能指定一个参数）、`Tag Value`、`Workspace Name`、`Workspace Id`、`Include Archive` |
 | mObjCriteriaList->mObjCriteria->attrValue | 可选 | 要用于筛选的值 |
-| mObjCriteriaList->mObjCriteria->comparison | 可选 | 其中之一 `EQ`， `NE`， `LT` ，`LE`， `GT`， `GE` |
+| mObjCriteriaList->mObjCriteria->comparison | 可选 | `EQ`、`NE`、`LT`、`LE`、`GT`、`GE`之一 |
 | mObjAssociationList->mObjAssociation->mObjType | 可选 |  |
 | mObjAssociationList->mObjAssociation->id | 可选 | 关联对象（潜在客户/公司/机会）的ID |
 | mObjAssociationList->mObjAssociation->externalKey | 可选 | 关联对象的自定义属性 |
-| streamPosition | 可选 | 用于在多个结果集中分页。 传递的值是上一页返回的值 `getMObjects` 呼叫。 |
+| streamPosition | 可选 | 用于在多个结果集中分页。 传递的值是上一个`getMObjects`调用返回的值。 |
 
 ## 请求XML
 

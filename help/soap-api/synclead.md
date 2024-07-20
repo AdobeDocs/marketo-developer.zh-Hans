@@ -1,27 +1,27 @@
 ---
-title: "syncLead"
+title: syncLead
 feature: SOAP
-description: “syncLead SOAP调用”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncLead SOAP调用
+exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 1%
 
 ---
 
-
 # syncLean
 
 此函数插入或更新单个潜在客户记录。 在更新现有潜在客户时，会使用以下键之一标识该潜在客户：
 
 - Marketo ID
-- 外部系统ID(实现为 `foreignSysPersonId`)
+- 外部系统ID（实现为`foreignSysPersonId`）
 - Marketo Cookie（由Munchkin JS脚本创建）
 - 电子邮件
 
 如果找到现有的匹配项，调用将执行更新。 否则，它会插入并创建一个潜在客户。 匿名潜在客户可以使用Marketo Cookie ID进行更新，并在更新时成为已知客户。
 
-除电子邮件外，所有这些标识符都被视为唯一键。 Marketo ID优先于所有其他键。 如果两者 `foreignSysPersonId` 和潜在客户记录中存在Marketo ID，则Marketo ID优先，并且 `foreignSysPersonId` 将针对该潜在客户进行更新。 如果 `foreignSysPersonId` 给定，然后用作唯一标识符。 如果两者 `foreignSysPersonId` 和电子邮件存在，但Marketo ID不存在， `foreignSysPersonId` 将获得优先权，并且针对该潜在客户更新电子邮件。
+除电子邮件外，所有这些标识符都被视为唯一键。 Marketo ID优先于所有其他键。 如果潜在客户记录中同时存在`foreignSysPersonId`和Marketo ID，则Marketo ID优先，并将为该潜在客户更新`foreignSysPersonId`。 如果只提供了`foreignSysPersonId`，则将其用作唯一标识符。 如果`foreignSysPersonId`和电子邮件同时存在，但Marketo ID不存在，则`foreignSysPersonId`优先，并将更新该潜在客户的电子邮件。
 
 （可选）可以指定上下文标头来命名目标工作区。
 
@@ -42,14 +42,14 @@ ht-degree: 1%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| leadRecord->Id | 必需 — 仅当电子邮件或 `foreignSysPersonId` 不存在 | 潜在客户记录的Marketo ID |
-| leadRecord->电子邮件 | 必需 — 仅当ID或 `foreignSysPersonId` 不存在 | 与潜在客户记录关联的电子邮件地址 |
+| leadRecord->Id | 必需 — 仅当电子邮件或`foreignSysPersonId`不存在时 | 潜在客户记录的Marketo ID |
+| leadRecord->电子邮件 | 必需 — 仅当ID或`foreignSysPersonId`不存在时 | 与潜在客户记录关联的电子邮件地址 |
 | leadRecord->`foreignSysPersonId` | 必需 — 仅当ID或电子邮件不存在时 | 与潜在客户记录关联的外部系统ID |
-| leadRecord->foreignSysType | 可选 — 仅在以下情况下需要 `foreignSysPersonId` 存在 | 外部系统的类型。 可能的值： CUSTOM、SFDC、NETSUITE |
+| leadRecord->foreignSysType | 可选 — 仅在`foreignSysPersonId`存在时才需要 | 外部系统的类型。 可能的值： CUSTOM、SFDC、NETSUITE |
 | leadRecord->leadAttributeList->attribute->attrName | 必需 | 要更新其值的潜在客户属性的名称。 |
 | leadRecord->leadAttributeList->attribute->attrValue | 必需 | 要设置为在attrName中指定的潜在客户属性的值。 |
 | returnLead | 必需 | 为true时，会在更新时返回完整的更新商机记录。 |
-| marketoCookie | 可选 | 此 [Munchkin javascript](../javascript-api/lead-tracking.md) Cookie |
+| marketoCookie | 可选 | [Munchkin javascript](../javascript-api/lead-tracking.md) Cookie |
 
 ## 请求XML
 

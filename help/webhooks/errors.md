@@ -1,14 +1,14 @@
 ---
-title: "错误"
+title: 错误数
 feature: Webhooks
-description: “Webhooks的错误代码”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Webhook的错误代码
+exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '232'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
-
 
 # 错误数
 
@@ -25,7 +25,7 @@ ht-degree: 1%
 
 ## 捕获Webhook错误
 
-来自Webhook的错误可由以下程序捕获和处理 [!UICONTROL Webhook is Called] 触发器：
+来自Webhook的错误可由[!UICONTROL Webhook is Called]触发器捕获和处理：
 
 ![已调用Webhook](assets/webhook-called.png)
 

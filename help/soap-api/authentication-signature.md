@@ -1,14 +1,14 @@
 ---
-title: “身份验证签名”
+title: 身份验证签名
 feature: SOAP
-description: “具有身份验证签名的API安全性”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: 具有身份验证签名的API安全性
+exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 2%
 
 ---
-
 
 # 身份验证签名
 
@@ -19,8 +19,8 @@ HMAC-SHA1签名需要满足以下条件：
 * 使用共享密钥和消息内容计算并与服务请求一起传输的签名
 * 不随服务请求一起传输的共享密钥（也称为加密密钥）
 
-此安全信息通过Marketo中的管理员> SOAP API确认。
-客户端程序将使用共享密钥和部分请求消息内容计算HMAC-SHA1签名。 客户端必须包括SOAP标头AuthenticationHeaderInfo，才能通过SOAP消息传递身份验证信息。
+可通过Marketo中的管理员> SOAP API确认此安全信息。
+客户端程序将使用共享密钥和部分请求消息内容计算HMAC-SHA1签名。 客户端必须包含SOAP标头AuthenticationHeaderInfo，才能在SOAP消息中传递身份验证信息。
 下面的伪代码演示了该算法：
 
 ```
@@ -44,7 +44,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 |--- |--- |--- |
 | mktowsUserId | 必需 | Marketo客户端访问ID可在Marketo管理员SOAP API面板中的集成下找到。 |
 | requestSignature | 必需 | 基于共享密钥、requestTimestamp和Marketo用户ID的HMAC-SHA1签名 |
-| requestTimestamp | 必需 | 请求时间戳(W3C WSDL日期格式，例如 “2013-06-09T14:04:54-08:00英寸) |
+| requestTimestamp | 必需 | 请求时间戳(W3C WSDL日期格式，例如 “2013-06-09T14:04:54-08:00”) |
 | partnerId | 可选 | LaunchPoint技术合作伙伴API密钥。 |
 
 ## 请求XML getLeadActivity

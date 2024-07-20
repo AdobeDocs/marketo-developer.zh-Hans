@@ -1,20 +1,20 @@
 ---
-title: "渠道"
+title: 渠道
 feature: REST API
-description: “使用Marketo API配置渠道数据。”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: 使用Marketo API配置渠道数据。
+exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '125'
 ht-degree: 1%
 
 ---
 
-
 # 渠道
 
-[渠道端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[通道终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
 
-渠道是所有项目类型的标准字段和必填字段。 每种渠道类型只能与给定的一起使用 `applicableProgramType` 并提供对每个项目中的项目群成员有效的可用项目群状态的列表。 如果在创建项目后更改了渠道的项目群状态，则潜在客户可更改为的项目群状态列表将与当时渠道提供的列表相匹配，但不会追溯性地更改任何现有项目群成员资格记录的项目群状态。
+渠道是所有项目类型的标准字段和必填字段。 每种渠道类型只能与给定的`applicableProgramType`一起使用，并提供对每个节目中的节目成员有效的可用节目状态列表。 如果在创建项目后更改了渠道的项目群状态，则潜在客户可更改为的项目群状态列表将与当时渠道提供的列表相匹配，但不会追溯性地更改任何现有项目群成员资格记录的项目群状态。
 
 ## 查询
 

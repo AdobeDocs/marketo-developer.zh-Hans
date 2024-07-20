@@ -1,34 +1,34 @@
 ---
-title: "getLeadActivity"
+title: getLeadActivity
 feature: SOAP
-description: "getLeadActivity SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLeadActivity SOAP调用
+exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 1%
 
 ---
 
-
 # getLeadActivity
 
 此函数检索由提供的键标识的单个潜在客户的活动历史记录。 您可以指定希望在结果中返回哪些活动类型。 如果您需要所有活动类型，则需要传递一个空白值。 对于多种活动类型，请传入活动类型列表。 请求多个活动时，剩余计数不是准确的数字，但应被视为标志，以指示当剩余计数> 0时有更多活动。
 
-A [流位置](stream-position.md) 可用于对大型结果集进行分页。
+[流位置](stream-position.md)可用于对大型结果集进行分页。
 
 ## 请求
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| leadKey->keyType | 必需 | keyType允许您指定查询潜在客户所依据的字段。 可能的值包括：`IDNUM`， `COOKIE`， `EMAIL`， `SFDCLEADID`， `LEADOWNEREMAIL`， `SFDCACCOUNTID`， `SFDCCONTACTID`， `SFDCLEADID`， `SFDCLEADOWNERID`， `SFDCOPPTYID` |
-| leadKey->keyValue | 必需 | `keyValue` 是您希望作为潜在客户查询依据的值。 |
+| leadKey->keyType | 必需 | keyType允许您指定查询潜在客户所依据的字段。 可能的值包括：`IDNUM`、`COOKIE`、`EMAIL`、`SFDCLEADID`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID` |
+| leadKey->keyValue | 必需 | `keyValue`是您希望作为潜在客户查询依据的值。 |
 | activityFilter->includeAttributes->activityType | 可选 | 将响应限制为仅包含指定的那些活动类型。 有关所有活动类型，请参阅WSDL 。 |
-| activityFilter->excludeAttributes->activityType | 可选 | 将响应限制为排除指定的那些活动类型。 有关所有活动类型，请参阅WSDL 。 注：不能同时指定两者 `includeAttributes` 和 `excludeAttributes` 在同一调用中。 |
-| batchSize | 可选 | 要返回的最大记录数。 系统将限制为100或 `batchSize`，以较小者为准。 |
-| startPosition->offset | 可选 | 用于在大量活动响应中分页。 偏移值由以前的调用响应字段返回 `newStartPosition->offset`. |
-| startPosition->activityCreatedAt | 可选 | 用于在大量活动响应中分页。 activityCreatedAt由上一个调用的响应字段返回 `newStartPosition->activityCreatedAt`. （W3C WSDL日期格式）。 |
-| startPosition->latestCreatedAt | 可选 | 用于在大量活动响应中分页。 latestCreatedAt由上一个调用的响应字段返回 `newStartPosition->latestCreatedAt`. （W3C WSDL日期格式）。 |
-| startPosition->oldestCreatedAt | 可选 | 用于在大量活动响应中分页。 oldestCreatedAt由上一个调用的响应字段返回 `newStartPosition->oldestCreatedAt`. （W3C WSDL日期格式）。 |
+| activityFilter->excludeAttributes->activityType | 可选 | 将响应限制为排除指定的那些活动类型。 有关所有活动类型，请参阅WSDL 。 注意：您不能在同一调用中同时指定`includeAttributes`和`excludeAttributes`。 |
+| batchSize | 可选 | 要返回的最大记录数。 系统将限制为100或`batchSize`，以较小者为准。 |
+| startPosition->offset | 可选 | 用于在大量活动响应中分页。 偏移值由以前的调用响应字段`newStartPosition->offset`返回。 |
+| startPosition->activityCreatedAt | 可选 | 用于在大量活动响应中分页。 上一个调用的响应字段`newStartPosition->activityCreatedAt`返回了activityCreatedAt。 （W3C WSDL日期格式）。 |
+| startPosition->latestCreatedAt | 可选 | 用于在大量活动响应中分页。 上次调用的响应字段`newStartPosition->latestCreatedAt`返回了latestCreatedAt。 （W3C WSDL日期格式）。 |
+| startPosition->oldestCreatedAt | 可选 | 用于在大量活动响应中分页。 上一调用的响应字段`newStartPosition->oldestCreatedAt`返回了oldestCreatedAt。 （W3C WSDL日期格式）。 |
 
 ## 请求XML
 
@@ -668,7 +668,7 @@ A [流位置](stream-position.md) 可用于对大型结果集进行分页。
 </SOAP-ENV:Envelope>
 ```
 
-请注意，在 `activityRecord` 元素， `id` 元素将被替换为 `marketoGUID` 元素作为唯一标识符。  此更改将在2017年春季版本中生效。
+请注意，在`activityRecord`元素中，`id`元素将被`marketoGUID`元素替换为唯一标识符。  此更改将在2017年春季版本中生效。
 
 ## 示例代码 — PHP
 

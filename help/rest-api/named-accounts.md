@@ -1,14 +1,14 @@
 ---
-title: “指定帐户”
+title: 指定帐户
 feature: REST API
-description: “通过API操纵命名帐户。”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: 通过API处理命名帐户。
+exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '679'
 ht-degree: 0%
 
 ---
-
 
 # 指定帐户
 
@@ -20,7 +20,7 @@ Marketo提供了一组API，用于对命名帐户执行CRUD操作以用于Market
 
 ## 描述
 
-描述命名帐户将通过Marketo的API返回与命名帐户的使用相关的元数据，包括在查询时可搜索的有效字段列表，以及可供API使用的所有字段列表。 此 `idField` 指定帐户的 `marketoGUID`，并且是唯一可用的 `dedupeField`，创建的关键是 `name` 对象的字段。
+描述命名帐户将通过Marketo的API返回与命名帐户的使用相关的元数据，包括在查询时可搜索的有效字段列表，以及可供API使用的所有字段列表。 命名帐户的`idField`始终为`marketoGUID`，唯一可用的`dedupeField`，创建键是对象的`name`字段。
 
 ```
 GET /rest/v1/namedaccounts/describe.json
@@ -135,7 +135,7 @@ GET /rest/v1/namedaccounts/describe.json
 
 ### 查询
 
-查询命名帐户基于filterType和一组最多300个逗号分隔的filterValues的使用。 `filterType` 可以是中返回的任何单个字段 `searchableFields` 指定帐户的describe结果的成员，而filterValues可以是字段数据类型的任意有效输入。 要从中返回一组特定的字段，必须传递一个字段参数，其中的值是要在响应中返回的以逗号分隔的字段列表。 像其他查询选项一样，单个查询页面的最大记录数为300，并且必须使用调用返回的nextPageToken请求集中的其他记录。
+查询命名帐户基于filterType和一组最多300个逗号分隔的filterValues的使用。 `filterType`可以是命名帐户的describe结果的`searchableFields`成员中返回的任何单个字段，而filterValues可以是字段数据类型的任意有效输入。 要从中返回一组特定的字段，必须传递一个字段参数，其中的值是要在响应中返回的以逗号分隔的字段列表。 像其他查询选项一样，单个查询页面的最大记录数为300，并且必须使用调用返回的nextPageToken请求集中的其他记录。
 
 ```
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
@@ -166,7 +166,7 @@ GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 
 ### 创建和更新
 
-创建和更新指定帐户遵循标准潜在客户数据库模式。 必须在POST请求的JSON主体的输入成员中传递记录。 `input` 是唯一必需的成员，具有 `action` 和 `dedupeBy` 作为可选成员。 在输入中最多可包含300条记录。 操作可以是createOnly、updateOnly或createOrUpdate之一。 如果未指定，则操作默认为createOrUpdate。 dedupeBy只能在action为updateOnly时指定，并且只接受分别与name和marketoGUID字段对应的dedupeFields或idField中的一个。
+创建和更新指定帐户遵循标准潜在客户数据库模式。 必须在POST请求的JSON主体的输入成员中传递记录。 `input`是唯一必需的成员，`action`和`dedupeBy`是可选成员。 在输入中最多可包含300条记录。 操作可以是createOnly、updateOnly或createOrUpdate之一。 如果未指定，则操作默认为createOrUpdate。 dedupeBy只能在action为updateOnly时指定，并且只接受分别与name和marketoGUID字段对应的dedupeFields或idField中的一个。
 
 ```
 POST /rest/v1/namedaccounts.json
@@ -224,7 +224,7 @@ Content-Type: application/json
 
 #### 按名称
 
-此 [按名称获取指定帐户字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) 端点检索命名帐户对象上单个字段的元数据。 必填的fieldApiName路径参数指定字段的API名称。 响应类似于描述命名帐户端点，但包含其他元数据，例如表示字段是否为自定义字段的isCustom属性。
+[按名称获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点为命名帐户对象上的单个字段检索元数据。 必填的fieldApiName路径参数指定字段的API名称。 响应类似于描述命名帐户端点，但包含其他元数据，例如表示字段是否为自定义字段的isCustom属性。
 
 ```
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### 浏览
 
-此 [获取指定帐户字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) 端点检索指定帐户对象中所有字段的元数据。 默认情况下，最多返回300条记录。 可以使用batchSize查询参数来减少此数量。 如果moreResult属性为true，则表示有更多的结果可用。 继续调用此端点，直到moreResult属性返回false，这意味着没有可用的结果。 对于此调用的下一个迭代，应始终重用从此API返回的nextPageToken。
+[获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点检索命名帐户对象中所有字段的元数据。 默认情况下，最多返回300条记录。 可以使用batchSize查询参数来减少此数量。 如果moreResult属性为true，则表示有更多的结果可用。 继续调用此端点，直到moreResult属性返回false，这意味着没有可用的结果。 对于此调用的下一个迭代，应始终重用从此API返回的nextPageToken。
 
 ```
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

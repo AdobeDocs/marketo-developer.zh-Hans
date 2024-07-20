@@ -1,18 +1,18 @@
 ---
-title: "listOperation"
+title: listOperation
 feature: SOAP
-description: "listOperation SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: listOperation SOAP调用
+exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '187'
 ht-degree: 4%
 
 ---
 
-
 # listOperation
 
-此方法用于对在Marketo潜在客户数据库中定义的静态列表执行操作。 要添加或删除程序内定义的静态列表的成员，请使用 [importToList](importtolist.md). 对此端点的每个调用限制每个调用有1000个潜在客户。
+此方法用于对在Marketo潜在客户数据库中定义的静态列表执行操作。 若要添加或删除程序内定义的静态列表的成员，请使用[importToList](importtolist.md)。 对此端点的每个调用限制每个调用有1000个潜在客户。
 
 操作类型包括：
 
@@ -24,11 +24,11 @@ ht-degree: 4%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| listOperation | 必需 | 您希望对指定列表执行的操作的类型。 可能的操作： `ADDTOLIST`， `ISMEMBEROFLIST`， `REMOVEFROMLIST` |
-| listKey->keyType | 必需 | 您希望操作的列表类型。 可能的值： `MKTOLISTNAME`， `MKTOSALESUSERID`， `SFDCLEADOWNERID` |
+| listOperation | 必需 | 您希望对指定列表执行的操作的类型。 可能的操作： `ADDTOLIST`、`ISMEMBEROFLIST`、`REMOVEFROMLIST` |
+| listKey->keyType | 必需 | 您希望操作的列表类型。 可能的值： `MKTOLISTNAME`、`MKTOSALESUSERID`、`SFDCLEADOWNERID` |
 | listKey->keyValue | 必需 | 您希望操作的列表的名称。 |
-| listMemberList->leadKey->keyType | 必需 | `keyType` 允许您指定要作为潜在客户引用的ID。 可能的值： `IDNUM` |
-| listMemberList->leadKey->keyValue | 必需 | `keyValue` 是您希望对列表进行操作的值 |
+| listMemberList->leadKey->keyType | 必需 | `keyType`允许您指定您希望引用潜在客户的ID。 可能的值： `IDNUM` |
+| listMemberList->leadKey->keyValue | 必需 | `keyValue`是您希望对列表进行操作的值 |
 | 严格 | 可选 | 如果调用的任何子集失败，则对整个操作执行Strict模式失败。 非严格模式会完成它所能完成的所有工作，并且会返回任何失败的错误。 |
 
 ## 请求XML

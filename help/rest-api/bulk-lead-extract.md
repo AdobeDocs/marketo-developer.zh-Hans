@@ -1,14 +1,14 @@
 ---
-title: “批量提取潜在客户”
+title: 批量潜在客户提取
 feature: REST API
-description: “批量提取潜在客户数据。”
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: 批量提取潜在客户数据。
+exl-id: 42796e89-5468-463e-9b67-cce7e798677b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1173'
 ht-degree: 2%
 
 ---
-
 
 # 批量潜在客户提取
 
@@ -22,12 +22,12 @@ Bulk Lead Extract API要求拥有的API用户具有只读潜在客户或读写�
 
 ## 过滤器
 
-潜在客户支持各种筛选器选项。 某些过滤器，包括 `updatedAt`， `smartListName`、和 `smartListId` 需要尚未推广到所有订阅的其他基础设施组件。 每个导出作业只能指定一个过滤器类型。
+潜在客户支持各种筛选器选项。 某些筛选器（包括`updatedAt`、`smartListName`和`smartListId`）需要额外的基础结构组件，这些组件尚未推广到所有订阅。 每个导出作业只能指定一个过滤器类型。
 
 | 筛选器类型 | 数据类型 | 备注 |
 |---|---|---|
-| createdat | 日期范围 | 接受包含成员的JSON对象 `startAt` 和 `endAt`. `startAt` 接受表示低水印的日期时间，并且 `endAt` 接受表示高水印的日期时间。 范围必须为31天或更少。 日期时间应采用ISO-8601格式，不带毫秒。 具有此筛选器类型的作业将返回在日期范围内创建的所有可访问记录。 |
-| 更新时间* | 日期范围 | 接受包含成员的JSON对象 `startAt` 和 `endAt`. `startAt` 接受表示低水印的日期时间，并且 `endAt` 接受表示高水印的日期时间。 范围必须为31天或更少。 日期时间应采用ISO-8601格式，不带毫秒。 注意：此过滤器不筛选可见的“updatedAt”字段，该字段仅反映对标准字段的更新。 它根据最近一次字段更新商机记录的时间进行筛选。使用此筛选类型的作业将返回日期范围内最近更新的所有可访问记录。 |
+| createdat | 日期范围 | 接受具有成员`startAt`和`endAt`的JSON对象。 `startAt`接受表示低水位线的日期时间，`endAt`接受表示高水位线的日期时间。 范围必须为31天或更少。 日期时间应采用ISO-8601格式，不带毫秒。 具有此筛选器类型的作业将返回在日期范围内创建的所有可访问记录。 |
+| 更新时间* | 日期范围 | 接受具有成员`startAt`和`endAt`的JSON对象。 `startAt`接受表示低水位线的日期时间，`endAt`接受表示高水位线的日期时间。 范围必须为31天或更少。 日期时间应采用ISO-8601格式，不带毫秒。 注意：此过滤器不筛选可见的“updatedAt”字段，该字段仅反映对标准字段的更新。 它根据最近一次字段更新商机记录的时间进行筛选。使用此筛选类型的作业将返回日期范围内最近更新的所有可访问记录。 |
 | staticListName | 字符串 | 接受静态列表的名称。 具有此筛选器类型的作业将返回所有可访问的记录，这些记录是作业开始处理时静态列表的成员。 使用“获取列表”端点检索静态列表名称。 |
 | staticListId | 整数 | 接受静态列表的id。 具有此筛选器类型的作业将返回所有可访问的记录，这些记录是作业开始处理时静态列表的成员。 使用Get Lists端点检索静态列表ID。 |
 | smartListName* | 字符串 | 接受智能列表的名称。 具有此筛选器类型的作业将返回在作业开始处理时作为智能列表成员的所有可访问记录。 使用获取智能列表端点检索智能列表名称。 |
@@ -42,14 +42,14 @@ Bulk Lead Extract API要求拥有的API用户具有只读潜在客户或读写�
 
 | 参数 | 数据类型 | 必需 | 备注 |
 |---|---|---|---|
-| 字段 | 数组[字符串] | 是 | 字段参数接受字符串的JSON数组。 每个字符串必须是Marketo潜在客户字段的REST API名称。 列出的字段包含在导出的文件中。 除非用columnHeader覆盖，否则每个字段的列标题将是每个字段的REST API名称。 注意：当 [!DNL Adobe Experience Cloud Audience Sharing] 功能启用时，会进行Cookie同步过程以关联 [!DNL Adobe Experience Cloud] ID (ECID)与Marketo潜在客户。 您可以指定“ecid”字段以将ECID包含在导出文件中。 |
+| 字段 | 数组[字符串] | 是 | 字段参数接受字符串的JSON数组。 每个字符串必须是Marketo潜在客户字段的REST API名称。 列出的字段包含在导出的文件中。 除非用columnHeader覆盖，否则每个字段的列标题将是每个字段的REST API名称。 注意：启用[!DNL Adobe Experience Cloud Audience Sharing]功能后，将进行Cookie同步过程以将[!DNL Adobe Experience Cloud] ID (ECID)与Marketo潜在客户关联。 您可以指定“ecid”字段以将ECID包含在导出文件中。 |
 | columnHeaderName | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 这是可以通过调用Describe Lead检索的字段的API名称。 值是该字段的导出列标题的名称。 |
 | 格式 | 字符串 | 否 | 接受以下内容之一：CSV、TSV、SSV。 如果设置，导出的文件将分别呈现为逗号分隔的值、制表符分隔的值或空格分隔的值文件。 如果未设置，则默认为CSV。 |
 
 
 ## 创建作业
 
-作业的参数是在使用启动导出之前定义的 [创建导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) 端点。 我们必须定义 `fields` 导出所需的参数类型 `filter`， `format` 以及列标题名称（如果有）。
+作业的参数是在使用[创建导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST)终结点开始导出之前定义的。 我们必须定义导出所需的`fields`、`filter`的参数类型、文件的`format`以及列标题名称（如果有）。
 
 ```
 POST /bulk/v1/leads/export/create.json
@@ -79,7 +79,7 @@ POST /bulk/v1/leads/export/create.json
 }
 ```
 
-此请求将开始导出在2017年1月1日至2017年1月31日期间创建的一组潜在客户，包括来自相应 `firstName`， `lastName`， `id`、和 `email` 字段。
+此请求将开始导出在2017年1月1日至2017年1月31日期间创建的一组潜在客户，包括来自相应`firstName`、`lastName`、`id`和`email`字段的值。
 
 ```json
 {
@@ -97,7 +97,7 @@ POST /bulk/v1/leads/export/create.json
 }
 ```
 
-这将返回一个状态响应，指示作业已创建。 作业已定义和创建，但尚未开始。 要执行此操作， [将导出潜在客户作业排入队列](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) 必须使用创建状态响应中的exportId调用端点：
+这将返回一个状态响应，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用创建状态响应中的exportId调用[排队Export Lead作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST)终结点：
 
 ```
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -119,13 +119,13 @@ POST /bulk/v1/leads/export/{exportId}/enqueue.json
 }
 ```
 
-此函数使用 `status` “已排队”的值，之后在有可用的导出时段时，该属性将设置为“正在处理”。
+该响应包含`status`个“已排队”，之后当存在可用的导出插槽时，该响应将设置为“正在处理”。
 
 ## 轮询作业状态
 
-`Note:` 只能检索同一API用户创建的作业的状态。
+只能检索同一API用户创建的作业的`Note:`状态。
 
-由于这是异步端点，因此，在创建作业后，我们必须轮询其状态以确定其进度。 使用轮询 [获取导出潜在客户作业状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) 端点。 状态仅每60秒更新一次，因此不建议使用低于此值的轮询频率，并且在几乎所有情况下，仍然会过度轮询。 让我们来快速了解一下投票。
+由于这是异步端点，因此，在创建作业后，我们必须轮询其状态以确定其进度。 使用[获取导出潜在客户作业状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET)终结点进行轮询。 状态仅每60秒更新一次，因此不建议使用低于此值的轮询频率，并且在几乎所有情况下，仍然会过度轮询。 让我们来快速了解一下投票。
 
 ```
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -160,7 +160,7 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成的潜在客户导出的文件，只需调用 [获取导出潜在客户文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) 端点，包含您的 `exportId`.
+要检索已完成的潜在客户导出的文件，只需使用`exportId`调用[获取导出潜在客户文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET)终结点。
 
 ```
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -168,18 +168,18 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。
 
-如果请求的潜在客户字段为空（不包含数据），则 `null` 放置在导出文件的相应字段中。 在下面的示例中，返回的商机的email字段为空。
+如果请求的潜在客户字段为空（不包含数据），则`null`将被放置在导出文件中的相应字段中。 在下面的示例中，返回的商机的email字段为空。
 
 ```csv
 firstName,lastName,email,cookies
 Russell,Wilson,null,_mch-localhost-1536605780000-12105
 ```
 
-为了支持提取数据的部分检索和恢复友好检索，文件端点可以选择性地支持类型字节的HTTP标头范围。 如果未设置标头，则会返回整个内容。 详细了解如何将范围标头与Marketo结合使用 [批量提取](bulk-extract.md).
+为了支持提取数据的部分检索和恢复友好检索，文件端点可以选择性地支持类型字节的HTTP标头范围。 如果未设置标头，则会返回整个内容。 阅读有关将Range标头与Marketo [批量提取](bulk-extract.md)结合使用的更多信息。
 
 ## 取消作业
 
-如果作业配置不正确或变得不必要，可以使用轻松取消 [取消导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) 端点：
+如果某个作业配置不正确或变得不必要，可以使用[取消导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST)端点轻松取消该作业：
 
 ```
 POST /bulk/v1/leads/export/{exportId}/cancel.json

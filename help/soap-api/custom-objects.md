@@ -1,14 +1,14 @@
 ---
-title: “自定义对象”
+title: 自定义对象
 feature: SOAP
-description: “创建自定义对象。”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: 创建自定义对象。
+exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '231'
 ht-degree: 0%
 
 ---
-
 
 # 自定义对象
 

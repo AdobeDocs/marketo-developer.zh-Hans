@@ -1,20 +1,20 @@
 ---
-title: "Web个性化"
-description: "Web个性化"
+title: Web Personalization
+description: Web Personalization
 feature: Web Personalization, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 4%
 
 ---
 
+# Web Personalization
 
-# Web个性化
+Web Personalization JavaScript API扩展了平台的自动个性化功能。 它允许对网页进行事件跟踪和动态自定义。 其他功能：[自定义数据事件](custom-data-events.md)、[动态内容](web-personalization.md)、[获取访客数据](get-visitor-data.md)、[排除特定机器人的标记](#exclude_tag_for_specific_bots)。
 
-Web个性化JavaScript API扩展了平台的自动个性化功能。 它允许对网页进行事件跟踪和动态自定义。 其他功能： [自定义数据事件](custom-data-events.md)， [动态内容](web-personalization.md)， [获取访客数据](get-visitor-data.md)， [特定机器人的排除标记](#exclude_tag_for_specific_bots).
-
-- 您必须成为Web个性化客户并拥有 [已部署RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) 使用用户上下文API之前，在您的网站上执行以下操作。
+- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 标记设置
@@ -71,9 +71,9 @@ rtp('send', 'view', page);
 
 ## 排除特定机器人（用户代理）的标记
 
-要将特定浏览器排除在向Web个性化平台发送数据之外（对于已识别的机器人），请将以下IF语句添加到标记脚本中。
+要将特定浏览器排除在将数据发送到Web Personalization平台之外（对于已识别的机器人），请将以下IF语句添加到标记脚本中。
 
-在以下代码示例中，“Google|msnbot”用作机器人示例，以从Web个性化活动中排除。
+在以下代码示例中，“GoogleBot|msnbot”用作机器人示例，以从Web Personalization活动中排除。
 
 ```javascript
 <!-- RTP tag --> 
@@ -93,9 +93,9 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 
 ## JavaScript调用说明
 
-使用Web个性化和预测内容时添加到网站的JavaScript描述。
+在使用Web Personalization和预测内容时添加到网站的JavaScript的描述。
 
-### 核心/依赖JavaScript
+### 核心/依赖于JavaScript
 
 | 名称 | 描述 | 控件 |
 |---------------------------|-------------|--------------------------------------------------------|
@@ -115,4 +115,3 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 | insightera-bar-2.1.js | 在启用了预测内容推荐栏时使用 | 由Marketo控制 |
 | froogaloop2.min.js | 在启用了内容跟踪并且页面上存在Vimeo播放器时使用 | - |
 | iframe-api-v1.js | 在启用了内容跟踪并且页面上存在YouTube播放器时使用 | - |
-

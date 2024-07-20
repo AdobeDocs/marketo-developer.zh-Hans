@@ -1,14 +1,14 @@
 ---
-title: "requestCampaign"
+title: requestCampaign
 feature: SOAP, Smart Campaigns
-description: "requestCampaign SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: requestCampaign SOAP调用
+exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '277'
 ht-degree: 2%
 
 ---
-
 
 # requestCampaign
 
@@ -16,19 +16,19 @@ ht-degree: 2%
 
 ![Web服务API](assets/webserviceapi.png)
 
-可以使用两个参数集。 第一种情况是使用 `campaignName` + `programName` + `programTokenList`. 此 `programTokenList` 在此情况下可以为空。 第二种情况是使用 `campaignId` 独自一人。 任何其他组合都会引发错误的参数异常。
+可以使用两个参数集。 第一种情况是使用`campaignName` + `programName` + `programTokenList`。 在这种情况下，`programTokenList`可以为空。 第二种情况是单独使用`campaignId`。 任何其他组合都会引发错误的参数异常。
 
 注意：每个调用最多有100个leadKey值。 忽略其他键。
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| leadList->leadKey->keyType | 必需 | `keyType` 允许您指定查询潜在客户的字段。 可能的值包括：`IDNUM`， `EMAIL`， `SFDCLEADID`， `LEADOWNEREMAIL`， `SFDCACCOUNTID`， `SFDCCONTACTID`， `SFDCLEADID`， `SFDCLEADOWNERID`， `SFDCOPPTYID` |
-| leadList->leadKey->keyValue | 必需 | `keyValue` 是您希望作为潜在客户查询依据的值。 |
-| 源 | 必需 | 营销活动源。 可能的值： `MKTOWS` 或 `SALES`. 枚举是在WSDL中定义的。 |
-| campaignId | 可选时间 `campaignName`， `programName`、和 `programTokenList` 在参数站点中同时存在；否则 `campaignId` 为必填项 | 营销活动的ID。 注意：如果出现以下情况，则会出现参数错误： `campaignID` 和 `campaignName` 都通过了。 |
-| campaignName | 当campaignId存在时为可选；否则在集中需要为 `campaignName`、 programName和programTokenList | 营销活动的名称 |
-| 项目名称 | 当campaignId存在时为可选；否则在集中需要为 `campaignName`、 programName和programTokenList | 项目的名称 |
-| programTokenList | 当campaignId存在时为可选；否则在集中需要为 `campaignName`， `programName`、和 `programTokenList` | 要在营销活动中使用的令牌数组。 指定令牌时，programName和 `campaignName` 是必需的。 |
+| leadList->leadKey->keyType | 必需 | `keyType`允许您指定查询潜在客户的字段。 可能的值包括：`IDNUM`、`EMAIL`、`SFDCLEADID`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID` |
+| leadList->leadKey->keyValue | 必需 | `keyValue`是您希望作为潜在客户查询依据的值。 |
+| 源 | 必需 | 营销活动源。 可能的值： `MKTOWS`或`SALES`。 枚举是在WSDL中定义的。 |
+| campaignId | 当`campaignName`、`programName`和`programTokenList`在参数站点中同时存在时是可选的；否则，需要`campaignId` | 营销活动的ID。 注意：如果同时传递`campaignID`和`campaignName`，则会发生错误的参数错误。 |
+| campaignName | 当campaignId存在时为可选；否则，在集合中需要为`campaignName`、programName和programTokenList | 营销活动的名称 |
+| 项目名称 | 当campaignId存在时为可选；否则，在集合中需要为`campaignName`、programName和programTokenList | 项目的名称 |
+| programTokenList | 当campaignId存在时为可选；否则在集中需要为`campaignName`、`programName`和`programTokenList` | 要在营销活动中使用的令牌数组。 指定令牌时，需要programName和`campaignName`。 |
 | programTokenList->attrib->name | 可选 | 您希望传递值的程序令牌的名称。 例如：{{my.message}} |
 | programTokenList->attrib->value | 可选 | 指定令牌名称的值。 |
 

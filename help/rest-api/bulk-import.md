@@ -1,14 +1,14 @@
 ---
-title: “批量导入”
+title: 批量导入
 feature: REST API
-description: “批量导入人员数据。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 批量导入人员数据。
+exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '554'
 ht-degree: 1%
 
 ---
-
 
 # 批量导入
 
@@ -24,7 +24,7 @@ Marketo提供了用于插入大量人员和人员相关数据的界面，称为�
 
 ## 身份验证
 
-批量导入API使用与其他Marketo REST API相同的OAuth 2.0身份验证方法。  这需要嵌入有效的访问令牌作为查询字符串参数 `access_token={_AccessToken_}`或作为HTTP标头 `Authorization: Bearer {_AccessToken_}`.
+批量导入API使用与其他Marketo REST API相同的OAuth 2.0身份验证方法。  这要求将有效的访问令牌作为查询字符串参数`access_token={_AccessToken_}`或HTTP标头`Authorization: Bearer {_AccessToken_}`嵌入。
 
 ## 限制
 
@@ -42,7 +42,7 @@ Marketo提供了用于插入大量人员和人员相关数据的界面，称为�
 
 ## 创建作业
 
-Marketo的批量导入API使用作业的概念来执行数据导入。 我们来看看如何使用 [导入潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) 端点。  请注意，此端点使用 [multipart/form-data作为内容类型](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). 这很难做到，因此最佳实践是为您选择的语言使用HTTP支持库。  如果您只是想让脚湿润，我们建议您使用 [curl](https://curl.se/).
+Marketo的批量导入API使用作业的概念来执行数据导入。 我们来看看如何使用[导入潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)端点创建一个简单的潜在客户导入作业。  请注意，此端点使用[multipart/form-data作为内容类型](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)。 这很难做到，因此最佳实践是为您选择的语言使用HTTP支持库。  如果您只是想让脚湿润，我们建议您使用[curl](https://curl.se/)。
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -96,7 +96,7 @@ Easy,Fox,easyfox@marketo.com
 
 ## 轮询作业状态
 
-使用可以轻松确定作业的状态 [获取导入商机状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) 端点。
+使用[获取导入商机状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET)终结点确定作业状态非常简单。
 
 ```
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -120,13 +120,13 @@ GET /bulk/v1/leads/batch/{batchId}.json
 }
 ```
 
-内层 `status` 成员将指示作业进度，并且可能是以下值之一：“已排队”、“正在导入”、“完成”、“失败”。 在这种情况下，我们的作业已完成，因此我们可以停止轮询。
+内部`status`成员将指示作业进度，并且可能是以下值之一：“已排队”、“正在导入”、“完成”、“失败”。 在这种情况下，我们的作业已完成，因此我们可以停止轮询。
 
 ## 故障
 
-故障由 `numOfRowsFailed` 属性获取导入商机状态响应。 如果 `numOfRowsFailed` 大于零，则该值表示发生的失败次数。
+在“获取导入潜在客户状态”响应中，`numOfRowsFailed`属性指示失败。 如果`numOfRowsFailed`大于零，则该值表示发生的失败次数。
 
-要检索失败行的记录和原因，您必须使用 [获取导入潜在客户失败](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET) 端点。
+要检索失败行的记录和原因，您必须使用[获取导入潜在客户失败](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET)端点检索失败文件。
 
 ```
 GET /bulk/v1/leads/batch/{batchId}/failures.json

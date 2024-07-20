@@ -1,33 +1,33 @@
 ---
-title: "Marketo集成最佳实践"
+title: Marketo集成最佳实践
 feature: REST API
-description: “使用Marketo API的最佳实践。”
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: 使用Marketo API的最佳实践。
+exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '952'
 ht-degree: 0%
 
 ---
 
-
 # Marketo集成最佳实践
 
 ## API限制
 
-- **每日配额：** 大多数订阅每天会分配50,000次API调用（这会在每日凌晨12:00 CST重置）。 您可以通过客户经理增加每日配额。
-- **速率限制：** 每个实例的API访问限制为每20秒100次调用。
+- **每日配额：**&#x200B;大多数订阅每天分配的API调用数为50,000（CST凌晨12:00重置）。 您可以通过客户经理增加每日配额。
+- **速率限制：**&#x200B;每个实例的API访问限制为每20秒100次调用。
 - **并发限制：**  最多十次并发API调用。
-- **批次大小：** 潜在客户数据库 — 300条记录；资产查询 — 200条记录
+- **批次大小：**&#x200B;潜在客户数据库 — 300条记录；资产查询 — 200条记录
 - **REST API有效负载大小：** 1MB
-- **批量导入文件大小：** 10MB
+- **批量导入文件大小：** 10MB
 - **SOAP最大批次大小：** 300条记录
-- **批量提取作业：** 2个正在执行；10个已排队（包括）
+- **批量提取作业：** 2正在执行；10个已排队（包含）
 
 ## 快速提示
 
 - 假定您的应用程序将与其他应用程序竞争配额、速率和并发资源，并设置保守的使用量限制。
 - 在适当时，请使用Marketo的批量方法和批处理方法。 仅在必要时使用单个记录或单个结果调用。
-- 使用 [指数回退](https://en.wikipedia.org/wiki/Exponential_backoff) 重试由于速率或并发限制而失败的API调用。
+- 使用[指数回退](https://en.wikipedia.org/wiki/Exponential_backoff)重试由于速率或并发限制而失败的API调用。
 - 如果您的用例不能从中受益，请避免进行并发API调用。
 
 ## 批处理
@@ -41,14 +41,14 @@ ht-degree: 0%
 | 可接受的延迟 | 首选方法 | 备注 |
 |---|---|---|
 | 低（&lt;10秒） | 同步API（批处理或未批处理） | 确保您的用例需要此项。 发送针对高容量用例的即时和同步调用可能会快速占用每日API配额，并且可能超过速率和并发限制。 |
-| 中（10秒 — 60米） | 同步API（批处理） | 对于与Marketo的入站数据集成，强烈建议使用具有时限和大小限制的队列。 当达到任一限制时，请刷新队列并使用累积记录提交API请求。 这在速度和效率之间实现了强有力的折衷，确保您的请求以所需的节奏发生，同时按队列的保留时间允许的数量批处理记录。 |
+| Medium（1000万 — 6000万） | 同步API（批处理） | 对于与Marketo的入站数据集成，强烈建议使用具有时限和大小限制的队列。 当达到任一限制时，请刷新队列并使用累积记录提交API请求。 这在速度和效率之间实现了强有力的折衷，确保您的请求以所需的节奏发生，同时按队列的保留时间允许的数量批处理记录。 |
 | 高（>60米） | 批量导入/导出（如果支持） | 对于入站数据集成，应通过Marketo批量API（在可用时）对记录进行排队和提交。 |
 
 ## 每日限制
 
 Marketo每个启用API的实例每天至少分配10,000个REST API调用，但通常为50,000个或更多，以及500 MB或更多的批量提取容量。 虽然可以将额外的每日容量作为Marketo订阅的一部分购买，但您的应用程序设计应考虑Marketo订阅的常见限制。
 
-由于在一个实例中容量由所有API服务和用户共享，因此最佳做法是消除多余调用，并将记录批量处理为尽可能少的调用。 导入记录的最有效方法是使用Marketo的批量导入API，该API可用于 [潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) 和 [自定义对象](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo还提供 [潜在客户](bulk-lead-extract.md) 和 [活动](bulk-activity-extract.md).
+由于在一个实例中容量由所有API服务和用户共享，因此最佳做法是消除多余调用，并将记录批量处理为尽可能少的调用。 导入记录的最有效调用方法是使用Marketo的批量导入API，这些API可用于[潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)和[自定义对象](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST)。 Marketo还为[潜在客户](bulk-lead-extract.md)和[活动](bulk-activity-extract.md)提供批量提取。
 
 ### 缓存
 
@@ -72,4 +72,4 @@ Marketo每个启用API的实例每天至少分配10,000个REST API调用，但�
 
 ## 错误数
 
-除少数少数情况外，API请求返回HTTP状态代码200。 业务逻辑错误也返回200，但在响应正文中包含详细信息。 请参阅 [错误代码](error-codes.md) 以取得详细解释。 不应评估HTTP原因短语，因为它是可选的且可能会发生变化。
+除少数少数情况外，API请求返回HTTP状态代码200。 业务逻辑错误也返回200，但在响应正文中包含详细信息。 有关详细说明，请参阅[错误代码](error-codes.md)。 不应评估HTTP原因短语，因为它是可选的且可能会发生变化。

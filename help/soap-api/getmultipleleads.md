@@ -1,42 +1,42 @@
 ---
-title: "getMultipleLeads"
+title: getMultipleLeads
 feature: SOAP
-description: "getMultipleLeads SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getMultipleLeads SOAP调用
+exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '384'
 ht-degree: 2%
 
 ---
 
-
 # getMultipleLeads
 
-点赞 `getLead`， `getMultipleLeads` 从Marketo中检索潜在客户记录。 此调用会返回与传递给leadSelector参数的条件匹配的一批潜在客户的数据，而不是单个潜在客户的数据。 标准可以是日期范围（如上次更新日期）、潜在客户键数组或静态列表。
+与`getLead`一样，`getMultipleLeads`从Marketo中检索潜在客户记录。 此调用会返回与传递给leadSelector参数的条件匹配的一批潜在客户的数据，而不是单个潜在客户的数据。 标准可以是日期范围（如上次更新日期）、潜在客户键数组或静态列表。
 
 注意：如果使用潜在客户键数组，则每批限制为100个；其他键将被忽略。
 
-如果只需要潜在客户字段的子集，则 `includeAttributes` 参数用于指定所需字段。
+如果只需要潜在客户字段的子集，则应使用`includeAttributes`参数指定所需字段。
 
-每个 `getMultipleLeads` 函数调用最多返回1000个潜在客户。 如果您必须检索1000个以上的潜在客户，则结果将返回 [流位置](stream-position.md)，这可用于后续调用，以检索下一批1000个潜在客户。 结果中的剩余计数可告知您剩余的确切潜在客户数量。 从静态列表获取时，终止条件为remainingCount == 0。
+每个`getMultipleLeads`函数调用最多返回1000个潜在客户。 如果您必须检索1000个以上的潜在客户，结果将返回[流位置](stream-position.md)，该位置可用于后续调用以检索下一批1000个潜在客户。 结果中的剩余计数可告知您剩余的确切潜在客户数量。 从静态列表获取时，终止条件为remainingCount == 0。
 
-此端点的常见用例是查找在特定日期更新的潜在客户。 此 `LastUpdateAtSelector` 允许您执行此操作。
+此端点的常见用例是查找在特定日期更新的潜在客户。 `LastUpdateAtSelector`允许您执行此操作。
 
 ## 请求
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| 商机选择器 | 必需 | 可以是以下3种类型之一：`LeadKeySelector`， `StaticListSelector`，`LastUpdateAtSelector` |
+| 商机选择器 | 必需 | 可以是以下3种类型之一：`LeadKeySelector`、`StaticListSelector`、`LastUpdateAtSelector` |
 | keyType | 必需 | 您希望查询的ID类型。 值包括IDNUM、COOKIE、EMAIL、LEADOWNEREMAIL、SFDCACCOUNTID、SFDCCONTACTID、SFDCLEADUDID、SFDCLEADOWNERID、SFDCOPTYID。 |
 | keyValues->stringItem | 必需 | 键值列表。 即，“lead@email.com” |
 | LastUpdateAtSelector： leadSelector->oldestUpdatedAt | 必需 | 用于指定“开始时间”标准的时间戳。 即，返回自指定时间以来更新的所有潜在客户。 （W3C WSDL日期时间格式） |
 | LastUpdateAtSelector： leadSelector->latestUpdatedAt | 可选 | 用于指定“直到”条件的时间戳。 即，返回所有更新到指定时间之前的潜在客户。 （W3C WSDL日期时间格式） |
-| StaticListSelector： leadSelector->staticListName | 可选时间 `leadSelector->staticListId` 存在 | 静态列表的名称 |
-| StaticListSelector： leadSelector->staticListId | 可选时间 `leadSelector->staticListName` 存在 | 静态列表的ID |
-| lastUpdatedAt | **已弃用** | 使用 `LastUpdateAtSelector` 相反 |
+| StaticListSelector： leadSelector->staticListName | `leadSelector->staticListId`存在时可选 | 静态列表的名称 |
+| StaticListSelector： leadSelector->staticListId | `leadSelector->staticListName`存在时可选 | 静态列表的ID |
+| lastUpdatedAt | **已弃用** | 请改用`LastUpdateAtSelector` |
 | includeAttributes | 可选 | 您希望获取的属性的列表。 限制返回的潜在客户字段可以缩短API的响应时间。 |
-| batchSize | 可选 | 要返回的最大记录数。 系统限制为100或 `batchSize`，以较小者为准 |
-| streamPosition | 可选 | 用于在大量潜在客户响应中分页。 此 `streamPosition` 值由以前的调用响应字段返回 `newStreamPosition` |
+| batchSize | 可选 | 要返回的最大记录数。 系统限制为100或`batchSize`，以较小者为准 |
+| streamPosition | 可选 | 用于在大量潜在客户响应中分页。 `streamPosition`值由以前的调用响应字段`newStreamPosition`返回 |
 
 ## 请求XML
 

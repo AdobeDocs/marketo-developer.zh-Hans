@@ -1,14 +1,14 @@
 ---
-title: "scheduleCampaign"
+title: scheduleCampaign
 feature: SOAP, Smart Campaigns
-description: "scheduleCampaign SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: scheduleCampaign SOAP调用
+exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 2%
 
 ---
-
 
 # scheduleCampaign
 
@@ -18,7 +18,7 @@ ht-degree: 2%
 
 与requestCampaign函数类似，您可以将一系列“我的令牌”传递到此API调用中，以覆盖现有令牌。 营销活动运行后，令牌将被丢弃。
 
-如果将此可选参数与 [importToList](importtolist.md)，则令牌的优先级顺序为：
+如果将此可选参数与[importToList](importtolist.md)一起使用，则令牌的优先级顺序为：
 
 1. 每个潜在客户令牌的importToList
 1. 每个营销活动令牌的scheduleCampaign
@@ -32,7 +32,7 @@ ht-degree: 2%
 | campaignName | 必需 | 智能营销活动的名称 |
 | campaignRunAt | 可选 | 运行计划营销活动的时间（W3C WSDL日期格式）。 |
 | cloneToProgramName | 可选 | 当此属性存在时，将克隆营销活动的父项目，并计划新创建的营销活动。 属性为生成的程序指定所需的名称。 注意：使用此字段时，每天只允许进行10次调用。 |
-| programTokenList->attrib->name | 可选 | 要为其发送新值的令牌的名称。 使用完整的令牌格式，就像在Marketo UI中一样。 也就是说，”{{my.message}}&quot; |
+| programTokenList->attrib->name | 可选 | 要为其发送新值的令牌的名称。 使用完整的令牌格式，就像在Marketo UI中一样。 即&quot;{{my.message}}&quot; |
 | programTokenList->attrib->value | 可选 | 关联的令牌名称的值。 |
 
 ## 请求XML

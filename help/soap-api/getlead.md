@@ -1,14 +1,14 @@
 ---
-title: "getLead"
+title: getLead
 feature: SOAP
-description: "getLead SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLead SOAP调用
+exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '127'
 ht-degree: 4%
 
 ---
-
 
 # getLead
 
@@ -20,7 +20,7 @@ ht-degree: 4%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| leadKey->keyType | 必需 | keyType允许您指定查询潜在客户所依据的字段。 可能的值包括：`IDNUM`， `COOKIE`， `EMAIL`， `SFDCLEADID`， `LEADOWNEREMAIL`， `SFDCACCOUNTID`， `SFDCCONTACTID`， `SFDCLEADID`， `SFDCLEADOWNERID`， `SFDCOPPTYID` |
+| leadKey->keyType | 必需 | keyType允许您指定查询潜在客户所依据的字段。 可能的值包括：`IDNUM`、`COOKIE`、`EMAIL`、`SFDCLEADID`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID` |
 | leadKey->keyValue | 必需 | keyValue是您希望作为潜在客户查询依据的值。 |
 
 ## 请求XML

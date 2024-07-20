@@ -1,14 +1,14 @@
 ---
-title: "getChannels"
+title: getChannels
 feature: SOAP
-description: "getChannels SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getChannels SOAP调用
+exl-id: bcaef85b-154b-4571-ad24-07a36707a6ef
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '92'
 ht-degree: 4%
 
 ---
-
 
 # getChannels
 
@@ -24,7 +24,7 @@ ht-degree: 4%
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| tag->values->stringItem | 可选 | 您希望查询的渠道列表。 如果 `<tag>` 将被忽略，您将收到有关所有渠道的信息 |
+| tag->values->stringItem | 可选 | 您希望查询的渠道列表。 如果忽略`<tag>`，您将收到有关所有渠道的信息 |
 
 ## 请求XML
 

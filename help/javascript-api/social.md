@@ -1,18 +1,18 @@
 ---
 title: 社交
-description: "Social"
+description: 社交
 feature: Social, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 2%
 
 ---
 
-
 # 社交
 
-[Marketo社交营销](https://business.adobe.com/products/marketo/social-marketing.html) 允许营销人员将社交构件嵌入网站和登陆页面中。 社交小组件包括投票、社交分享按钮、视频、抽奖和推荐优惠等促销活动。
+[Marketo社交营销](https://business.adobe.com/products/marketo/social-marketing.html)允许营销人员将社交小组件嵌入网站和登陆页面中。 社交小组件包括投票、社交分享按钮、视频、抽奖和推荐优惠等促销活动。
 
 ## 嵌入式共享小部件示例
 
@@ -90,18 +90,18 @@ cf_scripts.afterload(function(){
 
 | 事件名称 | 描述 | 使用此事件的构件 | 支持的参数（传递到事件回调函数） |
 | --- | --- | --- | --- | 
-| share_sent | 每次将共享请求发送到服务器进行处理时触发 | 所有能够共享的widget | 1.”share_sent&quot;（字符串）<br>2. 参数已发送（对象） |
-| share_成功次数 | 成功处理共享请求时触发。 | 所有能够共享的构件。 | 1.”share_success&quot;（字符串）<br>2. 共享响应对象，包含发送的消息和缩短的URL（对象） |
-| 投票成功 | 当用户在投票中成功投票时触发。 | 投票、VS、投票小组件 | 1. &quot;vote_success&quot;（字符串）<br>2. 投票赞成的项目，包括标题、描述、实体标识符（对象） |
-| offer_registered | 用户成功注册选件时触发 | 所有优惠小组件 | 1.”offer_registered&quot;（字符串）<br>2. 更改的用户属性（对象）、<br>3. 更改的用户属性（对象） |
-| profile_saved | 当用户从配置文件捕获更新其配置文件时触发 | 已启用配置文件捕获的所有非选件小组件 | 1.”profile_saved&quot;（字符串）<br>2. 更改的用户属性（对象）<br>3. 更改的用户属性（对象） |
+| share_sent | 每次将共享请求发送到服务器进行处理时触发 | 所有能够共享的widget | 1.”share_sent&quot; （字符串）<br>2。 参数已发送（对象） |
+| share_成功次数 | 成功处理共享请求时触发。 | 所有能够共享的构件。 | 1.”share_success&quot; （字符串）<br>2。 共享响应对象，包含发送的消息和缩短的URL（对象） |
+| 投票成功 | 当用户在投票中成功投票时触发。 | 投票、VS、投票小组件 | 1. &quot;vote_success&quot; （字符串）<br>2。 投票赞成的项目，包括标题、描述、实体标识符（对象） |
+| offer_registered | 用户成功注册选件时触发 | 所有优惠小组件 | 1.”offer_registered&quot; （字符串）<br>2。 已更改用户属性（对象），<br>3。 更改的用户属性（对象） |
+| profile_saved | 当用户从配置文件捕获更新其配置文件时触发 | 已启用配置文件捕获的所有非选件小组件 | 1.”profile_saved&quot; （字符串）<br>2。 已更改用户属性（对象）<br>3。 更改的用户属性（对象） |
 | video_loaded | 在完全加载和初始化嵌入的视频时触发。 | VideoShare构件 | 1. &quot;video_loaded&quot;（字符串） 2. 保存视频的“.cf_videoshare_wrap”元素（jQuery对象） |
 
 ## 将UI替换为自定义UI
 
-要使用自定义UI替换UI，您必须先关闭普通UI，可以通过设置选项来完成此操作 _popupUIOnly_ 到 _true_. 设置此选项后，标准UI将不会在页面加载时渲染，而是由小组件获取其数据，并通过调用 _CF.widget.activate_ 功能并为它应执行的操作提供选项。
+若要使用自定义UI替换UI，必须先关闭普通UI，可通过将选项&#x200B;_popupUIOnly_&#x200B;设置为&#x200B;_true_&#x200B;来完成此操作。 设置此选项后，标准UI将不会在页面加载时渲染，而是由小组件获取其数据，并通过调用&#x200B;_CF.widget.activate_&#x200B;函数并提供其应执行的操作的选项来等待您启动其某个弹出阶段。
 
-以下是创建自定义按钮的示例，该按钮会为名为的推荐优惠构件启动推荐优惠注册流程 _referral_Signup_.
+以下是创建自定义按钮的示例，该按钮会为名为&#x200B;_referral_Signup_&#x200B;的推荐优惠构件启动推荐优惠注册流程。
 
 ```html
 <button id="myNewSignUpButton">My newSign Up button</button>
@@ -139,9 +139,9 @@ cf_scripts.afterload(function($, CF){
 
 ## 将构件UI数据放入替换UI
 
-如果您需要有关该构件的数据来绘制替代UI，则可以从特别活动中获取数据 _ui_data_. 您可以用普通收听器收听此事件 `CF.widget.listen` 函数中，但这样做可能会导致出现潜在的争用情况，即在构件已触发_ui_data_事件后添加事件侦听器，这样您就永远不会接收数据。 要避免此竞赛，请使用 `CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data` 只要执行了会导致重新绘制小部件的标准UI的操作，即使您已使用禁用该UI，就会触发事件。 `popupUIOnly` 选项。
+如果您需要有关该构件的数据来绘制替代UI，则可以从特殊事件&#x200B;_ui_data_&#x200B;中获取数据。 您可以使用普通`CF.widget.listen`函数侦听此事件，但这样做可能会导致出现潜在的争用情况，即在小部件已触发_ui_data_事件之后添加事件侦听器，这样您就永远不会接收数据。 为避免此争用，只要执行了会导致重新绘制构件标准UI的操作，即会触发`CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data`事件，即使您已使用`popupUIOnly`选项禁用该UI也是如此。
 
-使用的示例 `uiData` 用于显示用户使用小组件名称参加抽奖的条目数的函数 _扫描_抽奖_.
+使用`uiData`函数显示用户参加小部件名称为&#x200B;_sweeps_Sweepstakes_&#x200B;的抽奖活动的条目数的示例。
 
 ```html
 <span>You have <span id="entryCount">?</span> entries.</span>

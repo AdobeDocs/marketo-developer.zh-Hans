@@ -1,14 +1,14 @@
 ---
-title: “错误代码”
+title: 错误代码
 feature: REST API
-description: “Marketo错误代码描述。”
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Marketo错误代码描述。
+exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '2272'
 ht-degree: 3%
 
 ---
-
 
 # 错误代码
 
@@ -22,7 +22,7 @@ ht-degree: 3%
 
 在正常操作下，Marketo REST API可以返回三种不同类型的错误：
 
-* HTTP级别：这些错误由 `4xx` 代码。
+* HTTP级别：这些错误由`4xx`代码指示。
 * 响应级别：这些错误包含在JSON响应的“错误”数组中。
 * 记录级别：这些错误包含在JSON响应的“result”数组中，并且是以“status”字段和“reasons”数组单独记录为基础指示的。
 
@@ -30,12 +30,12 @@ ht-degree: 3%
 
 ### HTTP级别错误
 
-在正常操作情况下，Marketo应仅返回两个HTTP状态代码错误， `413 Request Entity Too Large`、和 `414 Request URI Too Long`. 通过捕获错误、修改请求和重试，这些都可恢复，但通过智能编码实践，您绝不应该在野外遇到这些情况。
+在正常操作情况下，Marketo应仅返回两个HTTP状态代码错误： `413 Request Entity Too Large`和`414 Request URI Too Long`。 通过捕获错误、修改请求和重试，这些都可恢复，但通过智能编码实践，您绝不应该在野外遇到这些情况。
 
 如果请求有效负载超过1MB，Marketo将返回413，对于Import Lead将返回10MB。 在大多数情况下，不会达到这些限制，但是如果向请求的大小添加检查，并移动任何记录，导致超过新请求的限制，则应防止出现任何情况，这种情况会导致任何端点返回此错误。
 
-当GET请求的URI超过8KB时，将返回414。 要避免出现这种情况，请检查查询字符串的长度，看看是否超过此限制。 如果它确实将您的请求更改为POST方法，则输入您的查询字符串作为包含附加参数的请求正文 `_method=GET`. 这放弃了URI的限制。 在大多数情况下，很少达到此限制，但在检索具有长单个过滤器值（如GUID）的大量记录时，这种情况比较常见。
-此 [标识](https://developer.adobe.com/marketo-apis/api/identity/) 端点可返回401未授权错误。 这通常是由于无效的客户端ID或无效的客户端密钥。 HTTP级别的错误代码
+当GET请求的URI超过8KB时，将返回414。 要避免出现这种情况，请检查查询字符串的长度，看看是否超过此限制。 如果它确实将您的请求更改为POST方法，则使用附加参数`_method=GET`将您的查询字符串输入为请求正文。 这放弃了URI的限制。 在大多数情况下，很少达到此限制，但在检索具有长单个过滤器值（如GUID）的大量记录时，这种情况比较常见。
+[标识](https://developer.adobe.com/marketo-apis/api/identity/)终结点可能返回401未授权错误。 这通常是由于无效的客户端ID或无效的客户端密钥。 HTTP级别的错误代码
 
 <table>
   <thead>
@@ -62,7 +62,7 @@ ht-degree: 3%
 
 #### 响应级别错误
 
-在以下情况下，出现响应级别错误： `success` 响应的参数设置为false，其结构如下所示：
+将响应的`success`参数设置为false时，将出现响应级别错误，其结构如下所示：
 
 ```json
 {
@@ -77,7 +77,7 @@ ht-degree: 3%
 }
 ```
 
-“错误”数组中的每个对象都有两个成员， `code`，这是带引号的从601到799的整数和 `message` 提供错误的纯文本原因。 6xx代码始终指示请求完全失败并且未执行。 例如，“访问令牌无效”601可通过重新身份验证并使用请求传递新访问令牌而恢复。 7xx错误表示请求失败，可能是因为未返回任何数据，或者请求被错误地参数化，如包含无效的日期，或缺少所需的参数。
+“错误”数组中的每个对象都有两个成员，`code`，它是从601到799的带引号的整数，一个`message`提供了错误的纯文本原因。 6xx代码始终指示请求完全失败并且未执行。 例如，“访问令牌无效”601可通过重新身份验证并使用请求传递新访问令牌而恢复。 7xx错误表示请求失败，可能是因为未返回任何数据，或者请求被错误地参数化，如包含无效的日期，或缺少所需的参数。
 
 #### 响应级错误代码
 
@@ -110,7 +110,7 @@ ht-degree: 3%
     <tr>
       <td><a name="603"></a>603</td>
       <td>访问被拒绝</td>
-      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户角色，或者 <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">基于IP的API访问允许列表</a> 可能已启用。</td>
+      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户允许列表，或可能启用<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">角色以访问基于IP的API</a>。</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -155,7 +155,7 @@ ht-degree: 3%
     <tr>
       <td><a name="612"></a>612</td>
       <td>内容类型无效</td>
-      <td>如果看到此错误，请向请求添加一个指定JSON格式的内容类型标头。 例如，尝试使用“content type： application/json”。 <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type">请参阅此StackOverflow问题</a> 以了解更多详细信息。</td>
+      <td>如果看到此错误，请向请求添加一个指定JSON格式的内容类型标头。 例如，尝试使用“content type： application/json”。 <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type">有关更多详细信息，请参阅此StackOverflow问题</a>。</td>
     </tr>
     <tr>
       <td><a name="613"></a>613</td>
@@ -207,7 +207,7 @@ ht-degree: 3%
       <td>调用无法完成，因为它违反了创建或更新资产的要求，例如，尝试在没有模板的情况下创建电子邮件。 尝试以下操作时也可能出现此错误：
         <ul>
           <li>检索包含社交内容的登陆页面的内容。</li>
-          <li>克隆包含特定资产类型的程序(请参阅 <a href="programs.md#clone">程序克隆</a> 了解更多信息)。</li>
+          <li>克隆包含特定资产类型的程序（有关详细信息，请参阅<a href="programs.md#clone">程序克隆</a>）。</li>
           <li>批准没有草稿（即已批准）的资产。</li>
         </ul></td>
     </tr>
@@ -352,8 +352,8 @@ ht-degree: 3%
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>无效的Cookie值“%s”</td>
-      <td>调用时可能发生 <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">关联潜在客户</a> Cookie参数的值无效。
-        调用时也会发生这种情况 <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">按筛选器类型获取潜在客户</a> 使用filterType=cookies，且filterValues参数的有效值无效。</td>
+      <td>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">关联潜在客户</a>时，可能会发生这种情况，因为Cookie参数的值无效。
+        当使用filterType=cookies和filterValues参数的有效值无效的情况下通过筛选类型</a>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">获取潜在客户时，也会发生这种情况。</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -469,19 +469,20 @@ ht-degree: 3%
     </tr>
     <tr>
       <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a> 使用mergeInCRM标志的调用为4。</td>
+      <td>使用mergeInCRM标志的<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用为4。</td>
       <td>您正在创建重复记录。 建议您改用现有记录。
         这是Marketo在Salesforce中合并时收到的错误消息。</td>
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a> 由于“SFDC字段”长度，调用失败</td>
+      <td>由于“SFDC字段”长度，<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
       <td>由于“SFDC字段”超出允许的字符限制，mergeInCRM设置为true的合并潜在客户调用失败。 要更正，请缩短“SFDC字段”的长度，或将mergeInCRM设置为false。</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a> 调用失败，因为已删除实体、非潜在客户/联系人或字段筛选条件不匹配。</td>
-      <td>合并失败，无法在本机同步的CRM中执行合并操作这是Marketo在Salesforce中合并时收到的错误消息。</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败，因为实体已删除，不是潜在客户/联系人，或者字段筛选条件不匹配。</td>
+      <td>合并失败，无法在本地同步的CRM中执行合并操作
+        这是Marketo在Salesforce中合并时收到的错误消息。</td>
     </tr>
   </tbody>
 </table>

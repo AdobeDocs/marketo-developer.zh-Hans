@@ -1,22 +1,22 @@
 ---
-title: "listMObjects"
+title: listMObjects
 feature: SOAP
-description: "listMObjects SOAP调用"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: listMObjects SOAP调用
+exl-id: d8b32ba2-7c20-4611-9062-c3c5db2d2ccb
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '48'
 ht-degree: 2%
 
 ---
 
-
 # listMObjects
 
-此函数返回可用作输入到中的Marketo对象的名称。 [describeMObjects](./describemobject.md) 用于架构发现操作的函数。
+此函数返回可用作架构发现操作的[describeMObjects](./describemobject.md)函数的输入的Marketo对象的名称。
 
 ## 请求
 
-_没有对此API的输入_
+_此API没有输入_
 
 ## 请求XML
 
