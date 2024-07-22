@@ -60,7 +60,8 @@ UPDATE和UPSERT操作使用ID作为密钥。 在单个API调用中，某些更�
 1. IsPrimary（可选）
 1. 角色（可选）
 
-|
+| 字段名称 | 必需/可选 | 描述 |
+| --- | --- | --- |
 | mObjAssociationList->mObjAssociation->mObjType | 可选 | 用于使用关联对象的ID或外部键更新Opportunity/OpportunityPersonRole对象。 关联的对象可以是：公司（用于更新Opportunity对象）、潜在客户（用于更新OpportunityPersonRole对象）、Opportunity（用于更新OpportunityPersonRole对象）|
 | mObjAssociationList->mObjAssociation->id | 可选 | 关联对象（潜在客户/公司/机会）的ID |
 | mObjAssociationList->mObjAssociation->externalKey | 可选 | 关联对象的自定义属性 |
