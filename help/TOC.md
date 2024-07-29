@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo]开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 85062243d57a3fc6d15251163e926495858edf2a
+source-git-commit: 5d18a24f25e5bda39e10bce3b2a77370dd28c937
 workflow-type: tm+mt
-source-wordcount: '234'
-ht-degree: 7%
+source-wordcount: '237'
+ht-degree: 14%
 
 ---
 
@@ -16,7 +16,7 @@ ht-degree: 7%
 # [!DNL Marketo]开发人员 {#marketo}
 
 - [主页](home.md)
-- [快速入门](getting-started.md)
+- [开始使用](getting-started.md)
 - Javascript API {#javascriptapi}
    - [配置](javascript-api/configuration.md)
    - [自定义数据事件](javascript-api/custom-data-events.md)
@@ -30,18 +30,18 @@ ht-degree: 7%
    - [重定向](javascript-api/redirect.md)
    - [富媒体Recommendations](javascript-api/rich-media-recommendation.md)
    - [社交](javascript-api/social.md)
-   - [触发器](javascript-api/triggers.md)
+   - [触发因素](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
-- 移动设备{#mobile}
+- Mobile {#mobile}
    - [安装 [!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension-installation.md)
-   - [[!DNL Adobe Launch]扩展名](mobile/adobe-launch-extension.md)
+   - [[!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension.md)
    - [高级安全模式](mobile/advanced-security-access-mode.md)
    - [自定义操作](mobile/custom-actions.md)
    - [深层链接](mobile/enabling-deep-links-in-your-app.md)
    - [应用程序内消息传送](mobile/in-app-messages.md)
    - [安装](mobile/installation.md)
    - [[!DNL Ionic]](mobile/ionic.md)
-   - [移动](mobile/mobile.md)
+   - [移动设备](mobile/mobile.md)
    - [Phonegap](mobile/phonegap.md)
    - [推送通知](mobile/push-notifications.md)
    - [React Native](mobile/react-native.md)
@@ -49,7 +49,7 @@ ht-degree: 7%
 - REST{#rest}
    - [REST API概述](rest-api/rest-api.md)
    - [REST API引用](https://developer.adobe.com/marketo-apis/)
-   - Assets {#assets}
+   - 资源 {#assets}
       - [资源](rest-api/assets.md)
       - [动态内容](rest-api/dynamic-content.md)
       - [电子邮件](rest-api/emails.md)
@@ -64,13 +64,13 @@ ht-degree: 7%
       - [程序](rest-api/programs.md)
       - [智能营销活动](rest-api/smart-campaigns.md)
       - [智能列表](rest-api/smart-lists.md)
-      - [代码片段](rest-api/snippets.md)
+      - [片段](rest-api/snippets.md)
       - [静态列表](rest-api/static-lists.md)
       - [令牌](rest-api/tokens.md)
       - [事务性电子邮件](rest-api/transactional-email.md)
    - [身份验证](rest-api/authentication.md)
    - [身份验证签名](rest-api/authentication-signature.md)
-   - [基本URL](rest-api/base-url.md)
+   - [基本 URL](rest-api/base-url.md)
    - [最佳实践](rest-api/marketo-integration-best-practices.md)
    - 批量提取{#bulk-extract}
       - [批量活动](rest-api/bulk-activity-extract.md)
@@ -85,6 +85,7 @@ ht-degree: 7%
       - [批量计划成员](rest-api/bulk-program-member-import.md)
    - [渠道](rest-api/channels.md)
    - [自定义服务](rest-api/custom-services.md)
+   - [数据摄取API](rest-api/data-ingestion.md)
    - [下载Swagger定义](rest-api/swagger.md)
    - [终结点引用](rest-api/endpoint-reference.md)
    - [错误代码](rest-api/error-codes.md)
@@ -108,13 +109,13 @@ ht-degree: 7%
    - [用户上下文](rest-api/user-context.md)
    - [User Management](rest-api/user-management.md)
 - SOAP {#soap}
-   - 活动{#activities}
+   - 活动 {#activities}
       - [活动](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
       - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
    - [活动类型过滤器](soap-api/activity-type-filters.md)
    - [身份验证签名](soap-api/authentication-signature.md)
-   - 营销活动{#campaigns}
+   - 营销活动 {#campaigns}
       - [[!DNL getCampaignsForSource]](soap-api/getcampaignsforsource.md)
       - [[!DNL requestCampaign]](soap-api/requestcampaign.md)
       - [[!DNL scheduleCampaign]](soap-api/schedulecampaign.md)
