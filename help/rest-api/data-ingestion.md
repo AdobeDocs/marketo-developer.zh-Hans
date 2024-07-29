@@ -2,7 +2,7 @@
 title: 数据引入
 feature: REST API, Dynamic Content
 description: 使用Marketo API使用数据。
-source-git-commit: 5d18a24f25e5bda39e10bce3b2a77370dd28c937
+source-git-commit: 1595aa6df0b0404c7cda2c246c9249018fe87e77
 workflow-type: tm+mt
 source-wordcount: '968'
 ht-degree: 10%
@@ -50,7 +50,7 @@ ht-degree: 10%
 ### 响应
 
 | 键 | 值 | 必需 |
-| - | - |
+| - | - | - |
 | X-Request-Id | 唯一请求ID。 | 是 |
 
 ## 请求
