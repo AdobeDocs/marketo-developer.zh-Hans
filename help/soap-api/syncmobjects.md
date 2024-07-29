@@ -3,10 +3,10 @@ title: syncMObjects
 feature: SOAP
 description: syncMObjects SOAP调用
 exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 04e6b38a7ee602c38a851f9b99101186e72a8518
 workflow-type: tm+mt
-source-wordcount: '421'
-ht-degree: 3%
+source-wordcount: '426'
+ht-degree: 4%
 
 ---
 
@@ -62,7 +62,7 @@ UPDATE和UPSERT操作使用ID作为密钥。 在单个API调用中，某些更�
 
 | 字段名称 | 必需/可选 | 描述 |
 | --- | --- | --- |
-| mObjAssociationList->mObjAssociation->mObjType | 可选 | 用于使用关联对象的ID或外部键更新Opportunity/OpportunityPersonRole对象。 关联的对象可以是：公司（用于更新Opportunity对象）、潜在客户（用于更新OpportunityPersonRole对象）、Opportunity（用于更新OpportunityPersonRole对象）|
+| mObjAssociationList->mObjAssociation->mObjType | 可选 | 用于使用关联对象的ID或外部键更新Opportunity/OpportunityPersonRole对象。 关联对象可以是：公司（用于更新Opportunity对象）、潜在客户（用于更新OpportunityPersonRole对象）、Opportunity（用于更新OpportunityPersonRole对象） |
 | mObjAssociationList->mObjAssociation->id | 可选 | 关联对象（潜在客户/公司/机会）的ID |
 | mObjAssociationList->mObjAssociation->externalKey | 可选 | 关联对象的自定义属性 |
 
