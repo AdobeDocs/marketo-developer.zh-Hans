@@ -3,9 +3,9 @@ title: 身份验证
 feature: REST API
 description: 对Marketo用户进行API使用身份验证。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e0fc654efe4501f734ab5158ce0bfd3ed08896ce
 workflow-type: tm+mt
-source-wordcount: '531'
+source-wordcount: '579'
 ht-degree: 0%
 
 ---
@@ -61,6 +61,10 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 1. 查询参数
 
    `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
+
+   >[!IMPORTANT]
+   >
+   >在后续版本中，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
 
 ## 提示和最佳实践
 
