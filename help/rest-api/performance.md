@@ -3,9 +3,9 @@ title: 性能
 feature: REST API
 description: 有关使用Marketo API的性能提示。
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 4e64b8a801e443471f52090b7f008b11e628012d
 workflow-type: tm+mt
-source-wordcount: '117'
+source-wordcount: '122'
 ht-degree: 0%
 
 ---
@@ -16,9 +16,11 @@ ht-degree: 0%
 
 ## HTTP压缩
 
-Marketo REST API支持使用HTTP 1.1规范定义的标准对响应主体进行HTTP压缩。  建议启用压缩，因为它减少了带宽使用量和检索数据所花费的时间。
+Marketo REST API支持使用HTTP 1.1规范定义的标准对响应主体进行HTTP压缩。 建议启用压缩，因为它减少了带宽使用量和检索数据所花费的时间。
 
-**注释：**  将不会压缩小于1024字节的有效负载。
+>[!NOTE]
+>
+>小于1024字节的有效负载不压缩，并且批量API不支持压缩。
 
 要启用压缩，请在请求中包含以下HTTP标头：
 
