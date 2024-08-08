@@ -3,7 +3,7 @@ title: React Native
 feature: Mobile Marketing
 description: 安装适用于Marketo的React Native
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
 source-wordcount: '822'
 ht-degree: 0%
@@ -380,7 +380,6 @@ RNMarketoModule.uninitializeMarketoPush()
 
 #### 配置推送通知
 
-
 使用项目ID和渠道名称初始化推送
 
 ```
@@ -388,7 +387,6 @@ RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
 将以下服务添加到`AndroidManifest.xml`
-
 
 ```xml
 <service android:exported="true" android:name=".MyFirebaseMessagingService" android:stopWithTask="true">

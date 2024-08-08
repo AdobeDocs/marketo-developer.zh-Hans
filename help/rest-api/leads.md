@@ -3,10 +3,10 @@ title: 潜在客户
 feature: REST API
 description: 有关潜在客户API调用的详细信息
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 2c125161cf06be8ebb44ae8212f15fbbe5c1f6b7
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
-source-wordcount: '3308'
-ht-degree: 1%
+source-wordcount: '3343'
+ht-degree: 2%
 
 ---
 
@@ -152,11 +152,19 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 
 ## ADOBEECID
 
-启用Adobe Experience Cloud受众共享功能后，会执行一个Cookie同步过程，以将Adobe Experience Cloud ID (ECID)与Marketo潜在客户关联。  上述商机检索方法可用于检索关联的ECID值。  为此，请在字段参数中指定“ecid”。 例如，“&amp;fields=email，firstName，lastName，ecid”。
+启用Adobe Experience Cloud受众共享功能后，会执行一个Cookie同步过程，以将Adobe Experience Cloud ID (ECID)与Marketo潜在客户关联。  上述商机检索方法可用于检索关联的ECID值。  通过在字段参数中指定`ecids`来执行此操作。 例如：`&fields=email,firstName,lastName,ecids`。
 
 ## 创建和更新
 
 除了检索潜在客户数据之外，您还可以通过API创建、更新和删除潜在客户记录。 创建和更新潜在客户与请求中定义的操作类型共享同一端点，同时可以创建或更新多达300条记录。
+
+>[!NOTE]
+>
+> 不支持使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)终结点更新公司字段。 请改用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)终结点。
+
+>[!NOTE]
+>
+> 创建或更新人员记录的电子邮件值时，电子邮件地址字段仅支持ASCII字符。
 
 ### 请求
 
@@ -710,7 +718,7 @@ Cookie成员字符串是可选的，允许您将Munchkin Cookie与Marketo中的�
 POST /rest/v1/leads/submitForm.json
 ```
 
-### 页眉
+### 标头
 
 ```
 Content-Type: application/json
@@ -1030,7 +1038,7 @@ GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 }
 ```
 
-## 删除
+## Delete
 
 使用“删除潜在客户”端点可以直接删除潜在客户。  使用正文中的id属性指定要删除的潜在客户id。  每个请求的最大商机为300个。  使用Content-Type： application/json标头。
 
