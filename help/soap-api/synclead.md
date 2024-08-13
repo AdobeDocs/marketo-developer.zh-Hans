@@ -3,14 +3,14 @@ title: syncLead
 feature: SOAP
 description: syncLead SOAP调用
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: ebe8faf41dff0e0ba5f4323f5909cc3c9813fd10
 workflow-type: tm+mt
 source-wordcount: '518'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
 
-# syncLean
+# syncLead
 
 此函数插入或更新单个潜在客户记录。 在更新现有潜在客户时，会使用以下键之一标识该潜在客户：
 
