@@ -3,9 +3,9 @@ title: User Management
 feature: REST API
 description: 对用户记录执行CRUD操作。
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
 workflow-type: tm+mt
-source-wordcount: '1155'
+source-wordcount: '1185'
 ht-degree: 0%
 
 ---
@@ -130,31 +130,35 @@ GET /userservice/management/v1/users/allusers.json
 ```json
 [
   {
-    "userid": "jamie@lannister.com",
-    "firstName": "Jamie",
-    "lastName": "Lannister",
-    "emailAddress": "jamie@houselannister.com",
-    "id": 6785,
+    "userid": "02226aae-9f54-45d1-bc26-8305c8f55ec7@adobe.com",
+    "firstName": "Aparna",
+    "lastName": "Ghosh",
+    "emailAddress": "aparna.ghosh@ericsson.com",
+    "id": 5222,
     "apiOnly": false
-  },
-  {
-    "userid": "jeoffery@housebaratheon.com",
-    "firstName": "Jeoffery",
-    "lastName": "Baratheon",
-    "emailAddress": "jeoffery@housebaratheon.com",
-    "id": 7718,
+    },
+    {
+    "userid": "038e1cac-3f3e-4c05-b0b3-6265fd2abcd3@adobe.com",
+    "firstName": "Timm",
+    "lastName": "Rehse",
+    "emailAddress": "timm.rehse@ericsson.com",
+    "id": 7075,
     "apiOnly": false
-  },
-  {
-    "userid": "rickon@housestark.com",
-    "firstName": "Rickon",
-    "lastName": "Stark",
-    "emailAddress": "rickon@housestark.com",
-    "id": 8612,
+    },
+    {
+    "userid": "0a855522-06c9-4a9e-93de-91a0d2cc2987@adobe.com",
+    "firstName": "Dhinagaran",
+    "lastName": "Swaminathan",
+    "emailAddress": "dhinagaran.swaminathan@ericsson.com",
+    "id": 6439,
     "apiOnly": false
-  }
+    }
 ]
 ```
+
+>[!NOTE]
+>
+>在上述代码示例中，显示的`userid`适用于已迁移到Adobe IMS的客户。 尚未迁移的客户将在`userid`字段中看到常规电子邮件地址。
 
 ### 浏览角色
 
@@ -298,7 +302,7 @@ GET /userservice/management/v1/users/workspaces.json
 
 [邀请用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST)端点向新用户发送“欢迎使用Marketo”电子邮件邀请。 电子邮件正文包含“登录到Marketo”链接，该链接允许用户首次访问Marketo。 要接受邀请，电子邮件收件人请单击“登录到Marketo”链接，创建其密码，然后获得对Marketo的访问权限。 在接受过程完成之前，邀请处于“待处理”状态，可能无法编辑用户记录。 待处理的邀请将在发送七天后过期。 有关管理用户的详细信息可在[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)找到。
 
-参数以application/json格式在请求正文中传递。
+参数以`application/json`格式在请求正文中传递。
 
 需要以下参数：  `emailAddress`，`firstName`，`lastName, userRoleWorkspaces`。 `userRoleWorkspaces`参数是包含`accessRoleId`和`workspaceId`属性的对象数组。
 
