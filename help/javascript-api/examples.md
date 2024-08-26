@@ -1,11 +1,11 @@
 ---
 title: 示例
-description: Marketo代码示例
+description: 用于配置表单操作的Marketo代码示例
 feature: Javascript
 exl-id: dc5f0cc5-ff5a-48b0-be36-52c10e56f798
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
 workflow-type: tm+mt
-source-wordcount: '207'
+source-wordcount: '211'
 ht-degree: 0%
 
 ---

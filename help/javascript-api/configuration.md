@@ -1,11 +1,11 @@
 ---
 title: 配置
-description: 配置API
+description: 使用Munchkin时，使用配置Javascript API设置配置值。
 feature: Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
 workflow-type: tm+mt
-source-wordcount: '608'
+source-wordcount: '618'
 ht-degree: 3%
 
 ---
