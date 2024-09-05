@@ -3,9 +3,9 @@ title: 配置
 description: 使用Munchkin时，使用配置Javascript API设置配置值。
 feature: Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 257478ecb76b5908c2f623192f37be25bff1a02a
 workflow-type: tm+mt
-source-wordcount: '618'
+source-wordcount: '554'
 ht-degree: 3%
 
 ---
@@ -29,7 +29,7 @@ Munchkin.init("AAA-BBB-CCC", {
 | 名称 | 数据类型 | 描述 |
 |---|---|---|
 | altIds | 数组 | 接受Munchkin ID字符串的数组。 启用后，将根据其Munchkin ID将所有Web活动复制到目标订阅。 |
-| anonymizeip | 布尔值 | 为新访客匿名处理Marketo中记录的IP地址。您可以通过检查您的`{Munchkin-Id}.mktoresp.com`域是否具有以下地址之一来确定您的订阅是否已配置了Munchkin V2： `192.28.144.124` `134.213.193.62` `192.28.147.68` `103.237.104.82`。 或者，您可以从unix shell运行以下脚本： nslookup {munchkin-id}.mktoresp.com | grep -E -c -e “(192.28.144.124,134.213.193.62,192.28.147.68,103.237.104.82)”如果命令输出“0”，则您的订阅不会配置Munchkin V2；如果命令输出1或更大，则配置该命令。 |
+| anonymizeip | 布尔值 | 将Marketo中记录的新访客的IP地址匿名化。 |
 | apiOnly | 布尔值 | 如果设置为true，则`Munchkin.Init()`函数将不会调用`visitsWebPage`。 这对于需要完全控制每`visitsWebPage`个事件的单页Web应用程序非常有用。 |
 | asyncOnly | 布尔值 | 如果设置为true，则异步发送XMLHttpRequest的。 默认值为false。 |
 | clickTime | 整数 | 设置单击后要阻止的时间以允许点击跟踪请求（以毫秒为单位）。 减少此项会降低点击跟踪的准确性。 默认值为350毫秒。 |
