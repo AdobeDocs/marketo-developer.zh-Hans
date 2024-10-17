@@ -3,9 +3,9 @@ title: 错误代码
 feature: REST API
 description: Marketo错误代码描述。
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
 workflow-type: tm+mt
-source-wordcount: '2272'
+source-wordcount: '2273'
 ht-degree: 3%
 
 ---
@@ -224,7 +224,7 @@ ht-degree: 3%
     <tr>
       <td><a name="712"></a>712</td>
       <td>合并到人员帐户操作无效</td>
-      <td>由于尝试合并Salesforce人员帐户中的潜在客户，因此合并潜在客户调用失败。  Salesforce人员帐户必须合并到Salesforce中。</td>
+      <td>由于尝试合并Salesforce人员帐户中的潜在客户，合并潜在客户调用失败。  Salesforce人员帐户必须合并到Salesforce中。</td>
     </tr>
     <tr>
       <td><a name="713"></a>713</td>
@@ -352,8 +352,8 @@ ht-degree: 3%
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>无效的Cookie值“%s”</td>
-      <td>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">关联潜在客户</a>时，可能会发生这种情况，因为Cookie参数的值无效。
-        当使用filterType=cookies和filterValues参数的有效值无效的情况下通过筛选类型</a>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">获取潜在客户时，也会发生这种情况。</td>
+      <td>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">关联潜在客户</a>时，可能会发生这种情况，因为该潜在客户的“cookie”参数值无效。
+        当使用“filterType=cookies”和“filterValues”参数的无效值通过筛选类型</a>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">获取潜在客户时，也会发生这种情况。</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -476,7 +476,7 @@ ht-degree: 3%
     <tr>
       <td><a name="1077"></a>1077</td>
       <td>由于“SFDC字段”长度，<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
-      <td>由于“SFDC字段”超出允许的字符限制，mergeInCRM设置为true的合并潜在客户调用失败。 要更正，请缩短“SFDC字段”的长度，或将mergeInCRM设置为false。</td>
+      <td>由于“SFDC字段”超出允许的字符限制，mergeInCRM设置为true的合并潜在客户调用失败。 要更正此问题，请缩短“SFDC字段”的长度，或将mergeInCRM设置为false。</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
