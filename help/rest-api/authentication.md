@@ -3,9 +3,9 @@ title: 身份验证
 feature: REST API
 description: 对Marketo用户进行API使用身份验证。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 2bea5277a80ca99d98eb9b774f8cbea24cb6705f
+source-git-commit: d57167d60f1cc6a32c600b72829afcba81e6ec92
 workflow-type: tm+mt
-source-wordcount: '579'
+source-wordcount: '560'
 ht-degree: 0%
 
 ---
@@ -52,19 +52,13 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 调用REST API方法时，必须在每次调用中包含访问令牌才能成功调用。
 
-可以使用以下两种方法将令牌包含到调用中：用作HTTP标头或查询字符串参数：
+访问令牌必须作为HTTP标头发送。
 
-1. HTTP标头
+`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
 
-   `Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-1. 查询参数
-
-   `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-   >[!IMPORTANT]
-   >
-   >2025年6月30日，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
+>[!IMPORTANT]
+>
+>2025年6月30日，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
 
 ## 提示和最佳实践
 
