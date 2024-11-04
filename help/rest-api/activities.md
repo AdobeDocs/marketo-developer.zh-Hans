@@ -2,13 +2,13 @@
 title: 活动
 feature: REST API
 description: 用于管理Marketo Engage活动的API。
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
+source-git-commit: 6baf62bc8881470eca597899e3228c377fb597d0
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
 
 ---
-
 
 # 活动
 
@@ -133,7 +133,7 @@ GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK
 
 请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。 
 
-## 数据值更改
+### 数据值更改
 
 对于数据值更改活动，提供了活动API的专用版本。 [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET)终结点仅返回数据值更改记录到Lead字段的活动。 该界面与Get Lead Activities API相同，但有两个区别：
 
@@ -188,7 +188,7 @@ GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQG
 
 请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
 
-## 已删除的潜在客户
+### 已删除的潜在客户
 
 还有一个特殊的端点[获取已删除的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET)，用于从Marketo中检索已删除的活动。
 
@@ -229,7 +229,7 @@ GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQ
 
 请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
 
-## 翻阅结果
+### 翻阅结果
 
 默认情况下，此部分中提到的端点一次返回300个活动项目。  如果`moreResult`属性为true，则有更多结果可用。 调用终结点，直到`moreResult`属性返回false，这意味着没有其他可用结果。 从此终结点返回的`nextPageToken`应始终为此调用的下一个迭代重用。
 
@@ -322,7 +322,7 @@ GET /rest/v1/activities/external/type/{apiName}/describe.json
 }
 ```
 
-### 创建类型
+## 创建类型
 
 每个自定义活动类型都需要显示名称、API名称、触发器名称、过滤器名称和主要属性。
 
@@ -386,7 +386,7 @@ POST /rest/v1/activities/external/type.json
 }
 ```
 
-### 更新类型
+## 更新类型
 
 更新类型非常相似，不同之处在于， apiName是唯一作为path参数所需的参数。
 
@@ -448,7 +448,7 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 更改活动类型的主属性时，应首先将`isPrimary`设置为false，以降级任何现有的主属性。
 
-## 创建属性
+### 创建属性
 
 创建属性需要使用必需的`apiName`路径参数。 `name`和`dataType`参数也是必需的。` The description and` `isPrimary`参数是可选的。
 
@@ -515,7 +515,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 }
 ```
 
-## 更新属性
+### 更新属性
 
 执行属性更新时，属性的`apiName`是主键。 必须存在`apiName`参数才能成功更新（即，不能使用更新更改`apiName`参数）。
 
@@ -582,7 +582,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 }
 ```
 
-## 删除属性
+### 删除属性
 
 删除属性需要使用作为自定义活动API名称的必需`apiName`路径参数。  另外，还需要一个属性参数，它是一个属性对象的数组。  每个对象必须包含一个`apiName`参数，该参数是自定义活动类型API名称。
 
@@ -710,4 +710,4 @@ POST /rest/v1/activities/external.json
 除非下面说明，否则活动端点的超时为30秒。
 
 * 获取分页令牌： 300秒 
-* 添加自定义活动：90秒 
+* 添加自定义活动：90秒
