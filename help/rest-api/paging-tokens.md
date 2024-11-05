@@ -3,9 +3,9 @@ title: 分页令牌
 feature: REST API
 description: 查看分页令牌数据。
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: a00583f367c2da36d9d1d6e0b05bfd4216573fbb
 workflow-type: tm+mt
-source-wordcount: '345'
+source-wordcount: '352'
 ht-degree: 0%
 
 ---
@@ -15,6 +15,8 @@ ht-degree: 0%
 为了翻阅结果或检索相对于给定数据更新的数据，Marketo提供了翻页令牌。
 
 在某些情况下，可能会返回长分页令牌字符串。 这可能会导致您遇到HTTP 414错误代码。 您可以找到有关如何处理这些[错误](error-codes.md)的详细信息。
+
+请参阅[分页令牌API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET)文档。
 
 ## 令牌类型
 
