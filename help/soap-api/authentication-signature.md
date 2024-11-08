@@ -3,27 +3,28 @@ title: 身份验证签名
 feature: SOAP
 description: 具有身份验证签名的API安全性
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 28b040f6473677abaaa0c73f1bb6e887e9e35a81
 workflow-type: tm+mt
-source-wordcount: '226'
-ht-degree: 2%
+source-wordcount: '209'
+ht-degree: 3%
 
 ---
 
 # 身份验证签名
 
 Marketo API安全使用简单但高度安全的模型，该模型以HMAC-SHA1签名为基础，通过HTTPS传输消息。 此模型的一个关键优势是它提供了无状态身份验证。
+
 HMAC-SHA1签名需要满足以下条件：
 
-* 随服务请求一起传输的用户ID（也称为访问密钥）
-* 使用共享密钥和消息内容计算并与服务请求一起传输的签名
-* 不随服务请求一起传输的共享密钥（也称为加密密钥）
+- 随服务请求一起传输的用户ID（也称为访问密钥）
+- 使用共享密钥和消息内容计算并与服务请求一起传输的签名
+- 不随服务请求一起传输的共享密钥（也称为加密密钥）
 
-可通过Marketo中的管理员> SOAP API确认此安全信息。
-客户端程序将使用共享密钥和部分请求消息内容计算HMAC-SHA1签名。 客户端必须包含SOAP标头AuthenticationHeaderInfo，才能在SOAP消息中传递身份验证信息。
+客户端程序使用共享密钥和部分请求消息内容计算HMAC-SHA1签名。 客户端必须包含SOAP标头AuthenticationHeaderInfo，才能在SOAP消息中传递身份验证信息。
+
 下面的伪代码演示了该算法：
 
-```
+```javascript
 // Request timestamp: a timestamp string in W3C WSDL date format
 stringToEncrypt = requestTimestamp + clientAccessID;
 
@@ -41,13 +42,13 @@ authHeader = "<ns1:AuthenticationHeader>" +
 ## 请求标头
 
 | 字段名称 | 必需/可选 | 描述 |
-|--- |--- |--- |
-| mktowsUserId | 必需 | Marketo客户端访问ID可在Marketo管理员SOAP API面板中的集成下找到。 |
-| requestSignature | 必需 | 基于共享密钥、requestTimestamp和Marketo用户ID的HMAC-SHA1签名 |
-| requestTimestamp | 必需 | 请求时间戳(W3C WSDL日期格式，例如 “2013-06-09T14:04:54-08:00”) |
-| partnerId | 可选 | LaunchPoint技术合作伙伴API密钥。 |
+| --- | --- | --- |
+| `mktowsUserId` | 必需 | Marketo客户端访问ID可在Marketo管理员SOAP API面板中的集成下找到。 |
+| `requestSignature` | 必需 | HMAC-SHA1签名基于共享密钥`requestTimestamp`和Marketo用户ID |
+| `requestTimestamp` | 必需 | 请求时间戳(W3C WSDL日期格式，例如 “2013-06-09T14:04:54-08:00”) |
+| `partnerId` | 可选 | LaunchPoint技术合作伙伴[API密钥](../launchpoint-api.pdf)。 |
 
-## 请求XML getLeadActivity
+## 请求XML - getLeadActivity
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mkt="http://www.marketo.com/mktows/">
@@ -74,7 +75,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 </soapenv:Envelope>
 ```
 
-## 响应XML成功
+## 响应XML — 成功
 
 ```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.marketo.com/mktows/">
@@ -134,25 +135,25 @@ authHeader = "<ns1:AuthenticationHeader>" +
 ## 响应XML — 失败（无效凭据）
 
 ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-     <SOAP-ENV:Body>
-       <SOAP-ENV:Fault>
-         <faultcode>SOAP-ENV:Client</faultcode>
-         <faultstring>20014 - Authentication failed</faultstring>
-         <detail>
-           <ns1:serviceException xmlns:ns1="http://www.marketo.com/mktows/">
-             <name>mktServiceException</name>
-             <message>Authentication failed (20014)</message>
-             <code>20014</code>
-           </ns1:serviceException>
-         </detail>
-       </SOAP-ENV:Fault>
-     </SOAP-ENV:Body>
-   </SOAP-ENV:Envelope>
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <SOAP-ENV:Fault>
+      <faultcode>SOAP-ENV:Client</faultcode>
+      <faultstring>20014 - Authentication failed</faultstring>
+      <detail>
+        <ns1:serviceException xmlns:ns1="http://www.marketo.com/mktows/">
+          <name>mktServiceException</name>
+          <message>Authentication failed (20014)</message>
+          <code>20014</code>
+        </ns1:serviceException>
+      </detail>
+    </SOAP-ENV:Fault>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
 ```
 
-## 示例代码PHP
+## 示例代码 — PHP
 
 ```php
 <?php
@@ -165,15 +166,15 @@ authHeader = "<ns1:AuthenticationHeader>" +
   // Create Signature
   $dtzObj = new DateTimeZone("America/Los_Angeles");
   $dtObj  = new DateTime('now', $dtzObj);
-  $timeStamp = $dtObj-&gt;format(DATE_W3C);
+  $timeStamp = $dtObj->format(DATE_W3C);
   $encryptString = $timeStamp . $marketoUserId;
   $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
  
   // Create SOAP Header
   $attrs = new stdClass();
-  $attrs-&gt;mktowsUserId = $marketoUserId;
-  $attrs-&gt;requestSignature = $signature;
-  $attrs-&gt;requestTimestamp = $timeStamp;
+  $attrs->mktowsUserId = $marketoUserId;
+  $attrs->requestSignature = $signature;
+  $attrs->requestTimestamp = $timeStamp;
   $authHdr = new SoapHeader($marketoNameSpace, 'AuthenticationHeader', $attrs);
  
   print_r($authHdr)
@@ -181,7 +182,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 ?>
 ```
 
-## 示例代码Java
+## 示例代码 — Java
 
 ```java
 import com.marketo.mktows.*;
@@ -241,7 +242,7 @@ public class AuthenticationHeader {
 }
 ```
 
-## 示例代码Ruby
+## 示例代码 — Ruby
 
 ```ruby
 require 'savon' # Use version 2.0 Savon gem
