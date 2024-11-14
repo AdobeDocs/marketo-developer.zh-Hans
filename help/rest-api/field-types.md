@@ -3,20 +3,20 @@ title: 字段类型
 feature: REST API
 description: Marketo字段类型的列表
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 2e1a3991c99ec4563e6532253ac1ad81a5f4c465
 workflow-type: tm+mt
-source-wordcount: '319'
+source-wordcount: '317'
 ht-degree: 7%
 
 ---
 
 # 字段类型
 
-以下是Marketo中字段类型的描述。 有关字段类型的其他信息可在[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)找到。 有关字段类型限制的其他信息可在[此处](https://nation.marketo.com/t5/knowledgebase/tkb-p/support_solutions-documents)找到。
+以下是Marketo中字段类型的描述。 有关字段类型的其他信息可在[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)找到。 有关字段类型限制的其他信息可在[此处](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)找到。
 
 | 字段类型 | 描述 | 示例 |
 | --- | --- | --- |
-| 日期时间 | 用于输入日期和时间。 遵循[W3C格式](https://www.w3.org/TR/NOTE-datetime) (ISO 8601)。 最佳实践是始终包含时区偏移。 完成日期加上小时和分钟： YYYY-MM-DDThh:mm:ssTZD，其中TZD为“+hh：mm”或“ — hh：mm”注意：对于updatedAt和createdAt，某些资产API返回“Z+0000”作为TZD。 | 2010-05-07T15:41:32-05:00 |
+| 日期时间 | 用于输入日期和时间。 遵循[W3C格式](https://www.w3.org/TR/NOTE-datetime) (ISO 8601)。 最佳实践是始终包含时区偏移。 完成日期加上小时和分钟： YYYY-MM-DDThh:mm:ssTZD，其中TZD为“+hh：mm”或“ — hh：mm”注意：对于`updatedAt`和`createdAt`，某些资产API返回“Z+0000”作为TZD。 | 2010-05-07T15:41:32-05:00 |
 | 电子邮件 | 接受电子邮件地址的字符串字段 | example@example.com |
 | 浮点值 | 一个数字字段，包含实数并且可以使用小数位。 | 10.4 |
 | 整数 | 整数 | 10 |
@@ -27,7 +27,7 @@ ht-degree: 7%
 | 文本区域 | 较长的文本。 | 支持最多30,000字节。 标准ASCII字符每个字符使用1个字节（最多允许30,000个字符）。 Unicode字符在每个字符中最多可以使用4字节(减少  字符数允许少于30,000个字符)。 |
 | 字符串 | 较短的文本（最多255个字符） | Lorem ipsum dolor sit amet |
 | 得分 | 可以使用“更改得分”流程步骤处理的整数字段 | 10 |
-| 布尔值（以前为Checkbox） | 允许用户选择True（选中）或False（取消选中）值。 | 真 |
+| 布尔值（以前为Checkbox） | 允许用户选择True（选中）或False（取消选中）值。 | True |
 | 货币 | 浮动字段，表示为Marketo订阅选择的默认货币类型 | 10.40 |
 | 日期 | 用于日期。 遵循W3C格式。 | 2010-05-07 |
-| 引用 | 包含指向另一条记录的键（外键）的字符串字段。 | 联系公司 |
+| 参考 | 包含指向另一条记录的键（外键）的字符串字段。 | 联系公司 |
