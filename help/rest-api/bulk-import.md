@@ -3,9 +3,9 @@ title: 批量导入
 feature: REST API
 description: 批量导入人员数据。
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '554'
+source-wordcount: '592'
 ht-degree: 1%
 
 ---
@@ -24,7 +24,11 @@ Marketo提供了用于插入大量人员和人员相关数据的界面，称为�
 
 ## 身份验证
 
-批量导入API使用与其他Marketo REST API相同的OAuth 2.0身份验证方法。  这要求将有效的访问令牌作为查询字符串参数`access_token={_AccessToken_}`或HTTP标头`Authorization: Bearer {_AccessToken_}`嵌入。
+批量导入API使用与其他Marketo REST API相同的OAuth 2.0身份验证方法。  这需要作为HTTP标头`Authorization: Bearer {_AccessToken_}`发送的有效访问令牌。
+
+>[!IMPORTANT]
+>
+>2025年6月30日，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
 
 ## 限制
 
@@ -88,7 +92,7 @@ Easy,Fox,easyfox@marketo.com
 
 每个作业创建端点共享一些用于配置批量提取作业的文件格式、字段名和过滤器的常用参数。  提取作业的每种子类型可能都有其他参数：
 
-| 参数 | 数据类型 | 备注 |
+| 参数 | 数据类型 | 注释 |
 |---|---|---|
 | 格式 | 字符串 | 使用逗号分隔值、制表符分隔值和分号分隔值的选项确定导入数据的文件格式。 接受以下内容之一：CSV、SSV、TSV。 格式默认为CSV。 |
 | 文件 | 字符串 | 数据通过文件中的多部分表单数据指定。 |
