@@ -3,9 +3,9 @@ title: User Management
 feature: REST API
 description: 对用户记录执行CRUD操作。
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+source-git-commit: 159c3fe29c26ea0fff718bf582a7e4c9a1740831
 workflow-type: tm+mt
-source-wordcount: '1185'
+source-wordcount: '1180'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ Marketo提供了一组用户管理端点，允许您对Marketo中的用户记录
    1. 来自[访问管理员](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组的“访问用户”权限
    1. 从[Access API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组访问“Access User Management Api”
 - 响应正文不包含指示调用成功或失败的“success”布尔属性。 相反，您必须评估HTTP响应状态代码。 如果调用成功，则返回200状态代码。 如果调用失败，将返回非200级的状态代码，并且响应正文包含标准“错误”数组，其中含有错误代码和描述性错误消息。
-- 日期时间字符串的格式为“yyyyMMdd&#39;T&#39;HH:mm:ss.SSS&#39;t&#39;+|-hhmm”。 这适用于以下属性： createdAt、updatedAt、expiresAt。
+- 日期时间字符串的格式为`yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`。 这适用于以下属性： `createdAt`、`updatedAt`、`expiresAt`。
 - 用户管理API端点未像其他端点一样带有“/rest”前缀。
 
 ## 查询
