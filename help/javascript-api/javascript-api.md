@@ -1,9 +1,9 @@
 ---
 title: JAVASCRIPT API
 description: Javascript API
-feature: Munchkin Tracking Code, Javascript
+feature: Munchkin Tracking Code, Forms, Web Personalization, Predictive Content, Social, Javascript
 exl-id: 6129a467-be44-44bd-9e02-62009070c318
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e63db409981d10cfea6206cf91340428e5d0b17f
 workflow-type: tm+mt
 source-wordcount: '337'
 ht-degree: 0%
@@ -18,7 +18,7 @@ ht-degree: 0%
 
 ## 商机跟踪(Munchkin)
 
-Marketo的[Munchkin JavaScript跟踪代码](lead-tracking.md)是Marketo功能的关键。 它允许您通过访问网站来生成潜在客户。 它甚至会跟踪尚未向您提供个人信息的访客，创建包括用户IP地址和其他信息的匿名潜在客户。 您可以在Marketo的“管理”区域的“Munchkin”页面中设置Munchkin。
+Marketo的[Munchkin JavaScript跟踪代码](lead-tracking.md)是Marketo功能的关键。 它允许您通过访问网站来生成潜在客户。 它甚至会跟踪尚未向您提供个人信息的访客，创建包括用户IP地址和其他信息的匿名潜在客户。 您可以在Munchkin的“管理”区域的Munchkin页面中设置Marketo。
 
 ## Forms 2.0
 

@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo]开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 28b040f6473677abaaa0c73f1bb6e887e9e35a81
+source-git-commit: 8160ddaea848d0aefe4eef89a67f55b210c91f70
 workflow-type: tm+mt
-source-wordcount: '241'
+source-wordcount: '243'
 ht-degree: 14%
 
 ---
@@ -18,14 +18,15 @@ ht-degree: 14%
 - [主页](home.md)
 - [开始使用](getting-started.md)
 - Javascript API {#javascriptapi}
-   - [配置](javascript-api/configuration.md)
    - [自定义数据事件](javascript-api/custom-data-events.md)
    - [示例](javascript-api/examples.md)
    - [Forms API参考](javascript-api/forms-api-reference.md)
    - [获取访客数据](javascript-api/get-visitor-data.md)
    - [Javascript API](javascript-api/javascript-api.md)
-   - [商机跟踪](javascript-api/lead-tracking.md)
-   - [Munchkin API参考](javascript-api/api-reference.md)
+   - [潜在客户跟踪]{#leadtracking}
+      - [商机跟踪](javascript-api/lead-tracking.md)
+      - [配置](javascript-api/configuration.md)
+      - [Munchkin API参考](javascript-api/api-reference.md)
    - [模式匹配](javascript-api/pattern-match.md)
    - [预测内容](javascript-api/predictive-content.md)
    - [重定向](javascript-api/redirect.md)

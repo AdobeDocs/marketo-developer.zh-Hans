@@ -1,14 +1,14 @@
 ---
 title: Munchkin API参考
-description: 使用Munchkin Javascript API自定义Munchkin数据。
-feature: Javascript
-source-git-commit: c6c0a492ede415471e10efb6213eb3f590e63ebe
+description: 使用Munchkin Javascript API自定义您的Munchkin数据。
+feature: Munchkin Tracking Code, Javascript
+exl-id: e9727691-5501-4223-bc98-2b4bacc33513
+source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 7%
 
 ---
-
 
 # Munchkin API参考
 
@@ -18,13 +18,15 @@ Munchkin提供了几种可通过Javascript手动调用的函数。 这些功能�
 
 Munchkin API包含以下函数： `init`、`createTrackingCookie`、`munchkinFunction`。
 
+<a name="munchkin_init"></a>
+
 ### Munchkin.init()
 
 必须在任何其他函数之前调用`Munchkin.init()`。 它在当前页面上设置Munchkin以将活动发送到特定实例，并为当前页面生成“访问网页”活动。
 
 | 参数名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
-| Munchkin ID | 必需 | 字符串 | 可在“管理员”>“集成”>“Munchkin”菜单下找到Munchkin帐户ID。 设置要将活动发送到的目标实例。 |
+| Munchkin ID | 必需 | 字符串 | 可在管理员>集成> Munchkin菜单下找到Munchkin帐户ID。 设置要将活动发送到的目标实例。 |
 | [配置设置](configuration.md) | 可选 | 对象 | 为Munchkin启用替代行为设置。 |
 
 ```javascript
