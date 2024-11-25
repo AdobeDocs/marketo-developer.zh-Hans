@@ -5,7 +5,7 @@ breadcrumb-title: '[!DNL Marketo]开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8160ddaea848d0aefe4eef89a67f55b210c91f70
+source-git-commit: afe7e713fe15d63822625cd0299dc7125761cd33
 workflow-type: tm+mt
 source-wordcount: '243'
 ht-degree: 14%
@@ -23,7 +23,7 @@ ht-degree: 14%
    - [Forms API参考](javascript-api/forms-api-reference.md)
    - [获取访客数据](javascript-api/get-visitor-data.md)
    - [Javascript API](javascript-api/javascript-api.md)
-   - [潜在客户跟踪]{#leadtracking}
+   - 潜在客户跟踪{#leadtracking}
       - [商机跟踪](javascript-api/lead-tracking.md)
       - [配置](javascript-api/configuration.md)
       - [Munchkin API参考](javascript-api/api-reference.md)
@@ -60,8 +60,8 @@ ht-degree: 14%
       - [文件夹](rest-api/folders.md)
       - [Forms](rest-api/forms.md)
       - [登陆页面](rest-api/landing-pages.md)
-      - [登陆页面模板](rest-api/landing-page-templates.md)
       - [登陆页面重定向规则](rest-api/landing-page-redirect-rules.md)
+      - [登陆页面模板](rest-api/landing-page-templates.md)
       - [标准字段列表](rest-api/list-of-standard-fields.md)
       - [程序](rest-api/programs.md)
       - [智能营销活动](rest-api/smart-campaigns.md)
