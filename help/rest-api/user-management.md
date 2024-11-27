@@ -3,7 +3,7 @@ title: User Management
 feature: REST API
 description: 对用户记录执行CRUD操作。
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 159c3fe29c26ea0fff718bf582a7e4c9a1740831
+source-git-commit: b89a22e136a7b81a5cd1af9ba7b0caa41c619ff4
 workflow-type: tm+mt
 source-wordcount: '1180'
 ht-degree: 0%
@@ -130,29 +130,29 @@ GET /userservice/management/v1/users/allusers.json
 ```json
 [
   {
-    "userid": "02226aae-9f54-45d1-bc26-8305c8f55ec7@adobe.com",
-    "firstName": "Aparna",
-    "lastName": "Ghosh",
-    "emailAddress": "aparna.ghosh@ericsson.com",
-    "id": 5222,
+    "userid": "jamie@lannister.com",
+    "firstName": "Jamie",
+    "lastName": "Lannister",
+    "emailAddress": "jamie@houselannister.com",
+    "id": 6785,
     "apiOnly": false
-    },
-    {
-    "userid": "038e1cac-3f3e-4c05-b0b3-6265fd2abcd3@adobe.com",
-    "firstName": "Timm",
-    "lastName": "Rehse",
-    "emailAddress": "timm.rehse@ericsson.com",
-    "id": 7075,
+  },
+  {
+    "userid": "jeoffery@housebaratheon.com",
+    "firstName": "Jeoffery",
+    "lastName": "Baratheon",
+    "emailAddress": "jeoffery@housebaratheon.com",
+    "id": 7718,
     "apiOnly": false
-    },
-    {
-    "userid": "0a855522-06c9-4a9e-93de-91a0d2cc2987@adobe.com",
-    "firstName": "Dhinagaran",
-    "lastName": "Swaminathan",
-    "emailAddress": "dhinagaran.swaminathan@ericsson.com",
-    "id": 6439,
+  },
+  {
+    "userid": "rickon@housestark.com",
+    "firstName": "Rickon",
+    "lastName": "Stark",
+    "emailAddress": "rickon@housestark.com",
+    "id": 8612,
     "apiOnly": false
-    }
+  }
 ]
 ```
 
