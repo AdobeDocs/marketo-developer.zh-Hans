@@ -3,9 +3,9 @@ title: 潜在客户
 feature: REST API
 description: 有关潜在客户API调用的详细信息
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
+source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
 workflow-type: tm+mt
-source-wordcount: '3343'
+source-wordcount: '3338'
 ht-degree: 2%
 
 ---
@@ -18,10 +18,10 @@ Marketo Lead的API为针对潜在客户记录的简单CRUD应用程序提供了�
 
 ## 描述
 
-Leads API的关键功能之一是Describe方法。 使用描述潜在客户检索可用于通过REST API和SOAP API进行交互的字段的完整列表，以及每个字段的元数据：
+Leads API的关键功能之一是Describe方法。 使用描述潜在客户检索可用于通过REST API进行交互的字段的完整列表，以及每个字段的元数据：
 
 * 数据类型
-* REST和SOAP API名称
+* REST API名称
 * 长度（如果适用）
 * 只读
 * 友好标签
@@ -95,7 +95,7 @@ GET /rest/v1/lead/{id}.json
 
 按过滤器类型获取潜在客户将返回相同类型的记录，但每页最多可能返回300条记录。 它需要`filterType`和`filterValues`查询参数。
 
-`filterType`接受任何自定义字段，或大多数常用字段。 调用`Describe2`端点以获取允许在`filterType`中使用的可搜索字段的完整列表。 按自定义字段搜索时，仅支持以下数据类型： `string`、`email`、`integer`。 您可以获取字段详细信息（描述、类型等） 使用上述Describe方法。
+`filterType`接受任何自定义字段，或大多数常用字段。 调用`Describe2`端点以获取允许在`filterType`中使用的可搜索字段的完整列表。 按自定义字段搜索时，仅支持以下数据类型： `string`、`email`、`integer`。 您可以使用上述Describe方法获取字段详细信息（描述、类型等）。
 
 `filterValues`以逗号分隔格式接受最多300个值。 该调用将搜索潜在客户字段与所包含`filterValues`之一匹配的记录。 如果与商机过滤器匹配的商机数量大于1,000，则会返回错误：“1003，有太多结果与过滤器匹配”。
 
@@ -708,7 +708,7 @@ POST /rest/v1/leads/push.json
 
 `visitorData`成员对象是可选的，包含与页面访问数据（包括`pageURL`、`queryString`、`leadClientIpAddress`和`userAgentString`）对应的名称/值对。 可用于填充其他活动字段以进行筛选和触发。
 
-Cookie成员字符串是可选的，允许您将Munchkin Cookie与Marketo中的人员记录相关联。 创建新潜在客户时，任何以前的匿名活动都会与该潜在客户关联，除非该Cookie值以前曾与其他已知记录关联。 如果以前关联过Cookie值，则系统会根据记录跟踪新活动，但不会从现有已知记录迁移旧活动。 要创建没有活动历史记录的新潜在客户，只需忽略Cookie成员。
+Cookie成员字符串是可选的，用于将Munchkin Cookie与Marketo中的人员记录相关联。 创建新潜在客户时，任何以前的匿名活动都会与该潜在客户关联，除非该Cookie值以前曾与其他已知记录关联。 如果以前关联过Cookie值，则系统会根据记录跟踪新活动，但不会从现有已知记录迁移旧活动。 要创建没有活动历史记录的新潜在客户，只需忽略Cookie成员。
 
 在窗体所在的工作区的主分区中创建新的潜在客户。
 
@@ -789,11 +789,11 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 
 在path参数中指定的商机是入选商机，因此，如果合并的记录之间有任何字段冲突，则采用来自入选者的值，但入选记录中的字段为空且失败记录中的对应字段为空的除外。 在`leadId`或`leadIds`参数中指定的潜在客户是失败的潜在客户。
 
-如果您的订阅启用了SFDC-sync，则还可以在请求中使用`mergeInCRM`参数。 如果设置为true，则还会在CRM中执行相应的合并。 如果两个潜在客户都在SFDC中，并且一个是CRM潜在客户，而另一个是CRM联系人，则入选者将成为CRM联系人（无论将哪个潜在客户指定为入选者）。 如果其中一个潜在客户位于SFDC中，而另一个仅位于Marketo中，则入选者为SFDC潜在客户（无论指定哪个潜在客户为入选者）。
+如果您具有启用SFDC同步的订阅，则还可以在请求中使用`mergeInCRM`参数。 如果设置为true，则还会在CRM中执行相应的合并。 如果两个潜在客户都在SFDC中，其中一个是CRM潜在客户，而另一个是CRM联系人，则入选者将成为CRM联系人（无论哪个潜在客户被指定为入选者）。 如果其中一个潜在客户位于SFDC中，而另一个仅位于Marketo中，则入选者将成为SFDC潜在客户（无论将哪个潜在客户指定为入选者）。
 
 ## 关联Web活动
 
-通过潜在客户跟踪(Munchkin)，Marketo会记录网站和Marketo登陆页面访客的Web活动。 这些活动（访问和点击）使用与在潜在客户浏览器中设置的“_mkto_trk”Cookie对应的键进行记录，Marketo将使用此键来跟踪同一人员的活动。 通常，当潜在客户从Marketo电子邮件点击进来或填写Marketo表单时，就会发生与潜在客户记录的关联，但有时关联可能由其他类型的事件触发，为此，您可以使用关联潜在客户端点来执行。 端点将已知潜在客户记录的ID作为路径参数，并在Cookie查询参数中采用“_mkto_trk”Cookie值。
+通过潜在客户跟踪(Munchkin)，Marketo记录网站和Marketo登陆页面访客的Web活动。 这些活动（访问和点击）使用与在潜在客户浏览器中设置的“_mkto_trk”Cookie对应的键进行记录，Marketo将使用此键来跟踪同一人员的活动。 通常，当潜在客户从Marketo电子邮件点击进来或填写Marketo表单时，就会发生与潜在客户记录的关联，但有时关联可能由其他类型的事件触发，为此，您可以使用关联潜在客户端点来执行。 端点将已知潜在客户记录的ID作为路径参数，并在Cookie查询参数中采用“_mkto_trk”Cookie值。
 
 ### 请求
 
