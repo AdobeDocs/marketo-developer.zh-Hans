@@ -3,9 +3,9 @@ title: REST API
 feature: REST API
 description: REST API概述
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: ade3216f04c822de14dc0bbcbc08bfa3a4b17cb3
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '706'
+source-wordcount: '770'
 ht-degree: 1%
 
 ---
@@ -15,6 +15,10 @@ ht-degree: 1%
 Marketo会公开一个REST API，该API允许远程执行系统的多项功能。 从创建程序到批量引导导入，有许多选项允许对Marketo实例进行细粒度控制。
 
 这些API通常分为两大类：[潜在客户数据库](https://developer.adobe.com/marketo-apis/api/mapi/)和[资产](https://developer.adobe.com/marketo-apis/api/asset/)。 Lead Database API允许检索Marketo人员记录和相关对象类型（如商机和公司）并与之交互。 资产API允许与营销宣传材料和工作流相关记录进行交互。
+
+>[!NOTE]
+>SOAP API已被弃用，在2025年10月31日后将不再可用。 所有新的开发应使用Marketo [REST API](./rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](../soap-api/migration.md)以了解有关如何迁移的信息。
+>
 
 - **每日配额：**&#x200B;订阅每天分配的API调用数为50,000（CST凌晨12:00重置）。 您可以通过客户经理增加每日配额。
 - **速率限制：**&#x200B;每个实例的API访问限制为每20秒100次调用。

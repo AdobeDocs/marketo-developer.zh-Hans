@@ -3,9 +3,9 @@ title: 商机跟踪
 description: 商机跟踪API
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '767'
+source-wordcount: '764'
 ht-degree: 0%
 
 ---
@@ -74,7 +74,7 @@ Munchkin的行为可以通过使用Munchkin [配置设置](configuration.md)来�
 
 - 潜在客户必须通过跟踪的Munchkin电子邮件链接访问查询字符串中包含`mkt_tok`参数的Marketo跟踪页面。
 - 潜在客户必须填写Marketo表单。
-- 必须发送SOAP [syncLead](../soap-api/leads.md)或REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST)调用。
+- 必须发送REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST)调用。
 
 一旦满足了这些条件之一，Cookie和所有关联的Web活动就会关联到已知商机。
 

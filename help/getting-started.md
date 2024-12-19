@@ -2,9 +2,9 @@
 title: 开始使用
 description: Marketo EngageAPI快速入门
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 490411e411bed7b5b76fd9e5f41ccc9d156b2ba9
 workflow-type: tm+mt
-source-wordcount: '1265'
+source-wordcount: '1337'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,11 @@ ht-degree: 0%
 
 Marketo Engage是一个营销自动化平台，它使营销人员能够向潜在客户和客户管理个性化的多渠道项目和营销活动。 可以使用集成点扩展Marketo Engage平台。 在下面您可以找到核心实体及其关系。
 
-启用本机同步后，无法通过REST API访问以下对象：公司、Opportunity、Opportunity角色、Sales Person
+>[!NOTE]
+>SOAP API已被弃用，在2025年10月31日后将不再可用。 所有新的开发应使用Marketo [REST API](./rest-api/rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](./soap-api/migration.md)以了解有关如何迁移的信息。
+>
+
+在Marketo Engage实例上启用本机SFDC或MS Dynamics CRM连接后，以下对象为只读：公司、Opportunity、Opportunity角色、Sales Person
 
 ![数据模型](assets/data_model.png)
 
