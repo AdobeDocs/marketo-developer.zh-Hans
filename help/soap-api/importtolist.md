@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: importToList SOAP调用
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8a019985fc9ce7e1aa690ca26bfa263cd3c48cfc
 workflow-type: tm+mt
-source-wordcount: '317'
+source-wordcount: '393'
 ht-degree: 3%
 
 ---
@@ -24,7 +24,7 @@ ht-degree: 3%
 | mary@company.com | 玛丽 | 罗杰斯 |
 | wanda@megacorp.com | 万达 | 威廉姆斯 |
 
-**注意：** `displayName`值应在`importFileHeader`中使用，而不是`name`值。
+`displayName`值应在`importFileHeader`中使用，而不是`name`值。
 
 **动态电子邮件内容：**&#x200B;或者，您可以按潜在客户传递值，以代替电子邮件中的“我的令牌”。
 
@@ -36,7 +36,9 @@ ht-degree: 3%
 
 **重要信息：**&#x200B;如果您为潜在客户添加了令牌，则必须指定使用它们的Smart Campaign。 下次运行指定的Smart Campaign时，将使用列表中的值，而不是正常的“我的令牌”值。 运行该单个营销活动后，令牌将被丢弃。
 
-**注意：** `importToList`可能需要一些时间才能完成，尤其是大型列表。 如果您计划在其他API调用中使用新导入的列表，您应使用`importToListStatus`来检查操作是否完成。
+`importToList`可能需要一些时间才能完成，尤其是对于大型列表。 如果您计划在其他API调用中使用新导入的列表，您应使用`importToListStatus`来检查操作是否完成。
+
+**注意：**&#x200B;导入CSV文件中数值字段的NULL值可能会为这些字段生成“更改数据值”活动，即使该字段已为空。 任何使用“数据值已更改”过滤器或“数据值更改”触发器的智能营销活动，都可能导致潜在客户有资格参与这些营销活动，即使数据实际上没有更改。 对这些过滤器/触发器使用限制，以确保潜在客户在执行导入时不符合错误营销活动的条件。
 
 ## 请求
 
