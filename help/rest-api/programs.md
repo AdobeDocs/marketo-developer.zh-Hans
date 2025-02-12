@@ -3,9 +3,9 @@ title: 程序
 feature: REST API, Programs
 description: 创建和编辑项目信息。
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
 workflow-type: tm+mt
-source-wordcount: '843'
+source-wordcount: '848'
 ht-degree: 1%
 
 ---
@@ -23,7 +23,7 @@ Marketo中有五种核心类型的程序：
 - 默认
 - 活动
 - 网络研讨会活动
-- 参与
+- 参与度
 - 电子邮件
 
 参与计划可能是其他类型的计划的父级，而默认、事件和网络研讨会事件可能只是电子邮件计划的父级。
@@ -320,9 +320,12 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## 创建和更新
 
-[正在创建]https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST)和[正在更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)程序，这些程序遵循标准资源模式，并且具有`folder`、`name`、`type`和`channel`作为必需参数，其中`description`、`costs`和`tags`为可选参数。 渠道和类型只能在创建项目时设置。 创建后只能更新描述、名称、`tags`和`costs`，并允许额外的`costsDestructiveUpdate`参数。 将`costsDestructiveUpdate`传递为true将导致清除所有现有成本，并将其替换为调用中包含的任何成本。 请注意，在某些订阅中，某些程序类型可能需要使用标记，但这取决于配置，应首先使用“获取标记”检查标记，以查看是否有实例特定的要求。
+[创建](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST)和[更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)程序遵循标准资源模式，并以`folder`、`name`、`type`和`channel`为必需参数，其中`description`、`costs`和`tags`为可选参数。 渠道和类型只能在创建项目时设置。 创建后只能更新描述、名称、`tags`和`costs`，并允许额外的`costsDestructiveUpdate`参数。 将`costsDestructiveUpdate`传递为true将导致清除所有现有成本，并将其替换为调用中包含的任何成本。 请注意，在某些订阅中，某些程序类型可能需要使用标记，但这取决于配置，应首先使用“获取标记”检查标记，以查看是否有实例特定的要求。
 
-创建或更新电子邮件程序时，可能也会传递`startDate`和`endDate`。
+创建或更新电子邮件程序时，`startDate`和`endDate`也可能作为UTC日期/时间传递：
+
+`"startDate": "2022-10-19T15:00:00.000Z"`
+`"endDate": "2022-10-19T15:00:00.000Z"`
 
 ### 创建
 
@@ -440,7 +443,7 @@ description=This is an updated description&name=Updated Program Name&costs=[{"st
 
 可以远程批准或取消批准电子邮件程序，这将导致程序在给定的startDate运行并在给定的endDate结束。 必须设置这两个参数以批准项目，并通过UI配置有效且批准的电子邮件和智能列表。
 
-### 审批
+### 批准
 
 ```
 POST /rest/asset/v1/program/{id}/approve.json

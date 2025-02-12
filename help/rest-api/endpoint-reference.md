@@ -3,9 +3,9 @@ title: 终结点引用
 feature: REST API
 description: Marketo API端点引用
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 8a019985fc9ce7e1aa690ca26bfa263cd3c48cfc
+source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
 workflow-type: tm+mt
-source-wordcount: '4676'
+source-wordcount: '4677'
 ht-degree: 3%
 
 ---
@@ -19,7 +19,7 @@ ht-degree: 3%
 - [潜在客户数据库](https://developer.adobe.com/marketo-apis/api/mapi/)
 - [User Management](https://developer.adobe.com/marketo-apis/api/user/)
 
-## 端点列表
+## 端点列表(#endpoint_list)
 
 以下是REST API端点的完整列表。
 
