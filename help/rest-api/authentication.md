@@ -3,9 +3,9 @@ title: 身份验证
 feature: REST API
 description: 对Marketo用户进行API使用身份验证。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 6f8dc76703aba204b6d0d4f1a3b5275aea819f08
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '558'
+source-wordcount: '564'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ Marketo的REST API使用双腿OAuth 2.0进行身份验证。客户端ID和客户
 
 在REST API部分的&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**&#x200B;菜单中找到`Identity URL`。
 
-使用HTTPGET(或POST)请求创建访问令牌，如下所示：
+使用HTTP GET（或POST）请求创建访问令牌，如下所示：
 
 ```
 GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client Id>&client_secret=<Client Secret>
@@ -52,13 +52,15 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 调用REST API方法时，必须在每次调用中包含访问令牌才能成功调用。
 
-访问令牌必须作为HTTP标头发送。
-
-`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
 >[!IMPORTANT]
 >
 >2025年6月30日，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
+
+访问令牌必须作为HTTP标头发送。 例如，在CURL请求中：
+
+```bash
+$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+```
 
 ## 提示和最佳实践
 

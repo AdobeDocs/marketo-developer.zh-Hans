@@ -3,10 +3,10 @@ title: 批量活动提取
 feature: REST API
 description: 从Marketo批量处理活动数据。
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 8c22255673fee1aa0f5b47393a241fcf6680778b
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1343'
-ht-degree: 2%
+source-wordcount: '1342'
+ht-degree: 3%
 
 ---
 
@@ -36,8 +36,8 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
 | 更改数据值 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
 | 更改得分 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
 | 进程中的更改状态 | 项目ID | [按名称获取计划](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | 营销计划 |
-| 添加到列表 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
-| 从列表中删除 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
+| 添加到 List | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
+| 从列表中移除 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
 | 填写表单 | 表单ID | [按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Web窗体 |
 
 使用`primaryAttributeValueIds`时，`activityTypeIds`过滤器必须存在，并且只包含与相应资产组匹配的活动ID。 例如，如果您正在筛选Web窗体资源，则`activityTypeIds`中仅允许“填写窗体”活动类型ID。
@@ -70,8 +70,8 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
 | 更改数据值 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
 | 更改得分 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
 | 进程中的更改状态 | 项目名称 | [按Id获取计划](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | 营销计划 |
-| 添加到列表 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
-| 从列表中删除 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
+| 添加到 List | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
+| 从列表中移除 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
 | 填写表单 | 表单名称 | [按Id获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Web窗体 |
 
 请注意，您必须使用“&lt;<em>程序</em>>”。&lt;<em>资产</em>>表示法，用于指定以下资产组的名称：营销计划、静态列表、Web窗体。 例如，名为“MPS Outbound”的表单位于名为“GL_OP_ALL_2021”的程序下，该表单将指定为“GL_OP_ALL_2021.MPS Outbound”。
@@ -222,7 +222,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。
 
-如果请求的潜在客户字段为空（不包含数据），则`then null`将被放置在导出文件中的相应字段中。  在以下示例中，返回的活动的campaignId字段为空。
+如果请求的潜在客户字段为空（不包含数据），则`then null`将被放置在导出文件中的相应字段中。  在以下示例中，返回的活动的`campaignId`字段为空。
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes

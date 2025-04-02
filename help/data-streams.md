@@ -2,16 +2,16 @@
 title: 数据流
 description: 数据流概述
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1589'
-ht-degree: 0%
+source-wordcount: '1583'
+ht-degree: 1%
 
 ---
 
 # 数据流
 
-我们客户的营销组织依靠及时而集中的营销活动保持业务领先和竞争力。 为了支持快节奏的决策并快速实现战略变革，拥有数据来支持并推动那些能够开展重点突出、目标明确的促销活动的关键决策非常重要。 还有一些客户在Marketo Engage内外的客户细分级别执行营销工作。 为了支持这些不同的努力，Marketo已创建通过数据流近乎实时地获取大量数据的能力。
+我们客户的营销组织依靠及时而集中的营销活动保持业务领先和竞争力。 为了支持快节奏的决策并快速实现战略变革，拥有数据来支持并推动那些能够开展重点突出、目标明确的促销活动的关键决策非常重要。 还有一些客户在Marketo Engage内部和外部对其客户区段级别执行营销工作。 为了支持这些不同的努力，Marketo已创建通过数据流近乎实时地获取大量数据的能力。
 
 除了近乎实时数据的好处之外，还有与产品相关的好处：
 
@@ -19,7 +19,7 @@ ht-degree: 0%
 - 减少API限制方案，生成更少的警报消息。
 - 由于具有数据流式处理功能，因此无需执行批量导出即可提取数据。
 
-数据流可用于已购买[Marketo Engage性能层包](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)的数据流。
+数据流适用于已购买[Marketo Engage性能层包](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)的用户。
 
 ## 潜在客户活动数据流概述
 
@@ -70,13 +70,13 @@ ht-degree: 0%
 
 订阅此流的良好用例是：
 
-- 使用多个营销系统时跟踪更改：有些客户还会在其他系统（如Salesforce CRM）中执行某个级别的营销活动，然后将潜在客户传递到Marketo。 Lead有时会更新并前后同步，因此跟踪哪个系统最近进行了更改非常重要。
+- 使用多个营销系统时跟踪更改：有些客户还会在其他系统(如CRM，如Salesforce)中执行某个级别的营销活动，然后将潜在客户传递到Marketo。 Lead有时会更新并前后同步，因此跟踪哪个系统最近进行了更改非常重要。
 
 流式用户审核事件列表：
 
 | 组件 | 事件类型列表 |
 |--- |--- |
-| 默认项目群 | 克隆、创建、删除、编辑通道、导出、修改程序设置、修改程序令牌、重命名 |
+| 默认程序 | 克隆、创建、删除、编辑通道、导出、修改程序设置、修改程序令牌、重命名 |
 | 电子邮件 | 批准、克隆、创建、删除、编辑、移动、重命名、取消批准 |
 | 电子邮件批处理程序 | 批准、子更新、克隆、创建、删除、编辑、编辑通道、修改程序计划、修改程序设置、修改程序令牌、重命名、取消批准 |
 | 电子邮件模板 | 批准、克隆、创建、删除、草稿创建、草稿放弃、编辑、重命名、取消批准 |
@@ -87,12 +87,12 @@ ht-degree: 0%
 | 表单 — >登陆页面表单 | 创建、克隆、编辑、删除、批准、重命名 |
 | 登陆页面 | 批准、克隆、创建、删除、草稿放弃、编辑、重命名、取消批准 |
 | 登陆页面模板 | 批准、克隆、创建、删除、草稿创建、草稿放弃、编辑、重命名、取消批准 |
-| 智能列表 | 克隆、创建、删除、编辑、导出、修改智能列表设置、重命名 |
+| Smart List | 克隆、创建、删除、编辑、导出、修改智能列表设置、重命名 |
 | 营销文件夹 | 创建、编辑、删除 |
 | 培养计划 | 克隆、创建、删除、编辑通道、修改程序设置、修改程序流、修改程序令牌、重命名 |
 | 区段 | 创建、删除、编辑、重命名 |
-| 分段 | 批准、创建、删除、草稿创建、草稿丢弃、重命名、取消批准 |
-| Smart Campaign | 中止、激活、克隆、创建、停用、删除、编辑、修改营销活动计划、修改流程步骤操作、修改智能列表设置、移动、重命名 |
+| 区段 | 批准、创建、删除、草稿创建、草稿丢弃、重命名、取消批准 |
+| 智能营销活动 | 中止、激活、克隆、创建、停用、删除、编辑、修改营销活动计划、修改流程步骤操作、修改智能列表设置、移动、重命名 |
 | 代码片段 | 批准、批准（无草稿）、克隆、创建、删除、编辑、重命名、取消批准 |
 | 管理员UI -> Launchpoint ->集成 | 创建、删除、编辑 |
 | 管理员UI ->用户 | 创建、编辑、删除（仅适用于API用户） |
@@ -128,9 +128,9 @@ ht-degree: 0%
 
 ## 通知数据流概述
 
-通知数据流作为Marketo Engage的性能级别产品的一部分提供。
+通知数据流作为Marketo Engage性能级别产品的一部分提供。
 
-目前，可以将Marketo中的通知中心配置为将通知发送到电子邮件地址。 Notification Data Stream允许通过Adobe I/O事件将通知直接发送到可配置的端点。 现在，通知通过UI提供，并且可以通过屏幕右上方的橙色铃铛引用，此流接收这些通知并通过流发送它们。
+目前，可以将Marketo中的通知中心配置为将通知发送到电子邮件地址。 通知数据流允许通过Adobe I/O事件将通知直接发送到可配置的端点。 现在，通知通过UI提供，并且可以通过屏幕右上方的橙色铃铛引用，此流接收这些通知并通过流发送它们。
 
 通知事件列表：
 
@@ -180,15 +180,15 @@ ht-degree: 0%
 要实施潜在客户活动数据流，以下是客户应遵循的步骤：
 
 1. 公开可以从公共Internet接收带有JSON正文的POST请求的HTTP端点。 活动推送数据流将请求发送至：
-1. 为Adobe提供以下内容：
+1. 向Adobe提供以下信息：
    1. 适用于其订阅的Marketo Munchkin ID
    1. 步骤1中的端点的URL
    1. 他们希望收到的活动类型（以上完整的列表）
    1. 一种身份验证方法，以便客户可以验证请求是否合法。 可以：
       1. OAuth [客户端凭据身份验证](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)的标识提供程序URL、客户端ID和客户端密钥
-      1. API令牌，可以包含在潜在客户活动数据流发送的请求中（查询参数中）或授权标头（客户选择）中
+      1. API令牌，可包含在授权http标头中由潜在客户活动数据流发送的请求中
 
-然后，Adobe会启用数据流，此时客户将开始接收数据。
+然后，Adobe会启用数据流，客户将在该时间点开始接收数据。
 
 典型潜在客户活动数据流调用的UML图：
 
@@ -243,18 +243,18 @@ app.listen(port,()=>{
 
 ### 用户审核数据流和通知数据流
 
-用户审核事件会发送到AdobeIO，并可通过使用Adobe ID登录来使用。 以下是需遵循的步骤：
+用户审核事件将发送到Adobe IO，并可通过使用Adobe ID登录来使用。 以下是需遵循的步骤：
 
-1. 客户向Adobe提供以下内容：
+1. 客户向Adobe提供以下信息：
    1. Adobe ID
    1. 适用于其订阅的Marketo Munchkin ID
 1. 客户公开REST端点以正常使用webhook形式的事件。
-1. 提供该设置后，Adobe将为客户的订阅启用流。
-1. 然后，客户在AdobeIO中设置流（将提供的说明）
-   1. 此步骤需要Adobe组织
+1. 提供该设置后，Adobe将为客户订阅启用流。
+1. 然后，客户在Adobe IO中设置流（需要提供的说明）
+   1. 此步骤需要使用Adobe组织
    1. 要求Adobe组织用户具有开发人员或系统管理员角色
 
-要设置AdobeIO，请参阅公共文档部分中的[使用AdobeIO设置Marketo用户审核数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/)。
+要设置Adobe IO，请参阅公共文档部分中的[使用Adobe IO设置Marketo用户审核数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/)。
 
 ### 在Marketo中设置用户审核数据流
 
@@ -262,7 +262,7 @@ app.listen(port,()=>{
 
 ### 设置Adobe I/O
 
-[请参阅Adobe I/O活动快速入门](https://developer.adobe.com/runtime/docs/guides/getting-started/)
+[请参阅Adobe I/O Events快速入门](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
 有关此用例的基本说明，请从[console.adobe.io](https://developer.adobe.com/console)开始：
 
@@ -275,5 +275,5 @@ app.listen(port,()=>{
 ## 公共文档
 
 - [Marketo数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
-- [AdobeIO活动和Webhook简介](https://developer.adobe.com/events/docs/guides/)
+- [Adobe IO活动和Webhook简介](https://developer.adobe.com/events/docs/guides/)
 - [数据流博客](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)
