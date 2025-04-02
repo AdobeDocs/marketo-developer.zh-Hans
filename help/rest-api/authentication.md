@@ -3,9 +3,9 @@ title: 身份验证
 feature: REST API
 description: 对Marketo用户进行API使用身份验证。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 9582f7ac5998b670dd04cc6529db23f558c0e18e
 workflow-type: tm+mt
-source-wordcount: '564'
+source-wordcount: '610'
 ht-degree: 0%
 
 ---
@@ -51,15 +51,27 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 ## 使用访问令牌
 
 调用REST API方法时，必须在每次调用中包含访问令牌才能成功调用。
+访问令牌必须作为HTTP标头发送。
 
 >[!IMPORTANT]
 >
 >2025年6月30日，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
 
-访问令牌必须作为HTTP标头发送。 例如，在CURL请求中：
+### 切换到授权标头
+
+
+若要从使用`access_token`查询参数切换到授权标头，需要少量代码更改。
+
+以CURL为例，此代码将`access_token`值作为表单参数（ — F标志）发送：
 
 ```bash
-$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+curl ...  -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/apiCall.json
+```
+
+此代码发送与`Authorization: Bearer` http标头相同的值（ — H标志）：
+
+```bash
+curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/bulk/v1/apiCall.json
 ```
 
 ## 提示和最佳实践
