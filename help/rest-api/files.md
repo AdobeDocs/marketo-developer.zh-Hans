@@ -18,7 +18,7 @@ Marketo订阅允许存储任意文件，如图像、脚本、文档和样式表�
 
 ## 查询
 
-查询文件非常简单，并遵循id为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)的[以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET)的标准查询类型。
+查询文件非常简单，并遵循id为[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)的以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET)的标准查询类型。
 
 ### 按Id
 

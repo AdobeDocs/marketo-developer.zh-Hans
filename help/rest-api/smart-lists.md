@@ -20,7 +20,7 @@ Marketo提供了一组REST API用于对智能列表执行操作。 这些API遵�
 
 ## 查询
 
-查询智能列表遵循ID为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)的[以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET)的标准查询类型。
+查询智能列表遵循ID为[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)的以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET)的标准查询类型。
 
 ### 按Id
 
@@ -191,7 +191,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### 浏览
 
-智能列表也可在批次](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET)中检索[。 `folder`参数用于指定执行查询的父文件夹。 它被格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 可选的`earliestUpdatedAt`和`latestUpdatedAt`日期时间参数可用于按UpdatedAt日期范围筛选结果。
+智能列表也可在批次[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET)中检索。 `folder`参数用于指定执行查询的父文件夹。 它被格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 可选的`earliestUpdatedAt`和`latestUpdatedAt`日期时间参数可用于按UpdatedAt日期范围筛选结果。
 
 ```
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}

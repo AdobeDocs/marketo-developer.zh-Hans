@@ -18,7 +18,7 @@ ht-degree: 0%
 
 ## 查询
 
-查询文件夹遵循ID为[、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET)且浏览次数为[的[和](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)的标准查询类型。](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET)
+查询文件夹遵循ID为[、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET)且浏览次数为[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET)的[和](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)的标准查询类型。
 
 ### 按Id
 
@@ -113,7 +113,7 @@ GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 
 ### 浏览
 
-也可以批量](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)检索文件夹[。 “root”参数可用于指定要在其中执行查询的父文件夹，并将格式化为嵌入为查询参数值的JSON对象。 Root有两个成员：
+也可以批量[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)检索文件夹。 “root”参数可用于指定要在其中执行查询的父文件夹，并将格式化为嵌入为查询参数值的JSON对象。 Root有两个成员：
 
 1. id — 文件夹或程序的ID。
 1. 类型 — 文件夹或程序，具体取决于要浏览的根文件夹的类型。
