@@ -16,7 +16,7 @@ Marketo PhoneGap插件的集成
 
 ## 先决条件
 
-1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）。
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）。
 1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md))。
 1. [安装PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 

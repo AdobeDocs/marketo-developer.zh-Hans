@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [销售人员终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-对于启用了[SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅，销售人员API是只读访问权限。 销售人员是销售线索记录的销售负责人的人员记录类型。 它们按每个Lead记录上的externalSalesPersonId字段与Lead记录相关。 当Lead通过填充的externalSalesPersonId字段与Sales Person关联时，将在Marketo中为该商机记录填充相应的Lead Owner查找字段，从而允许使用相应的过滤器和令牌。
+对于启用了[SFDC Sync](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics Sync](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅，销售人员API是只读访问权限。 销售人员是销售线索记录的销售负责人的人员记录类型。 它们按每个Lead记录上的externalSalesPersonId字段与Lead记录相关。 当Lead通过填充的externalSalesPersonId字段与Sales Person关联时，将在Marketo中为该商机记录填充相应的Lead Owner查找字段，从而允许使用相应的过滤器和令牌。
 
 通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)终结点并传递externalSalesPersonId属性，销售人员与潜在客户记录相关联。
 

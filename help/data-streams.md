@@ -258,7 +258,7 @@ app.listen(port,()=>{
 
 ### 在Marketo中设置用户审核数据流
 
-用户审计数据流当前作为性能包及其他3个数据流的一部分提供。 有关软件包的详细信息，请参阅[产品描述页](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html)以了解产品限制和功能。
+用户审计数据流当前作为性能包及其他3个数据流的一部分提供。 有关软件包的详细信息，请参阅[产品描述页](https://helpx.adobe.com/cn/legal/product-descriptions/adobe-marketo-engage---product-description.html)以了解产品限制和功能。
 
 ### 设置Adobe I/O
 

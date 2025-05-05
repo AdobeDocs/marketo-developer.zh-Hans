@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [程序成员终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo公开了用于读取、创建、更新和删除项目成员记录的API。 项目群成员记录通过lead id字段与lead记录相关。 记录由一组标准字段和最多20个其他自定义字段组成（可选）。 这些字段包含每个成员特定于程序的数据，可用于表单、筛选器、触发器和流操作。 可以在Marketo EngageUI的程序[成员选项卡](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
+Marketo公开了用于读取、创建、更新和删除项目成员记录的API。 项目群成员记录通过lead id字段与lead记录相关。 记录由一组标准字段和最多20个其他自定义字段组成（可选）。 这些字段包含每个成员特定于程序的数据，可用于表单、筛选器、触发器和流操作。 可以在Marketo EngageUI的程序[成员选项卡](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
 
 ## 描述
 
@@ -597,9 +597,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### 创建字段
 
-[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST)终结点在程序成员对象上创建一个或多个自定义字段。 此端点提供的功能与Marketo EngageUI[&#128279;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)中的类似。 您可以使用此端点创建最多20个自定义字段。
+[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST)终结点在程序成员对象上创建一个或多个自定义字段。 此端点提供的功能与Marketo EngageUI[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)中的类似。 您可以使用此端点创建最多20个自定义字段。
 
-请仔细考虑您在使用API的Marketo Engage生产实例中创建的每个字段。 创建字段后，便不能将其删除（[您只能隐藏它](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)）。 未使用字段的激增是一种不良做法，会增加实例的混乱。
+请仔细考虑您在使用API的Marketo Engage生产实例中创建的每个字段。 创建字段后，便不能将其删除（[您只能隐藏它](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)）。 未使用字段的激增是一种不良做法，会增加实例的混乱。
 
 所需的`input`参数是程序成员字段对象的数组。 每个对象都包含一个或多个属性。 必需的属性是`displayName`、`name`和`dataType`，它们分别对应于字段的UI显示名称、字段的API名称和字段类型。 您可以选择指定`description`、`isHidden`、`isHtmlEncodingInEmail`和`isSensitive`。
 

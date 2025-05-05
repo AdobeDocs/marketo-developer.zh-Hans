@@ -14,7 +14,7 @@ ht-degree: 1%
 
 [电子邮件模板终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-电子邮件模板构成了Marketo中每个新电子邮件的基础。  虽然可以通过HTML替换来取消电子邮件与模板的链接，但最初创建电子邮件时必须以模板为基础。  在Marketo中，模板是作为纯HTML文档创建的，带有诸如名称和描述之类的元数据。  对内容的限制很少，但模板的HTML必须有效，并且必须至少包含一个可编辑部分，该部分遵循此处[概述的要求](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)。
+电子邮件模板构成了Marketo中每个新电子邮件的基础。  虽然可以通过HTML替换来取消电子邮件与模板的链接，但最初创建电子邮件时必须以模板为基础。  在Marketo中，模板是作为纯HTML文档创建的，带有诸如名称和描述之类的元数据。  对内容的限制很少，但模板的HTML必须有效，并且必须至少包含一个可编辑部分，该部分遵循此处[概述的要求](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)。
 
 ## 查询
 

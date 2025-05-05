@@ -18,7 +18,7 @@ ht-degree: 0%
 
 ## 模板类型
 
-Marketo提供两种类型的登陆页面模板：自由表单和引导式。 自由表单登陆页面模板为从这些模板派生的页面提供松散结构的编辑体验。 引导式模板提供了一个结构化的体验，其中可在模板级别限制元素类型和位置。 有关差异的详细信息，请参阅[此文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages)。
+Marketo提供两种类型的登陆页面模板：自由表单和引导式。 自由表单登陆页面模板为从这些模板派生的页面提供松散结构的编辑体验。 引导式模板提供了一个结构化的体验，其中可在模板级别限制元素类型和位置。 有关差异的详细信息，请参阅[此文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages)。
 
 ## 查询
 
@@ -167,9 +167,9 @@ name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 
 要批准模板，该模板必须符合其类型的规则，无论是在自由格式的引导下。 有关创建和批准相应类型模板要求的更多信息，请参阅各自的创建文档：
 
-- [自由表单登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [引导式模板示例](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [自由表单登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [引导式模板示例](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## 删除
 

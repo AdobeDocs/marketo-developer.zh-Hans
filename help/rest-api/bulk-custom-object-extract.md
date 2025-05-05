@@ -16,7 +16,7 @@ ht-degree: 1%
 
 REST API的批量自定义对象提取集提供了一个编程接口，用于从Marketo中检索大量自定义对象记录。 对于需要在Marketo与一个或多个外部系统之间持续交换数据的用例，这是推荐的界面，用于ETL、数据仓库存储和存档目的。
 
-此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI[&#128279;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)中商机的详细信息页面的自定义对象选项卡中查看自定义对象数据。
+此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)中商机的详细信息页面的自定义对象选项卡中查看自定义对象数据。
 
 ## 权限
 

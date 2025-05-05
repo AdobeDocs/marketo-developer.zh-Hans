@@ -14,7 +14,7 @@ ht-degree: 4%
 
 Web Personalization JavaScript API扩展了平台的自动个性化功能。 它允许对网页进行事件跟踪和动态自定义。 其他功能：[自定义数据事件](custom-data-events.md)、[动态内容](web-personalization.md)、[获取访客数据](get-visitor-data.md)、[排除特定机器人的标记](#exclude_tag_for_specific_bots)。
 
-- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 标记设置

@@ -156,7 +156,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 | Marketo | landingPageId | {&quot;type&quot;：&quot;landingPageId&quot;，&quot;value&quot;：&quot;1774&quot;} |
 | 非Marketo | url | {&quot;type&quot;：&quot;url&quot;，&quot;value&quot;：&quot;www.contactLogs.com&quot;} |
 
-有关创建登陆页面重定向规则的更多信息，请访问[此处](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html)。
+有关创建登陆页面重定向规则的更多信息，请访问[此处](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
 
 ```
 POST /rest/asset/v1/redirectRules.json

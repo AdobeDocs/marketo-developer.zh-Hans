@@ -130,7 +130,7 @@ $date.whenIs($birthday).days ##outputs 1
 - 您可以引用连接到Lead、Contact或Account的自定义对象，但不能引用多个对象。
 - 只能通过单个连接、潜在客户、联系人或帐户引用自定义对象
 - 您必须在脚本编辑器中选中正在使用的字段的框，否则这些字段将不会处理
-- 对于每个自定义对象，每个人员/联系人最近更新的10条记录在运行时可用，并且按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[&#128279;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)增加可用的记录数。
+- 对于每个自定义对象，每个人员/联系人最近更新的10条记录在运行时可用，并且按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)增加可用的记录数。
 - 如果电子邮件中包含多个电子邮件脚本，则它们将自上而下执行。 在第一个要执行的脚本中定义的变量的范围将在后续脚本中可用。
 - 工具引用： [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - 有关包含换行字符“\\n”或“\\r\\n”的令牌的注释。 通过发送示例或批量促销活动发送电子邮件时，令牌中的换行字符会被替换为空格。 通过触发器营销活动发送电子邮件时，新行字符保持不变。
