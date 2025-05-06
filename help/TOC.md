@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo] 开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
 workflow-type: tm+mt
-source-wordcount: '247'
-ht-degree: 15%
+source-wordcount: '249'
+ht-degree: 16%
 
 ---
 
@@ -23,18 +23,18 @@ ht-degree: 15%
    - [Forms API参考](javascript-api/forms-api-reference.md)
    - [获取访客数据](javascript-api/get-visitor-data.md)
    - [Javascript API](javascript-api/javascript-api.md)
-   - 潜在客户跟踪{#leadtracking}
+   - 商机跟踪 {#leadtracking}
       - [商机跟踪](javascript-api/lead-tracking.md)
       - [配置](javascript-api/configuration.md)
       - [Munchkin API参考](javascript-api/api-reference.md)
    - [模式匹配](javascript-api/pattern-match.md)
    - [预测内容](javascript-api/predictive-content.md)
    - [重定向](javascript-api/redirect.md)
-   - [富媒体Recommendations](javascript-api/rich-media-recommendation.md)
+   - [富媒体推荐](javascript-api/rich-media-recommendation.md)
    - [社交](javascript-api/social.md)
    - [触发因素](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
-- Mobile {#mobile}
+- 移动设备 {#mobile}
    - [安装 [!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension.md)
    - [高级安全模式](mobile/advanced-security-access-mode.md)
@@ -51,14 +51,14 @@ ht-degree: 15%
 - REST{#rest}
    - [REST API概述](rest-api/rest-api.md)
    - [REST API引用](https://developer.adobe.com/marketo-apis/)
-   - 资源 {#assets}
-      - [资源](rest-api/assets.md)
+   - 资产 {#assets}
+      - [资产](rest-api/assets.md)
       - [动态内容](rest-api/dynamic-content.md)
       - [电子邮件](rest-api/emails.md)
       - [电子邮件模板](rest-api/email-templates.md)
       - [文件](rest-api/files.md)
       - [文件夹](rest-api/folders.md)
-      - [Forms](rest-api/forms.md)
+      - [表单](rest-api/forms.md)
       - [登陆页面](rest-api/landing-pages.md)
       - [登陆页面重定向规则](rest-api/landing-page-redirect-rules.md)
       - [登陆页面模板](rest-api/landing-page-templates.md)
@@ -73,13 +73,13 @@ ht-degree: 15%
    - [身份验证](rest-api/authentication.md)
    - [基本 URL](rest-api/base-url.md)
    - [最佳实践](rest-api/marketo-integration-best-practices.md)
-   - 批量提取{#bulk-extract}
+   - 批量提取 {#bulk-extract}
       - [批量活动](rest-api/bulk-activity-extract.md)
       - [批量自定义对象](rest-api/bulk-custom-object-extract.md)
       - [批量提取](rest-api/bulk-extract.md)
       - [批量潜在客户](rest-api/bulk-lead-extract.md)
       - [批量计划成员](rest-api/bulk-program-member-extract.md)
-   - 批量导入{#bulk-import}
+   - 批量导入 {#bulk-import}
       - [批量自定义对象](rest-api/bulk-custom-object-import.md)
       - [批量导入](rest-api/bulk-import.md)
       - [批量潜在客户](rest-api/bulk-lead-import.md)
@@ -90,7 +90,7 @@ ht-degree: 15%
    - [下载Swagger定义](rest-api/swagger.md)
    - [终结点引用](rest-api/endpoint-reference.md)
    - [错误代码](rest-api/error-codes.md)
-   - 潜在客户数据库{#lead-database}
+   - 潜在客户数据库 {#lead-database}
       - [活动](rest-api/activities.md)
       - [公司](rest-api/companies.md)
       - [自定义对象](rest-api/custom-objects.md)
@@ -122,20 +122,20 @@ ht-degree: 15%
       - [[!DNL getCampaignsForSource]](soap-api/getcampaignsforsource.md)
       - [[!DNL requestCampaign]](soap-api/requestcampaign.md)
       - [[!DNL scheduleCampaign]](soap-api/schedulecampaign.md)
-   - 自定义对象{#custom-objects}
+   - 自定义对象 {#custom-objects}
       - [自定义对象](soap-api/custom-objects.md)
       - [[!DNL deleteCustomObjects]](soap-api/deletecustomobjects.md)
       - [[!DNL getCustomObjects]](soap-api/getcustomobjects.md)
       - [[!DNL syncCustomObjects]](soap-api/synccustomobjects.md)
    - [错误代码](soap-api/error-codes.md)
-   - 潜在客户{#leads}
+   - 潜在客户 {#leads}
       - [[!DNL getLead]](soap-api/getlead.md)
       - [[!DNL getMultipleLeads]](soap-api/getmultipleleads.md)
       - [[!DNL mergeLeads]](soap-api/mergeleads.md)
       - [潜在客户](soap-api/leads.md)
       - [[!DNL syncLead]](soap-api/synclead.md)
       - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
-   - Marketo对象{#marketo-objects}
+   - Marketo对象 {#marketo-objects}
       - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
       - [[!DNL describeMObjects]](soap-api/describemobject.md)
       - [[!DNL getMObjects]](soap-api/getmobjects.md)
@@ -143,17 +143,17 @@ ht-degree: 15%
       - [Marketo对象](soap-api/marketo-objects.md)
       - [[!DNL syncMObjects]](soap-api/syncmobjects.md)
    - [迁移到REST API](soap-api/migration.md)
-   - 项目群{#programs}
+   - 程序 {#programs}
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
    - [SOAP常见问题解答](soap-api/soap-faq.md)
-   - 静态列表{#static-lists}
+   - 静态列表 {#static-lists}
       - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
       - [[!DNL importToList]](soap-api/importtolist.md)
       - [[!DNL listOperation]](soap-api/listoperation.md)
    - [流位置](soap-api/stream-position.md)
-- Webhook {#webhooks}
+- Webhooks {#webhooks}
    - [错误数](webhooks/errors.md)
    - [响应映射](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
@@ -163,3 +163,4 @@ ht-degree: 15%
 - [许可证](api-license.md)
 - [合作伙伴沙盒](partner-sandbox.md)
 - [自助服务流程步骤](self-service-flow-steps.md)
+- [博客档案](blog.md)
