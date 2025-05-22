@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] 开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
+source-git-commit: 43bcafd335a2fdc709e917ef74504500422c2889
 workflow-type: tm+mt
-source-wordcount: '249'
+source-wordcount: '250'
 ht-degree: 16%
 
 ---
@@ -158,7 +158,7 @@ ht-degree: 16%
    - [响应映射](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
 - [客户端库](https://github.com/Marketo/Community-Supported-Client-Libraries)
-- [数据流](data-streams.md)
+- [数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [电子邮件脚本](email-scripting.md)
 - [许可证](api-license.md)
 - [合作伙伴沙盒](partner-sandbox.md)
