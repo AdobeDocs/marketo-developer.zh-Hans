@@ -2,9 +2,10 @@
 title: 数据引入
 feature: REST API, Dynamic Content
 description: 使用Marketo API使用数据。
-source-git-commit: 1595aa6df0b0404c7cda2c246c9249018fe87e77
+exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '968'
+source-wordcount: '965'
 ht-degree: 10%
 
 ---
@@ -13,11 +14,11 @@ ht-degree: 10%
 
 数据摄取API是一种高容量、低延迟、高度可用的服务，旨在以最小的延迟有效处理大量与人员和人员相关的数据摄取。
 
-通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/)中的事件，可以检索请求状态。&#x200B;
+通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup)中的事件，可以检索请求状态。&#x200B;
 
 界面提供两种对象类型：人员、自定义对象。 记录操作仅限“插入或更新”。
 
-数据摄取API当前为私有测试版。  受邀者需要拥有[Marketo Engage性能层](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)程序包的权利。
+数据摄取API当前为私有测试版。  受邀者需要拥有[Marketo Engage性能层](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)包的权利。
 
 ## 身份验证
 
@@ -55,13 +56,13 @@ ht-degree: 10%
 
 ## 请求
 
-使用HTTPPOST方法将数据发送到服务器。
+使用HTTP POST方法将数据发送到服务器。
 
 数据表示以application/json形式包含在请求正文中。
 
 域名是： `mkto-ingestion-api.adobe.io`
 
-路径以`/subscriptions/MunchkinId`开头，其中MunchkinId特定于您的Marketo实例。 您可以在Marketo EngageUI中的&#x200B;**管理员** > **我的帐户** > **支持信息**&#x200B;下找到您的Munchkin ID。  路径的其余部分用于指定感兴趣的资源。
+路径以`/subscriptions/MunchkinId`开头，其中MunchkinId特定于您的Marketo实例。 您可以在Marketo Engage UI中的&#x200B;**管理员** > **我的帐户** > **支持信息**&#x200B;下找到您的Munchkin ID。  路径的其余部分用于指定感兴趣的资源。
 
 人员示例URL：
 

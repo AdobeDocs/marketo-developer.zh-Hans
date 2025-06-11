@@ -3,9 +3,9 @@ title: 批量程序成员导入
 feature: REST API
 description: 批量导入成员数据。
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '838'
+source-wordcount: '837'
 ht-degree: 0%
 
 ---
@@ -141,7 +141,7 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 
 [获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败。 如果numOfRowsFailed大于零，则该值表示发生的失败次数。
 
-使用[获取导入程序成员失败](http://TODO)终结点通过传递`batchId`路径参数来检索记录以及失败行的原因。
+使用“获取导入程序成员失败”端点通过传递`batchId`路径参数来检索失败行的记录和原因。
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/failures.json
