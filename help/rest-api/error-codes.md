@@ -3,9 +3,9 @@ title: 错误代码
 feature: REST API
 description: Marketo错误代码描述。
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
+source-git-commit: d44ec0442bc33e3e5cb7e2dd6ce3947036c7cd25
 workflow-type: tm+mt
-source-wordcount: '2273'
+source-wordcount: '2283'
 ht-degree: 3%
 
 ---
@@ -34,7 +34,7 @@ ht-degree: 3%
 
 如果请求有效负载超过1MB，Marketo将返回413，对于Import Lead将返回10MB。 在大多数情况下，不会达到这些限制，但是如果向请求的大小添加检查，并移动任何记录，导致超过新请求的限制，则应防止出现任何情况，这种情况会导致任何端点返回此错误。
 
-当GET请求的URI超过8KB时，将返回414。 要避免出现这种情况，请检查查询字符串的长度，看看是否超过此限制。 如果它确实将您的请求更改为POST方法，则使用附加参数`_method=GET`将您的查询字符串输入为请求正文。 这放弃了URI的限制。 在大多数情况下，很少达到此限制，但在检索具有长单个过滤器值（如GUID）的大量记录时，这种情况比较常见。
+当GET请求的URI超过8KB时，将返回414。 要避免出现这种情况，请检查查询字符串的长度，看看是否超过此限制。 如果它确实将您的请求更改为POST方法，则使用附加参数`_method=GET`输入您的查询字符串作为请求正文。 这放弃了URI的限制。 在大多数情况下，很少达到此限制，但在检索具有长单个过滤器值（如GUID）的大量记录时，这种情况比较常见。
 [标识](https://developer.adobe.com/marketo-apis/api/identity/)终结点可能返回401未授权错误。 这通常是由于无效的客户端ID或无效的客户端密钥。 HTTP级别的错误代码
 
 <table>
@@ -54,7 +54,7 @@ ht-degree: 3%
     <tr>
       <td><a name="414"></a>414</td>
       <td>请求URI过长</td>
-      <td>请求的URI超过了8k。 该请求应作为在URL中带有param '_method=GET'的POST进行重试，其余查询字符串应作为请求正文重试。</td>
+      <td>请求的URI超过了8k。 应将该请求重试为POST，在URL中包含param '_method=GET'，其余查询字符串在请求正文中。</td>
     </tr>
   </tbody>
 </table>
@@ -110,7 +110,7 @@ ht-degree: 3%
     <tr>
       <td><a name="603"></a>603</td>
       <td>访问被拒绝</td>
-      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户允许列表，或可能启用<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">角色以访问基于IP的API</a>。</td>
+      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户允许列表，或可能启用<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">角色以访问基于IP的API</a>。</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -287,8 +287,10 @@ ht-degree: 3%
 
 #### 记录级错误代码
 
-<table>
-  <tbody>
+>[!NOTE]
+>
+><table>
+<tbody>
     <tr>
       <td>响应代码</td>
       <td>描述</td>
@@ -430,10 +432,12 @@ ht-degree: 3%
       <td><ul>
           <li>队列中的作业过多</li>
           <li>超出导出每日配额</li>
+          <li>作业已排队</li>
         </ul></td>
       <td><ul>
           <li>在任何给定时间，队列中最多允许10个批量提取作业。</li>
           <li>默认情况下，提取作业限制为每天500 MB（CST凌晨12:00每日重置）。</li>
+          <li>导出ID已排入队列。</li>
         </ul></td>
     </tr>
     <tr>
@@ -486,3 +490,4 @@ ht-degree: 3%
     </tr>
   </tbody>
 </table>
+
