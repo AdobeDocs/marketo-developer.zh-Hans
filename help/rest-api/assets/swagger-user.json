@@ -31,7 +31,7 @@
           "User Management"
         ],
         "summary": "Get Users",
-        "description": "Retrieve a list of all user records.  Required Permissions: Access User Management Api and Access Users",		
+        "description": "Retrieve a list of all user records.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "getUsersUsingGET",
         "produces": [
           "application/json"
@@ -85,7 +85,7 @@
           "User Management"
         ],
         "summary": "Invite User",
-        "description": "Send an email invitation to new user.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Send an email invitation to new user.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "inviteUserUsingPOST",
         "consumes": [
           "application/json"
@@ -133,7 +133,7 @@
           "User Management"
         ],
         "summary": "Get Roles",
-        "description": "Retrieve list of all role records.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Retrieve list of all role records.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "getRolesUsingGET",
         "produces": [
           "application/json"
@@ -167,7 +167,7 @@
           "User Management"
         ],
         "summary": "Get Workspaces",
-        "description": "Retrieve list of workspace records.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Retrieve list of workspace records.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "getWorkspacesUsingGET",
         "produces": [
           "application/json"
@@ -201,7 +201,7 @@
           "User Management"
         ],
         "summary": "Delete User",
-        "description": "Delete user.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Delete user.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "deleteUserUsingPOST",
         "consumes": [
           "application/json"
@@ -241,7 +241,7 @@
           "User Management"
         ],
         "summary": "Delete Invited User",
-        "description": "Delete pending user.  A pending user is a user that has not yet accepted invitation.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Delete pending user.  A pending user is a user that has not yet accepted invitation.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "deleteInvitedUserUsingPOST",
         "consumes": [
           "application/json"
@@ -274,14 +274,14 @@
         },
         "deprecated": false
       }
-    },	
+    },
     "/userservice/management/v1/users/{userid}/update.json": {
       "post": {
         "tags": [
           "User Management"
         ],
         "summary": "Update User Attributes",
-        "description": "Update one or more user attributes.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Update one or more user attributes.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "updateUserAttributeUsingPOST",
         "consumes": [
           "application/json"
@@ -336,7 +336,7 @@
           "User Management"
         ],
         "summary": "Get Roles and Workspaces by Id",
-        "description": "Get roles and workspaces for a given user.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Get roles and workspaces for a given user.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "getUserRolesAndWorkspacesUsingGET",
         "produces": [
           "application/json"
@@ -379,7 +379,7 @@
           "User Management"
         ],
         "summary": "Add Roles",
-        "description": "Add roles to a user.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Add roles to a user.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "addRolesUsingPOST",
         "consumes": [
           "application/json"
@@ -437,7 +437,7 @@
           "User Management"
         ],
         "summary": "Delete Roles",
-        "description": "Delete roles from user.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Delete roles from user.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "deleteRolesUsingPOST",
         "consumes": [
           "application/json"
@@ -492,7 +492,7 @@
           "User Management"
         ],
         "summary": "Get User by Id",
-        "description": "Retrieve a single user record through its Id.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Retrieve a single user record through its Id.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "getUserUsingGET",
         "produces": [
           "application/json"
@@ -532,7 +532,7 @@
           "User Management"
         ],
         "summary": "Get Invited User by Id",
-        "description": "Retrieve a single pending user record through its Id.  A pending user is a user that has not yet accepted invitation.  Required Permissions: Access User Management Api and Access Users",				
+        "description": "Retrieve a single pending user record through its Id.  A pending user is a user that has not yet accepted invitation.  Required Permissions: Access User Management Api and Access Users",
         "operationId": "getInvitedUserUsingGET",
         "produces": [
           "application/json"
@@ -579,7 +579,7 @@
         "createdAt",
 		"updatedAt",
 		"type"
-      ],	  
+      ],
       "properties": {
         "errors": {
           "type": "array",
@@ -587,7 +587,7 @@
           "items": {
             "$ref": "#/definitions/Error"
           }
-        },	  	  
+        },
         "description": {
           "type": "string",
           "description": "Role description"
@@ -607,19 +607,19 @@
         },
         "name": {
           "type": "string",
-          "description": "Role name"		  
+          "description": "Role name"
         },
         "createdAt": {
           "type": "string",
           "description": "Role creation time"
-        },		
+        },
         "updatedAt": {
           "type": "string",
-          "description": "Role update time"		  
-        },		
+          "description": "Role update time"
+        },
 		"type": {
           "type": "string",
-          "description": "Role type"		  
+          "description": "Role type"
         }
       },
       "title": "ResponseOfRole"
@@ -633,7 +633,7 @@
 		"id",
 		"name",
 		"status"
-      ],	  
+      ],
       "properties": {
         "errors": {
           "type": "array",
@@ -641,7 +641,7 @@
           "items": {
             "$ref": "#/definitions/Error"
           }
-        },	  	  
+        },
         "currencyInfo": {
           "type": "string",
 		  "description": "Workspace currency information"
@@ -667,11 +667,11 @@
         "createdAt": {
           "type": "string",
 		  "description": "Workspace creation time"
-        },		
+        },
         "updatedAt": {
           "type": "string",
 		  "description": "Workspace updated time"
-        },		
+        },
         "status": {
           "type": "string",
 		  "description": "Workspace status"
@@ -693,7 +693,7 @@
           }
         }
       }
-    },	
+    },
     "DeleteRolesRequest": {
       "type": "object",
       "required": [
@@ -708,7 +708,7 @@
           }
         }
       }
-    },		
+    },
     "UpdateUserAttributesRequest": {
       "type": "object",
       "properties": {
@@ -725,16 +725,16 @@
         },
         "expiresAt": {
           "type": "string",
-          "description": "Date and time when user login expires.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",		  		  
+          "description": "Date and time when user login expires.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",
           "example": "yyyyMMdd'T'HH:mm:ss'.'S't'Z"
         },
         "firstName": {
           "type": "string",
-          "description": "User first name"		  		  		  		  
+          "description": "User first name"
         },
         "lastName": {
           "type": "string",
-          "description": "User last name"		  		  		  		  		  
+          "description": "User last name"
         }
       },
       "title": "UpdateUserAttributesRequest"
@@ -744,17 +744,17 @@
       "required": [
         "emailAddress",
         "firstName",
-        "lastName",		
+        "lastName",
 		"userRoleWorkspaces"
-      ],	  
+      ],
       "properties": {
         "apiOnly": {
           "type": "boolean",
-		  "description": "Whether the user is API-Only.  Default is false"		  
+		  "description": "Whether the user is API-Only.  Default is false"
         },
         "emailAddress": {
           "type": "string",
-          "description": "User email address",		  
+          "description": "User email address",
           "minLength": 1,
           "maxLength": 2147483647,
           "pattern": "^(\"?)(?:[^\"])(?:[-\\w.!#$%&\\'*+\\/=?^_`{|}~])*\\1@(\\w[-\\w]{0,62}\\.)+[A-Za-z]{2,63}$"
@@ -773,21 +773,21 @@
         },
        "userid": {
           "type": "string",
-          "description": "User id in the form of an email address.  If not specified, the emailAddress value is used"		  
-        },		
+          "description": "User id in the form of an email address.  If not specified, the emailAddress value is used"
+        },
        "reason": {
           "type": "string",
 		  "description": "Reason for user invitation"
-        },		
+        },
        "userRoleWorkspaces": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/UserRoleWorkspaceId"
           }
-        }		
+        }
       },
       "title": "InviteUserRequest"
-    },	
+    },
     "ResponseOfUser": {
       "type": "object",
       "required": [
@@ -813,7 +813,7 @@
           "items": {
             "$ref": "#/definitions/Error"
           }
-        },	  
+        },
         "apiOnly": {
           "type": "boolean",
           "description": "Whether the user is API-Only"
@@ -824,31 +824,31 @@
         },
         "expiresAt": {
           "type": "string",
-          "description": "Date and time when user login expires.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",		  
+          "description": "Date and time when user login expires.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",
           "example": "yyyy-MM-dd'T'HH:mm:ss.SSS't'Z"
         },
         "lastLoginAt": {
           "type": "string",
-          "description": "Date and time of user's most recent login.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",		  
+          "description": "Date and time of user's most recent login.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",
           "example": "yyyy-MM-dd'T'HH:mm:ss.SSS't'Z"
-        },		
+        },
         "failedDeviceCode": {
           "type": "integer",
-          "description": "Device code for user login failure",		  		  
+          "description": "Device code for user login failure",
           "format": "int32"
         },
         "failedLogins": {
           "type": "integer",
-          "description": "Count of user login failures",		  		  
+          "description": "Count of user login failures",
           "format": "int32"
         },
         "firstName": {
           "type": "string",
-          "description": "User first name"		  		  		  
+          "description": "User first name"
         },
         "id": {
           "type": "integer",
-          "description": "User identifier",		  		  
+          "description": "User identifier",
           "format": "int32"
         },
         "isLocked": {
@@ -875,7 +875,7 @@
         },
         "userid": {
           "type": "string",
-          "description": "User id in the form of an email address" 		  
+          "description": "User id in the form of an email address"
         }
       },
       "title": "ResponseOfUser"
@@ -883,9 +883,9 @@
     "ResponseOfInvitedUser": {
       "type": "object",
       "required": [
-        "id",	  
+        "id",
         "firstName",
-        "lastName",		
+        "lastName",
         "emailAddress",
         "userid",
 		"subscriptionId",
@@ -901,57 +901,57 @@
           "items": {
             "$ref": "#/definitions/Error"
           }
-        },	  
+        },
         "id": {
           "type": "integer",
-          "description": "User identifier",		  		  
+          "description": "User identifier",
           "format": "int32"
-        },		
+        },
         "firstName": {
           "type": "string",
-          "description": "User first name"		  		  		  
-        },		
+          "description": "User first name"
+        },
         "lastName": {
           "type": "string",
           "description": "User last name"
-        },		
+        },
         "emailAddress": {
           "type": "string",
           "description": "User email address"
         },
         "userid": {
           "type": "string",
-          "description": "User id in the form of an email address" 		  
-        },		
+          "description": "User id in the form of an email address"
+        },
         "subscriptionId": {
           "type": "string",
-          "description": "Subscription ID" 		  
-        },		
+          "description": "Subscription ID"
+        },
         "status": {
           "type": "string",
           "enum": [
             "pending"
           ],
-          "description": "User status" 		  
-        },				
+          "description": "User status"
+        },
         "expiresAt": {
           "type": "string",
-          "description": "Date and time when user login expires.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",		  
+          "description": "Date and time when user login expires.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",
           "example": "yyyy-MM-dd'T'HH:mm:ss.SSS't'Z"
         },
         "createdAt": {
           "type": "string",
-          "description": "Date and time when user login was created.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",		  
+          "description": "Date and time when user login was created.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",
           "example": "yyyy-MM-dd'T'HH:mm:ss.SSS't'Z"
         },
         "updatedAt": {
           "type": "string",
-          "description": "Date and time when user login was last updated.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",		  
+          "description": "Date and time when user login was last updated.  Example: yyyy-MM-dd'T'HH:mm:ss.SSS't'Z",
           "example": "yyyy-MM-dd'T'HH:mm:ss.SSS't'Z"
-        }		
+        }
       },
       "title": "ResponseOfInvitedUser"
-    },	
+    },
     "ResponseOfAllUsers": {
       "type": "object",
       "required": [
@@ -960,7 +960,7 @@
         "lastName",
         "emailAddress",
         "id",
-        "apiOnly"    
+        "apiOnly"
       ],
       "properties": {
         "errors": {
@@ -969,7 +969,7 @@
           "items": {
             "$ref": "#/definitions/Error"
           }
-        },	  
+        },
         "apiOnly": {
           "type": "boolean",
           "description": "Whether the user is API-Only"
@@ -980,11 +980,11 @@
         },
         "firstName": {
           "type": "string",
-          "description": "User first name"		  		  		  
+          "description": "User first name"
         },
         "id": {
           "type": "integer",
-          "description": "User identifier",		  		  
+          "description": "User identifier",
           "format": "int32"
         },
         "lastName": {
@@ -993,21 +993,21 @@
         },
         "userid": {
           "type": "string",
-          "description": "User id in the form of an email address" 		  
+          "description": "User id in the form of an email address"
         }
       },
       "title": "ResponseOfAllUsers"
-    },	
+    },
     "UserRoleWorkspace": {
       "type": "object",
       "required": [
         "accessRoleId",
 		"workspaceId"
-      ],	  
+      ],
       "properties": {
         "accessRoleId": {
           "type": "integer",
-          "description": "User role Id",		  		  		  
+          "description": "User role Id",
           "format": "int32"
         },
         "accessRoleName": {
@@ -1016,14 +1016,14 @@
         },
         "workspaceId": {
           "type": "integer",
-          "description": "User workspace Id",		  		  		  		  
+          "description": "User workspace Id",
           "format": "int32"
         },
         "workspaceName": {
           "type": "integer",
-          "description": "User workspace name",		  		  		  		  		  
+          "description": "User workspace name",
           "format": "int32"
-        }		
+        }
       },
       "title": "UserRoleWorkspace"
     },
@@ -1043,7 +1043,7 @@
           "type": "integer",
           "format": "int32",
           "description": "User workspace id"
-        }		
+        }
       }
     },
     "Error": {
@@ -1063,6 +1063,6 @@
           "description": "Message describing the cause of the Error"
         }
       }
-    }  
+    }
   }
 }

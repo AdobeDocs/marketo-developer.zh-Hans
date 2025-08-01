@@ -4,7 +4,7 @@
     "license":{"name":"API License Agreement","url":"https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/api-license"}},
     "host":"localhost:8080",
     "basePath":"/",
-    "schemes": ["https"],	
+    "schemes": ["https"],
     "tags":[{"name":"Identity","description":"Identity Controller"}],
     "paths": {
         "/identity/oauth/token": {
@@ -30,7 +30,7 @@
                         "description": "Client Secret from Admin > Integration > Launchpoint menu.",
                         "type": "string",
                         "format": "string",
-                        "required": true						
+                        "required": true
                     },
                     {
                         "name": "grant_type",
@@ -41,7 +41,7 @@
                         "enum": [
                             "client_credentials"
                         ],
-                        "required": true						
+                        "required": true
                     }
                 ],
   				"responses": {
@@ -50,7 +50,7 @@
 						"schema": {
 							"$ref": "#/definitions/ResponseOfIdentity"
 						}
-					} 
+					}
                 }
             },
             "post": {
@@ -75,7 +75,7 @@
                         "description": "Client Secret from Admin > Integration > Launchpoint menu.",
                         "type": "string",
                         "format": "string",
-                        "required": true						
+                        "required": true
                     },
                     {
                         "name": "grant_type",
@@ -86,7 +86,7 @@
                         "enum": [
                             "client_credentials"
                         ],
-                        "required": true						
+                        "required": true
                     }
                 ],
   				"responses": {
@@ -95,7 +95,7 @@
 						"schema": {
 							"$ref": "#/definitions/ResponseOfIdentity"
 						}
-					} 
+					}
                 }
 			}
 		}
@@ -106,24 +106,24 @@
 			"required": [
 				"client_id",
 				"client_secret",
-				"grant_type"			
+				"grant_type"
 			],
 			"properties": {
 				"client_id": {
 				  "type": "string",
 				  "description": "Client ID from Admin > Integration > Launchpoint menu"
-				},			  
+				},
 				"client_secret": {
 				  "type": "string",
 				  "description": "Client Secret from Admin > Integration > Launchpoint menu"
-				},		  
+				},
 				"grant_type": {
 				  "type": "string",
 				  "description": "Grant type",
 					"enum": [
 							"client_credentials"
-					]					  
-				}	  			
+					]
+				}
 			}
 		},
 		"ResponseOfIdentity": {
@@ -132,8 +132,8 @@
 					"access_token",
 					"scope",
 					"expires_in",
-					"token_type"								
-			],			
+					"token_type"
+			],
 			"properties": {
 				"access_token": {
 					"description": "The token that you pass with subsequent calls to authenticate with the target instance",
@@ -144,17 +144,17 @@
 					"type": "string"
 				},
 				"expires_in": {
-					"description": "Remaining lifespan of the current token in seconds",									
+					"description": "Remaining lifespan of the current token in seconds",
 					"type": "integer"
 				},
 				"token_type": {
-					"description": "The OAuth authentication method",																		
+					"description": "The OAuth authentication method",
 					"type": "string",
 					"enum": [
 						"bearer"
 					]
 				}
-			}			
+			}
 		}
 
 	}

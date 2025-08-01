@@ -534,7 +534,7 @@
             "description": "Program member status for members being added.",
             "required": true,
             "type": "string"
-          },		  
+          },
           {
             "name": "format",
             "in": "query",
@@ -1070,7 +1070,7 @@
         }
       }
     },
-	
+
     "/bulk/v1/customobjects/{apiName}/export.json": {
       "get": {
         "tags": [
@@ -1092,7 +1092,7 @@
             "description": "API Name of the custom object for the export batch job.",
             "required": true,
             "type": "string"
-          },		
+          },
           {
             "name": "status",
             "in": "query",
@@ -1159,7 +1159,7 @@
             "description": "API Name of the custom object for the export batch job.",
             "required": true,
             "type": "string"
-          },				
+          },
           {
             "in": "body",
             "name": "exportCustomObjectRequest",
@@ -1201,7 +1201,7 @@
             "description": "API Name of the custom object for the export batch job.",
             "required": true,
             "type": "string"
-          },				
+          },
           {
             "name": "exportId",
             "in": "path",
@@ -1241,7 +1241,7 @@
             "description": "API Name of the custom object for the export batch job.",
             "required": true,
             "type": "string"
-          },				
+          },
           {
             "name": "exportId",
             "in": "path",
@@ -1281,7 +1281,7 @@
             "description": "API Name of the custom object for the export batch job.",
             "required": true,
             "type": "string"
-          },				
+          },
           {
             "name": "exportId",
             "in": "path",
@@ -1328,7 +1328,7 @@
             "description": "API Name of the custom object for the export batch job.",
             "required": true,
             "type": "string"
-          },				
+          },
           {
             "name": "exportId",
             "in": "path",
@@ -1346,8 +1346,8 @@
           }
         }
       }
-    },	
-	
+    },
+
     "/bulk/v1/program/members/export.json": {
       "get": {
         "tags": [
@@ -1581,7 +1581,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/activities.json": {
       "get": {
         "tags": [
@@ -1743,27 +1743,27 @@
         }
       }
     },
-    "/rest/v1/activities/external/type.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type.json":{
+      "post":{
+        "tags":[
           "Activities"
         ],
         "summary":"Create Custom Activity Type",
         "description":"Creates a new custom activity type draft in the target instance. Required Permissions: Read-Write Activity Metadata",
         "operationId":"createCustomActivityTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "in":"body",
             "name":"customActivityTypeRequest",
             "description":"customActivityTypeRequest",
             "required":true,
-            "schema":{  
+            "schema":{
               "$ref":"#/definitions/CustomActivityTypeRequest"
             }
           }
@@ -1778,34 +1778,34 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}.json":{
+      "post":{
+        "tags":[
           "Activities"
         ],
         "summary":"Update Custom Activity Type",
         "description":"Updates the target custom activity type. All changes are applied to the draft version of the type. Required Permissions: Read-Write Activity Metadata",
         "operationId":"updateCustomActivityTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",			
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           },
-          {  
+          {
             "in":"body",
             "name":"customActivityTypeRequest",
             "description":"customActivityTypeRequest",
             "required":true,
-            "schema":{  
+            "schema":{
               "$ref":"#/definitions/CustomActivityTypeRequest"
             }
           }
@@ -1820,25 +1820,25 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}/approve.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}/approve.json":{
+      "post":{
+        "tags":[
           "Activities"
         ],
         "summary":"Approve Custom Activity Type",
         "description":"Approves the current draft of the type, and makes it the live version. This will delete the current live version of the type. Required Permissions: Read-Write Activity Metadata",
         "operationId":"approveCustomActivityTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",						
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           }
@@ -1853,34 +1853,34 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}/attributes/create.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}/attributes/create.json":{
+      "post":{
+        "tags":[
           "Activities"
         ],
         "summary":"Create Custom Activity Type Attributes",
         "description":"Adds activity attributes to the target type. These are added to the draft version of the type. Required Permissions: Read-Write Activity Metadata",
         "operationId":"createCustomActivityTypeAttributesUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",						
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           },
-          {  
+          {
             "in":"body",
             "name":"customActivityTypeAttributeRequest",
             "description":"customActivityTypeAttributeRequest",
             "required":true,
-            "schema":{  
+            "schema":{
               "$ref":"#/definitions/CustomActivityTypeAttributeRequest"
             }
           }
@@ -1895,34 +1895,34 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}/attributes/delete.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}/attributes/delete.json":{
+      "post":{
+        "tags":[
           "Activities"
          ],
         "summary":"Delete Custom Activity Type Attributes",
         "description":"Deletes the target attributes from the custom activity type draft. The apiName of each attribute is the primary key for the update. Required Permissions: Read-Write Activity Metadata",
         "operationId":"deleteCustomActivityTypeAttributesUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",			
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           },
-          {  
+          {
             "in":"body",
             "name":"customActivityTypeAttributeRequest",
             "description":"customActivityTypeAttributeRequest",
             "required":true,
-            "schema":{  
+            "schema":{
               "$ref":"#/definitions/CustomActivityTypeAttributeRequest"
             }
           }
@@ -1937,34 +1937,34 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}/attributes/update.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}/attributes/update.json":{
+      "post":{
+        "tags":[
           "Activities"
         ],
         "summary":"Update Custom Activity Type Attributes",
         "description":"Updates the attributes of the custom activity type draft. The apiName of each attribute is the primary key for the update. Required Permissions: Read-Write Activity Metadata",
         "operationId":"updateCustomActivityTypeAttributesUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",			
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           },
-          {  
+          {
             "in":"body",
             "name":"customActivityTypeAttributeRequest",
             "description":"customActivityTypeAttributeRequest",
             "required":true,
-            "schema":{  
+            "schema":{
               "$ref":"#/definitions/CustomActivityTypeAttributeRequest"
             }
           }
@@ -1979,25 +1979,25 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}/delete.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}/delete.json":{
+      "post":{
+        "tags":[
           "Activities"
         ],
         "summary":"Delete Custom Activity Type",
         "description":"Deletes the target custom activity type. The type must first be removed from use by any assets, such as triggers or filters. Required Permissions: Read-Write Activity Metadata",
         "operationId":"deleteCustomActivityTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",			
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           }
@@ -2012,29 +2012,29 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}/describe.json":{  
-      "get":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}/describe.json":{
+      "get":{
+        "tags":[
           "Activities"
         ],
         "summary":"Describe Custom Activity Type",
         "description":"Returns metadata for a specific custom activity type. Required Permissions: Read-Only Activity Metadata, Read-Write Activity Metadata",
         "operationId":"describeCustomActivityTypeUsingGET",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",			
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           },
-          {  
+          {
             "name":"draft",
             "in":"query",
             "description":"draft",
@@ -2052,25 +2052,25 @@
         }
       }
     },
-    "/rest/v1/activities/external/type/{apiName}/discardDraft.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/activities/external/type/{apiName}/discardDraft.json":{
+      "post":{
+        "tags":[
           "Activities"
         ],
         "summary":"Discard Custom Activity Type Draft",
         "description":"Discards the current draft of the custom activity type. Required Permissions: Read-Write Activity Metadata",
         "operationId":"discardDraftofCustomActivityTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the activity type",			
+            "description": "API Name of the activity type",
             "required":true,
             "type":"string"
           }
@@ -2085,18 +2085,18 @@
         }
       }
     },
-    "/rest/v1/activities/external/types.json":{  
-      "get":{  
-        "tags":[  
+    "/rest/v1/activities/external/types.json":{
+      "get":{
+        "tags":[
           "Activities"
         ],
         "summary":"Get Custom Activity Types",
         "description":"Returns metadata regarding custom activities provisioned in the target instance. Required Permissions: Read-Only Activity Metadata, Read-Write Activity Metadata",
         "operationId":"getCustomActivityTypeUsingGET",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
         "responses": {
@@ -2932,27 +2932,27 @@
             }
           }
         }
-      }	  
+      }
     },
-    "/rest/v1/customobjects/schema/{apiName}/approve.json":{  
-      "post":{  
-        "tags":[  
+    "/rest/v1/customobjects/schema/{apiName}/approve.json":{
+      "post":{
+        "tags":[
           "Custom Objects"
         ],
         "summary":"Approve Custom Object Type",
         "description":"Approves the current draft of the type, and makes it the live version. This will delete the current live version of the type. Required Permissions: Read-Write Custom Object Type",
         "operationId":"approveCustomObjectTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the custom object type to approve",						
+            "description": "API Name of the custom object type to approve",
             "required":true,
             "type":"string"
           }
@@ -2966,26 +2966,26 @@
           }
         }
       }
-    },	
-    "/rest/v1/customobjects/schema/{apiName}/discardDraft.json":{  
-      "post":{  
-        "tags":[  
+    },
+    "/rest/v1/customobjects/schema/{apiName}/discardDraft.json":{
+      "post":{
+        "tags":[
           "Custom Objects"
         ],
         "summary":"Discard Custom Object Type Draft",
         "description":"Discards the current draft of the custom object type. Required Permissions: Read-Write Custom Object Type",
         "operationId":"discardCustomObjectTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the custom object type draft to discard",						
+            "description": "API Name of the custom object type draft to discard",
             "required":true,
             "type":"string"
           }
@@ -2999,26 +2999,26 @@
           }
         }
       }
-    },		
-    "/rest/v1/customobjects/schema/{apiName}/delete.json":{  
-      "post":{  
-        "tags":[  
+    },
+    "/rest/v1/customobjects/schema/{apiName}/delete.json":{
+      "post":{
+        "tags":[
           "Custom Objects"
         ],
         "summary":"Delete Custom Object Type",
         "description":"Deletes the target custom object type. The type must first be removed from use by any assets, such as triggers or filters. Required Permissions: Read-Write Custom Object Type",
         "operationId":"deleteCustomObjectTypeUsingPOST",
-        "consumes":[  
+        "consumes":[
           "application/json"
         ],
-        "produces":[  
+        "produces":[
           "application/json"
         ],
-        "parameters":[  
-          {  
+        "parameters":[
+          {
             "name":"apiName",
             "in":"path",
-            "description": "API Name of the custom object type to delete",						
+            "description": "API Name of the custom object type to delete",
             "required":true,
             "type":"string"
           }
@@ -3032,7 +3032,7 @@
           }
         }
       }
-    },			
+    },
     "/rest/v1/customobjects/schema/{apiName}/describe.json": {
       "get": {
         "tags": [
@@ -3066,7 +3066,7 @@
               "approved",
 			  "approvedWithDraft"
             ]
-          }		  
+          }
         ],
         "responses": {
           "200": {
@@ -3077,7 +3077,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/customobjects/schema/{apiName}/addField.json": {
       "post": {
         "tags": [
@@ -3118,7 +3118,7 @@
             }
           }
         }
-      }	  
+      }
     },
     "/rest/v1/customobjects/schema/{apiName}/deleteField.json": {
       "post": {
@@ -3160,7 +3160,7 @@
             }
           }
         }
-      }	  
+      }
     },
     "/rest/v1/customobjects/schema/{apiName}/{fieldApiName}/updateField.json": {
       "post": {
@@ -3190,7 +3190,7 @@
             "description": "API name of custom object type field",
             "required": true,
             "type": "string"
-          },		  
+          },
           {
             "in": "body",
             "name": "updateCustomObjectTypeFieldRequest",
@@ -3209,8 +3209,8 @@
             }
           }
         }
-      }	  
-    },	
+      }
+    },
     "/rest/v1/customobjects/schema/fieldDataTypes.json": {
       "get": {
         "tags": [
@@ -3234,7 +3234,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/customobjects/schema/linkableObjects.json": {
       "get": {
         "tags": [
@@ -3258,7 +3258,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/customobjects/schema/{apiName}/dependentAssets.json": {
       "get": {
         "tags": [
@@ -3281,7 +3281,7 @@
             "required": true,
             "type": "string"
           }
-        ],		  
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3291,7 +3291,7 @@
           }
         }
       }
-    },		
+    },
     "/rest/v1/lead/{leadId}.json": {
       "get": {
         "tags": [
@@ -3535,7 +3535,7 @@
         }
       }
     },
-	
+
     "/rest/v1/leads/schema/fields/{fieldApiName}.json": {
       "get": {
         "tags": [
@@ -3588,7 +3588,7 @@
             "description": "The API name of lead field",
             "required": true,
             "type": "string"
-          },		
+          },
           {
             "in": "body",
             "name": "updateLeadFieldRequest",
@@ -3607,8 +3607,8 @@
             }
           }
         }
-      }	  
-    },	
+      }
+    },
     "/rest/v1/leads/schema/fields.json": {
       "get": {
         "tags": [
@@ -3681,9 +3681,9 @@
             }
           }
         }
-      }	  
+      }
     },
-	
+
     "/rest/v1/programs/members/schema/fields/{fieldApiName}.json": {
       "get": {
         "tags": [
@@ -3736,7 +3736,7 @@
             "description": "The API name of program member field",
             "required": true,
             "type": "string"
-          },		
+          },
           {
             "in": "body",
             "name": "updateLeadFieldRequest",
@@ -3755,8 +3755,8 @@
             }
           }
         }
-      }	  
-    },	
+      }
+    },
     "/rest/v1/programs/members/schema/fields.json": {
       "get": {
         "tags": [
@@ -3829,9 +3829,9 @@
             }
           }
         }
-      }	  
-    },	
-	
+      }
+    },
+
     "/rest/v1/companies/schema/fields/{fieldApiName}.json": {
       "get": {
         "tags": [
@@ -3864,7 +3864,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/companies/schema/fields.json": {
       "get": {
         "tags": [
@@ -3905,8 +3905,8 @@
           }
         }
       }
-    },		
-	
+    },
+
     "/rest/v1/opportunities/schema/fields/{fieldApiName}.json": {
       "get": {
         "tags": [
@@ -3939,7 +3939,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/opportunities/schema/fields.json": {
       "get": {
         "tags": [
@@ -3980,8 +3980,8 @@
           }
         }
       }
-    },	
-	
+    },
+
     "/rest/v1/namedaccounts/schema/fields/{fieldApiName}.json": {
       "get": {
         "tags": [
@@ -4014,7 +4014,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/namedaccounts/schema/fields.json": {
       "get": {
         "tags": [
@@ -4055,8 +4055,8 @@
           }
         }
       }
-    },		
-	
+    },
+
     "/rest/v1/program/members/describe.json": {
       "get": {
         "tags": [
@@ -4088,7 +4088,7 @@
           "Program Members"
         ],
         "summary": "Sync Program Member Status",
-        "description": "Changes the program member status of a list of leads in a target program. If member is not part of the program, member is added to the program. Required Permissions: Read-Write Lead",		
+        "description": "Changes the program member status of a list of leads in a target program. If member is not part of the program, member is added to the program. Required Permissions: Read-Write Lead",
         "operationId": "syncProgramMemberStatusUsingPOST",
         "consumes": [
           "application/json"
@@ -4104,7 +4104,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          },		
+          },
           {
             "in": "body",
             "name": "syncProgramMemberStatusRequest",
@@ -4147,7 +4147,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          },				
+          },
           {
             "name": "filterType",
             "in": "query",
@@ -4169,14 +4169,14 @@
 		  {
             "name": "startAt",
 			"in": "query",
-            "description": "When using filterType=updatedAt, the start of date range filter (ISO 8601-format)",		
+            "description": "When using filterType=updatedAt, the start of date range filter (ISO 8601-format)",
             "type": "string"
 
-          },		  
+          },
 		  {
             "name": "endAt",
 			"in": "query",
-            "description": "When using filterType=updatedAt, the end of date range filter (ISO 8601-format)",		
+            "description": "When using filterType=updatedAt, the end of date range filter (ISO 8601-format)",
             "type": "string"
 
           },
@@ -4221,7 +4221,7 @@
           "Program Members"
         ],
         "summary": "Sync Program Member Data",
-        "description": "Changes the program member data of a list of leads in a target program. Only existing members of the program may have their data changed with this API. Required Permissions: Read-Write Lead",		
+        "description": "Changes the program member data of a list of leads in a target program. Only existing members of the program may have their data changed with this API. Required Permissions: Read-Write Lead",
         "operationId": "syncProgramMemberDataUsingPOST",
         "consumes": [
           "application/json"
@@ -4237,7 +4237,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          },		
+          },
           {
             "in": "body",
             "name": "syncProgramMemberDataRequest",
@@ -4257,14 +4257,14 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/programs/{programId}/members/delete.json": {
       "post": {
         "tags": [
           "Program Members"
         ],
         "summary": "Delete Program Members",
-        "description": "Delete a list of members from the destination instance. Required Permissions: Read-Write Lead",		
+        "description": "Delete a list of members from the destination instance. Required Permissions: Read-Write Lead",
         "operationId": "deleteProgramMemberUsingPOST",
         "consumes": [
           "application/json"
@@ -4280,7 +4280,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          },		
+          },
           {
             "in": "body",
             "name": "deleteProgramMemberRequest",
@@ -4300,8 +4300,8 @@
           }
         }
       }
-    },	
-	
+    },
+
     "/rest/v1/programs/members/describe.json": {
       "get": {
         "tags": [
@@ -4325,7 +4325,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/leads/partitions.json": {
       "get": {
         "tags": [
@@ -4555,7 +4555,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/leads/{leadId}/associate.json": {
       "post": {
         "tags": [
@@ -4658,7 +4658,7 @@
         }
       }
     },
-	
+
     "/rest/v1/leads/{leadId}/listMembership.json": {
       "get": {
         "tags": [
@@ -4681,7 +4681,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          },		
+          },
           {
             "name": "nextPageToken",
             "in": "query",
@@ -4707,7 +4707,7 @@
           }
         }
       }
-    },	
+    },
     "/rest/v1/leads/{leadId}/programMembership.json": {
       "get": {
         "tags": [
@@ -4730,7 +4730,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          },		
+          },
           {
             "name": "nextPageToken",
             "in": "query",
@@ -4759,7 +4759,7 @@
             "description": "Exclude programs after this date. Must be valid ISO-8601 string. See <a href=\"http://developers.marketo.com/rest-api/lead-database/fields/field-types/\">Datetime</a> field type description.",
             "required": false,
             "type": "string"
-          },	  
+          },
           {
             "name": "filterType",
             "in": "query",
@@ -4777,7 +4777,7 @@
               "type": "string"
             },
             "collectionFormat": "multi"
-          }		  
+          }
         ],
         "responses": {
           "200": {
@@ -4788,7 +4788,7 @@
           }
         }
       }
-    },		
+    },
     "/rest/v1/leads/{leadId}/smartCampaignMembership.json": {
       "get": {
         "tags": [
@@ -4811,7 +4811,7 @@
             "required": true,
             "type": "integer",
             "format": "int64"
-          },		
+          },
           {
             "name": "nextPageToken",
             "in": "query",
@@ -4840,7 +4840,7 @@
             "description": "Exclude smart campaigns after this date. Must be valid ISO-8601 string. See <a href=\"http://developers.marketo.com/rest-api/lead-database/fields/field-types/\">Datetime</a> field type description.",
             "required": false,
             "type": "string"
-          }		  
+          }
         ],
         "responses": {
           "200": {
@@ -4851,8 +4851,8 @@
           }
         }
       }
-    },			
-	
+    },
+
     "/rest/v1/list/{listId}/leads.json": {
       "get": {
         "tags": [
@@ -6336,7 +6336,7 @@
         }
       }
     },
-	
+
     "ResponseOfLists": {
       "type": "object",
       "required": [
@@ -6387,7 +6387,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfPrograms": {
       "type": "object",
       "required": [
@@ -6438,7 +6438,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfSmartCampaigns": {
       "type": "object",
       "required": [
@@ -6489,8 +6489,8 @@
           }
         }
       }
-    },	
-	
+    },
+
     "LeadInputData": {
       "type": "object",
       "required": [
@@ -6799,7 +6799,7 @@
         }
       }
     },
-	
+
     "SyncProgramMemberStatusRequest": {
       "type": "object",
       "required": [
@@ -6819,7 +6819,7 @@
           }
         }
       }
-    },	
+    },
     "ProgramMemberStatus": {
       "type": "object",
       "required": [
@@ -6832,7 +6832,7 @@
           "description": "Unique integer id of a lead record"
         }
       }
-    },	
+    },
     "SyncProgramMemberDataRequest": {
       "type": "object",
       "required": [
@@ -6847,7 +6847,7 @@
           }
         }
       }
-    },	
+    },
     "ProgramMemberData": {
       "type": "object",
       "required": [
@@ -6869,7 +6869,7 @@
           "description": "API Name of another field to update (and so forth). Must be updateable as described by <a href=\"/rest-api/endpoint-reference/lead-database-endpoint-reference/#/Leads/describeProgramMemberUsingGET2\">Describe Program Member</a> endpoint."
         }
       }
-    },		
+    },
     "DeleteProgramMemberRequest": {
       "type": "object",
       "required": [
@@ -6884,7 +6884,7 @@
           }
         }
       }
-    },	
+    },
     "ProgramMemberDelete": {
       "type": "object",
       "required": [
@@ -6897,8 +6897,8 @@
           "description": "Unique integer id of a lead record"
         }
       }
-    },	
-	
+    },
+
     "SyncCustomObjectTypeRequest": {
       "type": "object",
       "required": [
@@ -6922,21 +6922,21 @@
         "apiName": {
           "type": "string",
           "description": "API name of the custom object type"
-        },		
+        },
 		"pluralName": {
           "type": "string",
           "description": "UI plural-name of the custom object type"
-        },		
+        },
 		"description": {
           "type": "string",
           "description": "Description of the custom object type"
-        },	
+        },
         "showInLeadDetail": {
           "type": "boolean",
           "description": "Whether to show custom object type in lead detail of UI. Default is false"
-        }		
+        }
       }
-    },	
+    },
     "InputStream": {
       "type": "object"
     },
@@ -7044,10 +7044,10 @@
         }
       },
       "description": "Lead record. Always contains id, but may have any number of other fields, depending on the fields available in the target instance."
-    },	
+    },
     "LeadField": {
       "type": "object",
-      "description": "Lead field record",	 
+      "description": "Lead field record",
       "required": [
         "displayName",
 		"name",
@@ -7055,10 +7055,10 @@
 		"dataType",
 		"isHidden",
 		"isHtmlEncodingInEmail",
-		"isSensitive",		
+		"isSensitive",
 		"isCustom",
 		"isApiCreated"
-      ],	  
+      ],
       "properties": {
         "displayName": {
           "type": "string",
@@ -7067,35 +7067,35 @@
         "name": {
           "type": "string",
           "description": "API name of the field"
-        },  
+        },
         "description": {
           "type": "string",
           "description": "Description of the field"
-        },  
+        },
         "dataType": {
           "type": "string",
           "description": "Datatype of the field"
-        },  			
+        },
         "length": {
           "type": "integer",
           "format": "int32",
           "description": "Max length of the field. Only applicable to text, string, and text area."
-        },		
+        },
         "isHidden": {
           "type": "boolean",
           "example": false,
           "description": "If set to true, the field is hidden"
-        },		
+        },
         "isHtmlEncodingInEmail": {
           "type": "boolean",
           "example": false,
           "description": "If set to true, field is encoded as HTML in email"
-        },				
+        },
         "isSensitive": {
           "type": "boolean",
           "example": false,
           "description": "If set to true, field is marked as sensitive"
-        },						
+        },
         "isCustom": {
           "type": "boolean",
           "example": false,
@@ -7105,12 +7105,12 @@
           "type": "boolean",
           "example": false,
           "description": "If set to true, field was created using REST API"
-        }		
+        }
       }
-    },	
+    },
     "UpdateLeadField": {
       "type": "object",
-      "description": "Lead field record for update",	 
+      "description": "Lead field record for update",
       "properties": {
         "displayName": {
           "type": "string",
@@ -7119,12 +7119,12 @@
         "description": {
           "type": "string",
           "description": "Description of the field"
-        },  
+        },
         "isHidden": {
           "type": "boolean",
           "example": false,
           "description": "If set to true, the field is hidden. Default is false"
-        },		
+        },
         "isHtmlEncodingInEmail": {
           "type": "boolean",
           "example": false,
@@ -7134,17 +7134,17 @@
           "type": "boolean",
           "example": false,
           "description": "If set to true, field is marked as sensitive. Default is false"
-        }		
+        }
       }
-    },	
+    },
     "CreateLeadField": {
       "type": "object",
       "required": [
         "displayName",
 		"name",
 		"dataType"
-      ],	  	  
-      "description": "Lead field record for create",	 
+      ],
+      "description": "Lead field record for create",
       "properties": {
         "displayName": {
           "type": "string",
@@ -7153,21 +7153,21 @@
         "name": {
           "type": "string",
           "description": "API name of the field. Must be unique, start with a letter, and only contain letters, numbers, or underscore"
-        },		
+        },
         "description": {
           "type": "string",
           "description": "Description of the field. Default is no description"
-        },  
+        },
         "dataType": {
           "type": "string",
           "description": "Datatype of the field",
-          "enum": ["boolean", "currency", "date", "datetime", "email", "float", "integer", "percent", "phone", "score", "string", "url"]		  
-        },		
+          "enum": ["boolean", "currency", "date", "datetime", "email", "float", "integer", "percent", "phone", "score", "string", "url"]
+        },
         "isHidden": {
           "type": "boolean",
           "example": false,
           "description": "If set to true, the field is hidden. Default is false"
-        },		
+        },
         "isHtmlEncodingInEmail": {
           "type": "boolean",
           "example": false,
@@ -7177,16 +7177,16 @@
           "type": "boolean",
           "example": false,
           "description": "If set to true, field is marked as sensitive. Default is false"
-        }		
+        }
       }
-    },		
+    },
     "LeadFieldStatus": {
       "type": "object",
       "required": [
         "name",
 		"status"
-      ],	  
-      "description": "Lead field update status",	 
+      ],
+      "description": "Lead field update status",
       "properties": {
         "name": {
           "type": "string",
@@ -7198,10 +7198,10 @@
           "enum": [
             "created",
             "updated"
-          ]		  
+          ]
         }
       }
-    },			
+    },
     "UpdateLeadFieldRequest": {
       "type": "object",
       "required": [
@@ -7232,7 +7232,7 @@
         }
       }
     },
-	
+
     "SyncLeadRequest": {
       "type": "object",
       "required": [
@@ -7398,7 +7398,7 @@
       "properties": {
 	    "name": {
 		  "type": "string",
-          "description": "REST API name of field"  
+          "description": "REST API name of field"
 		},
 		"displayName": {
 		  "type": "string",
@@ -7434,7 +7434,7 @@
       "properties": {
 	    "name": {
 		  "type": "string",
-          "description": "REST API name of field"  
+          "description": "REST API name of field"
 		},
 		"displayName": {
 		  "type": "string",
@@ -7457,7 +7457,7 @@
           "description": "Is field managed by CRM"
 		}
       }
-    },	
+    },
     "ProgramMemberAttribute": {
       "type": "object",
       "required": [
@@ -7476,7 +7476,7 @@
 		  }
         }
       }
-    },	
+    },
     "ProgramMemberAttribute2": {
       "type": "object",
       "required": [
@@ -7496,7 +7496,7 @@
         "description": {
           "type": "string",
           "description": "\"API Program Member Map\""
-        },		
+        },
         "createdAt": {
           "type": "string",
           "description": "Datetime when created"
@@ -7511,14 +7511,14 @@
           "items": {
             "type": "string"
           }
-        },		
+        },
         "searchableFields": {
 		  "type": "array",
           "description": "List of searchable fields",
 		  "items": {
             "$ref": "#/definitions/LeadAttribute2SearchableFields"
 		  }
-        },		
+        },
         "fields": {
 		  "type": "array",
           "description": "Description of searchable fields",
@@ -7527,7 +7527,7 @@
 		  }
         }
       }
-    },		
+    },
     "ScheduleCampaignRequest": {
       "type": "object",
       "properties": {
@@ -7637,7 +7637,7 @@
         },
         "reasons": {
           "type": "array",
-          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",		  
+          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",
           "items": {
             "$ref": "#/definitions/Reason"
           }
@@ -7728,7 +7728,7 @@
           "description": "File format to create(\"CSV\", \"TSV\", \"SSV\"). Default is \"CSV\""
         }
       }
-    },	
+    },
     "ExportProgramMemberRequest": {
       "type": "object",
       "required": [
@@ -7756,7 +7756,7 @@
           "description": "File format to create(\"CSV\", \"TSV\", \"SSV\"). Default is \"CSV\""
         }
       }
-    },	
+    },
     "CustomActivityRequest": {
       "type": "object",
       "required": [
@@ -8083,7 +8083,7 @@
         }
       },
       "description": "Response containing import status information"
-    },	
+    },
     "AddNamedAccountListMemberRequest": {
       "type": "object",
       "required": [
@@ -8120,14 +8120,14 @@
             "type": "integer",
             "format": "int32"
           }
-        },		
+        },
         "primaryAttributeValues": {
           "type": "array",
           "description": "List of primary attribute values to filter on",
           "items": {
             "type": "string"
           }
-        },				
+        },
         "createdAt": {
           "description": "Date range to filter new activities on",
           "$ref": "#/definitions/DateRange"
@@ -8360,7 +8360,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfLeadField": {
       "type": "object",
       "required": [
@@ -8411,7 +8411,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfUpdateLeadField": {
       "type": "object",
       "required": [
@@ -8462,7 +8462,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfCreateLeadField": {
       "type": "object",
       "required": [
@@ -8513,8 +8513,8 @@
           }
         }
       }
-    },	
-	
+    },
+
     "ResponseOfPushLeadToMarketo": {
       "type": "object",
       "required": [
@@ -8556,7 +8556,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfSubmitForm": {
       "type": "object",
       "required": [
@@ -8598,10 +8598,10 @@
           }
         }
       }
-    },		
+    },
     "FormResponse": {
       "type": "object",
-      "description": "Disposition of lead",	  
+      "description": "Disposition of lead",
       "required": [
         "id",
         "status"
@@ -8611,7 +8611,7 @@
           "type": "integer",
           "format": "int32",
           "description": "Id of lead"
-        },	  
+        },
         "status": {
           "type": "string",
           "enum": [
@@ -8625,10 +8625,10 @@
           "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",
           "items": {
             "$ref": "#/definitions/Reason"
-          }		
+          }
         }
       }
-    },		
+    },
     "Activity": {
       "type": "object",
       "required": [
@@ -8697,12 +8697,12 @@
           }
         }
       }
-    },   
+    },
     "AddCustomObjectTypeFieldsRequest": {
       "type": "object",
       "required": [
         "input"
-      ],	  	  
+      ],
       "properties": {
         "input": {
           "type": "array",
@@ -8712,14 +8712,14 @@
           }
         }
       }
-    },   
+    },
     "AddCustomObjectTypeField": {
       "type": "object",
       "required": [
         "name",
         "displayName",
 		"dataType"
-      ],	  	  
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -8736,7 +8736,7 @@
         "description": {
           "type": "string",
           "description": "Description of the custom object field"
-        },	
+        },
 		"isDedupeField": {
           "type": "boolean",
           "description": "Set to true to enable field as unique identifier for deduplicating records. Default is false"
@@ -8765,7 +8765,7 @@
         "description": {
           "type": "string",
           "description": "Description of the custom object field"
-        },	
+        },
 		"isDedupeField": {
           "type": "boolean",
           "description": "Set to true to enable field as unique identifier for deduplicating records. Default is false"
@@ -8775,13 +8775,13 @@
           "$ref": "#/definitions/CustomObjectTypeFieldRelatedTo"
         }
       }
-    },	
+    },
     "CustomObjectTypeFieldRelatedTo": {
       "type": "object",
       "required": [
         "name",
         "field"
-      ],	  	  
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -8797,7 +8797,7 @@
       "type": "object",
       "required": [
         "input"
-      ],	  	  	  
+      ],
       "properties": {
         "input": {
           "type": "array",
@@ -8807,12 +8807,12 @@
           }
         }
       }
-    },   
+    },
     "DeleteCustomObjectTypeField": {
       "type": "object",
       "required": [
         "name"
-      ],	  	  
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -8858,7 +8858,7 @@
 		"updatedAt",
 		"status",
 		"version"
-      ],	  
+      ],
       "properties": {
         "createdAt": {
           "type": "string",
@@ -8883,7 +8883,7 @@
         "pluralName": {
           "type": "string",
           "description": "UI plural-name of the custom object type"
-        },		
+        },
         "fields": {
           "type": "array",
           "description": "List of fields available on the object type",
@@ -8923,7 +8923,7 @@
         },
         "state": {
 		  "type": "string",
-          "description": "Approval state of object type",		  
+          "description": "Approval state of object type",
           "enum": [
             "draft",
             "approved",
@@ -8932,12 +8932,12 @@
 		},
         "version": {
 		  "type": "string",
-          "description": "Version of object type that is returned in response",		  
+          "description": "Version of object type that is returned in response",
           "enum": [
             "draft",
             "approved"
           ]
-		}		
+		}
       }
     },
     "ObjectLinkableObject": {
@@ -8979,9 +8979,9 @@
         },
         "assetId": {
           "type": "integer",
-          "format": "int32",		  
+          "format": "int32",
           "description": "ID of asset"
-        },		
+        },
         "assetName": {
           "type": "string",
           "description": "Name of asset"
@@ -8994,7 +8994,7 @@
           }
         }
       }
-    },	
+    },
     "ObjectLinkableObjectField": {
       "type": "object",
       "required": [
@@ -9025,7 +9025,7 @@
         "triggerName",
         "filterName",
         "primaryAttribute"
-      ],	  
+      ],
       "properties": {
         "apiName": {
           "type": "string"
@@ -9209,7 +9209,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfObjectLinkableObject": {
       "type": "object",
       "required": [
@@ -9251,7 +9251,7 @@
           }
         }
       }
-    },		
+    },
     "ResponseOfObjectDependentAssets": {
       "type": "object",
       "required": [
@@ -9293,7 +9293,7 @@
           }
         }
       }
-    },			
+    },
     "InputLead": {
       "type": "object",
       "required": [
@@ -9324,7 +9324,7 @@
         },
         "createdAt": {
           "type": "string",
-          "description": "Datetime when the activity type was created"		  
+          "description": "Datetime when the activity type was created"
         },
         "description": {
           "type": "string",
@@ -9348,7 +9348,7 @@
         },
         "status": {
           "type": "string",
-          "description": "State of the activity type",		  
+          "description": "State of the activity type",
           "enum": [
             "draft",
             "approved",
@@ -9589,7 +9589,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfProgramMemberAttributes2": {
       "type": "object",
       "required": [
@@ -9640,7 +9640,7 @@
           }
         }
       }
-    },		
+    },
     "ResponseOfCompany": {
       "type": "object",
       "required": [
@@ -9788,14 +9788,14 @@
           }
         }
       }
-    },	
+    },
     "ObjectRelation": {
       "type": "object",
       "required": [
         "field",
         "relatedTo",
         "type"
-      ],	  
+      ],
       "properties": {
         "field": {
           "type": "string",
@@ -10024,21 +10024,21 @@
     },
     "ProgramMember": {
       "type": "object",
-      "description": "Program member record. Always contains lead id, but may have any number of other fields, depending on the fields available in the target instance.",  
+      "description": "Program member record. Always contains lead id, but may have any number of other fields, depending on the fields available in the target instance.",
       "required": [
         "seq",
         "leadId",
         "reachedSuccess",
         "programId",
         "acquiredBy",
-        "membershipDate"		
-      ],	  
+        "membershipDate"
+      ],
       "properties": {
         "seq": {
           "type": "integer",
           "format": "int32",
           "description": "Integer indicating the sequence of the record in response. This value is correlated to the order of the records included in the request input. Seq should only be part of responses and should not be submitted."
-        },		  
+        },
         "leadId": {
           "type": "integer",
           "format": "int32",
@@ -10048,7 +10048,7 @@
           "type": "boolean",
           "example": false,
           "description": "Boolean indicating if program member has reached success criteria for program"
-        },		
+        },
         "programId": {
           "type": "integer",
           "format": "int32",
@@ -10058,13 +10058,13 @@
           "type": "boolean",
           "example": false,
           "description": "Boolean indicating if program member was acquired by program"
-        },		
+        },
         "membershipDate": {
           "type": "string",
           "description": "Date the lead first became a member of the program"
-        }		
+        }
       }
-    },	
+    },
     "ResponseOfProgramMemberStatus": {
       "type": "object",
       "required": [
@@ -10115,7 +10115,7 @@
           }
         }
       }
-    },	
+    },
     "ResponseOfProgramMemberData": {
       "type": "object",
       "required": [
@@ -10218,7 +10218,7 @@
         }
       }
     },
-	
+
 	"ResponseOfCustomObjectType": {
       "type": "object",
       "required": [
@@ -10260,7 +10260,7 @@
           }
         }
       }
-    },	
+    },
     "NamedAccount": {
       "type": "object",
       "required": [
@@ -10375,11 +10375,11 @@
       "required": [
         "input",
         "formId"
-      ],	  
+      ],
       "properties": {
         "input": {
           "type": "array",
-          "description": "Single array item that contains form fields and visitor data to use during a form submittal",		  
+          "description": "Single array item that contains form fields and visitor data to use during a form submittal",
           "items": {
             "$ref": "#/definitions/Form"
           }
@@ -10387,41 +10387,41 @@
         "formId": {
           "type": "integer",
           "format": "int32",
-          "description": "Id of the form"		
+          "description": "Id of the form"
         },
         "programId": {
           "type": "integer",
           "format": "int32",
-          "description": "Id of the program to add lead and/or program member custom fields to"		
-        }		
+          "description": "Id of the program to add lead and/or program member custom fields to"
+        }
       }
-    },	
+    },
     "Form": {
       "type": "object",
       "required": [
         "leadFormFields"
-      ],	  
+      ],
       "properties": {
         "leadFormFields": {
           "description": "List of form fields. Email is required field",
           "$ref": "#/definitions/LeadFormFields"
-        },	  
+        },
         "visitorData": {
           "description": "Page visit-related data",
           "$ref": "#/definitions/VisitorData"
-        },	  		
+        },
         "cookie": {
           "type": "string",
           "description": "Munchkin cookie value used to associate new lead with anonymous activities. e.g. id:123-XYZ-456&tooken:_mch-marketo.com-1594662481190-60776"
         }
       },
       "description": "Form field data. May have any number of fields depending on the fields available in the form."
-    },		
+    },
     "LeadFormFields": {
       "type": "object",
       "required": [
         "email"
-      ],	  
+      ],
       "properties": {
         "email": {
           "type": "string",
@@ -10444,14 +10444,14 @@
         "leadClientIpAddress": {
           "type": "string",
           "description": "Client IP address. IPv4 format. Used to populate inferred fields on upserted lead record."
-        },		
+        },
         "userAgentString": {
           "type": "string",
           "description": "User agent of browser hosting the form"
         }
       },
       "description": "Page visit related data. Used to populate additional activity fields for filtering and triggering."
-    },		
+    },
     "ChangeLeadProgramStatusOutputData": {
       "type": "object",
       "required": [
@@ -10510,7 +10510,7 @@
       "required": [
         "apiName",
         "name"
-      ],	  	  
+      ],
       "properties": {
         "apiName": {
           "type": "string",
@@ -10523,7 +10523,7 @@
         },
         "description": {
           "type": "string",
-          "description": "Description of the attribute"		  
+          "description": "Description of the attribute"
         },
         "isPrimary": {
           "type": "boolean",
@@ -10620,7 +10620,7 @@
       "type": "object",
       "required": [
         "input"
-      ],	
+      ],
       "properties": {
         "action": {
           "type": "string",
@@ -10734,12 +10734,12 @@
           "description": "Stream that the lead is a member of, if the parent program is an engagement program"
         }
       }
-    },	
+    },
     "Program": {
       "type": "object",
       "required": [
         "id",
-        "progressionStatus",		
+        "progressionStatus",
 		"isExhausted",
 		"acquiredBy",
 		"reachedSuccess",
@@ -10751,7 +10751,7 @@
           "type": "integer",
           "format": "int64",
           "description": "Unique integer id of a program record"
-        },	  
+        },
         "acquiredBy": {
           "type": "boolean",
           "example": false,
@@ -10786,16 +10786,16 @@
         "updatedAt": {
           "type": "string",
           "description": "Datetime when the program was most recently updated"
-        }		
+        }
       }
-    },	
-	
+    },
+
     "RelatedObject": {
       "type": "object",
 	  "required": [
         "field",
         "name"
-      ],	  
+      ],
       "properties": {
         "field": {
           "type": "string",
@@ -10886,7 +10886,7 @@
         "fileChecksum": {
           "type": "string",
           "description": "SHA-256 hash of exported file. This will have a value only when status is \"Completed\", otherwise null"
-        },		
+        },
         "finishedAt": {
           "type": "string",
           "format": "date-time",
@@ -11018,7 +11018,7 @@
         },
         "reasons": {
           "type": "array",
-          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",		  
+          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",
           "items": {
             "$ref": "#/definitions/Reason"
           }
@@ -11058,9 +11058,9 @@
         "company": {
           "type": "string",
           "description": "Unique name of the company record"
-        }		
+        }
       }
-    },	
+    },
     "Reason": {
       "type": "object",
       "required": [
@@ -11267,7 +11267,7 @@
     "ExportCustomObjectFilter": {
       "type": "object",
       "required": [
-        "updatedAt",	  
+        "updatedAt",
         "smartListId",
         "smartListName",
         "staticListId",
@@ -11297,14 +11297,14 @@
           "description": "Name of static list to retrieve leads from"
         }
       }
-    },	
+    },
     "ExportProgramMemberFilter": {
       "type": "object",
       "required": [
         "programId",
-        "programIds"		
+        "programIds"
       ],
-      "properties": {	  
+      "properties": {
         "programId": {
           "type": "integer",
           "format": "int32",
@@ -11321,7 +11321,7 @@
         "isExhausted": {
           "type": "boolean",
           "description": "Filter program membership records for people who have exhausted content"
-        },	
+        },
        "nurtureCadence": {
           "type": "string",
           "description": "Filter program membership records for a given nurture cadence",
@@ -11340,9 +11340,9 @@
         "updatedAt": {
           "description": "Date range to filter program members on",
           "$ref": "#/definitions/DateRange"
-        }	
-      }		
-    },	
+        }
+      }
+    },
     "InputStreamRangeContent": {
       "type": "object",
       "properties": {
@@ -11455,7 +11455,7 @@
           "items": {
             "$ref": "#/definitions/ImportProgramMemberResponse"
           }
-        },		
+        },
         "success": {
           "type": "boolean",
           "example": false,
@@ -11483,7 +11483,7 @@
         },
         "reasons": {
           "type": "array",
-          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",		  
+          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",
           "items": {
             "$ref": "#/definitions/Reason"
           }
@@ -11495,12 +11495,12 @@
         }
       }
     },
-	
+
     "ProgramMemberStatusResponse": {
       "type": "object",
       "required": [
         "status",
-        "leadId",		
+        "leadId",
         "seq"
       ],
       "properties": {
@@ -11511,10 +11511,10 @@
             "updated",
             "skipped"
           ]
-        }, 		
+        },
         "reasons": {
           "type": "array",
-          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",		  
+          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",
           "items": {
             "$ref": "#/definitions/Reason"
           }
@@ -11523,19 +11523,19 @@
           "type": "integer",
           "format": "int64",
           "description": "Id of the lead associated to the program member"
-        },		
+        },
         "seq": {
           "type": "integer",
           "format": "int32",
           "description": "Integer indicating the sequence of the record in response. This value is correlated to the order of the records included in the request input. Seq should only be part of responses and should not be submitted."
         }
       }
-    },	
+    },
     "ProgramMemberDataResponse": {
       "type": "object",
       "required": [
         "status",
-        "leadId",		
+        "leadId",
         "seq"
       ],
       "properties": {
@@ -11547,10 +11547,10 @@
             "updated",
             "skipped"
           ]
-        }, 		
+        },
         "reasons": {
           "type": "array",
-          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",		  
+          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",
           "items": {
             "$ref": "#/definitions/Reason"
           }
@@ -11559,7 +11559,7 @@
           "type": "integer",
           "format": "int64",
           "description": "Id of the lead associated to the program member"
-        },		
+        },
         "seq": {
           "type": "integer",
           "format": "int32",
@@ -11571,7 +11571,7 @@
       "type": "object",
       "required": [
         "status",
-        "leadId",		
+        "leadId",
         "seq"
       ],
       "properties": {
@@ -11582,10 +11582,10 @@
             "deleted",
             "skipped"
           ]
-        }, 		
+        },
         "reasons": {
           "type": "array",
-          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",		  
+          "description": "List of reasons why an operation did not succeed. Reasons are only present in API responses and should not be submitted",
           "items": {
             "$ref": "#/definitions/Reason"
           }
@@ -11594,15 +11594,15 @@
           "type": "integer",
           "format": "int64",
           "description": "Id of the lead associated to the program member"
-        },		
+        },
         "seq": {
           "type": "integer",
           "format": "int32",
           "description": "Integer indicating the sequence of the record in response. This value is correlated to the order of the records included in the request input. Seq should only be part of responses and should not be submitted."
         }
       }
-    },		
-	
+    },
+
     "ExportActivityRequest": {
       "type": "object",
       "required": [
@@ -11680,7 +11680,7 @@
           "description": "Total number of errors in the time period"
         }
       }
-    },	
+    },
     "StaticList": {
       "type": "object",
       "required": [
@@ -11721,7 +11721,7 @@
         }
       }
     },
-	
+
     "List": {
       "type": "object",
       "required": [
@@ -11744,7 +11744,7 @@
           "description": "Datetime when the static list was most recently updated"
         }
       }
-    },	
+    },
     "SmartCampaign": {
       "type": "object",
       "required": [
@@ -11767,7 +11767,7 @@
           "description": "Datetime when the smart campaign was most recently updated"
         }
       }
-    },		
+    },
     "CustomActivity": {
       "type": "object",
       "required": [
@@ -11986,6 +11986,6 @@
           "description": "Name of the partition"
         }
       }
-    }	
+    }
   }
 }
