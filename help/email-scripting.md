@@ -3,7 +3,7 @@ title: 电子邮件脚本
 feature: Email Programs
 description: 电子邮件脚本概述
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 9012135dc7a295c2462574dad1aca2d06a9077ea
 workflow-type: tm+mt
 source-wordcount: '947'
 ht-degree: 0%
@@ -17,19 +17,19 @@ ht-degree: 0%
 [Apache Velocity](https://velocity.apache.org/)是一种基于Java构建的语言，专为模板化和编写HTML内容脚本而设计。 利用Marketo，可通过使用脚本令牌在电子邮件上下文中使用它。 这样可访问存储在商机和自定义对象中的数据，并允许在电子邮件中创建动态内容。 Velocity提供了标准的高级控制流，其中包含if/else、for和for each ，以允许对内容进行条件和迭代操作。 以下是一个打印问候语和正确问候语的简单示例：
 
 ```java
-//check if the lead is male
-if(${lead.MarketoSocialGender} == "Male")
-    if the lead is male, use the salutation 'Mr.'
-    set($greeting = "Dear Mr. ${lead.LastName},")
-//check is the lead is female
-elseif(${lead.MarketoSocialGender} == "Female")
-    if female, use the salutation 'Ms.'
-    set($greeting = "Dear Ms. ${lead.LastName},")
-else
-    //otherwise, use the first name
-    set($greeting = "Dear ${lead.FirstName},")
-end
-print the greeting and some content
+##check if the lead is male
+#if(${lead.MarketoSocialGender} == "Male")
+    ##if the lead is male, use the salutation 'Mr.'
+    #set($greeting = "Dear Mr. ${lead.LastName},")
+##check is the lead is female
+#elseif(${lead.MarketoSocialGender} == "Female")
+    ##if female, use the salutation 'Ms.'
+    #set($greeting = "Dear Ms. ${lead.LastName},")
+#else
+    ##otherwise, use the first name
+    #set($greeting = "Dear ${lead.FirstName},")
+#end
+##print the greeting and some content
 ${greeting}
 
     Lorem ipsum dolor sit amet...
@@ -51,7 +51,7 @@ $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
 ```
 
-还有静默引用表示法，其中在`$`之后有`!`包含。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
+还有静默引用表示法，其中在`!`之后有`$`包含。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
 
 ```
 ##Defined Reference
@@ -130,7 +130,7 @@ $date.whenIs($birthday).days ##outputs 1
 - 您可以引用连接到Lead、Contact或Account的自定义对象，但不能引用多个对象。
 - 只能通过单个连接、潜在客户、联系人或帐户引用自定义对象
 - 您必须在脚本编辑器中选中正在使用的字段的框，否则这些字段将不会处理
-- 对于每个自定义对象，每个人员/联系人最近更新的10条记录在运行时可用，并且按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)增加可用的记录数。
+- 对于每个自定义对象，每个人员/联系人最近更新的10条记录在运行时可用，并且按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[增加](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)可用的记录数。
 - 如果电子邮件中包含多个电子邮件脚本，则它们将自上而下执行。 在第一个要执行的脚本中定义的变量的范围将在后续脚本中可用。
 - 工具引用： [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - 有关包含换行字符“\\n”或“\\r\\n”的令牌的注释。 通过发送示例或批量促销活动发送电子邮件时，令牌中的换行字符会被替换为空格。 通过触发器营销活动发送电子邮件时，新行字符保持不变。
