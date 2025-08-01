@@ -14,7 +14,7 @@ ht-degree: 5%
 
 用户上下文JavaScript API跨多个会话公开用户和访客级别的数据，以使用历史用户行为和数据启用高级个性化功能。 该API不仅适用于数据读取，而且还会公开自定义变量，从而允许您将有意义的数据和事件推送到RTP后端以实现高级分段和个性化目的。 其他功能： [触发器](../javascript-api/triggers.md)，[模式匹配](../javascript-api/pattern-match.md)。
 
-- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - 用户上下文API是一项功能，Marketo支持部门必须应请求启用它。 启用API后，RTP全局对象下的userContext对象将会公开。
 
 ## 用户上下文属性
