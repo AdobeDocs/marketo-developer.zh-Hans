@@ -3,7 +3,7 @@ title: 社交
 description: 社交
 feature: Social, Javascript
 exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 2%
@@ -17,12 +17,12 @@ ht-degree: 2%
 ## 嵌入式共享小部件示例
 
 ```html
-<!-- Marketo Widget Loader Script --> 
+<!-- Marketo Widget Loader Script -->
 
 <script type="text/javascript" src="//b2c-mlm.marketo.com/jsloader/271d8232-1500-4305-b7ed-05d451b9ee0c/loader.php.js">
 </script>
 
- <!-- The Location of the Social Widget --> 
+ <!-- The Location of the Social Widget -->
 
 <divclass='cf_widgetloader cf_w_245d8f3c0955454cbd26abc39d0d874c'="" options="{&quot;outerHeight&quot;:400, &quot;outerWidth&quot;:600}">
 </divclass='cf_widgetloader'>
@@ -89,13 +89,13 @@ cf_scripts.afterload(function(){
 ## 基本事件表
 
 | 事件名称 | 描述 | 使用此事件的构件 | 支持的参数（传递到事件回调函数） |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | share_sent | 每次将共享请求发送到服务器进行处理时触发 | 所有能够共享的widget | 1.”share_sent&quot; （字符串）<br>2。 参数已发送（对象） |
 | share_成功次数 | 成功处理共享请求时触发。 | 所有能够共享的构件。 | 1.”share_success&quot; （字符串）<br>2。 共享响应对象，包含发送的消息和缩短的URL（对象） |
-| 投票成功 | 当用户在投票中成功投票时触发。 | 投票、VS、投票小组件 | 1. &quot;vote_success&quot; （字符串）<br>2。 投票赞成的项目，包括标题、描述、实体标识符（对象） |
+| 投票成功 | 当用户在投票中成功投票时触发。 | 投票、VS、投票小组件 | &#x200B;1. &quot;vote_success&quot; （字符串）<br>2。 投票赞成的项目，包括标题、描述、实体标识符（对象） |
 | offer_registered | 用户成功注册选件时触发 | 所有优惠小组件 | 1.”offer_registered&quot; （字符串）<br>2。 已更改用户属性（对象），<br>3。 更改的用户属性（对象） |
 | profile_saved | 当用户从配置文件捕获更新其配置文件时触发 | 已启用配置文件捕获的所有非选件小组件 | 1.”profile_saved&quot; （字符串）<br>2。 已更改用户属性（对象）<br>3。 更改的用户属性（对象） |
-| video_loaded | 在完全加载和初始化嵌入的视频时触发。 | VideoShare构件 | 1. &quot;video_loaded&quot;（字符串） 2. 保存视频的“.cf_videoshare_wrap”元素（jQuery对象） |
+| video_loaded | 在完全加载和初始化嵌入的视频时触发。 | VideoShare构件 | &#x200B;1. &quot;video_loaded&quot;（字符串） 2. 保存视频的“.cf_videoshare_wrap”元素（jQuery对象） |
 
 ## 将UI替换为自定义UI
 
@@ -172,7 +172,7 @@ cf_scripts.afterload(function($, CF){
 | 数字 | 整数或浮点数 |
 | 富文本 | HTML字符串 |
 | 分数 | 带符号的32位整数 |
-| sfdc营销活动 | 用于Salesforce营销活动管理集成 |
+| sfdc营销活动 | 用于Salesforce campaign管理集成 |
 | 文本 | 文本字符串 |
 
 ## 反向链接优惠TrackProgress UI数据参考
@@ -183,7 +183,7 @@ cf_scripts.afterload(function($, CF){
 | 数字 | 整数或浮点数 |
 | 富文本 | HTML字符串 |
 | 分数 | 带符号的32位整数 |
-| sfdc营销活动 | 用于Salesforce营销活动管理集成 |
+| sfdc营销活动 | 用于Salesforce campaign管理集成 |
 | 文本 | 文本字符串 |
 
 ## 抽奖UI数据引用（用于社交活动抽奖，而不是LM抽奖）
@@ -194,7 +194,7 @@ cf_scripts.afterload(function($, CF){
 | 数字 | 整数或浮点数 |
 | 富文本 | HTML字符串 |
 | 分数 | 带符号的32位整数 |
-| sfdc营销活动 | 用于Salesforce营销活动管理集成 |
+| sfdc营销活动 | 用于Salesforce campaign管理集成 |
 | 文本 | 文本字符串 |
 
 ## 社交登录（表单填写小组件）数据参考
@@ -205,7 +205,7 @@ cf_scripts.afterload(function($, CF){
 | 数字 | 整数或浮点数 |
 | 富文本 | HTML字符串 |
 | 分数 | 带符号的32位整数 |
-| sfdc营销活动 | 用于Salesforce营销活动管理集成 |
+| sfdc营销活动 | 用于Salesforce campaign管理集成 |
 | 文本 | 文本字符串 |
 
 ```javascript

@@ -3,10 +3,10 @@ title: Web Personalization
 description: Web Personalization
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '401'
-ht-degree: 4%
+ht-degree: 5%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 4%
 
 Web Personalization JavaScript API扩展了平台的自动个性化功能。 它允许对网页进行事件跟踪和动态自定义。 其他功能：[自定义数据事件](custom-data-events.md)、[动态内容](web-personalization.md)、[获取访客数据](get-visitor-data.md)、[排除特定机器人的标记](#exclude_tag_for_specific_bots)。
 
-- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 标记设置
@@ -22,7 +22,7 @@ Web Personalization JavaScript API扩展了平台的自动个性化功能。 它
 RTP标记应插入到个性化页面的标题中。
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 (function(c,h,a,f,e,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 c[a].p=e;c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -76,7 +76,7 @@ rtp('send', 'view', page);
 在以下代码示例中，“GoogleBot|msnbot”用作机器人示例，以从Web Personalization活动中排除。
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
     (function(c,h,a,f,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

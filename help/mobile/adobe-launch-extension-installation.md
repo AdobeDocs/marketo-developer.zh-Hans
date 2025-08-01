@@ -1,11 +1,11 @@
 ---
-title: “[!DNL Adobe Launch]扩展安装”
+title: '[!DNL Adobe Launch]扩展安装'
 feature: Mobile Marketing
-description: “[!DNL Adobe Launch]扩展安装概述”
+description: '[!DNL Adobe Launch]扩展安装概述'
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '665'
+source-wordcount: '664'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 ## 先决条件
 
-1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)&#x200B;(获取应用程序密钥和Munchkin ID)
 1. [在 [!DNL Adobe Launch] 门户](https://experience.adobe.com/#/@amc/data-collection/home)中配置属性
 1. 在[!DNL Adobe Launch]门户中配置属性的应用程序密钥和Munchkin ID
 1. [设置推送通知](push-notifications.md)（可选）
@@ -76,8 +76,8 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ```
 #ifdef __IPHONE_10_0
--(BOOL)application:(UIApplication *)application 
-           openURL:(NSURL *)url 
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
            options:(NSDictionary *)options{
     return [[ALMarketo sharedInstance] application:application
                                          openURL:url
@@ -153,21 +153,21 @@ ProGuard配置（可选）
 
 适用于Android的MME软件开发工具包(SDK)已更新到一个更现代、稳定和可扩展的框架，其中包含更灵活的功能和面向Android应用程序开发人员的新工程功能。
 
-Android应用程序开发人员现在可以直接将Google的[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM)与此SDK一起使用。
+Android应用程序开发人员现在可以直接将Google的[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM)与此SDK结合使用。
 
 ### 将FCM添加到应用程序
 
 1. 在Android应用程序中集成最新的Marketo Android SDK。  步骤位于[GitHub](https://github.com/Marketo/android-sdk)。
 1. 在Firebase控制台上配置Firebase应用程序。
-   1. 在[&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
-      1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
+   1. 在[](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
+      1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
       1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
       1. 在Firebase欢迎屏幕中，选择&#x200B;**[!UICONTROL Add Firebase to your Android App]**。
       1. 提供您的包名称和SHA-1，然后选择&#x200B;**[!UICONTROL Add App]**。 已下载Firebase应用程序的新`google-services.json`文件。
       1. 选择&#x200B;**[!UICONTROL Continue]**，然后按照在Android Studio中添加Google Services插件的详细说明操作。
 
-   1. 在[!UICONTROL Project Overview]中导航到&#x200B;**[!UICONTROL Project Settings]**
-      1. 单击&#x200B;**[!UICONTROL General]**&#x200B;选项卡。 下载`google-services.json`文件。
+   1. 在&#x200B;**[!UICONTROL Project Settings]**&#x200B;中导航到[!UICONTROL Project Overview]
+      1. 单击&#x200B;**[!UICONTROL General]**&#x200B;选项卡。 下载 `google-services.json` 文件。
       1. 单击&#x200B;**[!UICONTROL Cloud Messaging]**&#x200B;选项卡。 复制[!UICONTROL Server Key]和[!UICONTROL Sender ID]。 将这些[!UICONTROL Server Key]和[!UICONTROL Sender ID]提供给Marketo。
    1. 在Android应用程序中配置FCM更改
       1. 切换到Android Studio中的“项目”视图，查看项目根目录
@@ -187,8 +187,8 @@ Android应用程序开发人员现在可以直接将Google的[Firebase Cloud Mes
             ```
             dependencies {
               compile 'com.google.firebase:firebase-core:17.4.0'
-            } 
-            // Add to the bottom of the file 
+            }
+            // Add to the bottom of the file
             apply plugin: 'com.google.gms.google-services'
             ```
 
@@ -209,7 +209,7 @@ Android应用程序开发人员现在可以直接将Google的[Firebase Cloud Mes
         <intent-filter>
           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
           <category android:name="<your-package-name> />
-        </intent-filter> 
+        </intent-filter>
       </receiver>
       ```
 
@@ -218,17 +218,17 @@ Android应用程序开发人员现在可以直接将Google的[Firebase Cloud Mes
 
 有关Firebase Cloud Messaging支持的常见问题。
 
-**问：可在何处找到更新到MME SDK最新版本的说明？在Marketo开发人员网站[此处](installation.md)找到**&#x200B;说明。
+**问：在哪里可以找到更新到MME SDK最新版本的说明？在Marketo开发人员网站**&#x200B;此处[找到](installation.md)说明。
 
-**问：更新到最新版本的SDK是否需要我将Android应用程序的更新版本发布到现有用户？**&#x200B;编号
+**问：更新到SDK的最新版本是否需要我将Android应用程序的更新版本发布到现有用户？**&#x200B;编号
 
-**问：它如何影响已发布与Marketo Android SDK集成的Android应用程序的现有MME客户？**&#x200B;他们可以将Android上的现有GCM客户端应用程序迁移到Firebase Cloud Messaging (FCM)，如下所示：
+**问：它对于已发布与Marketo Android SDK集成的Android应用程序的现有MME客户有何影响？**&#x200B;他们可以将Android上的现有GCM客户端应用程序迁移到Firebase Cloud Messaging (FCM)，如下所示：
 
-1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
+1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
 1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
 1. 在Firebase欢迎屏幕中，选择&#x200B;**[!UICONTROL Add Firebase to your Android App]**。
 1. 提供您的包名称和SHA-1，然后选择&#x200B;**[!UICONTROL Add App]**。 适用于您的的新google-services.json文件
 1. 已下载Firebase应用程序。
 1. 选择&#x200B;**[!UICONTROL Continue]**，然后按照在Android Studio中添加Google Services插件的详细说明操作。
 
-**问：我们能否定位使用旧版Marketo SDK（使用GCM应用程序）创建的潜在客户？**&#x200B;是。 所有使用Marketo SDK创建的潜在客户均可被定位来发送推送通知。
+**问：我们能否定位使用旧版Marketo SDK（使用GCM应用程序）创建的潜在客户？**&#x200B;是。 使用Marketo SDK创建的所有潜在客户都可以定位来发送推送通知。

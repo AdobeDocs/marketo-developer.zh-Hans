@@ -3,10 +3,10 @@ title: 富媒体推荐
 description: 富媒体推荐
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '812'
-ht-degree: 3%
+ht-degree: 4%
 
 ---
 
@@ -21,13 +21,13 @@ ht-degree: 3%
 1. 在页面正文中
    1. 将模板标记（div类）放置在要显示该模板的位置
 
-[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
+[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
 
 ## 模板标记
 
 | 属性 | 可选/必填 | 描述 |
 |---|---|---|
-| 类 | 必需 | 指定此divHTML元素为RTP建议div。 |
+| 类 | 必需 | 指定此div HTML元素为RTP推荐div。 |
 | data-rtp-template-id | 必需 | 模板id。 这会确定推荐的对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行仅包含标题和描述的垂直对齐。 该脚本将匹配的模板注入此`div.Permissible`值：template1、template2、template3。 |
 
 ### 示例
@@ -103,7 +103,7 @@ rtp("set", "rcmd", "richmedia","template1",
 ```javascript
 rtp("set", "rcmd", "richmedia",
     {
-        "template1": 
+        "template1":
         {
             "rcmd.title.text": "RECOMMENDED CONTENT",
             "rcmd.general.font.family": "arial",
@@ -156,7 +156,7 @@ rtp("set", "rcmd", "richmedia",
 
 #### 基本示例
 
-此示例有一个包含三个推荐的模板。 将此示例复制到HTML页中，然后将RTP标记替换为您的标记。
+此示例有一个包含三个推荐的模板。 将此示例复制到HTML页面，然后将RTP标记替换为您的标记。
 
 ```html
 <!DOCTYPE>
@@ -164,7 +164,7 @@ rtp("set", "rcmd", "richmedia",
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -188,7 +188,7 @@ rtp('get','rcmd', 'richmedia');
 
 #### 高级示例
 
-此示例有一个包含三个推荐的模板。 模板标题为“推荐的内容”，按钮文本将为“了解更多”。 将此示例复制到HTML页中，然后将RTP标记替换为您的标记。
+此示例有一个包含三个推荐的模板。 模板标题为“推荐的内容”，按钮文本将为“了解更多”。 将此示例复制到HTML页面，然后将RTP标记替换为您的标记。
 
 ```html
 <!DOCTYPE>
@@ -196,7 +196,7 @@ rtp('get','rcmd', 'richmedia');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -232,13 +232,13 @@ rtp('get','rcmd', 'richmedia');
 
 #### 富媒体推荐模板#1示例
 
-**名称**：模板1 **描述**：包含图像、标题和描述的水平内容以及行动号召按钮。
+**名称**： template1 **描述**：包含图像、标题和描述的水平内容以及call to action按钮。
 
 ![富媒体模板](assets/rich-media-template1.png)
 
 #### 富媒体推荐模板#2示例
 
-**名称**：模板2 **描述**：垂直内容，包括图像、标题和描述，以及行动号召按钮。
+**名称**： template2 **描述**：垂直内容（包括图像、标题和描述）以及call to action按钮。
 
 ![富媒体模板](assets/rich-media-template2.png)
 

@@ -1,12 +1,12 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: 在移动设备的Marketo中使用 [!DNL Ionic]
+description: '在移动设备的Marketo中使用 [!DNL Ionic] '
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '606'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
 
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 ## 先决条件
 
-1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）。
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)&#x200B;(获取您的应用程序密钥和Munchkin ID)。
 1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md) )。
 1. 安装[[!DNL Ionic]](https://ionicframework.com/getting-started/)和[Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 
@@ -76,7 +76,7 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 您必须将`ionicCordova`作为[!DNL Ionic] Cordova应用的框架类型传递。
 
-#### 语法
+#### 句法
 
 ```javascript
 // This method will Initialize the Marketo Framework using Your MunchkinId and Secret Key
@@ -88,7 +88,7 @@ marketo.initialize(
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }
@@ -99,14 +99,14 @@ marketo.onStart(
 
 - 成功回调：Marketo框架初始化成功时要执行的函数。
 - 失败回调：当Marketo Framework初始化失败时要执行的函数。
-- MUNCHKIN ID ：注册时从Marketo收到的Munchkin ID。
+- Munchkin ID ：注册时从Marketo收到的Munchkin ID。
 - 密钥：注册时从Marketo收到的密钥。
 
 ### 初始化Marketo推送通知
 
 要确保启动Marketo推送通知，请在主JavaScript文件中初始化函数后添加以下代码。
 
-#### 语法
+#### 句法
 
 ```javascript
 // This function will Enable user notifications (prompts the user to accept push notifications in iOS)
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - 成功回调：Marketo推送通知初始化成功时要执行的函数。
 - 失败回调：当Marketo推送通知初始化失败时要执行的函数。
-- GCM_PROJECT_ID ：创建应用程序后，在[Google开发人员控制台](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard)中找到了GCM项目ID。
+- GCM_PROJECT_ID ：创建应用程序后，在[Google开发人员控制台](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard)中找到了GCM项目ID。
 
 注销时也可以注销令牌。
 
@@ -136,7 +136,7 @@ marketo.uninitializeMarketoPush(
 
 您可以通过调用associateLead函数来创建Marketo Lead。
 
-### 语法
+### 句法
 
 ```javascript
 marketo.associateLead(
@@ -179,7 +179,7 @@ marketo.associateLead(
 
 您可以通过调用`reportaction`函数来报告用户执行的任何操作。
 
-### 语法
+### 句法
 
 ```javascript
 marketo.reportaction(
@@ -251,4 +251,4 @@ onStart: function() {
 
 根据使用的方法，新创建的潜在客户会被不同的触发器和过滤器识别。 使用MME SDK或REST API创建的潜在客户会出现在“创建的潜在客户”触发器和过滤器中。 通过提交表单创建的潜在客户显示在“填写表单”触发器和过滤器中。
 
-最佳做法是在创建潜在客户时与Web应用程序使用的方法保持一致。 如果您已有使用表单提交作为创建潜在客户机制的Web应用程序，则在混合应用程序中创建潜在客户时，请使用该相同的机制。 如果您已有使用我们的REST API作为创建潜在客户机制的Web应用程序，请在混合应用程序中创建潜在客户时使用该相同的机制。 如果您未使用表单提交或REST API作为在Web应用程序中创建潜在客户的机制，则可以考虑使用MME SDK在Marketo中创建潜在客户。
+最佳做法是在创建潜在客户时与Web应用程序使用的方法保持一致。 如果您已有使用表单提交作为创建潜在客户机制的Web应用程序，则在混合应用程序中创建潜在客户时，请使用该相同的机制。 如果您已有使用我们的REST API作为创建潜在客户机制的Web应用程序，请在混合应用程序中创建潜在客户时使用该相同的机制。 如果您既不使用表单提交也不使用REST API作为在Web应用程序中创建潜在客户的机制，则可以考虑使用MME SDK在Marketo中创建潜在客户。

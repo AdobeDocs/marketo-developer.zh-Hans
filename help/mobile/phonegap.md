@@ -3,10 +3,10 @@ title: PhoneGap
 feature: Mobile Marketing
 description: 在移动设备上将PhoneGap与Marketo结合使用
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '797'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -16,7 +16,7 @@ Marketo PhoneGap插件的集成
 
 ## 先决条件
 
-1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）。
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)&#x200B;(获取您的应用程序密钥和Munchkin ID)。
 1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md))。
 1. [安装PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 
@@ -48,10 +48,10 @@ Marketo PhoneGap插件的集成
 
 **Cordova版本8.0.0 (Cordova@Android7.0.0)及更高版本**
 
-构建Cordova Android平台后，使用Android Studio打开该应用程序，并更新在`com.marketo.plugin`文件夹中找到的`Marketo.gradle`文件的`dirs`值。
+构建Cordova Android平台后，使用Android Studio打开该应用程序，并更新在`dirs`文件夹中找到的`Marketo.gradle`文件的`com.marketo.plugin`值。
 
 ```
-repositories{    
+repositories{
   jcenter()
   flatDir{
       dirs '../app/src/main/aar'
@@ -66,12 +66,12 @@ repositories{
 1. Firebase Cloud Messaging支持
 
 1. 在Firebase控制台上配置Firebase应用程序。
-   1. 在[&#128279;](https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
+   1. 在[](https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
       1. 在[Firebase控制台](https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
       1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
       1. 在Firebase欢迎屏幕中，选择“将Firebase添加到Android应用程序”。
       1. 提供您的包名称和SHA-1，然后选择&#x200B;**[!UICONTROL Add App]**。 已下载Firebase应用程序的新`google-services.json`文件。
-   1. 在[!UICONTROL Project Overview]中导航到&#x200B;**[!UICONTROL Project Settings]**
+   1. 在&#x200B;**[!UICONTROL Project Settings]**&#x200B;中导航到[!UICONTROL Project Overview]
       1. 单击&#x200B;**[!UICONTROL General]**&#x200B;选项卡。 下载“google-services.json”文件。
       1. 单击&#x200B;**[!UICONTROL Cloud Messaging]**&#x200B;选项卡。 复制[!UICONTROL Server Key]和[!UICONTROL Sender ID]。 将这些[!UICONTROL Server Key]和[!UICONTROL Sender ID]提供给Marketo。
    1. 在Phonegap应用程序中配置FCM更改
@@ -152,7 +152,7 @@ sharedInstance.trackPushNotification(launchOptions)
 
 请注意，我们必须将`phonegap`作为PhoneGap应用的框架类型传递。
 
-### 语法
+### 句法
 
 ```
 // This method will Initialize the Marketo Framework using Your MunchkinId and Secret Key
@@ -160,11 +160,11 @@ marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
   function(error) { console.log("an error occurred:" + error); },
   'YOUR_MUNCHKIN_ID',
-  'YOUR_SECRET_KEY', 
+  'YOUR_SECRET_KEY',
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }
@@ -175,14 +175,14 @@ marketo.onStart(
 
 - 成功回调：Marketo框架初始化成功时要执行的函数。
 - 失败回调：当Marketo Framework初始化失败时要执行的函数。
-- MUNCHKIN ID ：注册时从Marketo收到的Munchkin ID。
+- Munchkin ID ：注册时从Marketo收到的Munchkin ID。
 - 密钥：注册时从Marketo收到的密钥。
 
 ### 6.初始化Marketo推送通知
 
 要确保启动Marketo推送通知，请在主JavaScript文件中添加初始化函数之后添加以下代码。
 
-### 语法
+### 句法
 
 ```
 // This function will Enable user notifications (prompts the user to accept push notifications in iOS)
@@ -212,7 +212,7 @@ marketo. uninitializeMarketoPush(
 
 您可以通过调用associateLead函数来创建Marketo Lead。
 
-### 语法
+### 句法
 
 ```
 marketo.associateLead(
@@ -257,7 +257,7 @@ marketo.associateLead(
 
 您可以通过调用`reportaction`函数来报告用户执行的任何操作。
 
-### 语法
+### 句法
 
 ```
 marketo.reportaction(
@@ -329,4 +329,4 @@ onStart: function() {
 
 根据使用的方法，新创建的潜在客户将由不同的触发器和过滤器识别。 使用MME SDK或REST API创建的潜在客户会出现在“创建的潜在客户”触发器和过滤器中。 通过提交表单创建的潜在客户显示在“填写表单”触发器和过滤器中。
 
-最佳做法是在创建潜在客户时与Web应用程序使用的方法保持一致。 如果您已有使用表单提交作为创建潜在客户机制的Web应用程序，则在混合应用程序中创建潜在客户时，请使用该相同的机制。 如果您已有使用我们的REST API作为创建潜在客户机制的Web应用程序，请在混合应用程序中创建潜在客户时使用该相同的机制。 如果您未使用表单提交或REST API作为在Web应用程序中创建潜在客户的机制，则可以考虑使用MME SDK在Marketo中创建潜在客户。
+最佳做法是在创建潜在客户时与Web应用程序使用的方法保持一致。 如果您已有使用表单提交作为创建潜在客户机制的Web应用程序，则在混合应用程序中创建潜在客户时，请使用该相同的机制。 如果您已有使用我们的REST API作为创建潜在客户机制的Web应用程序，请在混合应用程序中创建潜在客户时使用该相同的机制。 如果您既不使用表单提交也不使用REST API作为在Web应用程序中创建潜在客户的机制，则可以考虑使用MME SDK在Marketo中创建潜在客户。

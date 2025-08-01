@@ -3,7 +3,7 @@ title: 示例
 description: 用于配置表单操作的Marketo代码示例
 feature: Javascript
 exl-id: dc5f0cc5-ff5a-48b0-be36-52c10e56f798
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '211'
 ht-degree: 0%
@@ -72,7 +72,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
         // We'll just alert them to show the principle
         alert("Submitted values: " + JSON.stringify(vals));
     });
-}); 
+});
 ```
 
 ## 发生非表单点击事件时表单提交
@@ -98,7 +98,7 @@ btn.onclick = function() {
 对于此示例，您必须至少单击三次单击计数器按钮，表单上的提交按钮才能正常工作。
 
 ```javascript
-MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 
+MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
     // Check if the form is submittable
     if (form.submittable()) {
         // Set it to be non submittable
@@ -128,7 +128,7 @@ clickCounterBtn.onclick = function() {
 此示例设置隐藏字段的值。
 
 ```javascript
-MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 
+MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
     // Set values for the hidden fields, "userIsAwesome" and "enrollDate"
     // Note that these fields were configured in the form editor as hidden fields already
     form.vals({"userIsAwesome":"true", "enrollDate":"2014-01-01"});
@@ -140,7 +140,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 此示例在Lightbox样式对话框中显示表单（如果URL包含参数`lightboxForm=true`）。
 
 ```javascript
-MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 
+MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
     if (location.href.indexOf("lightboxForm=true") != -1) {
         MktoForms2.lightbox(form).show();
     }
@@ -152,7 +152,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 此示例显示基于自定义业务逻辑的提交自定义错误消息。
 
 ```javascript
-MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 
+MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
     //listen for the validate event
     form.onValidate(function() {
         // Get the values

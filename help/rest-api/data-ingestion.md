@@ -3,7 +3,7 @@ title: 数据引入
 feature: REST API, Dynamic Content
 description: 使用Marketo API使用数据。
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 10%

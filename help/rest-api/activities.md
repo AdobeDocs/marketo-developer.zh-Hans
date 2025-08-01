@@ -3,7 +3,7 @@ title: 活动
 feature: REST API
 description: 用于管理Marketo Engage活动的API。
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 6baf62bc8881470eca597899e3228c377fb597d0
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%

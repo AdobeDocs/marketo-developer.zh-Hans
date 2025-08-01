@@ -3,9 +3,9 @@ title: SOAP API
 feature: SOAP
 description: Marketo SOAP概述
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '229'
+source-wordcount: '228'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ SOAP API已被弃用，在2025年10月31日后将不再可用。 所有新的开
 
 要检索SOAP WSDL文档，请从&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**&#x200B;菜单获取SOAP API端点。
 
-![SOAP终结点](assets/endpoint-soap.png)
+![SOAP端点](assets/endpoint-soap.png)
 
 您的WSDL URL为：
 
@@ -28,7 +28,7 @@ SOAP API已被弃用，在2025年10月31日后将不再可用。 所有新的开
 
 ## 限制
 
-- **每日配额：**&#x200B;大多数订阅每天分配的API调用数为10,000（CST凌晨12:00重置）。 您可以通过客户经理增加每日配额。
+- **每日配额：**&#x200B;大多数订阅每天分配的API调用数为10,000（这在12:00AM CST每天重置）。 您可以通过客户经理增加每日配额。
 - **速率限制：**&#x200B;每个实例的API访问限制为每20秒100次调用。
 - **并发限制：**  最多十次并发API调用。
 

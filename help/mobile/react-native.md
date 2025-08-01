@@ -3,20 +3,20 @@ title: React Native
 feature: Mobile Marketing
 description: 安装适用于Marketo的React Native
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e7cb23c4d578d949553b2b7a6e127d6be54cdf23
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '811'
+source-wordcount: '810'
 ht-degree: 0%
 
 ---
 
 # React Native
 
-本文介绍了如何安装和设置Marketo的本机SDK，以将您的移动应用程序与我们的平台集成。
+本文介绍了如何安装和设置Marketo的本机SDK，以便将您的移动应用程序与我们的平台集成。
 
 ## 先决条件
 
-[在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取应用程序密钥和Munchkin ID）。
+[在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)&#x200B;(获取您的应用程序密钥和Munchkin ID)。
 
 ## SDK集成
 
@@ -47,13 +47,13 @@ build script {
 
 #### iOS SDK集成
 
-在为React Native项目创建桥接之前，务必要在Xcode项目中设置我们的SDK。
+在为React Native项目创建Bridge之前，务必要在Xcode项目中设置我们的SDK。
 
 **SDK集成 — 使用CocoaPods**
 
-在您的应用程序中使用我们的iOS SDK很容易。 执行以下步骤，使用CocoaPods在应用程序的Xcode项目中设置插件，以便将我们的平台与应用程序集成。
+在您的应用程序中使用我们的iOS SDK非常轻松。 执行以下步骤，使用CocoaPods在应用程序的Xcode项目中设置插件，以便将我们的平台与应用程序集成。
 
-下载[CocoaPods](https://cocoapods.org/) — 作为Ruby gem分发，它是Objective-C和Swift的依赖关系管理器，简化了在您的代码中使用第三方库(如iOS SDK)的过程。
+下载[CocoaPods](https://cocoapods.org/) — 作为Ruby gem分发，它是Objective-C和Swift的依赖项管理器，简化了代码中使用第三方库(如iOS SDK)的过程。
 
 要下载并安装该软件，请在Mac上启动命令行终端，然后对其运行以下命令：
 
@@ -141,7 +141,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
       public void initializeSDK(String frameworkType, String munchkinId, String appSecreteKey){
           marketoSdk.initializeSDK(munchkinId,appSecreteKey,frameworkType);
     }
-   
+
 
    @ReactMethod
    public void initializeMarketoPush(String projectId){
@@ -189,7 +189,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
            modules.add(new RNMarketoModule(reactContext));
 
-           return modules;    
+           return modules;
    }
 
    @NonNull
@@ -204,14 +204,14 @@ public class MarketoPluginPackage implements ReactPackage {
 
 ```
 public class MainApplication extends Application implements ReactApplication {
- 
+
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
- 
+
         @Override
         protected List getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
@@ -243,7 +243,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MktoBridge : NSObject 
+@interface MktoBridge : NSObject
 
 @end
 
@@ -280,18 +280,18 @@ NS_ASSUME_NONNULL_END
 #import <React/RCTBridge.h>
 #import "ConstantStringsHeader.h"
 
-@implementation MktoBridge 
+@implementation MktoBridge
 
 RCT_EXPORT_MODULE(RNMarketoModule);
- 
+
 +(BOOL)requiresMainQueueSetup{
   return NO;
 }
- 
+
 RCT_EXPORT_METHOD(initializeSDK:(NSString *) munchkinId SecretKey: (NSString *) secretKey andFrameworkType: (NSString *) frameworkType){
   [[Marketo sharedInstance] initializeWithMunchkinID:munchkinId appSecret:secretKey mobileFrameworkType:frameworkType launchOptions:nil];
 }
- 
+
 RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary *)metaData){
   MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
   [meta setType:[metaData objectForKey:KEY_ACTION_TYPE]];
@@ -300,7 +300,7 @@ RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary
   [meta setMetric:[metaData valueForKey:KEY_ACTION_METRIC]];
   [[Marketo sharedInstance] reportAction:actionName withMetaData:meta];
 }
- 
+
 RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   MarketoLead *lead = [[MarketoLead alloc] init];
   if ([leadDetails objectForKey:KEY_EMAIL] != nil) {
@@ -309,32 +309,32 @@ RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   if ([leadDetails objectForKey:KEY_FIRST_NAME] != nil) {
     [lead setFirstName:[leadDetails objectForKey:KEY_FIRST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_LAST_NAME] != nil) {
     [lead setLastName:[leadDetails objectForKey:KEY_LAST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_CITY] != nil) {
     [lead setCity:[leadDetails objectForKey:KEY_CITY]];
   }
     [[Marketo sharedInstance] associateLead:lead];
 }
- 
+
 RCT_EXPORT_METHOD(uninitializeMarketoPush){
   [[Marketo sharedInstance] unregisterPushDeviceToken];
 }
- 
+
 RCT_EXPORT_METHOD(reportAll){
   [[Marketo sharedInstance] reportAll];
 }
- 
+
 RCT_EXPORT_METHOD(setSecureSignature:(NSDictionary *)secureSignature){
   MKTSecuritySignature *secSignature = [[MKTSecuritySignature alloc]
                                         initWithAccessKey:[secureSignature objectForKey:KEY_ACCESSKEY]
                                         signature:[secureSignature objectForKey:KEY_SIGNATURE]
                                         timestamp: [secureSignature objectForKey:KEY_EMAIL]
                                         email:[secureSignature objectForKey:KEY_EMAIL]];
-  
+
     [[Marketo sharedInstance] setSecureSignature:secSignature];
 }
 
@@ -374,7 +374,7 @@ const NewModuleButton = () => {
   };
 
   return (
-    
+
   );
   };
 
@@ -430,8 +430,8 @@ RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
     <intent-filter>
         <action  android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
     </intent-filter/>
-    <intent-filter> 
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/> 
+    <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
     </intent-filter/>
 </activity/>
 ```
@@ -530,7 +530,7 @@ registerForRemoteNotifications();
   return [self bundleURL];
 }
 
--(void)userNotificationCenter:(UNUserNotificationCenter *)center 
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center
       willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
     completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
 }
@@ -538,7 +538,7 @@ registerForRemoteNotifications();
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)(void))completionHandler {
-    [[Marketo sharedInstance] userNotificationCenter:center 
+    [[Marketo sharedInstance] userNotificationCenter:center
                       didReceiveNotificationResponse:response
                                withCompletionHandler:completionHandler];
 }
@@ -601,10 +601,10 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
-   
+
     return [[Marketo sharedInstance] application:app
                                          openURL:url
-                                         options:options];    
+                                         options:options];
 }
 ```
 

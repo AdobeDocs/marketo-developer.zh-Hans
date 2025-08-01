@@ -3,7 +3,7 @@ title: describeMObject
 feature: SOAP
 description: describeMObjects SOAP调用
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '71'
 ht-degree: 7%
@@ -255,50 +255,50 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class DescribeMObject {
     public static void main(String[] args) {
- 
+
         System.out.println("Executing Describe MObject");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
-            ParamsDescribeMObject request = new ParamsDescribeMObject();            
+            ParamsDescribeMObject request = new ParamsDescribeMObject();
             request.setObjectName("ActivityRecord");
-             
+
             SuccessDescribeMObject result = port.describeMObject(request, header);
             JAXBContext context = JAXBContext.newInstance(SuccessDescribeMObject.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -327,9 +327,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

@@ -3,7 +3,7 @@ title: 推送通知
 feature: Mobile Marketing
 description: 为Marketo Mobile启用推送通知
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -20,7 +20,7 @@ ht-degree: 0%
 
 1. 在Apple开发人员帐户上配置推送通知。
 1. 在xCode中启用推送通知。
-1. 用Marketo SDK在应用程序中启用推送通知。
+1. 使用Marketo SDK在应用程序中启用推送通知。
 
 ### 在Apple开发人员帐户上配置推送通知
 
@@ -33,7 +33,7 @@ ht-degree: 0%
 1. 创建并上传CSR以生成推送证书。![](assets/push-ssl.png)
 1. 将证书下载到本地计算机并双击进行安装。![](assets/certificate-download.png)
 1. 打开“密钥链访问”，右键单击证书，然后将2个项目导出到`.p12`文件中。![key_chain](assets/key-chain.png)
-1. 通过MarketoAdmin Console上传此文件以配置通知。
+1. 通过Marketo Admin Console上传此文件以配置通知。
 1. 更新应用程序设置配置文件。
 
 ### 在xCode中启用推送通知
@@ -108,7 +108,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 ```
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            
+
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound,    .badge]) { granted, error in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -118,7 +118,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                 }
             }
         }
-        
+
         return true
 }
 ```
@@ -216,7 +216,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 >[!TAB Swift]
 
 ```
-func userNotificationCenter(_ center: UNUserNotificationCenter, 
+func userNotificationCenter(_ center: UNUserNotificationCenter,
             willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (
     UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert, .sound,.badge])
@@ -290,7 +290,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 - 在Marketo功能管理器![](assets/feature-manager.png)中启用MME FCM HTTPv1
    - 在MLM中上载应用程序的服务帐户Json文件。
    - 您可以从Firebase控制台下载服务帐户Json文件。   ![](assets/fcm-console.png)
-   - 在Marketo中上传服务帐户Json文件后等待一小时，然后再发送推送通知。  
+   - 在Marketo中上传服务帐户Json文件后等待一小时，然后再发送推送通知。 
 
 ## Android测试设备
 
@@ -371,7 +371,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    }
    ```
 
-**注意**： FCM SDK会自动添加所有必需的权限以及必需的接收程序功能。 如果您使用的是以前版本的SDK，请确保从应用程序清单中删除以下过时（并且可能带来危害，因为它们可能会导致消息重复）元素
+**注意**： FCM SDK会自动添加所有必需的权限以及必需的接收方功能。 如果您使用早期版本的SDK，请确保从应用程序清单中删除以下过时（并且可能带来危害，因为它们可能会导致消息重复）元素
 
 ```xml
 <receiver android:name="com.marketo.MarketoBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -430,13 +430,13 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    config.setNotificationLargeIcon(bitmap);
    
    // Required icon Resource ID
-   config.setNotificationSmallIcon(R.drawable.notification_small_icon); 
+   config.setNotificationSmallIcon(R.drawable.notification_small_icon);
    
-   // Set the configuration 
+   // Set the configuration
    //Use the static methods on ALMarketo class when using Adobe Extension
-   Marketo.getInstance(context).setNotificationConfig(config); 
+   Marketo.getInstance(context).setNotificationConfig(config);
    
-   // Get the configuration set 
+   // Get the configuration set
    Marketo.getInstance(context).getNotificationConfig();
    ```
 

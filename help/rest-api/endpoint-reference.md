@@ -3,10 +3,10 @@ title: 终结点引用
 feature: REST API
 description: Marketo API端点引用
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 3632d2b713d97a2c895c65f144c07e62e1d369cb
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '4676'
-ht-degree: 3%
+source-wordcount: '4448'
+ht-degree: 5%
 
 ---
 
@@ -169,19 +169,19 @@ ht-degree: 3%
 | 获取表单字段 | 表单字段 | GET | /rest/asset/v1/form/{id}/fields.json | 只读资产 |
 | 更新字段位置 | 表单字段 | POST | /rest/asset/v1/form/{id}/reArrange.json | 读写资产 |
 | 更新表单字段 | 表单字段 | POST | /rest/asset/v1/form/{id}/field/{fieldId}.json | 读写资产 |
-| 批准表单草稿 | Forms | POST | /rest/asset/v1/form/{id}/approveDraft.json | 读写资产 |
-| 克隆表单 | Forms | POST | /rest/asset/v1/form/{id}/clone.json | 读写资产 |
-| 创建表单 | Forms | POST | /rest/asset/v1/forms.json | 读写资产 |
-| 获取表单使用者 | Forms | GET | /rest/asset/v1/form/{id}/usedBy.json | 读写资产 |
-| 删除表单 | Forms | POST | /rest/asset/v1/form/{id}/delete.json | 读写资产 |
-| 放弃表单草稿 | Forms | POST | /rest/asset/v1/form/{id}/discardDraft.json | 读写资产 |
-| 按ID获取表单 | Forms | GET | /rest/asset/v1/form/{id}.json | 只读资产 |
-| 按名称获取表单 | Forms | GET | /rest/asset/v1/form/byName.json | 只读资产 |
-| 获取Forms | Forms | GET | /rest/asset/v1/forms.json | 只读资产 |
-| 按表单ID获取感谢页面 | Forms | GET | /rest/asset/v1/form/{id}/thankYouPage.json | 只读资产 |
-| 更新表单元数据 | Forms | POST | /rest/asset/v1/form/{id}.json | 读写资产 |
-| 更新提交按钮 | Forms | POST | /rest/asset/v1/{id}/submitButton.json | 读写资产 |
-| 更新感谢页面 | Forms | POST | /rest/asset/v1/form/{id}/thankYouPage.json | 读写资产 |
+| 批准表单草稿 | 表单 | POST | /rest/asset/v1/form/{id}/approveDraft.json | 读写资产 |
+| 克隆表单 | 表单 | POST | /rest/asset/v1/form/{id}/clone.json | 读写资产 |
+| 创建表单 | 表单 | POST | /rest/asset/v1/forms.json | 读写资产 |
+| 获取表单使用者 | 表单 | GET | /rest/asset/v1/form/{id}/usedBy.json | 读写资产 |
+| 删除表单 | 表单 | POST | /rest/asset/v1/form/{id}/delete.json | 读写资产 |
+| 放弃表单草稿 | 表单 | POST | /rest/asset/v1/form/{id}/discardDraft.json | 读写资产 |
+| 按ID获取表单 | 表单 | GET | /rest/asset/v1/form/{id}.json | 只读资产 |
+| 按名称获取表单 | 表单 | GET | /rest/asset/v1/form/byName.json | 只读资产 |
+| 获取Forms | 表单 | GET | /rest/asset/v1/forms.json | 只读资产 |
+| 按表单ID获取感谢页面 | 表单 | GET | /rest/asset/v1/form/{id}/thankYouPage.json | 只读资产 |
+| 更新表单元数据 | 表单 | POST | /rest/asset/v1/form/{id}.json | 读写资产 |
+| 更新提交按钮 | 表单 | POST | /rest/asset/v1/{id}/submitButton.json | 读写资产 |
+| 更新感谢页面 | 表单 | POST | /rest/asset/v1/form/{id}/thankYouPage.json | 读写资产 |
 | 添加登陆页面内容部分 | 登陆页面内容 | POST | /rest/asset/v1/landingPage/{id}/content.json | 读写资产 |
 | 删除登陆页面内容部分 | 登陆页面内容 | POST | /rest/asset/v1/landingPage/{id}/content/{contentId}/delete.json | 读写资产 |
 | 获取登陆页面内容 | 登陆页面内容 | GET | /rest/asset/v1/landingPage/{id}/content.json | 只读资产 |
@@ -319,7 +319,7 @@ ht-degree: 3%
 | 更新代码片段内容 | 片段 | POST | /rest/asset/v1/snippet/{id}/content.json | 读写资产 |
 | 更新代码片段动态内容 | 片段 | POST | /rest/asset/v1/snippet/{id}/dynamicContent/{segmentId}.json | 读写资产 |
 | 更新代码片段元数据 | 片段 | POST | /rest/asset/v1/snippet/{id}.json | 读写资产 |
-| 添加到列表 | 静态列表 | POST | /rest/v1/lists/{listId}/leads.json | 读写潜在客户 |
+| 添加到 List | 静态列表 | POST | /rest/v1/lists/{listId}/leads.json | 读写潜在客户 |
 | 创建静态列表 | 静态列表 | POST | /asset/v1/staticLists.json | 读写资产 |
 | 删除静态列表 | 静态列表 | POST | /asset/v1/staticList/{id}/delete.json | 读写资产 |
 | 按列表ID获取潜在客户 | 静态列表 | GET | /rest/v1/lists/{listId}/leads.json | 只读潜在客户 |
@@ -329,7 +329,7 @@ ht-degree: 3%
 | 按名称获取静态列表 | 静态列表 | GET | /asset/v1/staticList/byName.json | 只读资产 |
 | 获取静态列表 | 静态列表 | GET | /asset/v1/staticLists.json | 只读资产 |
 | 列表成员 | 静态列表 | GET | /rest/v1/lists/{listId}/leads/ismember.json | 只读潜在客户 |
-| 从列表中删除 | 静态列表 | DELETE | /rest/v1/lists/{listId}/leads.json | 读写潜在客户 |
+| 从列表中移除 | 静态列表 | DELETE | /rest/v1/lists/{listId}/leads.json | 读写潜在客户 |
 | 更新静态列表元数据 | 静态列表 | POST | /asset/v1/staticList/{id}.json | 读写资产 |
 | 按名称获取标记 | 标记 | GET | /rest/asset/v1/tagType/byName.json | 只读资产 |
 | 获取标记类型 | 标记 | GET | /rest/asset/v1/tagTypes.json | 只读资产 |

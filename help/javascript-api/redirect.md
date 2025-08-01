@@ -3,10 +3,10 @@ title: 重定向
 description: 重定向
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '468'
-ht-degree: 6%
+ht-degree: 8%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 6%
 
 RTP重定向API允许您将分段受众重定向到目标URL。
 
-- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 使用情况
@@ -46,7 +46,7 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 | ISP | isp | rtp( &#39;send&#39;， &#39;redirect&#39; ， isp ， [&#39;False&#39;]， &#39;http://www.marketo.com&#39;)； |
 
 
-## 备注
+## 注释
 
 - 如果重定向规则/条件基于Firmographics（公司、行业、位置），则可以在rtp(&#39;send&#39;、&#39;view&#39;)和rtp(&#39;get&#39;、&#39;campaign&#39;)之前插入重定向代码以减少延迟。
 - 通过JavaScript重定向是浏览器端重定向，它取决于网站的加载和优化以达到最大速度。
@@ -57,7 +57,7 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -65,18 +65,18 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
 g.src=f+'?rh='+c.location.hostname+'&aid='+i;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b);
 })(window,document,"rtp","//xyz.marketo.com/rtp-api/v1/rtp.js","xyz");
- 
-// START REDIRECT EXAMPLE 
+
+// START REDIRECT EXAMPLE
 //   - Using a helper redirect function
 //   - Redirect based on named account
 rtp('send','redirect','org', ['microsoft'],'http://www.marketo.com');
- 
+
 // Redirect based on named account list (ABM)
 rtp('send','redirect','abm.name', {
     // Redirect visitors that match 'first_abm' list to www.marketo.com
     'http://www.marketo.com' : ['first_abm'],
     // Redirect visitors that match 'second_abm' list to blog.marketo.com
-    'http://blog.marketo.com' : ['second_abm'] 
+    'http://blog.marketo.com' : ['second_abm']
 });
 // END REDIRECT EXAMPLE
 rtp('send','view');

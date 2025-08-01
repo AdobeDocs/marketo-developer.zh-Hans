@@ -3,9 +3,9 @@ title: 潜在客户数据库
 feature: REST API, Database
 description: 处理主潜在客户数据库。
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '1345'
+source-wordcount: '1342'
 ht-degree: 0%
 
 ---
@@ -44,79 +44,79 @@ Marketo Lead Database API是Marketo提供的最常用的API，因为它们允许
 
 ## 描述
 
-对于Lead 、 Companies 、 Opportunity 、 Roles 、 SalesPerson和Custom Objects ，提供了一个描述API。 调用此项将检索对象的元数据，以及可用于更新和查询的字段列表。 描述是设计与Marketo的正确集成的重要组成部分。 它提供了丰富的元数据，介绍了如何与对象进行交互和无法与对象进行交互，以及如何创建、更新和查询对象。 除了描述潜在客户之外，每个潜在客户都在`dedupeFields`响应参数中返回可用于`deduplication`的键列表。 字段列表可用作在`searchableFields`响应参数中进行查询的键。
+对于Lead 、 Companies 、 Opportunity 、 Roles 、 SalesPerson和Custom Objects ，提供了一个描述API。 调用此项将检索对象的元数据，以及可用于更新和查询的字段列表。 描述是设计与Marketo的正确集成的重要组成部分。 它提供了丰富的元数据，介绍了如何与对象进行交互和无法与对象进行交互，以及如何创建、更新和查询对象。 除了描述潜在客户之外，每个潜在客户都在`deduplication`响应参数中返回可用于`dedupeFields`的键列表。 字段列表可用作在`searchableFields`响应参数中进行查询的键。
 
 ```
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunityRole",
          "displayName":"Opportunity Role",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId",
             "leadId",
             "role"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId",
                "leadId",
                "role"
             ],
-            [  
+            [
                "marketoGUID"
             ],
-            [  
+            [
                "leadId"
             ],
-            [  
+            [
                "externalOpportunityId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"leadId",
                "displayName":"Lead Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"role",
                "displayName":"Role",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"isPrimary",
                "displayName":"Is Primary",
                "dataType":"boolean",
                "updateable":true
             },
-            {  
+            {
                "name":"externalCreatedDate",
                "displayName":"External Created Date",
                "dataType":"datetime",
@@ -145,7 +145,7 @@ GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separat
 - `batchSize` — 要返回的结果数的整数计数。 默认值和最大值是300。
 - `nextPageToken` — 从上一次分页调用返回的令牌。 有关详细信息，请参阅[分页令牌](paging-tokens.md)。
 - `fields` — 要为每个记录返回的以逗号分隔的字段名称列表。 有关有效字段列表，请参阅相应的描述。 如果请求了某个特定字段但未返回，则该值将默认为空。
-- `_method` — 用于使用POSTHTTP方法提交查询。 请参阅下面的_method=GET部分以了解用法。
+- `_method` — 用于使用POST HTTP方法提交查询。 请参阅下面的_method=GET部分以了解用法。
 
 下面是一个快速示例，我们来了解一下查询销售机会：
 
@@ -154,11 +154,11 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa ",
          "externalOpportunityId":"19UYA31581L000000",
@@ -167,7 +167,7 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc ",
          "externalOpportunityId":"29UYA31581L000000",
@@ -186,7 +186,7 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 
 ### 长URI
 
-有时，例如通过GUID进行查询时，您的URI可能会很长，并且超过REST服务所允许的8KB。 在这种情况下，您必须使用HTTPPOST方法而不是GET，并添加查询参数`_method=GET`。 此外，其余查询参数必须作为“application/x-www-form-urlencoded”字符串传递到POST正文中，并传递关联的Content-type标头。
+有时，例如通过GUID进行查询时，您的URI可能会很长，并且超过REST服务所允许的8KB。 在这种情况下，您必须使用HTTP POST方法而不是GET，并添加查询参数`_method=GET`。 此外，其余查询参数必须作为“application/x-www-form-urlencoded”字符串传递到POST正文中，并传递关联的Content-type标头。
 
 ```
 POST /rest/v1/opportunities.json?_method=GET
@@ -204,33 +204,33 @@ filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f9
 
 ### 复合键
 
-查询复合键的模式与简单键不同，因为它需要提交具有JSON主体的POST。 这并非在所有情况下都需要，仅当使用具有多个字段的`dedupeFields`选项作为`filterType`时才需要。 目前，复合键仅由Opportunity角色和一些自定义对象使用。 让我们看一下使用`dedupeFields`中的复合键查询Opportunity Roles的示例：
+查询复合键的模式与简单键不同，因为它需要提交带有JSON主体的POST。 这并非在所有情况下都需要，仅当使用具有多个字段的`dedupeFields`选项作为`filterType`时才需要。 目前，复合键仅由Opportunity角色和一些自定义对象使用。 让我们看一下使用`dedupeFields`中的复合键查询Opportunity Roles的示例：
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType":"dedupeFields",
-   "fields":[  
+   "fields":[
       "marketoGuid",
       "externalOpportunityId",
       "leadId",
       "role"
    ],
-   "input":[  
-      {  
+   "input":[
+      {
         "externalOpportunityId":"Opportunity1",
         "leadId": 1,
         "role": "Captain"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity2",
         "leadId": 1872,
         "role": "Commander"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity3",
         "leadId": 273891,
         "role": "Lieutenant Commander"
@@ -254,18 +254,18 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000",
          "name":"Chairs",
          "description":"Chairs",
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "externalOpportunityId":"29UYA31581L000000",
          "name":"Big Dog Day Care-Phase12",
          "description":"Big Dog Day Care-Phase12",
@@ -277,16 +277,16 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb"
@@ -295,7 +295,7 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-除潜在客户API外，创建或更新潜在客户数据库对象的调用在`result`数组中的每个对象中返回`seq`字段。 列出的编号对应于在请求中更新记录的顺序。 每个项都返回对象类型的`idField`值和`status`。 状态字段指示“已创建”、“已更新”或“已跳过”之一。  如果跳过状态，则还会有相应的“原因”数组，其中一个或多个原因对象包括代码和消息，指示跳过记录的原因。 有关其他详细信息，请参阅[错误代码](error-codes.md)。
+除潜在客户API外，创建或更新潜在客户数据库对象的调用在`seq`数组中的每个对象中返回`result`字段。 列出的编号对应于在请求中更新记录的顺序。 每个项都返回对象类型的`idField`值和`status`。 状态字段指示“已创建”、“已更新”或“已跳过”之一。  如果跳过状态，则还会有相应的“原因”数组，其中一个或多个原因对象包括代码和消息，指示跳过记录的原因。 有关其他详细信息，请参阅[错误代码](error-codes.md)。
 
 ### 删除
 
@@ -306,16 +306,16 @@ POST /rest/v1/customobjects/{name}/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "vin":"19UYA31581L000000"
       },
-      {  
+      {
          "vin":"29UYA31581L000000"
       },
-      {  
+      {
          "vin":"39UYA31581L000000"
       }
    ]

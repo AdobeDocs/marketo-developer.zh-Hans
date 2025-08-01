@@ -3,7 +3,7 @@ title: listMObjects
 feature: SOAP
 description: listMObjects SOAP调用
 exl-id: d8b32ba2-7c20-4611-9062-c3c5db2d2ccb
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '48'
 ht-degree: 2%
@@ -58,21 +58,21 @@ _此API没有输入_
 
 ```php
 <?php
- 
+
   $debug = true;
- 
+
   $marketoSoapEndPoint     = "";  // CHANGE ME
   $marketoUserId           = "";  // CHANGE ME
   $marketoSecretKey        = "";  // CHANGE ME
   $marketoNameSpace        = "http://www.marketo.com/mktows/";
- 
+
   // Create Signature
   $dtzObj = new DateTimeZone("America/Los_Angeles");
   $dtObj  = new DateTime('now', $dtzObj);
   $timeStamp = $dtObj->format(DATE_W3C);
   $encryptString = $timeStamp . $marketoUserId;
   $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
   // Create SOAP Header
   $attrs = new stdClass();
   $attrs->mktowsUserId = $marketoUserId;
@@ -83,12 +83,12 @@ _此API没有输入_
   if ($debug) {
     $options["trace"] = true;
   }
- 
+
   // Create Request
   $mObject = new stdClass();
   $mObject->objectName = "ActivityRecord";
   $params = array("paramsDescribeMObject" => $mObject);
- 
+
   $soapClient = new SoapClient($marketoSoapEndPoint ."?WSDL", $options);
   try {
     $response = $soapClient->__soapCall('describeMObject', $params, $options, $authHdr);
@@ -96,7 +96,7 @@ _此API没有输入_
   catch(Exception $ex) {
     var_dump($ex);
   }
- 
+
   if ($debug) {
     print "RAW request:\n" .$soapClient->__getLastRequest() ."\n";
     print "RAW response:\n" .$soapClient->__getLastResponse() ."\n";
@@ -119,48 +119,48 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
- 
+
 public class ListMObjects {
- 
+
     public static void main(String[] args) {
         System.out.println("Executing List MObjects");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsListMObjects request = new ParamsListMObjects();
-             
+
             SuccessListMObjects result = port.listMObjects(request, header);
             JAXBContext context = JAXBContext.newInstance(SuccessListMObjects.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -189,9 +189,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

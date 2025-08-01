@@ -3,7 +3,7 @@ title: 潜在客户
 feature: REST API
 description: 有关潜在客户API调用的详细信息
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '3338'
 ht-degree: 2%
@@ -37,20 +37,20 @@ GET /rest/v1/leads/describe.json
 ### 响应
 
 ```json
-{  
+{
    "requestId":"37ca#1475b74e276",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":2,
          "displayName":"Company Name",
          "dataType":"string",
          "length":255,
-         "rest":{  
+         "rest":{
             "name":"company",
             "readOnly":false
          },
-         "soap":{  
+         "soap":{
             "name":"Company",
             "readOnly":false
          }
@@ -58,7 +58,7 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-通常，响应在结果数组中包含一组更多的字段，但出于演示目的，我们忽略了它们。 结果数组中的每一项都对应于潜在客户记录中可用的字段，并且至少具有id、displayName和数据类型。 对于给定字段，rest和soap子对象可能存在，也可能不存在，并且其存在将指示该字段在REST或SOAP API中是否有效。 `readOnly`属性通过相应的API (REST或SOAP)指示字段是否为只读。 length属性指示字段的最大长度（如果存在）。 dataType属性指示字段的数据类型。
+通常，响应在结果数组中包含一组更多的字段，但出于演示目的，我们忽略了它们。 结果数组中的每一项都对应于潜在客户记录中可用的字段，并且至少具有id、displayName和数据类型。 对于给定字段，rest和soap子对象可能存在，也可能不存在，并且其存在将指示该字段在REST或SOAP API中是否有效。 `readOnly`属性通过相应的API(REST或SOAP)指示字段是否为只读。 length属性指示字段的最大长度（如果存在）。 dataType属性指示字段的数据类型。
 
 ## 查询
 
@@ -99,7 +99,7 @@ GET /rest/v1/lead/{id}.json
 
 `filterValues`以逗号分隔格式接受最多300个值。 该调用将搜索潜在客户字段与所包含`filterValues`之一匹配的记录。 如果与商机过滤器匹配的商机数量大于1,000，则会返回错误：“1003，有太多结果与过滤器匹配”。
 
-如果GET请求的总长度超过8 KB，则会返回HTTP错误：“414， URI过长”（根据RFC 7231）。 作为解决方法，您可以将您的GET更改为POST，添加_method=GET参数，并将查询字符串放入请求正文中。
+如果GET请求的总长度超过8 KB，则会返回HTTP错误：“414， URI过长”（根据RFC 7231）。 作为解决方法，您可以将GET更改为POST，添加_method=GET参数，并在请求正文中放置查询字符串。
 
 ### 请求
 
@@ -150,7 +150,7 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 
 按ID获取潜在客户和按过滤器类型获取潜在客户都将接受字段查询参数，该参数接受以逗号分隔的API字段列表。 如果包含此字段，则响应中的每条记录都将包含这些列出的字段。  如果忽略，则将返回一组默认的字段： `id`、`email`、`updatedAt`、`createdAt`、`firstName`和`lastName`。
 
-## ADOBEECID
+## ADOBE ECID
 
 启用Adobe Experience Cloud受众共享功能后，会执行一个Cookie同步过程，以将Adobe Experience Cloud ID (ECID)与Marketo潜在客户关联。  上述商机检索方法可用于检索关联的ECID值。  通过在字段参数中指定`ecids`来执行此操作。 例如：`&fields=email,firstName,lastName,ecids`。
 
@@ -175,21 +175,21 @@ POST /rest/v1/leads.json
 ### 正文
 
 ```json
-{  
+{
    "action":"createOnly",
    "lookupField":"email",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"kjashaedd-1@klooblept.com",
          "firstName":"Kataldar-1",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-2@klooblept.com",
          "firstName":"Kataldar-2",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-3@klooblept.com",
          "firstName":"Kataldar-3",
          "postalCode":"04828"
@@ -201,19 +201,19 @@ POST /rest/v1/leads.json
 ### 响应
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "id":52,
          "status":"created"
       }
@@ -225,7 +225,7 @@ POST /rest/v1/leads.json
 
 缺省情况下，使用缺省分区。 或者，您可以指定`partitionName`参数，该参数仅在操作为`createOnly`或`createOrUpdate`时才有效。 要使`partitionName`用作其他重复数据删除条件，它必须是自定义重复数据删除规则中源类型的一部分。 在更新操作期间，如果指定的分区中不存在潜在客户，则会返回错误。 如果仅API用户没有访问指定分区的权限，则会返回错误。
 
-使用`updateOnly`操作时，`id`字段只能作为参数包含，因为`id`是系统管理的唯一键。
+使用`id`操作时，`updateOnly`字段只能作为参数包含，因为`id`是系统管理的唯一键。
 
 请求还必须具有`input`参数，该参数为潜在客户记录数组。 每个潜在客户记录都是一个JSON对象，其中包含任意数量的潜在客户字段。 记录中包含的键对于该记录应该是唯一的，并且所有JSON字符串都应采用UTF-8编码。 `externalCompanyId`字段可用于将潜在客户记录链接到公司记录。 `externalSalesPersonId`字段可用于将潜在客户记录链接到销售人员记录。
 
@@ -417,7 +417,7 @@ GET /rest/v1/leads/schema/fields.json
 
 ## 创建字段
 
-“创建潜在客户字段”端点在潜在客户对象中创建一个或多个自定义字段。 此端点提供的功能与Marketo EngageUI中提供的功能相当。 您可以使用此端点创建最多100个自定义字段。
+“创建潜在客户字段”端点在潜在客户对象中创建一个或多个自定义字段。 此端点提供的功能与Marketo Engage UI中提供的功能相当。 您可以使用此端点创建最多100个自定义字段。
 请仔细考虑您在使用API的Marketo Engage生产实例中创建的每个字段。  创建字段后，便无法删除它（只能隐藏它）。 未使用字段的激增是一种不良做法，会增加实例的混乱。
 
 所需的输入参数是潜在客户字段对象的数组。 每个对象都包含一个或多个属性。 必需的属性是`displayName`、`name`和`dataType`，它们分别对应于字段的UI显示名称、字段的API名称和字段类型。  您可以选择指定`description`、`isHidden`、`isHtmlEncodingInEmail`和`isSensitive`。
@@ -474,7 +474,7 @@ POST /rest/v1/leads/schema/fields.json
 
 ## 更新字段
 
-“更新潜在客户字段”端点更新潜在客户对象上的单个自定义字段。 大多数情况下，使用Marketo EngageUI执行的字段更新操作可通过API实现。 下表总结了几项差异。
+“更新潜在客户字段”端点更新潜在客户对象上的单个自定义字段。 大多数情况下，使用Marketo Engage UI执行的字段更新操作可通过API实现。 下表总结了几项差异。
 
 <table>
 <tbody>
@@ -764,7 +764,7 @@ Content-Type: application/json
 }
 ```
 
-在这里，我们可以从Marketo EngageUI中看到相应的“填写表单”活动详细信息：
+在这里，我们可以从Marketo Engage UI中看到相应的“填写表单”活动详细信息：
 
 ![填写表单UI](assets/fill_out_form_activity_details.png)
 
@@ -781,7 +781,7 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ### 响应
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -804,7 +804,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 ### 响应
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -816,7 +816,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 还可以根据静态列表或项目中的成员资格来检索潜在客户记录。 此外，您可以检索潜在客户所属的所有静态列表、项目或智能营销策划。
 
 响应结构和可选参数与“按过滤器类型获取潜在客户”的响应结构和可选参数相同，不过filterType和filterValues不能与此API一起使用。
-要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-**&#x200B;**.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
+要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-****.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
 
 ### 请求
 
@@ -827,14 +827,14 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ### 响应
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
    "nextPageToken":
 "PS5VL5WD4UOWGOUCJR6VY7JQO2KUXL7BGBYXL4XH4BYZVPYSFBAONP4V4KQKN4SSBS55U4LEMAKE6===",
     "result":[
        {
-            "id":50,  
+            "id":50,
             "email":"kjashaedd@klooblept.com",
             "firstName":"Kataldar",
              "postalCode":"04828"
@@ -843,11 +843,11 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
            "id":2343,
            "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
-           "postalCode":"04828" 
+           "postalCode":"04828"
        },
       {
            "id":88498,
-           "email":"kjashaedd@klooblept.com", 
+           "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
          "postalCode":"04828"
          }
@@ -1038,7 +1038,7 @@ GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 }
 ```
 
-## Delete
+## 删除
 
 使用“删除潜在客户”端点可以直接删除潜在客户。  使用正文中的id属性指定要删除的潜在客户id。  每个请求的最大商机为300个。  使用Content-Type： application/json标头。
 

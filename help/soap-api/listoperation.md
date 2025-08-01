@@ -3,10 +3,10 @@ title: listOperation
 feature: SOAP
 description: listOperation SOAP调用
 exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '187'
-ht-degree: 4%
+ht-degree: 6%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 4%
 操作类型包括：
 
 - 添加到列表
-- 从列表中删除
+- 从列表中移除
 - 检查列表的成员资格
 
 ## 请求
@@ -101,21 +101,21 @@ ht-degree: 4%
 
 ```php
  <?php
- 
+
   $debug = true;
- 
+
   $marketoSoapEndPoint     = "";  // CHANGE ME
   $marketoUserId           = "";  // CHANGE ME
   $marketoSecretKey        = "";  // CHANGE ME
   $marketoNameSpace        = "http://www.marketo.com/mktows/";
- 
+
   // Create Signature
   $dtzObj = new DateTimeZone("America/Los_Angeles");
   $dtObj  = new DateTime('now', $dtzObj);
   $timeStamp = $dtObj->format(DATE_W3C);
   $encryptString = $timeStamp . $marketoUserId;
   $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
   // Create SOAP Header
   $attrs = new stdClass();
   $attrs->mktowsUserId = $marketoUserId;
@@ -126,24 +126,24 @@ ht-degree: 4%
   if ($debug) {
     $options["trace"] = true;
   }
- 
+
   // Create Request
   $request = new stdClass();
   $request->listOperation = "ISMEMBEROFLIST"; // ADDTOLIST, ISMEMBEROFLIST, REMOVEFROMLIST
- 
+
   $listKey = new stdClass();
   $listKey->keyType = "MKTOLISTNAME";  // MKTOLISTNAME, MKTOSALESUSERID, SFDCLEADOWNERID
   $listKey->keyValue = "Trav-Test-List";
   $request->listKey = $listKey;
- 
+
   $leadKey = array("keyType" => "IDNUM", "keyValue" => "87710");
   $leadKey2 = array("keyType" => "IDNUM", "keyValue" => "1089946");
   $leadList = new stdClass();
- 
+
   $leadList->leadKey = array($leadKey, $leadKey2);
   $request->listMemberList = $leadList;
   $request->strict = false;
-  
+
   $params = array("paramsListOperation" => $request);
   $soapClient = new SoapClient($marketoSoapEndPoint ."?WSDL", $options);
   try {
@@ -156,9 +156,9 @@ ht-degree: 4%
     print "RAW request:\n" .$soapClient->__getLastRequest() ."\n";
     print "RAW response:\n" .$soapClient->__getLastResponse() ."\n";
   }
- 
+
   print_r($response);
- 
+
 ?>
 ```
 
@@ -177,73 +177,73 @@ import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Marshaller;
- 
- 
+
+
 public class ListOperation {
     public static void main(String[] args) {
- 
+
         System.out.println("Executing List Operation");
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-             
+
             // Create Request
             ParamsListOperation request = new ParamsListOperation();
             request.setListOperation(ListOperationType.ISMEMBEROFLIST);
-             
+
             ListKey listKey = new ListKey();
             listKey.setKeyType(ListKeyType.MKTOLISTNAME);
             listKey.setKeyValue("Trav-Test-List");
             request.setListKey(listKey);
-             
+
             LeadKey key = new LeadKey();
             key.setKeyType(LeadKeyRef.IDNUM);
             key.setKeyValue("87710");
-             
+
             LeadKey key2 = new LeadKey();
             key2.setKeyType(LeadKeyRef.IDNUM);
             key2.setKeyValue("1089946");
-             
+
             ArrayOfLeadKey leadKeys = new ArrayOfLeadKey();
             leadKeys.getLeadKeies().add(key);
             leadKeys.getLeadKeies().add(key2);
-             
+
             request.setListMemberList(leadKeys);
-             
+
             JAXBElement<Boolean> strict = new ObjectFactory().createParamsListOperationStrict(false);
             request.setStrict(strict);
-             
+
             SuccessListOperation result = port.listOperation(request, header);
-             
+
             JAXBContext context = JAXBContext.newInstance(SuccessListOperation.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(result, System.out);
-             
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -272,9 +272,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

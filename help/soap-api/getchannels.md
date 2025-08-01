@@ -3,10 +3,10 @@ title: getChannels
 feature: SOAP
 description: getChannels SOAP调用
 exl-id: bcaef85b-154b-4571-ad24-07a36707a6ef
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '92'
-ht-degree: 4%
+ht-degree: 5%
 
 ---
 
@@ -375,14 +375,14 @@ $marketoSoapEndPoint    = "";  // CHANGE ME
 $marketoUserId      = "";  // CHANGE ME
 $marketoSecretKey   = "";  // CHANGE ME
 $marketoNameSpace   = "http://www.marketo.com/mktows/";
- 
+
 // Create Signature
 $dtzObj = new DateTimeZone("America/Los_Angeles");
 $dtObj  = new DateTime('now', $dtzObj);
 $timeStamp = $dtObj->format(DATE_W3C);
 $encryptString = $timeStamp . $marketoUserId;
 $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
 // Create SOAP Header
 $attrs = new stdClass();
 $attrs->mktowsUserId = $marketoUserId;
@@ -393,7 +393,7 @@ $options = array("connection_timeout" => 15, "location" => $marketoSoapEndPoint)
 if ($debug) {
   $options["trace"] = 1;
 }
- 
+
 // Create Request
 $params = new stdClass();
 $tagValues = array("Webinar","Blog", "Tradeshow");
@@ -414,7 +414,7 @@ if ($debug) {
   print "RAW request:\n" .$soapClient->__getLastRequest() ."\n";
   print "RAW response:\n" .$soapClient->__getLastResponse() ."\n";
 }
- 
+
 ?>
 ```
 
@@ -442,38 +442,38 @@ import com.marketo.mktows.SuccessGetChannels;
 import com.marketo.mktows.SuccessGetLead;
 import com.marketo.mktows.SuccessGetMultipleLeads;
 import com.marketo.mktows.Tag;
-  
+
 public class GetChannels {
-  
+
     public static void main(String[] args) {
         System.out.println("Executing Get Channels");
         try {
             URL marketoSoapEndPoint = new URL("CHANGEME" + "?WSDL");
             String marketoUserId = "CHANGEME";
             String marketoSecretKey = "CHANGEME";
-              
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
-              
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-              
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-              
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
-              
+
             // Create Request
             ParamsGetChannels params = new ParamsGetChannels();
             Tag tags = new Tag();
@@ -482,10 +482,10 @@ public class GetChannels {
             tagArray.getStringItems().add("Blog");
             tagArray.getStringItems().add("Tradeshow");
             tags.setValues(tagArray);
-                        
+
             MktowsPort port = service.getMktowsApiSoapPort();
             SuccessGetChannels result = port.getChannels(params, header);
-  
+
             JAXBContext context = JAXBContext.newInstance(SuccessGetLead.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -518,9 +518,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

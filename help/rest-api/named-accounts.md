@@ -3,7 +3,7 @@ title: 指定帐户
 feature: REST API
 description: 通过API处理命名帐户。
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '679'
 ht-degree: 0%
@@ -27,99 +27,99 @@ GET /rest/v1/namedaccounts/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"d65e#156c27ac57d",
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"Named Account",
          "description":"Marketo standard account attribute map",
          "createdAt":"2016-08-18T20:16:41Z",
          "updatedAt":"2016-08-18T20:16:41Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "name"
          ],
          "searchableFields":[
             [
                "marketoGUID",
-            ], 
-            [  
+            ],
+            [
                "annualRevenue"
             ],
-            [  
+            [
                "city"
             ],
-            [  
+            [
                "country"
             ],
-            [  
+            [
                "domainName"
             ],
-            [  
+            [
                "industry"
             ],
-            [  
+            [
                "logoUrl"
             ],
-            [  
+            [
                "membershipCount"
             ],
-            [  
+            [
                "name"
             ],
-            [  
+            [
                "numberOfEmployees"
             ],
-            [  
+            [
                "opptyAmount"
             ],
-            [  
+            [
                "opptyCount"
             ],
-            [  
+            [
                "score1"
             ],
-            [  
+            [
                "score2"
             ],
-            [  
+            [
                "score3"
             ],
-            [  
+            [
                "score4"
             ],
-            [  
+            [
                "score5"
             ],
-            [  
+            [
                "sicCode"
             ],
-            [  
+            [
                "state"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"annualRevenue",
                "displayName":"annualRevenue",
                "dataType":"currency",
                "updateable":true
             },
-            {  
+            {
                "name":"city",
                "displayName":"city",
                "dataType":"string",
                "length":255,
                "updateable":true
             },
-            {  
+            {
                "name":"country",
                "displayName":"country",
                "dataType":"string",
@@ -177,15 +177,15 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "action":"updateOnly",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "name":"Google",
          "domainName":"www.google.com"
       },
-      {  
+      {
          "name":"Yahoo",
          "domainName":"www.yahoo.com"
       }
@@ -194,16 +194,16 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc"
@@ -331,7 +331,7 @@ GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 
 ### 删除
 
-删除操作是通过JSONPOST请求完成的，并具有必需的输入成员和可选的deleteBy成员。 deleteBy可以是“dedupeFields”或“idField”之一，分别与name或marketoGUID相对应，如果未设置，则将默认使用dedupeFields。 输入成员接受一个最多包含300条记录的数组，每个记录包含一个成员，即name或marketoGUID，具体取决于deleteBy的设置。
+删除操作是通过JSON POST请求完成的，并且具有必需的输入成员和可选的deleteBy成员。 deleteBy可以是“dedupeFields”或“idField”之一，分别与name或marketoGUID相对应，如果未设置，则将默认使用dedupeFields。 输入成员接受一个最多包含300条记录的数组，每个记录包含一个成员，即name或marketoGUID，具体取决于deleteBy的设置。
 
 ```
 POST /rest/v1/namedaccounts/delete.json
@@ -342,16 +342,16 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "name":"Google"
       },
-      {  
+      {
          "name":"Yahoo"
       },
-      {  
+      {
          "name":"Marketo"
       }
    ]
@@ -359,25 +359,25 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"
       },
-      {  
+      {
          "seq":1,
          "id":"dff23271-f996-47d7-984f-f2676861b5fc",
          "status":"deleted"
       },
-      {  
+      {
          "seq":2,
          "status":"skipped",
-         "reasons":[  
-            {  
+         "reasons":[
+            {
                "code":"1013",
                "message":"Record not found"
             }

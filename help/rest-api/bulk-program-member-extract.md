@@ -3,7 +3,7 @@ title: 批量程序成员提取
 feature: REST API
 description: 批量处理成员数据提取。
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 2%
@@ -220,7 +220,7 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>筛选器类型</td>
       <td>数据类型</td>
-      <td>备注</td>
+      <td>注释</td>
     </tr>
     <tr>
       <td>programId</td>
@@ -235,7 +235,7 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>isExhausted</td>
       <td>布尔值</td>
-      <td>接受一个布尔值，用于筛选已用完内容</a>的<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">人的计划成员资格记录。</td>
+      <td>接受一个布尔值，用于筛选已用完内容<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">的</a>人的计划成员资格记录。</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -269,7 +269,7 @@ GET /rest/v1/programs/members/describe.json
             </tr>
             <tr>
               <td>已邀请</td>
-              <td>会员</td>
+              <td>成员</td>
               <td>无节目</td>
             </tr>
             <tr>
@@ -302,7 +302,7 @@ GET /rest/v1/programs/members/describe.json
     </tr>
     <tr>
       <td>更新时间*</td>
-      <td>日期范围</td>
+      <td>Date Range</td>
       <td>接受具有成员startAt和endAt的JSON对象。 startAt接受表示低水位线的日期时间，endAt接受表示高水位线的日期时间。 范围必须为31天或更少。 日期时间应采用ISO-8601格式，不带毫秒。具有此筛选器类型的作业将返回日期范围内最近更新的所有可访问的记录。</td>
     </tr>
   </tbody>
@@ -318,7 +318,7 @@ GET /rest/v1/programs/members/describe.json
 - 重命名这些字段的列标题
 - 指定导出文件的格式
 
-| 参数 | 数据类型 | 必需 | 备注 |
+| 参数 | 数据类型 | 必需 | 注释 |
 |---|---|---|---|
 | 字段 | 数组[字符串] | 是 | 字段参数接受字符串的JSON数组。 列出的字段包含在导出的文件中。 可以导出以下字段类型：`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`。 使用其REST API名称指定一个字段，可使用“描述潜在客户2”和/或“描述项目成员”端点检索该字段。 |
 | columnHeaderName | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 值是该字段的导出列标题的名称。 |
@@ -334,9 +334,9 @@ POST /bulk/v1/program/members/export/create.json
 ```
 
 ```json
-{ 
+{
    "format": "CSV",
-   "fields": [ 
+   "fields": [
         "firstName",
         "lastName",
         "email",
@@ -350,7 +350,7 @@ POST /bulk/v1/program/members/export/create.json
         "pMCustomField01",
         "pMCustomField02"
    ],
-   "filter": { 
+   "filter": {
       "programId":1044
    }
 }
@@ -371,7 +371,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-这将返回一个状态响应，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用创建状态响应中的`exportId`调用[排入队列导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)终结点：
+这将返回一个状态响应，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用创建状态响应中的[调用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)排入队列导出程序成员作业`exportId`终结点：
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -447,7 +447,7 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成程序成员导出的文件，只需使用`exportId`调用[获取导出程序成员文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)终结点。
+要检索已完成程序成员导出的文件，只需使用[调用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)获取导出程序成员文件`exportId`终结点。
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 如果请求的程序成员字段为空（不包含数据），则`null`将置于导出文件中的相应字段中。
 

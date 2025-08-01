@@ -3,10 +3,10 @@ title: 公司
 feature: REST API
 description: 使用Marketo API配置公司数据。
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '564'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -14,9 +14,9 @@ ht-degree: 0%
 
 [公司终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
 
-公司表示潜在客户记录所属的组织。 通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)或[批量潜在客户导入](bulk-lead-import.md)端点填充其对应的`externalCompanyId`字段，将潜在客户添加到公司。 将商机添加到公司后，您无法从该公司中删除该商机（除非将该商机添加到其他公司）。 链接到公司记录的潜在客户将直接继承公司记录中的值，就像值存在于潜在客户自己的记录中一样。
+公司表示潜在客户记录所属的组织。 通过使用`externalCompanyId`同步潜在客户[或](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)批量潜在客户导入[端点填充其对应的](bulk-lead-import.md)字段，将潜在客户添加到公司。 将商机添加到公司后，您无法从该公司中删除该商机（除非将该商机添加到其他公司）。 链接到公司记录的潜在客户将直接继承公司记录中的值，就像值存在于潜在客户自己的记录中一样。
 
-对于启用了[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅，公司API是只读访问权限。
+对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅，公司API是只读访问权限。
 
 ## 描述
 
@@ -27,63 +27,63 @@ GET /rest/v1/companies/describe.json
 ```
 
 ```json
-{  
+{
    "success":true,
    "requestId":"5847#14d44113ad7",
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"Company",
          "description":"Company object",
          "createdAt":"2015-05-11T17:11:32Z",
          "updatedAt":"2015-05-11T17:11:32Z",
          "idField":"id",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalCompanyId"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalCompanyId"
             ],
-            [  
+            [
                "id"
             ],
-            [  
+            [
                "company"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"externalCompanyId",
                "displayName":"External Company Id",
                "dataType":"string",
                "length":100,
                "updateable":false
             },
-            {  
+            {
                "name":"id",
                "displayName":"Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"annualRevenue",
                "displayName":"Annual Revenue",
                "dataType":"currency",
                "updateable":true
             }
-            {  
+            {
                "name":"company",
                "displayName":"Company Name",
                "dataType":"string",
@@ -114,17 +114,17 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "id":3433,
          "externalCompanyId":"19UYA31581L000000",
          "company":"Google"
       },
-      {  
+      {
          "seq":1,
          "id":5345,
          "externalCompanyId":"29UYA31581L000000",
@@ -147,15 +147,15 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalCompanyId":"19UYA31581L000000",
          "company":"Google"
       },
-      {  
+      {
          "externalCompanyId":"29UYA31581L000000",
          "company":"Yahoo"
       }
@@ -164,16 +164,16 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "id":1232
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "id":1323
@@ -312,16 +312,16 @@ POST /rest/v1/companies/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalCompanyId":"19UYA31581L000000"
       },
-      {  
+      {
          "externalCompanyId":"29UYA31581L000000"
       },
-      {  
+      {
          "externalCompanyId":"39UYA31581L000000"
       }
    ]
@@ -329,25 +329,25 @@ POST /rest/v1/companies/delete.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "id":1234,
          "status":"deleted"
       },
-      {  
+      {
          "seq":1,
          "id":56456,
          "status":"deleted"
       },
-      {  
+      {
          "seq":2,
          "status":"skipped",
-         "reasons":[  
-            {  
+         "reasons":[
+            {
                "code":"1013",
                "message":"Record not found"
             }

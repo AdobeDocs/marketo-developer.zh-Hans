@@ -3,7 +3,7 @@ title: 销售人员
 feature: REST API
 description: 读取有关销售人员的数据。
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '303'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [销售人员终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-对于启用了[SFDC Sync](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics Sync](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅，销售人员API是只读访问权限。 销售人员是销售线索记录的销售负责人的人员记录类型。 它们按每个Lead记录上的externalSalesPersonId字段与Lead记录相关。 当Lead通过填充的externalSalesPersonId字段与Sales Person关联时，将在Marketo中为该商机记录填充相应的Lead Owner查找字段，从而允许使用相应的过滤器和令牌。
+对于已启用[SFDC同步](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅，销售人员API是只读访问权限。 销售人员是销售线索记录的销售负责人的人员记录类型。 它们按每个Lead记录上的externalSalesPersonId字段与Lead记录相关。 当Lead通过填充的externalSalesPersonId字段与Sales Person关联时，将在Marketo中为该商机记录填充相应的Lead Owner查找字段，从而允许使用相应的过滤器和令牌。
 
 通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)终结点并传递externalSalesPersonId属性，销售人员与潜在客户记录相关联。
 
@@ -33,56 +33,56 @@ GET /rest/v1/salespersons/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"SalesPerson",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"id",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalSalesPersonId"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "email"
             ],
-            [  
+            [
                "id"
             ],
             [
                "externalSalesPersonId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"id",
                "displayName":"Marketo Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"email",
                "displayName":"Email",
                "dataType":"string",
                "length":255,
                "updateable":false
             },
-            {  
+            {
                "name":"externalSalesPersonId",
                "displayName":"External Sales Person Id",
                "dataType":"string",
@@ -106,18 +106,18 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 ```
 
 ```json
- {  
+ {
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "id":53453,
          "externalSalesPersonId":"sam@test.com",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:23Z"
       },
-      {  
+      {
          "seq":1,
          "id":53454,
          "externalSalesPersonId":"david@test.com",
@@ -190,16 +190,16 @@ POST /rest/v1/salespersons/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalSalesPersonId":"sam@test.com"
       },
-      {  
+      {
          "externalSalesPersonId":"david@test.com"
       },
-      {  
+      {
          "externalSalesPersonId":"raj@test.com"
       }
    ]
