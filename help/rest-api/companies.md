@@ -16,7 +16,7 @@ ht-degree: 1%
 
 公司表示潜在客户记录所属的组织。 通过使用`externalCompanyId`同步潜在客户[或](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)批量潜在客户导入[端点填充其对应的](bulk-lead-import.md)字段，将潜在客户添加到公司。 将商机添加到公司后，您无法从该公司中删除该商机（除非将该商机添加到其他公司）。 链接到公司记录的潜在客户将直接继承公司记录中的值，就像值存在于潜在客户自己的记录中一样。
 
-对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅，公司API是只读访问权限。
+对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅，公司API是只读访问权限。
 
 ## 描述
 

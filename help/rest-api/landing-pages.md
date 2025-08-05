@@ -274,7 +274,7 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 

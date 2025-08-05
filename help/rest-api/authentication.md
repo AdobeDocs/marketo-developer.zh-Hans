@@ -55,7 +55,7 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 >[!IMPORTANT]
 >
->2025年10月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
+>2025年10月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
 
 ### 切换到授权标头
 

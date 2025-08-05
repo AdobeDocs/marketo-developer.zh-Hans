@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo公开了用于读取、写入、创建和更新机会记录的API。 在Marketo中，商机记录通过中间的Opportunity Role对象链接到潜在客户和联系人记录，因此opportunity可以链接到许多单独的潜在客户。  这两种对象类型都通过API公开，并且与大多数Lead Database对象类型一样，它们都有相应的Describe调用，该调用返回有关对象类型的元数据。
 
-对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅，机会API是只读访问权限。
+对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅，机会API是只读访问权限。
 
 ## 描述
 
