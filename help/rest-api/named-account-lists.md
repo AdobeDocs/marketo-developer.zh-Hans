@@ -3,7 +3,7 @@ title: 指定帐户列表
 feature: REST API
 description: 配置指定帐户列表。
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 2%
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
+Marketo中的[命名帐户列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
 `Content`
 
 ## 权限
@@ -33,7 +33,6 @@ Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/doc
 | createdat | 日期时间 | False | 创建列表的日期时间。 此字段由系统管理，在创建或更新记录时不允许作为字段。 |
 | 更新时间 | 日期时间 | False | 列表最近更新的日期时间。 此字段由系统管理，在创建或更新记录时不允许作为字段。 |
 | 类型 | 字符串 | False | 列表的类型。 其值可以为“default”或“external”。 外部列表是由CRM帐户视图创建的列表。 |
-
 
 ## 查询
 
@@ -294,9 +293,9 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ## 超时
 
 - 除非下面说明，否则命名帐户列表端点的超时为30秒
-   - 同步指定帐户列表： 60秒 
-   - 删除指定帐户列表：60秒 
-   - 获取指定帐户列表：60秒 
-   - 添加指定帐户列表成员：60秒 
-   - 删除指定帐户列表成员：60秒 
+   - 同步指定帐户列表： 60秒
+   - 删除指定帐户列表：60秒
+   - 获取指定帐户列表：60秒
+   - 添加指定帐户列表成员：60秒
+   - 删除指定帐户列表成员：60秒
    - 获取指定帐户列表成员：60秒

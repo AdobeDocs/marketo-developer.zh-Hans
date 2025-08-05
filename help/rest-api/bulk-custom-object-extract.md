@@ -3,7 +3,7 @@ title: 批量自定义对象提取
 feature: REST API, Custom Objects
 description: 批量处理自定义Marketo对象。
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1298'
 ht-degree: 1%
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 REST API的批量自定义对象提取集提供了一个编程接口，用于从Marketo中检索大量自定义对象记录。 对于需要在Marketo与一个或多个外部系统之间持续交换数据的用例，这是推荐的界面，用于ETL、数据仓库存储和存档目的。
 
-此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)中商机的详细信息页面的自定义对象选项卡中查看自定义对象数据。
+此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI[中商机的详细信息页面的](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)自定义对象选项卡中查看自定义对象数据。
 
 ## 权限
 
@@ -50,7 +50,6 @@ REST API的批量自定义对象提取集提供了一个编程接口，用于从
 | `columnHeaderNames` | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 值是该字段的导出列标题的名称。 |
 | `format` | 字符串 | 否 | 接受以下内容之一：CSV、TSV、SSV。 如果设置，导出的文件将分别呈现为逗号分隔的值、制表符分隔的值或空格分隔的值文件。 如果未设置，则默认为CSV。 |
 
-
 ## 创建作业
 
 作业的参数是在使用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点开始导出之前定义的。
@@ -62,7 +61,6 @@ REST API的批量自定义对象提取集提供了一个编程接口，用于从
 自定义对象定义
 
 ![自定义对象](assets/custom-object-car.png)
-
 
 自定义对象字段
 
@@ -312,7 +310,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-这会在响应中返回一个状态，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用`apiName`并从创建状态响应中调用[排入队列导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST)终结点`exportId`。
+这会在响应中返回一个状态，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用[并从创建状态响应中调用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST)排入队列导出自定义对象作业`apiName`终结点`exportId`。
 
 ```
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -388,7 +386,7 @@ GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成的自定义对象导出的文件，只需使用`apiName`和`exportId`调用[获取导出自定义对象文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)终结点。
+要检索已完成的自定义对象导出的文件，只需使用[和](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)调用`apiName`获取导出自定义对象文件`exportId`终结点。
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 如果请求的自定义对象属性为空（不包含数据），则`null`将置于导出文件中的相应字段中。
 
@@ -403,7 +401,7 @@ leadId,color,make,model,vIN
 13,Fusion Red,Tesla,Roadster,SFGRC3C41FF154321
 ```
 
-为了支持对提取的数据进行部分检索和便于恢复检索，文件终结点可以选择性地支持类型为`bytes`的HTTP标头`Range`。 如果未设置标头，则将返回所有内容。 有关在Marketo [批量提取](bulk-extract.md)中使用Range标头的更多信息，请参阅。
+为了支持对提取的数据进行部分检索和便于恢复检索，文件终结点可以选择性地支持类型为`Range`的HTTP标头`bytes`。 如果未设置标头，则将返回所有内容。 有关在Marketo [批量提取](bulk-extract.md)中使用Range标头的更多信息，请参阅。
 
 ## 取消作业
 

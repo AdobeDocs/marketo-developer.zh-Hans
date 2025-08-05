@@ -3,7 +3,7 @@ title: 身份验证
 feature: REST API
 description: 对Marketo用户进行API使用身份验证。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 206724e5177eb9040fa36202d91b2ed9daa734c3
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '609'
 ht-degree: 0%
@@ -16,13 +16,13 @@ Marketo的REST API使用双腿OAuth 2.0进行身份验证。客户端ID和客户
 
 ## 创建访问令牌
 
-通过选择自定义服务并单击&#x200B;**[!UICONTROL View Details]**，可在&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]**&#x200B;菜单中找到`Client ID`和`Client Secret`。
+通过选择自定义服务并单击`Client ID`，可在`Client Secret` > **[!UICONTROL Admin]** > **[!UICONTROL Integration]**&#x200B;菜单中找到&#x200B;**[!UICONTROL LaunchPoint]**&#x200B;和&#x200B;**[!UICONTROL View Details]**。
 
 ![获取REST服务详细信息](assets/authentication-service-view-details.png)
 
 ![启动点凭据](assets/admin-launchpoint-credentials.png)
 
-在REST API部分的&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**&#x200B;菜单中找到`Identity URL`。
+在REST API部分的`Identity URL` > **[!UICONTROL Admin]** > **[!UICONTROL Integration]**&#x200B;菜单中找到&#x200B;**[!UICONTROL Web Services]**。
 
 使用HTTP GET（或POST）请求创建访问令牌，如下所示：
 
@@ -55,10 +55,9 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 >[!IMPORTANT]
 >
->2025年10月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
+>2025年10月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
 
 ### 切换到授权标头
-
 
 若要从使用`access_token`查询参数切换到授权标头，需要少量代码更改。
 

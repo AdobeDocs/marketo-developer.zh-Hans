@@ -3,9 +3,9 @@ title: 批量提取
 feature: REST API
 description: 用于提取Marketo数据的批处理操作。
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '1683'
+source-wordcount: '1682'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Marketo提供了用于检索大量人员和人员相关数据的接口，称为�
 - 最大并发导出作业数：2
 - 最大已排队导出作业数（包括当前导出作业）：10
 - 文件保留期：7天
-- 默认每日导出分配：500MB（CST凌晨12:00每日重置）。 增加的可购买部分。
+- 默认每日导出分配： 500MB（按12:00AM CST每天重置）。 增加的可购买部分。
 - 日期范围过滤器（createdAt或updatedAt）的最大时间范围：31天
 
 对于某些订阅类型，UpdatedAt和智能列表的批量潜在客户提取过滤器不可用。 如果不可用，对创建导出潜在客户作业端点的调用将返回错误“1035，目标订阅的过滤器类型不受支持”。 客户可以联系Marketo支持部门以在其订阅中启用此功能。
@@ -123,7 +123,6 @@ POST /bulk/v1/leads/export/create.json
 | columnHeaderName | 对象 | 允许设置返回文件中列标题的名称。 每个成员键是要重命名的列标题的名称，该值是列标题的新名称。 例如，“columnHeaderNames”：{“firstName”：“First Name”，“lastName”：“Last Name” }， |
 | filter | 对象 | 应用于提取作业的过滤器。 类型和选项因作业类型而异。 |
 
-
 ## 正在检索作业
 
 有时候，您可能必须检索最近的作业。 使用相应对象类型的“获取导出作业”可轻松完成此操作。 每个“获取导出作业”终结点都支持`status`筛选器字段，即  `batchSize`用于限制返回的作业数，`nextPageToken`用于分页大型结果集。 状态筛选器支持导出作业的每个有效状态：“已创建”、“已排队”、“正在处理”、“已取消”、“已完成”和“失败”。 batchSize的最大值和缺省值均为300。 我们来获取潜在客户导出作业列表：
@@ -209,7 +208,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 与大多数其他Marketo REST端点不同，如果作业尚未完成或传递了错误的作业ID，则文件端点会以404 Not Found状态响应，并以纯文本错误消息作为有效负载。
 
-为了支持对提取的数据进行部分检索和恢复友好检索，文件终结点可以选择性地支持类型为`bytes`的HTTP标头`Range`（根据[RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)）。 如果未设置标头，则将返回所有内容。 要检索文件的前10,000字节，您需要将以下标头作为GET请求的一部分传递到端点，从字节0开始：
+为了支持对提取的数据进行部分检索和恢复友好检索，文件终结点可以选择性地支持类型为`Range`的HTTP标头`bytes`（根据[RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)）。 如果未设置标头，则将返回所有内容。 要检索文件的前10,000字节，您需要将以下标头作为GET请求的一部分传递到端点，从字节0开始：
 
 ```
 Range: bytes=0-9999
@@ -235,7 +234,7 @@ Range: bytes 724-999
 
 #### 文件完整性验证
 
-当`status`为“已完成”时，作业状态端点在`fileChecksum`属性中返回校验和。 校验和是导出文件的SHA-256哈希值。 您可以将校验和与检索文件的SHA-256哈希进行比较，以验证其是否已完成。
+当`fileChecksum`为“已完成”时，作业状态端点在`status`属性中返回校验和。 校验和是导出文件的SHA-256哈希值。 您可以将校验和与检索文件的SHA-256哈希进行比较，以验证其是否已完成。
 
 以下是包含校验和的示例响应：
 

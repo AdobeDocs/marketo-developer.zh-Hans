@@ -3,7 +3,7 @@ title: 令牌
 feature: REST API, Tokens
 description: 在Marketo中管理令牌。
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '297'
 ht-degree: 2%
@@ -26,9 +26,8 @@ Marketo中的令牌是类似于快捷键的特殊字符串，在运行时会被�
 | 数字 | 整数或浮点数 |
 | 富文本 | HTML字符串 |
 | 分数 | 带符号的32位整数 |
-| sfdc营销活动 | 用于Salesforce营销活动管理集成 |
+| sfdc营销活动 | 用于Salesforce campaign管理集成 |
 | 文本 | 文本字符串 |
-
 
 通过API创建令牌时，只能使用这些数据类型。
 
@@ -67,7 +66,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## 创建和更新
 
-[创建令牌](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST)端点创建令牌，或者如果存在令牌，则使用提交的值更新令牌。 令牌是在文件夹或项目群的上下文中创建的。 所需的`id`路径参数是将与令牌关联的文件夹的ID。 `name`、`type`、`value`和`folderType`都是令牌的必需参数。 数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。 令牌的`name`字段不能超过50个字符。
+[创建令牌](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST)端点创建令牌，或者如果存在令牌，则使用提交的值更新令牌。 令牌是在文件夹或项目群的上下文中创建的。 所需的`id`路径参数是将与令牌关联的文件夹的ID。 `name`、`type`、`value`和`folderType`都是令牌的必需参数。 数据以POST x-www-form-urlencoded形式传递，而不是以JSON形式传递。 令牌的`name`字段不能超过50个字符。
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -108,7 +107,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## 删除
 
-[按名称删除令牌](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST)将ID作为程序或文件夹类型的路径参数。 此类型由`folderType`参数指定。 根据令牌的父文件夹、`name`和令牌的`type`删除令牌，每个令牌都是必需的。 数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
+[按名称删除令牌](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST)将ID作为程序或文件夹类型的路径参数。 此类型由`folderType`参数指定。 根据令牌的父文件夹、`name`和令牌的`type`删除令牌，每个令牌都是必需的。 数据以POST x-www-form-urlencoded形式传递，而不是以JSON形式传递。
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens/delete.json

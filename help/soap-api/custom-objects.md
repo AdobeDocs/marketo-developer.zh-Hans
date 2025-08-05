@@ -3,7 +3,7 @@ title: 自定义对象
 feature: SOAP
 description: 创建自定义对象。
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '231'
 ht-degree: 0%

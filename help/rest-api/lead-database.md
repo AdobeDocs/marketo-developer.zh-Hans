@@ -3,7 +3,7 @@ title: 潜在客户数据库
 feature: REST API, Database
 description: 处理主潜在客户数据库。
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1342'
 ht-degree: 0%
@@ -245,7 +245,7 @@ JSON对象的结构大部分是平面的，具有简单键的查询的所有查�
 
 为潜在客户数据库记录创建和更新，均通过带有JSON主体的POST执行。 Opportunity 、 Roles 、 Custom Objects 、 Company和SalesPerson的界面是相同的。 Lead的界面稍有不同，您可以在此处详细了解它。
 
-唯一必需的参数是一个名为`input`的数组，它最多包含300个对象，每个对象具有要作为成员插入/更新的字段。 您还可以选择包含`action`参数，该参数可以是： `createOnly`、`updateOnly`或`createOrUpdate`之一。 如果省略该操作，则模式默认为`createOrUpdate`。 `dedupeBy`是另一个可选参数，可在操作设置为createOnly或`createOrUpdate`时使用。 ` dedupeBy`可以是`idField`或`dedupeFields`。 如果选择`idField`，则说明中列出的`idField`将用于重复数据删除，并且必须包含在每个记录中。 `idField`模式与`createOnly`模式不兼容。 如果选择`dedupeFields` ，则在使用的对象描述中列出`dedupeFields`，并且每个记录中都必须包含每个描述。 如果省略`dedupeBy`参数，则模式默认为`dedupeFields`。
+唯一必需的参数是一个名为`input`的数组，它最多包含300个对象，每个对象具有要作为成员插入/更新的字段。 您还可以选择包含`action`参数，该参数可以是： `createOnly`、`updateOnly`或`createOrUpdate`之一。 如果省略该操作，则模式默认为`createOrUpdate`。 `dedupeBy`是另一个可选参数，可在操作设置为createOnly或`createOrUpdate`时使用。 `dedupeBy`可以是`idField`或`dedupeFields`。 如果选择`idField`，则说明中列出的`idField`将用于重复数据删除，并且必须包含在每个记录中。 `idField`模式与`createOnly`模式不兼容。 如果选择`dedupeFields` ，则在使用的对象描述中列出`dedupeFields`，并且每个记录中都必须包含每个描述。 如果省略`dedupeBy`参数，则模式默认为`dedupeFields`。
 
 传递字段值列表时，`null`的值或空字符串将作为`null`写入数据库。
 

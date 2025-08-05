@@ -3,7 +3,7 @@ title: 批量程序成员提取
 feature: REST API
 description: 批量处理成员数据提取。
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 2%
@@ -235,7 +235,7 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>isExhausted</td>
       <td>布尔值</td>
-      <td>接受一个布尔值，用于筛选已用完内容<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">的</a>人的计划成员资格记录。</td>
+      <td>接受一个布尔值，用于筛选已用完内容<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">的</a>人的计划成员资格记录。</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -323,7 +323,6 @@ GET /rest/v1/programs/members/describe.json
 | 字段 | 数组[字符串] | 是 | 字段参数接受字符串的JSON数组。 列出的字段包含在导出的文件中。 可以导出以下字段类型：`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`。 使用其REST API名称指定一个字段，可使用“描述潜在客户2”和/或“描述项目成员”端点检索该字段。 |
 | columnHeaderName | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 值是该字段的导出列标题的名称。 |
 | 格式 | 字符串 | 否 | 接受以下内容之一：CSV、TSV、SSV。 如果设置，导出的文件将分别呈现为逗号分隔的值、制表符分隔的值或空格分隔的值文件。 如果未设置，则默认为CSV。 |
-
 
 ## 创建作业
 

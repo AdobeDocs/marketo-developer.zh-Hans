@@ -3,10 +3,10 @@ title: 模式匹配
 description: 模式匹配
 feature: Javascript
 exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '134'
-ht-degree: 5%
+source-wordcount: '133'
+ht-degree: 6%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 RTP公开一个实用程序函数，以检查模式是否与特定字符串匹配。 该实用程序不能在异步中使用，因为它返回了是否匹配的指示。
 
-您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
 ## 使用情况
 
@@ -23,8 +23,7 @@ RTP公开一个实用程序函数，以检查模式是否与特定字符串匹�
 | 参数 | 可选/必填 | 类型 | 描述 |
 |---|---|---|---|
 | check_about | 必需 | 字符串 | 匹配模式的字符串。 例如：当前页面URL、产品名称。 |
-| 模式 | 必需 | 字符串 | 添加%作为通配符。 模式可以是：start withend withcontainsfull match |
-
+| 模式 | 必需 | 字符串 | 添加%作为通配符。 模式可以是:start withend withcontainsfull match |
 
 ## 示例
 

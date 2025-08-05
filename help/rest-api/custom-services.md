@@ -3,7 +3,7 @@ title: 自定义服务
 feature: REST API
 description: Marketo的身份验证凭据。
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '968'
 ht-degree: 0%
@@ -43,7 +43,6 @@ ht-degree: 0%
 >[!MORELIKETHIS]
 >
 >要创建仅限API的用户，请转到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]**&#x200B;菜单并单击[!UICONTROL Invite New User]。
-
 
 ![新用户信息](assets/new-user-info.png)
 

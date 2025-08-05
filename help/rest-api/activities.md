@@ -3,7 +3,7 @@ title: 活动
 feature: REST API
 description: 用于管理Marketo Engage活动的API。
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
@@ -131,7 +131,7 @@ GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK
 
 在某些情况下，此API可能会以少于300个活动项进行响应，但也会将`moreResult`属性设置为true。  这表示可以返回的活动更多，并且可以通过在后续调用中包含返回的`nextPageToken`来查询终结点以获取更新的活动。
 
-请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。 
+请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
 
 ### 数据值更改
 
@@ -435,7 +435,6 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 可以使用批准自定义活动类型、放弃自定义活动类型草稿和删除自定义活动类型来管理类型，操作方法与标准Marketo资源类似。
 
-
 ## 自定义活动类型属性
 
 每个自定义活动类型可以具有0到20个次要属性。 辅助属性可以具有Marketo字段的任何有效字段类型。 它们会从父类型中单独添加、更新和删除，但在活动类型正在使用中并随后获得批准时可以编辑。 在实时类型上编辑字段时，该类型的所有活动在批准后都将具有新的辅助属性集。 更改将不会逆向应用于共享该类型的现有活动。
@@ -450,7 +449,7 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 ### 创建属性
 
-创建属性需要使用必需的`apiName`路径参数。 `name`和`dataType`参数也是必需的。` The description and` `isPrimary`参数是可选的。
+创建属性需要使用必需的`apiName`路径参数。 `name`和`dataType`参数也是必需的。`The description and` `isPrimary`参数是可选的。
 
 ```
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
@@ -709,5 +708,5 @@ POST /rest/v1/activities/external.json
 
 除非下面说明，否则活动端点的超时为30秒。
 
-* 获取分页令牌： 300秒 
+* 获取分页令牌： 300秒
 * 添加自定义活动：90秒

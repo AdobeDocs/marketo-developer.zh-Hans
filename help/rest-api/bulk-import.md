@@ -3,7 +3,7 @@ title: 批量导入
 feature: REST API
 description: 批量导入人员数据。
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '592'
 ht-degree: 1%
@@ -96,7 +96,6 @@ Easy,Fox,easyfox@marketo.com
 |---|---|---|
 | 格式 | 字符串 | 使用逗号分隔值、制表符分隔值和分号分隔值的选项确定导入数据的文件格式。 接受以下内容之一：CSV、SSV、TSV。 格式默认为CSV。 |
 | 文件 | 字符串 | 数据通过文件中的多部分表单数据指定。 |
-
 
 ## 轮询作业状态
 

@@ -3,7 +3,7 @@ title: 富媒体推荐
 description: 富媒体推荐
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 4%
@@ -21,7 +21,7 @@ ht-degree: 4%
 1. 在页面正文中
    1. 将模板标记（div类）放置在要显示该模板的位置
 
-[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
+[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
 
 ## 模板标记
 
@@ -66,7 +66,6 @@ ht-degree: 4%
 | &#39;rcmd&#39; | 必需 | 字符串 | 方法名称。 |
 | &#39;富媒体&#39; | 必需 | 字符串 | 子方法名称。 |
 
-
 ## 更改模板配置
 
 此方法会更改模板的默认配置。
@@ -84,7 +83,6 @@ ht-degree: 4%
 | &#39;富媒体&#39; | 必需 | 字符串 | 子方法名称。 |
 | template_id | 可选 | 字符串 | 用于配置更改的模板ID。 用于仅为一个模板指定设置更改。 |
 | conf_obj | 必需 | 对象 | 新配置。 对象将所有配置作为键/值对保留。 |
-
 
 ### 示例
 
@@ -150,7 +148,6 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.font.color | “rcmd.cta.font.color” ：“rgb(90， 84， 164)” | 更改按钮字体颜色。 此属性支持所有字体颜色值（rgb、十六进制、...） |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; ：&quot;推送&quot; | 更改按钮文本。 所有按钮的文本都相同。 |
 | 类别 | &quot;category&quot; ： [&quot;one category&quot;] | 更改此模板支持的推荐类别。 模板仅显示具有此配置设置的某个类别的推荐。 |
-
 
 注意：每个模板的配置支持可能会发生更改。
 

@@ -3,7 +3,7 @@ title: 错误代码
 feature: REST API
 description: Marketo错误代码描述。
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 71e685efb25acffb5c1000293daaea4e936fc4f5
 workflow-type: tm+mt
 source-wordcount: '2320'
 ht-degree: 3%
@@ -59,7 +59,6 @@ ht-degree: 3%
   </tbody>
 </table>
 
-
 #### 响应级别错误
 
 将响应的`success`参数设置为false时，将出现响应级别错误，其结构如下所示：
@@ -110,7 +109,7 @@ ht-degree: 3%
     <tr>
       <td><a name="603"></a>603</td>
       <td>访问被拒绝</td>
-      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户允许列表，或可能启用<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">角色以访问基于IP的API</a>。</td>
+      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户允许列表，或可能启用<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">角色以访问基于IP的API</a>。</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -253,7 +252,6 @@ ht-degree: 3%
 
 记录级别错误表示无法为单个记录完成操作，但请求本身有效。 具有记录级错误的响应遵循以下模式：
 
-
 #### 响应
 
 ```json
@@ -290,208 +288,208 @@ ht-degree: 3%
 >[!NOTE]
 >
 ><table>
-><tbody>
->    <tr>
->      <td>响应代码</td>
->      <td>描述</td>
->      <td>注释</td>
->    </tr>
->    <tr>
->      <td><a name="1001"></a>1001</td>
->      <td>值“%s”无效。 需要“%s”类型</td>
->      <td>每当参数值有类型不匹配时，就会生成错误。 例如，为integer参数指定的字符串值。</td>
->    </tr>
->    <tr>
->      <td><a name="1002"></a>1002</td>
->      <td>缺少所需参数“%s”的值</td>
->      <td>请求中缺少所需的参数时会生成错误</td>
->    </tr>
->    <tr>
->      <td><a name="1003"></a>1003</td>
->      <td>数据无效</td>
->      <td>提交的数据不是给定端点或模式的有效类型时；例如，通过指定为createOnly的操作提交商机的id时，或在批量营销活动中使用请求营销活动时。</td>
->    </tr>
->    <tr>
->      <td><a name="1004"></a>1004</td>
->      <td>未找到潜在客户</td>
->      <td>对于syncLead，当操作为“updateOnly”且未找到潜在客户时</td>
->    </tr>
->    <tr>
->      <td><a name="1005"></a>1005</td>
->      <td>潜在客户已存在</td>
->      <td>对于syncLead，当操作为“createOnly”并且商机已存在时</td>
->    </tr>
->    <tr>
->      <td><a name="1006"></a>1006</td>
->      <td>找不到字段“%s”</td>
->      <td>调用中包含的字段不是有效字段。</td>
->    </tr>
->    <tr>
->      <td><a name="1007"></a>1007</td>
->      <td>多个潜在客户符合查找条件</td>
->      <td>多个潜在客户符合查找条件。 仅当键与单个记录匹配时才能执行更新</td>
->    </tr>
->    <tr>
->      <td><a name="1008"></a>1008</td>
->      <td>访问分区“%s”被拒绝</td>
->      <td>自定义服务的用户无权访问包含该记录所在分区的工作区。</td>
->    </tr>
->    <tr>
->      <td><a name="1009"></a>1009</td>
->      <td>必须指定分区名称</td>
->      <td></td>
->    </tr>
->    <tr>
->      <td><a name="1010"></a>1010</td>
->      <td>不允许分区更新</td>
->      <td>指定的记录已存在于单独的Lead分区中。</td>
->    </tr>
->    <tr>
->      <td><a name="1011"></a>1011</td>
->      <td>不支持字段“%s”</td>
->      <td>当查找字段或用不支持的标准字段（例如：firstName、lastName）指定的“filterType”时</td>
->    </tr>
->    <tr>
->      <td><a name="1012"></a>1012</td>
->      <td>无效的Cookie值“%s”</td>
->      <td>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">关联潜在客户</a>时，可能会发生这种情况，因为该潜在客户的“cookie”参数值无效。
->        当使用“filterType=cookies”和“filterValues”参数的无效值通过筛选类型<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">调用</a>获取潜在客户时，也会发生这种情况。</td>
->    </tr>
->    <tr>
->      <td><a name="1013"></a>1013</td>
->      <td>未找到对象</td>
->      <td>按ID获取对象（列表、营销活动）会返回此错误代码</td>
->    </tr>
->    <tr>
->      <td><a name="1014"></a>1014</td>
->      <td>创建对象失败</td>
->      <td>创建对象（列表）失败</td>
->    </tr>
->    <tr>
->      <td><a name="1015"></a>1015</td>
->      <td>潜在客户不在列表中</td>
->      <td>指定的潜在客户不是目标列表的成员</td>
->    </tr>
->    <tr>
->      <td><a name="1016"></a>1016</td>
->      <td>导入过多</td>
->      <td>有太多导入已排队。 最多允许10个</td>
->    </tr>
->    <tr>
->      <td><a name="1017"></a>1017</td>
->      <td>对象已存在</td>
->      <td>创建失败，因为记录已存在</td>
->    </tr>
->    <tr>
->      <td><a name="1018"></a>1018</td>
->      <td>CRM已启用</td>
->      <td>无法执行操作，因为实例启用了本机CRM集成。</td>
->    </tr>
->    <tr>
->      <td><a name="1019"></a>1019</td>
->      <td>正在导入</td>
->      <td>目标列表已在导入到</td>
->    </tr>
->    <tr>
->      <td><a name="1020"></a>1020</td>
->      <td>要编程的克隆太多</td>
->      <td>订阅已达到当天的计划计划中“cloneToProgramName”的分配使用量</td>
->    </tr>
->    <tr>
->      <td><a name="1021"></a>1021</td>
->      <td>不允许公司更新</td>
->      <td>不允许在syncLead期间更新公司</td>
->    </tr>
->    <tr>
->      <td><a name="1022"></a>1022</td>
->      <td>正在使用的对象</td>
->      <td>当某个对象正由另一个对象使用时，不允许删除</td>
->    </tr>
->    <tr>
->      <td><a name="1025"></a>1025</td>
->      <td>程序状态未找到</td>
->      <td>为更改潜在客户计划状态指定的状态与计划渠道可用的状态不匹配。</td>
->    </tr>
->    <tr>
->      <td><a name="1026"></a>1026</td>
->      <td>未启用自定义对象</td>
->      <td>无法执行该操作，因为实例未启用自定义对象集成。</td>
->    </tr>
->    <tr>
->      <td><a name="1027"></a>1027</td>
->      <td>已达到最大活动类型限制</td>
->      <td>订阅已达到可用自定义活动类型的最大数。</td>
->    </tr>
->    <tr>
->      <td><a name="1028"></a>1028</td>
->      <td>已达到最大字段限制</td>
->      <td>自定义活动最多有20个次要属性。</td>
->    </tr>
->    <tr>
->      <td><a name="1029"></a>1029</td>
->      <td><ul>
->          <li>队列中的作业过多</li>
->          <li>超出导出每日配额</li>
->          <li>作业已排队</li>
->        </ul></td>
->      <td><ul>
->          <li>在任何给定时间，队列中最多允许10个批量提取作业。</li>
->          <li>默认情况下，提取作业限制为每天500 MB（CST凌晨12:00每日重置）。</li>
->          <li>导出ID已排入队列。</li>
->        </ul></td>
->    </tr>
->    <tr>
->      <td><a name="1035"></a>1035</td>
->      <td>不支持的筛选器类型</td>
->      <td>在某些订阅中，不支持以下批量潜在客户提取过滤器类型： updatedAt、smartListId、smartListName。</td>
->    </tr>
->    <tr>
->      <td><a name="1036"></a>1036</td>
->      <td>在输入中发现重复的对象</td>
->      <td>调用了使用相同的外键更新两个或多个记录。 例如，同步公司调用时对多个公司使用相同的externalCompanyId。</td>
->    </tr>
->    <tr>
->      <td><a name="1037"></a>1037</td>
->      <td>已跳过潜在客户</td>
->      <td>已跳过潜在客户，因为它已经处于或超过此状态。</td>
->    </tr>
->    <tr>
->      <td><a name="1042"></a>1042</td>
->      <td>运行日期无效</td>
->      <td>为计划营销活动指定的runAt日期太长了（最长为2年）。</td>
->    </tr>
->    <tr>
->      <td><a name="1048"></a>1048</td>
->      <td>自定义对象放弃草稿失败</td>
->      <td>已进行调用以放弃自定义对象的草稿版本。</td>
->    </tr>
->    <tr>
->      <td><a name="1049"></a>1049</td>
->      <td>创建活动失败</td>
->      <td>属性数组太长。
->        传递给记录的属性数组超过了65536字节的最大长度</td>
->    </tr>
->    <tr>
->      <td><a name="1076"></a>1076</td>
->      <td>使用mergeInCRM标志的<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用为4。</td>
->      <td>您正在创建重复记录。 建议您改用现有记录。
->        这是Marketo在Salesforce中合并时收到的错误消息。</td>
->    </tr>
->    <tr>
->      <td><a name="1077"></a>1077</td>
->      <td>由于“SFDC字段”长度，<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
->      <td>由于“SFDC字段”超出允许的字符限制，mergeInCRM设置为true的合并潜在客户调用失败。 要更正此问题，请缩短“SFDC字段”的长度，或将mergeInCRM设置为false。</td>
->    </tr>
->    <tr>
->      <td><a name="1078"></a>1078</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败，因为实体已删除，不是潜在客户/联系人，或者字段筛选条件不匹配。</td>
->      <td>合并失败，无法在本地同步的CRM中执行合并操作
->        这是Marketo在Salesforce中合并时收到的错误消息。</td>
->    </tr>
->    <tr>
->      <td><a name="1079"></a>1079</td>
->      <td>由于重复记录中存在个性化URL冲突，<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
->      <td>合并潜在客户调用指定了具有相同个性化URL的多个潜在客户。 要解决此问题，请使用Marketo Engage用户界面合并这些记录。</td>
->    </tr>
->  </tbody>
-></table>
+<tbody>
+    <tr>
+      <td>响应代码</td>
+      <td>描述</td>
+      <td>注释</td>
+    </tr>
+    <tr>
+      <td><a name="1001"></a>1001</td>
+      <td>值“%s”无效。 需要“%s”类型</td>
+      <td>每当参数值有类型不匹配时，就会生成错误。 例如，为integer参数指定的字符串值。</td>
+    </tr>
+    <tr>
+      <td><a name="1002"></a>1002</td>
+      <td>缺少所需参数“%s”的值</td>
+      <td>请求中缺少所需的参数时会生成错误</td>
+    </tr>
+    <tr>
+      <td><a name="1003"></a>1003</td>
+      <td>数据无效</td>
+      <td>提交的数据不是给定端点或模式的有效类型时；例如，通过指定为createOnly的操作提交商机的id时，或在批量营销活动中使用请求营销活动时。</td>
+    </tr>
+    <tr>
+      <td><a name="1004"></a>1004</td>
+      <td>未找到潜在客户</td>
+      <td>对于syncLead，当操作为“updateOnly”且未找到潜在客户时</td>
+    </tr>
+    <tr>
+      <td><a name="1005"></a>1005</td>
+      <td>潜在客户已存在</td>
+      <td>对于syncLead，当操作为“createOnly”并且商机已存在时</td>
+    </tr>
+    <tr>
+      <td><a name="1006"></a>1006</td>
+      <td>找不到字段“%s”</td>
+      <td>调用中包含的字段不是有效字段。</td>
+    </tr>
+    <tr>
+      <td><a name="1007"></a>1007</td>
+      <td>多个潜在客户符合查找条件</td>
+      <td>多个潜在客户符合查找条件。 仅当键与单个记录匹配时才能执行更新</td>
+    </tr>
+    <tr>
+      <td><a name="1008"></a>1008</td>
+      <td>访问分区“%s”被拒绝</td>
+      <td>自定义服务的用户无权访问包含该记录所在分区的工作区。</td>
+    </tr>
+    <tr>
+      <td><a name="1009"></a>1009</td>
+      <td>必须指定分区名称</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a name="1010"></a>1010</td>
+      <td>不允许分区更新</td>
+      <td>指定的记录已存在于单独的Lead分区中。</td>
+    </tr>
+    <tr>
+      <td><a name="1011"></a>1011</td>
+      <td>不支持字段“%s”</td>
+      <td>当查找字段或用不支持的标准字段（例如：firstName、lastName）指定的“filterType”时</td>
+    </tr>
+    <tr>
+      <td><a name="1012"></a>1012</td>
+      <td>无效的Cookie值“%s”</td>
+      <td>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">关联潜在客户</a>时，可能会发生这种情况，因为该潜在客户的“cookie”参数值无效。
+        当使用“filterType=cookies”和“filterValues”参数的无效值通过筛选类型<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">调用</a>获取潜在客户时，也会发生这种情况。</td>
+    </tr>
+    <tr>
+      <td><a name="1013"></a>1013</td>
+      <td>未找到对象</td>
+      <td>按ID获取对象（列表、营销活动）会返回此错误代码</td>
+    </tr>
+    <tr>
+      <td><a name="1014"></a>1014</td>
+      <td>创建对象失败</td>
+      <td>创建对象（列表）失败</td>
+    </tr>
+    <tr>
+      <td><a name="1015"></a>1015</td>
+      <td>潜在客户不在列表中</td>
+      <td>指定的潜在客户不是目标列表的成员</td>
+    </tr>
+    <tr>
+      <td><a name="1016"></a>1016</td>
+      <td>导入过多</td>
+      <td>有太多导入已排队。 最多允许10个</td>
+    </tr>
+    <tr>
+      <td><a name="1017"></a>1017</td>
+      <td>对象已存在</td>
+      <td>创建失败，因为记录已存在</td>
+    </tr>
+    <tr>
+      <td><a name="1018"></a>1018</td>
+      <td>CRM已启用</td>
+      <td>无法执行操作，因为实例启用了本机CRM集成。</td>
+    </tr>
+    <tr>
+      <td><a name="1019"></a>1019</td>
+      <td>正在导入</td>
+      <td>目标列表已在导入到</td>
+    </tr>
+    <tr>
+      <td><a name="1020"></a>1020</td>
+      <td>要编程的克隆太多</td>
+      <td>订阅已达到当天的计划计划中“cloneToProgramName”的分配使用量</td>
+    </tr>
+    <tr>
+      <td><a name="1021"></a>1021</td>
+      <td>不允许公司更新</td>
+      <td>不允许在syncLead期间更新公司</td>
+    </tr>
+    <tr>
+      <td><a name="1022"></a>1022</td>
+      <td>正在使用的对象</td>
+      <td>当某个对象正由另一个对象使用时，不允许删除</td>
+    </tr>
+    <tr>
+      <td><a name="1025"></a>1025</td>
+      <td>程序状态未找到</td>
+      <td>为更改潜在客户计划状态指定的状态与计划渠道可用的状态不匹配。</td>
+    </tr>
+    <tr>
+      <td><a name="1026"></a>1026</td>
+      <td>未启用自定义对象</td>
+      <td>无法执行该操作，因为实例未启用自定义对象集成。</td>
+    </tr>
+    <tr>
+      <td><a name="1027"></a>1027</td>
+      <td>已达到最大活动类型限制</td>
+      <td>订阅已达到可用自定义活动类型的最大数。</td>
+    </tr>
+    <tr>
+      <td><a name="1028"></a>1028</td>
+      <td>已达到最大字段限制</td>
+      <td>自定义活动最多有20个次要属性。</td>
+    </tr>
+    <tr>
+      <td><a name="1029"></a>1029</td>
+      <td><ul>
+          <li>队列中的作业过多</li>
+          <li>超出导出每日配额</li>
+          <li>作业已排队</li>
+        </ul></td>
+      <td><ul>
+          <li>在任何给定时间，队列中最多允许10个批量提取作业。</li>
+          <li>默认情况下，提取作业限制为每天500 MB（CST凌晨12:00每日重置）。</li>
+          <li>导出ID已排入队列。</li>
+        </ul></td>
+    </tr>
+    <tr>
+      <td><a name="1035"></a>1035</td>
+      <td>不支持的筛选器类型</td>
+      <td>在某些订阅中，不支持以下批量潜在客户提取过滤器类型： updatedAt、smartListId、smartListName。</td>
+    </tr>
+    <tr>
+      <td><a name="1036"></a>1036</td>
+      <td>在输入中发现重复的对象</td>
+      <td>调用了使用相同的外键更新两个或多个记录。 例如，同步公司调用时对多个公司使用相同的externalCompanyId。</td>
+    </tr>
+    <tr>
+      <td><a name="1037"></a>1037</td>
+      <td>已跳过潜在客户</td>
+      <td>已跳过潜在客户，因为它已经处于或超过此状态。</td>
+    </tr>
+    <tr>
+      <td><a name="1042"></a>1042</td>
+      <td>运行日期无效</td>
+      <td>为计划营销活动指定的runAt日期太长了（最长为2年）。</td>
+    </tr>
+    <tr>
+      <td><a name="1048"></a>1048</td>
+      <td>自定义对象放弃草稿失败</td>
+      <td>已进行调用以放弃自定义对象的草稿版本。</td>
+    </tr>
+    <tr>
+      <td><a name="1049"></a>1049</td>
+      <td>创建活动失败</td>
+      <td>属性数组太长。
+        传递给记录的属性数组超过了65536字节的最大长度</td>
+    </tr>
+    <tr>
+      <td><a name="1076"></a>1076</td>
+      <td>使用mergeInCRM标志的<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用为4。</td>
+      <td>您正在创建重复记录。 建议您改用现有记录。
+        这是Marketo在Salesforce中合并时收到的错误消息。</td>
+    </tr>
+    <tr>
+      <td><a name="1077"></a>1077</td>
+      <td>由于“SFDC字段”长度，<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
+      <td>由于“SFDC字段”超出允许的字符限制，mergeInCRM设置为true的合并潜在客户调用失败。 要更正此问题，请缩短“SFDC字段”的长度，或将mergeInCRM设置为false。</td>
+    </tr>
+    <tr>
+      <td><a name="1078"></a>1078</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败，因为实体已删除，不是潜在客户/联系人，或者字段筛选条件不匹配。</td>
+      <td>合并失败，无法在本地同步的CRM中执行合并操作
+        这是Marketo在Salesforce中合并时收到的错误消息。</td>
+    </tr>
+    <tr>
+      <td><a name="1079"></a>1079</td>
+      <td>由于重复记录中存在个性化URL冲突，<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
+      <td>合并潜在客户调用指定了具有相同个性化URL的多个潜在客户。 要解决此问题，请使用Marketo Engage用户界面合并这些记录。</td>
+    </tr>
+  </tbody>
+</table>

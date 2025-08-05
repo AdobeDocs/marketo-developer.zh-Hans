@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo] 开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 05f8966a2eafca71a00f1e22b6edd4d8dae6b6ac
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '247'
-ht-degree: 16%
+ht-degree: 20%
 
 ---
 
@@ -32,7 +32,7 @@ ht-degree: 16%
    - [重定向](javascript-api/redirect.md)
    - [富媒体推荐](javascript-api/rich-media-recommendation.md)
    - [社交](javascript-api/social.md)
-   - [触发因素](javascript-api/triggers.md)
+   - [触发器](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - 移动设备 {#mobile}
    - [安装 [!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension-installation.md)

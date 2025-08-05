@@ -3,7 +3,7 @@ title: Web Personalization
 description: Web Personalization
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 5%
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 Web Personalization JavaScript API扩展了平台的自动个性化功能。 它允许对网页进行事件跟踪和动态自定义。 其他功能：[自定义数据事件](custom-data-events.md)、[动态内容](web-personalization.md)、[获取访客数据](get-visitor-data.md)、[排除特定机器人的标记](#exclude_tag_for_specific_bots)。
 
-- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 标记设置
@@ -41,7 +41,6 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 | &#39;setAccount&#39; | 必需 | 字符串 | 方法名称。 |
 | accountId | 必需 | 字符串 | 帐户ID。 |
 
-
 ```javascript
 var accountId = '561-HYG-937';
 rtp('setAccount', accountId);
@@ -58,7 +57,6 @@ rtp('setAccount', accountId);
 | &#39;发送&#39; | 必需 | 字符串 | 方法操作。 |
 | &#39;视图&#39; | 必需 | 字符串 | 方法名称。 |
 | 页面 | 可选 | 字符串 | 相对路径或整页URL。 |
-
 
 ```javascript
 // Example for Default Page
@@ -103,7 +101,6 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 | jquery.min.js | v1.8.3 | 可以通过联系Marketo客户支持来禁用 |
 | jquery-custom-ui-min.js | v1.9.2 | 可以通过联系Marketo客户支持来禁用 |
 | query-ui-1.8.17-dialog.js | v1.9.2* | 可以通过联系Marketo客户支持来禁用 |
-
 
 *仅在jQuery UI缺少对话框时使用
 

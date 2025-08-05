@@ -3,7 +3,7 @@ title: Marketo对象
 feature: SOAP
 description: Marketo对象概述
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '249'
 ht-degree: 0%

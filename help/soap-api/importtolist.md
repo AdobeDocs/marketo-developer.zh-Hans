@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: importToList SOAP调用
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '393'
+source-wordcount: '387'
 ht-degree: 3%
 
 ---
@@ -20,9 +20,9 @@ ht-degree: 3%
 
 | 电子邮件 | 第一 | 最后一个 |
 | --- | --- | --- |
-| joe@company.com | Joe | Smith |
-| mary@company.com | 玛丽 | 罗杰斯 |
-| wanda@megacorp.com | 万达 | 威廉姆斯 |
+| <joe@company.com> | Joe | Smith |
+| <mary@company.com> | 玛丽 | 罗杰斯 |
+| <wanda@megacorp.com> | 万达 | 威廉姆斯 |
 
 `displayName`值应在`importFileHeader`中使用，而不是`name`值。
 
@@ -30,9 +30,9 @@ ht-degree: 3%
 
 | 电子邮件 | 第一 | 最后一个 | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
-| joe@company.com | Joe | Smith | 鱼 | 蓝色 |
-| mary@company.com | 玛丽 | 罗杰斯 | 鸡肉 | 棕色 |
-| wanda@megacorp.com | 万达 | 威廉姆斯 | 维吉 | 黑兹尔 |
+| <joe@company.com> | Joe | Smith | 鱼 | 蓝色 |
+| <mary@company.com> | 玛丽 | 罗杰斯 | 鸡肉 | 棕色 |
+| <wanda@megacorp.com> | 万达 | 威廉姆斯 | 维吉 | 黑兹尔 |
 
 **重要信息：**&#x200B;如果您为潜在客户添加了令牌，则必须指定使用它们的Smart Campaign。 下次运行指定的Smart Campaign时，将使用列表中的值，而不是正常的“我的令牌”值。 运行该单个营销活动后，令牌将被丢弃。
 

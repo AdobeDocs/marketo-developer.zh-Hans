@@ -3,7 +3,7 @@ title: 推送通知
 feature: Mobile Marketing
 description: 为Marketo Mobile启用推送通知
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -285,7 +285,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. 使用HTTPv1设置FCM(Google在2023年6月12日已[弃用的XMPP协议](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref)，将于2024年6月删除) 
+1. 使用HTTPv1设置FCM(Google在2023年6月12日已[弃用的XMPP协议](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref)，将于2024年6月删除)
 
 - 在Marketo功能管理器![](assets/feature-manager.png)中启用MME FCM HTTPv1
    - 在MLM中上载应用程序的服务帐户Json文件。
@@ -390,7 +390,6 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 ```
 
 1. 初始化Marketo推送在保存上述配置后，您必须初始化Marketo推送通知。 创建或打开您的Application类，然后复制/粘贴以下代码。 您可以从Firebase控制台获取发件人ID。
-
 
    ```java
    Marketo marketoSdk = Marketo.getInstance(getApplicationContext());

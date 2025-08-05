@@ -3,7 +3,7 @@ title: 潜在客户
 feature: REST API
 description: 有关潜在客户API调用的详细信息
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '3338'
 ht-degree: 2%
@@ -430,7 +430,6 @@ GET /rest/v1/leads/schema/fields.json
 POST /rest/v1/leads/schema/fields.json
 ```
 
-
 ### 正文
 
 ```json
@@ -451,7 +450,6 @@ POST /rest/v1/leads/schema/fields.json
   ]
 }
 ```
-
 
 ### 响应
 
@@ -816,7 +814,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 还可以根据静态列表或项目中的成员资格来检索潜在客户记录。 此外，您可以检索潜在客户所属的所有静态列表、项目或智能营销策划。
 
 响应结构和可选参数与“按过滤器类型获取潜在客户”的响应结构和可选参数相同，不过filterType和filterValues不能与此API一起使用。
-要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-**&#x200B;**.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
+要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-****.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
 
 ### 请求
 

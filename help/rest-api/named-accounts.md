@@ -3,7 +3,7 @@ title: 指定帐户
 feature: REST API
 description: 通过API处理命名帐户。
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '679'
 ht-degree: 0%
@@ -390,5 +390,5 @@ Content-Type: application/json
 ## 超时
 
 - 除非下面说明，否则命名帐户端点的超时为30秒
-   - 同步指定帐户： 120秒 
+   - 同步指定帐户： 120秒
    - 删除指定帐户：60秒

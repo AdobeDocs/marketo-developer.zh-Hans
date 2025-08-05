@@ -3,7 +3,7 @@ title: Forms API参考
 description: Forms API参考
 feature: Forms, Javascript
 exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 1%
@@ -122,7 +122,6 @@ ht-degree: 1%
     </tr>
 </table>
 
-
 ## 表单方法
 
 <table>
@@ -220,7 +219,7 @@ ht-degree: 1%
     <tr valign="top">
       <td>.showErrorMessage(msg， elem)</td>
       <td>显示一条错误消息，指向元素。</td>
-      <td>msg(HTML字符串) — 包含要显示的错误文本的字符串。</td>
+      <td>msg(HTML的字符串) — 包含要显示的错误文本的字符串。</td>
             <td>表单对象 — 此表单对象，用于链接。</td>
     </tr>
     <tr>

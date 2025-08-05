@@ -1,16 +1,16 @@
 ---
-title: Forms
+title: 表单
 feature: REST API, Forms
 description: 通过API创建和管理表单。
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1598'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
-# Forms
+# 表单
 
 [Forms终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
 
@@ -298,14 +298,13 @@ GET /rest/asset/v1/form/{id}/fields.json
 | 字符串 | 字符串 |
 | 电子邮件 | 电子邮件 |
 | 日期 | 日期 |
-| 数字 | 数字 |
-| 两次 | 多次 |
+| 数值 | 数字 |
+| 双精度 | 多次 |
 | 电话 | 电话 |
 | URL | url |
 | 货币 | 货币 |
 | 复选框 | single_checkbox |
 | 滑块 | 范围 |
-
 
 ### 依赖关系
 
@@ -631,7 +630,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 每个表单都包含一个可编辑的字段列表，在加载时将会显示给最终用户。 通过每个字段各自的端点，一次在字段列表中添加、更新或删除一个字段。
 
-[添加字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST)只需要父表单的ID和字段的fieldId。 所有其他字段将为空或者其默认值基于其数据类型和字段元数据。 数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
+[添加字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST)只需要父表单的ID和字段的fieldId。 所有其他字段将为空或者其默认值基于其数据类型和字段元数据。 数据以POST x-www-form-urlencoded形式传递，而不是以JSON形式传递。
 
 ```
 POST /rest/asset/v1/form/{id}/fields.json
@@ -789,8 +788,6 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
 }
 ```
 
- 
-
 要确定如何设置复杂表单字段的格式，请查看将字段添加到表单中的响应。
 
 ### 重新排列字段
@@ -833,7 +830,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### 富文本
 
-富文本字段是通过[与潜在客户字段分开的终结点](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST)添加的。 字段内容以multipart/form-data形式传递。 它应结构化为不包含任何脚本、元标记或链接标记的HTML内容。
+富文本字段是通过[与潜在客户字段分开的终结点](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST)添加的。 字段内容以multipart/form-data形式传递。 它应结构化为不包含任何脚本、meta标记或链接标记的HTML内容。
 
 ```
 POST /rest/asset/v1/form/{id}/richText.json
@@ -874,7 +871,7 @@ Content-Type: text/html
 
 Marketo forms具有称为字段集的可选组件。 字段集是被视为顶级字段列表中的单个字段的字段组，用于按照可见性规则移动和处理字段。 例如，如果存在符合性要求字段，并且客户端选择“是”，则它可能会显示包含HIPAA和PCI符合性要求字段的字段集。
 
-字段集中的字段在整个表单中是唯一的，因此重复字段可能不在表单的父字段列表和子字段集中。 字段集是通过[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST)端点添加的，然后将显示在[获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET)的字段的结果中。 通过通过[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)将字段移动到字段集的fieldList中，可向字段集添加字段。 对于这些端点，数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
+字段集中的字段在整个表单中是唯一的，因此重复字段可能不在表单的父字段列表和子字段集中。 字段集是通过[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST)端点添加的，然后将显示在[获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET)的字段的结果中。 通过通过[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)将字段移动到字段集的fieldList中，可向字段集添加字段。 对于这些端点，数据以POST x-www-form-urlencoded形式传递，而不是以JSON形式传递。
 
 ## 可见性规则
 

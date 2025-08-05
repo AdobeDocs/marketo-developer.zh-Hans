@@ -3,7 +3,7 @@ title: 登陆页面
 feature: REST API, Landing Pages
 description: 在Marketo中查询登陆页面。
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1000'
 ht-degree: 1%
@@ -113,11 +113,11 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 ## 删除
 
-要删除登陆页面，必须首先使其无法使用、未被任何其他Marketo资源引用以及未被批准。 使用[删除登陆页面](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST)端点单独删除页面。 无法通过此API删除嵌入了社交按钮的登陆页面。 
+要删除登陆页面，必须首先使其无法使用、未被任何其他Marketo资源引用以及未被批准。 使用[删除登陆页面](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST)端点单独删除页面。 无法通过此API删除嵌入了社交按钮的登陆页面。
 
 ## 克隆
 
-Marketo提供了一种克隆登陆页面的简单方法。 这是application/x-www-url-formencodedPOST请求。
+Marketo提供了一种克隆登陆页面的简单方法。 这是application/x-www-url-formencoded POST请求。
 
 `id`路径参数指定要克隆的源登录页的ID。
 
@@ -173,7 +173,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## 管理内容部分
 
-内容部分按其索引属性排序，并最终根据客户端显示时应用的CSS规则进行布局。 内容节使用相应的[添加](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST)、[更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST)和[删除](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST)登陆页面内容节端点进行包含和管理，可以使用[获取登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET)进行查询。 每个部分都有一个类型和一个值参数。 类型确定应放入值中的内容。  对于这些端点，数据以x-www-form-urlencodedPOST传递，而不是以JSON格式传递。
+内容部分按其索引属性排序，并最终根据客户端显示时应用的CSS规则进行布局。 内容节使用相应的[添加](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST)、[更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST)和[删除](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST)登陆页面内容节端点进行包含和管理，可以使用[获取登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET)进行查询。 每个部分都有一个类型和一个值参数。 类型确定应放入值中的内容。  对于这些端点，数据以POST x-www-form-urlencoded形式传递，而不是以JSON形式传递。
 
 **节类型**
 
@@ -274,7 +274,7 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 

@@ -3,9 +3,9 @@ title: getleadchanges
 feature: SOAP
 description: getLeadChanges SOAP调用
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '402'
+source-wordcount: '401'
 ht-degree: 3%
 
 ---
@@ -40,7 +40,7 @@ ht-degree: 3%
 | startPosition->activityCreatedAt | 可选 | 用于筛选结果以仅包含自activityCreatedAt以来具有活动的潜在客户的时间戳。 注意：您可以使用`LastUpdateAtSelector->latestUpdatedAt`时间戳指定`activityCreatedAt`。 |
 | 商机选择器 | 可选 | 可以是以下3种类型之一： `LeadKeySelector`、`StaticListSelector`、`LastUpdateAtSelector` |
 | LeadKeySelector： leadSelector->keyType | 必需 | 您希望查询的ID类型。 值包括`IDNUM`、`COOKIE`、`EMAIL`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID`。 |
-| LeadKeySelector： leadSelector->keyValues->stringItem | 必需 | 键值列表。 即，“lead@email.com” |
+| LeadKeySelector： leadSelector->keyValues->stringItem | 必需 | 键值列表。 即&quot;<lead@email.com>&quot; |
 | StaticListSelector： leadSelector->staticListName | `leadSelector->staticListId`存在时可选 | 静态列表的名称 |
 | StaticListSelector： leadSelector->staticListId | `leadSelector->staticListName`存在时可选 | 静态列表的ID |
 

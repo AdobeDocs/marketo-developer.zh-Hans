@@ -3,7 +3,7 @@ title: Munchkin API参考
 description: 使用Munchkin Javascript API自定义您的Munchkin数据。
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 7%
@@ -41,7 +41,6 @@ Munchkin.init('299-BYM-827');
 | --- | --- | --- | --- |
 | forceCreate | 必需 | 布尔值 | 即使`cookieAnon`设置为false，也创建Cookie。 |
 
-
 ```javascript
 Munchkin.createTrackingCookie(true);
 ```
@@ -57,12 +56,12 @@ Munchkin.createTrackingCookie(true);
 
 #### visitWebPage
 
-使用`visitWebPage`调用`munchkinFunction()`会将当前用户的“访问”活动发送到Marketo。 您可以自定义与第二个参数中的数据对象一起发送的URL和`querystring`。
+使用`munchkinFunction()`调用`visitWebPage`会将当前用户的“访问”活动发送到Marketo。 您可以自定义与第二个参数中的数据对象一起发送的URL和`querystring`。
 
 | 数据属性名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
 | url | 必需 | 字符串 | 用于记录页面访问的URL文件路径。  此值附加到当前域名以创建完整页面名称。 例如，如果url为`/index.html`，域名为`www.example.com`，则访问的页面将记录为`www.example.com/index.html`。 |
-| 参数 | 可选 | 字符串 | 要记录的所需参数的查询字符串。 |
+| params | 可选 | 字符串 | 要记录的所需参数的查询字符串。 |
 
 例如：`foo=bar&biz=baz`。
 
@@ -76,7 +75,7 @@ Munchkin.munchkinFunction('visitWebPage', {
 
 #### clickLink
 
-使用`clickLink`调用`munchkinFunction()`会将当前用户的点击活动发送至Marketo。 您可以使用数据对象中的`href`属性自定义点击URL。
+使用`munchkinFunction()`调用`clickLink`会将当前用户的点击活动发送至Marketo。 您可以使用数据对象中的`href`属性自定义点击URL。
 
 | 数据属性名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |

@@ -3,7 +3,7 @@ title: 登陆页面重定向规则
 feature: REST API, Landing Pages
 description: 通过API配置登陆页面重定向规则。
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '641'
 ht-degree: 2%
@@ -136,7 +136,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## 创建
 
-使用application/x-www-form-urlencodedPOST执行[创建登陆页重定向规则](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST)终结点，该规则具有以下三个必需参数。
+使用application/x-www-form-urlencoded POST执行[创建登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST)端点，该POST具有以下三个必需参数。
 
 `hostname`参数指定登陆页的主机名。 这应该属于品牌策略域或别名。 最大长度为255个字符。
 
@@ -148,7 +148,6 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 | &#39;访客&#39; | 必需 | 字符串 | 方法名称。 |
 | callback | 必需 | 函数 | 要为每个返回的营销活动触发的回调函数。 |
 
-
 `redirectTo`参数指定目标登陆页面。 这是一个JSON对象，其中包含类型/值对，可确定源是Marketo登陆页面，还是非Marketo登陆页面。 `type`属性可以是“landingPageId”或“url”。
 
 | 登陆页面类型 | redirectTo类型 | 示例 |
@@ -156,7 +155,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 | Marketo | landingPageId | {&quot;type&quot;：&quot;landingPageId&quot;，&quot;value&quot;：&quot;1774&quot;} |
 | 非Marketo | url | {&quot;type&quot;：&quot;url&quot;，&quot;value&quot;：&quot;www.contactLogs.com&quot;} |
 
-有关创建登陆页面重定向规则的更多信息，请访问[此处](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
+有关创建登陆页面重定向规则的更多信息，请访问[此处](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html)。
 
 ```
 POST /rest/asset/v1/redirectRules.json
@@ -199,7 +198,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## 更新
 
-[更新登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST)端点采用单个登陆页面重定向规则`id`路径参数。 此端点使用application/x-www-form-urlencodedPOST执行。
+[更新登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST)端点采用单个登陆页面重定向规则`id`路径参数。 此端点使用application/x-www-form-urlencoded POST执行。
 
 与上述创建调用一样，传递了以下一个或多个查询参数以指定要更新的规则属性： `hostname`、`redirectFrom`、`redirectTo`。
 

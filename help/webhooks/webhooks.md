@@ -3,7 +3,7 @@ title: Webhooks
 feature: Webhooks
 description: Webhooks概述
 exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '562'
 ht-degree: 0%
@@ -12,17 +12,17 @@ ht-degree: 0%
 
 # Webhooks
 
-Marketo允许使用Webhook与第三方Web服务进行通信。 Webhook支持使用GET或POSTHTTP动词从特定URL推送或检索数据。 有关应用程序内创建Webhook以及如何将其添加到智能营销活动的详细说明，请参阅以下文章：
+Marketo允许使用Webhook与第三方Web服务进行通信。 Webhook支持使用GET或POST HTTP动词从特定URL推送或检索数据。 有关应用程序内创建Webhook以及如何将其添加到智能营销活动的详细说明，请参阅以下文章：
 
-- [创建Webhook](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [调用Webhook](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [在智能营销活动中使用Webhook](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [创建Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [调用Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [在智能营销活动中使用Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 每个webhook都有以下属性：
 
 - [!UICONTROL URL] — 输入用于向Web服务提交请求的URL。
 - [!UICONTROL Request Type] - HTTP方法。
-- [!UICONTROL Payload Template] — 如果要在POST正文中传输信息，请输入模板。 使用支持HTTPPOST的任何数据格式，包括XML、JSON或SOAP。 序列化格式必须允许在字符串周围使用双引号。 要在模板中插入令牌，请单击&#x200B;**[!UICONTROL Insert Token]**。  字符串类型的令牌会自动用双引号引住。
+- [!UICONTROL Payload Template] — 如果您希望在POST正文中传输信息，请输入模板。 使用支持HTTP POST的任何数据格式，包括XML、JSON或SOAP。 序列化格式必须允许在字符串周围使用双引号。 要在模板中插入令牌，请单击&#x200B;**[!UICONTROL Insert Token]**。  字符串类型的令牌会自动用双引号引住。
 - [!UICONTROL Request Token Encoding] — 如果令牌值包含特殊字符（例如&amp;符号、&#39;&amp;&#39;），请指示请求的格式（JSON或表单/URL）。 应为主体选择正确的编码，以确保Webhook与Web服务正确通信。
 - [!UICONTROL Response Type] — 选择您从服务收到的响应的格式（JSON或XML）。 必须选择正确的响应类型，才能将响应的属性映射回Marketo中的潜在客户字段
 - [!UICONTROL Custom Headers] — 通过[!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header]访问，此菜单允许添加任意数量的自定义键值对作为HTTP标头。
@@ -33,9 +33,9 @@ Marketo允许使用Webhook与第三方Web服务进行通信。 Webhook支持使�
 
 Webhook中的所有传出字段（URL、模板和自定义标头）都会在流程步骤的同一上下文中填充令牌的内容。 这意味着潜在客户令牌和系统令牌始终可用，而触发器、营销活动和项目令牌则在其各自的范围中可用。 请参阅与令牌相关的文章：
 
-- [令牌概述](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
-- [系统令牌术语表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [有趣时刻的令牌](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [令牌概述](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
+- [系统令牌术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
+- [有趣时刻的令牌](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
 这种情况的一个常见情况是，项目或营销策划被显式映射到第三方资源。 ID可以在程序级别设置为`My Token`，然后作为令牌传递到Webhook请求中。
 

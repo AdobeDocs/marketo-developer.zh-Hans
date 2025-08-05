@@ -3,7 +3,7 @@ title: scheduleCampaign
 feature: SOAP, Smart Campaigns
 description: scheduleCampaign SOAP调用
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 3%
@@ -14,7 +14,7 @@ ht-degree: 3%
 
 此函数设置批智能营销活动的计划，以立即运行或在将来日期运行。 它需要现有的Smart Campaign才能成功完成。 这可以与importToList一起使用，上传潜在客户列表，然后针对新创建的列表运行批量促销活动。
 
-## 可选程序令牌：
+## 可选项目令牌
 
 与requestCampaign函数类似，您可以将一系列“我的令牌”传递到此API调用中，以覆盖现有令牌。 营销活动运行后，令牌将被丢弃。
 

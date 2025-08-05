@@ -3,9 +3,9 @@ title: 重定向
 description: 重定向
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '468'
+source-wordcount: '457'
 ht-degree: 8%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 8%
 
 RTP重定向API允许您将分段受众重定向到目标URL。
 
-- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 使用情况
@@ -34,17 +34,16 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 
 | 条件 | 数据层次结构 | 示例 |
 |-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
-| 匹配区段（仅在首次单击后生效） | matchedSegments.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;matchedSegments.name&#39; ， [&#39;Fortune 1,000&#39; ， &#39;Enterprise&#39;] ， &#39;http://www.marketo.com&#39;)； |
-| 匹配区段（仅在首次单击后生效） | matchedSegments.id | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;matchedSegments.id&#39; ， [106 ， 107 ， 190] ， &#39;http://www.marketo.com&#39;)； |
-| ABM列表 | abm.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;abm.name&#39; ， [&#39;top_key_accounts&#39;， &#39;active_customers&#39;] ， &#39;http://www.marketo.com&#39;)； |
-| ABM列表 | abm.code | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;abm.code&#39; ， [13 ， 15] ， &#39;http://www.marketo.com&#39;)； |
-| 组织 | org | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;org&#39;， [&#39;ebay&#39;]， &#39;http://www.marketo.com&#39;)； |
-| 位置 | location.country | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.country&#39;， [&#39;United States&#39;]， &#39;http://www.marketo.com&#39;)； |
-| 位置 | location.state | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.state&#39;， [&#39;ca&#39;]， &#39;http://www.marketo.com&#39;)； |
-| 位置 | location.city | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.city&#39;， [&#39;San Mateo&#39;]， &#39;http://www.marketo.com&#39;)； |
-| 行业 | 行业 | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;industries&#39;， [&#39;Education&#39;]， &#39;http://www.marketo.com&#39;)； |
-| ISP | isp | rtp( &#39;send&#39;， &#39;redirect&#39; ， isp ， [&#39;False&#39;]， &#39;http://www.marketo.com&#39;)； |
-
+| 匹配区段（仅在首次单击后生效） | matchedSegments.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;matchedSegments.name&#39; ， [&#39;Fortune 1,000&#39; ， &#39;Enterprise&#39;] ， &#39;<http://www.marketo.com>&#39;)； |
+| 匹配区段（仅在首次单击后生效） | matchedSegments.id | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;matchedSegments.id&#39;， [106， 107， 190]， &#39;<http://www.marketo.com>&#39;)； |
+| ABM列表 | abm.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;abm.name&#39; ， [&#39;top_key_accounts&#39;， &#39;active_customers&#39;] ， &#39;<http://www.marketo.com>&#39;)； |
+| ABM列表 | abm.code | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;abm.code&#39;， [13， 15]， &#39;<http://www.marketo.com>&#39;)； |
+| 组织 | org | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;org&#39;， [&#39;ebay&#39;]， &#39;<http://www.marketo.com>&#39;)； |
+| 位置 | location.country | rtp（ &#39;send&#39;， &#39;redirect&#39;， &#39;location.country&#39;， [&#39;美国&#39;]， &#39;<http://www.marketo.com>&#39;）； |
+| 位置 | location.state | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.state&#39;， [&#39;ca&#39;]， &#39;<http://www.marketo.com>&#39;)； |
+| 位置 | location.city | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;location.city&#39;， [&#39;San Mateo&#39;]， &#39;<http://www.marketo.com>&#39;)； |
+| 行业 | 行业 | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;industries&#39;， [&#39;Education&#39;]， &#39;<http://www.marketo.com>&#39;)； |
+| ISP | isp | rtp( &#39;send&#39;， &#39;redirect&#39; ， isp ， [&#39;False&#39;]， &#39;<http://www.marketo.com>&#39;)； |
 
 ## 注释
 
@@ -87,7 +86,7 @@ rtp('get','campaign');
 
 ## 如何重定向跟踪的访客
 
-1. 在目标URL的末尾附加一个参数：即www.marketo.com？rtp=redirect
+1. 在目标URL的末尾附加一个参数：即&lt;www.marketo.com？rtp=redirect>
 1. 创建名为“由RTP重定向”的区段
 1. 使用“特定页面”参数，通过下面显示的参数定位查看任何页面的访客。
 
@@ -106,8 +105,7 @@ rtp('get','campaign');
 | &#39;发送&#39; | 必需 | 字符串 | 方法操作。 |
 | &#39;重定向&#39; | 必需 | 字符串 | 方法名称。 |
 | field_name | 必需 | 字符串 | 要匹配的字段名称。 示例：`abm.name`（请参阅上文）。 |
-| url_values_map | 必需 | 对象 | 在重定向url和值列表之间映射。 示例：{&#39;http://marketo.com&#39; ： [&#39;first_abm&#39;， &#39;second_abm&#39;]} |
-
+| url_values_map | 必需 | 对象 | 在重定向url和值列表之间映射。 示例：{&#39;<http://marketo.com>&#39; ： [&#39;first_abm&#39;， &#39;second_abm&#39;]} |
 
 #### 示例
 

@@ -3,7 +3,7 @@ title: 批量活动提取
 feature: REST API
 description: 从Marketo批量处理活动数据。
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1332'
 ht-degree: 3%
@@ -105,7 +105,6 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
 | 格式 | 字符串 | 否 | 接受以下项之一：CSV、TSV、SSV导出的文件将分别呈现为逗号分隔的值、制表符分隔的值或空格分隔的值文件（如果设置）。 如果未设置，则默认为CSV。 |
 | columnHeaderName | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 值是该字段的导出列标题的名称。 |
 | 字段 | 数组[字符串] | 否 | 包含字段值的可选字符串数组。 列出的字段包含在导出的文件中。 默认情况下，将返回以下字段： <ul><li>`marketoGUIDleadId`</li><li> `activityDate` </li><li>`activityTypeId` </li><li>`campaignId`</li><li> `primaryAttributeValueId` </li><li>`primaryAttributeValue`</li><li> `attributes`</li></ul>。此参数可用于通过从上述列表中指定子集来减少返回的字段数：`"fields": ["leadId", "activityDate", "activityTypeId"]`。 可以指定附加字段`actionResult`以包括活动操作： `("succeeded", "skipped", or "failed")`。 |
-
 
 ## 创建作业
 

@@ -1,17 +1,17 @@
 ---
-title: "数据摄取"
-description: “数据摄取API概述”
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+title: 数据摄取
+description: 数据摄取API概述
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '945'
-ht-degree: 9%
+source-wordcount: '940'
+ht-degree: 10%
 
 ---
 
 
-# 数据摄入
+# 数据摄取
 
-数据摄取API是一种高容量、低延迟、高度可用的服务，旨在以最小的延迟有效处理大量人员和人员相关数据的摄取。 
+数据摄取API是一种高容量、低延迟、高度可用的服务，旨在以最小的延迟有效处理大量人员和人员相关数据的摄取。
 
 通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/)中的事件，可以检索请求状态。&#x200B;
 
@@ -55,13 +55,13 @@ ht-degree: 9%
 
 ## 请求
 
-使用HTTPPOST方法将数据发送到服务器。
+使用HTTP POST方法将数据发送到服务器。
 
 数据表示以application/json形式包含在请求正文中。
 
 域名是： `mkto-ingestion-api.adobe.io`
 
-路径以`/subscriptions/_MunchkinId_`开头，其中`_MunchkinId_`特定于您的Marketo实例。 您可以在Marketo EngageUI中的&#x200B;**管理员** >**我的帐户** > **支持信息**&#x200B;下找到您的Munchkin ID。 路径的其余部分用于指定感兴趣的资源。
+路径以`/subscriptions/_MunchkinId_`开头，其中`_MunchkinId_`特定于您的Marketo实例。 您可以在Marketo Engage UI中的&#x200B;**管理员** >**我的帐户** > **支持信息**&#x200B;下找到您的Munchkin ID。 路径的其余部分用于指定感兴趣的资源。
 
 人员示例URL：
 
@@ -100,7 +100,7 @@ ht-degree: 9%
 | 404 | 404040 | 未找到资源 |
 | 429 | 429001 | 达到服务使用限制 |
 
-以下是数据摄取API特有的错误代码，这些错误代码由三个区段组成。 前三位是状态(由AdobeIO网关返回)，后面是零“0”，后面是三位。
+以下是数据摄取API特有的错误代码，这些错误代码由三个区段组成。 前三位是状态(由Adobe IO网关返回)，后面是零“0”，后面是三位。
 
 | HTTP状态代码 | error_code | 条消息 |
 |--- |--- |--- |
@@ -143,7 +143,7 @@ ht-degree: 9%
 
 | 键 | 数据类型 | 必需 | 值 | 默认值 |
 |---|---|---|---|---|
-| 优先级 | 字符串 | 否 | 请求的优先级：normalhigh | 普通 |
+| 优先级 | 字符串 | 否 | 请求的优先级:normalhigh | 普通 |
 | partitionName | 字符串 | 否 | 人员分区的名称 | 默认 |
 | 删除重复字段 | 对象 | 否 | 要消除重复的属性。 允许一个或两个属性名称。 在AND操作中使用两个属性。 例如，如果同时指定了`email`和`firstName`，则它们都用于使用AND操作查找人员。 支持的属性为：`idemail`、`sfdcAccountId`、`sfdcContactId`、`sfdcLeadId`、`sfdcLeadOwnerIdCustom`属性（仅限“字符串”和“整数”类型） | 电子邮件 |
 | 人 | 对象数组 | 是 | 人员的属性名称 — 值对列表 | - |
@@ -214,8 +214,8 @@ X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw
 
 | 键 | 数据类型 | 必需 | 值 | 默认值 |
 |---|---|---|---|---|
-| 优先级 | 字符串 | 否 | 请求的优先级：normalhigh | 普通 |
-| 重复数据删除者 | 字符串 | 否 | 要重复数据删除的属性：dedupeFieldsmarketoGUID | 删除重复字段 |
+| 优先级 | 字符串 | 否 | 请求的优先级:normalhigh | 普通 |
+| 重复数据删除者 | 字符串 | 否 | :dedupeFieldsmarketoGUID上要消除重复的属性 | 删除重复字段 |
 | customObject | 对象数组 | 是 | 对象的属性名称 — 值对列表。 | - |
 
 | 权限 |
