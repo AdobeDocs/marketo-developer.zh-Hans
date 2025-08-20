@@ -3,7 +3,7 @@ title: 数据摄取
 feature: REST API, Dynamic Content
 description: 使用Marketo API使用数据。
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 10%
@@ -18,7 +18,9 @@ ht-degree: 10%
 
 界面提供两种对象类型：人员、自定义对象。 记录操作仅限“插入或更新”。
 
-数据摄取API当前为私有测试版。  受邀者需要拥有[Marketo Engage性能层](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)包的权利。
+>[!NOTE]
+>
+>数据摄取API当前为私有测试版。  受邀者需要拥有[Marketo Engage性能层](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)包的权利。
 
 ## 身份验证
 

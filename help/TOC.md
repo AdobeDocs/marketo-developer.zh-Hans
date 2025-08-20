@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo] 开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: f269cbe6edbd6d3fd5b579b1ea03bab8b99208be
 workflow-type: tm+mt
-source-wordcount: '247'
-ht-degree: 20%
+source-wordcount: '252'
+ht-degree: 28%
 
 ---
 
@@ -16,7 +16,7 @@ ht-degree: 20%
 # [!DNL Marketo]开发人员 {#marketo}
 
 - [主页](home.md)
-- [开始使用](getting-started.md)
+- [快速入门](getting-started.md)
 - Javascript API {#javascriptapi}
    - [自定义数据事件](javascript-api/custom-data-events.md)
    - [示例](javascript-api/examples.md)
@@ -28,12 +28,12 @@ ht-degree: 20%
       - [配置](javascript-api/configuration.md)
       - [Munchkin API参考](javascript-api/api-reference.md)
    - [模式匹配](javascript-api/pattern-match.md)
-   - [预测内容](javascript-api/predictive-content.md)
+   - [预测性内容](javascript-api/predictive-content.md)
    - [重定向](javascript-api/redirect.md)
    - [富媒体推荐](javascript-api/rich-media-recommendation.md)
    - [社交](javascript-api/social.md)
    - [触发器](javascript-api/triggers.md)
-   - [Web Personalization](javascript-api/web-personalization.md)
+   - [Web 个性化](javascript-api/web-personalization.md)
 - 移动设备 {#mobile}
    - [安装 [!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] 扩展](mobile/adobe-launch-extension.md)
@@ -63,10 +63,10 @@ ht-degree: 20%
       - [登陆页面重定向规则](rest-api/landing-page-redirect-rules.md)
       - [登陆页面模板](rest-api/landing-page-templates.md)
       - [标准字段列表](rest-api/list-of-standard-fields.md)
-      - [程序](rest-api/programs.md)
+      - [项目](rest-api/programs.md)
       - [智能营销活动](rest-api/smart-campaigns.md)
       - [智能列表](rest-api/smart-lists.md)
-      - [片段](rest-api/snippets.md)
+      - [代码段](rest-api/snippets.md)
       - [静态列表](rest-api/static-lists.md)
       - [令牌](rest-api/tokens.md)
       - [事务性电子邮件](rest-api/transactional-email.md)
@@ -97,9 +97,9 @@ ht-degree: 20%
       - [字段类型](rest-api/field-types.md)
       - [潜在客户数据库](rest-api/lead-database.md)
       - [潜在客户](rest-api/leads.md)
-      - [指定帐户](rest-api/named-accounts.md)
+      - [命名帐户](rest-api/named-accounts.md)
       - [指定帐户列表](rest-api/named-account-lists.md)
-      - [机会](rest-api/opportunities.md)
+      - [商机](rest-api/opportunities.md)
       - [机会角色](rest-api/opportunity-roles.md)
       - [计划成员](rest-api/program-members.md)
       - [销售人员](rest-api/sales-persons.md)
@@ -142,7 +142,7 @@ ht-degree: 20%
       - [Marketo对象](soap-api/marketo-objects.md)
       - [[!DNL syncMObjects]](soap-api/syncmobjects.md)
    - [迁移到REST API](soap-api/migration.md)
-   - 程序 {#programs}
+   - 项目 {#programs}
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
@@ -159,6 +159,8 @@ ht-degree: 20%
 - [客户端库](https://github.com/Marketo/Community-Supported-Client-Libraries)
 - [数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams)
 - [电子邮件脚本](email-scripting.md)
+- [电子邮件脚本示例](examples.md)
+- [Marketo对象](marketo-objects.md)
 - [许可证](api-license.md)
 - [合作伙伴沙盒](partner-sandbox.md)
 - [自助服务流程步骤](self-service-flow-steps.md)
