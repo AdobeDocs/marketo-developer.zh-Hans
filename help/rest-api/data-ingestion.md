@@ -3,9 +3,9 @@ title: 数据摄取
 feature: REST API, Dynamic Content
 description: 使用Marketo API使用数据。
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
+source-git-commit: af2d0f266a271696dbf7d334f23bcd9962b9eba4
 workflow-type: tm+mt
-source-wordcount: '965'
+source-wordcount: '957'
 ht-degree: 10%
 
 ---
@@ -14,13 +14,13 @@ ht-degree: 10%
 
 数据摄取API是一种高容量、低延迟、高度可用的服务，旨在以最小的延迟有效处理大量与人员和人员相关的数据摄取。
 
-通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup)中的事件，可以检索请求状态。&#x200B;
+通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup)中的事件，可以检索请求状态。
 
 界面提供两种对象类型：人员、自定义对象。 记录操作仅限“插入或更新”。
 
 >[!NOTE]
 >
->数据摄取API当前为私有测试版。  受邀者需要拥有[Marketo Engage性能层](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)包的权利。
+>访问数据摄取API需要有权访问[Marketo Engage性能层](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)包。
 
 ## 身份验证
 
