@@ -3,7 +3,7 @@ title: 身份验证
 feature: REST API
 description: 对Marketo用户进行API使用身份验证。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 36e768d562e6f69aeb70a83253dfcf41653f217a
 workflow-type: tm+mt
 source-wordcount: '609'
 ht-degree: 0%
@@ -55,7 +55,7 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 >[!IMPORTANT]
 >
->2025年10月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
+>2026年1月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
 
 ### 切换到授权标头
 
