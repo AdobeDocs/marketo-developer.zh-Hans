@@ -1,12 +1,12 @@
 ---
 title: 终结点引用
 feature: REST API
-description: Marketo API端点引用
+description: 全面的Marketo REST API端点列表，其中包含方法、URI以及跨活动、批量导出、身份、潜在客户、资产和用户的所需权限。
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '4448'
-ht-degree: 5%
+source-wordcount: '4464'
+ht-degree: 7%
 
 ---
 
@@ -247,22 +247,22 @@ ht-degree: 5%
 | 获取指定帐户列表 | 指定帐户列表 | GET | /rest/v1/namedaccountlists.json | 只读指定帐户列表 |
 | 删除指定帐户列表成员 | 指定帐户列表 | POST | /rest/v1/namedaccountlist/{id}/namedaccounts/remove.json | 读写指定帐户 |
 | 同步指定帐户列表 | 指定帐户列表 | POST | /rest/v1/namedaccountlists.json | 读写指定帐户列表 |
-| 删除指定帐户 | 指定帐户 | POST | /rest/v1/namedaccounts/delete.json | 读写指定帐户 |
-| 描述指定帐户 | 指定帐户 | GET | /rest/v1/namedaccounts/describe.json | 只读指定帐户 |
-| 获取指定帐户 | 指定帐户 | GET | /rest/v1/namedaccounts.json | 只读指定帐户 |
-| 同步指定帐户 | 指定帐户 | POST | /rest/v1/namedaccounts.json | 读写指定帐户 |
-| 按名称获取指定帐户字段 | 指定帐户 | GET | /rest/v1/namedaccounts/schema/fields/{fieldApiName}.json | 读写架构自定义字段 |
-| 获取指定帐户字段 | 指定帐户 | GET | /rest/v1/namedaccounts/schema/fields.json | 读写架构自定义字段 |
-| 删除机会 | 机会 | POST | /rest/v1/opportunities/delete.json | 读写机会 |
-| 删除机会角色 | 机会 | POST | /rest/v1/opportunities/roles/delete.json | 读写机会 |
-| 描述机会 | 机会 | GET | /rest/v1/opportunities/describe.json | 只读机会 |
-| 描述机会角色 | 机会 | GET | /rest/v1/opportunities/roles/describe.json | 只读机会 |
-| 获取机会 | 机会 | GET | /rest/v1/opportunities.json | 只读机会 |
-| 获取机会角色 | 机会 | GET | /rest/v1/opportunities/roles.json | 只读机会 |
-| 同步机会 | 机会 | POST | /rest/v1/opportunities.json | 读写机会 |
-| 同步机会角色 | 机会 | POST | /rest/v1/opportunities/roles.json | 读写机会 |
-| 按名称获取机会字段 | 机会 | GET | /rest/v1/opportunities/schema/fields/{fieldApiName}.json | 读写架构自定义字段 |
-| 获取机会字段 | 机会 | GET | /rest/v1/opportunities/schema/fields.json | 读写架构自定义字段 |
+| 删除指定帐户 | 命名帐户 | POST | /rest/v1/namedaccounts/delete.json | 读写指定帐户 |
+| 描述指定帐户 | 命名帐户 | GET | /rest/v1/namedaccounts/describe.json | 只读指定帐户 |
+| 获取指定帐户 | 命名帐户 | GET | /rest/v1/namedaccounts.json | 只读指定帐户 |
+| 同步指定帐户 | 命名帐户 | POST | /rest/v1/namedaccounts.json | 读写指定帐户 |
+| 按名称获取指定帐户字段 | 命名帐户 | GET | /rest/v1/namedaccounts/schema/fields/{fieldApiName}.json | 读写架构自定义字段 |
+| 获取指定帐户字段 | 命名帐户 | GET | /rest/v1/namedaccounts/schema/fields.json | 读写架构自定义字段 |
+| 删除机会 | 商机 | POST | /rest/v1/opportunities/delete.json | 读写机会 |
+| 删除机会角色 | 商机 | POST | /rest/v1/opportunities/roles/delete.json | 读写机会 |
+| 描述机会 | 商机 | GET | /rest/v1/opportunities/describe.json | 只读机会 |
+| 描述机会角色 | 商机 | GET | /rest/v1/opportunities/roles/describe.json | 只读机会 |
+| 获取机会 | 商机 | GET | /rest/v1/opportunities.json | 只读机会 |
+| 获取机会角色 | 商机 | GET | /rest/v1/opportunities/roles.json | 只读机会 |
+| 同步机会 | 商机 | POST | /rest/v1/opportunities.json | 读写机会 |
+| 同步机会角色 | 商机 | POST | /rest/v1/opportunities/roles.json | 读写机会 |
+| 按名称获取机会字段 | 商机 | GET | /rest/v1/opportunities/schema/fields/{fieldApiName}.json | 读写架构自定义字段 |
+| 获取机会字段 | 商机 | GET | /rest/v1/opportunities/schema/fields.json | 读写架构自定义字段 |
 | 删除项目群成员 | 计划成员 | POST | /rest/v1/programs/{programId}/members/delete.json | 读写潜在客户 |
 | 描述计划成员 | 计划成员 | GET | /rest/v1/programs/members/describe.json | 只读潜在客户 |
 | 获取计划成员 | 计划成员 | GET | /rest/v1/programs/{programId}/members.json | 只读潜在客户 |
@@ -272,19 +272,19 @@ ht-degree: 5%
 | 获取项目群成员字段 | 计划成员 | GET | /rest/v1/programs/members/schema/fields.json | 读写架构自定义字段 |
 | 创建项目群成员字段 | 计划成员 | POST | /rest/v1/programs/members/schema/fields.json | 读写架构自定义字段 |
 | 更新项目群成员字段 | 计划成员 | POST | /rest/v1/programs/members/schema/fields/{fieldApiName}.json | 读写架构自定义字段 |
-| 批准项目 | 程序 | POST | /rest/asset/v1/program/{id}/approve.json | 读写资产 |
-| 克隆程序 | 程序 | POST | /rest/asset/v1/program/{id}/clone.json | 读写资产 |
-| 创建程序 | 程序 | POST | /rest/asset/v1/programs.json | 读写资产 |
-| 删除项目群 | 程序 | POST | /rest/asset/v1/program/{id}/delete.json | 读写资产 |
-| 按ID获取计划 | 程序 | GET | /rest/asset/v1/program/{id}.json | 只读资产 |
-| 按名称获取计划 | 程序 | GET | /rest/asset/v1/program/byName.json | 只读资产 |
-| 获取项目群 | 程序 | GET | /rest/asset/v1/programs.json | 只读资产 |
-| 按标记获取程序 | 程序 | GET | /rest/asset/v1/program/byTag.json | 只读资产 |
-| 按程序ID获取智能列表 | 程序 | GET | /rest/asset/v1/program/{id}/smartList.json | 只读资产 |
-| 取消批准项目 | 程序 | POST | /rest/asset/v1/program/{id}/unapprove.json | 读写资产 |
-| 更新项目元数据 | 程序 | POST | /rest/asset/v1/program/{id}.json | 读写资产 |
-| 更新项目标记 | 程序 | POST | /rest/asset/v1/program/{id}/tag/{tagType}.json | 读写资产 |
-| 删除项目标记 | 程序 | POST | /rest/asset/v1/program/{id}/tag/{tagType}/delete.json | 读写资产 |
+| 批准项目 | 项目 | POST | /rest/asset/v1/program/{id}/approve.json | 读写资产 |
+| 克隆程序 | 项目 | POST | /rest/asset/v1/program/{id}/clone.json | 读写资产 |
+| 创建程序 | 项目 | POST | /rest/asset/v1/programs.json | 读写资产 |
+| 删除项目群 | 项目 | POST | /rest/asset/v1/program/{id}/delete.json | 读写资产 |
+| 按ID获取计划 | 项目 | GET | /rest/asset/v1/program/{id}.json | 只读资产 |
+| 按名称获取计划 | 项目 | GET | /rest/asset/v1/program/byName.json | 只读资产 |
+| 获取项目群 | 项目 | GET | /rest/asset/v1/programs.json | 只读资产 |
+| 按标记获取程序 | 项目 | GET | /rest/asset/v1/program/byTag.json | 只读资产 |
+| 按程序ID获取智能列表 | 项目 | GET | /rest/asset/v1/program/{id}/smartList.json | 只读资产 |
+| 取消批准项目 | 项目 | POST | /rest/asset/v1/program/{id}/unapprove.json | 读写资产 |
+| 更新项目元数据 | 项目 | POST | /rest/asset/v1/program/{id}.json | 读写资产 |
+| 更新项目标记 | 项目 | POST | /rest/asset/v1/program/{id}/tag/{tagType}.json | 读写资产 |
+| 删除项目标记 | 项目 | POST | /rest/asset/v1/program/{id}/tag/{tagType}/delete.json | 读写资产 |
 | 删除SalesPerson | 销售人员 | POST | /rest/v1/salespersons/delete.json | 读写销售人员 |
 | 描述SalesPerson | 销售人员 | GET | /rest/v1/salespersons/describe.json | 只读销售人员 |
 | 获取SalesPerson | 销售人员 | GET | /rest/v1/salespersons.json | 只读销售人员 |
@@ -306,20 +306,20 @@ ht-degree: 5%
 | 按ID获取智能列表 | 智能列表 | GET | /rest/asset/v1/smartList/{id}.json | 只读资产 |
 | 按名称获取智能列表 | 智能列表 | GET | /rest/asset/v1/smartList/byName.json | 只读资产 |
 | 获取智能列表 | 智能列表 | GET | /rest/asset/v1/smartLists.json | 只读资产 |
-| 批准代码片段草稿 | 片段 | POST | /rest/asset/v1/snippet/{id}/approveDraft.json | 读写资产 |
-| 克隆代码片段 | 片段 | POST | /rest/asset/v1/snippet/{id}/clone.json | 读写资产 |
-| 创建代码片段 | 片段 | POST | /rest/asset/v1/snippets.json | 读写资产 |
-| 删除代码片段 | 片段 | POST | /rest/asset/v1/snippet/{id}/delete.json | 读写资产 |
-| 放弃代码片段草稿 | 片段 | POST | /rest/asset/v1/snippet/{id}/discardDraft.json | 读写资产 |
-| 获取动态内容 | 片段 | GET | /rest/asset/v1/snippet/{id}/dynamicContent.json | 只读资产 |
-| 按ID获取代码片段 | 片段 | GET | /rest/asset/v1/snippet/{id}.json | 只读资产 |
-| 获取代码片段内容 | 片段 | GET | /rest/asset/v1/snippet/{id}/content.json | 只读资产 |
-| 获取代码片段 | 片段 | GET | /rest/asset/v1/snippets.json | 只读资产 |
-| 取消批准代码片段 | 片段 | POST | /rest/asset/v1/snippet/{id}/unapprove.json | 读写资产 |
-| 更新代码片段内容 | 片段 | POST | /rest/asset/v1/snippet/{id}/content.json | 读写资产 |
-| 更新代码片段动态内容 | 片段 | POST | /rest/asset/v1/snippet/{id}/dynamicContent/{segmentId}.json | 读写资产 |
-| 更新代码片段元数据 | 片段 | POST | /rest/asset/v1/snippet/{id}.json | 读写资产 |
-| 添加到 List | 静态列表 | POST | /rest/v1/lists/{listId}/leads.json | 读写潜在客户 |
+| 批准代码片段草稿 | 代码段 | POST | /rest/asset/v1/snippet/{id}/approveDraft.json | 读写资产 |
+| 克隆代码片段 | 代码段 | POST | /rest/asset/v1/snippet/{id}/clone.json | 读写资产 |
+| 创建代码片段 | 代码段 | POST | /rest/asset/v1/snippets.json | 读写资产 |
+| 删除代码片段 | 代码段 | POST | /rest/asset/v1/snippet/{id}/delete.json | 读写资产 |
+| 放弃代码片段草稿 | 代码段 | POST | /rest/asset/v1/snippet/{id}/discardDraft.json | 读写资产 |
+| 获取动态内容 | 代码段 | GET | /rest/asset/v1/snippet/{id}/dynamicContent.json | 只读资产 |
+| 按ID获取代码片段 | 代码段 | GET | /rest/asset/v1/snippet/{id}.json | 只读资产 |
+| 获取代码片段内容 | 代码段 | GET | /rest/asset/v1/snippet/{id}/content.json | 只读资产 |
+| 获取代码片段 | 代码段 | GET | /rest/asset/v1/snippets.json | 只读资产 |
+| 取消批准代码片段 | 代码段 | POST | /rest/asset/v1/snippet/{id}/unapprove.json | 读写资产 |
+| 更新代码片段内容 | 代码段 | POST | /rest/asset/v1/snippet/{id}/content.json | 读写资产 |
+| 更新代码片段动态内容 | 代码段 | POST | /rest/asset/v1/snippet/{id}/dynamicContent/{segmentId}.json | 读写资产 |
+| 更新代码片段元数据 | 代码段 | POST | /rest/asset/v1/snippet/{id}.json | 读写资产 |
+| 添加到列表 | 静态列表 | POST | /rest/v1/lists/{listId}/leads.json | 读写潜在客户 |
 | 创建静态列表 | 静态列表 | POST | /asset/v1/staticLists.json | 读写资产 |
 | 删除静态列表 | 静态列表 | POST | /asset/v1/staticList/{id}/delete.json | 读写资产 |
 | 按列表ID获取潜在客户 | 静态列表 | GET | /rest/v1/lists/{listId}/leads.json | 只读潜在客户 |

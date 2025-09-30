@@ -1,12 +1,12 @@
 ---
 title: 渠道
 feature: REST API
-description: 使用Marketo API配置渠道数据。
+description: 了解如何通过Asset REST API查询Marketo渠道、按分页浏览或按名称提取、查看进度状态以及了解程序类型规则。
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '125'
-ht-degree: 1%
+source-wordcount: '144'
+ht-degree: 2%
 
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: React Native
 feature: Mobile Marketing
-description: 安装适用于Marketo的React Native
+description: 在React Native应用程序中通过Marketo Gradle和iOS CocoaPods步骤、本机模块桥接、推送和商机关联来安装和设置Android SDK。
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '810'
-ht-degree: 0%
+source-wordcount: '830'
+ht-degree: 1%
 
 ---
 
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 ## 先决条件
 
-[在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)&#x200B;(获取您的应用程序密钥和Munchkin ID)。
+[在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)&#x200B;(获取您的应用程序密钥和Munchkin ID)。
 
 ## SDK集成
 

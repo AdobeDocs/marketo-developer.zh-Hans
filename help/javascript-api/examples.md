@@ -1,11 +1,11 @@
 ---
 title: 示例
-description: 用于配置表单操作的Marketo代码示例
+description: Marketo Forms 2.0 JavaScript示例用于在提交、设置和读取字段时隐藏或重定向，以及使用自定义错误、灯箱和外部触发器进行验证。
 feature: Javascript
 exl-id: dc5f0cc5-ff5a-48b0-be36-52c10e56f798
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '211'
+source-wordcount: '226'
 ht-degree: 0%
 
 ---

@@ -1,11 +1,11 @@
 ---
 title: 身份验证签名
 feature: SOAP
-description: 具有身份验证签名的API安全性
+description: 使用HMAC-SHA1通过HTTPS进行Marketo SOAP API身份验证的指南，以及必填标头字段、时间戳格式和请求与错误响应示例
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '209'
+source-wordcount: '225'
 ht-degree: 3%
 
 ---

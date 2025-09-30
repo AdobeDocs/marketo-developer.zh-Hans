@@ -1,11 +1,11 @@
 ---
 title: 字段
 feature: REST API, Field Management
-description: 支持的字段名称列表。
+description: 了解REST和SOAP潜在客户字段命名，通过REST列出字段描述潜在客户，功能映射，为何sfdcId为null，以及使用sfdcLeadId或sfdcContactId。
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '194'
+source-wordcount: '212'
 ht-degree: 2%
 
 ---

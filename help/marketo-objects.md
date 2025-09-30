@@ -1,10 +1,11 @@
 ---
 title: Marketo对象
 feature: Email Programs
-description: 在Velocity脚本中使用Marketo对象的概述
-source-git-commit: 3ccb27a0d184e0c1314979d404022bc4e0794f7b
+description: 有关将Marketo Velocity与潜在客户、商机和自定义对象、加载字段、前10位列表访问权限、SFDC关系和$TriggerObject结合使用的指南。
+exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '518'
+source-wordcount: '530'
 ht-degree: 0%
 
 ---

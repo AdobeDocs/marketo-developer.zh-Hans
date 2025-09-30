@@ -1,11 +1,11 @@
 ---
 title: 智能营销活动
 feature: REST API, Smart Campaigns
-description: Smart campaign概述
+description: 了解如何将Marketo REST API用于Smart Campaigns，包括按ID或名称查询、浏览筛选器、创建克隆删除以及计划或请求触发器
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '989'
+source-wordcount: '1012'
 ht-degree: 1%
 
 ---
@@ -185,7 +185,7 @@ GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:
 
 ## 创建
 
-使用application/x-www-form-urlencodedPOST执行[创建Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)终结点，该表达式带有两个必需的参数。 `name`参数指定要创建的智能营销活动的名称。 `folder`参数指定创建智能营销活动的父文件夹。 格式为包含`id`和`type`特性的JSON块。
+使用application/x-www-form-urlencoded POST以及两个必需的参数执行[创建Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)终结点。 `name`参数指定要创建的智能营销活动的名称。 `folder`参数指定创建智能营销活动的父文件夹。 格式为包含`id`和`type`特性的JSON块。
 
 或者，您可以使用`description`参数（最多2,000个字符）描述智能营销活动。
 
@@ -239,7 +239,7 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 
 ## 更新
 
-使用application/x-www-form-urlencodedPOST执行[Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/)终结点。 它将单个智能营销活动`id`作为路径参数。 您可以使用`name`参数更新智能营销活动的名称，或者使用`description`参数更新智能营销活动的描述。
+使用application/x-www-form-urlencoded POST执行[Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/)终结点。 它将单个智能营销活动`id`作为路径参数。 您可以使用`name`参数更新智能营销活动的名称，或者使用`description`参数更新智能营销活动的描述。
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}.json
@@ -291,7 +291,7 @@ name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 
 ## 克隆
 
-使用application/x-www-form-urlencodedPOST执行[Clone Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)终结点，并带有三个必需的参数。 它需要指定要克隆的智能营销活动的`id`参数、指定新智能营销活动名称的`name`参数以及指定创建新智能营销活动所在的父文件夹的`folder`参数。 格式为包含`id`和`type`特性的JSON块。
+使用application/x-www-form-urlencoded POST以及三个必需的参数执行[克隆智能营销活动](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)终结点。 它需要指定要克隆的智能营销活动的`id`参数、指定新智能营销活动名称的`name`参数以及指定创建新智能营销活动所在的父文件夹的`folder`参数。 格式为包含`id`和`type`特性的JSON块。
 
 或者，您可以使用`description`参数（最多2,000个字符）描述智能营销活动。
 
@@ -426,7 +426,7 @@ POST /rest/v1/campaigns/{id}/schedule.json
 
 此端点需要营销活动`id`作为路径参数，以及包含潜在客户ID的`leads`整数数组参数。 每次调用最多允许100个潜在客户。
 
-（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“{{my.name}}”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
+（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“{{my.name}}”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
 
 `leads`和`tokens`参数在请求正文中作为application/json传递。
 

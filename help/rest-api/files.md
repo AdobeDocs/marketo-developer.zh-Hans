@@ -1,11 +1,11 @@
 ---
 title: 文件
 feature: REST API
-description: 存储和操作Marketo文件。
+description: 按ID或名称查询Marketo REST API文件、浏览文件夹和偏移、通过多部分上传创建或更新、insertOnly、MIME类型、无流
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '267'
+source-wordcount: '289'
 ht-degree: 1%
 
 ---
@@ -18,7 +18,7 @@ Marketo订阅允许存储任意文件，如图像、脚本、文档和样式表�
 
 ## 查询
 
-查询文件非常简单，并遵循id为[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)的以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET)的标准查询类型。
+查询文件非常简单，并遵循id为[的](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET)的资产、名称为[的](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET)的标准查询类型。
 
 ### 按Id
 

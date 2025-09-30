@@ -1,11 +1,11 @@
 ---
 title: 配置
-description: 在使用Munchkin时，使用配置Javascript API设置配置值。
+description: 使用Marketo API配置JavaScript Munchkin。 了解Munchkin.init设置，如altIds、anonymizeIP、asyncOnly、Cookie生命周期、domainLevel、Beacon API。
 feature: Munchkin Tracking Code, Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '557'
+source-wordcount: '563'
 ht-degree: 3%
 
 ---
@@ -36,11 +36,11 @@ Munchkin.init("AAA-BBB-CCC", {
 | cookieAnon | 布尔值 | 如果设置为false，则阻止跟踪和Cookie创建新的匿名潜在客户。 商机具有Cookie，在填写Marketo表单或通过从Marketo电子邮件点进来进行跟踪。 默认值为true。 |
 | cookieLifeDays | 整数 | 将任何新创建的Munchkin跟踪Cookie的过期日期设置为将来的此天数。 默认值为730天（2年）。 |
 | customname | 字符串 | 自定义页面名称。 仅供系统使用。 |
-| <a name="domainlevel"></a>域级别 | 整数 | 设置设置Cookie的域属性时要使用的页面域中的部分数。例如，假设当前页面域为“www.example.com”。domainLevel： 2将Cookie域属性设置为“.example.com”domainLevel： 3将Cookie域属性设置为“。www.example.com”。Background：Munchkin将自动管理某些两个字母的顶级域。 在正常情况下，如果顶级域是三个字母，则默认使用两部分。 例如，“www.example.com”，最右侧的两个部分用于设置Cookie“.example.com”。对于两个字母的国家代码（例如“.jp”、“.us”、“.cn”和“.uk”），代码默认为三个部分。 例如，“www.example.co.jp”将使用三个最右边的域部分“.example.co.jp”。如果域模式需要不同的行为，则必须使用`domainLevel`参数指定此行为。 |
+| <a name="domainlevel"></a>域级别 | 整数 | 设置设置Cookie的域属性时要使用的页面域中的部分数。例如，假设当前页面域为“www.example.com”。domainLevel： 2将Cookie域属性设置为“.example.com”domainLevel： 3将Cookie域属性设置为“。www.example.com”。Background:Munchkin将自动管理特定的双字母顶级域。 在正常情况下，如果顶级域是三个字母，则默认使用两部分。 例如，“www.example.com”，最右侧的两个部分用于设置Cookie“.example.com”。对于两个字母的国家代码（例如“.jp”、“.us”、“.cn”和“.uk”），代码默认为三个部分。 例如，“www.example.co.jp”将使用三个最右边的域部分“.example.co.jp”。如果域模式需要不同的行为，则必须使用`domainLevel`参数指定此行为。 |
 | domainSelectorV2 | 布尔值 | 如果设置为true，则使用改进的方法来确定如何设置Cookie域属性。 |
 | httpsOnly | 布尔值 | 默认为false。 如果设置为true，则在通过https提供跟踪的页面时，会将Cookie设置为使用安全设置。 |
 | useBeaconAPI | 布尔值 | 默认为false。 当设置为true时，使用[Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)发送非阻止请求，而不是[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。 如果浏览器不支持此API，Munchkin将回退为使用XMLHttpRequest。 |
-| wsInfo | 字符串 | 采用字符串来定位工作区。 此工作区ID可通过在管理员>集成> Munchkin菜单中选择Workspace来获取。 此设置仅适用于匿名潜在客户记录的初始创建。 一旦为该潜在客户记录建立了Munchkin Cookie值，将无法使用wsInfo参数更改其分区。 由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
+| wsInfo | 字符串 | 采用字符串来定位工作区。 此工作区ID可通过在管理员>集成> Munchkin菜单中选择Workspace来获取。 此设置仅适用于匿名潜在客户记录的初始创建。 一旦为该潜在客户记录建立了Munchkin Cookie值，将无法使用wsInfo参数更改其分区。 由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
 
 ## 示例
 

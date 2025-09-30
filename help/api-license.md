@@ -1,10 +1,10 @@
 ---
 title: API许可证
-description: Marketo的API许可证
+description: Marketo API许可协议，用于内部开发和测试，详细介绍API限制、与Marketo解决方案的互操作性以及非商业用途。
 exl-id: f0720ba7-b15d-40c8-9145-d3fa3e064a0b
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '3077'
+source-wordcount: '3092'
 ht-degree: 0%
 
 ---

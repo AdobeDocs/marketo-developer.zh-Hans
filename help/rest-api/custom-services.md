@@ -1,11 +1,11 @@
 ---
 title: 自定义服务
 feature: REST API
-description: Marketo的身份验证凭据。
+description: 创建Marketo自定义服务，设置仅限API的角色和权限，在LaunchPoint中获取客户端ID和客户端密钥，以及获取访问令牌。
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '968'
+source-wordcount: '985'
 ht-degree: 0%
 
 ---

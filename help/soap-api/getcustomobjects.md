@@ -1,11 +1,11 @@
 ---
 title: getCustomObjects
 feature: SOAP, Custom Objects
-description: getCustomObjects SOAP调用
+description: 了解如何使用getCustomObjects通过SOAP通过键（包括includeAttributes、批量大小高达100以及streamPosition分页）检索Marketo自定义对象。
 exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '156'
+source-wordcount: '176'
 ht-degree: 5%
 
 ---

@@ -1,11 +1,11 @@
 ---
 title: 批量提取
 feature: REST API
-description: 用于提取Marketo数据的批处理操作。
+description: 了解如何使用Marketo批量提取REST API导出潜在客户、活动、项目成员和自定义对象，OAuth、作业队列和每日限制为500 MB。
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1682'
+source-wordcount: '1702'
 ht-degree: 0%
 
 ---

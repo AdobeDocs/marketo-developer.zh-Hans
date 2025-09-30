@@ -1,20 +1,20 @@
 ---
-title: Web Personalization
-description: Web Personalization
+title: Web 个性化
+description: Web Personalization JavaScript API和RTP标记指南，涵盖页面查看事件、帐户设置、机器人排除以及核心脚本和按需脚本
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '401'
+source-wordcount: '422'
 ht-degree: 5%
 
 ---
 
-# Web Personalization
+# Web 个性化
 
 Web Personalization JavaScript API扩展了平台的自动个性化功能。 它允许对网页进行事件跟踪和动态自定义。 其他功能：[自定义数据事件](custom-data-events.md)、[动态内容](web-personalization.md)、[获取访客数据](get-visitor-data.md)、[排除特定机器人的标记](#exclude_tag_for_specific_bots)。
 
-- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 标记设置

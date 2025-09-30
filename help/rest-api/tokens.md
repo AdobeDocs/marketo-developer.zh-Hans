@@ -1,12 +1,12 @@
 ---
 title: 令牌
 feature: REST API, Tokens
-description: 在Marketo中管理令牌。
+description: 使用Asset REST API管理Marketo我的令牌。 查看支持的数据类型，按文件夹或程序获取，通过表单编码的POST创建或更新，并按名称删除。
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '297'
-ht-degree: 2%
+source-wordcount: '320'
+ht-degree: 3%
 
 ---
 

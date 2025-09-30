@@ -1,11 +1,11 @@
 ---
 title: 批量导入
 feature: REST API
-description: 批量导入人员数据。
+description: Marketo批量导入，用于通过多部分上传加载潜在客户、自定义对象和程序成员，创建异步作业、轮询状态和处理故障。
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '592'
+source-wordcount: '610'
 ht-degree: 1%
 
 ---

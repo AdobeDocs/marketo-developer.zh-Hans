@@ -1,11 +1,11 @@
 ---
 title: 自定义对象
 feature: SOAP
-description: 创建自定义对象。
+description: 了解Marketo自定义对象如何链接一个指向多个记录，其中具有结构、限制以及用于获取、同步、删除以及智能列表和电子邮件使用的SOAP API调用。
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '231'
+source-wordcount: '256'
 ht-degree: 0%
 
 ---

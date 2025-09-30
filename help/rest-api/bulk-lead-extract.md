@@ -1,11 +1,11 @@
 ---
 title: 批量潜在客户提取
 feature: REST API
-description: 批量提取潜在客户数据。
+description: 了解如何使用Marketo批量潜在客户提取REST API批量导出具有日期、列表和智能列表筛选器、自定义字段和CSV/TSV格式的潜在客户。
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1173'
+source-wordcount: '1195'
 ht-degree: 2%
 
 ---

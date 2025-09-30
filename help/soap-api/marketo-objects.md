@@ -1,11 +1,11 @@
 ---
 title: Marketo对象
 feature: SOAP
-description: Marketo对象概述
+description: Marketo对象的概述，包括类型、属性、外部密钥行为以及受支持的SOAP API （用于Opportunity、Program和相关记录）。
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '249'
+source-wordcount: '265'
 ht-degree: 0%
 
 ---

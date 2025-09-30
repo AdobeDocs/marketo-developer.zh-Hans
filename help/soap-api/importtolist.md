@@ -1,11 +1,11 @@
 ---
 title: importToList
 feature: SOAP
-description: importToList SOAP调用
+description: 了解如何在Marketo SOAP中使用importToList来导入带有CSV标头、令牌覆盖、XML示例和状态检查的静态列表。
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '387'
+source-wordcount: '409'
 ht-degree: 3%
 
 ---

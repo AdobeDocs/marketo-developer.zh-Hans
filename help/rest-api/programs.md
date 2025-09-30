@@ -1,16 +1,16 @@
 ---
-title: 程序
+title: 项目
 feature: REST API, Programs
-description: 创建和编辑项目信息。
+description: Marketo针对Asset REST API的程序指南，涵盖了类型、渠道、标记、成员状态和端点，可按ID或名称获取、浏览和按状态筛选。
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '848'
+source-wordcount: '870'
 ht-degree: 1%
 
 ---
 
-# 程序
+# 项目
 
 [程序终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
 
@@ -187,7 +187,7 @@ GET /rest/asset/v1/programs.json
 
 ### 按日期范围
 
-我们的[获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)端点的`earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回的程序设置低日期时间和高日期时间水印，这些程序在给定范围内已更新或最初创建。
+我们的`earliestUpdatedAt`获取程序`latestUpdatedAt`端点的[和](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)参数允许您为返回的程序设置低日期时间和高日期时间水印，这些程序在给定范围内已更新或最初创建。
 
 ```
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
@@ -379,7 +379,7 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 
 ### 更新
 
-在更新程序成本时，若要追加新成本，只需将其添加到您的`costs`阵列即可。 要执行破坏性更新，请将新成本以及设置为`true`的参数`costsDestructiveUpdate`一起传递。 若要清除项目的所有成本，请不要传递`costs`参数，而只需传递设置为`true`的`costsDestructiveUpdate`。
+在更新程序成本时，若要追加新成本，只需将其添加到您的`costs`阵列即可。 要执行破坏性更新，请将新成本以及设置为`costsDestructiveUpdate`的参数`true`一起传递。 若要清除项目的所有成本，请不要传递`costs`参数，而只需传递设置为`costsDestructiveUpdate`的`true`。
 
 ```
 POST /rest/asset/v1/program/{id}.json

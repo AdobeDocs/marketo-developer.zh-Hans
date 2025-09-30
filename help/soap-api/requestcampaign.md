@@ -1,11 +1,11 @@
 ---
 title: requestCampaign
 feature: SOAP, Smart Campaigns
-description: requestCampaign SOAP调用
+description: 通过SOAP requestCampaign在Marketo Smart Campaign中运行潜在客户，包括参数集、令牌处理、100个潜在客户限制、XML请求和PHP Java示例。
 exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '277'
+source-wordcount: '298'
 ht-degree: 3%
 
 ---

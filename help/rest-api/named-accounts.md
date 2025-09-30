@@ -1,16 +1,16 @@
 ---
-title: 指定帐户
+title: 命名帐户
 feature: REST API
-description: 通过API处理命名帐户。
+description: Marketo REST指南，用于在ABM的指定帐户上执行CRUD，其中提供了说明、查询、创建更新示例、可搜索的字段、重复数据删除规则以及无潜在客户链接。
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '679'
-ht-degree: 0%
+source-wordcount: '697'
+ht-degree: 1%
 
 ---
 
-# 指定帐户
+# 命名帐户
 
 [命名帐户终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
 

@@ -1,11 +1,11 @@
 ---
 title: 推送通知
 feature: Mobile Marketing
-description: 为Marketo Mobile启用推送通知
+description: 指南以通过Marketo启用iOS推送通知，从APNs证书和Xcode设置到Marketo SDK集成、令牌注册、处理。
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1329'
+source-wordcount: '1344'
 ht-degree: 0%
 
 ---

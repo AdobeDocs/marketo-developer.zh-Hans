@@ -1,18 +1,18 @@
 ---
 title: 高级安全访问模式
 feature: Mobile Marketing
-description: 有关高级安全访问模式的详细信息
+description: 通过HMAC签名生成、服务器端设置、设备ID使用以及Marketo和Android示例，了解iOS Mobile SDK的高级安全访问模式
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '303'
+source-wordcount: '321'
 ht-degree: 0%
 
 ---
 
 # 高级安全访问模式
 
-Marketo SDK公开了用于设置和删除安全签名的方法。 还有一种实用程序方法可检索设备ID。 登录时，设备ID应与电子邮件一起传递给客户服务器，以用于计算安全签名。 SDK应点击指向上面列出的算法的新端点，以检索必要的字段来实例化签名对象。 如果在Marketo Mobile Admin中启用了安全访问模式，则在SDK中设置此签名是必要的步骤。
+Marketo SDK公开了用于设置和删除安全签名的方法。 还有一种实用程序方法可检索设备ID。 登录时，设备ID应与电子邮件一起传递给客户服务器，以用于计算安全签名。 SDK应点击指向上面列出的算法的新端点，以检索必要的字段来实例化签名对象。 如果在SDK Mobile管理中启用了安全访问模式，则在Marketo中设置此签名是必要的步骤。
 
 ## 安全访问模式设置
 
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     print 'HMAC is ', hmac_string
 ```
 
-Marketo SDK公开了新的方法来设置和删除安全签名。 还有一种实用程序方法可检索设备ID。 登录时，设备ID应与电子邮件一起传递给客户服务器，以用于计算安全签名。 SDK应点击指向上面列出的算法的新端点，以检索必要的字段来实例化签名对象。 如果在Marketo Mobile Admin中启用了安全访问模式，则在SDK中设置此签名是必要的步骤。
+Marketo SDK公开了新的方法来设置和删除安全签名。 还有一种实用程序方法可检索设备ID。 登录时，设备ID应与电子邮件一起传递给客户服务器，以用于计算安全签名。 SDK应点击指向上面列出的算法的新端点，以检索必要的字段来实例化签名对象。 如果在SDK Mobile管理中启用了安全访问模式，则在Marketo中设置此签名是必要的步骤。
 
 ### iOS
 

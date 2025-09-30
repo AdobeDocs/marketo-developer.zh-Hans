@@ -1,11 +1,11 @@
 ---
 title: 活动
 feature: REST API
-description: 用于管理Marketo Engage活动的API。
+description: 使用Marketo Engage Activities REST API可列出活动类型、获取包含分页令牌的潜在客户活动以及处理自定义和数据值更改。
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '2029'
+source-wordcount: '2046'
 ht-degree: 0%
 
 ---

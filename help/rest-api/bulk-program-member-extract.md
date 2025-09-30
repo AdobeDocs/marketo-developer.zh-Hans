@@ -1,11 +1,11 @@
 ---
 title: 批量程序成员提取
 feature: REST API
-description: 批量处理成员数据提取。
+description: 使用Marketo批量程序成员提取REST API导出大型成员记录，以使用权限和字段元数据进行ETL、数据仓库存储和存档。
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1142'
+source-wordcount: '1160'
 ht-degree: 2%
 
 ---
@@ -235,7 +235,7 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>isExhausted</td>
       <td>布尔值</td>
-      <td>接受一个布尔值，用于筛选已用完内容<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">的</a>人的计划成员资格记录。</td>
+      <td>接受一个布尔值，用于筛选已用完内容<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">的</a>人的计划成员资格记录。</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -285,7 +285,7 @@ GET /rest/v1/programs/members/describe.json
             <tr>
               <td>已发送</td>
               <td>已订阅</td>
-              <td>退订</td>
+              <td>已取消订阅</td>
             </tr>
             <tr>
               <td>已查看</td>

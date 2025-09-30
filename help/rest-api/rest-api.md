@@ -1,11 +1,11 @@
 ---
 title: REST API
 feature: REST API
-description: REST API概述
+description: 了解如何使用Marketo REST API、设置API用户和LaunchPoint、查看配额和限制、使用授权标头进行身份验证以及检索潜在客户。
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '770'
+source-wordcount: '790'
 ht-degree: 1%
 
 ---
@@ -20,13 +20,13 @@ Marketo会公开一个REST API，该API允许远程执行系统的多项功能�
 >SOAP API已被弃用，在2025年10月31日后将不再可用。 所有新的开发应使用Marketo [REST API](./rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](../soap-api/migration.md)以了解有关如何迁移的信息。
 >
 
-- **每日配额：**&#x200B;订阅每天分配的API调用数为50,000（CST凌晨12:00重置）。 您可以通过客户经理增加每日配额。
+- **每日配额：**&#x200B;订阅每天分配了50,000个API调用（该调用在12:00AM CST每日重置）。 您可以通过客户经理增加每日配额。
 - **速率限制：**&#x200B;每个实例的API访问限制为每20秒100次调用。
 - **并发限制：**  最多十次并发API调用。
 
 标准调用的大小限制为8KB的URI长度，正文大小为1MB，尽管我们的批量API的正文可以为10MB。 如果您的调用中有错误，则API通常仍会返回状态代码200，但JSON响应将包含一个值为`false`的“success”成员，以及“errors”成员中的错误数组。 [此处](error-codes.md)提供有关错误的更多信息。
 
-## 开始使用
+## 快速入门
 
 以下步骤需要在Marketo实例中具有管理员权限。
 
@@ -54,7 +54,7 @@ Marketo会公开一个REST API，该API允许远程执行系统的多项功能�
 
 ![启动点](assets/admin-launchpoint.png)
 
-单击&#x200B;**[!UICONTROL New]**&#x200B;菜单并选择&#x200B;**[!UICONTROL New Service]**。 为您的服务提供一个描述性名称，然后从[!UICONTROL Service]下拉菜单中选择&#x200B;**[!UICONTROL Custom]**。 提供描述，然后从[!UICONTROL API Only User]下拉菜单中选择您的新用户并单击&#x200B;**[!UICONTROL Create]**。
+单击&#x200B;**[!UICONTROL New]**&#x200B;菜单并选择&#x200B;**[!UICONTROL New Service]**。 为您的服务提供一个描述性名称，然后从&#x200B;**[!UICONTROL Custom]**&#x200B;下拉菜单中选择[!UICONTROL Service]。 提供描述，然后从[!UICONTROL API Only User]下拉菜单中选择您的新用户并单击&#x200B;**[!UICONTROL Create]**。
 
 ![新Launchpoint服务](assets/admin-launchpoint-new-service.png)
 

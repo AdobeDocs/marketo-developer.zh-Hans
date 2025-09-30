@@ -1,12 +1,12 @@
 ---
 title: 动态内容
 feature: REST API, Dynamic Content
-description: 使用Marketo API配置动态内容。
+description: 使用分段通过REST API配置部分级别的Marketo动态内容，以个性化包含端点和示例的电子邮件、登陆页和代码片段
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '426'
-ht-degree: 1%
+source-wordcount: '441'
+ht-degree: 2%
 
 ---
 
@@ -16,7 +16,7 @@ Marketo通过对多种资源类型进行商机细分来简化动态内容的使�
 
 - 电子邮件
 - 登陆页面
-- 代码片段
+- 代码段
 
 ## 概述
 

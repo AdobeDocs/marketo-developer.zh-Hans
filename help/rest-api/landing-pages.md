@@ -1,11 +1,11 @@
 ---
 title: 登陆页面
 feature: REST API, Landing Pages
-description: 在Marketo中查询登陆页面。
+description: 使用Marketo REST API查询元数据和内容，创建、更新、批准、删除和克隆登陆页面，包括引导式和自由格式类型。
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '1018'
 ht-degree: 1%
 
 ---
@@ -185,7 +185,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 | 图像 | 图像资源的ID。 |
 | 矩形 | 空。 |
 | 富文本 | 文本HTML内容。  只能包含富文本元素。 |
-| 代码片段 | 代码片段的id。 |
+| 代码段 | 代码片段的id。 |
 | 社交按钮 | 的ID  社交按钮。 |
 | 视频 | 视频的id。 |
 
@@ -274,7 +274,7 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 

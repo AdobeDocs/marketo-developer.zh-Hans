@@ -1,11 +1,11 @@
 ---
 title: syncCustomObjects
 feature: SOAP
-description: syncCustomObjects SOAP调用
+description: 使用Marketo syncCustomObjects SOAP通过每个记录状态结果以及XML和PHP示例，在每个调用中插入、更新或更新插入最多100个自定义对象。
 exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '226'
+source-wordcount: '248'
 ht-degree: 3%
 
 ---

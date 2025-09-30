@@ -1,16 +1,16 @@
 ---
-title: 代码片段
+title: 代码段
 feature: REST API, Snippets
-description: 通过Marketo API管理代码片段。
+description: Marketo Asset REST API可用于代码片段，包括按ID查询和使用状态浏览、获取内容、创建和更新HTML、文本以及动态内容。
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '438'
+source-wordcount: '456'
 ht-degree: 1%
 
 ---
 
-# 代码片段
+# 代码段
 
 [代码片段终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
 
@@ -139,7 +139,7 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-该调用返回内容部分的列表，  包含类型为HTML或类型为DynamicContent的部分，以及可选的包含类型为Text的部分。
+该调用返回内容部分的列表，  包含HTML类型或DynamicContent类型的分区，以及可选的文本类型的分区。
 
 ## 创建和更新
 
@@ -183,7 +183,7 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 }
 ```
 
-在代码片段中添加或替换内容是通过id完成的。 内容可以是Text、HTML或DynamicContent类型。 如果类型为“文本”，则content参数为纯文本端点；如果类型为“HTML”，则为所需的标记文本。 如果类型设置为DynamicContent，则内容参数应设置为要与代码片段关联的分段的ID。
+在代码片段中添加或替换内容是通过id完成的。 内容的类型可以是Text、HTML或DynamicContent。 如果类型为文本，则content参数为纯文本端点，如果类型为HTML，则它是所需的标记文本。 如果类型设置为DynamicContent，则内容参数应设置为要与代码片段关联的分段的ID。
 
 ```
 POST /rest/asset/v1/snippet/{id}/content.json
@@ -310,7 +310,7 @@ GET /rest/asset/v1/snippet/{id}/dynamicContent.json
 
 代码片段具有可用于批准、取消批准和放弃草稿的端点，这些端点遵循标准资源模式。 代码片段必须处于草稿状态才能获得批准。
 
-### 审批
+### 批准
 
 ```
 POST /rest/asset/v1/snippet/{id}/approveDraft.json

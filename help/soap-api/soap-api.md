@@ -1,11 +1,11 @@
 ---
 title: SOAP API
 feature: SOAP
-description: Marketo SOAP概述
+description: Marketo SOAP API在2025年10月31日后被弃用。 了解如何迁移到REST、检索WSDL、查看配额、速率限制和身份验证设置。
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '228'
+source-wordcount: '249'
 ht-degree: 0%
 
 ---

@@ -1,12 +1,12 @@
 ---
 title: 错误代码
 feature: SOAP
-description: SOAP调用的错误代码
+description: Marketo SOAP API错误代码参考指南，其中包含消息和注释，其中涵盖身份验证失败、速率和并发限制以及请求问题。
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '390'
-ht-degree: 10%
+source-wordcount: '407'
+ht-degree: 9%
 
 ---
 
@@ -16,7 +16,7 @@ ht-degree: 10%
 
 以下是SOAP API错误代码列表。
 
-| 代码 | 消息 | 备注 |
+| 代码 | 消息 | 注释 |
 |--- |--- |--- |
 | 10001 | 内部错误 | 严重系统故障 |
 | 20011 | 内部错误 | API服务失败 |

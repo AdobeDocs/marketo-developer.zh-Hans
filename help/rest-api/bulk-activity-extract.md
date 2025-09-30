@@ -1,12 +1,12 @@
 ---
 title: 批量活动提取
 feature: REST API
-description: 从Marketo批量处理活动数据。
+description: Marketo批量活动提取REST API以使用31天日期范围、活动和主要属性过滤器来导出ETL和CRM的大量活动数据。
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1332'
-ht-degree: 3%
+source-wordcount: '1351'
+ht-degree: 4%
 
 ---
 
@@ -34,9 +34,9 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
 | 活动类型 | 主要属性值ID | 检索端点 | 资产组 |
 | --- | --- | --- | --- |
 | 更改数据值 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
-| 更改得分 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
+| 更改评分 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
 | 进程中的更改状态 | 项目ID | [按名称获取计划](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | 营销计划 |
-| 添加到 List | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
+| 添加到列表 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
 | 从列表中移除 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
 | 填写表单 | 表单ID | [按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Web窗体 |
 
@@ -68,9 +68,9 @@ REST API的批量活动提取集提供了一个编程接口，用于从Marketo�
 | 活动类型 | 主要属性值 | 检索端点 | 资产组 |
 | --- | --- | --- | --- |
 | 更改数据值 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
-| 更改得分 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
+| 更改评分 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
 | 进程中的更改状态 | 项目名称 | [按Id获取计划](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | 营销计划 |
-| 添加到 List | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
+| 添加到列表 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
 | 从列表中移除 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
 | 填写表单 | 表单名称 | [按Id获取表单](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Web窗体 |
 

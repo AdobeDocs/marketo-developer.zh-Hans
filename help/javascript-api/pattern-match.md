@@ -1,12 +1,12 @@
 ---
 title: 模式匹配
-description: 模式匹配
+description: 使用RTP rtp.checkPattern实用程序测试带有百分比通配符的字符串模式，请参阅同步限制、使用和URL示例以及所需的RTP标记设置。
 feature: Javascript
 exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '133'
-ht-degree: 6%
+source-wordcount: '155'
+ht-degree: 5%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 6%
 
 RTP公开一个实用程序函数，以检查模式是否与特定字符串匹配。 该实用程序不能在异步中使用，因为它返回了是否匹配的指示。
 
-您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
 ## 使用情况
 

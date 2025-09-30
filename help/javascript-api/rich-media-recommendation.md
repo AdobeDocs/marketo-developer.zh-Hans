@@ -1,11 +1,11 @@
 ---
 title: 富媒体推荐
-description: 富媒体推荐
+description: 使用Marketo预测内容RTP标记、template1 template2 template3 div、GET来设置富媒体推荐，使用SET来配置类别。
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '831'
 ht-degree: 4%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 4%
 1. 在页面正文中
    1. 将模板标记（div类）放置在要显示该模板的位置
 
-[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
+[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
 
 ## 模板标记
 

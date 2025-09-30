@@ -1,12 +1,12 @@
 ---
 title: 用户配置文件
 feature: Mobile Marketing, Users and Roles
-description: 在Marketo Mobile中使用用户配置文件
+description: 了解如何使用Objective C Swift和Java、标准和自定义字段、associateLead，在iOS和Android的Marketo Mobile SDK中创建和更新用户配置文件
 exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '83'
-ht-degree: 0%
+source-wordcount: '103'
+ht-degree: 1%
 
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: listMObjects
 feature: SOAP
-description: listMObjects SOAP调用
+description: 引用listMObjects SOAP调用，该调用返回describeMObjects的Marketo对象名称，以及请求和响应XML和示例代码。
 exl-id: d8b32ba2-7c20-4611-9062-c3c5db2d2ccb
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '48'
-ht-degree: 2%
+source-wordcount: '66'
+ht-degree: 1%
 
 ---
 

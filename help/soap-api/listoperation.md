@@ -1,11 +1,11 @@
 ---
 title: listOperation
 feature: SOAP
-description: listOperation SOAP调用
+description: Marketo SOAP listOperation ，用于添加删除或检查静态列表成员资格。 使用严格模式、XML示例、PHP和Java代码，每个调用最多支持1000个潜在客户。
 exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '187'
+source-wordcount: '211'
 ht-degree: 6%
 
 ---

@@ -1,9 +1,9 @@
 ---
 title: 数据摄取
-description: 数据摄取API概述
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+description: Marketo数据摄取API用于人员和自定义对象的高容量低延迟更新，通过可观察性异步状态、OAuth标头身份验证、私有测试版。
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '940'
+source-wordcount: '960'
 ht-degree: 10%
 
 ---

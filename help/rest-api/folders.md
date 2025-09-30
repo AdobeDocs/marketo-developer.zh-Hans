@@ -1,12 +1,12 @@
 ---
 title: 文件夹
 feature: REST API
-description: 使用Marketo API处理文件夹。
+description: Marketo REST API指南，适用于包含创建、更新、删除、按ID和名称查询、使用根批量浏览、工作区、maxDepth和分页的文件夹。
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1008'
-ht-degree: 0%
+source-wordcount: '1025'
+ht-degree: 1%
 
 ---
 
@@ -18,7 +18,7 @@ ht-degree: 0%
 
 ## 查询
 
-查询文件夹遵循ID为[、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET)且浏览次数为[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET)的[和](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)的标准查询类型。
+查询文件夹遵循ID为[、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET)且浏览次数为[的](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET)和[的标准查询类型。](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)
 
 ### 按Id
 
@@ -65,7 +65,7 @@ type参数是必需的，并且必须为“文件夹”或“程序”之一。�
 - 电子邮件模板
 - 登陆页面
 - 登陆页面模板
-- 代码片段
+- 代码段
 - 文件
 
 ### 按名称
@@ -113,7 +113,7 @@ GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 
 ### 浏览
 
-也可以批量[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)检索文件夹。 “root”参数可用于指定要在其中执行查询的父文件夹，并将格式化为嵌入为查询参数值的JSON对象。 Root有两个成员：
+也可以批量[检索文件夹](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)。 “root”参数可用于指定要在其中执行查询的父文件夹，并将格式化为嵌入为查询参数值的JSON对象。 Root有两个成员：
 
 1. id — 文件夹或程序的ID。
 1. 类型 — 文件夹或程序，具体取决于要浏览的根文件夹的类型。
@@ -211,7 +211,7 @@ GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 
 ## 创建和更新
 
-[创建文件夹](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST)非常简单，并且使用application/x-www-form-urlencodedPOST执行，该模板具有两个必需的参数：“name”（名称）、“string”（字符串）和“parent”（父级），用于在其中创建文件夹，该文件夹是一个嵌入式JSON对象，具有两个成员：ID和类型：“Folder”（文件夹）或“Program”（程序），具体取决于目标文件夹的类型。 也可选择包括一个字符串“description”，其长度最多为2000个字符。
+[创建文件夹](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST)非常简单，并且由application/x-www-form-urlencoded POST执行，该POST具有两个必需的参数：“name”（名称）、“string”（字符串）和“parent”（父项），以在该文件夹中创建文件夹，该文件夹是一个嵌入式JSON对象，具有两个成员：“ID”（标识）和“Program”（类型），具体取决于目标文件夹的类型)。 也可选择包括一个字符串“description”，其长度最多为2000个字符。
 
 ```
 POST /rest/asset/v1/folders.json

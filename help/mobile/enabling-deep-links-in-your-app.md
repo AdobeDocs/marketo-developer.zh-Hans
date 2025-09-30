@@ -1,11 +1,11 @@
 ---
 title: 启用深层链接
 feature: Mobile Marketing
-description: 启用深层链接的说明
+description: 了解如何使用自定义URI方案以及iOS、Android和PhoneGap指导和最佳实践，在您的应用程序中为Marketo推送消息启用深层链接。
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '376'
+source-wordcount: '397'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 此过程如下所示：
 
 1. Marketo用户在其推送消息的点按操作中放置自定义URI。
-1. 当人员在设备上点按推送消息时，Marketo MME SDK会触发具有自定义URI的事件。
+1. 当人员在设备上点按推送消息时，Marketo MME SDK会触发一个具有自定义URI的事件。
 1. 然后，您的应用程序会处理该事件，并将用户重定向到您的应用程序中的相应内容。
 
 这要求您为应用程序定义自定义URI结构；在应用程序的清单中注册该方案；然后添加代码以处理深层链接事件并路由到应用程序中的适当位置。

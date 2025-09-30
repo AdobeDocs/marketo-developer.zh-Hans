@@ -1,12 +1,12 @@
 ---
 title: getChannels
 feature: SOAP
-description: getChannels SOAP调用
+description: 了解Marketo SOAP getChannels如何通过请求和响应XML示例检索渠道进展状态、步骤号和成功标记。
 exl-id: bcaef85b-154b-4571-ad24-07a36707a6ef
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '92'
-ht-degree: 5%
+source-wordcount: '109'
+ht-degree: 4%
 
 ---
 

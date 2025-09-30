@@ -1,11 +1,11 @@
 ---
 title: 批量商机导入
 feature: REST API
-description: 批量导入潜在客户数据。
+description: 使用CSV TSV或SSV在Marketo中创建和监控异步批量潜在客户导入。
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '803'
+source-wordcount: '812'
 ht-degree: 0%
 
 ---
@@ -124,7 +124,7 @@ GET /bulk/v1/leads/batch/{id}.json
 - 完成
 - 已排队
 - 正在导入
-- 已失败
+- 失败
 
 如果作业已完成，则会列出已处理、失败和出现警告的行数。 如果状态为“失败”，则消息参数可能也会给出失败消息。
 

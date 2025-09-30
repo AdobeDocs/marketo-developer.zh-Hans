@@ -1,11 +1,11 @@
 ---
 title: 潜在客户
 feature: REST API
-description: 有关潜在客户API调用的详细信息
+description: 探索Marketo潜在客户REST API功能，包括描述、按ID或过滤器查询、默认字段、限制和检索ECID。
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '3338'
+source-wordcount: '3351'
 ht-degree: 2%
 
 ---
@@ -814,7 +814,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 还可以根据静态列表或项目中的成员资格来检索潜在客户记录。 此外，您可以检索潜在客户所属的所有静态列表、项目或智能营销策划。
 
 响应结构和可选参数与“按过滤器类型获取潜在客户”的响应结构和可选参数相同，不过filterType和filterValues不能与此API一起使用。
-要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-**&#x200B;**.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
+要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-****.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
 
 ### 请求
 
@@ -889,7 +889,7 @@ GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 }
 ```
 
-## 程序
+## 项目
 
 计划会员资格可采用与列表类似的方式检索。 在调用Get Leads by Program ID端点并传递`programId`路径参数时，可以使用相同的可选请求参数。
 

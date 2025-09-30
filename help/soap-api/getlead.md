@@ -1,12 +1,12 @@
 ---
 title: getLead
 feature: SOAP
-description: getLead SOAP调用
+description: 使用Marketo SOAP getLead通过IDNUM、电子邮件、Cookie或SFDC ID以及请求和响应XML加PHP示例获取单个潜在客户和所有字段值。
 exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '127'
-ht-degree: 4%
+source-wordcount: '152'
+ht-degree: 3%
 
 ---
 

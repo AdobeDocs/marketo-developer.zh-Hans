@@ -1,11 +1,11 @@
 ---
 title: 响应映射
 feature: Webhooks
-description: Marketo的响应映射
+description: Marketo Webhook会映射JSON和XML的响应，将属性映射到具有SOAP API名称、点和数组表示法以及类型兼容性的潜在客户字段。
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '460'
+source-wordcount: '480'
 ht-degree: 0%
 
 ---
