@@ -426,7 +426,7 @@ POST /rest/v1/campaigns/{id}/schedule.json
 
 此端点需要营销活动`id`作为路径参数，以及包含潜在客户ID的`leads`整数数组参数。 每次调用最多允许100个潜在客户。
 
-（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“{{my.name}}”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
+（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“{{my.name}}”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
 
 `leads`和`tokens`参数在请求正文中作为application/json传递。
 

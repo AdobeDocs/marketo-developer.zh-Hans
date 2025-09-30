@@ -14,7 +14,7 @@ ht-degree: 0%
 
 您可以通过发送自定义操作来跟踪用户交互。 当移动设备应用程序调用Marketo SDK以发送自定义操作时，自定义操作最初保存到设备。 Marketo SDK随后在发送自定义操作之前检查是否存在足够的Internet连接。 因此，发送自定义操作与Marketo接收自定义操作之间可能存在延迟。
 
-自定义操作可用作智能营销活动中的触发器和过滤器。 有关详细信息，请参阅[移动设备应用程序活动](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns)。
+自定义操作可用作智能营销活动中的触发器和过滤器。 有关详细信息，请参阅[移动设备应用程序活动](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns)。
 
 ## 在iOS上发送自定义操作
 

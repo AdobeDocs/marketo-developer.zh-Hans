@@ -14,7 +14,7 @@ ht-degree: 3%
 
 此方法会发送用于跟踪和实时个性化的自定义事件。 此类数据可用于发送第三方数据，或根据访客行为触发您自己的自定义事件。 自定义数据事件在访客的会话中会计为一次。
 
-您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
 | 参数 | 可选/必填 | 类型 | 描述 |
 |---|---|---|---|

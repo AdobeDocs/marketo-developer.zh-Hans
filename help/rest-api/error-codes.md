@@ -109,7 +109,7 @@ ht-degree: 3%
     <tr>
       <td><a name="603"></a>603</td>
       <td>访问被拒绝</td>
-      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户允许列表，或可能启用<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">角色以访问基于IP的API</a>。</td>
+      <td>身份验证成功，但用户没有足够的权限调用此API。 [其他权限](custom-services.md)可能需要分配给用户允许列表，或可能启用<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">角色以访问基于IP的API</a>。</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
