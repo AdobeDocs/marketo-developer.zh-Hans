@@ -3,9 +3,9 @@ title: 潜在客户
 feature: REST API
 description: 探索Marketo潜在客户REST API功能，包括描述、按ID或过滤器查询、默认字段、限制和检索ECID。
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: cc4bd7c18124bb039386a1cec06b9f1da0d047cb
 workflow-type: tm+mt
-source-wordcount: '3351'
+source-wordcount: '3411'
 ht-degree: 2%
 
 ---
@@ -768,7 +768,12 @@ Content-Type: application/json
 
 ## 合并
 
-有时候，合并重复记录是必要的，Marketo通过合并潜在客户API为此提供了便利。 合并潜在客户将合并其活动日志、项目、营销策划、列表成员资格和CRM信息，并将其所有字段值合并到单个记录中。 合并潜在客户将潜在客户ID作为路径参数，并将单个`leadId`作为查询参数或在`leadIds`参数中获取逗号分隔ID列表。
+>[!NOTE]
+>从2026年3月31日开始，在合并潜在客户API调用的`leadIds`参数中包含超过25个ID的调用将导致1080错误代码，并且将跳过该调用。 需要将超过25条记录合并为一个的工作应该被分割成多个工作以确保这些调用成功。
+>
+
+有时候，合并重复记录是必要的，Marketo通过合并潜在客户API为此提供了便利。 合并潜在客户将合并其活动日志、项目、营销策划、列表成员资格和CRM信息，并将其所有字段值合并到单个记录中。 合并潜在客户将潜在客户ID作为路径参数，单个`leadId`作为查询参数，或者`leadIds`参数中逗号分隔的ID为25个或更少的列表
+
 
 ### 请求
 
@@ -814,7 +819,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 还可以根据静态列表或项目中的成员资格来检索潜在客户记录。 此外，您可以检索潜在客户所属的所有静态列表、项目或智能营销策划。
 
 响应结构和可选参数与“按过滤器类型获取潜在客户”的响应结构和可选参数相同，不过filterType和filterValues不能与此API一起使用。
-要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-**&#x200B;**.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
+要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-****.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
 
 ### 请求
 
