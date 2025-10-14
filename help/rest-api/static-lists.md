@@ -301,7 +301,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ### 查询列表
 
-[按列表ID ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
+[按列表ID &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
 
 `batchSize`参数用于指定在单个调用中返回的潜在客户记录数（默认值为300，最大值为300）。
 

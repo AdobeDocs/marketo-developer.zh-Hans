@@ -2413,7 +2413,7 @@ MktoForms2.whenReady(function (form){
 
 ## 突出显示在Source Platform上构建的打开Marketo项目
 
-这是正在进行的系列文章中的第一个帖子，该系列重点讲述了开发人员社区围绕Marketo平台构建的开源项目。 我们在Marketo的GitHub帐户[上维护有](https://github.com/Marketo/Community-Supported-Client-Libraries)列表，我们将在其中跟踪Marketo开发人员社区创建的客户端库和项目。 以下是围绕Marketo REST和SOAP API开发的三个项目。 Daniel Chesterton在PHP中为Marketo REST API创建了[客户端库](https://github.com/dchesterton/marketo-rest-api)。 客户端库当前涵盖12个REST API端点。Elixiter的** Kyle Halstvedt创建了一个项目，用于将Marketo静态列表中的潜在客户提取到Google电子表格中[。 ](https://github.com/Elixiter/mkto_google-spreadsheet)Kyle的项目使用Marketo REST API。  David Santoso为Marketo SOAP API创建了[Ruby gem。](https://github.com/davidsantoso/markety)此项目可帮助您更快地将Marketo SOAP API与Ruby on Rails应用程序集成。  我们很高兴能够在Marketo平台上看到开发人员社区创建的更多项目。 如果您正在处理Marketo平台的开源项目，请[通过拉取请求将其提交到此GitHub存储库](https://github.com/Marketo/Community-Supported-Client-Libraries)。
+这是正在进行的系列文章中的第一个帖子，该系列重点讲述了开发人员社区围绕Marketo平台构建的开源项目。 我们在Marketo的GitHub帐户[上维护有](https://github.com/Marketo/Community-Supported-Client-Libraries)列表，我们将在其中跟踪Marketo开发人员社区创建的客户端库和项目。 以下是围绕Marketo REST和SOAP API开发的三个项目。 Daniel Chesterton在PHP中为Marketo REST API创建了[客户端库](https://github.com/dchesterton/marketo-rest-api)。 客户端库当前涵盖12个REST API端点。Elixiter的** Kyle Halstvedt创建了一个项目，用于将Marketo静态列表中的潜在客户提取到Google电子表格中[。 &#x200B;](https://github.com/Elixiter/mkto_google-spreadsheet)Kyle的项目使用Marketo REST API。  David Santoso为Marketo SOAP API创建了[Ruby gem。](https://github.com/davidsantoso/markety)此项目可帮助您更快地将Marketo SOAP API与Ruby on Rails应用程序集成。  我们很高兴能够在Marketo平台上看到开发人员社区创建的更多项目。 如果您正在处理Marketo平台的开源项目，请[通过拉取请求将其提交到此GitHub存储库](https://github.com/Marketo/Community-Supported-Client-Libraries)。
 
 由&#x200B;_Murta_&#x200B;发布于&#x200B;_2015-01-02_
 
