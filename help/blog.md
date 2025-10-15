@@ -6975,7 +6975,7 @@ $(function(){
 
 ## 使用RTP动态更改本地电话号码
 
-Personalization就是一切 — 我们很久以前就明白了。 话虽如此，我仍感到惊讶的是，每次我需要立即帮助时，很难在网站上找到相关的当地电话号码。 [上安装了](https://business.adobe.com/products/marketo/content-personalization.html)Marketo Real-Time Personalization<https://business.adobe.com/products/marketo/adobe-marketo.html> (RTP)，这是好事。 我们可以利用[RTP访客API](/help/javascript-api/web-personalization.md)动态更改Web访客在网站不同部分看到的电话号码。 哇！ 你能相信吗？ 这魔法是怎么运作的？ 首先，需要在您的网站上安装RTP，如[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)所述。 接下来，按照以下说明并在您的网站上实施JavaScript代码：
+Personalization就是一切 — 我们很久以前就明白了。 话虽如此，我仍感到惊讶的是，每次我需要立即帮助时，很难在网站上找到相关的当地电话号码。 [上安装了](https://business.adobe.com/cn/products/marketo/content-personalization.html)Marketo Real-Time Personalization<https://business.adobe.com/cn/products/marketo/adobe-marketo.html> (RTP)，这是好事。 我们可以利用[RTP访客API](/help/javascript-api/web-personalization.md)动态更改Web访客在网站不同部分看到的电话号码。 哇！ 你能相信吗？ 这魔法是怎么运作的？ 首先，需要在您的网站上安装RTP，如[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)所述。 接下来，按照以下说明并在您的网站上实施JavaScript代码：
 
 1. 在&#x200B;**defaultPhone**&#x200B;配置中插入您的国际电话号码
 1. 在&#x200B;**divIds**&#x200B;配置中插入HTML元素ID
@@ -9772,7 +9772,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 ### 缺陷分辨率
 
-* 修复了[用户管理](/help/rest-api/user-management.md) API的问题。 属于配置为与[Sales Insight](https://business.adobe.com/products/marketo/sales-insight.html)一起使用的Marketo用户。 这些用户现在由[获取用户](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET)端点返回，这些用户现在可以使用[删除用户](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST)端点删除。 [LM-155864]
+* 修复了[用户管理](/help/rest-api/user-management.md) API的问题。 属于配置为与[Sales Insight](https://business.adobe.com/cn/products/marketo/sales-insight.html)一起使用的Marketo用户。 这些用户现在由[获取用户](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET)端点返回，这些用户现在可以使用[删除用户](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST)端点删除。 [LM-155864]
 * 修复了添加[富文本字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/addRichTextFieldUsingPOST)终结点的问题。 向电子邮件、登陆页面、代码片段或表单添加长度超过6.5万个字符的富文本字段时，会返回“611，系统错误”。 它现在返回错误“701，无法完成操作。 “content”超过了最大长度65,535字节”。
 
 由&#x200B;_David_&#x200B;发布于&#x200B;_2021-10-25_
