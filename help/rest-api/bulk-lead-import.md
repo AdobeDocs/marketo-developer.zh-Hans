@@ -3,9 +3,9 @@ title: 批量商机导入
 feature: REST API
 description: 使用CSV TSV或SSV在Marketo中创建和监控异步批量潜在客户导入。
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '795'
 ht-degree: 0%
 
 ---
@@ -18,13 +18,13 @@ ht-degree: 0%
 
 ## 处理限制
 
-您可以提交多个批量导入请求，但存在限制。 每个请求都将作为作业添加到要处理的FIFO队列。 最多可同时处理两个作业。 在任意给定时间（包括当前正在处理的2个），队列中最多允许10个作业。 如果超过十个作业的最大值，则会返回“1016，导入次数过多”错误。
+您可以提交多个批量导入请求，但存在限制。 每个请求都将作为作业添加到要处理的FIFO队列。 最多可同时处理两个作业。 在任何给定时间（包括当前正在处理的两个作业），队列中最多允许10个作业。 如果超过作业的上限10个，则会返回`1016, Too many imports`错误。
 
 ## 导入文件
 
 文件的第一行必须是标头，其中列出了要将每行的值映射到其中的相应REST API字段。 典型的文件将遵循以下基本模式：
 
-```
+```csv
 email,firstName,lastName
 test@example.com,John,Doe
 ```
@@ -37,7 +37,7 @@ test@example.com,John,Doe
 
 ## 创建作业
 
-要进行批量导入请求，必须将内容类型标头设置为“multipart/form-data”，并至少包含一个包含文件内容的文件参数，以及一个格式参数，其值为“csv”、“tsv”或“ssv”，表示您的文件格式。
+若要发出批量导入请求，必须将内容类型标头设置为`multipart/form-data`，并至少包含包含带有文件内容的`file`参数以及值为`format`、`csv`或`tsv`的`ssv`参数，以表示您的文件格式。
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -54,7 +54,7 @@ Host: <munchkinId>.mktorest.com
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
 
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -75,16 +75,16 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-此终结点使用[multipart/form-data作为content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)。 这很难做到，因此最佳实践是为您选择的语言使用HTTP支持库。 通过命令行中的cURL可轻松实现这一点，如下所示：
+此终结点使用[multipart/form-data作为content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)。 最佳实践是为您选择的语言使用HTTP支持库，以确保正确使用。 以下示例是通过命令行使用cURL完成此操作的简单方法：
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
-其中，导入文件“lead_data.csv”包含以下内容：
+其中导入文件`lead_data.csv`包含以下内容：
 
 ```
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -130,19 +130,19 @@ GET /bulk/v1/leads/batch/{id}.json
 
 ## 故障
 
-在Get Import Lead Status响应中，失败由“numOfRowsFailed”属性指示。 如果“numOfRowsFailed”大于零，则该值指示发生的失败次数。
+在“获取导入潜在客户状态”响应中，`numOfRowsFailed`属性指示失败。 如果`numOfRowsFailed`大于零，则该值表示发生的失败次数。
 
-要检索失败行的记录和原因，您必须检索失败文件：
+要检索失败行的记录和原因，必须检索失败文件：
 
 ```
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
-API将回复一个指示哪些行失败的文件，以及一个指示记录失败原因的消息。 文件的格式与作业创建期间在“format”参数中指定的格式相同。 附加字段将附加到每个记录中并包含失败描述。
+API将回复一个指示哪些行失败的文件，以及一个指示记录失败原因的消息。 文件格式与作业创建期间在`format`参数中指定的格式相同。 附加字段将附加到每个记录中并包含失败描述。
 
 ## 警告
 
-在Get Import Lead Status响应中，警告由“numOfRowsWithWarning”属性表示。 如果“numOfRowsWithWarning”大于零，则该值表示发生的警告数。
+在Get Import Lead Status响应中，`numOfRowsWithWarning`属性指示警告。 如果`numOfRowsWithWarning`大于零，则该值表示发生的警告数。
 
 要检索记录以及警告行的原因，请检索警告文件：
 
@@ -150,4 +150,4 @@ API将回复一个指示哪些行失败的文件，以及一个指示记录失�
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 
-API会用一个文件做出响应，该文件指示哪些行产生了警告，另外还会显示一条消息，指示记录失败的原因。 文件的格式与作业创建期间在“format”参数中指定的格式相同。 附加字段将附加到每个记录并附有警告说明。
+API会用一个文件做出响应，该文件指示哪些行产生了警告，另外还会显示一条消息，指示记录失败的原因。 文件格式与作业创建期间在`format`参数中指定的格式相同。 附加字段将附加到每个记录并附有警告说明。

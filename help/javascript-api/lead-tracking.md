@@ -3,9 +3,9 @@ title: 商机跟踪
 description: 了解如何嵌入Marketo Munchkin JavaScript、跟踪访问和点击量、管理已知和匿名潜在客户、跨域Cookie以及选择退出智能营销活动。
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '784'
+source-wordcount: '785'
 ht-degree: 0%
 
 ---
@@ -70,13 +70,13 @@ Munchkin的行为可以通过使用Munchkin [配置设置](configuration.md)来�
 
 ## 已知和匿名潜在客户
 
-当商机首次访问您域中的某个页面时，将在Marketo中创建一个新的匿名商机记录。 此记录的主键是在用户浏览器中创建的Munchkin Cookie (`_mkto_trk`)。 将针对此匿名记录记录记录该浏览器上的所有后续Web活动。 要与Marketo中的已知记录关联，必须执行以下任一操作：
+当商机首次访问您域中的某个页面时，将在Marketo中创建一个新的匿名商机记录。 此记录的主键是在用户浏览器中创建的Munchkin Cookie (`_mkto_trk`)。 将针对此匿名记录记录记录该浏览器上的所有后续Web活动。 要与Marketo中的已知记录相关联，必须执行以下任一操作：
 
 - 潜在客户必须通过跟踪的Munchkin电子邮件链接访问查询字符串中包含`mkt_tok`参数的Marketo跟踪页面。
 - 潜在客户必须填写Marketo表单。
 - 必须发送REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST)调用。
 
-一旦满足了这些条件之一，Cookie和所有关联的Web活动就会关联到已知商机。
+当满足上述条件之一时，Cookie和所有关联的Web活动都将与已知商机关联。
 
 系统会为每个单独的浏览器创建新的匿名Web活动记录，因此，如果潜在客户首次使用新计算机和/或浏览器访问您的域，则必须再次进行此关联。
 
@@ -90,17 +90,17 @@ Munchkin会根据每个域创建和跟踪单个Cookie，因此，为了使跨域
 
 Munchkin Cookie使用键`_mkto_trk`，其值遵循此模式：
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-1374552656411\-90718`
+`id:561-HYG-937&token:_mch-marketo.com-1374552656411-90718`
 
 或
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-97bf4361ef4433921a6da262e8df45a`
+`id:561-HYG-937&token:_mch-marketo.com-97bf4361ef4433921a6da262e8df45a`
 
 Munchkin Cookie特定于每个二级域，即`example.com`。 Cookie的默认有效期为2年（730天）。
 
 ## Beta 版
 
-要选择启用登陆页面的Munchkin测试版渠道，请转到您的[管理员 — > Treasure Chest](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单并启用“登陆页面上的Munchkin Beta”设置。 这会在&#x200B;**[!UICONTROL Admin]** ->中提供新的代码片段  **[!UICONTROL Munchkin]**&#x200B;菜单，允许您在外部网站上使用测试版。
+要选择启用登陆页面的Munchkin测试版渠道，请转到您的[管理员 — > Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单并启用“登陆页面上的Munchkin Beta”设置。 这会在&#x200B;**[!UICONTROL Admin]** ->中提供新的代码片段  **[!UICONTROL Munchkin]**&#x200B;菜单，允许您在外部网站上使用测试版。
 
 ## 选择禁用
 
