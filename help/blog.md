@@ -18,11 +18,11 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->SOAP API已被弃用，在2026年1月31日后将不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
+>SOAP API已被弃用，在2026年1月31日后将不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
 >
 
 >[!IMPORTANT]
->2026年3月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应专门使用Authorization标头。
+>2026年3月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应专门使用Authorization标头。
 >
 
 ## 欢迎访问Marketo开发人员博客
@@ -326,7 +326,7 @@ public class GetMultipleLeads {
 
 ### Marketo Forms安全更新
 
-我们对来自单个IP地址的表单帖子提交数量和频率进行了限制。 现在，该限制强制为每分钟30个帖子，以保护我们的客户免受恶意使用程序化表单提交的攻击。 [syncLead API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead)是推荐的集成工具，用于在Marketo中以编程方式提交新联系人。
+我们对来自单个IP地址的表单帖子提交数量和频率进行了限制。 现在，该限制强制为每分钟30个帖子，以保护我们的客户免受恶意使用程序化表单提交的攻击。 [syncLead API](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/leads/synclead)是推荐的集成工具，用于在Marketo中以编程方式提交新联系人。
 
 由&#x200B;_Travis Kaufman_&#x200B;发布于&#x200B;_2014-04-29_
 
@@ -1048,7 +1048,7 @@ puts response
 
 ## 在Marketo中创建自定义字段，并通过AP更新此字段
 
-假设您拥有其他不符合Marketo标准字段的销售线索数据。 例如，此自定义字段可以是第三方得分。 您可以在Marketo中创建用于计算第三方得分的自定义字段，然后通过Marketo [REST API](https://developer.adobe.com/marketo-apis/)或[SOAP API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/activity-type-filters)更新此字段的值。 我们首先介绍如何在Marketo中创建自定义字段，然后介绍如何使用REST API更新此字段。
+假设您拥有其他不符合Marketo标准字段的销售线索数据。 例如，此自定义字段可以是第三方得分。 您可以在Marketo中创建用于计算第三方得分的自定义字段，然后通过Marketo [REST API](https://developer.adobe.com/marketo-apis/)或[SOAP API](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/activity-type-filters)更新此字段的值。 我们首先介绍如何在Marketo中创建自定义字段，然后介绍如何使用REST API更新此字段。
 
 ### 如何在Marketo中创建自定义字段
 
@@ -1555,7 +1555,7 @@ MktoForms2.whenReady( function(form) {
 
 `$current_date`
 
-1. 在电子邮件模板中引用令牌。**记下令牌的名称。 导航到您的电子邮件草稿。 包含令牌。  在发送电子邮件时，将填充令牌的值。 有关详细信息，请参阅[电子邮件脚本开发人员文档](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/email-scripting)。
+1. 在电子邮件模板中引用令牌。**记下令牌的名称。 导航到您的电子邮件草稿。 包含令牌。  在发送电子邮件时，将填充令牌的值。 有关详细信息，请参阅[电子邮件脚本开发人员文档](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/email-scripting)。
 
 由&#x200B;_Murta_&#x200B;发布于&#x200B;_2014-11-22_
 
@@ -3839,7 +3839,7 @@ Marketo中有一些配置要求使用Marketo REST API执行所需的调用。
 * 需要在您的Marketo实例中创建并批准事务型电子邮件。
 * 需要有一个活动触发器营销活动，其中请求了Campaign、Source： Web服务API，并设置了以发送电子邮件
 
-首先[创建并批准您的电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home)。 如果电子邮件确实是事务性的，您可能需要将其设置为可操作，但请确保它符合可操作的合法条件。 可使用电子邮件操作>电子邮件设置下的编辑屏幕对此进行配置。 批准它，我们就可以创建营销活动了。 如果您是创建营销活动的新手，请查看docs.marketo.com上的[新建Smart Campaign](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign)文章。 创建活动后，我们需要完成这些步骤。 使用Campaign is Requested触发器配置您的智能列表：现在，我们需要配置流以将“发送电子邮件”步骤指向我们的电子邮件。 在激活之前，您需要在“计划”选项卡中决定一些设置。 如果此特定电子邮件只应发送给给定记录一次，则保留资格设置。 但是，如果要求他们多次接收电子邮件，您需要将此调整为每次接收一次或某个可用频率。 现在我们可以激活了。
+首先[创建并批准您的电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home)。 如果电子邮件确实是事务性的，您可能需要将其设置为可操作，但请确保它符合可操作的合法条件。 可使用电子邮件操作>电子邮件设置下的编辑屏幕对此进行配置。 批准它，我们就可以创建营销活动了。 如果您是创建营销活动的新手，请查看docs.marketo.com上的[新建Smart Campaign](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign)文章。 创建活动后，我们需要完成这些步骤。 使用Campaign is Requested触发器配置您的智能列表：现在，我们需要配置流以将“发送电子邮件”步骤指向我们的电子邮件。 在激活之前，您需要在“计划”选项卡中决定一些设置。 如果此特定电子邮件只应发送给给定记录一次，则保留资格设置。 但是，如果要求他们多次接收电子邮件，您需要将此调整为每次接收一次或某个可用频率。 现在我们可以激活了。
 
 ### 发送API调用
 
@@ -4221,7 +4221,7 @@ REST API
 * 要符合Has Opportunity智能列表过滤器的条件，潜在客户必须具有与机会相关的OpportunityRole。
 * 机会通过externalCompanyId字段与公司对象具有多对一关系。
 * 潜在客户通过externalCompanyId字段与公司保持一对多关系。
-* 机会归因于基于潜在客户的客户获取计划或其成员资格的计划，以及该计划中的成功（请参阅[了解归因](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/revenue-cycle-analytics/revenue-tools/attribution/understanding-attribution)）。
+* 机会归因于基于潜在客户的客户获取计划或其成员资格的计划，以及该计划中的成功（请参阅[了解归因](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/reporting/revenue-cycle-analytics/revenue-tools/attribution/understanding-attribution)）。
 
 通过在潜在客户数据库中建立这些关系，您将能够充分利用Marketo analytics，并了解项目对机会创建和获胜率的影响。
 
@@ -4707,11 +4707,11 @@ public class App
 
 ## 使用Marketo REST API发送事务性电子邮件：第2部分，自定义内容
 
-本周，我们将了解如何通过Request Campaign API调用将动态内容传递给我们的电子邮件。 请求营销活动不仅允许在外部触发电子邮件，而且您还可以替换电子邮件中[我的令牌](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program)的内容。 我的令牌是可重复使用的内容，可以在项目或营销文件夹级别进行自定义。 这些占位符也可以作为占位符存在，以通过请求营销活动调用替换。
+本周，我们将了解如何通过Request Campaign API调用将动态内容传递给我们的电子邮件。 请求营销活动不仅允许在外部触发电子邮件，而且您还可以替换电子邮件中[我的令牌](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program)的内容。 我的令牌是可重复使用的内容，可以在项目或营销文件夹级别进行自定义。 这些占位符也可以作为占位符存在，以通过请求营销活动调用替换。
 
 ### 构建电子邮件
 
-为了自定义我们的内容，我们首先需要在Marketo中配置[程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program)和[电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home)。 要生成自定义内容，我们需要在项目中创建令牌，然后将其放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以在一封电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中的任何内容中替换任意数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。 令牌在空时无法保存，因此请在此处插入一些占位符文本。 现在，我们需要将令牌插入到电子邮件中：现在，可以通过“请求营销活动”调用访问此令牌以进行替换。 此令牌可以非常简单，只需一行文本，需要根据每封电子邮件进行替换，也可以包含电子邮件的几乎整个布局。
+为了自定义我们的内容，我们首先需要在Marketo中配置[程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program)和[电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home)。 要生成自定义内容，我们需要在项目中创建令牌，然后将其放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以在一封电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中的任何内容中替换任意数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。 令牌在空时无法保存，因此请在此处插入一些占位符文本。 现在，我们需要将令牌插入到电子邮件中：现在，可以通过“请求营销活动”调用访问此令牌以进行替换。 此令牌可以非常简单，只需一行文本，需要根据每封电子邮件进行替换，也可以包含电子邮件的几乎整个布局。
 
 ### 代码
 
@@ -5292,13 +5292,13 @@ Marketo的REST API使用自定义服务进行身份验证，并且其中每个�
 
 ### Workspace管理
 
-对于Marketo Enterprise订阅，服务通常只需要访问单个工作区，并且可以通过向API用户分配角色来[强制实施此功能](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/allow-user-access-to-a-workspace)。 每个用户角色都可以全局分配，也可以按工作区进行分配，因此可以根据需要在工作区中限制访问，尽可能提供最低的权限集。
+对于Marketo Enterprise订阅，服务通常只需要访问单个工作区，并且可以通过向API用户分配角色来[强制实施此功能](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/allow-user-access-to-a-workspace)。 每个用户角色都可以全局分配，也可以按工作区进行分配，因此可以根据需要在工作区中限制访问，尽可能提供最低的权限集。
 
 由&#x200B;_Kenny_&#x200B;发布于&#x200B;_2015-08-28_
 
 ## 如何使用REST API指定Lead分区
 
-**潜在客户分区** Marketo潜在客户分区提供了一种隔离潜在客户的便捷方法。 分区可允许组织内的不同营销组共享单个Marketo实例。 有关详细信息，请参阅[了解工作区和潜在客户分区](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions)。 假设您正在使用潜在客户分区，并使用Marketo REST API以编程方式创建潜在客户。 如何确保您创建的潜在客户最终将位于正确的分区中？ 这篇帖子向您展示如何做到这一点！ 在本例中，我们将使用工作区和分区根据地理位置隔离潜在客户。
+**潜在客户分区** Marketo潜在客户分区提供了一种隔离潜在客户的便捷方法。 分区可允许组织内的不同营销组共享单个Marketo实例。 有关详细信息，请参阅[了解工作区和潜在客户分区](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/workspaces-and-person-partitions/understanding-workspaces-and-person-partitions)。 假设您正在使用潜在客户分区，并使用Marketo REST API以编程方式创建潜在客户。 如何确保您创建的潜在客户最终将位于正确的分区中？ 这篇帖子向您展示如何做到这一点！ 在本例中，我们将使用工作区和分区根据地理位置隔离潜在客户。
 
 首先，我们将定义一个名为“国家/地区”的工作区。 接下来，在该工作区中创建两个分区，分别名为“墨西哥”和“加拿大”。  **在分区中创建潜在客户**&#x200B;假设现在要在“墨西哥”分区中创建两个潜在客户。 要创建潜在客户，我们调用。 要指定分区，必须在请求正文中包含“partitionName”属性。 我们如何知道要用于partitionName值的内容？ 通过调用[Get Lead Partitions](https://developer.adobe.com/marketo-apis/api/mapi/#operation/describeProgramMemberUsingGET) API，我们可以检索实例的有效分区名称值列表，如下所示：
 
@@ -6975,7 +6975,7 @@ $(function(){
 
 ## 使用RTP动态更改本地电话号码
 
-Personalization就是一切 — 我们很久以前就明白了。 话虽如此，我仍感到惊讶的是，每次我需要立即帮助时，很难在网站上找到相关的当地电话号码。 [上安装了](https://business.adobe.com/products/marketo/content-personalization.html)Marketo Real-Time Personalization<https://business.adobe.com/products/marketo/adobe-marketo.html> (RTP)，这是好事。 我们可以利用[RTP访客API](/help/javascript-api/web-personalization.md)动态更改Web访客在网站不同部分看到的电话号码。 哇！ 你能相信吗？ 这魔法是怎么运作的？ 首先，需要在您的网站上安装RTP，如[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)所述。 接下来，按照以下说明并在您的网站上实施JavaScript代码：
+Personalization就是一切 — 我们很久以前就明白了。 话虽如此，我仍感到惊讶的是，每次我需要立即帮助时，很难在网站上找到相关的当地电话号码。 [上安装了](https://business.adobe.com/cn/products/marketo/content-personalization.html)Marketo Real-Time Personalization<https://business.adobe.com/cn/products/marketo/adobe-marketo.html> (RTP)，这是好事。 我们可以利用[RTP访客API](/help/javascript-api/web-personalization.md)动态更改Web访客在网站不同部分看到的电话号码。 哇！ 你能相信吗？ 这魔法是怎么运作的？ 首先，需要在您的网站上安装RTP，如[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)所述。 接下来，按照以下说明并在您的网站上实施JavaScript代码：
 
 1. 在&#x200B;**defaultPhone**&#x200B;配置中插入您的国际电话号码
 1. 在&#x200B;**divIds**&#x200B;配置中插入HTML元素ID
@@ -7083,7 +7083,7 @@ Personalization就是一切 — 我们很久以前就明白了。 话虽如此�
 
 ### 自定义对象
 
-* 现在支持[自定义对象N:N关系](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
+* 现在支持[自定义对象N:N关系](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
    * 现在，潜在客户或客户记录可以通过定义中间对象通过自定义对象建立多对多关系。 创建独立自定义对象类型后，可以创建中间对象类型，其链接字段指向独立对象以及潜在客户或帐户。
    * 此功能没有新的API调用，但必须正确配置对象定义才能通过API利用这些关系。
 * `getLeadActivities`和`getLeadChanges`将不再返回匿名潜在客户的活动。 有关详细信息，请参阅[下一代Munchkin跟踪常见问题解答](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home)
@@ -8321,7 +8321,7 @@ SOAP
 
 ## 使用IFTTT和Zapier的营销人员物联网
 
-物联网(IoT)是互联设备、设备、可穿戴设备、车辆等的互连网络。 借助嵌入式电子设备、软件、传感器和网络连接，这些对象能够收集数据并与云信息系统交换数据。 这些技术正在迅速发展和普及，很快将影响我们的生活方式、工作方式以及商业方式。 Marketo这一领先的营销参与平台已经为物联网做好了准备，能够扩展任何形式的通信渠道并与之交互。 Marketo可以跟踪已超过70种与电子邮件、Web、移动设备、CRM等相关的活动，并且还支持任何第三方系统都可以提供的[自定义活动](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-activities/create-a-custom-activity.html)。 Marketo [自定义对象](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects.html)允许跟踪与您的业务相关的各种第三方量度，并允许营销人员直接从Marketo智能营销活动过滤器和触发器利用这些量度。 为消费者实施IoT需要集中式服务器与消费者设备交互，并且该服务器将与Marketo开放平台以及REST API、自定义对象、自定义活动等功能交换数据。  — 记录了[此处](http://eto.com/)。 通过博客帖子演示并不容易。 我们将IFTT服务与Marketo集成以便为营销人员实施一些酷炫的物联网用例，例如：
+物联网(IoT)是互联设备、设备、可穿戴设备、车辆等的互连网络。 借助嵌入式电子设备、软件、传感器和网络连接，这些对象能够收集数据并与云信息系统交换数据。 这些技术正在迅速发展和普及，很快将影响我们的生活方式、工作方式以及商业方式。 Marketo这一领先的营销参与平台已经为物联网做好了准备，能够扩展任何形式的通信渠道并与之交互。 Marketo可以跟踪已超过70种与电子邮件、Web、移动设备、CRM等相关的活动，并且还支持任何第三方系统都可以提供的[自定义活动](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-activities/create-a-custom-activity.html?lang=zh-Hans)。 Marketo [自定义对象](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects.html?lang=zh-Hans)允许跟踪与您的业务相关的各种第三方量度，并允许营销人员直接从Marketo智能营销活动过滤器和触发器利用这些量度。 为消费者实施IoT需要集中式服务器与消费者设备交互，并且该服务器将与Marketo开放平台以及REST API、自定义对象、自定义活动等功能交换数据。  — 记录了[此处](http://eto.com/)。 通过博客帖子演示并不容易。 我们将IFTT服务与Marketo集成以便为营销人员实施一些酷炫的物联网用例，例如：
 
 * 每次有潜在客户登记参加路演时，在办公室中闪烁彩色灯光让您的营销团队振作起来
 * 每次通过自动触发连接到连接电源插头的铃铛来赢得交易时，即可让您的销售团队振作起来
@@ -8350,7 +8350,7 @@ IFTTT是“IF This Then That”的缩写。 这是一种免费的基于Web的服
 
 ### 从市场直接触发IFTTT操作
 
-首先，我们将侧重于从Marketo触发各种第三方Web服务操作。 为此，我们将使用[Marketo Webhook](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook.html)。 我们将从通过IFTTT移动应用程序在手机或平板电脑上发送推送消息开始，然后实施闪烁Philips色相指示灯的物联网场景。
+首先，我们将侧重于从Marketo触发各种第三方Web服务操作。 为此，我们将使用[Marketo Webhook](https://experienceleague.adobe.com/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook.html?lang=zh-Hans)。 我们将从通过IFTTT移动应用程序在手机或平板电脑上发送推送消息开始，然后实施闪烁Philips色相指示灯的物联网场景。
 
 ### Marketo Webhook
 
@@ -8689,7 +8689,7 @@ IFTT为300多个合作伙伴提供了Applet Triggers，因此您的应用程序�
 
 ### 替换电子邮件2.0的HTML
 
-我们已添加[更新电子邮件完整内容](https://developer.adobe.com/marketo-apis/api/asset/#operation/createEmailFullContentUsingPOST)终结点，以便允许您替换HTML电子邮件内容的块。 如果您使用HTML Email 2.0编辑器编辑Marketo电子邮件的Marketo代码，则电子邮件与其模板之间的关系断开，有关[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html)的详细信息。 使用此端点，您可以以编程方式更新关系已断开的电子邮件的HTML内容。 此外，我们还修改了所有其他与电子邮件生命周期相关的端点，以与关系已断开的电子邮件兼容：
+我们已添加[更新电子邮件完整内容](https://developer.adobe.com/marketo-apis/api/asset/#operation/createEmailFullContentUsingPOST)终结点，以便允许您替换HTML电子邮件内容的块。 如果您使用HTML Email 2.0编辑器编辑Marketo电子邮件的Marketo代码，则电子邮件与其模板之间的关系断开，有关[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html)的详细信息。 使用此端点，您可以以编程方式更新关系已断开的电子邮件的HTML内容。 此外，我们还修改了所有其他与电子邮件生命周期相关的端点，以与关系已断开的电子邮件兼容：
 
 * 批准电子邮件草稿
 * 取消批准电子邮件
@@ -8823,7 +8823,7 @@ Munchkin JavaScript Web跟踪代码已得到增强，现包括以下与隐私相
 
 ### 增强功能
 
-* 添加了对[资产API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-cc)的[电子邮件抄送字段](/help/rest-api/assets.md)支持。 抄送字段设置在审批/克隆操作期间按预期传播（电子邮件或电子邮件模板草稿审批、电子邮件或项目群克隆）。 现在，所有与电子邮件相关的端点都返回&#x200B;**ccFields**&#x200B;属性中的“抄送字段”值。 在下面的响应中向下滚动以查看示例。 此更改会影响以下端点：[按ID获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByIdUsingGET)、[按名称获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByNameUsingGET)、[获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailUsingGET)、[批准电子邮件草稿](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST)、[批准电子邮件模板草稿](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST_1)、[克隆电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST)、[克隆程序。](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
+* 添加了对[资产API](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/email-cc)的[电子邮件抄送字段](/help/rest-api/assets.md)支持。 抄送字段设置在审批/克隆操作期间按预期传播（电子邮件或电子邮件模板草稿审批、电子邮件或项目群克隆）。 现在，所有与电子邮件相关的端点都返回&#x200B;**ccFields**&#x200B;属性中的“抄送字段”值。 在下面的响应中向下滚动以查看示例。 此更改会影响以下端点：[按ID获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByIdUsingGET)、[按名称获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailByNameUsingGET)、[获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailUsingGET)、[批准电子邮件草稿](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST)、[批准电子邮件模板草稿](https://developer.adobe.com/marketo-apis/api/asset/#operation/approveDraftUsingPOST_1)、[克隆电子邮件](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneEmailUsingPOST)、[克隆程序。](https://developer.adobe.com/marketo-apis/api/asset/#operation/cloneProgramUsingPOST)
 
 ```json
 {
@@ -8967,7 +8967,7 @@ Munchkin JavaScript Web跟踪代码已得到增强，现包括以下与隐私相
 1. 添加了用于提取智能列表定义的端点。
    1. 按Smart Campaign Id[获取](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListBySmartCampaignIdUsingGET)智能列表端点返回给定智能营销活动ID的智能列表记录。
    1. 按程序ID [获取](https://developer.adobe.com/marketo-apis/api/asset/#operation/getSmartListByProgramIdUsingGET)智能列表端点返回给定程序ID的智能列表记录。
-1. 增强了[更新电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset/#operation/updateEmailContentUsingPOST)端点，以允许更新从其模板（主题、名称、电子邮件、回复）断开的电子邮件的电子邮件标题字段。 [此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html)描述了从模板断开的情况。
+1. 增强了[更新电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset/#operation/updateEmailContentUsingPOST)端点，以允许更新从其模板（主题、名称、电子邮件、回复）断开的电子邮件的电子邮件标题字段。 [此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/edit-an-emails-html)描述了从模板断开的情况。
 
 ### 缺陷分辨率
 
@@ -8997,7 +8997,7 @@ Munchkin JavaScript Web跟踪代码已得到增强，现包括以下与隐私相
 
 ## 如何检索每个自定义对象
 
-我们经常被问到如何使用Marketo的API获取所有[自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home) (CO)的列表。 查询CO需要超过其名称：还需要关于每个CO的某些&#x200B;_先验知识_。 获取该知识的方法可能不明显，因为API没有提供直接查询它的方法。 与Marketo Engage中的许多目标一样，智能列表为与人员（潜在客户）关联的CO提供了答案。 智能列表与公司的运作方式不同，最终会产生一个列表，其中包含其公司链接到筛选器的对象类型的所有人员，因此您可能会发现必须根据您的目标删除重复公司。 无论何时批准新的自定义对象，都会创建关联的过滤器。 该名称将采用“**具有CO名称**”的格式。 在下面的示例中，自定义对象名称为“**会议曲目订阅”**，其筛选器名为“**具有会议曲目订阅**”。 创建智能列表后，您可以使用[自定义对象端点](/help/rest-api/custom-objects.md)检索查询关联CO所需的信息。 导出列表，确保包含链接的字段（ID或电子邮件地址）。 您可以通过[smartListName](/help/rest-api/bulk-lead-extract.md)、**smartListId**&#x200B;筛选器或&#x200B;**从UI**&#x200B;导出，使用[批量潜在客户提取API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/managing-people-in-smart-lists/export-people-to-excel-from-a-list-or-smart-list)进行导出。 在下一步中，您将使用每个链接字段值单独查询关联的自定义对象。 在此示例中，自定义对象的名称为&#x200B;**“会议跟踪订阅”**，其API名称为&#x200B;**conferenceTrackSubscription_c**。 您在UI中找到API名称“**API名称**”，并通过API找到API名称“**名称**”。  管理员 | Marketo自定义对象[/caption]，以下是[列表自定义对象API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET)端点返回的片段：
+我们经常被问到如何使用Marketo的API获取所有[自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home) (CO)的列表。 查询CO需要超过其名称：还需要关于每个CO的某些&#x200B;_先验知识_。 获取该知识的方法可能不明显，因为API没有提供直接查询它的方法。 与Marketo Engage中的许多目标一样，智能列表为与人员（潜在客户）关联的CO提供了答案。 智能列表与公司的运作方式不同，最终会产生一个列表，其中包含其公司链接到筛选器的对象类型的所有人员，因此您可能会发现必须根据您的目标删除重复公司。 无论何时批准新的自定义对象，都会创建关联的过滤器。 该名称将采用“**具有CO名称**”的格式。 在下面的示例中，自定义对象名称为“**会议曲目订阅”**，其筛选器名为“**具有会议曲目订阅**”。 创建智能列表后，您可以使用[自定义对象端点](/help/rest-api/custom-objects.md)检索查询关联CO所需的信息。 导出列表，确保包含链接的字段（ID或电子邮件地址）。 您可以通过[smartListName](/help/rest-api/bulk-lead-extract.md)、**smartListId**&#x200B;筛选器或&#x200B;**从UI**&#x200B;导出，使用[批量潜在客户提取API](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/managing-people-in-smart-lists/export-people-to-excel-from-a-list-or-smart-list)进行导出。 在下一步中，您将使用每个链接字段值单独查询关联的自定义对象。 在此示例中，自定义对象的名称为&#x200B;**“会议跟踪订阅”**，其API名称为&#x200B;**conferenceTrackSubscription_c**。 您在UI中找到API名称“**API名称**”，并通过API找到API名称“**名称**”。  管理员 | Marketo自定义对象[/caption]，以下是[列表自定义对象API](https://developer.adobe.com/marketo-apis/api/mapi/#operation/listCustomObjectsUsingGET)端点返回的片段：
 
 ```json
 {
@@ -9595,7 +9595,7 @@ Marketo中的“Lead”对象是主对象，所有其他对象直接或间接与
 
 * 添加了[提交表单](/help/rest-api/leads.md)终结点，该终结点允许您执行程序化表单提交。 第三方表单现在可以与Marketo表单集成，以利用现有的营销工作流程。
 * 添加了[获取登陆页面完整内容](/help/rest-api/landing-pages.md)端点，该端点返回登陆页面的序列化HTML版本。 允许您在不登录Marketo Engage的情况下呈现登陆页面的完全个性化预览。 这有助于简化集成应用程序中的编辑和翻译工作流。
-* 您现在可以配置可通过Velocity脚本访问的自定义对象的数量。 可在[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)找到配置说明。
+* 您现在可以配置可通过Velocity脚本访问的自定义对象的数量。 可在[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)找到配置说明。
 
 ### 缺陷分辨率
 
@@ -9644,7 +9644,7 @@ Marketo中的“Lead”对象是主对象，所有其他对象直接或间接与
 
 ### 在Munchkin登陆页面上禁用Marketo Beta
 
-要在Marketo登陆页面上禁用Munchkin Beta，您需要访问订阅的“管理员”部分中的[Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单，并将“登陆页面上的Munchkin Beta”设置更改为“已禁用”。
+要在Marketo登陆页面上禁用Munchkin Beta，您需要访问订阅的“管理员”部分中的[Treasure Chest](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单，并将“登陆页面上的Munchkin Beta”设置更改为“已禁用”。
 
 ### 在外部页面上禁用Munchkin Beta
 
@@ -9679,7 +9679,7 @@ Marketo中的“Lead”对象是主对象，所有其他对象直接或间接与
 
 ## 电子邮件V1的最终API弃用
 
-[几乎两年前](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666)就开始弃用电子邮件V1，从2021年3月17日面向伦敦和荷兰订阅的3月维护版本和2021年3月19日面向所有其他订阅的维护版本开始，将终止对V1电子邮件的所有API支持。 在此版本之后，任何尝试通过资产API与V1电子邮件交互都将导致错误，并且不会采取任何操作。 已通知自2021年2月24日以来所有已知的其余用户，但可能仍然存在尝试与这些资源交互的集成。 受影响集成的最常见类型是提供数字资产管理、翻译和本地化的服务。 如果您发现集成由于此更改而失败，[您仍可以通过编辑和批准有问题的资源来升级这些资源](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/transitioning-to-email-editor-2-0)。 电子邮件资产升级到V2后，您应该能够将其与集成服务结合使用。
+[几乎两年前](https://nation.marketo.com:443/t5/knowledgebase/email-editor-1-0-is-being-deprecated-june-18th/ta-p/250666)就开始弃用电子邮件V1，从2021年3月17日面向伦敦和荷兰订阅的3月维护版本和2021年3月19日面向所有其他订阅的维护版本开始，将终止对V1电子邮件的所有API支持。 在此版本之后，任何尝试通过资产API与V1电子邮件交互都将导致错误，并且不会采取任何操作。 已通知自2021年2月24日以来所有已知的其余用户，但可能仍然存在尝试与这些资源交互的集成。 受影响集成的最常见类型是提供数字资产管理、翻译和本地化的服务。 如果您发现集成由于此更改而失败，[您仍可以通过编辑和批准有问题的资源来升级这些资源](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/transitioning-to-email-editor-2-0)。 电子邮件资产升级到V2后，您应该能够将其与集成服务结合使用。
 
 由&#x200B;_Kenny_&#x200B;发布于&#x200B;_2021-03-17_
 
@@ -9689,10 +9689,10 @@ Marketo中的“Lead”对象是主对象，所有其他对象直接或间接与
 
 * 添加了程序成员API，允许您检索、更新和删除程序成员资格记录。 有关详细信息，请参阅[REST API >潜在客户数据库>计划成员](/help/rest-api/program-members.md)。
 * 添加了批量自定义对象提取API ，允许您导出与一对多关系中的潜在客户关联的第一级Marketo自定义对象记录。 有关详细信息，请参阅[REST API >批量提取>批量自定义对象提取](/help/rest-api/bulk-custom-object-extract.md)。
-* 我们已增强[潜在客户API](/help/rest-api/leads.md)和[批量潜在客户提取API](/help/rest-api/bulk-lead-extract.md)，以允许用户检索Adobe Experience Cloud ID (ECID)。 这允许[从Adobe Experience Cloud](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html)同步受众的用户识别具有关联ECID的潜在客户。 这提供了[集成的可能性](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration)与其他Adobe Experience Cloud产品。
+* 我们已增强[潜在客户API](/help/rest-api/leads.md)和[批量潜在客户提取API](/help/rest-api/bulk-lead-extract.md)，以允许用户检索Adobe Experience Cloud ID (ECID)。 这允许[从Adobe Experience Cloud](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html?lang=zh-Hans)同步受众的用户识别具有关联ECID的潜在客户。 这提供了[集成的可能性](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration)与其他Adobe Experience Cloud产品。
 * 我们增强了[批量潜在客户导入API](/help/rest-api/bulk-lead-import.md)，以支持在导入过程中将潜在客户添加到公司记录。 这是通过在导入文件中包含&#x200B;**externalCompanyId**&#x200B;字段来完成的。
 * 我们增强了多个项目端点，以提供与Marketo Engage UI中的功能对等性。 我们已增强[创建程序](/help/rest-api/assets.md)和[克隆程序](https://developer.adobe.com/marketo-apis/api/asset/)端点，以允许对事件程序执行创建、克隆或移动操作。 这适用于通过将事件程序“嵌套”在其他程序类型下来组织这些程序的用户。 我们还增强了[删除程序](https://developer.adobe.com/marketo-apis/api/asset/)端点，以允许删除包含以下资源的程序：推送通知、应用程序内消息、报告、嵌入了社交Assets的登陆页面。
-* 作为Marketo管理员，您可以[将特定字段标记为“敏感”](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home)，以便其值[绝不会预先填充在表单中](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/form-fields/disable-pre-fill-for-a-form-field)，从而保护用户的敏感数据。 我们增强了多个表单字段端点以提供与Marketo Engage UI中此功能的对等性。
+* 作为Marketo管理员，您可以[将特定字段标记为“敏感”](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/home)，以便其值[绝不会预先填充在表单中](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/forms/form-fields/disable-pre-fill-for-a-form-field)，从而保护用户的敏感数据。 我们增强了多个表单字段端点以提供与Marketo Engage UI中此功能的对等性。
 
 ### 缺陷分辨率
 
@@ -9735,11 +9735,11 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 ### 电子邮件
 
 * 我们通过添加`earliestUpdatedAt`/`latestUpdatedAt`筛选器增强了“获取电子邮件”端点。 这允许您使用`updatedAt`字段仅搜索电子邮件的子集，并允许增量同步。
-* 我们增强了“获取电子邮件”、“按名称获取电子邮件”、“按ID获取电子邮件”端点以支持检索[Champion和Challenger](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger)类型的电子邮件记录。
+* 我们增强了“获取电子邮件”、“按名称获取电子邮件”、“按ID获取电子邮件”端点以支持检索[Champion和Challenger](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/email-tests-champion-challenger/add-an-email-champion-challenger)类型的电子邮件记录。
 
 ### 缺陷分辨率
 
-* 修复了获取用户端点的问题。 未返回已颁发[营销日历](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license)许可证的用户。 现在，可正确返回“营销日历”用户。
+* 修复了获取用户端点的问题。 未返回已颁发[营销日历](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/marketing-calendar/understanding-the-calendar/issue-revoke-a-marketing-calendar-license)许可证的用户。 现在，可正确返回“营销日历”用户。
 * 修复了提交表单端点的问题。 如果存在重复的潜在客户记录，可使用“提交表单”发出“1007，多个潜在客户匹配查找条件”错误。 提交表单现在会以[Forms 2.0 API](/help/javascript-api/forms-api-reference.md)相同的方式更新最近更新的记录。
 * 改进了“更新潜在客户字段”和“创建潜在客户字段”端点返回的若干误导性错误消息。 [LM-151890、LM-151888、LM-151889]
 * 修复了“按名称获取潜在客户字段”和“获取潜在客户字段端点”的问题。 两个端点都可能会返回略微过时的信息。 它们现在始终返回当前信息。
@@ -9752,7 +9752,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 ## Munchkin版本161推出
 
-在2021年9月7日，Munchkin版本161将开始向10%的订阅推广，其中启用了Munchkin Beta的订阅将从9月16日起50%推广，9月30日将全面推广100%。 此更改将影响Marketo登陆页面，以及提供给外部登陆页面的munchkin-beta.js文件版本，这些登陆页面从新版本已转出的订阅加载。 此版本完全弃用Munchkin关联潜在客户方法，该方法允许将人员数据提交到Marketo订阅以及具有已知人员记录的关联Web浏览历史记录。 正在删除关联潜在客户，以支持更现代和更安全的替代方案，如[Forms JS API](/help/javascript-api/forms-api-reference.md)、表单提交API和[关联潜在客户REST API](/help/rest-api/leads.md)。 如果您或您的组织使用此方法，则应当在2021年10月12日之前（计划于该日期开始10月版本推出）从使用量中迁移出来。 如果您不再希望选择使用Munchkin测试版，可以通过将“登陆页面上的Munchkin Beta”功能切换到`disabled`Treasure Chest菜单[中的](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)来禁止在Marketo登陆页面上使用。 如果您已将Munchkin Beta JavaScript部署到外部网页，并且希望切换到默认的Munchkin发布渠道，则需要更新代码片段，以从munchkin.js而不是munchkin-beta.js加载Munchkin JavaScript。
+在2021年9月7日，Munchkin版本161将开始向10%的订阅推广，其中启用了Munchkin Beta的订阅将从9月16日起50%推广，9月30日将全面推广100%。 此更改将影响Marketo登陆页面，以及提供给外部登陆页面的munchkin-beta.js文件版本，这些登陆页面从新版本已转出的订阅加载。 此版本完全弃用Munchkin关联潜在客户方法，该方法允许将人员数据提交到Marketo订阅以及具有已知人员记录的关联Web浏览历史记录。 正在删除关联潜在客户，以支持更现代和更安全的替代方案，如[Forms JS API](/help/javascript-api/forms-api-reference.md)、表单提交API和[关联潜在客户REST API](/help/rest-api/leads.md)。 如果您或您的组织使用此方法，则应当在2021年10月12日之前（计划于该日期开始10月版本推出）从使用量中迁移出来。 如果您不再希望选择使用Munchkin测试版，可以通过将“登陆页面上的Munchkin Beta”功能切换到`disabled`Treasure Chest菜单[中的](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)来禁止在Marketo登陆页面上使用。 如果您已将Munchkin Beta JavaScript部署到外部网页，并且希望切换到默认的Munchkin发布渠道，则需要更新代码片段，以从munchkin.js而不是munchkin-beta.js加载Munchkin JavaScript。
 
 由&#x200B;_Kenny_&#x200B;发布于&#x200B;_2021-08-24_
 
@@ -9768,11 +9768,11 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 * 我们增强了[提交表单](https://developer.adobe.com/marketo-apis/api/mapi/#operation/SubmitFormUsingPOST)端点，以支持在表单提交过程中使用项目成员自定义字段。 或者，可以将程序指定为要向其中添加表单的程序，和/或指定要向其中添加程序成员自定义字段的程序，如[此处](/help/rest-api/leads.md)所述。
 我们已增强[获取项目成员](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getProgramMembersUsingGET)终结点，以支持基于updatedAt属性的基于日期范围的查询。 这是通过传递开始和结束日期时间参数来完成的，如[此处](/help/rest-api/program-members.md)所述。
-* 我们已增强[潜在客户字段](/help/rest-api/leads.md) API以支持[敏感字段](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive)。 [按名称获取潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET)、[获取潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET)、[创建潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST)和[更新潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST)端点现在支持isSensitive特性。
+* 我们已增强[潜在客户字段](/help/rest-api/leads.md) API以支持[敏感字段](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/mark-a-field-as-sensitive)。 [按名称获取潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldByNameUsingGET)、[获取潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getLeadFieldsUsingGET)、[创建潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST)和[更新潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/updateLeadFieldUsingPOST)端点现在支持isSensitive特性。
 
 ### 缺陷分辨率
 
-* 修复了[用户管理](/help/rest-api/user-management.md) API的问题。 属于配置为与[Sales Insight](https://business.adobe.com/products/marketo/sales-insight.html)一起使用的Marketo用户。 这些用户现在由[获取用户](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET)端点返回，这些用户现在可以使用[删除用户](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST)端点删除。 [LM-155864]
+* 修复了[用户管理](/help/rest-api/user-management.md) API的问题。 属于配置为与[Sales Insight](https://business.adobe.com/cn/products/marketo/sales-insight.html)一起使用的Marketo用户。 这些用户现在由[获取用户](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET)端点返回，这些用户现在可以使用[删除用户](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST)端点删除。 [LM-155864]
 * 修复了添加[富文本字段](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/addRichTextFieldUsingPOST)终结点的问题。 向电子邮件、登陆页面、代码片段或表单添加长度超过6.5万个字符的富文本字段时，会返回“611，系统错误”。 它现在返回错误“701，无法完成操作。 “content”超过了最大长度65,535字节”。
 
 由&#x200B;_David_&#x200B;发布于&#x200B;_2021-10-25_
@@ -9791,7 +9791,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 ### 缺陷分辨率
 
 * 修复了调用[创建潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST)端点的时间与新创建的潜在客户字段在智能列表中可用的时间之间的延迟问题。 [LM-152838]
-* 修复了[创建潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST)端点的问题，该问题导致在Marketo Engage UI中用于[将字段添加到表单](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form)的表单字段下拉列表中创建的字段不可用。 [LM-158243]
+* 修复了[创建潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi/#operation/createLeadFieldUsingPOST)端点的问题，该问题导致在Marketo Engage UI中用于[将字段添加到表单](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form)的表单字段下拉列表中创建的字段不可用。 [LM-158243]
 * 修复了在指定isTriggerable=true参数时未返回可触发营销活动的[Get Campaigns](https://developer.adobe.com/marketo-apis/api/mapi/#operation/getCampaignsUsingGET)端点的问题。 [LM-158283]
 * 修复了在某些情况下[按列表ID](https://developer.adobe.com/marketo-apis/api/mapi/#operation/deleteTokenByNameUsingPOST)获取潜在客户端点将返回错误“611，系统错误”的问题。 [LM-157214]
 * 已清除[更新潜在客户字段](/help/rest-api/leads.md)终结点返回的若干错误消息。 [LM-151886、LM-151888、LM-151889]
@@ -9803,10 +9803,10 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 2022年3月，我们增强了现有REST API，并解决了几个缺陷。 请参阅下面的完整更新列表。
 
 * 我们已将&#x200B;**actionResult**&#x200B;字段添加到批量活动提取API生成的导出文件中。 此字段可用于区分成功、跳过和失败的活动。
-* 我们已将&#x200B;**isOpenTrackingDisabled**&#x200B;字段添加到来自[电子邮件API](/help/rest-api/emails.md)的响应。 此字段可用于确定是否启用了[禁用打开跟踪](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview)功能。
+* 我们已将&#x200B;**isOpenTrackingDisabled**&#x200B;字段添加到来自[电子邮件API](/help/rest-api/emails.md)的响应。 此字段可用于确定是否启用了[禁用打开跟踪](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-editor-v2-0-overview)功能。
 * 我们添加了两个端点，以便您有选择地管理项目标记。 [更新程序标记](/help/rest-api/programs.md)端点允许您有选择地更新程序标记。 [删除程序标记](/help/rest-api/programs.md)终结点允许您有选择地删除程序标记。
 * 我们已将&#x200B;**isExecutable**&#x200B;参数添加到[克隆智能营销活动](/help/rest-api/smart-campaigns.md)终结点。 此参数允许您将程序克隆为可执行程序。
-* 我们已将&#x200B;**headStart**&#x200B;字段添加到[程序API](/help/rest-api/programs.md)。 这允许您创建、更新和检索电子邮件程序的[Head Start](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs)设置。
+* 我们已将&#x200B;**headStart**&#x200B;字段添加到[程序API](/help/rest-api/programs.md)。 这允许您创建、更新和检索电子邮件程序的[Head Start](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/head-start-for-email-programs)设置。
 
 ### 缺陷分辨率
 
@@ -9823,8 +9823,8 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 2022年5月，我们增强了现有REST API，并解决了几个缺陷。 请参阅下面的完整更新列表。
 
-* 我们已添加在您的Marketo Engage实例中启用[SFDC同步](/help/rest-api/companies.md)或[Microsoft Dynamics同步](/help/rest-api/opportunities.md)时检索[公司](/help/rest-api/sales-persons.md)、[机会](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)和[销售人员](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)记录的功能。
-* 我们更新了[获取电子邮件动态内容](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET)终结点，允许您从电子邮件主题行检索[动态内容](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/using-dynamic-content-in-an-email)。 无论给定的电子邮件是否链接到电子邮件模板，此功能都会起作用。
+* 我们已添加在您的Marketo Engage实例中启用[SFDC同步](/help/rest-api/companies.md)或[Microsoft Dynamics同步](/help/rest-api/opportunities.md)时检索[公司](/help/rest-api/sales-persons.md)、[机会](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)和[销售人员](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)记录的功能。
+* 我们更新了[获取电子邮件动态内容](https://developer.adobe.com/marketo-apis/api/asset/#operation/getEmailDynamicContentUsingGET)终结点，允许您从电子邮件主题行检索[动态内容](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/using-dynamic-content-in-an-email)。 无论给定的电子邮件是否链接到电子邮件模板，此功能都会起作用。
 
 `POST /rest/asset/v1/form/{id}/field/State.json?values=[{"label":"Alaska"},{"value":"AK"},{"label":"West Virginia","value":"WV"},{"label":"Wyoming","value":"WY"}]`
 
@@ -9845,9 +9845,9 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 我们添加了几个新筛选器，在调用“创建导出程序成员作业”端点时可以使用这些筛选器。 请注意，许多过滤器可以相互组合使用以细化提取的数据集。
 
 * **programIds**&#x200B;筛选器可用于指定最多10个程序标识符，以帮助提高吞吐量。
-* **isExhausted**&#x200B;筛选器可用于筛选已用完内容[的](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content)人员的记录。
-* **nurtureCadence**&#x200B;筛选器可用于根据[参与计划节奏](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/program-flow-actions/change-engagement-program-cadence)筛选记录。
-* **statusNames**&#x200B;筛选器可用于筛选一个或多个[程序状态](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/understanding-program-membership)的记录。
+* **isExhausted**&#x200B;筛选器可用于筛选已用完内容[的](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content)人员的记录。
+* **nurtureCadence**&#x200B;筛选器可用于根据[参与计划节奏](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/program-flow-actions/change-engagement-program-cadence)筛选记录。
+* **statusNames**&#x200B;筛选器可用于筛选一个或多个[程序状态](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/understanding-program-membership)的记录。
 * **updatedAt**&#x200B;筛选器可用于根据日期范围筛选记录。
 
 ### 公告
@@ -9861,7 +9861,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 2022年10月，我们增强了现有REST API。 请参阅下面的完整更新列表。
 
 * 我们增强了[Bulk Lead Import API](/help/rest-api/bulk-lead-import.md)，以支持在导入过程中将Lead添加到Sales Persones记录。 此操作可通过在导入文件中包含&#x200B;**externalSalesPersonId**&#x200B;字段来完成。
-* 修复了在创建得分类型字段时发生的[创建潜在客户字段](/help/rest-api/leads.md)端点问题。 这些字段在Marketo Engage UI中的[更改得分](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/change-score)流程操作中不可用。 [LM-166815]
+* 修复了在创建得分类型字段时发生的[创建潜在客户字段](/help/rest-api/leads.md)端点问题。 这些字段在Marketo Engage UI中的[更改得分](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/change-score)流程操作中不可用。 [LM-166815]
 
 ### 公告
 
@@ -9883,7 +9883,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 ### 批量潜在客户提取
 
-* 我们增强了Marketo Engage管理UI，允许您查看针对订阅的“批量提取API”每日容量分配。 此外，您还可以查看API用户在过去7天内的容量使用情况。 可在[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/bulk-export-api-information)找到更多信息。
+* 我们增强了Marketo Engage管理UI，允许您查看针对订阅的“批量提取API”每日容量分配。 此外，您还可以查看API用户在过去7天内的容量使用情况。 可在[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/bulk-export-api-information)找到更多信息。
 
 ### 缺陷分辨率
 
