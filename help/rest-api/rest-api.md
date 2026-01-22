@@ -3,10 +3,10 @@ title: REST API
 feature: REST API
 description: 了解如何使用Marketo REST API、设置API用户和LaunchPoint、查看配额和限制、使用授权标头进行身份验证以及检索潜在客户。
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 5f2dcb4864cdcd110ba9f199ef9c86dcee522335
+source-git-commit: 5881ab969eca3a37d19f56b6570e42828994eff3
 workflow-type: tm+mt
 source-wordcount: '806'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -17,7 +17,7 @@ Marketo会公开一个REST API，该API允许远程执行系统的多项功能�
 这些API通常分为两大类：[潜在客户数据库](https://developer.adobe.com/marketo-apis/api/mapi/)和[资产](https://developer.adobe.com/marketo-apis/api/asset/)。 Lead Database API允许检索Marketo人员记录和相关对象类型（如商机和公司）并与之交互。 资产API允许与营销宣传材料和工作流相关记录进行交互。
 
 >[!NOTE]
->SOAP API已被弃用，在2026年1月31日后将不再可用。 所有新的开发应使用Marketo [REST API](./rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](../soap-api/migration.md)以了解有关如何迁移的信息。
+>SOAP API已被弃用，在2026年3月31日后将不再可用。 所有新的开发应使用Marketo [REST API](./rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](../soap-api/migration.md)以了解有关如何迁移的信息。
 >
 
 >[!IMPORTANT]

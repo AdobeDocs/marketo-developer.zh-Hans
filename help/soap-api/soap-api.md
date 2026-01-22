@@ -3,7 +3,7 @@ title: SOAP API
 feature: SOAP
 description: Marketo SOAP API在2025年10月31日后被弃用。 了解如何迁移到REST、检索WSDL、查看配额、速率限制和身份验证设置。
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 5f2dcb4864cdcd110ba9f199ef9c86dcee522335
+source-git-commit: 5881ab969eca3a37d19f56b6570e42828994eff3
 workflow-type: tm+mt
 source-wordcount: '249'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # SOAP API
 
-SOAP API已被弃用，在2026年1月31日后将不再可用。 所有新的开发应使用Marketo [REST API](../rest-api/rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](./migration.md)以了解有关如何迁移的信息。
+SOAP API已被弃用，在2026年3月31日后将不再可用。 所有新的开发应使用Marketo [REST API](../rest-api/rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](./migration.md)以了解有关如何迁移的信息。
 
 ## SOAP WSDL
 
