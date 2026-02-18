@@ -3,10 +3,10 @@ title: 标准字段
 feature: REST API, Field Management
 description: 浏览Marketo标准潜在客户字段的完整列表，其中包含REST和SOAP名称、标签和描述，以及如何通过描述潜在客户API检索它们。
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
 workflow-type: tm+mt
-source-wordcount: '1161'
-ht-degree: 11%
+source-wordcount: '727'
+ht-degree: 16%
 
 ---
 
@@ -41,51 +41,24 @@ ht-degree: 11%
 | 推断的国家/地区 | 推断的国家/地区 | 推断的国家 | 通过对商机的首次记录的Web访问进行反向IP查找推断出的国家/地区 |
 | 姓氏 | 姓氏 | 姓氏 | 商机的姓氏 |
 | leadRole | 潜在客户角色 | 角色 | 潜在客户在其公司中的角色 |
-| 商机得分 | 商机得分 | 潜在客户分数 | 通过评分营销活动和项目授予商机的整数分数 |
-| leadSource | 商机来源 | 潜在客户来源 | 记录商机来源的字段 |
-| 商机状态 | 潜在客户状态 | 潜在客户状态 | 记录商机的当前营销/销售状态的字段 |
+| 商机得分 | 商机得分 | 销售线索分数 | 通过评分营销活动和项目授予商机的整数分数 |
+| leadSource | 商机来源 | 销售线索来源 | 记录商机来源的字段 |
+| 商机状态 | 潜在客户状态 | 销售线索状态 | 记录商机的当前营销/销售状态的字段 |
 | mainPhone | 主电话 | 主要电话 | 潜在客户公司的主要电话号码 |
 | jigsawContactId | Marketo拼图联系人ID | MARKETO Data.com ID | 潜在客户的Data.com ID（如果可用） |
 | jigsawContactStatus | Marketo拼图联系人状态 | Marketo Data.com状态 | 潜在客户的Data.com状态（如果可用） |
-| facebookDisplayName | MarketoSocialFacebookDisplayName | Marketo Social Facebook显示名称 | 潜在客户的Facebook显示名称。 系统已在社交登录期间填充 |
-| facebookId | MarketoSocialFacebookId | Marketo Social Facebook Id | 潜在客户的脸书ID。 系统已在社交登录期间填充 |
-| facebookPhotoURL | MarketoSocialFacebookPhotoURL | Marketo Social Facebook照片URL | 潜在客户的Facebook个人资料照片的URL。 系统已在社交登录期间填充 |
-| facebookProfileURL | MarketoSocialFacebookProfileURL | Marketo社交Facebook个人资料URL | 潜在客户的Facebook个人资料的URL。 系统已在社交登录期间填充 |
-| facebookReach | MarketoSocialFacebookReach | Marketo Social Facebook范围 | 领跑者脸书的触角。 系统已在社交登录期间填充 |
-| facebookReferredEnrollments | MarketoSocialFacebookReferredEnrollments | Marketo Social Facebook引用的注册 | 通过Facebook归因于商机的被引用注册数。 受管系统 |
-| facebookReferredVisits | MarketoSocialFacebookReferredVisits | Marketo Social Facebook反向访问 | 通过Facebook归因于商机的反向访问次数。 受管系统 |
-| 性别 | MarketoSocialGender | Marketo社会性别 | 商机的性别。 系统已在社交登录期间填充 |
-| lastReferredEnrollment | MarketoSocialLastReferredEnrollment | Marketo Social上次引用的注册 | 上次完成转介的日期。 受管系统 |
-| lastReferredVisit | MarketoSocialLastReferredVisit | Marketo Social上次反向访问 | 上次引用访问的日期。 受管系统 |
-| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Marketo Social LinkedIn显示名称 | 潜在客户的LinkedIn显示名称。 系统已在社交登录期间填充 |
-| linkedInId | MarketoSocialLinkedInId | Marketo Social LinkedIn Id | 商机的LinkedIn Id。 系统已在社交登录期间填充 |
-| linkedInPhotoURL | MarketoSocialLinkedInPhotoURL | Marketo社交链接In照片URL | 潜在客户的LinkedIn照片URL。 系统已在社交登录期间填充 |
-| linkedinprofileURL | MarketoSocialLinkedInProfileURL | Marketo Social LinkedIn个人资料URL | 潜在客户的LinkedIn个人资料。 系统已在社交登录期间填充 |
-| linkedInReach | MarketoSocialLinkedInReach | Marketo Social LinkedIn范围 | 潜在客户的LinkedIn范围。 系统已在社交登录期间填充 |
-| linkedInReferredEnrollments | MarketoSocialLinkedInReferredEnrollments | Marketo Social LinkedIn引用的注册 | 通过LinkedIn归因于商机的被引用注册数。 受管系统 |
-| linkedInReferredVisits | MarketoSocialLinkedInReferredVisits | Marketo Social LinkedIn反向访问 | 通过LinkedIn归因于商机的反向访问次数。 受管系统 |
-| syndicationId |  - | Marketo社交联合ID | 商机的内部Marketo社交ID。 受管系统 |
-| totalReferredEnrollments | MarketoSocialTotalReferredEnrollments | Marketo Social 反向注册次数总计 | 归属于潜在客户的已完成转介注册总数 |
-| totalReferredVisits | MarketoSocialTotalReferredVisits | Marketo Social 反向访问次数总计 | 归因于商机的反向访问总数 |
-| twitterDisplayName | MarketoSocialTwitterDisplayName | Marketo社交Twitter显示名称 | 潜在客户的Twitter显示名称。 系统已在社交登录期间填充 |
-| twitterId | MarketoSocialTwitterId | Marketo社交Twitter Id | 潜在客户的推特ID。 系统已在社交登录期间填充 |
-| twitterPhotoURL | MarketoSocialTwitterPhotoURL | Marketo社交Twitter照片URL | 潜在客户的推特照片URL。 系统已在社交登录期间填充 |
-| twitterProfileURL | MarketoSocialTwitterProfileURL | Marketo社交Twitter个人资料URL | 潜在客户的Twitter个人资料URL。 系统已在社交登录期间填充 |
-| twitterReach | MarketoSocialTwitterReach | Marketo社交Twitter覆盖度 | 莱德在推特上的影响力。 系统已在社交登录期间填充 |
-| twitterReferredEnrollments | MarketoSocialTwitterReferredEnrollments | Marketo Social Twitter转介的注册 | 通过Twitter归因于商机的被引用注册数。 受管系统 |
-| twitterReferredVisits | MarketoSocialTwitterReferredVisits | Marketo社交Twitter反向访问 | 通过Twitter归因于商机的反向访问次数。 受管系统 |
 | 中间名 | 中间名 | 中间名称 | 商机的中间名 |
 | 移动电话 | 移动电话 | 手机号码 | 商机的手机号码 |
 | 员工数 | 员工数 | 员工数 | 潜在客户公司的员工人数 |
 | 电话 | 电话 | 电话号码 | 潜在客户的电话号码 |
 | 邮政编码 | 邮政编码 | 邮政编码 | 商机的邮政编码 |
-| 评级 | 评级 | 潜在客户评级 | 商机的营销/销售评级 |
+| 评级 | 评级 | 销售线索评级 | 商机的营销/销售评级 |
 | salutation | 称谓 | 称谓 | 潜在顾客首选的称呼，即先生、小姐……等。 |
 | sicCode | SICCode | SIC 代码 | 潜在客户公司的标准行业分类代码 |
 | 站点 | 地点 | 地点 |  |
 | state | State | State | 商机的状态 |
 | 标题 | 标题 | 职务 | 潜在客户的工作职位 |
-| 已取消订阅 | 已取消订阅 | 已取消订阅 | 商机的电子邮件取消订阅状态。 部分系统受管理。 如果设置为true，将阻止接收非操作电子邮件。 |
+| 已取消订阅 | 取消订阅 | 取消订阅 | 商机的电子邮件取消订阅状态。 部分系统受管理。 如果设置为true，将阻止接收非操作电子邮件。 |
 | unsubscriptedReason | 取消订阅的原因 | 退订原因 | 商机取消订阅状态的原因。 部分系统受管理。 如果潜在客户直接取消订阅了Marketo电子邮件，则使用电子邮件信息填充。 |
 | 网站 | 网站 | 网站 | 商机公司的网站URL |
 | createdat |  - | 创建时间 | 初始创建潜在客户记录的时间。 受管系统 |
