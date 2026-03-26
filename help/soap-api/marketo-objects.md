@@ -3,9 +3,9 @@ title: Marketo对象
 feature: SOAP
 description: Marketo对象的概述，包括类型、属性、外部密钥行为以及受支持的SOAP API （用于Opportunity、Program和相关记录）。
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '265'
+source-wordcount: '274'
 ht-degree: 0%
 
 ---
@@ -31,12 +31,12 @@ MObject包括：
 
 ### 外部密钥
 
-外部键是在Marketo对象（如Lead或Opportunity ）上定义的自定义字段。 名称是字段名称，值是在外部系统中生成的字段值。 **Marketo不对这些值强制唯一约束。** API用户负责确保值是唯一的。 如果发生重复，Marketo将使用最近添加的对象。 这类似于电子邮件地址标准字段的行为。
+外部键是在Marketo对象（如Lead或Opportunity ）上定义的自定义字段。 名称是字段名称，值是在外部系统中生成的字段值。**Marketo不对这些值强制唯一约束。** API用户负责确保值的唯一性。 如果发生重复，Marketo将使用最近添加的对象。 这类似于电子邮件地址标准字段的行为。
 
 ### 可用API
 
 | API | 可以运行 |
-|---|---|
+| --- | --- |
 | describeMObject | ActivityRecord， LeadRecord， Opportunity， OpportunityPersonRole |
 | getMObjects | Opportunity 、 OpportunityPersonRole 、 Program |
 | syncMObjects | Opportunity 、 OpportunityPersonRole 、 Program |

@@ -3,9 +3,9 @@ title: 批量导入
 feature: REST API
 description: Marketo批量导入，用于通过多部分上传加载潜在客户、自定义对象和程序成员，创建异步作业、轮询状态和处理故障。
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '610'
+source-wordcount: '660'
 ht-degree: 1%
 
 ---
@@ -93,7 +93,7 @@ Easy,Fox,easyfox@marketo.com
 每个作业创建端点共享一些用于配置批量提取作业的文件格式、字段名和过滤器的常用参数。  提取作业的每种子类型可能都有其他参数：
 
 | 参数 | 数据类型 | 注释 |
-|---|---|---|
+| --- | --- | --- |
 | 格式 | 字符串 | 使用逗号分隔值、制表符分隔值和分号分隔值的选项确定导入数据的文件格式。 接受以下内容之一：CSV、SSV、TSV。 格式默认为CSV。 |
 | 文件 | 字符串 | 数据通过文件中的多部分表单数据指定。 |
 

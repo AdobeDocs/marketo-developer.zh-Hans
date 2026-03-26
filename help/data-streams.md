@@ -2,10 +2,10 @@
 title: 数据流
 description: Marketo Engage数据流概述，支持近乎实时的潜在客户活动和用户审核事件，放宽了性能层客户的API限制
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1615'
-ht-degree: 1%
+source-wordcount: '1714'
+ht-degree: 3%
 
 ---
 
@@ -44,7 +44,7 @@ ht-degree: 1%
 流式处理活动列表：
 
 | AchieveGoalInReferral | ClickPredictiveContent | ReceivedForwardToFriendEmail |
-|--- |--- |--- |
+| --- | --- | --- |
 | AddToList | ClickRTPCallToAction | ReceiveSalesEmail |
 | AddToNurture | ClickSalesEmail | RefctosocialApp |
 | AddToOpportunity | 单击共享链接 | RemoveFromList |
@@ -74,17 +74,17 @@ ht-degree: 1%
 
 订阅此流的良好用例是：
 
-- 使用多个营销系统时跟踪更改：有些客户还会在其他系统(如CRM，如Salesforce)中执行某个级别的营销活动，然后将潜在客户传递到Marketo。 Lead有时会更新并前后同步，因此跟踪哪个系统最近进行了更改非常重要。
+- 使用多个营销系统时跟踪更改：有些客户还会在其他系统（如CRM，如Salesforce）中执行某个级别的营销活动，然后将潜在客户传递到Marketo。 Lead有时会更新并前后同步，因此跟踪哪个系统最近进行了更改非常重要。
 
 流式用户审核事件列表：
 
 | 组件 | 事件类型列表 |
-|--- |--- |
+| --- | --- |
 | 默认项目 | 克隆、创建、删除、编辑通道、导出、修改程序设置、修改程序令牌、重命名 |
 | 电子邮件 | 批准、克隆、创建、删除、编辑、移动、重命名、取消批准 |
 | 电子邮件批处理程序 | 批准、子更新、克隆、创建、删除、编辑、编辑通道、修改程序计划、修改程序设置、修改程序令牌、重命名、取消批准 |
 | 电子邮件模板 | 批准、克隆、创建、删除、草稿创建、草稿放弃、编辑、重命名、取消批准 |
-| 互动项目 | 克隆、创建、删除、编辑通道、修改程序设置、修改程序流、修改程序令牌、重命名 |
+| 参与项目 | 克隆、创建、删除、编辑通道、修改程序设置、修改程序流、修改程序令牌、重命名 |
 | 活动项目 | 克隆、创建、删除、编辑通道、修改程序计划、修改程序设置、修改程序令牌、重命名 |
 | 文件夹 | 创建、删除、编辑、重命名 |
 | 表单 | 批准、克隆、创建、删除、草稿创建、编辑、移动、重命名 |
@@ -139,7 +139,7 @@ ht-degree: 1%
 通知事件列表：
 
 | 组件 | 事件类型列表 |
-|--- |--- |
+| --- | --- |
 | 通知 | campaign中止、campaign失败、nurture（项目已耗尽）、salesforce同步失败、测试组（A/B测试结果）、web服务（每日配额） |
 
 通知事件示例：
@@ -280,4 +280,4 @@ app.listen(port,()=>{
 
 - [Marketo数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [Adobe IO活动和Webhook简介](https://developer.adobe.com/events/docs/guides/)
-- [数据流博客](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)
+- [Data Streams博客](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

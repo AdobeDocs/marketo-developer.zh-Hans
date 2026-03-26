@@ -3,10 +3,10 @@ title: getMObjects
 feature: SOAP
 description: 使用getMObjects可按ID、属性或关联获取Marketo MObjects，每批最多100个，使用streamPosition进行分页，并提供XML示例。
 exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '245'
-ht-degree: 6%
+source-wordcount: '246'
+ht-degree: 7%
 
 ---
 
@@ -22,7 +22,7 @@ ht-degree: 6%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | 类型 | 必需 | 要查询的对象类型。 可以是以下任一项：`Opportunity`、`OpportunityPersonRole`或`Program` |
 | ID | 可选 | 对象的ID |

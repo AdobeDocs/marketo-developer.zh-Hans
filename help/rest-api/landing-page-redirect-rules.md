@@ -3,20 +3,20 @@ title: 登陆页面重定向规则
 feature: REST API, Landing Pages
 description: 使用Marketo Asset REST API创建、查询、更新和删除登陆页面重定向规则，这些规则包含过滤器、分页、主机名选项以及非Marketo目标。
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '655'
+source-wordcount: '776'
 ht-degree: 2%
 
 ---
 
 # 登陆页面重定向规则
 
-[登陆页面重定向规则终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules)
+[登陆页面重定向规则端点参考](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules)
 
 Marketo提供了一组REST API，用于对登陆页面重定向URL执行CRUD操作。 这些API遵循资产API的标准界面模式，提供查询、创建、更新和删除选项。
 
-利用登陆页面重定向规则，可将登陆页面URL重定向到其他页面URL。 您可以重定向Marketo登陆页面、非Marketo登陆页面或其组合。 可在[此处](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)找到有关重定向登陆页面规则的其他信息。
+利用登陆页面重定向规则，可将登陆页面URL重定向到其他页面URL。 您可以重定向Marketo登陆页面、非Marketo登陆页面或其组合。 可在[此处](https://experienceleague.adobe.com/docs/marketo/using/home.html)找到有关重定向登陆页面规则的其他信息。
 
 ## 查询
 
@@ -143,7 +143,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 `redirectFrom`参数指定源登陆页面。 这是一个JSON对象，其中包含类型/值对，可确定源是Marketo登陆页面，还是非Marketo登陆页面。 `type`属性可以是“landingPageId”或“path”。
 
 | 参数 | 可选/必填 | 类型 | 描述 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;get&#39; | 必需 | 字符串 | 方法操作。 |
 | &#39;访客&#39; | 必需 | 字符串 | 方法名称。 |
 | callback | 必需 | 函数 | 要为每个返回的营销活动触发的回调函数。 |
@@ -151,11 +151,11 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 `redirectTo`参数指定目标登陆页面。 这是一个JSON对象，其中包含类型/值对，可确定源是Marketo登陆页面，还是非Marketo登陆页面。 `type`属性可以是“landingPageId”或“url”。
 
 | 登陆页面类型 | redirectTo类型 | 示例 |
-|---|---|---|
+| --- | --- | --- |
 | Marketo | landingPageId | {&quot;type&quot;：&quot;landingPageId&quot;，&quot;value&quot;：&quot;1774&quot;} |
 | 非Marketo | url | {&quot;type&quot;：&quot;url&quot;，&quot;value&quot;：&quot;www.contactLogs.com&quot;} |
 
-有关创建登陆页面重定向规则的更多信息，请访问[此处](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
+有关创建登陆页面重定向规则的更多信息，请访问[此处](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html)。
 
 ```
 POST /rest/asset/v1/redirectRules.json

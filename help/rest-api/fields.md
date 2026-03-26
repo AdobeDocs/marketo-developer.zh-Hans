@@ -3,9 +3,9 @@ title: 字段
 feature: REST API, Field Management
 description: 了解REST和SOAP潜在客户字段命名，通过REST列出字段描述潜在客户，功能映射，为何sfdcId为null，以及使用sfdcLeadId或sfdcContactId。
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '212'
+source-wordcount: '213'
 ht-degree: 2%
 
 ---
@@ -23,7 +23,7 @@ REST API和SOAP API对潜在客户字段使用不同的命名约定。
 有时，很难知道在利用特定集成相关功能时必须使用的字段名称类型。 以下是功能使用REST或SOAP字段名称类型的快速参考。
 
 | 功能 | 要使用的字段名称类型 |
-|--- |--- |
+| --- | --- |
 | 商机跟踪API (Munchkin) | SOAP |
 | Forms 2.0 API | SOAP |
 | 列表导入(UI) | SOAP |

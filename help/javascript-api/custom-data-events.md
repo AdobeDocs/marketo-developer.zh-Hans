@@ -3,9 +3,9 @@ title: 自定义数据事件
 description: 使用适用于Web Personalization的RTP JavaScript API（包含参数、字符串或数组数据，最多四项）发送自定义事件，以及基于点击的触发器。
 feature: Javascript
 exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '243'
+source-wordcount: '263'
 ht-degree: 3%
 
 ---
@@ -14,10 +14,10 @@ ht-degree: 3%
 
 此方法会发送用于跟踪和实时个性化的自定义事件。 此类数据可用于发送第三方数据，或根据访客行为触发您自己的自定义事件。 自定义数据事件在访客的会话中会计为一次。
 
-您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
 | 参数 | 可选/必填 | 类型 | 描述 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `send` | 必需 | 字符串 | 方法操作。 |
 | `event` | 必需 | 字符串 | 方法名称。 |
 | `customData` | 必需 | 字符串或数组 | 自定义数据。 |

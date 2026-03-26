@@ -3,9 +3,9 @@ title: 批量程序成员提取
 feature: REST API
 description: 使用Marketo批量程序成员提取REST API导出大型成员记录，以使用权限和字段元数据进行ETL、数据仓库存储和存档。
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1160'
+source-wordcount: '1284'
 ht-degree: 2%
 
 ---
@@ -235,7 +235,7 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>isExhausted</td>
       <td>布尔值</td>
-      <td>接受一个布尔值，用于筛选已用完内容<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">的</a>人的计划成员资格记录。</td>
+      <td>接受一个布尔值，用于筛选已用完内容</a>的<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">人的计划成员资格记录。</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
@@ -285,7 +285,7 @@ GET /rest/v1/programs/members/describe.json
             <tr>
               <td>已发送</td>
               <td>已订阅</td>
-              <td>已取消订阅</td>
+              <td>取消订阅</td>
             </tr>
             <tr>
               <td>已查看</td>
@@ -319,7 +319,7 @@ GET /rest/v1/programs/members/describe.json
 - 指定导出文件的格式
 
 | 参数 | 数据类型 | 必需 | 注释 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | 字段 | 数组[字符串] | 是 | 字段参数接受字符串的JSON数组。 列出的字段包含在导出的文件中。 可以导出以下字段类型：`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`。 使用其REST API名称指定一个字段，可使用“描述潜在客户2”和/或“描述项目成员”端点检索该字段。 |
 | columnHeaderName | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 值是该字段的导出列标题的名称。 |
 | 格式 | 字符串 | 否 | 接受以下内容之一：CSV、TSV、SSV。 如果设置，导出的文件将分别呈现为逗号分隔的值、制表符分隔的值或空格分隔的值文件。 如果未设置，则默认为CSV。 |
@@ -370,7 +370,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-这将返回一个状态响应，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用创建状态响应中的[调用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)排入队列导出程序成员作业`exportId`终结点：
+这将返回一个状态响应，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用创建状态响应中的`exportId`调用[排入队列导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)终结点：
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -446,7 +446,7 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成程序成员导出的文件，只需使用[调用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)获取导出程序成员文件`exportId`终结点。
+要检索已完成程序成员导出的文件，只需使用`exportId`调用[获取导出程序成员文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)终结点。
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 如果请求的程序成员字段为空（不包含数据），则`null`将置于导出文件中的相应字段中。
 

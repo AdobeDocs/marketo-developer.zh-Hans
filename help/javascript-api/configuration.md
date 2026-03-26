@@ -3,10 +3,10 @@ title: 配置
 description: 使用Marketo API配置JavaScript Munchkin。 了解Munchkin.init设置，如altIds、anonymizeIP、asyncOnly、Cookie生命周期、domainLevel、Beacon API。
 feature: Munchkin Tracking Code, Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '563'
-ht-degree: 3%
+source-wordcount: '613'
+ht-degree: 4%
 
 ---
 
@@ -27,7 +27,7 @@ Munchkin.init("AAA-BBB-CCC", {
 ## 属性
 
 | 名称 | 数据类型 | 描述 |
-|---|---|---|
+| --- | --- | --- |
 | altIds | 数组 | 接受Munchkin ID字符串的数组。 启用后，会根据定向订阅的Munchkin ID将所有Web活动复制到定向订阅。 |
 | anonymizeip | 布尔值 | 将Marketo中记录的新访客的IP地址匿名化。 |
 | apiOnly | 布尔值 | 如果设置为true，则`Munchkin.Init()`函数将不会调用`visitsWebPage`。 这对于需要完全控制每`visitsWebPage`个事件的单页Web应用程序非常有用。 |
@@ -40,7 +40,7 @@ Munchkin.init("AAA-BBB-CCC", {
 | domainSelectorV2 | 布尔值 | 如果设置为true，则使用改进的方法来确定如何设置Cookie域属性。 |
 | httpsOnly | 布尔值 | 默认为false。 如果设置为true，则在通过https提供跟踪的页面时，会将Cookie设置为使用安全设置。 |
 | useBeaconAPI | 布尔值 | 默认为false。 当设置为true时，使用[Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)发送非阻止请求，而不是[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。 如果浏览器不支持此API，Munchkin将回退为使用XMLHttpRequest。 |
-| wsInfo | 字符串 | 采用字符串来定位工作区。 此工作区ID可通过在管理员>集成> Munchkin菜单中选择Workspace来获取。 此设置仅适用于匿名潜在客户记录的初始创建。 一旦为该潜在客户记录建立了Munchkin Cookie值，将无法使用wsInfo参数更改其分区。 由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
+| wsInfo | 字符串 | 采用字符串来定位工作区。 此工作区ID可通过在管理员>集成> Munchkin菜单中选择Workspace来获取。 此设置仅适用于匿名潜在客户记录的初始创建。 一旦为该潜在客户记录建立了Munchkin Cookie值，将无法使用wsInfo参数更改其分区。 由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
 
 ## 示例
 

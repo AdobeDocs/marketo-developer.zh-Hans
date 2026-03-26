@@ -3,10 +3,10 @@ title: describeMObject
 feature: SOAP
 description: 了解如何使用Marketo SOAP中的describeMObject检索ActivityRecord、LeadRecord、Opportunity和OpportunityPersonRole的元数据和字段属性。
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '87'
-ht-degree: 5%
+ht-degree: 8%
 
 ---
 
@@ -16,9 +16,9 @@ ht-degree: 5%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
-| 对象名称 | 必需 | 要为其获取元数据的对象的名称。 `objectName`可以是：`ActivityRecord`、`LeadRecord`、`Opportunity`、`OpportunityPersonRole`之一 |
+| 对象名称 | 必需 | 要为其获取元数据的对象的名称。`objectName` 可以是：`ActivityRecord`、`LeadRecord`、`Opportunity`、`OpportunityPersonRole`之一 |
 
 ## 请求XML
 

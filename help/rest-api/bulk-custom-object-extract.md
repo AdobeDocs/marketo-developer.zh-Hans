@@ -3,20 +3,20 @@ title: 批量自定义对象提取
 feature: REST API, Custom Objects
 description: Marketo批量自定义对象提取REST API指南，用于导出具有更新的At和列表筛选器、选定字段等的商机链接自定义对象……
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1315'
+source-wordcount: '1473'
 ht-degree: 1%
 
 ---
 
 # 批量自定义对象提取
 
-[批量自定义对象提取终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
+[批量自定义对象提取端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
 
 REST API的批量自定义对象提取集提供了一个编程接口，用于从Marketo中检索大量自定义对象记录。 对于需要在Marketo与一个或多个外部系统之间持续交换数据的用例，这是推荐的界面，用于ETL、数据仓库存储和存档目的。
 
-此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI[中商机的详细信息页面的](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)自定义对象选项卡中查看自定义对象数据。
+此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)中商机的详细信息页面的[自定义对象选项卡中查看自定义对象数据。
 
 ## 权限
 
@@ -27,8 +27,8 @@ REST API的批量自定义对象提取集提供了一个编程接口，用于从
 自定义对象提取支持多个过滤器选项，这些选项用于指定链接到自定义对象的潜在客户列表。 如果列表中的商机链接到与给定的自定义对象名称匹配的自定义对象记录，则记录将写入导出文件。 每个导出作业只能指定一个过滤器类型。
 
 | 筛选器类型 | 数据类型 | 注释 |
-|---|---|---|
-| `updatedAt` | Date Range | 接受具有成员`startAt`和`endAt` &amp;amp；nbsp的JSON对象。；`startAt`接受表示低水位线的日期时间，`endAt`接受表示高水位线的日期时间。 范围必须为31天或更少。 具有此筛选器类型的作业将返回在日期范围内更新的所有可访问记录。 日期时间应采用ISO-8601格式，不带毫秒。 |
+| --- | --- | --- |
+| `updatedAt` | Date Range | 接受具有成员`startAt`和`endAt` &amp;nbsp.；`startAt`的JSON对象，该对象接受表示低水位线的日期时间，并且`endAt`接受表示高水位线的日期时间。 范围必须为31天或更少。 具有此筛选器类型的作业将返回在日期范围内更新的所有可访问记录。 日期时间应采用ISO-8601格式，不带毫秒。 |
 | `staticListName` | 字符串 | 接受静态列表的名称。 具有此筛选器类型的作业将返回所有可访问的记录，这些记录是作业开始处理时静态列表的成员。 使用“获取列表”端点检索静态列表名称。 |
 | `staticListId` | 整数 | 接受静态列表的id。 具有此筛选器类型的作业将返回所有可访问的记录，这些记录是作业开始处理时静态列表的成员。 使用“获取列表”端点检索静态列表ID。 |
 | `smartListName`* | 字符串 | 接受智能列表的名称。 具有此筛选器类型的作业将返回在作业开始处理时作为智能列表成员的所有可访问记录。 使用获取智能列表端点检索智能列表名称。 |
@@ -45,7 +45,7 @@ REST API的批量自定义对象提取集提供了一个编程接口，用于从
 - 指定导出文件的格式
 
 | 参数 | 数据类型 | 必需 | 注释 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `fields` | 数组[字符串] | 是 | 字符串数组，其中包含由描述自定义对象端点返回的自定义对象属性名称值。 列出的字段包含在导出的文件中。 |
 | `columnHeaderNames` | 对象 | 否 | 包含字段和列标题名称的键值对的JSON对象。 键必须是导出作业中包含的字段的名称。 值是该字段的导出列标题的名称。 |
 | `format` | 字符串 | 否 | 接受以下内容之一：CSV、TSV、SSV。 如果设置，导出的文件将分别呈现为逗号分隔的值、制表符分隔的值或空格分隔的值文件。 如果未设置，则默认为CSV。 |
@@ -310,7 +310,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-这会在响应中返回一个状态，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用[并从创建状态响应中调用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST)排入队列导出自定义对象作业`apiName`终结点`exportId`。
+这会在响应中返回一个状态，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用`apiName`并从创建状态响应中调用[排入队列导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST)终结点`exportId`。
 
 ```
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -386,7 +386,7 @@ GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成的自定义对象导出的文件，只需使用[和](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)调用`apiName`获取导出自定义对象文件`exportId`终结点。
+要检索已完成的自定义对象导出的文件，只需使用`apiName`和`exportId`调用[获取导出自定义对象文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)终结点。
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 如果请求的自定义对象属性为空（不包含数据），则`null`将置于导出文件中的相应字段中。
 
@@ -401,7 +401,7 @@ leadId,color,make,model,vIN
 13,Fusion Red,Tesla,Roadster,SFGRC3C41FF154321
 ```
 
-为了支持对提取的数据进行部分检索和便于恢复检索，文件终结点可以选择性地支持类型为`Range`的HTTP标头`bytes`。 如果未设置标头，则将返回所有内容。 有关在Marketo [批量提取](bulk-extract.md)中使用Range标头的更多信息，请参阅。
+为了支持对提取的数据进行部分检索和便于恢复检索，文件终结点可以选择性地支持类型为`bytes`的HTTP标头`Range`。 如果未设置标头，则将返回所有内容。 有关在Marketo [批量提取](bulk-extract.md)中使用Range标头的更多信息，请参阅。
 
 ## 取消作业
 

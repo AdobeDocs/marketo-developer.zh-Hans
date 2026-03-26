@@ -3,9 +3,9 @@ title: 身份验证签名
 feature: SOAP
 description: 使用HMAC-SHA1通过HTTPS进行Marketo SOAP API身份验证的指南，以及必填标头字段、时间戳格式和请求与错误响应示例
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '225'
+source-wordcount: '232'
 ht-degree: 3%
 
 ---
@@ -41,7 +41,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 ## 请求标头
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | `mktowsUserId` | 必需 | Marketo客户端访问ID可在Marketo管理员SOAP API面板中的集成下找到。 |
 | `requestSignature` | 必需 | HMAC-SHA1签名基于共享密钥`requestTimestamp`和Marketo用户ID |

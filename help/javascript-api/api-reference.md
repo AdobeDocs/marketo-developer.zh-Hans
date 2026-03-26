@@ -3,9 +3,9 @@ title: Munchkin API参考
 description: 使用Munchkin Javascript API跟踪具有init、createTrackingCookie和munchkinFunction方法的页面访问次数、链接点击量和自定义事件。
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '424'
+source-wordcount: '426'
 ht-degree: 7%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 7%
 
 Munchkin提供了几种可通过Javascript手动调用的函数。 这些功能允许对浏览器事件进行自定义跟踪，例如视频播放或非链接上的点击次数。
 
-## 函数
+## 功能
 
 Munchkin API包含以下函数： `init`、`createTrackingCookie`、`munchkinFunction`。
 
@@ -56,7 +56,7 @@ Munchkin.createTrackingCookie(true);
 
 #### visitWebPage
 
-使用`munchkinFunction()`调用`visitWebPage`会将当前用户的“访问”活动发送到Marketo。 您可以自定义与第二个参数中的数据对象一起发送的URL和`querystring`。
+使用`visitWebPage`调用`munchkinFunction()`会将当前用户的“访问”活动发送到Marketo。 您可以自定义与第二个参数中的数据对象一起发送的URL和`querystring`。
 
 | 数据属性名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -75,7 +75,7 @@ Munchkin.munchkinFunction('visitWebPage', {
 
 #### clickLink
 
-使用`munchkinFunction()`调用`clickLink`会将当前用户的点击活动发送至Marketo。 您可以使用数据对象中的`href`属性自定义点击URL。
+使用`clickLink`调用`munchkinFunction()`会将当前用户的点击活动发送至Marketo。 您可以使用数据对象中的`href`属性自定义点击URL。
 
 | 数据属性名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |

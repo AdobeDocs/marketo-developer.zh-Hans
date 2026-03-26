@@ -3,9 +3,9 @@ title: getleadchanges
 feature: SOAP
 description: 了解如何使用Marketo SOAP getLeadChanges API通过过滤器、leadSelector、分页和XML示例检索潜在客户更改活动。
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '419'
+source-wordcount: '418'
 ht-degree: 3%
 
 ---
@@ -22,13 +22,13 @@ ht-degree: 3%
 
 在SOAP API版本2_2之后，您可以包含`leadSelector`。
 
-对于`LastUpdateAtSelector`，`oldestUpdatedAt`值将对应于`oldestCreatedAt`中的`startPosition`值。 并且`latestUpdatedAt`值将对应于`latestCreatedAt`中的`startPosition`值。
+对于`LastUpdateAtSelector`，`oldestUpdatedAt`值将对应于`startPosition`中的`oldestCreatedAt`值。 并且`latestUpdatedAt`值将对应于`startPosition`中的`latestCreatedAt`值。
 
 注意： `LeadKeySelector`中支持的潜在客户数限制为100。 如果潜在客户数量超过100，则API会引发参数异常并返回SOAP错误。
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | activityFilter->includeAttributes->activityType | 可选（已弃用）改用`activityNameFilter` | 将响应限制为仅包含指定的那些活动类型。 有关所有活动类型，请参阅WSDL 。 |
 | activityFilter->excludeAttributes->activityType | 可选 | 将响应限制为排除指定的活动类型。 有关所有活动类型，请参阅WSDL 。 注意：您不能在同一调用中同时指定`includeAttributes`和`excludeAttributes`。 |

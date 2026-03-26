@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo] 开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '251'
-ht-degree: 28%
+source-wordcount: '277'
+ht-degree: 29%
 
 ---
 
@@ -102,13 +102,15 @@ ht-degree: 28%
       - [机会角色](rest-api/opportunity-roles.md)
       - [计划成员](rest-api/program-members.md)
       - [销售人员](rest-api/sales-persons.md)
+      - [静态列表](rest-api/list-membership.md)
+      - [使用情况](rest-api/usage.md)
    - [分页令牌](rest-api/paging-tokens.md)
    - [性能](rest-api/performance.md)
    - [参考体系结构](rest-api/reference-architectures.md)
    - [示例代码](https://github.com/Marketo/REST-Sample-Code)
    - [标记](rest-api/tags.md)
    - [用户上下文](rest-api/user-context.md)
-   - [User Management](rest-api/user-management.md)
+   - [用户管理](rest-api/user-management.md)
 - SOAP {#soap}
    - 活动 {#activities}
       - [活动](soap-api/activities.md)

@@ -3,7 +3,7 @@ title: 活动类型过滤器
 feature: SOAP
 description: 浏览用于SOAP调用的所有受支持的活动类型过滤器，从电子邮件点击和表单填写到SFDC促销活动更改和机会更新。
 exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 23%
@@ -13,7 +13,7 @@ ht-degree: 23%
 # 活动类型过滤器
 
 | 添加到列表 |
-|-------------------------------------|
+| --- |
 | 添加到培养 |
 | 添加到机会 |
 | 添加到区段 |

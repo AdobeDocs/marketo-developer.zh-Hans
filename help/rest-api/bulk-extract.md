@@ -3,9 +3,9 @@ title: 批量提取
 feature: REST API
 description: 了解如何使用Marketo批量提取REST API导出潜在客户、活动、项目成员和自定义对象，OAuth、作业队列和每日限制为500 MB。
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1702'
+source-wordcount: '1723'
 ht-degree: 0%
 
 ---
@@ -118,7 +118,7 @@ POST /bulk/v1/leads/export/create.json
 每个作业创建端点共享一些用于配置批量提取作业的文件格式、字段名和过滤器的常用参数。 提取作业的每种子类型可能都有其他参数：
 
 | 参数 | 数据类型 | 注释 |
-|---|---|---|
+| --- | --- | --- |
 | 格式 | 字符串 | 使用逗号分隔值、制表符分隔值和分号分隔值的选项确定提取数据的文件格式。 接受以下内容之一：CSV、SSV、TSV。 格式默认为CSV。 |
 | columnHeaderName | 对象 | 允许设置返回文件中列标题的名称。 每个成员键是要重命名的列标题的名称，该值是列标题的新名称。 例如，“columnHeaderNames”：{“firstName”：“First Name”，“lastName”：“Last Name” }， |
 | filter | 对象 | 应用于提取作业的过滤器。 类型和选项因作业类型而异。 |
@@ -208,7 +208,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 与大多数其他Marketo REST端点不同，如果作业尚未完成或传递了错误的作业ID，则文件端点会以404 Not Found状态响应，并以纯文本错误消息作为有效负载。
 
-为了支持对提取的数据进行部分检索和恢复友好检索，文件终结点可以选择性地支持类型为`Range`的HTTP标头`bytes`（根据[RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)）。 如果未设置标头，则将返回所有内容。 要检索文件的前10,000字节，您需要将以下标头作为GET请求的一部分传递到端点，从字节0开始：
+为了支持对提取的数据进行部分检索和恢复友好检索，文件终结点可以选择性地支持类型为`bytes`的HTTP标头`Range`（根据[RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)）。 如果未设置标头，则将返回所有内容。 要检索文件的前10,000字节，您需要将以下标头作为GET请求的一部分传递到端点，从字节0开始：
 
 ```
 Range: bytes=0-9999
@@ -234,7 +234,7 @@ Range: bytes 724-999
 
 #### 文件完整性验证
 
-当`fileChecksum`为“已完成”时，作业状态端点在`status`属性中返回校验和。 校验和是导出文件的SHA-256哈希值。 您可以将校验和与检索文件的SHA-256哈希进行比较，以验证其是否已完成。
+当`status`为“已完成”时，作业状态端点在`fileChecksum`属性中返回校验和。 校验和是导出文件的SHA-256哈希值。 您可以将校验和与检索文件的SHA-256哈希进行比较，以验证其是否已完成。
 
 以下是包含校验和的示例响应：
 

@@ -3,7 +3,7 @@ title: getLeadActivity
 feature: SOAP
 description: 使用getLeadActivity SOAP按键获取潜在客户活动历史记录，过滤活动类型，设置批次大小，通过包含XML示例的流位置进行分页。
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '366'
 ht-degree: 4%

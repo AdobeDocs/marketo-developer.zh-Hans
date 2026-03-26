@@ -3,10 +3,10 @@ title: 富媒体推荐
 description: 使用Marketo预测内容RTP标记、template1 template2 template3 div、GET来设置富媒体推荐，使用SET来配置类别。
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '831'
-ht-degree: 4%
+source-wordcount: '854'
+ht-degree: 3%
 
 ---
 
@@ -21,12 +21,12 @@ ht-degree: 4%
 1. 在页面正文中
    1. 将模板标记（div类）放置在要显示该模板的位置
 
-[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
+[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
 
 ## 模板标记
 
 | 属性 | 可选/必填 | 描述 |
-|---|---|---|
+| --- | --- | --- |
 | 类 | 必需 | 指定此div HTML元素为RTP推荐div。 |
 | data-rtp-template-id | 必需 | 模板id。 这会确定推荐的对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行仅包含标题和描述的垂直对齐。 该脚本将匹配的模板注入此`div.Permissible`值：template1、template2、template3。 |
 
@@ -61,7 +61,7 @@ ht-degree: 4%
 `rtp('get', 'rcmd', 'richmedia');`
 
 | 参数 | 可选/必填 | 类型 | 描述 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;get&#39; | 必需 | 字符串 | 方法操作。 |
 | &#39;rcmd&#39; | 必需 | 字符串 | 方法名称。 |
 | &#39;富媒体&#39; | 必需 | 字符串 | 子方法名称。 |
@@ -77,7 +77,7 @@ ht-degree: 4%
 `rtp('set', 'rcmd', 'richmedia', 'template_id', conf_obj);`
 
 | 参数 | 可选/必填 | 类型 | 描述 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;设置&#39; | 必需 | 字符串 | 方法操作。 |
 | &#39;rcmd&#39; | 必需 | 字符串 | 方法名称。 |
 | &#39;富媒体&#39; | 必需 | 字符串 | 子方法名称。 |
@@ -136,7 +136,7 @@ rtp("set", "rcmd", "richmedia",
 #### 配置属性
 
 | 配置 | 示例 | 描述 |
-|---|---|---|
+| --- | --- | --- |
 | rcmd.general.font.family | &quot;rcmd.general.font.family&quot; ： &quot;arial&quot; | 更改模板中所有文本的字体系列。 此属性支持按浏览器类型列出的所有CSS值。 如果页面上存在自定义字体系列，则可以使用它。 |
 | rcmd.content.background.color | &quot;rcmd.content.background.color&quot; ： &quot;black&quot; | 更改模板内部框的背景颜色。 此属性支持按浏览器类型划分的所有CSS值。 |
 | rcmd.title.text | &quot;rcmd.title.text&quot; ：&quot;推荐的内容&quot; | 更改模板标题。 |
@@ -241,4 +241,4 @@ rtp('get','rcmd', 'richmedia');
 
 #### 富媒体推荐模板#3示例
 
-**名称**：模板3 **描述**：仅包含标题和描述的垂直内容。 鼠标悬停时，标题会更改颜色并超链接到内容URL。 描述还链接到不发生颜色更改的内容。 ![富媒体模板](assets/rich-media-template3.png)
+**名称**：模板3 **描述**：仅包含标题和描述的垂直内容。 鼠标悬停时，标题会更改颜色并超链接到内容URL。 描述还链接到不发生颜色更改的内容。![富媒体模板](assets/rich-media-template3.png)

@@ -3,9 +3,9 @@ title: 指定帐户列表
 feature: REST API
 description: 了解如何使用REST API管理Marketo指定帐户列表，包括权限、字段、筛选以及用于查询、创建、更新和删除的端点。
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '716'
+source-wordcount: '746'
 ht-degree: 2%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
+Marketo中的[命名帐户列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
 `Content`
 
 ## 权限
@@ -27,7 +27,7 @@ Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/doc
 `Named Account List Field`
 
 | 名称 | 数据类型 | 可更新 | 注释 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | marketoGUID | 字符串 | False | 指定帐户列表的唯一字符串标识符。 此字段由系统管理，在创建记录时不允许作为字段。 “dedupeBy”：“idField”执行创建或更新时使用的字段。 |
 | name | 字符串 | True | 列表的名称。 执行create或update时“dedupeBy”使用的字段：“dedupeFields”。 |
 | createdat | 日期时间 | False | 创建列表的日期时间。 此字段由系统管理，在创建或更新记录时不允许作为字段。 |
@@ -75,7 +75,7 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 端点允许使用两种标准操作类型：“createOnly”和“updateOnly”。  `action defaults`设置为“createOnly”。
 
-如果操作为`dedupeBy parameter`，则可以指定可选`updateOnly`。  允许的值为“dedupeFields”（对应于“name”）或“idField”（对应于“marketoGUID”）。  在`createOnly`模式中，仅允许“name”作为`dedupeBy`字段。 一次最多可以提交300条记录。
+如果操作为`updateOnly`，则可以指定可选`dedupeBy parameter`。  允许的值为“dedupeFields”（对应于“name”）或“idField”（对应于“marketoGUID”）。  在`createOnly`模式中，仅允许“name”作为`dedupeBy`字段。 一次最多可以提交300条记录。
 
 ```
 POST /rest/v1/namedAccountLists.json

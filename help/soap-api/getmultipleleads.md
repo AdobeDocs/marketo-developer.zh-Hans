@@ -3,10 +3,10 @@ title: getMultipleLeads
 feature: SOAP
 description: 了解如何使用Marketo SOAP getMultipleLeads按键、静态列表或更新日期获取最多1000个潜在客户，按流位置分页，以及筛选字段。
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '407'
-ht-degree: 2%
+source-wordcount: '409'
+ht-degree: 3%
 
 ---
 
@@ -24,7 +24,7 @@ ht-degree: 2%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | 商机选择器 | 必需 | 可以是以下3种类型之一：`LeadKeySelector`、`StaticListSelector`、`LastUpdateAtSelector` |
 | keyType | 必需 | 您希望查询的ID类型。 值包括IDNUM、COOKIE、EMAIL、LEADOWNEREMAIL、SFDCACCOUNTID、SFDCCONTACTID、SFDCLEADUDID、SFDCLEADOWNERID、SFDCOPTYID。 |

@@ -3,18 +3,18 @@ title: 表单
 feature: REST API, Forms
 description: Marketo Forms REST API指南，用于创建和管理表单、按id或名称检索、使用状态过滤器浏览以及管理字段、字段集和规则。
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1616'
+source-wordcount: '1823'
 ht-degree: 1%
 
 ---
 
 # 表单
 
-[Forms终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
+[Forms端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
 
-[表单字段终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
+[表单字段端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
 
 Marketo forms具有一组复杂的端点，允许从远程系统完全控制表单管理。 表单的结构可能很复杂，因为作为表单的一部分，必须管理许多不同类型的对象：Forms、字段、字段集、可见性规则和后续页面规则。
 
@@ -290,7 +290,7 @@ GET /rest/asset/v1/form/{id}/fields.json
 ### 字段类型
 
 | UI类型 | API名称 |
-|--------------|-----------------|
+| --- | --- |
 | 复选框 | 复选框 |
 | 单选按钮 | 无线电 |
 | 文本区域 | 文本区域 |
@@ -299,7 +299,7 @@ GET /rest/asset/v1/form/{id}/fields.json
 | 电子邮件 | 电子邮件 |
 | 日期 | 日期 |
 | 数值 | 数字 |
-| 双精度 | 多次 |
+| 双精度 | double |
 | 电话 | 电话 |
 | URL | url |
 | 货币 | 货币 |
@@ -918,7 +918,7 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 
 ## 跟进
 
-Marketo表单可能有动态的跟进页面行为，其中在提交时可能会根据指定字段的内容应用要重定向到给定页面或停留在当前页面的规则。 规则可以交替称为“感谢页面”规则或“跟进页面”规则。 这些规则表示为成员`followupType`、`followupValue`、`operator`、`subjectField`、`values`和`default`的JSON数组。 `default`是一个Boolean值，数组中只有一个记录可能为true。 当访客没有其他规则资格时，将使用指定为默认值的规则。 `followupType`可以是lp或url，其中lp表示`followupValue`的Marketo登录页面ID，而url表示指向其他页面的URL。 运算符用于比较主题字段的值与提供的值列表。
+Marketo表单可能有动态的跟进页面行为，其中在提交时可能会根据指定字段的内容应用要重定向到给定页面或停留在当前页面的规则。 规则可以交替称为“感谢页面”规则或“跟进页面”规则。 这些规则表示为成员`followupType`、`followupValue`、`operator`、`subjectField`、`values`和`default`的JSON数组。`default` 是一个布尔值，数组中只有一个记录可能为true。 当访客没有其他规则资格时，将使用指定为默认值的规则。`followupType` 可以是lp或url，其中lp表示`followupValue`的Marketo登录页面ID，url表示指向其他页面的URL。 运算符用于比较主题字段的值与提供的值列表。
 
 ## 提交按钮
 

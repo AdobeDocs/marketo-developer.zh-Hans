@@ -3,9 +3,9 @@ title: REST API
 feature: REST API
 description: 了解如何使用Marketo REST API、设置API用户和LaunchPoint、查看配额和限制、使用授权标头进行身份验证以及检索潜在客户。
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: a0901d2c67aa42368f03494dc8157d2ae93b3dce
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '842'
+source-wordcount: '859'
 ht-degree: 2%
 
 ---
@@ -112,3 +112,5 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 ## API 使用情况
 
 每个API用户在API使用情况报表中单独报告，因此按用户拆分Web服务允许您轻松计算每个集成的使用情况。 如果对实例的API调用数量超过限制并导致后续调用失败，则使用此实践可让您考虑来自每个服务的数量，并让您评估如何解决此问题。 通过转到&#x200B;**[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**&#x200B;并单击过去七天的呼叫数查看您的使用情况。
+
+对于返回每日和最近7天使用情况和错误统计信息的REST端点，请参阅[使用情况](usage.md)。

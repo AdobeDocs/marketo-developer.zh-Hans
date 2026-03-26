@@ -3,9 +3,9 @@ title: 重定向
 description: 实施RTP重定向API，使用ABM、组织、位置和区段等字段将分段访客发送到目标URL，并提供示例和提示。
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '480'
+source-wordcount: '500'
 ht-degree: 7%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 7%
 
 RTP重定向API允许您将分段受众重定向到目标URL。
 
-- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 使用情况
@@ -22,7 +22,7 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 `rtp('send' , 'redirect' , 'field_name' , [ 'values_array' , '...' , '...' ] , 'www.redirect_url.com' , true/false )`
 
 | 参数 | 可选/必填 | 类型 | 描述 |
-|---------------------------|-------------------|---------|-----------------------------|
+| --- | --- | --- | --- |
 | &#39;发送&#39; | 必需 | 字符串 | 方法操作。 |
 | &#39;重定向&#39; | 必需 | 字符串 | 方法名称。 |
 | field_name | 必需 | 字符串 | 要匹配的字段名称。 示例：`abm.name`（见下文）。 |
@@ -33,7 +33,7 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 组织、行业、 ABM列表、位置、 ISP 、匹配的区段
 
 | 条件 | 数据层次结构 | 示例 |
-|-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
+| --- | --- | --- |
 | 匹配区段（仅在首次单击后生效） | matchedSegments.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;matchedSegments.name&#39; ， [&#39;Fortune 1,000&#39; ， &#39;Enterprise&#39;] ， &#39;<http://www.marketo.com>&#39;)； |
 | 匹配区段（仅在首次单击后生效） | matchedSegments.id | rtp( &#39;send&#39;， &#39;redirect&#39;， &#39;matchedSegments.id&#39;， [106， 107， 190]， &#39;<http://www.marketo.com>&#39;)； |
 | ABM列表 | abm.name | rtp( &#39;send&#39;， &#39;redirect&#39; ， &#39;abm.name&#39; ， [&#39;top_key_accounts&#39;， &#39;active_customers&#39;] ， &#39;<http://www.marketo.com>&#39;)； |
@@ -101,7 +101,7 @@ rtp('get','campaign');
 `rtp('send', 'redirect', field_name, url_values_map);`
 
 | 参数 | 可选/必填 | 类型 | 描述 |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;发送&#39; | 必需 | 字符串 | 方法操作。 |
 | &#39;重定向&#39; | 必需 | 字符串 | 方法名称。 |
 | field_name | 必需 | 字符串 | 要匹配的字段名称。 示例：`abm.name`（请参阅上文）。 |

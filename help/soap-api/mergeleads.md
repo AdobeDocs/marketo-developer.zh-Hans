@@ -3,10 +3,10 @@ title: mergeLeads
 feature: SOAP
 description: 将mergeLeads与Marketo SOAP结合使用可合并获胜和失败的潜在客户记录。 包括请求字段、XML请求和响应，以及PHP和Java示例。
 exl-id: a667cb76-525d-4583-b26a-1181d320a68c
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '104'
-ht-degree: 6%
+ht-degree: 8%
 
 ---
 
@@ -16,7 +16,7 @@ ht-degree: 6%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | winningLeadKeyList | 必需 | 用于标识入选商机的键。 可能的值为： `IDNUM`、`EMAIL`、`SFDCLEADID`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID` |
 | lowingLeadKeyList | 必需 | 用于识别失去的潜在客户的键值列表。 |
