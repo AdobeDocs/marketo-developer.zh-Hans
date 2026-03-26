@@ -3,26 +3,26 @@ title: 身份验证
 feature: REST API
 description: 使用2条腿的OAuth 2.0验证Marketo REST API，创建和使用访问令牌，切换到授权标头，管理过期，处理601和602错误。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 37973f51f1f0a08da967bdd07aaa47188b208adb
+source-git-commit: a0901d2c67aa42368f03494dc8157d2ae93b3dce
 workflow-type: tm+mt
-source-wordcount: '628'
+source-wordcount: '657'
 ht-degree: 0%
 
 ---
 
 # 身份验证
 
-Marketo的REST API使用双腿OAuth 2.0进行身份验证。客户端ID和客户端密钥由您定义的自定义服务提供。 每个自定义服务均由仅限API的用户拥有，该用户具有一组角色和权限，可授权服务执行特定操作。 访问令牌与单个自定义服务关联。 访问令牌过期与实例中可能存在的其他自定义服务相关联的令牌无关。
+Marketo的REST API使用双腿OAuth 2.0进行身份验证。 客户端ID和客户端密钥由您定义的自定义服务提供。 每个自定义服务均由仅限API的用户拥有，该用户具有一组角色和权限，可授权服务执行特定操作。 访问令牌与单个自定义服务关联。 访问令牌过期与实例中可能存在的其他自定义服务相关联的令牌无关。
 
 ## 创建访问令牌
 
-通过选择自定义服务并单击`Client ID`，可在`Client Secret` > **[!UICONTROL Admin]** > **[!UICONTROL Integration]**&#x200B;菜单中找到&#x200B;**[!UICONTROL LaunchPoint]**&#x200B;和&#x200B;**[!UICONTROL View Details]**。
+通过选择自定义服务并单击&#x200B;**[!UICONTROL View Details]**，可在&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]**&#x200B;菜单中找到`Client ID`和`Client Secret`。
 
 ![获取REST服务详细信息](assets/authentication-service-view-details.png)
 
 ![启动点凭据](assets/admin-launchpoint-credentials.png)
 
-在REST API部分的`Identity URL` > **[!UICONTROL Admin]** > **[!UICONTROL Integration]**&#x200B;菜单中找到&#x200B;**[!UICONTROL Web Services]**。
+在REST API部分的&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**&#x200B;菜单中找到`Identity URL`。
 
 使用HTTP GET（或POST）请求创建访问令牌，如下所示：
 
@@ -55,7 +55,7 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 >[!IMPORTANT]
 >
->2026年3月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
+>2026年7月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
 
 ### 切换到授权标头
 
