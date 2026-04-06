@@ -3,9 +3,9 @@ title: 数据摄取
 feature: REST API, Dynamic Content
 description: 使用Marketo数据摄取API可大容量、低延迟地摄取人员、自定义对象、公司和项目成员。
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '1786'
+source-wordcount: '1789'
 ht-degree: 13%
 
 ---
@@ -116,7 +116,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### 错误
 
-当调用产生错误时，会返回非202状态以及包含其他错误详细信息的响应正文。  响应正文为application/json，并包含一个包含成员error_code和message的对象。
+当调用产生错误时，会返回非202状态以及包含其他错误详细信息的响应正文。 响应正文为`application/json`，且包含具有成员`error_code`和`message`的单个对象。
 
 以下是Adobe Developer Gateway中可重复使用的错误代码。
 
@@ -139,7 +139,16 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ## 重试
 
-检测到临时错误时，服务将重试操作三次。  第一次重试在5分钟的等待时段后发生，第二次在30分钟后发生，最后第三次在30分钟后发生。  重试有多种原因，主要是在从属服务超时或暂时不可用时。
+检测到临时错误时，服务将重试该操作。 重试有多种原因，主要是在从属服务超时或暂时不可用时。
+
+重试间隔：
+
+* 初始操作和第一次重试：5分钟
+* 第1和第2:15分钟
+* 第2和第3:20分钟
+* 第3和第4:20分钟
+* 第4和第5:2小时
+* 第5次重试后 — > 3小时
 
 ## 端点
 
@@ -166,7 +175,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 | --- | --- | --- | --- | --- |
 | `priority` | 字符串 | 否 | 请求的优先级：正常或高 | 普通 |
 | `partitionName` | 字符串 | 否 | 人员分区的名称 | 默认 |
-| `dedupeFields` | 对象 | 否 | 要消除重复的属性。 允许一个或两个属性名称。<br/> 在AND操作中使用两个属性。 例如，如果同时指定了`email`和`firstName`，则它们都用于使用AND操作查找人员。<br/>支持的属性包括： `id`、`email`、`sfdcAccountId`、`sfdcContactId`、`sfdcLeadId` `sfdcLeadOwnerId`、自定义属性（仅限“字符串”和“整数”类型）、`email` |  |
+| `dedupeFields` | 对象 | 否 | 要消除重复的属性。 允许一个或两个属性名称。<br/> 在AND操作中使用两个属性。 例如，如果同时指定了`email`和`firstName`，则它们都用于使用AND操作查找人员。 <br/>支持的属性包括： `id`、`email`、`sfdcAccountId`、`sfdcContactId`、`sfdcLeadId` `sfdcLeadOwnerId`、自定义属性（仅限“字符串”和“整数”类型）、`email` |  |
 | `persons` | 对象数组 | 是 | 人员的属性名称 — 值对列表 | - |
 
 所需的权限为`Read-Write Lead`。
@@ -239,7 +248,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 所需的权限为`Read-Write Custom Object`。
 
-如果在请求中指定了某人链接字段，且该人员不存在，则会发生多次重试。 如果在重试窗口（65分钟）期间添加该人员，则更新成功。 例如，如果链接字段为Email on Person，而Person不存在，则会发生重试。
+如果在请求中指定了某人链接字段，且该人员不存在，则会发生多次重试。 如果在重试窗口（65分钟）期间添加该人员，则更新成功。 例如，如果Person上的链接字段为`email`，而Person不存在，则会发生重试。
 
 ### 自定义对象示例
 
@@ -380,7 +389,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 | --- | --- |
 | 操作 | 必须为`createOnly`、`updateOnly`、`createOrUpdate`之一。 区分大小写。 |
 | 重复数据删除者 | 必须为`dedupeFields`或`idField`（不区分大小写）。 默认为`dedupeFields`。 |
-| dedupeBy +操作 | `createOnly`和`createOrUpdate`仅允许`dedupeFields`。`updateOnly` 允许`dedupeFields`和`idField`。 |
+| dedupeBy +操作 | `createOnly`和`createOrUpdate`仅允许`dedupeFields`。 `updateOnly`同时允许`dedupeFields`和`idField`。 |
 | 当`dedupeBy=dedupeFields` | 每个公司必须具有`externalCompanyId`。 字段`id`不得存在。 |
 | 当`dedupeBy=idField` | 每个公司必须具有`id`。 字段`externalCompanyId`不得存在。 |
 | `input` / `companies` | 不得为null或为空。 |

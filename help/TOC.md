@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo] 开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '277'
-ht-degree: 29%
+source-wordcount: '284'
+ht-degree: 30%
 
 ---
 
@@ -54,10 +54,13 @@ ht-degree: 29%
       - [资产](rest-api/assets.md)
       - [动态内容](rest-api/dynamic-content.md)
       - [电子邮件](rest-api/emails.md)
+      - [电子邮件（新）](rest-api/emails-new.md)
       - [电子邮件模板](rest-api/email-templates.md)
+      - [电子邮件模板（新）](rest-api/email-templates-new.md)
       - [文件](rest-api/files.md)
       - [文件夹](rest-api/folders.md)
       - [表单](rest-api/forms.md)
+      - [片段（新）](rest-api/fragments.md)
       - [登陆页面](rest-api/landing-pages.md)
       - [登陆页面重定向规则](rest-api/landing-page-redirect-rules.md)
       - [登陆页面模板](rest-api/landing-page-templates.md)

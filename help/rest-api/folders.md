@@ -3,22 +3,22 @@ title: 文件夹
 feature: REST API
 description: Marketo REST API指南，适用于包含创建、更新、删除、按ID和名称查询、使用根批量浏览、工作区、maxDepth和分页的文件夹。
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
 workflow-type: tm+mt
-source-wordcount: '1025'
+source-wordcount: '1099'
 ht-degree: 1%
 
 ---
 
 # 文件夹
 
-[文件夹终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[文件夹端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
 
 文件夹是Marketo中的核心组织资源，所有其他类型的资源至少具有一个文件夹作为父级。 此父文件夹可以是纯组织文件夹，也可以是与其他资产类型具有功能关系并且可以是其他资产父级的项目群。 可以通过API创建、查询、更新和删除文件夹，还可以允许检索其内容的列表。 虽然程序可以通过查询文件夹API返回，但创建、更新和删除程序必须通过程序API执行。
 
 ## 查询
 
-查询文件夹遵循ID为[、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET)且浏览次数为[的](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET)和[的标准查询类型。](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)
+查询文件夹遵循ID为[、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET)且浏览次数为[的[和](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)的标准查询类型。](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET)
 
 ### 按Id
 
@@ -59,7 +59,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 }
 ```
 
-type参数是必需的，并且必须为“文件夹”或“程序”之一。  类型指示对文件夹的查找是针对文件夹ID还是项目ID完成的。 对于此端点，结果数组中只返回单个记录。 请注意响应中的folderType参数。 这可能表示许多不同类型的文件夹。 “Marketo活动”文件夹具有一种类型的营销文件夹或程序，其中可以包含多种不同类型的资源，而Design Studio文件夹具有一种对应于它们可以保留的资源类型的类型。 例如， folderType为“电子邮件”的文件夹可能仅包含电子邮件或其他子文件夹，这些子文件夹可能具有folderType为“电子邮件”或“电子邮件模板”。 类型可能包括：
+type参数是必需的，并且必须为“文件夹”或“程序”之一。  类型指示对文件夹的查找是针对文件夹ID还是项目ID完成的。 对于此端点，结果数组中只返回单个记录。 请注意响应中的`folderType`参数。 这可能表示许多不同类型的文件夹。 “Marketo活动”文件夹具有一种类型的营销文件夹或程序，其中可以包含多种不同类型的资源，而Design Studio文件夹具有一种对应于它们可以保留的资源类型的类型。 例如，包含“`folderType`”的文件夹可能仅包含电子邮件或其他子文件夹，这些子文件夹可能包含“`folderType`”电子邮件或电子邮件模板。 类型可能包括：
 
 - 电子邮件
 - 电子邮件模板
@@ -113,7 +113,7 @@ GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 
 ### 浏览
 
-也可以批量[检索文件夹](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)。 “root”参数可用于指定要在其中执行查询的父文件夹，并将格式化为嵌入为查询参数值的JSON对象。 Root有两个成员：
+也可以批量](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET)检索文件夹[。 “root”参数可用于指定要在其中执行查询的父文件夹，并将格式化为嵌入为查询参数值的JSON对象。 Root有两个成员：
 
 1. id — 文件夹或程序的ID。
 1. 类型 — 文件夹或程序，具体取决于要浏览的根文件夹的类型。

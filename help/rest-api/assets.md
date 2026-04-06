@@ -3,9 +3,9 @@ title: 资产
 feature: REST API
 description: Marketo Asset REST API概述，用于按ID或名称查询、使用分页进行浏览，以及创建或更新文件夹、电子邮件、表单、模板、文件和令牌。
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
 workflow-type: tm+mt
-source-wordcount: '894'
+source-wordcount: '898'
 ht-degree: 2%
 
 ---
@@ -22,6 +22,7 @@ Marketo资源包括：
 - 项目
 - 电子邮件
 - 电子邮件模板
+- 片段
 - 登陆页面
 - 登陆页面模板
 - 代码段

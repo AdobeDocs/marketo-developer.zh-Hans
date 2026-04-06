@@ -2,7 +2,7 @@
 title: 数据流
 description: Marketo Engage数据流概述，支持近乎实时的潜在客户活动和用户审核事件，放宽了性能层客户的API限制
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
 source-wordcount: '1714'
 ht-degree: 3%
@@ -12,7 +12,7 @@ ht-degree: 3%
 # 数据流
 
 >[!NOTE]
-> 有关数据流的当前信息现在位于[使用数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)。
+> 有关数据流的当前信息现在位于[使用数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#)。
 >
 
 我们客户的营销组织依靠及时而集中的营销活动保持业务领先和竞争力。 为了支持快节奏的决策并快速实现战略变革，拥有数据来支持并推动那些能够开展重点突出、目标明确的促销活动的关键决策非常重要。 还有一些客户在Marketo Engage内部和外部对其客户区段级别执行营销工作。 为了支持这些不同的努力，Marketo已创建通过数据流近乎实时地获取大量数据的能力。
@@ -258,7 +258,7 @@ app.listen(port,()=>{
    1. 此步骤需要使用Adobe组织
    1. 要求Adobe组织用户具有开发人员或系统管理员角色
 
-要设置Adobe IO，请参阅公共文档部分中的[使用Adobe IO设置Marketo用户审核数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/)。
+要设置Adobe IO，请参阅公共文档部分中的[使用Adobe IO设置Marketo用户审核数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#)。
 
 ### 在Marketo中设置用户审核数据流
 

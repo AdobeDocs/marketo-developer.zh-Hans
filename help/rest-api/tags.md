@@ -3,16 +3,16 @@ title: 标记
 feature: REST API, Tags
 description: 查询标记类型、按名称获取允许的值、通过REST Asset API更新或删除Marketo中的程序标记，以及请求示例。
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
 workflow-type: tm+mt
-source-wordcount: '221'
-ht-degree: 2%
+source-wordcount: '258'
+ht-degree: 1%
 
 ---
 
 # 标记
 
-[标记终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
+[标记端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
 
 标记是用户为项目定义的字段。 每个标记可能适用于一个或多个程序类型，并且可以是必需或可选的，具体取决于标记的定义方式。 标记还可以提供必须从中选择以供使用的允许值的列表。
 
@@ -97,7 +97,7 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-可以使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)端点批量更新标记。 [此处](programs.md#update)提供了相关示例。
+可以使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)端点集体更新标记。 [程序更新部分](programs.md#update)中提供了示例。
 
 ## 删除
 

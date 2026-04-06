@@ -3,9 +3,9 @@ title: 推送通知
 feature: Mobile Marketing
 description: 指南以通过Marketo启用iOS推送通知，从APNs证书和Xcode设置到Marketo SDK集成、令牌注册、处理。
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9002bcd494ba125fdc7d3ef5f02385465b6eb5a6
 workflow-type: tm+mt
-source-wordcount: '1344'
+source-wordcount: '1338'
 ht-degree: 0%
 
 ---
@@ -285,12 +285,12 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. 使用HTTPv1设置FCM(Google在2023年6月12日已[弃用的XMPP协议](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref)，将于2024年6月删除)
+1. 使用HTTPv1设置FCM
 
 - 在Marketo功能管理器![](assets/feature-manager.png)中启用MME FCM HTTPv1
    - 在MLM中上载应用程序的服务帐户Json文件。
    - 您可以从Firebase控制台下载服务帐户Json文件。   ![](assets/fcm-console.png)
-   - 在Marketo中上传服务帐户Json文件后等待一小时，然后再发送推送通知。 
+   - 在Marketo中上传服务帐户Json文件后等待一小时，然后再发送推送通知。  
 
 ## Android测试设备
 
