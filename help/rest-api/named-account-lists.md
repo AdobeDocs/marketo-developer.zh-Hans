@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
+Marketo中的[命名帐户列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
 `Content`
 
 ## 权限
@@ -178,7 +178,7 @@ POST /rest/v1/namedAccountLists/delete.json
 查询指定帐户列表的成员资格非常简单，只需要帐户列表的`i`。 可选参数包括：
 
 -`field` — 要包含在响应记录中的以逗号分隔的字段列表
--`nextPageToke` — 用于分页结果集
+-`nextPageToke` — 对结果集进行分页
 -`batchSiz` — 用于指定要返回的记录数
 
 如果未设置`field`，则将返回`marketoGUI`、`nam`、`createdA`和`updatedA`。 `batchSiz`的最大值和默认值为300。
