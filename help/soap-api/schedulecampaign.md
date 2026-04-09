@@ -3,10 +3,10 @@ title: scheduleCampaign
 feature: SOAP, Smart Campaigns
 description: 使用scheduleCampaign立即或稍后运行Marketo批量智能营销活动，覆盖令牌，克隆程序，并通过带有PHP和Java示例的SOAP XML实施。
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '274'
-ht-degree: 3%
+ht-degree: 4%
 
 ---
 
@@ -26,13 +26,13 @@ ht-degree: 3%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | 项目名称 | 必需 | 包含程序的名称 |
 | campaignName | 必需 | 智能营销活动的名称 |
 | campaignRunAt | 可选 | 运行计划营销活动的时间（W3C WSDL日期格式）。 |
 | cloneToProgramName | 可选 | 当此属性存在时，将克隆营销活动的父项目，并计划新创建的营销活动。 属性为生成的程序指定所需的名称。 注意：使用此字段时，每天只允许进行10次调用。 |
-| programTokenList->attrib->name | 可选 | 要为其发送新值的令牌的名称。 使用完整的令牌格式，就像在Marketo UI中一样。 即&quot;{{my.message}}&quot; |
+| programTokenList->attrib->name | 可选 | 要为其发送新值的令牌的名称。 使用完整的令牌格式，就像在Marketo UI中一样。 即&quot;`{{my.message}}`&quot; |
 | programTokenList->attrib->value | 可选 | 关联的令牌名称的值。 |
 
 ## 请求XML

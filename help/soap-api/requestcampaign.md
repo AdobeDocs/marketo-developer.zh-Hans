@@ -3,7 +3,7 @@ title: requestCampaign
 feature: SOAP, Smart Campaigns
 description: 通过SOAP requestCampaign在Marketo Smart Campaign中运行潜在客户，包括参数集、令牌处理、100个潜在客户限制、XML请求和PHP Java示例。
 exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '298'
 ht-degree: 3%
@@ -20,7 +20,7 @@ ht-degree: 3%
 
 注意：每个调用最多有100个leadKey值。 忽略其他键。
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | leadList->leadKey->keyType | 必需 | `keyType`允许您指定查询潜在客户的字段。 可能的值包括：`IDNUM`、`EMAIL`、`SFDCLEADID`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID` |
 | leadList->leadKey->keyValue | 必需 | `keyValue`是您希望作为潜在客户查询依据的值。 |
@@ -29,7 +29,7 @@ ht-degree: 3%
 | campaignName | 当campaignId存在时为可选；否则，在集合中需要为`campaignName`、programName和programTokenList | 营销活动的名称 |
 | 项目名称 | 当campaignId存在时为可选；否则，在集合中需要为`campaignName`、programName和programTokenList | 项目的名称 |
 | programTokenList | 当campaignId存在时为可选；否则在集中需要为`campaignName`、`programName`和`programTokenList` | 要在营销活动中使用的令牌数组。 指定令牌时，需要programName和`campaignName`。 |
-| programTokenList->attrib->name | 可选 | 您希望传递值的程序令牌的名称。 例如：{{my.message}} |
+| programTokenList->attrib->name | 可选 | 您希望传递值的程序令牌的名称。 例如： `{{my.message}}` |
 | programTokenList->attrib->value | 可选 | 指定令牌名称的值。 |
 
 ## 请求XML

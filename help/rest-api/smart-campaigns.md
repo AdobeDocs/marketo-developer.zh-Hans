@@ -3,18 +3,18 @@ title: 智能营销活动
 feature: REST API, Smart Campaigns
 description: 了解如何将Marketo REST API用于Smart Campaigns，包括按ID或名称查询、浏览筛选器、创建克隆删除以及计划或请求触发器
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1196'
 ht-degree: 1%
 
 ---
 
 # 智能营销活动
 
-[智能营销活动终结点引用（资源）](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns)
+[智能营销活动端点引用（资产）](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns)
 
-[营销活动终结点引用（潜在客户）](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
+[营销活动端点引用（潜在客户）](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
 
 Marketo提供了一组REST API用于对智能营销活动执行操作。 这些API遵循资产API的标准界面模式，提供查询、创建、克隆和删除选项。 此外，您还可以通过计划批量营销活动或请求触发营销活动来管理智能营销活动执行。
 
@@ -373,7 +373,7 @@ POST /rest/asset/v1/smartCampaign/{id}/delete.json
 
 使用[计划营销活动](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST)端点计划立即运行或在将来日期运行的批处理营销活动。 营销活动`id`是必需的路径参数。 可选参数为`tokens`、`runAt`和`cloneToProgram`，它们作为application/json在请求正文中传递。
 
-令牌数组参数是“我的令牌”的数组，用于覆盖现有程序令牌。 营销活动运行后，令牌将被丢弃。  每个令牌数组项都包含名称/值对。 令牌的名称必须格式化为“{{my.name}}”。
+令牌数组参数是“我的令牌”的数组，用于覆盖现有程序令牌。 营销活动运行后，令牌将被丢弃。  每个令牌数组项都包含名称/值对。 令牌的名称必须格式化为“`{{my.name}}`”。
 
 runAt日期时间参数指定运行营销活动的时间。 如果未指定，则营销活动将在调用终结点后5分钟运行。 日期时间值在以后不能超过两年。
 
@@ -426,7 +426,7 @@ POST /rest/v1/campaigns/{id}/schedule.json
 
 此端点需要营销活动`id`作为路径参数，以及包含潜在客户ID的`leads`整数数组参数。 每次调用最多允许100个潜在客户。
 
-（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“{{my.name}}”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
+（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“`{{my.name}}`”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
 
 `leads`和`tokens`参数在请求正文中作为application/json传递。
 

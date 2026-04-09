@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: 了解如何在Marketo SOAP中使用importToList来导入带有CSV标头、令牌覆盖、XML示例和状态检查的静态列表。
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
-source-wordcount: '409'
+source-wordcount: '410'
 ht-degree: 3%
 
 ---
@@ -28,7 +28,7 @@ ht-degree: 3%
 
 **动态电子邮件内容：**&#x200B;或者，您可以按潜在客户传递值，以代替电子邮件中的“我的令牌”。
 
-| 电子邮件 | 第一 | 最后一个 | {{my.specialToken}} | {{my.otherToken}} |
+| 电子邮件 | 第一 | 最后一个 | `{{my.specialToken}}` | `{{my.otherToken}}` |
 | --- | --- | --- | --- | --- |
 | <joe@company.com> | Joe | Smith | 鱼 | 蓝色 |
 | <mary@company.com> | 玛丽 | 罗杰斯 | 鸡肉 | 棕色 |
@@ -42,7 +42,7 @@ ht-degree: 3%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | 项目名称 | 必需 | 包含静态列表的程序的名称 |
 | campaignName | 可选 | 如果使用“我的令牌”覆盖，则这是将使用这些令牌的营销活动的名称。 活动必须在指定的项目范围内。 |
