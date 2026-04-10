@@ -1,0 +1,28 @@
+{
+  "editor.wordWrap": "on",
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "off"
+    }
+  },
+"markdown-preview-enhanced.previewTheme": "github-light.css",
+"markdown-preview-enhanced.codeBlockTheme": "github.css",
+"markdown-preview-enhanced.enableScriptExecution": true,
+"cSpell.words": [
+    "Munchkin",
+    "LaunchPoint",
+    "mcpServers",
+    "BEGINTABS",
+    "ENDTABS",
+    "BEGINSHADEBOX",
+    "ENDSHADEBOX",
+    "MORELIKETHIS",
+    "UICONTROL",
+    "DONOTLOCALIZE",
+    "CONTEXTUALHELP",
+    "exl"
+  ]
+}
