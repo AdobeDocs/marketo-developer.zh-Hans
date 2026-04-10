@@ -1,4 +1,6 @@
 .DS_Store
+.claude/
+.vscode/
 .pre-commit-config.yaml
 generate-seo.mjs
 package-lock.json
