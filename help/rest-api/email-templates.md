@@ -18,7 +18,7 @@ ht-degree: 1%
 
 ## 查询
 
-查询电子邮件模板遵循资产的标准模式，允许按ID ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET)查询[、按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET)查询[和[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET)给定文件夹。
+查询电子邮件模板遵循资产的标准模式，允许按ID [&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET)查询[、按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET)查询和[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET)给定文件夹。
 
 ### 按Id
 
