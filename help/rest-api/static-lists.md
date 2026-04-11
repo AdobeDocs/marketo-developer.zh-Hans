@@ -3,7 +3,7 @@ title: 静态列表
 feature: REST API, Static Lists
 description: 使用Marketo REST API查询、创建、更新和删除静态列表，以及包含ID、名称和浏览、文件夹作用域、分页和日期过滤器的端点。
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '496'
 ht-degree: 1%
@@ -26,7 +26,7 @@ Marketo提供了一组REST API，用于对静态列表执行CRUD操作。 这些
 
 [按ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET)进行查询，将单个静态列表`id`作为路径参数并返回单个静态列表记录。
 
-```
+```http
 GET /rest/asset/v1/staticList/{id}.json
 ```
 
@@ -55,7 +55,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 [按名称](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET)查询将静态列表`name`作为参数并返回单个静态列表记录。 对实例中的所有静态列表名称执行完全匹配的字符串，并返回与该名称匹配的静态列表的结果。
 
-```
+```http
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 ```
 
@@ -82,9 +82,9 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### 浏览
 
-静态列表也可在批次[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET)中检索。 `folder`参数可用于指定将在其中执行查询的父文件夹，并将其格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 `earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回在给定范围内创建或更新的静态列表设置低日期时间水印和高日期时间水印。 日期时间值必须是有效的ISO-8601字符串，并且不应包括毫秒。
+静态列表也可在批次](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET)中检索[。 `folder`参数可用于指定将在其中执行查询的父文件夹，并将其格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 `earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回在给定范围内创建或更新的静态列表设置低日期时间水印和高日期时间水印。 日期时间值必须是有效的ISO-8601字符串，并且不应包括毫秒。
 
-```
+```http
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 ```
 
@@ -135,15 +135,15 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 [创建静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/createStaticListUsingPOST)是使用`application/x-www-form-urlencoded` POST和两个必需的参数执行的。 `folder`参数用于指定将在其下创建静态列表的父文件夹，并将其格式化为包含`id`和`type`的JSON对象。 `name`参数用于命名静态列表，必须是唯一的。 （可选）可以使用`description`参数描述静态列表。
 
-```
+```http
 POST /rest/asset/v1/staticLists.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 folder={"id":1034,"type":"Program"}&name=My Static List
 ```
 
@@ -170,15 +170,15 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 
 [使用两个可选参数通过单独的终结点更新静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST)。 `description`参数可用于更新静态列表描述。 `name`参数可用于更新静态列表名称，并且必须是唯一的。
 
-```
+```http
 POST /rest/asset/v1/staticList/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is a static list used for testing
 ```
 
@@ -208,7 +208,7 @@ description=This is a static list used for testing
 
 [删除静态列表](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST)需要一个静态列表`id`作为路径参数。 无法删除导入或导出操作正在使用的静态列表，或其他资产正在使用的静态列表。
 
-```
+```http
 POST /rest/asset/v1/staticList/{id}/delete.json
 ```
 

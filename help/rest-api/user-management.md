@@ -3,7 +3,7 @@ title: 用户管理
 feature: REST API
 description: 适用于CRUD的Marketo用户管理API指南，内容涉及用户、基于标题的身份验证、角色和工作区、状态代码处理、日期时间格式和查询端点。
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1581'
 ht-degree: 6%
@@ -19,9 +19,9 @@ Marketo提供了一组用户管理端点，允许您对Marketo中的用户记录
 与其他Marketo REST API不同，在使用用户管理API时：
 
 - 您必须使用HTTP标头方法发送访问令牌以进行身份验证。 您不能将访问令牌作为查询字符串参数传递。 有关详细信息，请参阅[身份验证指南](authentication.md)。
-- 创建REST API的[自定义服务](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)的用户角色时，必须从两个不同的组中选择一个角色权限：
-   1. 来自[访问管理员](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组的“访问用户”权限
-   1. 从[Access API](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组访问“Access User Management Api”
+- 创建REST API的[自定义服务](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)的用户角色时，必须从两个不同的组中选择一个角色权限：
+   1. 来自[访问管理员](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组的“访问用户”权限
+   1. 从[Access API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组访问“Access User Management Api”
 - 响应正文不包含指示调用成功或失败的“success”布尔属性。 相反，您必须评估HTTP响应状态代码。 如果调用成功，则返回200状态代码。 如果调用失败，将返回非200级的状态代码，并且响应正文包含标准“错误”数组，其中含有错误代码和描述性错误消息。
 - 日期时间字符串的格式为`yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`。 这适用于以下属性： `createdAt`、`updatedAt`、`expiresAt`。
 - 用户管理API端点未像其他端点一样带有“/rest”前缀。
@@ -34,7 +34,7 @@ Marketo提供了一组用户管理端点，允许您对Marketo中的用户记录
 
 [通过ID获取用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserUsingGET)终结点采用单个`userid`路径参数，并为已接受其邀请的用户返回单个用户记录。
 
-```
+```http
 GET /userservice/management/v1/users/{userid}/user.json
 ```
 
@@ -75,7 +75,7 @@ GET /userservice/management/v1/users/{userid}/user.json
 
 [按ID获取受邀用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getInvitedUserUsingGET)端点采用单个`userid`路径参数并返回“待处理”用户的单个用户记录（尚未接受其邀请）。
 
-```
+```http
 GET /userservice/management/v1/users/{userid}/invite.json
 ```
 
@@ -98,7 +98,7 @@ GET /userservice/management/v1/users/{userid}/invite.json
 
 [按ID](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserRolesAndWorkspacesUsingGET)获取角色和工作区端点采用单个`userid`路径参数并返回用户角色和工作区记录的列表。 响应包含一个数组，该数组包含一个对象，该对象包含指定用户的角色和工作区ID和名称。
 
-```
+```http
 GET /userservice/management/v1/users/{userid}/roles.json
 ```
 
@@ -123,7 +123,7 @@ GET /userservice/management/v1/users/{userid}/roles.json
 
 [获取用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUsersUsingGET)终结点返回所有用户记录的列表。 可选的`pageSize`参数是一个整数，它指定要返回的最大条目数。 默认值为20。 最大值为200。 可选的`pageOffset`参数是一个整数，它指定从何处开始检索条目。 可与`pageSize`一起使用。 默认值为0。
 
-```
+```http
 GET /userservice/management/v1/users/allusers.json
 ```
 
@@ -164,7 +164,7 @@ GET /userservice/management/v1/users/allusers.json
 
 [获取角色](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getRolesUsingGET)终结点返回所有角色记录的列表。
 
-```
+```http
 GET /userservice/management/v1/users/roles.json
 ```
 
@@ -247,7 +247,7 @@ GET /userservice/management/v1/users/roles.json
 
 [获取工作区](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET)终结点返回所有工作区记录的列表。
 
-```
+```http
 GET /userservice/management/v1/users/workspaces.json
 ```
 
@@ -298,9 +298,9 @@ GET /userservice/management/v1/users/workspaces.json
 
 ## 邀请用户
 
-在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持[仅API用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的邀请。 要邀请[标准用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
+在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持[仅API用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的邀请。 要邀请[标准用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
 
-[邀请用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST)端点向新用户发送“欢迎使用Marketo”电子邮件邀请。 电子邮件正文包含“登录到Marketo”链接，该链接允许用户首次访问Marketo。 要接受邀请，电子邮件收件人请单击“登录到Marketo”链接，创建其密码，然后获得对Marketo的访问权限。 在接受过程完成之前，邀请处于“待处理”状态，可能无法编辑用户记录。 待处理的邀请将在发送七天后过期。 有关详细信息，请参阅[Marketo用户管理文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)。
+[邀请用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST)端点向新用户发送“欢迎使用Marketo”电子邮件邀请。 电子邮件正文包含“登录到Marketo”链接，该链接允许用户首次访问Marketo。 要接受邀请，电子邮件收件人请单击“登录到Marketo”链接，创建其密码，然后获得对Marketo的访问权限。 在接受过程完成之前，邀请处于“待处理”状态，可能无法编辑用户记录。 待处理的邀请将在发送七天后过期。 有关详细信息，请参阅[Marketo用户管理文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)。
 
 参数以`application/json`格式在请求正文中传递。
 
@@ -308,15 +308,15 @@ GET /userservice/management/v1/users/workspaces.json
 
 `userid`参数是用于用户登录的唯一用户标识符字符串值，必须格式化为电子邮件地址。 如果未在请求中提供，`userid`的值默认为`emailAddress`参数中提供的值。
 
-布尔`apiOnly`参数指定用户是否为[仅限API的用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 `expiresAt`参数指定用户登录过期时间，并使用W3C ISO-8601格式（不含毫秒）进行格式化。 如果未在请求中提供，则用户永不过期。 `reason`参数是一个描述用户邀请原因的字符串。
+布尔`apiOnly`参数指定用户是否为[仅限API的用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 `expiresAt`参数指定用户登录过期时间，并使用W3C ISO-8601格式（不含毫秒）进行格式化。 如果未在请求中提供，则用户永不过期。 `reason`参数是一个描述用户邀请原因的字符串。
 
 如果成功，端点将返回值“true”，否则返回错误消息。
 
-```
+```http
 POST /userservice/management/v1/users/invite.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -336,11 +336,11 @@ Content-Type: application/json
 }
 ```
 
-```
+```text
 true
 ```
 
-以下是发送给新用户的“欢迎使用Marketo”电子邮件邀请示例。 电子邮件主题行是“Marketo登录信息”，发件人是与[REST API自定义服务](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)关联的仅API用户的电子邮件地址，收件人是通过firstName、lastName和emailAddress参数指定的。
+以下是发送给新用户的“欢迎使用Marketo”电子邮件邀请示例。 电子邮件主题行是“Marketo登录信息”，发件人是与[REST API自定义服务](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)关联的仅API用户的电子邮件地址，收件人是通过firstName、lastName和emailAddress参数指定的。
 
 ![邀请用户电子邮件](assets/invite-user-email.png)
 
@@ -352,15 +352,15 @@ true
 
 ### 更新用户属性
 
-在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持更新[仅限API的用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的属性。 要更新[标准用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)的属性，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
+在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持更新[仅限API的用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的属性。 要更新[标准用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)的属性，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
 
 [更新用户属性](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/updateUserAttributeUsingPOST)终结点采用单个`userid`路径参数并返回单个用户记录。 请求正文包含一个或多个要更新的用户属性： `emailAddress`、`firstName`、`lastName`、`expiresAt`。
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/update.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -407,11 +407,11 @@ Content-Type: application/json
 
 #### 删除用户
 
-在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此端点仅支持删除[仅限API的用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 要删除[标准用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
+在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此端点仅支持删除[仅限API的用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 要删除[标准用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
 
 [删除用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteUserUsingPOST)终结点采用单个`userid`路径参数并从实例中删除相应的用户。 这是破坏性删除，无法撤消。 如果成功，则返回200状态代码，否则返回错误消息。
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/delete.json
 ```
 
@@ -419,7 +419,7 @@ POST /userservice/management/v1/users/{userid}/delete.json
 
 [删除受邀用户](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteInvitedUserUsingPOST)终结点采用单个`userid`路径参数并从实例中删除相应的“挂起”用户（用户尚未接受其邀请）。 这是破坏性删除，无法撤消。 如果成功，则返回200状态代码，否则返回错误消息。
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/invite/delete.json
 ```
 
@@ -431,11 +431,11 @@ POST /userservice/management/v1/users/{userid}/invite/delete.json
 
 [添加角色](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST)终结点采用单个`userid`路径参数，并将一个或多个用户角色添加到相应的用户。 请求正文包含一个或多个对象的列表，每个对象都包含  `accessRoleId`和`workspaceId`属性。 如果成功，则返回指定用户的`accessRoleId/workspaceId`对的完整列表。
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/roles/create.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -469,11 +469,11 @@ Content-Type: application/json
 
 [删除角色](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST)终结点采用单个`userid`路径参数，并从相应的用户中删除一个或多个用户角色。 请求正文包含一个或多个对象的列表，每个对象都包含  `accessRoleId`和`workspaceId`属性。 如果成功，则会返回指定用户的accessRoleId/workspaceId对的剩余列表。
 
-```
+```http
 POST /userservice/management/v1/users/{userid}/roles/delete.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 

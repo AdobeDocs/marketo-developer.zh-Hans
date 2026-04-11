@@ -3,7 +3,7 @@ title: 资产
 feature: REST API
 description: Marketo Asset REST API概述，用于按ID或名称查询、使用分页进行浏览，以及创建或更新文件夹、电子邮件、表单、模板、文件和令牌。
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '898'
 ht-degree: 2%
@@ -42,7 +42,7 @@ Assets通常具有三种可检索模式：通过id、通过名称和通过浏览
 
 ### 按Id
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -83,7 +83,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 由于技术原因，资产API无法搜索包含逗号(，)的资产名称。  建议命名规则在所有资产类型中排除逗号。
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=My File
 ```
 
@@ -119,7 +119,7 @@ GET /rest/asset/v1/file/byName.json?name=My File
 - offset — 返回结果的起始整数偏移。
 - maxReturn — 限制返回的记录数。  如果未设置，则默认为20，最大值为200。
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 ```
 
@@ -179,15 +179,15 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 例如，下面是如何创建令牌：
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&value=2015-04-01&type=date&folderType=Folder
 ```
 
@@ -218,15 +218,15 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 
 要更新文件夹，请执行以下操作：
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -271,15 +271,15 @@ type=Folder&description=This is a test (update 01)
 
 登陆页面首先需要使用父模板创建登陆页面资产。  这将创建一个新登陆页面，其中包含每个内容部分的模板默认内容。
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -320,7 +320,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 要填充登陆页面的内容，您必须检索内容部分的列表，然后为任何偏离模板的部分执行个别更新。
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -352,7 +352,7 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 #### 更新部分
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 ```
 
@@ -374,7 +374,7 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 许多资源类型具有关联的草稿和审批系统，包括电子邮件、登陆页面、代码片段、Forms及其相应的模板。  尝试批准资产时，将根据一组特定的验证规则对其进行评估，然后将其设置为已批准状态，或返回失败原因。  对于这些类型的资产，每当对特定资产的内容进行更新时，都会对资产的草稿进行更改，这不会影响批准的版本。  这样可安全地更改内容，而不会影响资产的实时版本。  然后，可以使用审批端点将更改应用于实时版本。  这也会清除资产的草稿状态，直到应用任何其他更新为止。
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -406,7 +406,7 @@ POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 
 也可以通过每个有效资产类型的端点放弃草稿。  在处于已批准草稿状态的资产上使用此项将放弃当前草稿及其具有的任何待处理更改。  在目前没有批准版本的资产上使用此项将不会产生任何效果并返回错误。  只能删除草稿的资源，但不能放弃它们。
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -436,7 +436,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 如果Assets处于仅批准状态，则也可以取消批准。  这将删除资产的任何实时版本，并将资产返回到仅草稿状态，同时放弃任何关联的草稿。  只有在Marketo的任何地方均未使用时（例如发送电子邮件流程步骤中引用的电子邮件，或者电子邮件中嵌入的代码片段），才能对大多数资源执行此操作。
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -458,7 +458,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 具有批准和草稿状态（表单除外）的Assets在批准时不得删除，并且在删除之前必须先获得批准。  通常，仅当资产未批准且不再使用时，以及在文件夹中为空资产时，才能执行删除。  一个值得注意的例外是程序，只要程序及其内容在程序边界之外的任何地方都未使用，这些程序可以与其所有子内容一起删除。
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

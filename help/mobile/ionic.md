@@ -3,9 +3,9 @@ title: '[!DNL Ionic]'
 feature: Mobile Marketing
 description: 分步指南将Marketo Cordova插件与Ionic集成、启用推送通知、初始化SDK、跟踪会话并关联潜在客户。
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '620'
+source-wordcount: '663'
 ht-degree: 2%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 2%
 
 ## 先决条件
 
-1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)&#x200B;(获取您的应用程序密钥和Munchkin ID)。
+1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取您的应用程序密钥和Munchkin ID）。
 1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md) )。
 1. 安装[[!DNL Ionic]](https://ionicframework.com/getting-started/)和[Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 
@@ -54,7 +54,7 @@ ht-degree: 2%
 
 >[!TAB 目标C]
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 [sharedInstance trackPushNotification:launchOptions];
@@ -62,7 +62,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 >[!TAB Swift]
 
-```
+```swift
 let sharedInstance: Marketo = Marketo.sharedInstance()
 
 sharedInstance.trackPushNotfication(launchOptions)

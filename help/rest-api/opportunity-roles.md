@@ -3,16 +3,16 @@ title: 机会角色
 feature: REST API
 description: 通过REST API管理Marketo机会角色，包括描述、使用复合重复数据删除字段查询、创建更新删除、超时以及无CRM同步。
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '270'
+source-wordcount: '279'
 ht-degree: 0%
 
 ---
 
 # 机会角色
 
-[机会角色终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[机会角色端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
 潜在客户通过中间`opportunityRole`对象链接到商机。
 
@@ -22,7 +22,7 @@ ht-degree: 0%
 
 与机会一样，会向机会角色显示描述性呼叫和CRUD操作。
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -108,7 +108,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 请注意，`dedupeFields`和`searchableFields`都与机会稍有不同。 `dedupeFields`实际上提供了一个复合键，其中`externalOpportunityId`、`leadId`和`role`的所有三个都是必需的。 目标实例中必须同时存在按ID字段排列的商机和商机链接，才能成功创建记录。 对于`searchableFields`、`marketoGUID`、`leadId`和`externalOpportunityId`，它们都自己对查询有效，并且使用的模式与“机会”相同，但有一个附加选项，即使用复合键进行查询，该选项要求通过POST提交JSON对象，并使用附加查询参数`_method=GET`。
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -147,7 +147,7 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 
 Opportunity角色与创建和更新记录的Opportunity界面相同。
 
-```
+```http
 POST /rest/v1/opportunities/roles.json
 ```
 
@@ -195,7 +195,7 @@ POST /rest/v1/opportunities/roles.json
 
 您可以按重复数据消除字段或ID字段删除机会角色。 使用值为dedupeFields或idField的deleteBy参数指定。 如果未指定，则缺省值为dedupeFields。 请求正文包含一个要删除的商机角色的输入数组。 每个调用最多允许300个机会角色。
 
-```
+```http
 POST /rest/v1/opportunities/roles/delete.json
 ```
 

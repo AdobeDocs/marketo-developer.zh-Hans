@@ -3,7 +3,7 @@ title: 登陆页面
 feature: REST API, Landing Pages
 description: 使用Marketo REST API查询元数据和内容，创建、更新、批准、删除和克隆登陆页面，包括引导式和自由格式类型。
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1221'
 ht-degree: 1%
@@ -22,7 +22,7 @@ ht-degree: 1%
 
 查询登陆页面的内容将返回登陆页面中可用的内容部分的列表。 部分必须存在于页面的内容列表中，才能更新内容：
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -60,15 +60,15 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 [登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content)端点的有效内容类型为：富文本、HTML、表单、图像、矩形、代码片段。
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -129,15 +129,15 @@ Marketo提供了一种克隆登陆页面的简单方法。 这是application/x-
 
 可选的`description`参数用于描述新的登陆页面。
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 ```
 
@@ -195,7 +195,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 要创建动态内容部分，该部分必须已存在于登陆页面的内容列表中。 然后，需要使用[更新登陆页面内容部分](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST)端点将类型设置为“DynamicContent”。 当某个部分设置为动态内容时，它会在内容部分中创建基础动态部分，这些部分都继承已转换元素的基本类型。 每个动态部分也会继承转化部分中的内容。
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 ```
 
@@ -231,15 +231,15 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 
 [根据区段ID为每个区段更新内容](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST)。
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 segment=New Segment&value=New Content
 ```
 
@@ -274,13 +274,13 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 
 通过将登陆页面ID传递到获取登陆页面变量端点，为引导式登陆页面检索变量。
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/variables.json
 ```
 
@@ -316,7 +316,7 @@ GET /rest/asset/v1/landingPage/{id}/variables.json
 
 通过将登陆页面ID、变量ID和变量值传递到“更新登陆页面变量”端点，更新引导式登陆页面的变量。
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 ```
 
@@ -343,7 +343,7 @@ Marketo提供[获取登陆页面完整内容](https://developer.adobe.com/market
 - 分段：接受包含segmentationId和segmentId属性的JSON对象数组。 设置后，会预览登陆页面，就像您是匹配这些区段的潜在客户一样。
 - 商机ID：  接受商机的整数ID。 设置后，会预览登陆页面，就像是由指定的潜在客户查看一样。
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/fullContent.json?leadId=1001&segmentation=[{"segmentationId":1030,"segmentId":1103}]
 ```
 

@@ -3,10 +3,10 @@ title: 自定义操作
 feature: Mobile Marketing
 description: 了解如何使用适用于iOS和Android的Marketo Mobile SDK发送和报告自定义操作，将离线排队，触发智能营销活动，并符合20个字符的要求……
 exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '313'
-ht-degree: 0%
+source-wordcount: '336'
+ht-degree: 1%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 您可以通过发送自定义操作来跟踪用户交互。 当移动设备应用程序调用Marketo SDK以发送自定义操作时，自定义操作最初保存到设备。 Marketo SDK随后在发送自定义操作之前检查是否存在足够的Internet连接。 因此，发送自定义操作与Marketo接收自定义操作之间可能存在延迟。
 
-自定义操作可用作智能营销活动中的触发器和过滤器。 有关详细信息，请参阅[移动设备应用程序活动](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns)。
+自定义操作可用作智能营销活动中的触发器和过滤器。 有关详细信息，请参阅[移动设备应用程序活动](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns)。
 
 ## 在iOS上发送自定义操作
 
@@ -24,14 +24,14 @@ ht-degree: 0%
 
 >[!TAB 目标C]
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 [sharedInstance reportAction:@"Login" withMetaData:nil];
 ```
 
 >[!TAB Swift]
 
-```
+```swift
 sharedInstance.reportAction("Login", withMetaData:nil);
 ```
 
@@ -43,7 +43,7 @@ sharedInstance.reportAction("Login", withMetaData:nil);
 
 >[!TAB 目标C]
 
-```
+```objectivec
 MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
 [meta setType:@"Shopping"];
 [meta setDetails:@"RedShirt"];
@@ -55,7 +55,7 @@ MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
 
 >[!TAB Swift]
 
-```
+```swift
 let meta = MarketoActionMetaData()
 meta.setType("Shopping");
 meta.setDetails("RedShirt");
@@ -73,13 +73,13 @@ sharedInstance.reportAction("Bought Shirt", withMetaData:meta);
 
 >[!TAB 目标C]
 
-```
+```objectivec
 [sharedInstance reportAll];
 ```
 
 >[!TAB Swift]
 
-```
+```swift
 sharedInstance.reportAll();
 ```
 
@@ -111,7 +111,7 @@ sharedInstance.reportAll();
    Marketo.reportAll();
    ```
 
-## 自定义操作疑难解答
+## 对自定义操作进行故障排除
 
 设置移动设备自定义操作很简单，但您可以从Mobile SDK发送到Marketo的字符数存在限制。 确保通过移动设备SDK报告回Marketo的所有自定义操作的长度少于20个字符。
 

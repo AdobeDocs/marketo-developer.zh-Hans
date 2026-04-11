@@ -3,7 +3,7 @@ title: 指定帐户列表
 feature: REST API
 description: 了解如何使用REST API管理Marketo指定帐户列表，包括权限、字段、筛选以及用于查询、创建、更新和删除的端点。
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 2%
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
+Marketo中的[命名帐户列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
 `Content`
 
 ## 权限
@@ -38,7 +38,7 @@ Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/doc
 
 查询帐户列表简单方便。 目前，查询指定帐户列表时只有两个有效的filterTypes：“dedupeFields”和“idField”。 要筛选的字段在查询的`filterType`参数中设置，值在`filterValues as`中以逗号分隔的列表中设置。 `nextPageToken`和`batchSize`筛选器也是可选参数。
 
-```
+```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
 ```
 
@@ -77,7 +77,7 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 如果操作为`updateOnly`，则可以指定可选`dedupeBy parameter`。  允许的值为“dedupeFields”（对应于“name”）或“idField”（对应于“marketoGUID”）。  在`createOnly`模式中，仅允许“name”作为`dedupeBy`字段。 一次最多可以提交300条记录。
 
-```
+```http
 POST /rest/v1/namedAccountLists.json
 ```
 
@@ -119,7 +119,7 @@ POST /rest/v1/namedAccountLists.json
 
 删除指定帐户列表非常简单，可以根据列表的`name`或`marketoGUID`完成。 要选择要使用的键，请在请求的`deleteB`成员中为name传递“dedupeFields”，为marketoGUID传递“idField”。 如果未设置，则默认为dedupeFields。 一次最多可以删除300条记录。
 
-```
+```http
 POST /rest/v1/namedAccountLists/delete.json
 ```
 
@@ -183,7 +183,7 @@ POST /rest/v1/namedAccountLists/delete.json
 
 如果未设置`field`，则将返回`marketoGUI`、`nam`、`createdA`和`updatedA`。 `batchSiz`的最大值和默认值为300。
 
-```
+```http
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -214,7 +214,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 可以轻松地将指定帐户添加到指定帐户列表。 只能使用其marketoGUID添加帐户。 一次最多可以添加300条记录。
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -254,7 +254,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 从帐户列表中删除记录的路径不同，但接口相同，需要为要删除的每个记录使用`marketoGUI`。 一次最多可以删除300条记录。
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ```
 

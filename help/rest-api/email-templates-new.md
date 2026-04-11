@@ -3,7 +3,7 @@ title: 电子邮件模板
 feature: REST API
 description: 使用Marketo Asset REST API查询、创建、更新、克隆、删除、批准和检查电子邮件模板的依赖项。
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 9%
@@ -38,7 +38,7 @@ x-app-type: <app-type>
 
 #### 请求
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/{id}
 ```
 
@@ -69,7 +69,7 @@ GET /rest/asset/v2/emailtemplate/{id}
 
 #### 请求
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/filter?workspaceId=1001&name=Newsletter&pageIndex=0&pageSize=20
 ```
 
@@ -99,7 +99,7 @@ GET /rest/asset/v2/emailtemplate/filter?workspaceId=1001&name=Newsletter&pageInd
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate
 Content-Type: application/json
 ```
@@ -149,7 +149,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/update
 Content-Type: application/json
 ```
@@ -193,7 +193,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/state/transition
 Content-Type: application/json
 ```
@@ -213,7 +213,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/clone
 Content-Type: application/json
 ```
@@ -236,7 +236,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/delete
 Content-Type: application/json
 ```
@@ -249,7 +249,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/usedby
 Content-Type: application/json
 ```

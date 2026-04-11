@@ -3,7 +3,7 @@ title: 标记
 feature: REST API, Tags
 description: 查询标记类型、按名称获取允许的值、通过REST Asset API更新或删除Marketo中的程序标记，以及请求示例。
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '258'
 ht-degree: 1%
@@ -22,7 +22,7 @@ ht-degree: 1%
 
 ### 获取标记
 
-```
+```http
 GET /rest/asset/v1/tagTypes.json
 ```
 
@@ -54,7 +54,7 @@ GET /rest/asset/v1/tagTypes.json
 
 ### 按名称
 
-```
+```http
 GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 ```
 
@@ -79,7 +79,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 [更新程序标记](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)终结点允许您更新给定标记类型的值。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要更新的标记类型。 `tagValue`查询参数用于指定标记类型的新值。 所有参数都是必需的。
 
-```
+```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 ```
 
@@ -103,7 +103,7 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 
 [删除程序标记](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)终结点允许您删除非必需的标记类型。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要删除的标记类型。
 
-```
+```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json
 ```
 

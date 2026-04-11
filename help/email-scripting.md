@@ -3,9 +3,9 @@ title: 电子邮件脚本
 feature: Email Programs
 description: 了解如何使用Apache Velocity令牌、变量、Velocity工具编写动态Marketo电子邮件的脚本，以及使用“发送示例”和“电子邮件预览”进行测试。
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '953'
+source-wordcount: '1099'
 ht-degree: 0%
 
 ---
@@ -20,21 +20,21 @@ ht-degree: 0%
 
 变量始终以“$”为前缀，并使用#set进行设置和更新：
 
-```
+```velocity
 #set($variable = "value")
 ```
 
 随后，可以通过具有不同行为的多种不同引用类型检索其值：
 
-```
+```text
 $variable ##outputs 'value'
 $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
 ```
 
-还有静默引用表示法，其中在`!`之后有`$`包含。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
+还有静默引用表示法，其中在`$`之后有`!`包含。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
 
-```
+```velocity
 ##Defined Reference
 
 #set($foo = "bar")
@@ -56,18 +56,18 @@ $!baz ##outputs nothing
 Apache Velocity项目通过使用[Velocity工具](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html)使功能可用。 这些只是Java对象的包装器，通过可供所有脚本使用的全局变量公开其方法。
 
 - [AlternatorTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/AlternatorTool.html)
-- [ComparisonDateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html)
-- [转换工具](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
-- [日期工具](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DateTool.html)
+- [Comparisondatetool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html)
+- [ConversionTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
+- [DateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DateTool.html)
 - [显示工具](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DisplayTool.html)
-- [数学工具](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/MathTool.html)
-- [NumberTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/NumberTool.html)
+- [MathTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/MathTool.html)
+- [数字工具](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/NumberTool.html)
 - [EscapeTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/EscapeTool.html)
-- [循环工具](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/LoopTool.html)
+- [LoopTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/LoopTool.html)
 
 例如，要使用`ComparisonDateTool`中的方法，如果是从脚本令牌中的`$date`变量访问：
 
-```
+```velocity
 #set($birthday = $convert.parseDate("2015-08-07","yyyy-MM-dd"))
 ##use whenIs to determine how many days away it is
 $date.whenIs($birthday).days ##outputs 1
@@ -107,15 +107,15 @@ $date.whenIs($birthday).days ##outputs 1
 
 - 电子邮件脚本中引用的变量必须存在于Marketo中且位于脚本可用的某个对象上。
 - 您可以引用来自本机集成CRM的第一级和第二级自定义对象，这些自定义对象直接连接到Lead或Contact，但不包括第三级自定义对象。 自定义对象不能是潜在客户或公司的父级
-- 对于Marketo自定义对象，您可以引用具有父子关系的二级自定义对象。 例如`Lead <- Parent <- Child`。 您无法引用具有Edge-Bridge关系的第二级自定义对象。 例如，`Lead <- Bridge -> Edge`
+- 对于Marketo自定义对象，您可以引用具有父子关系的二级自定义对象。 例如：`Lead <- Parent <- Child`。 您无法引用具有Edge-Bridge关系的第二级自定义对象。 e.g.,  `Lead <- Bridge -> Edge`
 - 您可以引用连接到Lead、Contact或Account的自定义对象，但不能引用多个对象。
 - 只能通过单个连接、潜在客户、联系人或帐户引用自定义对象
 - 您必须在脚本编辑器中选中正在使用的字段的框，否则这些字段将不会处理
-- 对于每个自定义对象，每个人员/联系人最近更新的10条记录在运行时可用，并且按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[增加](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)可用的记录数。
+- 对于每个自定义对象，每个人员/联系人最近更新的10条记录在运行时可用，并且按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)增加[可用的记录数。
 - 如果电子邮件中包含多个电子邮件脚本，则它们将自上而下执行。 在第一个要执行的脚本中定义的变量的范围将在后续脚本中可用。
 - 工具引用： [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - 有关包含换行字符“\\n”或“\\r\\n”的令牌的注释。 通过发送示例或批量促销活动发送电子邮件时，令牌中的换行字符会被替换为空格。 通过触发器营销活动发送电子邮件时，新行字符保持不变。
-- 要确保正确解析URL，应将整个路径设置为变量并打印，且变量不应在URL引用内打印。 必须包含协议(http://或https://)，并且必须与URL的其余部分分开。 该URL还必须属于完全格式化的锚点(<a>)标记。 为了跟踪链接，脚本必须输出格式完整的锚点标记。 如果链接从for或foreach循环中输出，则不会跟踪这些链接。
+- 要确保正确解析URL，应将整个路径设置为变量并打印，且变量不应在URL引用内打印。 必须包含协议（http://或https://），并且必须与URL的其余部分分开。 该URL还必须属于完全格式化的锚点(<a>)标记。 为了跟踪链接，脚本必须输出格式完整的锚点标记。 如果链接从for或foreach循环中输出，则不会跟踪这些链接。
 
 ```html
 <!-- Correct -->

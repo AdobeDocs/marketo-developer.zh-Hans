@@ -3,9 +3,9 @@ title: 项目
 feature: REST API, Programs
 description: Marketo针对Asset REST API的程序指南，涵盖了类型、渠道、标记、成员状态和端点，可按ID或名称获取、浏览和按状态筛选。
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '870'
+source-wordcount: '979'
 ht-degree: 1%
 
 ---
@@ -40,7 +40,7 @@ Marketo中有五种核心类型的程序：
 
 可以在UI中从程序的URL获取程序ID，其中URL类似于`https://app-\*\*\*.marketo.com/#PG1001A1`。 在此URL中，`id`为1001。 它始终介于URL中的第一组字母和第二组字母之间。
 
-```
+```http
 GET /rest/asset/v1/program/{id}.json
 ```
 
@@ -84,7 +84,7 @@ GET /rest/asset/v1/program/{id}.json
 
 [按名称](https://developer.adobe.com/marketo-apis/api/asset/)获取程序终结点需要`name`查询参数。 可选的布尔查询参数是`includeTags`和`includeCosts`，这两个参数分别用于返回程序标记和程序成本。
 
-```
+```http
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 ```
 
@@ -134,7 +134,7 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 请注意，此端点不会返回与程序关联的标记。 可以使用[按ID获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET)或[按名称获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET)来检索程序标记。
 
-```
+```http
 GET /rest/asset/v1/programs.json
 ```
 
@@ -187,9 +187,9 @@ GET /rest/asset/v1/programs.json
 
 ### 按日期范围
 
-我们的`earliestUpdatedAt`获取程序`latestUpdatedAt`端点的[和](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)参数允许您为返回的程序设置低日期时间和高日期时间水印，这些程序在给定范围内已更新或最初创建。
+我们的[获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)端点的`earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回的程序设置低日期时间和高日期时间水印，这些程序在给定范围内已更新或最初创建。
 
-```
+```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
 ```
 
@@ -282,7 +282,7 @@ GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&lat
 
 有两个必需的参数，`tagType`是要筛选的标记类型，`tagValue`是要筛选的标记值。  有一个可选的integer `maxReturn`参数用于控制要返回的程序数（最大值为200，默认值为20），以及一个可选的integer `offset`参数用于分页结果（默认值为0）。  结果以随机顺序返回。
 
-```
+```http
 GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 ```
 
@@ -329,15 +329,15 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ### 创建
 
-```
+```http
 POST /rest/asset/v1/programs.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API Program&type=Default&channel=Email Blast&costs=[{"startDate":"2015-01-01","cost":2000}]
 ```
 
@@ -379,17 +379,17 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 
 ### 更新
 
-在更新程序成本时，若要追加新成本，只需将其添加到您的`costs`阵列即可。 要执行破坏性更新，请将新成本以及设置为`costsDestructiveUpdate`的参数`true`一起传递。 若要清除项目的所有成本，请不要传递`costs`参数，而只需传递设置为`costsDestructiveUpdate`的`true`。
+在更新程序成本时，若要追加新成本，只需将其添加到您的`costs`阵列即可。 要执行破坏性更新，请将新成本以及设置为`true`的参数`costsDestructiveUpdate`一起传递。 若要清除项目的所有成本，请不要传递`costs`参数，而只需传递设置为`true`的`costsDestructiveUpdate`。
 
-```
+```http
 POST /rest/asset/v1/program/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an updated description&name=Updated Program Name&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
 ```
 
@@ -445,7 +445,7 @@ description=This is an updated description&name=Updated Program Name&costs=[{"st
 
 ### 批准
 
-```
+```http
 POST /rest/asset/v1/program/{id}/approve.json
 ```
 
@@ -465,7 +465,7 @@ POST /rest/asset/v1/program/{id}/approve.json
 
 ### 取消批准
 
-```
+```http
 POST /rest/asset/v1/program/{id}/unapprove.json
 ```
 
@@ -489,15 +489,15 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 包含特定类型资源的程序可能无法通过此API进行克隆，包括推送通知、应用程序内消息、报表和社交Assets。 应用程序内程序可能无法通过此API进行克隆。
 
-```
+```http
 POST /rest/asset/v1/program/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Description
 ```
 
@@ -536,7 +536,7 @@ name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Descrip
 
 删除程序遵循标准资产删除模式。
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

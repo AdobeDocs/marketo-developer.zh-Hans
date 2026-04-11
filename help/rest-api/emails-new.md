@@ -3,7 +3,7 @@ title: 电子邮件
 feature: REST API
 description: 使用Marketo Asset REST API查询、创建、更新、克隆、删除、批准和检查电子邮件资源的依赖项。
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '497'
 ht-degree: 5%
@@ -38,7 +38,7 @@ x-app-type: <app-type>
 
 #### 请求
 
-```text
+```http
 GET /rest/asset/v2/email/{id}
 ```
 
@@ -95,7 +95,7 @@ GET /rest/asset/v2/email/{id}
 
 #### 请求
 
-```text
+```http
 GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=draft&status=approved&pageIndex=0&pageSize=20
 ```
 
@@ -125,7 +125,7 @@ GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=dra
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/email
 Content-Type: application/json
 ```
@@ -192,7 +192,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/update
 Content-Type: application/json
 ```
@@ -240,7 +240,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/email/state/transition
 Content-Type: application/json
 ```
@@ -260,7 +260,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/email/clone
 Content-Type: application/json
 ```
@@ -283,7 +283,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
@@ -296,7 +296,7 @@ Content-Type: application/json
 
 ### 请求
 
-```text
+```http
 POST /rest/asset/v2/email/usedby
 Content-Type: application/json
 ```
