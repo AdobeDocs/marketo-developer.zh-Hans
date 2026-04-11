@@ -16,7 +16,7 @@ ht-degree: 1%
 
 Marketo提供了一组REST API用于对智能列表执行操作。 这些API遵循资产API的标准界面模式，提供查询、删除和克隆选项。
 
-注意：仅用户创建的智能列表支持这些API。 它们不能用于[内置/系统智能列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists)。
+注意：仅用户创建的智能列表支持这些API。 它们不能用于[内置/系统智能列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists)。
 
 ## 查询
 
