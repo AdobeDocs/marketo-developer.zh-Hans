@@ -2,9 +2,9 @@
 title: 数据流
 description: Marketo Engage数据流概述，支持近乎实时的潜在客户活动和用户审核事件，放宽了性能层客户的API限制
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1714'
+source-wordcount: '1716'
 ht-degree: 3%
 
 ---
@@ -12,10 +12,11 @@ ht-degree: 3%
 # 数据流
 
 >[!NOTE]
-> 有关数据流的当前信息现在位于[使用数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#)。
+>
+>有关数据流的当前信息现在位于[使用数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#)。
 >
 
-我们客户的营销组织依靠及时而集中的营销活动保持业务领先和竞争力。 为了支持快节奏的决策并快速实现战略变革，拥有数据来支持并推动那些能够开展重点突出、目标明确的促销活动的关键决策非常重要。 还有一些客户在Marketo Engage内部和外部对其客户区段级别执行营销工作。 为了支持这些不同的努力，Marketo已创建通过数据流近乎实时地获取大量数据的能力。
+我们客户的营销组织依靠及时而集中的营销活动保持业务领先和竞争力。 为了支持快节奏的决策并快速实现战略变革，重要的是要有数据来支持并推动那些能够开展重点突出、目标明确的营销活动的关键决策。 还有一些客户在Marketo Engage内部和外部对其客户区段级别执行营销工作。 为了支持这些不同的努力，Marketo已创建通过数据流近乎实时地获取大量数据的能力。
 
 除了近乎实时数据的好处之外，还有与产品相关的好处：
 
@@ -34,7 +35,7 @@ ht-degree: 3%
 1. 潜在客户更改 — 所有字段和新潜在客户的所有更改
 1. Lead Activities — 文档中介绍的所有Lead活动类型
 1. 已删除的潜在客户
-1. 商机上的所有自定义对象（如果请求）。 现在要么全是要么全是。
+1. 商机上的所有自定义对象（如果请求）。 目前要么全部，要么一无所有。
 
 通过提供有关商机变化的视图，客户可以更快地就其总体营销策略做出决策，并创建更有针对性的促销活动。 一些常见用例包括：
 

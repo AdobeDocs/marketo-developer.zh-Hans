@@ -3,9 +3,9 @@ title: 错误代码
 feature: SOAP
 description: Marketo SOAP API错误代码参考指南，其中包含消息和注释，其中涵盖身份验证失败、速率和并发限制以及请求问题。
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '408'
+source-wordcount: '409'
 ht-degree: 9%
 
 ---

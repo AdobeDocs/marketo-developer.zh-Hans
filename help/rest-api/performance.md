@@ -3,10 +3,10 @@ title: 性能
 feature: REST API
 description: 通过HTTP压缩提高Marketo REST API性能。 启用gzip以压缩带宽；不支持批量API，并且不会压缩1024个字节以下的API。
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '136'
-ht-degree: 0%
+source-wordcount: '146'
+ht-degree: 1%
 
 ---
 
@@ -34,7 +34,7 @@ Marketo REST API将压缩响应正文并包含此标头：
 Content-Encoding: gzip
 ```
 
-以下是使用Curl调用[Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)端点以检索5个潜在客户的示例：
+以下是使用Curl调用[Get Leads by Filter Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)端点以检索5个潜在客户的示例：
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

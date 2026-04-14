@@ -3,16 +3,16 @@ title: 批量自定义对象导入
 feature: Custom Objects
 description: 了解如何使用CSV、TSV或SSV文件通过REST批量导入Marketo自定义对象。
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '952'
+source-wordcount: '953'
 ht-degree: 0%
 
 ---
 
 # 批量自定义对象导入
 
-[批量自定义对象导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects)
+[批量自定义对象导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects)
 
 当您有许多自定义对象记录时  导入，最佳做法是使用批量API异步导入它们。 此操作可通过导入包含分隔记录（逗号、制表符或分号）的平面文件来完成。 文件可以包含任意数量的记录，但大小必须小于10MB（否则为HTTP）  413状态代码已返回)。 文件的内容取决于您的自定义对象定义。 第一行始终包含标题，其中列出了要将每行的值映射到的字段。 标头中的所有字段名称必须匹配一个API名称（如下所述）。 其余行包含要导入的数据，每行一个记录。 记录操作仅限“插入或更新”。
 
@@ -22,7 +22,7 @@ ht-degree: 0%
 
 ## 自定义对象示例
 
-在使用批量API之前，必须首先使用Marketo管理UI [创建自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)。 例如，假设我们创建了一个具有“Color”、“Make”、“Model”和“VIN”字段的“Car”自定义对象。 以下是显示自定义对象的管理员UI屏幕。 您可以看到我们使用了VIN字段删除重复项。 API名称会突出显示，因为调用与批量API相关的端点时必须使用这些名称。
+在使用批量API之前，必须首先使用Marketo管理UI [创建自定义对象](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)。 例如，假设我们创建了一个具有“Color”、“Make”、“Model”和“VIN”字段的“Car”自定义对象。 以下是显示自定义对象的管理员UI屏幕。 您可以看到我们使用了VIN字段删除重复项。 API名称会突出显示，因为调用与批量API相关的端点时必须使用这些名称。
 
 ![插入自定义对象](assets/bulk-insert-co-car-1.png)
 
@@ -45,7 +45,7 @@ ht-degree: 0%
         {
             "name": "car_c",
             "displayName": "Car",
-            "description": "It's a car.",
+            "description": "It is a car.",
             "createdAt": "2017-02-22T19:55:51Z",
             "updatedAt": "2017-02-22T19:55:51Z",
             "idField": "marketoGUID",
@@ -130,7 +130,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## 创建作业
 
-要进行批量导入请求，必须在[导入自定义对象](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Identity/operation/identityUsingPOST)端点的路径中包含自定义对象的API名称。 您还必须包括引用导入文件名称的“file”参数，以及指定导入文件分隔方式的“format”参数（“csv”、“tsv”或“ssv”）。
+要进行批量导入请求，必须在[导入自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST)端点的路径中包含自定义对象的API名称。 您还必须包括引用导入文件名称的“file”参数，以及指定导入文件分隔方式的“format”参数（“csv”、“tsv”或“ssv”）。
 
 ```http
 POST /bulk/v1/customobjects/{apiName}/import.json?format=csv
@@ -190,7 +190,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## 轮询作业状态
 
-创建导入作业后，必须查询其状态。 最佳实践是每5-30秒轮询一次导入作业。 为此，请在指向[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)端点的路径中传递自定义对象的API名称和`batchId`。
+创建导入作业后，必须查询其状态。 最佳实践是每5-30秒轮询一次导入作业。 为此，请在指向[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)端点的路径中传递自定义对象的API名称和`batchId`。
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -220,7 +220,7 @@ GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 
 ## 故障
 
-[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败。 如果numOfRowsFailed大于零，则该值表示发生的失败次数。 调用[获取导入自定义对象失败](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET)终结点，以获取包含失败详细信息的文件。 同样，您必须在路径中传递自定义对象API名称和`batchId`。 如果不存在失败文件，则会返回HTTP 404状态代码。
+[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败。 如果numOfRowsFailed大于零，则该值表示发生的失败次数。 调用[获取导入自定义对象失败](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET)终结点，以获取包含失败详细信息的文件。 同样，您必须在路径中传递自定义对象API名称和`batchId`。 如果不存在失败文件，则会返回HTTP 404状态代码。
 
 继续示例，我们可以通过修改标题并将“vin”更改为“vin”（通过在逗号和“vin”之间添加空格）来强制失败。
 
@@ -271,7 +271,7 @@ blue,bmw,325i,WBS3U9C52HP970604,missing.dedupe.fields
 
 ## 警告
 
-获取导入自定义对象状态响应中的`numOfRowsWithWarning`属性指示警告。 如果numOfRowsWithWarning大于零，则该值表示发生的警告数。 调用[获取导入自定义对象警告](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET)终结点以获取带有警告详细信息的文件。 同样，您必须在路径中传递自定义对象API名称和`batchId`。 如果不存在警告文件，则会返回HTTP 404状态代码。
+获取导入自定义对象状态响应中的`numOfRowsWithWarning`属性指示警告。 如果numOfRowsWithWarning大于零，则该值表示发生的警告数。 调用[获取导入自定义对象警告](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET)终结点以获取带有警告详细信息的文件。 同样，您必须在路径中传递自定义对象API名称和`batchId`。 如果不存在警告文件，则会返回HTTP 404状态代码。
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

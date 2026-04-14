@@ -3,7 +3,7 @@ title: 渠道
 feature: REST API
 description: 了解如何通过Asset REST API查询Marketo渠道、按分页浏览或按名称提取、查看进度状态以及了解程序类型规则。
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '151'
 ht-degree: 2%
@@ -12,7 +12,7 @@ ht-degree: 2%
 
 # 渠道
 
-[渠道端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[渠道端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels)
 
 渠道是所有项目类型的标准字段和必填字段。 每种渠道类型只能与给定的`applicableProgramType`一起使用，并提供对每个节目中的节目成员有效的可用节目状态列表。 如果在创建项目后更改了渠道的项目群状态，则潜在客户可更改为的项目群状态列表将与当时渠道提供的列表相匹配，但不会追溯性地更改任何现有项目群成员资格记录的项目群状态。
 

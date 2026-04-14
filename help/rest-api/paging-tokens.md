@@ -3,7 +3,7 @@ title: 分页令牌
 feature: REST API
 description: 使用Marketo REST API分页令牌检索活动和潜在客户，其中涵盖基于日期和基于位置的令牌、ISO 8601 sinceDatetime和414错误。
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '424'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 在某些情况下，可能会返回长分页令牌字符串。 这可能会导致您遇到HTTP 414错误代码。 您可以找到有关如何处理这些[错误](error-codes.md)的详细信息。
 
-请参阅[分页令牌API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET)文档。
+请参阅[分页令牌API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET)文档。
 
 ## 令牌类型
 
@@ -27,7 +27,7 @@ Marketo提供两种相关但不同的页面令牌类型：
 
 ## 基于日期
 
-第一个是表示日期的分页令牌。 它们用于检索在分页令牌表示的日期之后发生的活动、数据值更改和删除潜在客户。 通过调用[获取分页令牌](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET)端点并包含日期时间生成此类型的分页令牌。
+第一个是表示日期的分页令牌。 它们用于检索在分页令牌表示的日期之后发生的活动、数据值更改和删除潜在客户。 通过调用[获取分页令牌](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET)端点并包含日期时间生成此类型的分页令牌。
 
 ```http
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -57,7 +57,7 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 
 由于`sinceDateTime`是查询参数，因此必须为URL编码。
 
-然后将`nextPageToken`字符串提供给[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET)、[获取潜在客户更改](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET)或[获取已删除的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET)调用，并且在提供给Get Paging Token API的日期时间后检索活动。
+然后将`nextPageToken`字符串提供给[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)、[获取潜在客户更改](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET)或[获取已删除的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET)调用，并且在提供给Get Paging Token API的日期时间后检索活动。
 
 ```http
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12

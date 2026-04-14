@@ -3,7 +3,7 @@ title: 列表成员资格（静态列表）
 feature: REST API, Static Lists
 description: 使用Marketo潜在客户数据库REST API向静态列表添加潜在客户、删除潜在客户、检索列表成员和检查列表成员资格。
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '482'
 ht-degree: 4%
@@ -12,7 +12,7 @@ ht-degree: 4%
 
 # 列表成员资格（静态列表）
 
-[列表成员资格端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[列表成员资格端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists)
 
 List Membership API提供了用于处理静态列表成员的Lead Database端点。 这些端点可用于向列表添加潜在客户、从列表中删除潜在客户、检索列表的成员以及确定一个或多个潜在客户是否是列表的成员。
 
@@ -27,7 +27,7 @@ List Membership API提供了用于处理静态列表成员的Lead Database端点
 
 ## 添加到列表
 
-[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST)终结点用于将一个或多个成员添加到列表。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
+[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST)终结点用于将一个或多个成员添加到列表。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
 
 响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
 
@@ -60,7 +60,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## 从列表中移除
 
-[从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE)终结点用于从列表中删除一个或多个成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
+[从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE)终结点用于从列表中删除一个或多个成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
 
 响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
 
@@ -97,7 +97,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## 按列表ID获取潜在客户
 
-[按列表ID &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
+[按列表ID ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
 
 `batchSize`参数用于指定在单个调用中返回的潜在客户记录数。 默认值和最大值是300。
 
@@ -147,7 +147,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## List 会员
 
-List[&#128279;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)终结点的成员用于查看一个或多个潜在客户是否为列表的成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
+List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)终结点的[成员用于查看一个或多个潜在客户是否为列表的成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
 
 响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
 

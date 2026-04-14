@@ -3,7 +3,7 @@ title: 命名帐户
 feature: REST API
 description: Marketo REST指南，用于在ABM的指定帐户上执行CRUD，其中提供了说明、查询、创建更新示例、可搜索的字段、重复数据删除规则以及无潜在客户链接。
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '730'
 ht-degree: 1%
@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # 命名帐户
 
-[命名帐户终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
+[命名帐户终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts)
 
 Marketo提供了一组API，用于对命名帐户执行CRUD操作以用于Marketo ABM。 这些API遵循商机数据库API的标准接口模式，提供Describe、Create/Update、Delete和Query选项。
 
@@ -224,7 +224,7 @@ Content-Type: application/json
 
 #### 按名称
 
-[按名称获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点为命名帐户对象上的单个字段检索元数据。 必填的fieldApiName路径参数指定字段的API名称。 响应类似于描述命名帐户端点，但包含其他元数据，例如表示字段是否为自定义字段的isCustom属性。
+[按名称获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点为命名帐户对象上的单个字段检索元数据。 必填的fieldApiName路径参数指定字段的API名称。 响应类似于描述命名帐户端点，但包含其他元数据，例如表示字段是否为自定义字段的isCustom属性。
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### 浏览
 
-[获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点检索命名帐户对象中所有字段的元数据。 默认情况下，最多返回300条记录。 可以使用batchSize查询参数来减少此数量。 如果moreResult属性为true，则表示有更多的结果可用。 继续调用此端点，直到moreResult属性返回false，这意味着没有可用的结果。 对于此调用的下一个迭代，应始终重用从此API返回的nextPageToken。
+[获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点检索命名帐户对象中所有字段的元数据。 默认情况下，最多返回300条记录。 可以使用batchSize查询参数来减少此数量。 如果moreResult属性为true，则表示有更多的结果可用。 继续调用此端点，直到moreResult属性返回false，这意味着没有可用的结果。 对于此调用的下一个迭代，应始终重用从此API返回的nextPageToken。
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

@@ -3,7 +3,7 @@ title: 机会角色
 feature: REST API
 description: 通过REST API管理Marketo机会角色，包括描述、使用复合重复数据删除字段查询、创建更新删除、超时以及无CRM同步。
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '279'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # 机会角色
 
-[机会角色端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[机会角色端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
 潜在客户通过中间`opportunityRole`对象链接到商机。
 

@@ -3,7 +3,7 @@ title: 推送通知
 feature: Mobile Marketing
 description: 指南以通过Marketo启用iOS推送通知，从APNs证书和Xcode设置到Marketo SDK集成、令牌注册、处理。
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1338'
 ht-degree: 0%
@@ -28,7 +28,7 @@ ht-degree: 0%
 1. 单击“Certificates， Identifiers &amp; Profiles”（证书、标识符和配置文件）。
 1. 单击“iOS， tvOS， watchOS”下的“Certificates->All”文件夹。
 1. 选择左上角屏幕上的证书![](assets/certificates-plus.png)旁边的“+”
-1. 启用“Apple推送通知服务SSL（沙盒和生产）”复选框，然后单击“继续”。
+1. 启用“Apple推送通知服务SSL（沙盒和生产）”复选框，然后选择继续。
 1. 选择您正在使用生成应用程序的应用程序标识符。![](assets/push-appid.png)
 1. 创建并上传CSR以生成推送证书。![](assets/push-ssl.png)
 1. 将证书下载到本地计算机并双击进行安装。![](assets/certificate-download.png)

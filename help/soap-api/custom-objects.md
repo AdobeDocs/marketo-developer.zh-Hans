@@ -3,10 +3,10 @@ title: 自定义对象
 feature: SOAP
 description: 了解Marketo自定义对象如何链接一个指向多个记录，其中具有结构、限制以及用于获取、同步、删除以及智能列表和电子邮件使用的SOAP API调用。
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '256'
-ht-degree: 0%
+source-wordcount: '286'
+ht-degree: 1%
 
 ---
 
@@ -36,6 +36,6 @@ Marketo自定义对象允许在您的Marketo潜在客户与自定义对象记录
 
 以下调用可用于与CO交互。
 
-- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
-- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
-- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)
+- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
+- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
+- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)

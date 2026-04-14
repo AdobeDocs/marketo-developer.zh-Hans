@@ -3,10 +3,10 @@ title: 终结点引用
 feature: REST API
 description: 全面的Marketo REST API端点列表，其中包含方法、URI以及跨活动、批量导出、身份、潜在客户、资产和用户的所需权限。
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
 source-wordcount: '4793'
-ht-degree: 7%
+ht-degree: 8%
 
 ---
 
@@ -14,9 +14,9 @@ ht-degree: 7%
 
 以下是Marketo REST API引用的链接。
 
-- [资产](https://developer.adobe.com/marketo-apis/api/asset/)
+- [资产](https://developer.adobe.com/marketo-apis/api/asset)
 - [身份标识](https://developer.adobe.com/marketo-apis/api/identity/)
-- [潜在客户数据库](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [潜在客户数据库](https://developer.adobe.com/marketo-apis/api/mapi)
 - [用户管理](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## 端点列表 {#endpoint_list}
@@ -328,7 +328,7 @@ ht-degree: 7%
 | 按ID获取静态列表 | 静态列表 | GET | /asset/v1/staticList/{id}.json | 只读资产 |
 | 按名称获取静态列表 | 静态列表 | GET | /asset/v1/staticList/byName.json | 只读资产 |
 | 获取静态列表 | 静态列表 | GET | /asset/v1/staticLists.json | 只读资产 |
-| 列表成员 | 静态列表 | GET | /rest/v1/lists/{listId}/leads/ismember.json | 只读潜在客户 |
+| List 会员 | 静态列表 | GET | /rest/v1/lists/{listId}/leads/ismember.json | 只读潜在客户 |
 | 从列表中移除 | 静态列表 | DELETE | /rest/v1/lists/{listId}/leads.json | 读写潜在客户 |
 | 更新静态列表元数据 | 静态列表 | POST | /asset/v1/staticList/{id}.json | 读写资产 |
 | 按名称获取标记 | 标记 | GET | /rest/asset/v1/tagType/byName.json | 只读资产 |

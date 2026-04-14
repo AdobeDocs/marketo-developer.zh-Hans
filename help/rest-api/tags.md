@@ -3,7 +3,7 @@ title: 标记
 feature: REST API, Tags
 description: 查询标记类型、按名称获取允许的值、通过REST Asset API更新或删除Marketo中的程序标记，以及请求示例。
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '258'
 ht-degree: 1%
@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # 标记
 
-[标记端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
+[标记端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags)
 
 标记是用户为项目定义的字段。 每个标记可能适用于一个或多个程序类型，并且可以是必需或可选的，具体取决于标记的定义方式。 标记还可以提供必须从中选择以供使用的允许值的列表。
 
@@ -77,7 +77,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## 更新
 
-[更新程序标记](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)终结点允许您更新给定标记类型的值。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要更新的标记类型。 `tagValue`查询参数用于指定标记类型的新值。 所有参数都是必需的。
+[更新程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)终结点允许您更新给定标记类型的值。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要更新的标记类型。 `tagValue`查询参数用于指定标记类型的新值。 所有参数都是必需的。
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-可以使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)端点集体更新标记。 [程序更新部分](programs.md#update)中提供了示例。
+可以使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)端点集体更新标记。 [程序更新部分](programs.md#update)中提供了示例。
 
 ## 删除
 
-[删除程序标记](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)终结点允许您删除非必需的标记类型。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要删除的标记类型。
+[删除程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST)终结点允许您删除非必需的标记类型。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要删除的标记类型。
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

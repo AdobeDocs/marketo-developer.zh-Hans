@@ -3,7 +3,7 @@ title: 销售人员
 feature: REST API
 description: 使用SFDC或Dynamics同步，使用externalSalesPersonId与潜在客户关联并执行查询、更新插入和删除的Marketo REST API销售人员记录指南。
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '396'
 ht-degree: 0%
@@ -12,15 +12,15 @@ ht-degree: 0%
 
 # 销售人员
 
-[销售人员端点参考](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
+[销售人员端点参考](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
-对于已启用[SFDC同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅，销售人员API是只读访问权限。 销售人员是销售线索记录的销售负责人的人员记录类型。 它们按每个Lead记录上的externalSalesPersonId字段与Lead记录相关。 当Lead通过填充的externalSalesPersonId字段与Sales Person关联时，将在Marketo中为该商机记录填充相应的Lead Owner查找字段，从而允许使用相应的过滤器和令牌。
+对于已启用[SFDC同步](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅，销售人员API是只读访问权限。 销售人员是销售线索记录的销售负责人的人员记录类型。 它们按每个Lead记录上的externalSalesPersonId字段与Lead记录相关。 当Lead通过填充的externalSalesPersonId字段与Sales Person关联时，将在Marketo中为该商机记录填充相应的Lead Owner查找字段，从而允许使用相应的过滤器和令牌。
 
-通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)终结点并传递externalSalesPersonId属性，销售人员与潜在客户记录相关联。
+通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)终结点并传递externalSalesPersonId属性，销售人员与潜在客户记录相关联。
 
-通过使用[Sync Opportunities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST)端点并传递externalSalesPersonId属性，销售人员与机会记录相关联。
+通过使用[Sync Opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST)端点并传递externalSalesPersonId属性，销售人员与机会记录相关联。
 
-通过使用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)端点并传递externalSalesPersonId属性，销售人员与公司记录相关联。
+通过使用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)端点并传递externalSalesPersonId属性，销售人员与公司记录相关联。
 
 销售人员记录只能通过API进行编辑。
 

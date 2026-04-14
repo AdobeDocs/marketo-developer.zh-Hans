@@ -3,9 +3,9 @@ title: Marketo集成最佳实践
 feature: REST API
 description: Marketo API集成的最佳实践涵盖配额、速率和并发限制、批处理、批量导入和导出、缓存和延迟计划。
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1013'
 ht-degree: 0%
 
 ---
@@ -48,15 +48,15 @@ ht-degree: 0%
 
 Marketo每个启用API的实例每天至少分配10,000个REST API调用，但通常为50,000个或更多，以及500 MB或更多的批量提取容量。 虽然可以将额外的每日容量作为Marketo订阅的一部分购买，但您的应用程序设计应考虑Marketo订阅的常见限制。
 
-由于在一个实例中容量由所有API服务和用户共享，因此最佳做法是消除多余调用，并将记录批量处理为尽可能少的调用。 导入记录的最有效调用方法是使用Marketo的批量导入API，这些API可用于[潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)和[自定义对象](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST)。 Marketo还为[潜在客户](bulk-lead-extract.md)和[活动](bulk-activity-extract.md)提供批量提取。
+由于在一个实例中容量由所有API服务和用户共享，因此最佳做法是消除多余调用，并将记录批量处理为尽可能少的调用。 导入记录的最有效调用方法是使用Marketo的批量导入API，这些API可用于[潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)和[自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST)。 Marketo还为[潜在客户](bulk-lead-extract.md)和[活动](bulk-activity-extract.md)提供批量提取。
 
 ### 缓存
 
 以下操作的结果通常可以在客户端缓存一天或更长时间，因为它们很少更改：
 
 - Describe操作的结果
-- [活动类型](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [分区](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [分区](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 缓存某些资产类型（如程序、电子邮件和文件夹）也适合某些用例，例如潜在客户或活动记录的数据扩充。
 

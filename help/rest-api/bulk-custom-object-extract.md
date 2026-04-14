@@ -3,7 +3,7 @@ title: 批量自定义对象提取
 feature: REST API, Custom Objects
 description: Marketo批量自定义对象提取REST API指南，用于导出具有更新的At和列表筛选器、选定字段等的商机链接自定义对象……
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1473'
 ht-degree: 1%
@@ -12,11 +12,11 @@ ht-degree: 1%
 
 # 批量自定义对象提取
 
-[批量自定义对象提取端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
+[批量自定义对象提取端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects)
 
 REST API的批量自定义对象提取集提供了一个编程接口，用于从Marketo中检索大量自定义对象记录。 对于需要在Marketo与一个或多个外部系统之间持续交换数据的用例，这是推荐的界面，用于ETL、数据仓库存储和存档目的。
 
-此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)中商机的详细信息页面的自定义对象选项卡中查看自定义对象数据。
+此API支持导出直接链接到潜在客户的第一级Marketo自定义对象记录。 传入自定义对象的名称和该对象链接到的潜在客户列表。 对于列表中的每个潜在客户，与指定的自定义对象名称匹配的链接自定义对象记录将作为行写入导出文件中。 可在Marketo UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)中商机的详细信息页面的[自定义对象选项卡中查看自定义对象数据。
 
 ## 权限
 
@@ -38,7 +38,7 @@ REST API的批量自定义对象提取集提供了一个编程接口，用于从
 
 ## 选项
 
-[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点提供了多个格式选项。 利用这些选项，用户能够：
+[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点提供了多个格式选项。 利用这些选项，用户能够：
 
 - 指定要包含在导出文件中的字段
 - 重命名这些字段的列标题
@@ -52,9 +52,9 @@ REST API的批量自定义对象提取集提供了一个编程接口，用于从
 
 ## 创建作业
 
-作业的参数是在使用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点开始导出之前定义的。
+作业的参数是在使用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点开始导出之前定义的。
 
-所需的`apiName`路径参数是[描述自定义对象](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1)终结点返回的自定义对象名称。 这会指定要导出的Marketo自定义对象。 不允许CRM自定义对象。 所需的`filter`参数包含链接到自定义对象的潜在客户列表。 这可以引用静态列表或智能列表。 所需的`fields`参数包含要包含在导出文件中的自定义对象属性的API名称。 或者，我们可以定义文件的`format`和`columnHeaderNames`。
+所需的`apiName`路径参数是[描述自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1)终结点返回的自定义对象名称。 这会指定要导出的Marketo自定义对象。 不允许CRM自定义对象。 所需的`filter`参数包含链接到自定义对象的潜在客户列表。 这可以引用静态列表或智能列表。 所需的`fields`参数包含要包含在导出文件中的自定义对象属性的API名称。 或者，我们可以定义文件的`format`和`columnHeaderNames`。
 
 例如，假设我们创建了一个名为“Car”的自定义对象，该对象包含以下字段：Color、Make、Model、VIN。 链接字段是商机ID，重复数据删除字段是VIN。
 
@@ -66,7 +66,7 @@ REST API的批量自定义对象提取集提供了一个编程接口，用于从
 
 ![自定义对象字段](assets/custom-object-car-fields.png)
 
-我们可以调用[Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1)以编程方式检查响应中`fields`属性中显示的自定义对象属性。
+我们可以调用[Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1)以编程方式检查响应中`fields`属性中显示的自定义对象属性。
 
 ```http
 GET /rest/v1/customobjects/car_c/describe.json
@@ -176,7 +176,7 @@ GET /rest/v1/customobjects/car_c/describe.json
 }
 ```
 
-创建多个自定义对象记录，并使用[同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)端点将每个记录链接到不同的潜在客户。 一个商机可以链接到许多自定义对象记录。 这就是所谓的“一对多”关系。
+创建多个自定义对象记录，并使用[同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)端点将每个记录链接到不同的潜在客户。 一个商机可以链接到许多自定义对象记录。 这就是所谓的“一对多”关系。
 
 ```http
 POST /rest/v1/customobjects/car_c.json
@@ -235,7 +235,7 @@ POST /rest/v1/customobjects/car_c.json
 }
 ```
 
-上面引用的三个潜在客户都属于名为“购车者”的静态列表，其`id`为1081，如下面通过调用[按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1)端点可以看出。
+上面引用的三个潜在客户都属于名为“购车者”的静态列表，其`id`为1081，如下面通过调用[按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1)端点可以看出。
 
 ```http
 GET /rest/v1/lists/1081/leads.json
@@ -274,7 +274,7 @@ GET /rest/v1/lists/1081/leads.json
 }
 ```
 
-现在，让我们创建一个导出作业来检索这些记录。 我们使用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点，在`fields`参数中指定自定义对象属性，在`filter`参数中指定静态列表ID。
+现在，让我们创建一个导出作业来检索这些记录。 我们使用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点，在`fields`参数中指定自定义对象属性，在`filter`参数中指定静态列表ID。
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/create.json
@@ -310,7 +310,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-这会在响应中返回一个状态，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用`apiName`并从创建状态响应中调用[排入队列导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST)终结点`exportId`。
+这会在响应中返回一个状态，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用`apiName`并从创建状态响应中调用[排入队列导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST)终结点`exportId`。
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -338,7 +338,7 @@ POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/en
 
 只能检索同一API用户创建的作业的状态。
 
-由于这是异步端点，因此创建作业后，必须轮询其状态以确定其进度。 使用[获取导出自定义对象作业状态](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET)终结点进行轮询。 状态仅每60秒更新一次，因此不建议使用低于此值的轮询频率，并且在几乎所有情况下，仍然会过度轮询。 状态字段可以使用以下任意一项进行响应：“已创建”、“已排队”、“正在处理”、“已取消”、“已完成”或“失败”。
+由于这是异步端点，因此创建作业后，必须轮询其状态以确定其进度。 使用[获取导出自定义对象作业状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET)终结点进行轮询。 状态仅每60秒更新一次，因此不建议使用低于此值的轮询频率，并且在几乎所有情况下，仍然会过度轮询。 状态字段可以使用以下任意一项进行响应：“已创建”、“已排队”、“正在处理”、“已取消”、“已完成”或“失败”。
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
@@ -386,7 +386,7 @@ GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成的自定义对象导出的文件，只需使用`apiName`和`exportId`调用[获取导出自定义对象文件](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)终结点。
+要检索已完成的自定义对象导出的文件，只需使用`apiName`和`exportId`调用[获取导出自定义对象文件](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)终结点。
 
 响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 如果请求的自定义对象属性为空（不包含数据），则`null`将置于导出文件中的相应字段中。
 
@@ -405,7 +405,7 @@ leadId,color,make,model,vIN
 
 ## 取消作业
 
-如果作业配置不正确或变得不必要，可以使用[取消导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST)端点轻松取消该作业。 此响应包含`status`，指示作业已取消。
+如果作业配置不正确或变得不必要，可以使用[取消导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST)端点轻松取消该作业。 此响应包含`status`，指示作业已取消。
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/cancel.json

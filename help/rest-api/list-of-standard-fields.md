@@ -3,9 +3,9 @@ title: 标准字段
 feature: REST API, Field Management
 description: 浏览Marketo标准潜在客户字段的完整列表，其中包含REST和SOAP名称、标签和描述，以及如何通过描述潜在客户API检索它们。
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '727'
+source-wordcount: '742'
 ht-degree: 16%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 16%
 
 以下是可通过API访问的Marketo中可用标准字段列表。
 
-您可以使用REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/)端点检索潜在客户记录中可用的所有受支持字段名称的列表。
+您可以使用REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi)端点检索潜在客户记录中可用的所有受支持字段名称的列表。
 
 | REST API名称 | SOAP API名称 | 友好标签 | 描述 |
 | --- | --- | --- | --- |
@@ -53,7 +53,7 @@ ht-degree: 16%
 | 电话 | 电话 | 电话号码 | 潜在客户的电话号码 |
 | 邮政编码 | 邮政编码 | 邮政编码 | 商机的邮政编码 |
 | 评级 | 评级 | 销售线索评级 | 商机的营销/销售评级 |
-| salutation | 称谓 | 称谓 | 潜在顾客首选的称呼，即先生、小姐……等。 |
+| salutation | 称谓 | 称谓 | Lead首选的称呼，是Mister、Misses...等等 |
 | sicCode | SICCode | SIC 代码 | 潜在客户公司的标准行业分类代码 |
 | 站点 | 地点 | 地点 |  |
 | state | State | State | 商机的状态 |
@@ -73,4 +73,4 @@ ht-degree: 16%
 | isAnonymous |  - | 匿名 | 潜在客户记录的匿名状态。 系统受管。 |
 | 优先级 |  - | 优先级 | 潜在客户的Sales Insight优先级。 系统受管。 |
 | 相对分数 |  - | 相对分数 | 潜在客户的Sales Insight相对分数。 系统受管。 |
-| 紧急 |  - | 紧急 | Lead的Sales Insight紧迫性。 系统受管。 |
+| 紧急 |  - | 紧迫性 | Lead的Sales Insight紧迫性。 系统受管。 |

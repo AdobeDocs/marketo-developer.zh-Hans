@@ -3,7 +3,7 @@ title: 电子邮件模板
 feature: REST API
 description: 使用Marketo Asset REST API查询、创建、更新、克隆、删除、批准和检查电子邮件模板的依赖项。
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 9%
@@ -12,7 +12,7 @@ ht-degree: 9%
 
 # 电子邮件模板
 
-[电子邮件模板端点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[电子邮件模板端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
 电子邮件模板定义了创建电子邮件时使用的结构和可重用布局。
 

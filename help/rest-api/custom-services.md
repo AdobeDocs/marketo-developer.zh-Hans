@@ -3,9 +3,9 @@ title: 自定义服务
 feature: REST API
 description: 创建Marketo自定义服务，设置仅限API的角色和权限，在LaunchPoint中获取客户端ID和客户端密钥，以及获取访问令牌。
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 1f01457919b9fe110b98603f5b8c0996ba8aee4b
 workflow-type: tm+mt
-source-wordcount: '985'
+source-wordcount: '1031'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ ht-degree: 0%
 
 创建自定义服务的第一步是创建可应用于相关仅限API用户的角色。 此操作从&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Roles]**&#x200B;菜单完成。
 
-角色是单个权限的容器，允许或限制对特定功能的访问。 在启用了工作区和分区的订阅中，将按工作区授予权限。 如果用户在一个工作区中拥有权限，但在另一个工作区中没有，则他们只能在该工作区中执行允许的操作。 要创建角色，请单击新建角色按钮。
+角色是单个权限的容器，允许或限制对特定功能的访问。 在启用了工作区和分区的订阅中，将按工作区授予权限。 如果用户在一个工作区中拥有权限，但在另一个工作区中没有，则他们只能在该工作区中执行允许的操作。 要创建角色，请选择&#x200B;**[!UICONTROL New Role]**。
 
 ![用户和角色](assets/admin-users-and-roles-roles.png)
 
@@ -42,15 +42,15 @@ ht-degree: 0%
 
 >[!MORELIKETHIS]
 >
->要创建仅限API的用户，请转到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]**&#x200B;菜单并单击[!UICONTROL Invite New User]。
+>要创建仅限API的用户，请转到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]**&#x200B;菜单并选择&#x200B;**[!UICONTROL Invite New User]**。
 
 ![新用户信息](assets/new-user-info.png)
 
-根据用户将用于的服务和应用程序，为其提供描述性名称和电子邮件地址（不一定有效）。 填写对话框菜单中的必填字段，单击“仅限API”复选框，然后将您的某个API角色授予用户。 这会将该角色的权限集分配给用户。
+根据用户将用于的服务和应用程序，为其提供描述性名称和电子邮件地址（不一定有效）。 填写对话框菜单中的必填字段，选中&#x200B;**[!UICONTROL API Only]**&#x200B;复选框，然后将您的某个API角色授予用户。 这会将该角色的权限集分配给用户。
 
 ![新用户权限](assets/new-user-permissions.png)
 
-最后，单击“发送”以创建仅限API的用户。
+最后，选择&#x200B;**[!UICONTROL Send]**&#x200B;以创建仅限API的用户。
 
 为应用程序设置凭据时，强烈考虑为该服务创建新用户，即使它与其他现有集成具有相同的权限集。 API调用使用情况统计信息和错误是按用户进行跟踪的，因此为每个应用程序预配用户可以帮助您将使用情况和问题隔离到特定应用程序。 如果您遇到与达到每日API调用限制有关的问题，或者由于集成进行的API调用而导致的错误，这将会很有用。
 
@@ -58,7 +58,7 @@ ht-degree: 0%
 
 自定义服务提供使用Marketo实例执行身份验证所需的实际凭据、客户端ID和客户端密钥。 要预配一个，请转到您的&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]**&#x200B;菜单，然后选择&#x200B;**[!UICONTROL New Service]**。
 
-为您的服务提供一个描述性名称，然后从“服务”列表中选择“自定义”。 为服务提供详细描述，并从仅API用户列表中选择适当的用户，然后单击[!UICONTROL Create]。
+为您的服务提供一个描述性名称，然后从“服务”列表中选择“自定义”。 为服务提供详细描述，并从仅API用户列表中选择适当的用户，然后选择&#x200B;**[!UICONTROL Create]**。
 
 ![新自定义服务](assets/admin-launchpoint-new-service.png)
 

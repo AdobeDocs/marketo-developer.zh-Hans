@@ -3,7 +3,7 @@ title: 项目
 feature: REST API, Programs
 description: Marketo针对Asset REST API的程序指南，涵盖了类型、渠道、标记、成员状态和端点，可按ID或名称获取、浏览和按状态筛选。
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '979'
 ht-degree: 1%
@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # 项目
 
-[程序终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
+[程序终结点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs)
 
 项目是Marketo营销活动的核心组织组件。 它们可以是大多数类型资产的父级，并允许在单个营销计划的上下文中跟踪成员资格和商机的成功。 程序可以是除LP、电子邮件模板和文件之外的所有类型记录的父级。
 
@@ -32,11 +32,11 @@ Marketo中有五种核心类型的程序：
 
 ## 查询
 
-程序遵循资产查询的标准模式，并提供按标记类型和值查询的附加选项。 可以使用[获取标记类型](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET)检索可用的标记和值。
+程序遵循资产查询的标准模式，并提供按标记类型和值查询的附加选项。 可以使用[获取标记类型](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags/operation/getTagTypesUsingGET)检索可用的标记和值。
 
 ### 按Id
 
-[按ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)获取程序终结点需要`id`路径参数。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)获取程序终结点需要`id`路径参数。
 
 可以在UI中从程序的URL获取程序ID，其中URL类似于`https://app-\*\*\*.marketo.com/#PG1001A1`。 在此URL中，`id`为1001。 它始终介于URL中的第一组字母和第二组字母之间。
 
@@ -82,7 +82,7 @@ GET /rest/asset/v1/program/{id}.json
 
 ### 按名称
 
-[按名称](https://developer.adobe.com/marketo-apis/api/asset/)获取程序终结点需要`name`查询参数。 可选的布尔查询参数是`includeTags`和`includeCosts`，这两个参数分别用于返回程序标记和程序成本。
+[按名称](https://developer.adobe.com/marketo-apis/api/asset)获取程序终结点需要`name`查询参数。 可选的布尔查询参数是`includeTags`和`includeCosts`，这两个参数分别用于返回程序标记和程序成本。
 
 ```http
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
@@ -126,13 +126,13 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### 浏览
 
-[获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)终结点允许您浏览程序。
+[获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)终结点允许您浏览程序。
 
 可选的`status`参数允许您根据程序状态进行筛选。 此参数仅适用于参与和电子邮件程序。 参与计划的可能值为“on”和“off”，电子邮件计划的可能值为“unlocked”。
 
 可选的`maxReturn`参数控制要返回的程序数（最大值为200，默认值为20）。 用于分页结果的可选`offset`参数（默认值为0）。
 
-请注意，此端点不会返回与程序关联的标记。 可以使用[按ID获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET)或[按名称获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET)来检索程序标记。
+请注意，此端点不会返回与程序关联的标记。 可以使用[按ID获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET)或[按名称获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET)来检索程序标记。
 
 ```http
 GET /rest/asset/v1/programs.json
@@ -187,7 +187,7 @@ GET /rest/asset/v1/programs.json
 
 ### 按日期范围
 
-我们的[获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)端点的`earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回的程序设置低日期时间和高日期时间水印，这些程序在给定范围内已更新或最初创建。
+我们的[获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)端点的`earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回的程序设置低日期时间和高日期时间水印，这些程序在给定范围内已更新或最初创建。
 
 ```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
@@ -278,7 +278,7 @@ GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&lat
 
 ### 按标记类型
 
-[按标记获取程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramListByTagUsingGET)终结点检索与提供的标记类型和标记值匹配的程序列表。
+[按标记获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramListByTagUsingGET)终结点检索与提供的标记类型和标记值匹配的程序列表。
 
 有两个必需的参数，`tagType`是要筛选的标记类型，`tagValue`是要筛选的标记值。  有一个可选的integer `maxReturn`参数用于控制要返回的程序数（最大值为200，默认值为20），以及一个可选的integer `offset`参数用于分页结果（默认值为0）。  结果以随机顺序返回。
 
@@ -320,7 +320,7 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## 创建和更新
 
-[创建](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST)和[更新](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST)程序遵循标准资源模式，并以`folder`、`name`、`type`和`channel`为必需参数，其中`description`、`costs`和`tags`为可选参数。 渠道和类型只能在创建项目时设置。 创建后只能更新描述、名称、`tags`和`costs`，并允许额外的`costsDestructiveUpdate`参数。 将`costsDestructiveUpdate`传递为true将导致清除所有现有成本，并将其替换为调用中包含的任何成本。 请注意，在某些订阅中，某些程序类型可能需要使用标记，但这取决于配置，应首先使用“获取标记”检查标记，以查看是否有实例特定的要求。
+[创建](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/createProgramUsingPOST)和[更新](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)程序遵循标准资源模式，并以`folder`、`name`、`type`和`channel`为必需参数，其中`description`、`costs`和`tags`为可选参数。 渠道和类型只能在创建项目时设置。 创建后只能更新描述、名称、`tags`和`costs`，并允许额外的`costsDestructiveUpdate`参数。 将`costsDestructiveUpdate`传递为true将导致清除所有现有成本，并将其替换为调用中包含的任何成本。 请注意，在某些订阅中，某些程序类型可能需要使用标记，但这取决于配置，应首先使用“获取标记”检查标记，以查看是否有实例特定的要求。
 
 创建或更新电子邮件程序时，`startDate`和`endDate`也可能作为UTC日期/时间传递：
 
@@ -485,7 +485,7 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 ## 克隆
 
-[克隆程序](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST)遵循标准资源模式，将新名称和文件夹作为必需参数和可选描述。  `name`参数必须是全局唯一的，且不能超过255个字符。  `folder`参数是父文件夹。  必须将`folder`参数类型属性设置为“文件夹”，并且目标文件夹必须与要克隆的程序位于相同的工作区中。
+[克隆程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/cloneProgramUsingPOST)遵循标准资源模式，将新名称和文件夹作为必需参数和可选描述。  `name`参数必须是全局唯一的，且不能超过255个字符。  `folder`参数是父文件夹。  必须将`folder`参数类型属性设置为“文件夹”，并且目标文件夹必须与要克隆的程序位于相同的工作区中。
 
 包含特定类型资源的程序可能无法通过此API进行克隆，包括推送通知、应用程序内消息、报表和社交Assets。 应用程序内程序可能无法通过此API进行克隆。
 

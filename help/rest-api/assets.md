@@ -3,9 +3,9 @@ title: 资产
 feature: REST API
 description: Marketo Asset REST API概述，用于按ID或名称查询、使用分页进行浏览，以及创建或更新文件夹、电子邮件、表单、模板、文件和令牌。
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '898'
+source-wordcount: '899'
 ht-degree: 2%
 
 ---
@@ -265,7 +265,7 @@ type=Folder&description=This is a test (update 01)
 
 其他资源的结构更复杂，需要更新其他子部分或子对象，最终必须在使用之前获得批准。  这些资源类型包括Forms、电子邮件、电子邮件模板、登陆页面和登陆页面模板。  每个端点将有一个用于创建记录的端点，然后是其他用于更新元数据、内容和内容部分的端点。
 
-例如，要创建登陆页面，您必须使用模板ID调用其创建端点，然后检索其内容部分，并单独更新每个部分以添加内容，然后再批准它，以便可以实时部署。
+例如，要创建登陆页面，您必须使用模板ID调用其创建端点，然后检索其内容部分，并单独更新每个部分以添加内容，然后才能批准该内容，以便可以实时部署。
 
 ### 复杂创建
 

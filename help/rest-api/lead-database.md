@@ -3,7 +3,7 @@ title: 潜在客户数据库
 feature: REST API, Database
 description: Marketo Lead Database API指南，涵盖对象、CRUD和Describe方法、查询模式、批量限制和CRM集成限制。
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1373'
 ht-degree: 1%
@@ -32,7 +32,7 @@ Marketo Lead Database API是Marketo提供的最常用的API，因为它们允许
 
 ## API
 
-有关Lead数据库API端点的完整列表，包括参数和建模信息，请参阅[Lead数据库API端点参考](https://developer.adobe.com/marketo-apis/api/mapi/)。
+有关Lead数据库API端点的完整列表，包括参数和建模信息，请参阅[Lead数据库API端点参考](https://developer.adobe.com/marketo-apis/api/mapi)。
 
 对于启用了本机CRM集成（Microsoft Dynamics或Salesforce.com）的实例，将禁用Company、Opportunity、Opportunity Role和Sales Person API。 记录在启用时通过CRM进行管理，并且无法通过Marketo的API访问或更新。
 

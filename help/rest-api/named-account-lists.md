@@ -3,7 +3,7 @@ title: 指定帐户列表
 feature: REST API
 description: 了解如何使用REST API管理Marketo指定帐户列表，包括权限、字段、筛选以及用于查询、创建、更新和删除的端点。
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 2%
@@ -12,9 +12,9 @@ ht-degree: 2%
 
 # 指定帐户列表
 
-[命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
+Marketo中的[命名帐户列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
 `Content`
 
 ## 权限

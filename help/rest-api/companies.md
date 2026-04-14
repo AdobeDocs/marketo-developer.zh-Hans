@@ -3,7 +3,7 @@ title: 公司
 feature: REST API
 description: 使用Marketo Companies REST API描述、查询和同步公司记录，按externalCompanyId管理字段和重复数据删除，并注意CRM同步为只读。
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '676'
 ht-degree: 1%
@@ -12,11 +12,11 @@ ht-degree: 1%
 
 # 公司
 
-[公司端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
+[公司端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies)
 
-公司表示潜在客户记录所属的组织。 通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)或[批量潜在客户导入](bulk-lead-import.md)端点填充其对应的`externalCompanyId`字段，将潜在客户添加到公司。 将商机添加到公司后，您无法从该公司中删除该商机（除非将该商机添加到其他公司）。 链接到公司记录的潜在客户将直接继承公司记录中的值，就像值存在于潜在客户自己的记录中一样。
+公司表示潜在客户记录所属的组织。 通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)或[批量潜在客户导入](bulk-lead-import.md)端点填充其对应的`externalCompanyId`字段，将潜在客户添加到公司。 将商机添加到公司后，您无法从该公司中删除该商机（除非将该商机添加到其他公司）。 链接到公司记录的潜在客户将直接继承公司记录中的值，就像值存在于潜在客户自己的记录中一样。
 
-对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅，公司API是只读访问权限。
+对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅，公司API是只读访问权限。
 
 ## 描述
 
@@ -98,7 +98,7 @@ GET /rest/v1/companies/describe.json
 
 ## 查询
 
-[查询公司](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompaniesUsingGET)的模式紧跟潜在客户API的模式，添加了限制，`filterType`参数接受在Describe Companies调用的searchableFields数组或dedupeFields中列出的字段。
+[查询公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET)的模式紧跟潜在客户API的模式，添加了限制，`filterType`参数接受在Describe Companies调用的searchableFields数组或dedupeFields中列出的字段。
 
 `filterType`和`filterValues`是必需的查询参数。  `fields`、`nextPageToken`和`batchSize`是可选参数。  这些参数的功能与Leads和Opportunities API中的相应参数类似。 在请求`fields`的列表时，如果请求了特定字段但未返回，则该值默认为null。
 
@@ -136,7 +136,7 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## 创建和更新
 
-[同步公司](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)终结点接受包含公司对象数组的必需`input`参数。 与机会一样，创建和更新公司有三种模式：createOnly、updateOnly和createOrUpdate。  在请求的`action`参数中指定了模式。 `dedupeBy`和`action`参数都是可选的，它们分别默认为dedupeFields和createOrUpdate模式。
+[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)终结点接受包含公司对象数组的必需`input`参数。 与机会一样，创建和更新公司有三种模式：createOnly、updateOnly和createOrUpdate。  在请求的`action`参数中指定了模式。 `dedupeBy`和`action`参数都是可选的，它们分别默认为dedupeFields和createOrUpdate模式。
 
 ```http
 POST /rest/v1/companies.json
@@ -194,7 +194,7 @@ Content-Type: application/json
 
 #### 按名称
 
-[按名称获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldByNameUsingGET)终结点为公司对象上的单个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。 响应类似于Describe Company端点，但包含其他元数据，例如`isCustom`属性，该属性指示字段是否为自定义字段。
+[按名称获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET)终结点为公司对象上的单个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。 响应类似于Describe Company端点，但包含其他元数据，例如`isCustom`属性，该属性指示字段是否为自定义字段。
 
 ```http
 GET /rest/v1/companies/schema/fields/industry.json
@@ -223,7 +223,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### 浏览
 
-[获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，最多返回300条记录。 您可以使用`batchSize`查询参数来减少此数量。 如果`moreResult`属性为true，则表示有更多的结果可用。 继续调用此端点，直到moreResult属性返回false，这意味着没有可用的结果。 从此API返回的`nextPageToken`应始终在此调用的下一个迭代中重用。
+[获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，最多返回300条记录。 您可以使用`batchSize`查询参数来减少此数量。 如果`moreResult`属性为true，则表示有更多的结果可用。 继续调用此端点，直到moreResult属性返回false，这意味着没有可用的结果。 从此API返回的`nextPageToken`应始终在此调用的下一个迭代中重用。
 
 ```http
 GET /rest/v1/companies/schema/fields.json?batchSize=5

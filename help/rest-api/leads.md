@@ -3,16 +3,16 @@ title: 潜在客户
 feature: REST API
 description: 探索Marketo潜在客户REST API功能，包括描述、按ID或过滤器查询、默认字段、限制和检索ECID。
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '3457'
+source-wordcount: '3460'
 ht-degree: 2%
 
 ---
 
 # 潜在客户
 
-[潜在客户端点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[潜在客户端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
 Marketo Lead的API为针对潜在客户记录的简单CRUD应用程序提供了一系列功能，并提供了修改潜在客户在静态列表和程序中的成员资格，以及启动潜在客户的Smart Campaign处理等功能。
 
@@ -58,7 +58,7 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-通常，响应在结果数组中包含一组更多的字段，但出于演示目的，我们忽略了它们。 结果数组中的每一项都对应于潜在客户记录中可用的字段，并且至少具有id、displayName和数据类型。 对于给定字段，rest和soap子对象可能存在，也可能不存在，并且其存在将指示该字段在REST或SOAP API中是否有效。 `readOnly`属性通过相应的API（REST或SOAP）指示字段是否为只读。 length属性指示字段的最大长度（如果存在）。 dataType属性指示字段的数据类型。
+通常，响应在结果数组中包含更多字段，但出于演示目的，我们将忽略它们。 结果数组中的每一项都对应于潜在客户记录中可用的字段，并且至少具有id、displayName和数据类型。 对于给定字段，rest和soap子对象可能存在，也可能不存在，并且其存在将指示该字段在REST或SOAP API中是否有效。 `readOnly`属性通过相应的API（REST或SOAP）指示字段是否为只读。 length属性指示字段的最大长度（如果存在）。 dataType属性指示字段的数据类型。
 
 ## 查询
 
@@ -95,7 +95,7 @@ GET /rest/v1/lead/{id}.json
 
 按过滤器类型获取潜在客户将返回相同类型的记录，但每页最多可能返回300条记录。 它需要`filterType`和`filterValues`查询参数。
 
-`filterType`接受任何自定义字段，或大多数常用字段。 调用`Describe2`端点以获取允许在`filterType`中使用的可搜索字段的完整列表。 按自定义字段搜索时，仅支持以下数据类型： `string`、`email`、`integer`。 您可以获取字段详细信息（描述、类型等） 使用上述Describe方法。
+`filterType`接受任何自定义字段，或大多数常用字段。 调用`Describe2`端点以获取允许在`filterType`中使用的可搜索字段的完整列表。 按自定义字段搜索时，仅支持以下数据类型： `string`、`email`、`integer`。 您可以使用上述Describe方法获取字段详细信息（描述、类型等）。
 
 `filterValues`以逗号分隔格式接受最多300个值。 该调用将搜索潜在客户字段与所包含`filterValues`之一匹配的记录。 如果与商机过滤器匹配的商机数量大于1,000，则会返回错误：“1003，有太多结果与过滤器匹配”。
 
@@ -160,7 +160,7 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 
 >[!NOTE]
 >
-> 不支持使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST)终结点更新公司字段。 请改用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)终结点。
+> 不支持使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)终结点更新公司字段。 请改用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)终结点。
 
 >[!NOTE]
 >
@@ -767,6 +767,7 @@ Content-Type: application/json
 ## 合并
 
 >[!NOTE]
+>
 >从2026年3月31日开始，在合并潜在客户API调用的`leadIds`参数中包含超过25个ID的调用将导致1080错误代码，并且将跳过该调用。 需要将超过25条记录合并为一个的工作应该被分割成多个工作以确保这些调用成功。
 >
 
@@ -817,7 +818,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 还可以根据静态列表或项目中的成员资格来检索潜在客户记录。 此外，您可以检索潜在客户所属的所有静态列表、项目或智能营销策划。
 
 响应结构和可选参数与Get Leads by Filter Type的响应结构和可选参数相同，但`filterType`和`filterValues`不能与此API一起使用。
-要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-**&#x200B;**.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
+要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-****.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
 
 ## 按潜在客户ID获取计划
 

@@ -3,7 +3,7 @@ title: 文件
 feature: REST API
 description: 按ID或名称查询Marketo REST API文件、浏览文件夹和偏移、通过多部分上传创建或更新、insertOnly、MIME类型、无流
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '347'
 ht-degree: 1%
@@ -12,13 +12,13 @@ ht-degree: 1%
 
 # 文件
 
-[文件终结点引用](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[文件终结点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Files)
 
 Marketo订阅允许存储任意文件，如图像、脚本、文档和样式表。 所有这些都可以通过REST API远程使用。 Marketo订阅中提供的存储空间未针对带宽密集型应用程序进行优化，因此应该使用其他替代空间来应用适当的音频和视频流应用程序。
 
 ## 查询
 
-查询文件非常简单，并遵循id为[&#128279;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)的以及[浏览](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET)的标准查询类型。
+查询文件非常简单，并遵循id为](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET)的[以及[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET)的标准查询类型。
 
 ### 按Id
 
@@ -155,7 +155,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## 创建和更新
 
-[创建文件](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST)的过程是使用multipart/form-data类型的请求完成的。 最低限度，请求中需要名称、文件夹和文件，具有可选描述和insertOnly标志，这可以防止创建调用更新具有相同名称的现有文件。 对于文件参数，除了名称参数之外，Content-Disposition标头中还需要“filename”。 您还必须为文件传递Content-Type标头，它是Marketo将用于为文件提供服务的MIME类型。
+[创建文件](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST)的过程是使用multipart/form-data类型的请求完成的。 最低限度，请求中需要名称、文件夹和文件，具有可选描述和insertOnly标志，这可以防止创建调用更新具有相同名称的现有文件。 对于文件参数，除了名称参数之外，Content-Disposition标头中还需要“filename”。 您还必须为文件传递Content-Type标头，它是Marketo将用于为文件提供服务的MIME类型。
 
 ```http
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[可以根据文件ID更新文件](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST)。 唯一一个参数是文件参数，其要求与创建参数相同。
+[可以根据文件ID更新文件](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST)。 唯一一个参数是文件参数，其要求与创建参数相同。
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

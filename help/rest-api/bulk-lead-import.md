@@ -3,7 +3,7 @@ title: 批量商机导入
 feature: REST API
 description: 使用CSV TSV或SSV在Marketo中创建和监控异步批量潜在客户导入。
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '825'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # 批量商机导入
 
-[批量潜在客户导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[批量潜在客户导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-对于大量潜在客户记录，可以使用[批量API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)异步导入潜在客户。 这样，您就可以使用带有分隔符（逗号、制表符或分号）的平面文件，将一系列记录导入Marketo。 文件可以包含任意数量的记录，只要文件总计小于10MB即可。 记录操作仅限“插入或更新”。
+对于大量潜在客户记录，可以使用[批量API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)异步导入潜在客户。 这样，您就可以使用带有分隔符（逗号、制表符或分号）的平面文件，将一系列记录导入Marketo。 文件可以包含任意数量的记录，只要文件总计小于10MB即可。 记录操作仅限“插入或更新”。
 
 ## 处理限制
 
