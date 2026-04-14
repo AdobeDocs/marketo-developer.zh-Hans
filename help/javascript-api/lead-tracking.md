@@ -100,7 +100,7 @@ Munchkin Cookie特定于每个二级域，即`example.com`。 Cookie的默认有
 
 ## Beta 版
 
-要选择启用登陆页面的Munchkin测试版渠道，请转到您的[管理员 — > Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单并启用“登陆页面上的Munchkin Beta”设置。 这会在&#x200B;**[!UICONTROL Admin]** ->中提供新的代码片段  **[!UICONTROL Munchkin]**&#x200B;菜单，允许您在外部网站上使用测试版。
+要选择启用登陆页面的Munchkin测试版渠道，请转到您的[管理员 — > Treasure Chest](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单并启用“登陆页面上的Munchkin Beta”设置。 这会在&#x200B;**[!UICONTROL Admin]** ->中提供新的代码片段  **[!UICONTROL Munchkin]**&#x200B;菜单，允许您在外部网站上使用测试版。
 
 ## 选择禁用
 
