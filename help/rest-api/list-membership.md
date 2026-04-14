@@ -97,7 +97,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## 按列表ID获取潜在客户
 
-[按列表ID ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
+[按列表ID &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
 
 `batchSize`参数用于指定在单个调用中返回的潜在客户记录数。 默认值和最大值是300。
 
@@ -147,7 +147,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## List 会员
 
-List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)终结点的[成员用于查看一个或多个潜在客户是否为列表的成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
+List[&#128279;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)终结点的成员用于查看一个或多个潜在客户是否为列表的成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
 
 响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
 
