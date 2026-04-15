@@ -2,10 +2,11 @@
 title: MCP服务器
 description: 了解如何使用MCP服务器将AI助手连接到Marketo。 使用Marketo凭据配置Claude Desktop、Cursor、Claude Code或VS代码。
 hidefromtoc: true
+badgeBeta: label="Beta 版" type="informative" tooltip="此功能当前处于早期测试阶段"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: d659eb0f604a68d03d5b00c0109d59ff321415df
+source-git-commit: ad7c64f3e2cbc25db1c2ffe61e2d42b0acbbd573
 workflow-type: tm+mt
-source-wordcount: '1263'
+source-wordcount: '1272'
 ht-degree: 1%
 
 ---
@@ -224,37 +225,53 @@ claude mcp add --transport http marketo \
 
 ## 常见问题
 
-### 我的数据安全吗？
++++我的数据安全吗？
 
 凭据将以HTTP标头与每个单独的请求一起传输。 服务器不会在会话之间存储或缓存凭据，并且每个请求都是完全隔离的。
 
-### 是否可以多人同时使用它？
++++
+
++++是否可以多人同时使用它？
 
 可以。 服务器是多租户。 每个用户都使用自己的凭据进行连接，并且请求相互隔离。
 
-### 如果我的访问令牌过期，会发生什么情况？
++++
+
++++如果我的访问令牌过期，会发生什么情况？
 
 使用客户端ID和客户端密钥进行身份验证时，服务器会自动处理令牌刷新。 您无需采取任何操作。
 
-### 我需要安装或运行任何项目吗？
++++
+
++++我需要安装或运行任何项目吗？
 
 不会。 MCP服务器由Adobe托管。 您只需配置人工智能工具即可连接到该工具。
 
-### 我的API用户需要哪些[!DNL Marketo]权限？
++++
+
++++我的API用户需要哪些[!DNL Marketo]权限？
 
 API用户需要访问您打算管理的资源类型。 至少为浏览操作分配只读角色，为创建或修改资产分配读写角色。 与您的[!DNL Marketo]管理员合作以分配适当的权限。
 
-### 什么是速率限制？
++++
 
-MCP服务器继承Marketo实例的API速率限制。 使用专用API用户跟踪和管理配额消耗。
++++什么是速率限制？
 
-### 支持哪些AI工具？
+MCP服务器继承[!DNL Marketo]实例的API速率限制。 使用专用API用户跟踪和管理配额消耗。
+
++++
+
++++支持哪些AI工具？
 
 Claude Desktop、Cursor、Claude Code (CLI)和带GitHub Copilot的VS代码。 任何支持通过HTTP的模型上下文协议的AI工具都应正常工作。
 
-### 我可以连接到多个[!DNL Marketo]实例吗？
++++
+
++++我可以连接到多个[!DNL Marketo]实例吗？
 
 可以。 在AI工具的MCP配置中添加多个条目，每个条目都具有唯一名称和相应实例的凭据。 例如，您可以将`marketo-prod`和`marketo-staging`配置为单独的服务器。
+
++++
 
 ## 安全性注意事项
 
