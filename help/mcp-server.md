@@ -3,9 +3,9 @@ title: MCP服务器
 description: 了解如何使用MCP服务器将AI助手连接到Marketo。 使用Marketo凭据配置Claude Desktop、Cursor、Claude Code或VS代码。
 hidefromtoc: true
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 3fe1c3e9fe572ef68d20ba10f93535aac9a98602
+source-git-commit: d659eb0f604a68d03d5b00c0109d59ff321415df
 workflow-type: tm+mt
-source-wordcount: '1278'
+source-wordcount: '1263'
 ht-degree: 1%
 
 ---
@@ -30,7 +30,6 @@ ht-degree: 1%
 - **客户端ID**
 - **客户端密码**
 - **Munchkin帐户ID**
-- **REST API终结点**
 
 如果您已经拥有这些工具，请跳到[配置您的AI工具](#configure-your-ai-tool)。
 
@@ -44,11 +43,6 @@ ht-degree: 1%
 
 1. 转到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Munchkin]**。
 1. 复制&#x200B;**[!UICONTROL Munchkin Account ID]**。 格式为`XXX-XXX-XXX`，与实例URL的前缀匹配。
-
-### REST API端点
-
-1. 转到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Web Services]**。
-1. 在&#x200B;**[!UICONTROL REST API]**&#x200B;下，复制&#x200B;**[!UICONTROL Endpoint]** URL。 格式为`https://XXX-XXX-XXX.mktorest.com`。
 
 ## 配置AI工具
 
