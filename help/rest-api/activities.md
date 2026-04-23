@@ -3,9 +3,9 @@ title: 活动
 feature: REST API
 description: 使用Marketo Engage Activities REST API可列出活动类型、获取包含分页令牌的潜在客户活动以及处理自定义和数据值更改。
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 5260338681c4ea670f6f1b1a1603e30f6acc0865
 workflow-type: tm+mt
-source-wordcount: '2139'
+source-wordcount: '2218'
 ht-degree: 0%
 
 ---
@@ -75,9 +75,13 @@ GET /rest/v1/activities/types.json
 
 ## 查询
 
-要从Marketo检索活动，请调用[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)端点。 您需要首先为要开始从中检索活动的日期时间检索分页令牌。 然后在`nextPageToken`查询参数中传递分页令牌。 此外，您最多可以将`activityTypeIds`查询参数中的10个活动类型ID作为逗号分隔列表传递。
+要从Marketo检索活动，请调用[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)端点。 You need to first retrieve a paging token for the datetime that you want to begin retrieving activities from. You then pass the paging token in the `nextPageToken` query parameter. In addition, you pass up to ten activity type Ids in the `activityTypeIds` query parameter as a comma-separated list.
 
-您可以选择包括listId查询参数以仅搜索特定静态列表中包含的记录，或者包括leadIds查询参数并仅搜索一组指定潜在客户中的活动。 您最多可以将30个潜在客户ID作为逗号分隔列表传递。
+You can optionally include either a `listId` query parameter to narrow your search to only those records included in a specific static list, or a `leadIds` query parameter and search for activities from only a specified set of leads. You can pass up to 30 `leadIds` as a comma separated list.
+
+>[!CAUTION]
+>
+>Beginning 2026-12-30, calls to the `Get Lead Activities` and `Get Lead Changes` endpoints which includes the `listId` parameter will fail (error code 1003) if the target lists contain 10,000 or more leads. To avoid service disruptions, ensure that calls are properly scoped to avoid this limit.
 
 ```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
@@ -125,20 +129,24 @@ GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK
 }
 ```
 
-对于第一次调用，请使用获取分页令牌API获取`nextPageToken`。 对于对此端点的后续调用，请使用响应中的`nextPageToken returned`。 此终结点始终返回`the nextPageToken`。
+For the first call, use the Get Paging Token API to get `nextPageToken`. For subsequent calls to this endpoint, use the `nextPageToken returned` from the response. This endpoint always returns `the nextPageToken`.
 
-如果`moreResult`属性为true，则表示有更多的结果可用。 继续调用此终结点，直到`moreResult`属性返回false，这意味着没有可用的结果。 从此API返回的`nextPageToken`应始终在此调用的下一个迭代中重用。
+If the `moreResult` attribute is true, this means more results are available. Continue to call this endpoint until the `moreResult` attribute returns false, which means there are no results available. The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
-在某些情况下，此API可能会以少于300个活动项进行响应，但也会将`moreResult`属性设置为true。  这表示可以返回的活动更多，并且可以通过在后续调用中包含返回的`nextPageToken`来查询终结点以获取更新的活动。
+In some cases, this API may respond with fewer than 300 activity items, but also have the `moreResult` attribute set to true.  This indicates that there are more activities that can be returned and that the endpoint can be queried for more recent activities by including the returned `nextPageToken` in a subsequent call.
 
-请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
+Note that within each result array item, the `id` integer attribute is being replaced by the `marketoGUID` string attribute as unique identifier.
 
 ### 数据值更改
 
-对于数据值更改活动，提供了活动API的专用版本。 [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET)终结点仅返回数据值更改记录到Lead字段的活动。 该界面与Get Lead Activities API相同，但有两个区别：
+For Data Value Change activities, a specialized version of the activities API is provided. The [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) endpoint only returns activities of Data Value Change records to lead fields. The interface is the same as the Get Lead Activities API with two differences:
 
-* 没有`activityTypeIds`参数，因为终结点仅返回数据值更改和新潜在客户活动。
-* `fields`查询参数是必需的，您可以在其中传递以逗号分隔的字段列表，以指示您要检索哪些字段的更改。
+* There is no `activityTypeIds` parameter, since the endpoint only returns Data Value Change and New Lead activities.
+* The `fields` query parameter is required, where you can pass a comma-separated list of fields to indicate which fields you want to retrieve changes for.
+
+>[!CAUTION]
+>
+>Beginning 2026-12-30, calls to the `Get Lead Activities` and `Get Lead Changes` endpoints which includes the `listId` parameter will fail (error code 1003) if the target lists contain 10,000 or more leads. To avoid service disruptions, ensure that calls are properly scoped to avoid this limit.
 
 ```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
@@ -184,9 +192,9 @@ GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQG
 }
 ```
 
-响应中的每个活动都有一个字段数组，其中包括活动中的更改列表，该列表将指定更改字段的`id`和`name`，以及相对于更改的新值和旧值。
+Each activity in the response has a fields array, including a list of changes in the activity, which will specify the `id` and `name` of the field changed, as well as the new and old values relative to the change.
 
-请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
+Note that within each result array item, the `id` integer attribute is being replaced by the `marketoGUID` string attribute as unique identifier.
 
 ### 已删除的潜在客户
 

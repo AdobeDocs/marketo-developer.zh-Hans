@@ -1,81 +1,82 @@
 ---
-title: API许可证
-description: Marketo API许可协议，用于内部开发和测试，详细介绍API限制、与Marketo解决方案的互操作性以及非商业用途。
+title: API License
+description: Marketo API License Agreement for internal development and testing, detailing API limits, interoperability with Marketo Solution, and non-commercial use.
 exl-id: f0720ba7-b15d-40c8-9145-d3fa3e064a0b
 hide: true
 hidefromtoc: true
-source-git-commit: 14ca3ca1f1aa07bb3e54802003190a4a2b4fbcb9
+source-git-commit: 5260338681c4ea670f6f1b1a1603e30f6acc0865
 workflow-type: tm+mt
 source-wordcount: '3113'
 ht-degree: 0%
 
 ---
 
-# API许可证
+# API License
 
-Marketo
+MARKETO
 
-API许可协议
+API LICENSE AGREEMENT
 
-本Marketo API许可协议（“协议”）管辖Marketo API和API规范的实施和使用，以允许软件应用程序与Marketo解决方案互操作以进行内部开发或测试。 如果您代表组织签订此协议，则表示您有权将您的组织约束到此协议。 如果您没有该权限，或者您不同意本协议的条款，则不得实施Marketo API或使用API规范。 通过单击表示接受本协议的按钮，或通过实施、下载或以其他方式访问Marketo API，您同意受本协议条款的法律约束。 您与Marketo， Inc.(“Marketo”)之间的本协议自您接受之日起生效。 您和Marketo分别在此称为“当事方”，统称为“当事方”。
+This Marketo API License Agreement (&quot;Agreement&quot;) governs the implementation and use of the Marketo APIs and API Specification to allow a Software Application to interoperate with the Marketo Solution for internal development or testing purposes. If You are entering into this Agreement on behalf of an organization, You represent You have the authority to bind Your organization to this Agreement. If You do not have that authority, or if You do not agree with the terms of this Agreement, You may not implement the Marketo APIs or use the API Specification. By clicking a button denoting acceptance of this Agreement, or by implementing, downloading or otherwise accessing the Marketo APIs, You agree to be legally bound by the terms of this Agreement. This Agreement is effective between You and Marketo, Inc. (&quot;Marketo&quot;) as of the date of Your acceptance. You and Marketo are each individually referred to herein as a &quot;Party,&quot; and collectively as &quot;Parties.&quot;
 
-1. 定义
 
-“API限制”是指对您的API调用的限制（例如，速率限制和并发限制），如Marketo开发人员网站上所述，其基本描述如下：<https://developer.adobe.com/marketo-apis/>。
+1. Definitions
 
-“应用程序编程接口”或“API”是指以Source代码或对象代码形式提供的例程、类、函数参数、协议、Webhook、相关库和其他指令的集合。
+&quot;API Limits&quot; means restrictions (e.g., rate limits and concurrency limits) to Your API calls as described on the Marketo Developer website substantially described at: <https://developer.adobe.com/marketo-apis/>.
 
-“API规范”是指对例程、类、函数参数、协议、webhook、相关库和其他指令的书面描述或定义，这些描述或定义允许软件应用程序与Marketo解决方案进行互操作，具体说明请参阅：<https://developer.adobe.com/marketo-apis/>。
+&quot;Application Programming Interface&quot; or &quot;API&quot; means a collection of routines, classes, function parameters, protocols, webhooks, related libraries and other instructions provided in Source Code or Object Code form.
 
-“反馈”是指您向Marketo提供的与Marketo产品（例如，Marketo API或Marketo解决方案）相关的建议或评论。
+&quot;API Specification&quot; means a written description or definition of the routines, classes, function parameters, protocols, webhooks, related libraries and other instructions that allow a Software Application to interoperate with the Marketo Solution, and as substantially described at: <https://developer.adobe.com/marketo-apis/>.
 
-“分支”是指创建一组独特和/或单独的API的行为，这些API基于、派生自Marketo API或对其进行修改。
+&quot;Feedback&quot; means suggestions or comments provided by You to Marketo that are related to Marketo products (e.g., Marketo APIs or the Marketo Solution).
 
-“Marketo API”是指Source代码或对象代码表单中提供的例程、类、函数参数、协议、相关库、工具和其他指令的集合，这些例程、类、函数参数、协议、相关库、工具和其他指令允许软件应用程序访问或与Marketo解决方案实现互操作，具体说明如下： <https://developer.adobe.com/marketo-apis/>。
+&quot;Forking&quot; mean the act of creating a distinct and/or separate set of APIs that are based upon, derived from, or a modification of the Marketo APIs.
 
-“Marketo解决方案”是指通过Marketo API向您提供并且在<https://www.marketo.com/software/>中进行了充分说明的一项或多项服务。
+&quot;Marketo API&quot; means a collection of routines, classes, function parameters, protocols, related libraries, tools and other instructions provided in Source Code or Object Code form that allow access to or interoperability with the Marketo Solution by a Software Application, as substantially described and made available at: <https://developer.adobe.com/marketo-apis/>.
 
-“对象代码”是指已解释、编译或以其他方式转换为机器可读形式的Source代码。
+&quot;Marketo Solution&quot; means a service or services made available to You through the Marketo APIs and substantially described at: <https://www.marketo.com/software/>.
 
-“软件应用程序”是指由您以目标代码或Source代码形式创作的软件，通过Marketo API访问或以其他方式与Marketo解决方案互操作。
+&quot;Object Code&quot; means Source Code that has been interpreted, compiled or otherwise translated into a machine readable form.
 
-“Source代码”是指人类可读形式的计算机代码，以及尚未解释或编译的计算机代码。
+&quot;Software Application&quot; means software authored by You in Object Code or Source Code form that accesses or otherwise interoperates with the Marketo Solution via the Marketo APIs.
 
-“使用”是指执行或复制的权利（如17 U.S.C. § 101及以下各节所定义） 或其他适用的著作权法，但不包括任何再授权或散布的权利。
+&quot;Source Code&quot; means computer code in a human readable form and as such computer code that has not been interpreted or compiled.
+
+&quot;Use&quot; means a right to perform or reproduce (as defined under 17 U.S.C. § 101 et seq.) or other applicable copyright statute but does not include any right of sublicense or distribution.
 
 “您”或“您的”是指您，即订立本协议的人员；如果您代表某个组织（或者代表该组织拥有或许可的产品实施API规范和相关的Marketo API）订立本协议，则是指该组织。
 
 1. 许可证和限制
 
-[!DNL A]. Marketo API许可证。 在遵守本协议条款的前提下，Marketo根据Marketo版权授予您全球范围的可撤消、非独占许可证，允许您使用Marketo API来促进Marketo解决方案和软件应用程序的互操作性，但仅限用于内部开发或测试目的。 您获得本许可证的前提是遵守API限制作为接收本许可证的条件，并且您不会尝试规避任何此类API限制。 您可以创建软件应用程序，但没有义务这样做。
+[!DNL A]. Marketo API许可证。 Subject to the provisions of this Agreement, Marketo grants You a world-wide, revocable, non-exclusive license, under Marketo copyrights, to Use the Marketo APIs to facilitate the interoperability of the Marketo Solution and the Software Application solely for internal development or testing purposes. 您获得本许可证的前提是遵守API限制作为接收本许可证的条件，并且您不会尝试规避任何此类API限制。 You may, but have no obligation to, create a Software Application.
 
 [!DNL B]. Marketo API规范许可证。 Marketo授予您全球性、非独占、免版税、可撤消的许可证，根据Marketo的版权规定，使用API规范实现软件应用程序和Marketo解决方案之间的互操作性。
 
-[!DNL C]. Marketo的反馈许可证。 如果您向Marketo提供反馈，则您会将反馈中的所有合法权利、标题和兴趣授予Marketo。 此外，如果Marketo需要执行一个或多个完善这些法律权利所需的法律文档，您同意为Marketo执行所有此类文档。
+[!DNL C]. Marketo的反馈许可证。 If You provide Feedback to Marketo, You grant to Marketo all legal right, title and interest in the Feedback. 此外，如果Marketo需要执行一个或多个完善这些法律权利所需的法律文档，您同意为Marketo执行所有此类文档。
 
-[!DNL D]. Marketo API许可证限制。 Marketo保留本协议中Marketo API的合法所有权，并且您同意不删除或更改任何版权（例如，“© Marketo， Inc.”） 或其他所有权通知，表示Marketo拥有此法定所有权。 此外，您同意并承认以下许可证限制：(i)本协议不授予商业执行、分发或使用Marketo API的权利（或再许可任何上述权利）；(ii)您无论如何都不会以Source代码形式向最终用户或任何其他第三方提供Marketo API；(iii)不授予与Marketo API有关的以下权利：分发、公开显示或创建衍生工具（例如Marketo API的超集或子集）的权利；以及(iv) Marketo API不得用于访问除服务之外的其他服务Marketo解决方案。 Marketo可能会限制针对Marketo解决方案的API请求的数量和/或频率，或者限制对API的任何使用，因为这些API可能会损坏、禁用、增加负担、损害或以其他方式干扰Marketo解决方案。 如果您希望获得商业Marketo API许可证，以便将Marketo API与您的产品（包括软件应用程序）一起作为子许可证来使用，请访问<https://launchpoint.marketo.com/>以了解有关加入Marketo LaunchPoint的信息。
+[!DNL D]. Marketo API许可证限制。 Marketo保留本协议中Marketo API的合法所有权，并且您同意不删除或更改任何版权（例如，“© Marketo， Inc.”） 或其他所有权通知，表示Marketo拥有此法定所有权。 此外，您同意并承认以下许可证限制：(i)本协议不授予商业执行、分发或使用Marketo API的权利（或再许可任何上述权利）；(ii)您无论如何都不会以Source代码形式向最终用户或任何其他第三方提供Marketo API；(iii)不授予与Marketo API有关的以下权利：分发、公开显示或创建衍生工具（例如Marketo API的超集或子集）的权利；以及(iv) Marketo API不得用于访问除服务之外的其他服务Marketo解决方案。 Marketo may limit the number and/or frequency of API requests to the Marketo Solution, or any use of the APIs that could damage, disable, overburden, impair or otherwise interfere with the Marketo Solution. 如果您希望获得商业Marketo API许可证，以便将Marketo API与您的产品（包括软件应用程序）一起作为子许可证来使用，请访问<https://launchpoint.marketo.com/>以了解有关加入Marketo LaunchPoint的信息。
 
-[!DNL E]. API规范许可证限制。 Marketo在本协议下保留对API规范的法律所有权，并且您同意不删除或更改任何版权（例如，“© Marketo， Inc.”） 或其他所有权通知，表示Marketo拥有此法定所有权。 此外，您同意以下许可证限制：您不得对API规范进行不合理的复制次数。 此外，为避免产生疑问，在此授予您以下权利：(i)分发；(ii)再许可；(iii)公开展示；或(iv)创建API规范的派生程序。
+[!DNL E]. API规范许可证限制。 Marketo在本协议下保留对API规范的法律所有权，并且您同意不删除或更改任何版权（例如，“© Marketo， Inc.”） 或其他所有权通知，表示Marketo拥有此法定所有权。 Further, You agree to the following license restriction: You shall not make an unreasonable number of reproductions of the API Specification. 此外，为避免产生疑问，在此授予您以下权利：(i)分发；(ii)再许可；(iii)公开展示；或(iv)创建API规范的派生程序。
 
 1. 担保、免责声明、赔偿和责任限制
 
-[!DNL A]. 叉车。 您声明并保证自己现在和将来都不会从事创建分支存储库活动，或者尝试修改或反向工程Marketo API。 此外，您声明并保证自己没有也不分发一组API或开发工具包（基于或修改Marketo API，包括作为Marketo API的子集或超集）。
+[!DNL A]. Forking. 您声明并保证自己现在和将来都不会从事创建分支存储库活动，或者尝试修改或反向工程Marketo API。 Further, You represent and warrant that You have not and will not distribute a set of APIs or a development kit that is based upon or otherwise a modification of, the Marketo APIs, including being a subset or superset of the Marketo APIs.
 
-[!DNL B]. 品牌化。 您同意遵循或以其他方式遵守与使用Marketo商标（已注册或其他）、徽标或字号（统称为“标记”）相关的商标指南（位于： <https://legal.marketo.com/legal-notices/Trademark-and-Guidelines.pdf>）以及与其相关的商誉。 此外，您确认，除非与Marketo单独协商，否则此处不提供使用本标记以及与标记相关的商誉的许可（默示或明确）。
+[!DNL B]. Branding. You agree to follow or otherwise adhere to the Trademark Guidelines (found at: <https://legal.marketo.com/legal-notices/Trademark-and-Guidelines.pdf>) pertaining to the use of Marketo trademarks (registered or otherwise), logos, or word marks (collectively &quot;Marks&quot;) and the goodwill associated therewith. Further, you acknowledge that unless separately negotiated with Marketo, no license (implied or explicit) to use the Marks and the goodwill associated therewith is provided herein.
 
-[!DNL C]. 免责声明。 您确认Marketo API和API规范是“按原样”提供的，不提供任何形式的担保，并且可能在任何计算机或任何环境中都无法正常运行。 在适用法律允许的范围内，MARKETO不提供所有与MARKETO解决方案相关的明示或默示担保，包括但不限于对侵犯第三方权利、适销性和特定用途适用性的任何担保。 Marketo不对Marketo API或API规范的适用性做出任何声明或保证，也不考虑其是否符合您的预期要求或目的，包括与您的软件应用程序配合使用。 此外，Marketo对您通过使用Marketo API传输、传输、存储、获取或接收的数据的完整性不做任何声明或保证。 Marketo没有义务维护或支持Marketo API，也没有义务向您提供与此相关的更新、修复或服务。 您承担因使用Marketo API而产生的所有风险，包括但不限于对您的计算机系统、软件应用程序、数据损坏或丢失以及遵守所有适用法律和法规（包括与隐私和数据保护相关的法律和法规）的风险。
+[!DNL C]. Disclaimer of Warranties. You acknowledge THAT the Marketo APIs AND THE API SPECIFICATION are provided &quot;AS IS,&quot; without warranty of any kind, and may not be functional on any machine or in any environment. TO THE EXTENT PERMITTED BY APPLICABLE LAW, MARKETO DISCLAIMS ALL WARRANTIES RELATING TO THE MARKETO SOLUTIONS, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES AGAINST INFRINGEMENT OF THIRD PARTY RIGHTS, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. Marketo makes no representations or warranties regarding the suitability of the Marketo APIs OR THE API SPECIFICATION for your intended requirements or purposes, including for use with Your Software Application. Further, Marketo makes no representations or warranties regarding the integrity of data that You TRANSMIT, transfer, store, obtain or receive through use of the Marketo APIs. Marketo is not obligated to maintain or support the Marketo APIs, or to provide you with updates, fixes, or services related thereto. You assume all risk arising from use of the Marketo APIs, including, without limitation, the risk of damage to Your computer system, Software Application, the corruption or loss of data, and compliance with ALL applicable laws and regulations (including laws and regulations related to privacy and data protection).
 
-[!DNL D]. 赔偿。 对于软件应用程序产生的任何及所有索赔、损害、责任、成本和费用（包括合理的律师费用），您应保护、赔偿和保护Marketo及其关联公司及其各自的高级职员、董事、员工、代理人和代表。 当Marketo根据本节寻求赔偿时，双方同意遵循以下流程，并明确指出Marketo将:-：(i)立即向您发出索赔书面通知；(ii)为您提供索赔的辩护和解决的全权控制权（前提是您不得解决任何索赔，除非它无条件解除Marketo的所有责任）；以及(iii)向您提供一切合理协助，费用由您承担。
+[!DNL D]. Indemnity. You shall defend, indemnify and hold harmless Marketo, its affiliates and their respective officers, directors, employees, agents and representatives from any and all claims, damages, liabilities, costs and fees (including reasonable attorneys&#39; fees) arising from the Software Application. The Parties agree to comply with the following process when Marketo seeks indemnification under this section and specifically that Marketo is to:- (i) promptly give You written notice of the claim; (ii) give You sole control of the defense and settlement of the claim (provided that You may not settle any claim unless it unconditionally releases Marketo of all liability); and (iii) provide You, at Your cost, all reasonable assistance.
 
-[!DNL E]. 责任限制。 在适用法律允许的范围内，MARKETO在任何情况下均不就本协议的任何主题根据任何合同、疏忽、严格责任或其他理论承担以下责任或责任：(I)数据丢失或不准确，或替代产品、服务的采购成本，或者技术；或(II)任何间接、附带或后果性损害，包括但不限于收入或利润损失；(III)任何超出其合理控制的事项；或(IV)任何总额超过$100的金额。
+[!DNL E]. 责任限制。 TO THE EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MARKETO BE RESPONSIBLE OR LIABLE WITH RESPECT TO ANY SUBJECT MATTER OF THIS AGREEMENT UNDER ANY CONTRACT, NEGLIGENCE, STRICT LIABILITY OR OTHER THEORY FOR: (I) LOSS OR INACCURACY OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES, OR TECHNOLOGY; OR (II) ANY INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO LOSS OF REVENUES OR PROFITS; (III) ANY MATTER BEYOND ITS REASONABLE CONTROL; OR (IV) ANY AMOUNT IN THE AGGREGATE OVER $100.
 
-1. 机密性。 在此使用的机密信息是指:-(i)您根据第2.C节向Marketo提供的任何反馈；以及(ii)您获得的与本协议相关的任何Marketo业务或技术信息，包括但不限于任何与Marketo的计划、业务机会或研发相关的信息。 机密信息不包括以下任何信息：(a)因您违反本协议而公之于众或公之于众；(b)在披露时您是合法知晓的，没有使用或披露的限制；(c)由您独立开发，没有访问或使用任何机密信息；或(d)由您合法从有权披露该机密信息并且披露该机密信息的第三方处获得，不受使用或披露的限制。 您将严格保密所有机密信息，并且不会将机密信息泄露给任何第三方，但需要为本协议目的知晓并书面同意以不低于本协议保护条款的方式处理机密信息的承包商除外。 如此类承包商未能按照本协议处理机密信息，您将承担责任。 除非为履行本协议而需要，否则您不得使用机密信息。
+1. Confidentiality. As used herein, Confidential Information means:- (i) any Feedback that You provide to Marketo pursuant to Section 2.C; and (ii) any Marketo business or technical information that is disclosed to You in connection with this Agreement, including, but not limited to, any information relating to Marketo&#39;s plans, business opportunities, or research and development. Confidential Information excludes any information that- (a) is or becomes generally known to the public other than as a result of Your breach of this Agreement; (b) is rightfully known to You at the time of disclosure without restrictions on use or disclosure; (c) is independently developed by You, without access to or use of any Confidential Information; or (d) is rightfully obtained by You from a third party who has the right to disclose it and who discloses it without restrictions on use or disclosure. You will maintain all Confidential Information in strict confidence and will not disclose Confidential Information to any third party, other than a contractor who needs to know for the purposes of this Agreement and who agrees in writing to treat the Confidential Information on terms no less protective than this Agreement. You will be liable for any such contractor&#39;s failure to treat the Confidential Information in accordance with this Agreement. You will not use Confidential Information, except as necessary for the performance of this Agreement.
 
-1. 期限和终止
+1. Term and Termination
 
-[!DNL A]. 术语。 本协议将从您实施Marketo API或API规范之日开始，直到第5.B节或5.C节中规定的终止为止。
+[!DNL A]. Term. This Agreement will commence on the date You implement the Marketo APIs or the API Specification, and will continue until terminated as provided in Section(s) 5.B or Section 5.C.
 
-[!DNL B]. 为方便起见，终止。 Marketo可出于任何原因终止本协议，并提前三十(30)天通知您。 Marketo可能会自行决定恢复您使用API或API规范的能力。 您可以随时终止协议，方法是停止使用Marketo API、API规范并禁用软件应用程序使用Marketo API的功能。
+[!DNL B]. Termination for Convenience. Marketo可出于任何原因终止本协议，并提前三十(30)天通知您。 Marketo可能会自行决定恢复您使用API或API规范的能力。 您可以随时终止协议，方法是停止使用Marketo API、API规范并禁用软件应用程序使用Marketo API的功能。
 
 [!DNL C]. 违反的终止。 如果您违反本协议，Marketo可在发出书面通知后立即终止本协议。 如果您证明已修复任何此类入侵，Marketo可能会自行决定恢复您使用API或API规范的能力。
 
