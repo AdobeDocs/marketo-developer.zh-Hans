@@ -2,7 +2,7 @@
 title: 博客档案
 description: Marketo开发人员博客档案2014-2023提供了有关Forms 2.0、Zapier、API更新、SOAP弃用和迁移到REST的历史文章。
 exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 9c6aa420e451d529f3a1618fafe70b59392a4670
 workflow-type: tm+mt
 source-wordcount: '65019'
 ht-degree: 0%
@@ -1606,7 +1606,7 @@ Marketo已对Bash漏洞(也称为[Shellshock (CVE-2014-6271)](https://nvd.nist.g
 
 ### 外部页面预填充
 
-在Marketo登陆页面外部加载时，Marketo表单不提供本机预填充功能。 但是，我们仍可以使用[Marketo API](/help/rest-api/rest-api.md)和[Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md/)实施此操作。 第一步是通过来自服务器的REST调用，从Marketo中检索潜在客户数据。 假设我们无法从服务器直接交叉引用潜在客户ID或其他唯一标识符，我们需要使用Munchkin Cookie“_mkto_trk”，通过[按筛选器类型获取潜在客户方法](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET)，从Marketo服务器中检索数据。
+在Marketo登陆页面外部加载时，Marketo表单不提供本机预填充功能。 但是，我们仍可以使用[Marketo API](/help/rest-api/rest-api.md)和[Forms 2.0 JavaScript API](/help/javascript-api/forms-api-reference.md)实施此操作。 第一步是通过来自服务器的REST调用，从Marketo中检索潜在客户数据。 假设我们无法从服务器直接交叉引用潜在客户ID或其他唯一标识符，我们需要使用Munchkin Cookie“_mkto_trk”，通过[按筛选器类型获取潜在客户方法](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET)，从Marketo服务器中检索数据。
 
 要进行此调用，我们需要您的实例中的身份验证和REST端点。 当您通过Marketo实例的身份验证后，我们需要在`https://<host>/rest/v1/leads.json`处调用潜在客户API。 然后，我们需要创建一个查询字符串以对Marketo Cookie进行过滤，如下所示`?filterType=cookie&filterValues=`。 您需要从客户端发送到服务器的“_mkto_trk”密钥中检索特定值。 注意：_mkto_trk Cookie值包含与号，需要将URL编码为`%26`才能被Marketo端点正确接受。 默认情况下，潜在客户API返回四个字段：`id`、`email`、`firstName`和`updatedAt`。 要设置一组特定的字段，您需要包含一个`fields`查询参数，其字段名称以逗号分隔，如下所示： `&fields=email,firstName,lastName,company`。 最终，我们的调用将如下所示：
 

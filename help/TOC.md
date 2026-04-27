@@ -5,7 +5,7 @@ breadcrumb-title: '[!DNL Marketo] 开发人员指南'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 74f277aa200fa54bc386c067ec3302d144ec250a
 workflow-type: tm+mt
 source-wordcount: '286'
 ht-degree: 30%
@@ -165,8 +165,8 @@ ht-degree: 30%
 - [电子邮件脚本](email-scripting.md)
 - [电子邮件脚本示例](examples.md)
 - [Marketo对象](marketo-objects.md)
-- [MCP服务器](mcp-server.md)
-- [许可证](api-license.md)
+- {hide-from-toc}[MCP服务器](mcp-server.md)
+- {hide-from-toc}[许可证](api-license.md)
 - [合作伙伴沙盒](partner-sandbox.md)
 - [自助服务流程步骤](self-service-flow-steps.md)
 - [博客档案](blog.md)
