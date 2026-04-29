@@ -3,9 +3,9 @@ title: 电子邮件脚本
 feature: Email Programs
 description: 了解如何使用Apache Velocity令牌、变量、Velocity工具编写动态Marketo电子邮件的脚本，以及使用“发送示例”和“电子邮件预览”进行测试。
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: c21ba0db3115c453f8ec35e18d4a8fd4c1ad8745
+source-git-commit: 6b813020fec6727dc2fe3b4dfe1c98146447e704
 workflow-type: tm+mt
-source-wordcount: '1100'
+source-wordcount: '1106'
 ht-degree: 0%
 
 ---
@@ -31,6 +31,8 @@ $variable ##outputs 'value'
 $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
 ```
+
+
 
 还有静默引用表示法，其中在`$`之后有`!`包含。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
 
