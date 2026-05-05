@@ -3,9 +3,9 @@ title: 错误数
 feature: Webhooks
 description: 了解Marketo webhook错误代码，为什么更新潜在客户字段需要2xx响应，以及如何使用Webhook捕获和处理错误。
 exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: d84b9d0f60734500f16bba237bdd95692d22abbb
 workflow-type: tm+mt
-source-wordcount: '254'
+source-wordcount: '252'
 ht-degree: 1%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 1000和1001由Marketo生成，2xx到5xx是从Marketo webhook调用的系统返回的错误。
 
-为了使Marketo将值映射回字段，webhook响应代码必须为2xx类型。 如果webhook的意图是通过响应更改Marketo潜在客户记录中的值，那么调用的Web服务必须返回2xx，则所有其他响应代码都会导致webhook被忽略以便更新潜在客户记录值。
+要使Marketo将值映射回字段，webhook响应代码必须为2xx类型。 如果webhook的意图是通过响应更改Marketo潜在客户记录中的值，那么调用的Web服务必须返回2xx，则所有其他响应代码都会导致webhook被忽略以便更新潜在客户记录值。
 
 | 响应代码 | 描述 |
 | --- | --- |
@@ -25,11 +25,11 @@ ht-degree: 1%
 
 ## 捕获Webhook错误
 
-来自Webhook的错误可由[!UICONTROL Webhook is Called]触发器捕获和处理：
+来自Webhook的错误可由&#x200B;**[!UICONTROL Webhook is Called]**&#x200B;触发器捕获和处理：
 
 ![已调用Webhook](assets/webhook-called.png)
 
-* Response - Response是请求收到的文字响应有效负载。
-* 错误类型 — 这对应于HTTP状态消息的原因短语。
+* **Response** - Response是请求收到的文字响应有效负载。
+* **错误类型** — 这对应于HTTP状态消息的原因短语。
 
 这些资源可用于处理和响应可预测的错误和异常。 根据您与集成的服务的不同，可能会自动恢复某些类别的错误，同时还可以创建警报以通知用户发生意外错误。
