@@ -2,7 +2,7 @@
 title: 快速入门
 description: 开始使用Marketo Engage API和数据模型，包括潜在客户、活动、程序、标记、列表、REST指南和SOAP弃用通知。
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: e3fd965eb0c1fe0968933577963bc6a935c0f26d
 workflow-type: tm+mt
 source-wordcount: '1507'
 ht-degree: 1%
@@ -101,3 +101,4 @@ Marketo自定义对象允许在您的Marketo潜在客户与自定义对象记录
 如果没有启用本机CRM集成，则可以在Marketo中管理销售人员记录和潜在客户关系。 这些记录包含有关销售人员的基本信息，如姓名、电子邮件和职务，当销售线索归某人所有时，可用于在Marketo中进行筛选和标记。 与销售人员的关系通过“externalSalesPersonId”字段在潜在客户级别进行管理，该字段必须通过[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) API进行更新。
 
 相关API： [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
+
