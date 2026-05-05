@@ -3,9 +3,9 @@ title: 响应映射
 feature: Webhooks
 description: Marketo Webhook会映射JSON和XML的响应，将属性映射到具有SOAP API名称、点和数组表示法以及类型兼容性的潜在客户字段。
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d84b9d0f60734500f16bba237bdd95692d22abbb
 workflow-type: tm+mt
-source-wordcount: '480'
+source-wordcount: '484'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Marketo可以翻译Webhook从两种内容类型接收的数据，并将这些值
 { "foo":"bar"}
 ```
 
-要在响应映射中访问`foo`属性，请使用属性的`name`，因为该属性位于JSON对象的第一个级别`foo`。 以下是Marketo中的外观：
+要在响应映射中访问`foo`属性，请使用属性的`name`，因为该属性位于JSON对象的第一个级别`foo`。 下面显示了Marketo中显示的内容：
 
 ![响应映射](assets/json-resp.png)
 
@@ -58,7 +58,7 @@ Marketo可以翻译Webhook从两种内容类型接收的数据，并将这些值
 
 ## XML映射
 
-可以从XML文档中的单个元素访问值。 这使用与JSON映射类似的点表示法。 让我们看一下这个简单的示例：
+可以从XML文档中的单个元素访问值。 这使用与JSON映射类似的点表示法。 请看以下简单示例：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
