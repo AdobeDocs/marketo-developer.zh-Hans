@@ -3,7 +3,7 @@ title: MCP服务器
 description: 了解如何使用MCP服务器将AI助手连接到Marketo。 使用Marketo凭据配置Claude Desktop、Cursor、Claude Code或VS代码。
 badgeBeta: label="Beta 版" type="informative" tooltip="此功能当前处于封闭测试版本"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 1b33cacdd397b78292d8102b1222d0aa8c43c4b1
+source-git-commit: 738fabea9eefbc6aafee4ffa7972c9e3e2bd430c
 workflow-type: tm+mt
 source-wordcount: '1447'
 ht-degree: 0%
@@ -28,7 +28,7 @@ ht-degree: 0%
 
 ## MCP基础知识
 
->“将MCP想象成用于AI应用程序的USB-C端口。 正如USB-C提供了一种标准化方式将您的设备连接到各种外围设备和附件，MCP提供了一种标准化方式将AI模型连接到不同的数据源和工具。” — [模型上下文协议](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+>将MCP想象为用于AI应用程序的USB-C端口。 正如USB-C提供了一种标准化方式将您的设备连接到各种外围设备和附件，MCP提供了一种标准化方式将AI模型连接到不同的数据源和工具。 — [模型上下文协议](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
 MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
