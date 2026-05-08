@@ -3,7 +3,9 @@ title: MCP服务器
 description: 了解如何使用MCP服务器将AI助手连接到Marketo。 使用Marketo凭据配置Claude Desktop、Cursor、Claude Code或VS代码。
 badgeBeta: label="Beta 版" type="informative" tooltip="此功能当前处于封闭测试版本"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 738fabea9eefbc6aafee4ffa7972c9e3e2bd430c
+hidefromtoc: true
+hide: true
+source-git-commit: a8bf6680a212dd665841896e4550a755dcdf745d
 workflow-type: tm+mt
 source-wordcount: '1447'
 ht-degree: 0%
