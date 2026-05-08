@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "words": [
+    "BEGINSHADEBOX",
+    "BEGINTABS",
+    "CONTEXTUALHELP",
+    "DNL",
+    "ENDSHADEBOX",
+    "ENDTABS",
+    "Marketo",
+    "UICONTROL",
+    "undefinedchannels"
+  ],
+  "ignoreRegExpList": [
+    "`[^`\\n]+`",
+    "https?://\\S+",
+    "\\[![A-Z][A-Z0-9_]*(?:\\s+[^\\]]*)?\\]",
+    "\\{[^}]+\\}"
+  ]
+}
