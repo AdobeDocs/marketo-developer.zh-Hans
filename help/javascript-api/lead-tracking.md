@@ -3,9 +3,15 @@ title: 商机跟踪
 description: 了解如何嵌入Marketo Munchkin JavaScript、跟踪访问和点击量、管理已知和匿名潜在客户、跨域Cookie以及选择退出智能营销活动。
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
+TQID: https://experienceleague.adobe.com/nGUcLLgL9X7PBKf2E5IzppDj8e-SyEtxmkQaESd90mE
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '818'
+source-wordcount: 818
 ht-degree: 0%
 
 ---
@@ -100,7 +106,7 @@ Munchkin Cookie特定于每个二级域，即`example.com`。 Cookie的默认有
 
 ## Beta 版
 
-要选择启用登陆页面的Munchkin测试版渠道，请转到您的[管理员 — > Treasure Chest](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单并启用“登陆页面上的Munchkin Beta”设置。 这会在&#x200B;**[!UICONTROL Admin]** ->中提供新的代码片段  **[!UICONTROL Munchkin]**&#x200B;菜单，允许您在外部网站上使用测试版。
+要选择启用登陆页面的Munchkin测试版渠道，请转到您的[管理员 — > Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)菜单并启用“登陆页面上的Munchkin Beta”设置。 这将在&#x200B;**[!UICONTROL Admin]** -> **[!UICONTROL Munchkin]**&#x200B;菜单中提供新的代码片段，以便您在外部网站上使用测试版。
 
 ## 选择禁用
 

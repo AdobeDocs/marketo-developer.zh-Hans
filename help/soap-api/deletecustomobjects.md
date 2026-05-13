@@ -3,10 +3,13 @@ title: deleteCustomObjects
 feature: SOAP, Custom Objects
 description: 了解如何在Marketo SOAP API中使用deleteCustomObjects来按键属性删除自定义对象，这些键属性具有DELETED、UNCHANGED、FAILED状态以及XML、PHP、Java。
 exl-id: 214b7cd1-dc4e-45dc-a29a-91518a275e61
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/5ARV5AGPgRnLX9X3ychjeoMmZpW0jZlnNuILwArhzJI
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '99'
-ht-degree: 6%
+source-wordcount: 99
+ht-degree: 8%
 
 ---
 
@@ -16,7 +19,7 @@ ht-degree: 6%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | objTypeName | 必需 | 自定义对象的名称 |
 | customObjKeyList->keyList->属性 | 必需 | 属性是用于标识要删除的自定义对象的键/值对。 您可以在customObjKeyLists中指定多个属性 |

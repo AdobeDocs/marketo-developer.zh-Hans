@@ -3,9 +3,13 @@ title: syncLead
 feature: SOAP
 description: 了解如何使用Marketo SOAP syncLead插入或更新单个潜在客户、处理标识符和工作区，以及请求字段、XML和PHP示例。
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/SecUbvn0SKgWEGHMKbSNJqMvy1QoM3u-4tVchq-T3xQ
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '540'
+source-wordcount: 540
 ht-degree: 2%
 
 ---
@@ -16,7 +20,7 @@ ht-degree: 2%
 
 - Marketo ID
 - 外部系统ID（实现为`foreignSysPersonId`）
-- Marketo Cookie(由Munchkin JS脚本创建)
+- Marketo Cookie（由Munchkin JS脚本创建）
 - 电子邮件
 
 如果找到现有的匹配项，调用将执行更新。 否则，它会插入并创建一个潜在客户。 匿名潜在客户可以使用Marketo Cookie ID进行更新，并在更新时成为已知客户。
@@ -40,7 +44,7 @@ ht-degree: 2%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | leadRecord->Id | 必需 — 仅当电子邮件或`foreignSysPersonId`不存在时 | 潜在客户记录的Marketo ID |
 | leadRecord->电子邮件 | 必需 — 仅当ID或`foreignSysPersonId`不存在时 | 与潜在客户记录关联的电子邮件地址 |

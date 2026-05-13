@@ -3,9 +3,12 @@ title: getleadchanges
 feature: SOAP
 description: 了解如何使用Marketo SOAP getLeadChanges API通过过滤器、leadSelector、分页和XML示例检索潜在客户更改活动。
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/aPP14duN8rOf5Zr19VE-b183jL7RSqGOPEQjsi5OAIU
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '418'
+source-wordcount: 418
 ht-degree: 3%
 
 ---

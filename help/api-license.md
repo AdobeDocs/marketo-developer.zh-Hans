@@ -3,9 +3,14 @@ title: API许可证
 description: Marketo API许可协议，用于内部开发和测试，详细介绍API限制、与Marketo解决方案的互操作性以及非商业用途。
 exl-id: f0720ba7-b15d-40c8-9145-d3fa3e064a0b
 hide: true
-source-git-commit: 74f277aa200fa54bc386c067ec3302d144ec250a
+TQID: https://experienceleague.adobe.com/o39mvaYWSQDqV9RzgB-o6rqJUWIc0RITEl39-KRCGOo
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: f4e6943a-c91a-4134-a2c7-f4f20cfff2f0
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '3113'
+source-wordcount: 3113
 ht-degree: 0%
 
 ---

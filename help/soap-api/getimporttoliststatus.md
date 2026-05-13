@@ -3,10 +3,13 @@ title: getImportToListStatus
 feature: SOAP
 description: 使用getImportToListStatus检查Marketo静态列表导入状态、必填字段、XML请求和响应、PHP和Java代码以及轮询最佳实践。
 exl-id: 17a62f65-dfa0-4f40-89b2-154f7734a2dc
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/6pSW-VrcGNpPU5W2tRzwGsvmk7LwcYyfeMIPKh44Wz4
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '96'
-ht-degree: 6%
+source-wordcount: 96
+ht-degree: 8%
 
 ---
 
@@ -18,7 +21,7 @@ ht-degree: 6%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | 项目名称 | 必需 | 包含静态列表的程序的名称 |
 | listName | 必需 | Marketo中用于检索导入状态的静态列表的名称。 |

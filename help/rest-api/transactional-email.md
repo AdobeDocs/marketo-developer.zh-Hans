@@ -3,9 +3,13 @@ title: 事务性电子邮件
 feature: REST API
 description: 了解如何为Marketo配置事务性电子邮件，并通过REST API请求营销活动触发这些电子邮件，以及设置步骤和Java代码示例。
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+TQID: https://experienceleague.adobe.com/eUw2THnwDdIuEO3MsuG4cSaoPnKVvdZ0ZTV-gxP-pJQ
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1092'
+source-wordcount: 1092
 ht-degree: 1%
 
 ---
@@ -18,7 +22,7 @@ Marketo API的常见用例是通过[请求营销活动](https://developer.adobe.
 - 您的Marketo实例中必须已创建和批准事务型电子邮件。
 - 必须有一个活动触发器营销活动，其名称为“Campaign is Requested， 1. Source： Web服务API”，设置为发送电子邮件
 
-首先[创建并批准您的电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 如果电子邮件确实是事务性的，则您可能必须将其设置为可操作，但请确保它符合可操作的合法资格。 可使用电子邮件操作>电子邮件设置下的编辑屏幕对此进行配置：
+首先[创建并批准您的电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html)。 如果电子邮件确实是事务性的，则您可能必须将其设置为可操作，但请确保它符合可操作的合法资格。 可使用电子邮件操作>电子邮件设置下的编辑屏幕对此进行配置：
 
 ![Request-Campaign-Email-Settings](assets/request-campaign-email-settings.png)
 
@@ -28,7 +32,7 @@ Marketo API的常见用例是通过[请求营销活动](https://developer.adobe.
 
 ![RequestCampaign-Prove-Draft](assets/request-campaign-approve-draft.png)
 
-如果您是创建营销活动的新手，请查看[新建Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=zh-Hans)文章。 创建活动后，我们必须完成这些步骤。 使用Campaign is Requested触发器配置智能列表：
+如果您是创建营销活动的新手，请查看[新建Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html)文章。 创建活动后，我们必须完成这些步骤。 使用Campaign is Requested触发器配置智能列表：
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -182,7 +186,7 @@ public class RequestCampaign {
 
 ### 构建电子邮件
 
-若要自定义我们的内容，我们必须首先在Marketo中配置[程序](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=zh-Hans)和[电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 要生成自定义内容，我们必须在程序中创建令牌，然后将它们放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以替换电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中任何内容的任何数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。
+若要自定义我们的内容，我们必须首先在Marketo中配置[程序](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html)和[电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html)。 要生成自定义内容，我们必须在程序中创建令牌，然后将它们放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以替换电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中任何内容的任何数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。
 
 ![新令牌](assets/New-Token.png)
 

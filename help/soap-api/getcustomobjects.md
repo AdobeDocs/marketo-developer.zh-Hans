@@ -3,10 +3,13 @@ title: getCustomObjects
 feature: SOAP, Custom Objects
 description: 了解如何使用getCustomObjects通过SOAP通过键（包括includeAttributes、批量大小高达100以及streamPosition分页）检索Marketo自定义对象。
 exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/KImkpGiX4lbKxYeRXS0oxh7iiyr1R6J9X-cFeC8DOy8
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '176'
-ht-degree: 5%
+source-wordcount: 177
+ht-degree: 6%
 
 ---
 
@@ -18,7 +21,7 @@ ht-degree: 5%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | objTypeName | 必需 | 自定义对象的名称 |
 | customObjKeyList->keyList->属性 | 必需 | 属性是用于标识要检索的自定义对象的键/值对。 您可以在`customObjKeyLists`中指定多个属性 |

@@ -3,9 +3,14 @@ title: 电子邮件模板
 feature: REST API
 description: 了解如何创建和管理Marketo REST API电子邮件模板，包括HTML要求、按id或名称查询以及浏览文件夹
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/jKQpibaRP7nAyIsDdjMf8VkNPi5AMFbe7I4Iiy3MGc0
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '725'
+source-wordcount: 725
 ht-degree: 1%
 
 ---
@@ -14,11 +19,11 @@ ht-degree: 1%
 
 [电子邮件模板端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
-电子邮件模板构成了Marketo中每个新电子邮件的基础。  虽然可以通过HTML的替换来取消电子邮件与模板的链接，但最初创建电子邮件时必须使用模板作为基础。  在Marketo中，模板是作为纯HTML文档创建的，其中包含名称和描述等元数据。  对内容的限制很少，但模板的HTML必须有效，并且必须至少包含一个可编辑部分，该部分遵循此处[概述的要求](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)。
+电子邮件模板构成了Marketo中每个新电子邮件的基础。  虽然可以通过HTML的替换来取消电子邮件与模板的链接，但最初创建电子邮件时必须使用模板作为基础。  在Marketo中，模板是作为纯HTML文档创建的，其中包含名称和描述等元数据。  对内容的限制很少，但模板的HTML必须有效，并且必须至少包含一个可编辑部分，该部分遵循此处[概述的要求](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)。
 
 ## 查询
 
-查询电子邮件模板遵循资产的标准模式，允许按ID [&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByIdUsingGET)查询[、按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByNameUsingGET)查询和[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplatesUsingGET)给定文件夹。
+查询电子邮件模板遵循资产的标准模式，允许按ID ](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByIdUsingGET)查询[、按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByNameUsingGET)查询[和[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplatesUsingGET)给定文件夹。
 
 ### 按Id
 
@@ -503,7 +508,7 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 使用[获取](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET)端点使用的电子邮件模板检索依赖于给定电子邮件模板的电子邮件列表。  `id`路径参数指定父电子邮件模板。
 
-有2个可选参数。 `maxReturn`  是一个限制结果数的整数（默认值为20，最大值为200），`offset`是一个可与`maxReturn`一起用于读取大型结果集的整数（默认值为0）。
+有2个可选参数。 `maxReturn`是限制结果数的整数（默认值为20，最大值为200），`offset`是可与`maxReturn`一起用于读取大型结果集的整数（默认值为0）。
 
 ```http
 GET /rest/asset/v1/emailTemplates/{id}/usedBy.json

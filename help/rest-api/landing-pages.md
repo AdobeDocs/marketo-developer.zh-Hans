@@ -3,9 +3,14 @@ title: 登陆页面
 feature: REST API, Landing Pages
 description: 使用Marketo REST API查询元数据和内容，创建、更新、批准、删除和克隆登陆页面，包括引导式和自由格式类型。
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1221'
+source-wordcount: 1221
 ht-degree: 1%
 
 ---
@@ -186,7 +191,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 | 矩形 | 空。 |
 | 富文本 | 文本HTML内容。  只能包含富文本元素。 |
 | 代码段 | 代码片段的id。 |
-| 社交按钮 | 的ID  社交按钮。 |
+| 社交按钮 | 社交按钮的id。 |
 | 视频 | 视频的id。 |
 
 对于自由格式页面，必须添加所有所需的内容部分，并将嵌入到ID为`mktoContent`的div元素中。 对于引导式页面，预定义元素的列表可能存在于来自[获取登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET)端点的列表中。 可以通过各自的端点添加更多内容或更新其[内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST)。
@@ -274,7 +279,7 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 
@@ -310,7 +315,7 @@ GET /rest/asset/v1/landingPage/{id}/variables.json
 }
 ```
 
-在  在本例中，引导式登陆页面包含3个变量：stringVar、colorVar、boolVar。
+在此示例中，引导式登陆页面包含3个变量：stringVar、colorVar、boolVar。
 
 ### 更新
 
@@ -341,7 +346,7 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 Marketo提供[获取登陆页面完整内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET)端点以检索登陆页面的实时预览，因为它将在浏览器中呈现。 有一个必需的参数`id`路径参数，该参数是要预览的登陆页面的ID。 另外还有两个可选查询参数：
 
 - 分段：接受包含segmentationId和segmentId属性的JSON对象数组。 设置后，会预览登陆页面，就像您是匹配这些区段的潜在客户一样。
-- 商机ID：  接受商机的整数ID。 设置后，会预览登陆页面，就像是由指定的潜在客户查看一样。
+- leadId：接受商机的整数id。 设置后，会预览登陆页面，就像是由指定的潜在客户查看一样。
 
 ```http
 GET /rest/asset/v1/landingPage/{id}/fullContent.json?leadId=1001&segmentation=[{"segmentationId":1030,"segmentId":1103}]
