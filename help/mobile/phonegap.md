@@ -4,10 +4,15 @@ feature: Mobile Marketing
 description: 使用Cordova设置Marketo PhoneGap插件，配置Firebase Cloud Messaging，启用iOS和Android推送，跟踪通知，以及初始化SDK。
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
 TQID: https://experienceleague.adobe.com/eFAwR7r5IE6vKigsEWrJdCmC3VrfB-nl0h8x7Vgt1VY
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 841
@@ -71,7 +76,7 @@ repositories{
 1. Firebase Cloud Messaging支持
 
 1. 在Firebase控制台上配置Firebase应用程序。
-   1. 在[](https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
+   1. 在[&#128279;](https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
       1. 在[Firebase控制台](https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
       1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
       1. 在Firebase欢迎屏幕中，选择“将Firebase添加到Android应用程序”。

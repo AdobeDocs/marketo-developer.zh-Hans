@@ -4,9 +4,12 @@ feature: SOAP
 description: Marketo SOAP getCampaignsForSource按源返回符合条件的Smart Campaigns for requestCampaign，需要Campaign is Requested触发器、XML和PHP示例。
 exl-id: bd8803ef-f462-4346-a381-73f40dc5d9ee
 TQID: https://experienceleague.adobe.com/QKOB21gL-zcTvMkvG9fYTYnGtUJcxsjbuYbtDHc-I-Y
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: a7170d27-32ab-462b-a333-269abc654483
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 148

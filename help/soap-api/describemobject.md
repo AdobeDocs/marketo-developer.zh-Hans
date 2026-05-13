@@ -4,9 +4,12 @@ feature: SOAP
 description: 了解如何使用Marketo SOAP中的describeMObject检索ActivityRecord、LeadRecord、Opportunity和OpportunityPersonRole的元数据和字段属性。
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
 TQID: https://experienceleague.adobe.com/1Vp3iYux1Q10xogANCUW-tlyrQHGy5JUosS4hAp1DmQ
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 87

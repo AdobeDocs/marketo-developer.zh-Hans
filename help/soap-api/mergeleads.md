@@ -4,8 +4,10 @@ feature: SOAP
 description: 将mergeLeads与Marketo SOAP结合使用可合并获胜和失败的潜在客户记录。 包括请求字段、XML请求和响应，以及PHP和Java示例。
 exl-id: a667cb76-525d-4583-b26a-1181d320a68c
 TQID: https://experienceleague.adobe.com/--FRhhVbiS0KiMrUjakKgXXo79c2M1PQxUbo0YdGPzk
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 104

@@ -4,9 +4,12 @@ feature: SOAP
 description: 了解如何使用Marketo SOAP syncLead插入或更新单个潜在客户、处理标识符和工作区，以及请求字段、XML和PHP示例。
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
 TQID: https://experienceleague.adobe.com/SecUbvn0SKgWEGHMKbSNJqMvy1QoM3u-4tVchq-T3xQ
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 540

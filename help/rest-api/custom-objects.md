@@ -4,11 +4,19 @@ feature: REST API, Custom Objects
 description: 了解如何通过REST API创建和管理Marketo自定义对象，包括列出和描述端点、元数据、关系、字段和查询。
 exl-id: 88e8829b-f8f1-46d7-a753-5aa6e20e2c40
 TQID: https://experienceleague.adobe.com/NWm9CjFVqQdVDJRrnE4nA299-Lg53-JR7xvY-82dUqY
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-subfeature_v2: id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2:
+  - id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 3346
@@ -896,7 +904,7 @@ POST /rest/v1/customobjects/schema/{apiName}/delete.json
 对于一对多自定义对象结构，请使用自定义对象中的链接字段将其连接到标准对象：潜在客户或公司。 使用Marketo产品文档[此处](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure)中的车主示例，我们创建包含要与潜在客户连接的车相关信息的自定义对象。
 
 1. 创建&#x200B;**Car**&#x200B;对象
-1. 向&#x200B;**Car**&#x200B;对象添加字段：**VIN**&#x200B;上的重复数据删除，链接到&#x200B;**潜在客户****/潜在客户ID**
+1. 向&#x200B;**Car**&#x200B;对象添加字段：**VIN**&#x200B;上的重复数据删除，链接到&#x200B;**潜在客户**&#x200B;**/潜在客户ID**
 1. 批准&#x200B;**Car**&#x200B;对象
 
 首先，创建自定义对象类型以包含特定于car的信息。
@@ -1000,7 +1008,7 @@ POST /rest/v1/customobjects/schema/course/approve.json
 1. 将字段添加到&#x200B;**课程：**&#x200B;课程ID **上的重复数据删除**
 1. 批准&#x200B;**课程**
 1. 创建&#x200B;**注册**&#x200B;桥接对象
-1. 将字段添加到&#x200B;**注册：**&#x200B;注册ID **上的重复数据删除**，链接到&#x200B;**课程****/课程ID**&#x200B;字段，以及链接到**潜在客户****/潜在客户ID**
+1. 将字段添加到&#x200B;**注册：**&#x200B;注册ID **上的重复数据删除**，链接到&#x200B;**课程**&#x200B;**/课程ID**&#x200B;字段，以及链接到&#x200B;**潜在客户**&#x200B;**/潜在客户ID**
 1. 批准&#x200B;**注册**
 
 首先，创建Edge对象类型以包含特定于课程的信息：

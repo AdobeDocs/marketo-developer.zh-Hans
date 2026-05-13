@@ -4,8 +4,10 @@ feature: SOAP
 description: 解释用于在SOAP中对时间顺序数据进行分页的流位置（简单和复杂的格式），以及在getLeadChanges、getLeadActivity等中的使用
 exl-id: c3a3fc1e-086b-4822-b2c7-2a7959db557c
 TQID: https://experienceleague.adobe.com/Gn-BhpbF2inBlKcmfyq3rSwwYHmp8B-ODRREtRlzwx4
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 157

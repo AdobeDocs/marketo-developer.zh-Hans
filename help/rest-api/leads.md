@@ -4,10 +4,17 @@ feature: REST API
 description: 探索Marketo潜在客户REST API功能，包括描述、按ID或过滤器查询、默认字段、限制和检索ECID。
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
 TQID: https://experienceleague.adobe.com/jZ-ecWTmHwq9gvp4fMaeuuGba6cgwYx0QCCyfkrEDHQ
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 3460
@@ -823,7 +830,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 还可以根据静态列表或项目中的成员资格来检索潜在客户记录。 此外，您可以检索潜在客户所属的所有静态列表、项目或智能营销策划。
 
 响应结构和可选参数与Get Leads by Filter Type的响应结构和可选参数相同，但`filterType`和`filterValues`不能与此API一起使用。
-要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-****.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
+要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-**&#x200B;**.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
 
 ## 按潜在客户ID获取计划
 

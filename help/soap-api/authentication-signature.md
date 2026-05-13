@@ -4,9 +4,12 @@ feature: SOAP
 description: 使用HMAC-SHA1通过HTTPS进行Marketo SOAP API身份验证的指南，以及必填标头字段、时间戳格式和请求与错误响应示例
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
 TQID: https://experienceleague.adobe.com/BPSocY-W2YSMEweUF3yW8fG4xVuF4LMawqOba8Mi8Bw
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: d095671a-1355-40aa-8b5f-06c33c68080b
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: d095671a-1355-40aa-8b5f-06c33c68080b
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 232

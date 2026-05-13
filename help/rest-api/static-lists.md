@@ -4,8 +4,10 @@ feature: REST API, Static Lists
 description: 使用Marketo REST API查询、创建、更新和删除静态列表，以及包含ID、名称和浏览、文件夹作用域、分页和日期过滤器的端点。
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
 TQID: https://experienceleague.adobe.com/DSV9h6d4F3ZrIUT-VtqlmFAnpdxOuTf05ajCqiGegqk
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 496
@@ -85,7 +87,7 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### 浏览
 
-静态列表也可在批次](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET)中检索[。 `folder`参数可用于指定将在其中执行查询的父文件夹，并将其格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 `earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回在给定范围内创建或更新的静态列表设置低日期时间水印和高日期时间水印。 日期时间值必须是有效的ISO-8601字符串，并且不应包括毫秒。
+静态列表也可在批次[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET)中检索。 `folder`参数可用于指定将在其中执行查询的父文件夹，并将其格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 `earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回在给定范围内创建或更新的静态列表设置低日期时间水印和高日期时间水印。 日期时间值必须是有效的ISO-8601字符串，并且不应包括毫秒。
 
 ```http
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}

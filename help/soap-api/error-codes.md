@@ -4,8 +4,10 @@ feature: SOAP
 description: Marketo SOAP API错误代码参考指南，其中包含消息和注释，其中涵盖身份验证失败、速率和并发限制以及请求问题。
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
 TQID: https://experienceleague.adobe.com/BIb2AC8-ijtLuR5AcGHAmau2yGYWnlzNjzKQK3xjrtE
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 409

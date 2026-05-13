@@ -4,8 +4,10 @@ feature: SOAP
 description: 使用getLeadActivity SOAP按键获取潜在客户活动历史记录，过滤活动类型，设置批次大小，通过包含XML示例的流位置进行分页。
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
 TQID: https://experienceleague.adobe.com/Hq-MvVf5JanI8vu8BKIxUQycPpxRcZkIm1plDWi3dmw
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 366
