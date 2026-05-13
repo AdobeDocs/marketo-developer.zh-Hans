@@ -3,9 +3,21 @@ title: 获取访客数据
 description: 使用RTP用户上下文API获取实时访客识别，其中包含参数、回调示例以及区段、ABM和位置的示例响应。
 feature: Javascript
 exl-id: 39a2446d-8a31-461e-bbe6-a7edf24b4d52
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/B-JMACtMs3aRVsb1eJKaRoQGgVKB6MTbd0KBoZ7Ay6k
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '223'
+source-wordcount: 223
 ht-degree: 4%
 
 ---

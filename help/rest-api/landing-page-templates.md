@@ -3,9 +3,18 @@ title: 登陆页面模板
 feature: REST API, Landing Pages
 description: 通过REST API端点管理Marketo登陆页面模板，适用于自由格式和引导式类型、按id或名称查询、创建、更新HTML、克隆、Munchkin。
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '703'
+source-wordcount: 703
 ht-degree: 1%
 
 ---
@@ -118,7 +127,7 @@ Marketo提供了一种克隆登陆页面模板的简单方法。 这是applicati
 
 `name`参数用于指定新登陆页面模板的名称。
 
-`folder`参数用于指定新登陆页面模板将驻留的父文件夹。 其形式为嵌入JSON对象，包含  `id`和`type`。
+`folder`参数用于指定新登陆页面模板将驻留的父文件夹。 这是包含`id`和`type`的嵌入式JSON对象的形式。
 
 可选的`description`参数用于描述新的登陆页面模板。
 

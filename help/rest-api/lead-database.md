@@ -3,9 +3,18 @@ title: 潜在客户数据库
 feature: REST API, Database
 description: Marketo Lead Database API指南，涵盖对象、CRUD和Describe方法、查询模式、批量限制和CRM集成限制。
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/7lGbhE92lvIE-XkMyUIaK9GrreZVRdM-WVZTpHARhxE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1373'
+source-wordcount: 1373
 ht-degree: 1%
 
 ---

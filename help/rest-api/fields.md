@@ -3,9 +3,17 @@ title: 字段
 feature: REST API, Field Management
 description: 了解REST和SOAP潜在客户字段命名，通过REST列出字段描述潜在客户，功能映射，为何sfdcId为null，以及使用sfdcLeadId或sfdcContactId。
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/H2Bvhy-67U8JJ1V3JwYJ0O0vj4i11fwUCyYQtjxm8u0
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '213'
+source-wordcount: 213
 ht-degree: 2%
 
 ---

@@ -3,9 +3,19 @@ title: '[!DNL Adobe Launch]扩展安装'
 feature: Mobile Marketing
 description: 安装适用于移动设备的Adobe Launch Marketo扩展。 请按照iOS和Android的设置、测试设备、权限以及FCM步骤执行推送和应用程序内操作。
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '752'
+source-wordcount: 752
 ht-degree: 1%
 
 ---
@@ -134,7 +144,7 @@ ProGuard配置（可选）
 -keep class com.marketo.**{ *; }
 ```
 
-## Android  测试  设备
+## Android测试设备
 
 将“MarketoActivity”添加到应用程序标记中的`AndroidManifest.xml`。
 

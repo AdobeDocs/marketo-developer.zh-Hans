@@ -3,9 +3,19 @@ title: 配置
 description: 使用Marketo API配置JavaScript Munchkin。 了解Munchkin.init设置，如altIds、anonymizeIP、asyncOnly、Cookie生命周期、domainLevel、Beacon API。
 feature: Munchkin Tracking Code, Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/ip2cCGgoa83v8m9GYLYXe132veYxS1C6UWX1iLB6X5Q
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '613'
+source-wordcount: 614
 ht-degree: 4%
 
 ---
@@ -36,7 +46,7 @@ Munchkin.init("AAA-BBB-CCC", {
 | cookieAnon | 布尔值 | 如果设置为false，则阻止跟踪和Cookie创建新的匿名潜在客户。 商机具有Cookie，在填写Marketo表单或通过从Marketo电子邮件点进来进行跟踪。 默认值为true。 |
 | cookieLifeDays | 整数 | 将任何新创建的Munchkin跟踪Cookie的过期日期设置为将来的此天数。 默认值为730天（2年）。 |
 | customname | 字符串 | 自定义页面名称。 仅供系统使用。 |
-| <a name="domainlevel"></a>域级别 | 整数 | 设置设置Cookie的域属性时要使用的页面域中的部分数。例如，假设当前页面域为“www.example.com”。domainLevel： 2将Cookie域属性设置为“.example.com”domainLevel： 3将Cookie域属性设置为“。www.example.com”。Background:Munchkin将自动管理特定的双字母顶级域。 在正常情况下，如果顶级域是三个字母，则默认使用两部分。 例如，“www.example.com”，最右侧的两个部分用于设置Cookie“.example.com”。对于两个字母的国家代码（例如“.jp”、“.us”、“.cn”和“.uk”），代码默认为三个部分。 例如，“www.example.co.jp”将使用三个最右边的域部分“.example.co.jp”。如果域模式需要不同的行为，则必须使用`domainLevel`参数指定此行为。 |
+| <a name="domainlevel"></a>域级别 | 整数 | 设置设置Cookie的域属性时要使用的页面域部分数。例如，假设当前页面域为“www.example.com”。domainLevel： 2将Cookie域属性设置为“.example.com”domainLevel： 3将Cookie域属性设置为“。www.example.com”。Background:Munchkin将自动管理某些两个字母的顶级域。 在正常情况下，如果顶级域是三个字母，则默认使用两部分。 例如，“www.example.com”，最右侧的两个部分用于设置Cookie“.example.com”。对于两个字母的国家代码（例如“.jp”、“.us”、“.cn”和“.uk”），代码默认为三个部分。 例如，“www.example.co.jp”将使用三个最右边的域部分“.example.co.jp”。如果域模式需要不同的行为，则必须使用`domainLevel`参数指定此行为。 |
 | domainSelectorV2 | 布尔值 | 如果设置为true，则使用改进的方法来确定如何设置Cookie域属性。 |
 | httpsOnly | 布尔值 | 默认为false。 如果设置为true，则在通过https提供跟踪的页面时，会将Cookie设置为使用安全设置。 |
 | useBeaconAPI | 布尔值 | 默认为false。 当设置为true时，使用[Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)发送非阻止请求，而不是[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。 如果浏览器不支持此API，Munchkin将回退为使用XMLHttpRequest。 |

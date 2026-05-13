@@ -3,9 +3,14 @@ title: 性能
 feature: REST API
 description: 通过HTTP压缩提高Marketo REST API性能。 启用gzip以压缩带宽；不支持批量API，并且不会压缩1024个字节以下的API。
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
-source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
+TQID: https://experienceleague.adobe.com/foJCTd890HZtL-UzWx2cjRXwTxqgW56A79sB7FPEWis
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '146'
+source-wordcount: 146
 ht-degree: 1%
 
 ---

@@ -3,10 +3,18 @@ title: 移动设备
 feature: Mobile Marketing
 description: 了解Marketo Mobile Engagement如何使用Mobile SDK和Mobile Marketing发送推送和应用程序内消息、定位受众以及跟踪分析。
 exl-id: d5fa5640-01f5-49a1-944a-9f81a1f83617
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/nPkFdcBOP0mdzQ7nOT-bZZj83VQq-TGp1lkcAmWknU8
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: c13ff12d-60f1-49cd-833a-d43359628223
+  - id: c18d9e03-ac7d-4811-9c92-3e92ddc70ade
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '149'
-ht-degree: 4%
+source-wordcount: 165
+ht-degree: 3%
 
 ---
 

@@ -3,9 +3,16 @@ title: Forms API参考
 description: Marketo Forms 2.0 API综合参考，详细介绍MktoForms2和表单方法、参数、回调以及用于加载和渲染表单的返回。
 feature: Forms, Javascript
 exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/wLuN1H8tDFEihPqcAfoG-Y80d4Kw1BoSskVQu4Bgss0
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1345'
+source-wordcount: 1352
 ht-degree: 1%
 
 ---
@@ -177,12 +184,12 @@ ht-degree: 1%
     <tr valign="top">
       <td>.onSuccess(callback)</td>
       <td>添加一个回调，该回调将在成功提交表单时但在潜在客户转发到后续页面之前调用。 可用于防止在成功提交后将商机转发到后续页面。</td>
-      <td>callback — 成功提交表单时将调用的函数。 此回调将传递两个参数。 一个JS对象，其中包含已提交的值和用户将转发到的跟进页面的字符串URL；如果没有已配置的跟进页面，则包含Null或空字符串。 特殊行为：如果此回调返回“false”(使用===测量)，则访客将不会转发到跟进页面，并且也不会重新加载页面。 这允许实施者对跟进URL执行额外的处理，或在使用JavaScript而不是离开页面的页面上执行操作。</td>
+      <td>callback — 成功提交表单时将调用的函数。 此回调将传递两个参数。 一个JS对象，其中包含已提交的值和用户将转发到的跟进页面的字符串URL；如果没有已配置的跟进页面，则包含Null或空字符串。 特殊行为：如果此回调返回“false”（使用===测量），则访客将不会转发到跟进页面，并且也不会重新加载页面。 这允许实施者对跟进URL执行额外的处理，或在使用JavaScript而不是离开页面的页面上执行操作。</td>
       <td>表单对象 — 用于链接目的的调用方法的相同表单对象。</td>
     </tr>
     <tr valign="top">
       <td>.submittable(canSubmit) <em>也可用为： </em> <em>.submitable(canSubmit)</em></td>
-      <td>获取或设置是否可以提交表单。 如果使用无参数调用，则它将获取值；如果使用一个参数调用，则它将设置值。这可用于阻止提交表单，而必须满足普通表单之外的其他条件。</td>
+      <td>获取或设置是否可以提交表单。 如果使用无参数调用，则它将获取值；如果使用一个参数调用，则它将设置值。这可用于阻止提交表单，同时必须符合常规表单之外的其他标准。</td>
       <td>canSubmit （可选）（布尔值） — 将表单设置为可提交或不可提交。</td>
       <td>布尔值或表单对象 — 如果使用无参数调用，则返回一个布尔值，指示表单是否可提交。 如果使用某个参数调用，则返回此表单对象以进行链接。 </td>
     </tr>
@@ -219,7 +226,7 @@ ht-degree: 1%
     <tr valign="top">
       <td>.showErrorMessage(msg， elem)</td>
       <td>显示一条错误消息，指向元素。</td>
-      <td>msg(HTML的字符串) — 包含要显示的错误文本的字符串。</td>
+      <td>msg（HTML的字符串） — 包含要显示的错误文本的字符串。</td>
             <td>表单对象 — 此表单对象，用于链接。</td>
     </tr>
     <tr>

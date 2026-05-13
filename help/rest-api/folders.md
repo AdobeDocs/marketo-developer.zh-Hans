@@ -3,9 +3,19 @@ title: 文件夹
 feature: REST API
 description: Marketo REST API指南，适用于包含创建、更新、删除、按ID和名称查询、使用根批量浏览、工作区、maxDepth和分页的文件夹。
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/OxCNdy8qW6jwq8u57RF9mqVKPVvH99UmuiOBjFprHCM
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1099'
+source-wordcount: 1099
 ht-degree: 1%
 
 ---

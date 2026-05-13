@@ -3,9 +3,20 @@ title: 电子邮件
 feature: REST API
 description: 了解如何使用Marketo Asset REST API按ID、名称或文件夹浏览来查询和管理电子邮件资源，并包含有关预测内容和A/B测试限制的注释。
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/t2FyPbwS836MvOe5rL0rVS7ibtzzZMmXwmgHBDZEr8Q
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '2301'
+source-wordcount: 2301
 ht-degree: 1%
 
 ---
@@ -796,7 +807,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### 重新排列
 
-[重新排列模块](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/rearrangeModulesUsingPOST)数组，其中包含所有模块以及每个模块在电子邮件中的所需位置。 每个数组元素包含具有以下形式的JSON对象：  { &quot;index&quot;： &lt;_index_>， &quot;moduleId&quot;： &quot;&lt;_moduleId_>&quot; }，其中&lt;_index_>为从零开始的模块订单编号，&lt;_moduleId_>为模块ID。
+[重新排列模块](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/rearrangeModulesUsingPOST)数组，其中包含所有模块以及每个模块在电子邮件中的所需位置。 每个数组元素包含如下形式的JSON对象： { &quot;index&quot;： &lt;_index_>， &quot;moduleId&quot;： &quot;&lt;_moduleId_>&quot; }，其中&lt;_index_>是从0开始的模块顺序号，&lt;_moduleId_>是moduleId。
 
 ```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json

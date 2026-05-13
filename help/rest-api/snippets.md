@@ -3,9 +3,19 @@ title: 代码段
 feature: REST API, Snippets
 description: Marketo Asset REST API可用于代码片段，包括按ID查询和使用状态浏览、获取内容、创建和更新HTML、文本以及动态内容。
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/1UpwX-ZzXTzkTRheu8exBDIoIvAGgoZgpA851PuL8sI
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '512'
+source-wordcount: 512
 ht-degree: 1%
 
 ---
@@ -139,7 +149,7 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-该调用返回内容部分的列表，  包含HTML类型或DynamicContent类型的分区，以及可选的文本类型的分区。
+调用将返回内容部分的列表，这些部分包含HTML类型或DynamicContent类型的部分，还可以选择包含文本类型的部分。
 
 ## 创建和更新
 

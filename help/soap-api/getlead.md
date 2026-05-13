@@ -3,10 +3,15 @@ title: getLead
 feature: SOAP
 description: 使用Marketo SOAP getLead通过IDNUM、电子邮件、Cookie或SFDC ID以及请求和响应XML加PHP示例获取单个潜在客户和所有字段值。
 exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/HJ28-Gr78FqFm2KuvDdoAclkHVBSV6GwDjnUwQcJqVw
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '152'
-ht-degree: 3%
+source-wordcount: 153
+ht-degree: 5%
 
 ---
 
@@ -18,7 +23,7 @@ ht-degree: 3%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | leadKey->keyType | 必需 | keyType允许您指定查询潜在客户所依据的字段。 可能的值包括：`IDNUM`、`COOKIE`、`EMAIL`、`SFDCLEADID`、`LEADOWNEREMAIL`、`SFDCACCOUNTID`、`SFDCCONTACTID`、`SFDCLEADID`、`SFDCLEADOWNERID`、`SFDCOPPTYID` |
 | leadKey->keyValue | 必需 | keyValue是您希望作为潜在客户查询依据的值。 |

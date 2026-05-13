@@ -3,9 +3,17 @@ title: 事务性电子邮件
 feature: REST API
 description: 了解如何为Marketo配置事务性电子邮件，并通过REST API请求营销活动触发这些电子邮件，以及设置步骤和Java代码示例。
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+TQID: https://experienceleague.adobe.com/eUw2THnwDdIuEO3MsuG4cSaoPnKVvdZ0ZTV-gxP-pJQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1092'
+source-wordcount: 1092
 ht-degree: 1%
 
 ---

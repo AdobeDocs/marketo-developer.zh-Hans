@@ -3,9 +3,19 @@ title: 智能列表
 feature: REST API
 description: 了解如何使用Marketo REST API查询、克隆和删除用户创建的智能列表，包括按ID、名称、营销活动和项目以及规则划分的端点。
 exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/wQ2PQFabw8E5XYP4zJ2RMPcurRkoxA7UecpA-YuQuBc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2:
+  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '576'
+source-wordcount: 576
 ht-degree: 1%
 
 ---

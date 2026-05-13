@@ -3,9 +3,18 @@ title: 公司
 feature: REST API
 description: 使用Marketo Companies REST API描述、查询和同步公司记录，按externalCompanyId管理字段和重复数据删除，并注意CRM同步为只读。
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/LdJYN4lx9JfcE-02zTz8ktfYXm4EdPtxMYOx9gGR0sg
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '676'
+source-wordcount: 676
 ht-degree: 1%
 
 ---

@@ -3,9 +3,14 @@ title: deleteMObjects
 feature: SOAP
 description: Marketo SOAP deleteMObjects以删除Opportunity和OpportunityPersonRole ，带有请求和响应XML ，代码示例，返回DELETED UNCHANGED FAILED。
 exl-id: 31511584-5366-4af1-975b-94417680c4d9
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/B08XZ71cMwm5AY-g3Z5Ux-lnMARQWjMDZpp675f66rA
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '74'
+source-wordcount: 74
 ht-degree: 10%
 
 ---

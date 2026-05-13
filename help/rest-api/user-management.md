@@ -3,9 +3,20 @@ title: 用户管理
 feature: REST API
 description: 适用于CRUD的Marketo用户管理API指南，内容涉及用户、基于标题的身份验证、角色和工作区、状态代码处理、日期时间格式和查询端点。
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+TQID: https://experienceleague.adobe.com/V1NzpIl-peHBi9rqy8YwdJDh3O-dViIdF0cBsDSI-w8
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1581'
+source-wordcount: 1581
 ht-degree: 6%
 
 ---
@@ -429,7 +440,7 @@ POST /userservice/management/v1/users/{userid}/invite/delete.json
 
 ## 添加角色
 
-[添加角色](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST)终结点采用单个`userid`路径参数，并将一个或多个用户角色添加到相应的用户。 请求正文包含一个或多个对象的列表，每个对象都包含  `accessRoleId`和`workspaceId`属性。 如果成功，则返回指定用户的`accessRoleId/workspaceId`对的完整列表。
+[添加角色](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST)终结点采用单个`userid`路径参数，并将一个或多个用户角色添加到相应的用户。 请求正文包含一个或多个对象的列表，每个对象都包含`accessRoleId`和`workspaceId`属性。 如果成功，则返回指定用户的`accessRoleId/workspaceId`对的完整列表。
 
 ```http
 POST /userservice/management/v1/users/{userid}/roles/create.json
@@ -467,7 +478,7 @@ Content-Type: application/json
 
 ## 删除角色
 
-[删除角色](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST)终结点采用单个`userid`路径参数，并从相应的用户中删除一个或多个用户角色。 请求正文包含一个或多个对象的列表，每个对象都包含  `accessRoleId`和`workspaceId`属性。 如果成功，则会返回指定用户的accessRoleId/workspaceId对的剩余列表。
+[删除角色](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST)终结点采用单个`userid`路径参数，并从相应的用户中删除一个或多个用户角色。 请求正文包含一个或多个对象的列表，每个对象都包含`accessRoleId`和`workspaceId`属性。 如果成功，则会返回指定用户的accessRoleId/workspaceId对的剩余列表。
 
 ```http
 POST /userservice/management/v1/users/{userid}/roles/delete.json

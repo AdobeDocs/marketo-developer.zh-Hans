@@ -3,9 +3,18 @@ title: 批量自定义对象导入
 feature: Custom Objects
 description: 了解如何使用CSV、TSV或SSV文件通过REST批量导入Marketo自定义对象。
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/C1LKLZDEvv95XXH3AEoxIXsLK55tgKTrvyxvs4LnYWw
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '953'
+source-wordcount: 953
 ht-degree: 0%
 
 ---
@@ -14,7 +23,7 @@ ht-degree: 0%
 
 [批量自定义对象导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects)
 
-当您有许多自定义对象记录时  导入，最佳做法是使用批量API异步导入它们。 此操作可通过导入包含分隔记录（逗号、制表符或分号）的平面文件来完成。 文件可以包含任意数量的记录，但大小必须小于10MB（否则为HTTP）  413状态代码已返回)。 文件的内容取决于您的自定义对象定义。 第一行始终包含标题，其中列出了要将每行的值映射到的字段。 标头中的所有字段名称必须匹配一个API名称（如下所述）。 其余行包含要导入的数据，每行一个记录。 记录操作仅限“插入或更新”。
+如果要导入许多自定义对象记录，最佳做法是使用批量API异步导入这些记录。 此操作可通过导入包含分隔记录（逗号、制表符或分号）的平面文件来完成。 文件可以包含任意数量的记录，但大小必须小于10MB（否则返回HTTP 413状态代码）。 文件的内容取决于您的自定义对象定义。 第一行始终包含标题，其中列出了要将每行的值映射到的字段。 标头中的所有字段名称必须匹配一个API名称（如下所述）。 其余行包含要导入的数据，每行一个记录。 记录操作仅限“插入或更新”。
 
 ## 处理限制
 

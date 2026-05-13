@@ -3,9 +3,16 @@ title: Munchkin API参考
 description: 使用Munchkin Javascript API跟踪具有init、createTrackingCookie和munchkinFunction方法的页面访问次数、链接点击量和自定义事件。
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/s97x6wVZijnnxZwS7HMIkQAKlxXkcfPXuSZG4KjXGoc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '426'
+source-wordcount: 426
 ht-degree: 7%
 
 ---

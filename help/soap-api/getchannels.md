@@ -3,10 +3,17 @@ title: getChannels
 feature: SOAP
 description: 了解Marketo SOAP getChannels如何通过请求和响应XML示例检索渠道进展状态、步骤号和成功标记。
 exl-id: bcaef85b-154b-4571-ad24-07a36707a6ef
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/J5K9bcrV1JA65m99qxG9h2z5Wxs5KhHR6cI-Fq5UGBQ
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '109'
-ht-degree: 4%
+source-wordcount: 109
+ht-degree: 6%
 
 ---
 
@@ -22,7 +29,7 @@ ht-degree: 4%
 
 ## 请求
 
-| 字段名称 | 必需/可选 | 描述 |
+| 字段名称 | 必填/可选 | 描述 |
 | --- | --- | --- |
 | tag->values->stringItem | 可选 | 您希望查询的渠道列表。 如果忽略`<tag>`，您将收到有关所有渠道的信息 |
 

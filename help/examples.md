@@ -3,9 +3,16 @@ title: 电子邮件脚本示例
 feature: Email Programs
 description: 使用Velocity的Marketo电子邮件脚本示例，包括循环访问自定义对象、日期解析/格式、HTML转义和URL ID附加。
 exl-id: 7c801f1c-0ab3-49f0-8577-0c4dccc80d0b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/QFC8YeZV3rAZtsE-KU8kFdpG7W0nocHscDSfuTkrLIY
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '67'
+source-wordcount: 67
 ht-degree: 7%
 
 ---

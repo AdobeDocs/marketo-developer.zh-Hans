@@ -3,9 +3,21 @@ title: Marketo集成最佳实践
 feature: REST API
 description: Marketo API集成的最佳实践涵盖配额、速率和并发限制、批处理、批量导入和导出、缓存和延迟计划。
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+TQID: https://experienceleague.adobe.com/Ld-rmFCwKSx-0W2-ceYICu0FQHK8BKAC1QgqtiOWDn4
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1013'
+source-wordcount: 1013
 ht-degree: 0%
 
 ---
@@ -16,7 +28,7 @@ ht-degree: 0%
 
 - **每日配额：**&#x200B;大多数订阅每天分配的API调用数为50,000（这在12:00AM CST每天重置）。 您可以通过客户经理增加每日配额。
 - **速率限制：**&#x200B;每个实例的API访问限制为每20秒100次调用。
-- **并发限制：**  最多十次并发API调用。
+- **并发限制：**&#x200B;最多十个并发API调用。
 - **批次大小：**&#x200B;潜在客户数据库 — 300条记录；资产查询 — 200条记录
 - **REST API有效负载大小：** 1MB
 - **批量导入文件大小：** 10MB

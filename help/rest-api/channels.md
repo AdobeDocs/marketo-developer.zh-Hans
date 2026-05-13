@@ -3,9 +3,14 @@ title: 渠道
 feature: REST API
 description: 了解如何通过Asset REST API查询Marketo渠道、按分页浏览或按名称提取、查看进度状态以及了解程序类型规则。
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/e9TnbxgJCT5X2r5MjTdC49uVz4wvxDy2jhdQP5JOFTI
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '151'
+source-wordcount: 151
 ht-degree: 2%
 
 ---

@@ -3,9 +3,14 @@ title: 数据摄取
 feature: REST API, Dynamic Content
 description: 使用Marketo数据摄取API可大容量、低延迟地摄取人员、自定义对象、公司和项目成员。
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1789'
+source-wordcount: 1789
 ht-degree: 13%
 
 ---
@@ -176,7 +181,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 | `priority` | 字符串 | 否 | 请求的优先级：正常或高 | 普通 |
 | `partitionName` | 字符串 | 否 | 人员分区的名称 | 默认 |
 | `dedupeFields` | 对象 | 否 | 要消除重复的属性。 允许一个或两个属性名称。<br/> 在AND操作中使用两个属性。 例如，如果同时指定了`email`和`firstName`，则它们都用于使用AND操作查找人员。 <br/>支持的属性包括： `id`、`email`、`sfdcAccountId`、`sfdcContactId`、`sfdcLeadId` `sfdcLeadOwnerId`、自定义属性（仅限“字符串”和“整数”类型）、`email` |  |
-| `persons` | 对象数组 | 是 | 人员的属性名称 — 值对列表 | - |
+| `persons` | 对象数组 | 是 | 人员的属性名称 — 值对列表 | – |
 
 所需的权限为`Read-Write Lead`。
 
@@ -244,7 +249,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 | --- | --- | --- | --- | --- |
 | `priority` | 字符串 | 否 | 请求的优先级：正常、高 | 普通 |
 | `dedupeBy` | 字符串 | 否 | 要重复数据删除的属性： dedupeFields、marketoGUID | 删除重复字段 |
-| `customObjects` | 对象数组 | 是 | 对象的属性名称 — 值对列表。 | - |
+| `customObjects` | 对象数组 | 是 | 对象的属性名称 — 值对列表。 | – |
 
 所需的权限为`Read-Write Custom Object`。
 
@@ -314,7 +319,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 | --- | --- | --- | --- | --- |
 | `action` | 字符串 | 否 | 同步操作： `createOnly`、`updateOnly`或`createOrUpdate` | `createOrUpdate` |
 | `dedupeBy` | 字符串 | 否 | 要取消重复的字段： `dedupeFields`或`idField`（不区分大小写）。 对于`createOnly`和`createOrUpdate`，只允许使用`dedupeFields`。 对于`updateOnly`，允许同时使用两者。 | `dedupeFields` |
-| `input` | 对象数组 | 是 | 公司属性名称 — 值对的列表。 接受JSON键`input`或`companies`。 | - |
+| `input` | 对象数组 | 是 | 公司属性名称 — 值对的列表。 接受JSON键`input`或`companies`。 | – |
 
 `input`数组中的每个公司对象都支持以下字段：
 
@@ -416,7 +421,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 | 键 | 数据类型 | 必需 | 值 | 默认值 |
 | --- | --- | --- | --- | --- |
-| 程序 | 对象数组 | 是 | 程序操作列表。 每个选项都指定了要同步的程序、目标状态和潜在客户。 | - |
+| 程序 | 对象数组 | 是 | 程序操作列表。 每个选项都指定了要同步的程序、目标状态和潜在客户。 | – |
 
 `programs`数组中的每个对象都包含：
 
@@ -517,7 +522,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 | 键 | 数据类型 | 必需 | 值 | 默认值 |
 | --- | --- | --- | --- | --- |
-| 程序 | 对象数组 | 是 | 程序删除操作的列表。 每个都指定了一个项目和要删除的潜在客户。 | - |
+| 程序 | 对象数组 | 是 | 程序删除操作的列表。 每个都指定了一个项目和要删除的潜在客户。 | – |
 
 `programs`数组中的每个对象都包含：
 

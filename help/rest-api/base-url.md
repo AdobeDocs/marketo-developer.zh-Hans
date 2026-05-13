@@ -3,9 +3,14 @@ title: 基本 URL
 feature: REST API
 description: 了解如何构建Marketo REST API请求、了解基本URL路径资源和参数，以及查找唯一的基本URL。
 exl-id: 6c3f122c-3ace-4ed3-bed0-a6b89cedc99a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/NZisV6V-FMPi0RHpdaFrc1kZc3nb15YomwRgohaQmEE
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '152'
+source-wordcount: 153
 ht-degree: 2%
 
 ---
@@ -25,7 +30,7 @@ ht-degree: 2%
 - 资源： `318582.json`
 - 查询参数： `fields=email,firstName,lastName`
 
-基本URL包含帐户ID(也称为Munchkin ID)，因此每个Marketo订阅的基本URL都是唯一的。 通过登录Marketo并导航到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**&#x200B;菜单，可找到您的基本URL。 它在“REST API”部分下标记为“端点：”，如以下屏幕截图所示。
+基本URL包含帐户ID（也称为Munchkin ID），因此每个Marketo订阅的基本URL都是唯一的。 通过登录Marketo并导航到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**&#x200B;菜单，可找到您的基本URL。 它在“REST API”部分下标记为“端点：”，如以下屏幕截图所示。
 
 ![Web服务基本URL终结点](assets/rest-api-base-url-web-services.png)
 

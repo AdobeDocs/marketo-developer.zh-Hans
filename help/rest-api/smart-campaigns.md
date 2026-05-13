@@ -3,9 +3,20 @@ title: 智能营销活动
 feature: REST API, Smart Campaigns
 description: 了解如何将Marketo REST API用于Smart Campaigns，包括按ID或名称查询、浏览筛选器、创建克隆删除以及计划或请求触发器
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/iysRjtqd9plkreyIMuNjAF3YVFHtDUIrc-GInB4V8mg
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2:
+  - id: ad89fb33-8541-4339-afe7-bb13d1633714
+  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1196'
+source-wordcount: 1196
 ht-degree: 1%
 
 ---

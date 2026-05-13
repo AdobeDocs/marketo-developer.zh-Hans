@@ -3,9 +3,16 @@ title: 富媒体推荐
 description: 使用Marketo预测内容RTP标记、template1 template2 template3 div、GET来设置富媒体推荐，使用SET来配置类别。
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/ygm5h1FJZZW4mC318-fRR3VAcO6j1sitcAeqIUjDTbI
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '854'
+source-wordcount: 854
 ht-degree: 3%
 
 ---
@@ -241,4 +248,4 @@ rtp('get','rcmd', 'richmedia');
 
 #### 富媒体推荐模板#3示例
 
-**名称**：模板3 **描述**：仅包含标题和描述的垂直内容。 鼠标悬停时，标题会更改颜色并超链接到内容URL。 描述还链接到不发生颜色更改的内容。![富媒体模板](assets/rich-media-template3.png)
+**名称**：模板3 **描述**：仅包含标题和描述的垂直内容。 鼠标悬停时，标题会更改颜色并超链接到内容URL。 描述还链接到不发生颜色更改的内容。 ![富媒体模板](assets/rich-media-template3.png)

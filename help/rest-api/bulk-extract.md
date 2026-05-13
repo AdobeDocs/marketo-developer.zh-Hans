@@ -3,9 +3,16 @@ title: 批量提取
 feature: REST API
 description: 了解如何使用Marketo批量提取REST API导出潜在客户、活动、项目成员和自定义对象，OAuth、作业队列和每日限制为500 MB。
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/ECSchsjqp8fyxXbUGl5DgXHUkXuN0sIUc3yJfVaIe1E
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1724'
+source-wordcount: 1724
 ht-degree: 0%
 
 ---
@@ -125,7 +132,7 @@ POST /bulk/v1/leads/export/create.json
 
 ## 正在检索作业
 
-有时候，您可能必须检索最近的作业。 使用相应对象类型的“获取导出作业”可轻松完成此操作。 每个“获取导出作业”终结点都支持`status`筛选器字段，即  `batchSize`用于限制返回的作业数，`nextPageToken`用于分页大型结果集。 状态筛选器支持导出作业的每个有效状态：“已创建”、“已排队”、“正在处理”、“已取消”、“已完成”和“失败”。 batchSize的最大值和缺省值均为300。 我们来获取潜在客户导出作业列表：
+有时候，您可能必须检索最近的作业。 使用相应对象类型的“获取导出作业”可轻松完成此操作。 每个Get Export Jobs终结点都支持一个`status`筛选器字段，一个`batchSize`用于限制返回的作业数，以及`nextPageToken`用于分页大型结果集。 状态筛选器支持导出作业的每个有效状态：“已创建”、“已排队”、“正在处理”、“已取消”、“已完成”和“失败”。 batchSize的最大值和缺省值均为300。 我们来获取潜在客户导出作业列表：
 
 ```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed
