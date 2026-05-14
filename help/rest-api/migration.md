@@ -26,7 +26,7 @@ ht-degree: 0%
 根据您的用例，有两个基本选项可将您的应用程序迁移到：
 
 * 将从中提取活动的静态列表限制为最多10,000个成员。 您可以将任何现有列表拆分为更小的列表，以继续轮询相同受众的活动。
-* 使用批量活动提取或数据流提取您的活动或数据值更改，并将这些结果加入具有[getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1)或[批量潜在客户提取](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)的静态列表成员资格
+* 使用批量活动提取或数据流提取您的活动或数据值更改，并将这些结果加入具有[getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1)或[批量潜在客户提取](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)的静态列表成员资格
 
 ## 如果我什么都不做，会发生什么？
 
