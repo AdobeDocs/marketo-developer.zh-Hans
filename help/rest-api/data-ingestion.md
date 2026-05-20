@@ -1,17 +1,15 @@
 ---
 title: 数据摄取
-feature: REST API, Dynamic Content
-description: 使用Marketo数据摄取API可大容量、低延迟地摄取人员、自定义对象、公司和项目成员。
+feature: REST API, Dynamic Content, Static Lists
+description: 使用Marketo数据摄取API可大容量、低延迟地摄取人员、自定义对象、公司、项目成员和列表。
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
 TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
 workflow-type: tm+mt
-source-wordcount: 1789
-ht-degree: 13%
+source-wordcount: 2178
+ht-degree: 14%
 
 ---
 
@@ -21,7 +19,7 @@ ht-degree: 13%
 
 通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup)中的事件，可以检索请求状态。
 
-界面提供四种对象类型：人员、自定义对象、公司和程序成员。 该记录操作仅限“插入或更新”，但同时支持删除的程序成员除外。
+界面提供五种对象类型：人员、自定义对象、公司、程序成员和列表（静态列表）。 该记录操作仅限“插入或更新”，但同时支持删除的程序成员和支持添加和删除操作的列表除外。
 
 >[!NOTE]
 >
@@ -45,6 +43,7 @@ ht-degree: 13%
 | 自定义对象 | 读写自定义对象 |
 | 公司 | 读写公司 |
 | 计划成员 | 读写潜在客户 |
+| 列表 | 读写潜在客户 |
 
 ## 支持的对象类型
 
@@ -54,6 +53,7 @@ ht-degree: 13%
 | 自定义对象 | 更新插入（插入或更新） |
 | 公司 | 同步(`createOnly`， `updateOnly`， `createOrUpdate`) |
 | 计划成员 | 同步（更新插入状态）、删除（从程序中删除） |
+| 列表 | 添加到列表，从列表中删除 |
 
 ## 标头
 
@@ -97,6 +97,10 @@ ht-degree: 13%
 项目群成员的示例URL：
 
 `https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/programmembers`
+
+列表的URL示例：
+
+`https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/lists`
 
 ### 响应
 
@@ -157,7 +161,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ## 端点
 
-引入端点适用于人员、自定义对象、公司和项目群成员。
+摄取端点适用于人员、自定义对象、公司、项目成员和列表。
 
 ### 人员
 
@@ -593,6 +597,159 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 | leadId | 输入数组中的每个成员均需要此参数。 |
 | 每个请求的最大潜在客户数 | 所有项目总计拥有1,000名成员。 |
 
+### 列表（添加到列表）
+
+用于将潜在客户添加到静态列表的端点。 商机由其Marketo商机ID来标识。
+
+| 方法 | 路径 |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists` |
+
+#### 标头
+
+| 键 | 值 | 必需 |
+| --- | --- | --- |
+| `Content-Type` | application/json | 是 |
+| `X-Mkto-User-Token` | {accessToken} | 是 |
+| `X-Correlation-Id` | 任意字符串（最大长度255个字符） | 否 |
+| `X-Request-Source` | 任意字符串（最大长度50个字符） | 否 |
+
+#### 请求正文
+
+| 键 | 数据类型 | 必需 | 值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| `listId` | 长 | 是 | Marketo静态列表ID 必须为正整数。 | – |
+| `leads` | 对象数组 | 是 | 要添加到列表中的潜在客户引用的列表。 接受JSON键`input`或`leads`。 | – |
+
+输入数组中的每个对象都包含：
+
+| 键 | 数据类型 | 必需 | 描述 |
+| --- | --- | --- | --- |
+| `leadId` | 长 | 是 | Marketo商机ID。 接受JSON键`leadId`或`id`。 |
+
+所需的权限为`Read-Write Lead`。
+
+### 列表添加到列表示例
+
+#### 请求
+
+`POST /subscriptions/{munchkinId}/lists`
+
+#### 标头
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### 正文
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      },
+      {
+         "leadId": 10003
+      }
+   ]
+}
+```
+
+#### 响应
+
+`HTTP/1.1 202`
+`X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
+
+### 列表添加到列表验证规则
+
+| 规则 | 详细信息 |
+| --- | --- |
+| listId | 必需。 必须为正整数(> 0)。 |
+| 潜在客户 | 必需。 不得为null或为空。 |
+| leadId | 对于输入数组中的每个潜在客户是必需的。 |
+| 每个请求的最大潜在客户数 | 输入数组中总共1,000个潜在客户。 |
+
+### 列表（从列表中删除）
+
+用于从静态列表中删除潜在客户的端点。 商机由其Marketo商机ID来标识。
+
+>[!NOTE]
+>
+>此端点使用POST而不是DELETE，因为请求需要包含结构化数据的JSON主体。
+
+| 方法 | 路径 |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists/remove` |
+
+#### 标头
+
+| 键 | 值 | 必需 |
+| --- | --- | --- |
+| `Content-Type` | application/json | 是 |
+| `X-Mkto-User-Token` | {accessToken} | 是 |
+| `X-Correlation-Id` | 任意字符串（最大长度255个字符） | 否 |
+| `X-Request-Source` | 任意字符串（最大长度50个字符） | 否 |
+
+#### 请求正文
+
+| 键 | 数据类型 | 必需 | 值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| `listId` | 长 | 是 | Marketo静态列表ID 必须为正整数。 | – |
+| `leads` | 对象数组 | 是 | 要从列表中移除的潜在客户引用的列表。 接受JSON键`input`或`leads`。 | – |
+
+输入数组中的每个对象都包含：
+
+| 键 | 数据类型 | 必需 | 描述 |
+| --- | --- | --- | --- |
+| `leadId` | 长 | 是 | Marketo商机ID。 接受JSON键`leadId`或`id`。 |
+
+所需的权限为`Read-Write Lead`。
+
+### 列表从列表中删除示例
+
+#### 请求
+
+`POST /subscriptions/{munchkinId}/lists/remove`
+
+#### 标头
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### 正文
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      }
+   ]
+}
+```
+
+#### 响应
+
+`HTTP/1.1 202`
+`X-Request-ID: e3d92152-0fb1-444a-8f8f-29d5a2338598`
+
+### 列表从列表验证规则中删除
+
+| 规则 | 详细信息 |
+| --- | --- |
+| listId | 必需。 必须为正整数(> 0)。 |
+| 潜在客户 | 必需。 不得为null或为空。 |
+| leadId | 对于输入数组中的每个潜在客户是必需的。 |
+| 每个请求的最大潜在客户数 | 输入数组中总共1,000个潜在客户。 |
+
 ## 限制
 
 以下是护栏的更新列表：
@@ -602,7 +759,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 * 每个客户端每秒最大请求数ID：5,000
 * 每天最大对象数：10,000,000
 
-这些限制统一适用于人员、自定义对象、公司和程序成员。 对于项目群成员，“每个请求的对象”是单个请求中所有项目的潜在客户引用总数。
+这些限制统一适用于人员、自定义对象、公司、项目群成员和列表。 对于项目群成员，“每个请求的对象”是单个请求中所有项目的潜在客户引用总数。 对于Lists，“每个请求的对象数”是输入数组中的潜在客户引用数。
 
 ## 数据摄取API与REST API
 
