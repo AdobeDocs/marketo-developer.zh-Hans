@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
+source-git-commit: 1a8345909b679b5651c94a68f8d29950ed47f6ed
 workflow-type: tm+mt
-source-wordcount: 2178
+source-wordcount: 2191
 ht-degree: 14%
 
 ---
@@ -22,6 +22,8 @@ ht-degree: 14%
 通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup)中的事件，可以检索请求状态。
 
 界面提供五种对象类型：人员、自定义对象、公司、程序成员和列表（静态列表）。 该记录操作仅限“插入或更新”，但同时支持删除的程序成员和支持添加和删除操作的列表除外。
+
+阅读[数据摄取API文档](https://developer.adobe.com/marketo-apis/api/data-ingestion)。
 
 >[!NOTE]
 >
