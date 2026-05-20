@@ -1,10 +1,10 @@
 ---
 title: EXL预览测试
 description: 用于测试扩展预览的Adobe EXL Markdown语法示例。
-source-git-commit: 8f7ff2e1b6d0a4d8f63affb7bd1a2d0abbcc118c
+source-git-commit: 87d2584ed0ef2c1fa219f2a3ad120c91dc5491e0
 workflow-type: tm+mt
-source-wordcount: '334'
-ht-degree: 7%
+source-wordcount: '348'
+ht-degree: 11%
 
 ---
 
@@ -93,6 +93,14 @@ console.log(example);
 
 +++
 
+## 情景帮助
+
+上下文帮助在预览中隐藏。 看！
+>[!CONTEXTUALHELP]
+>id="models_insights_undefinedchannels"
+>title="未定义渠道"
+>abstract="未定义渠道会包含在内，但不会归因任何转化。"
+
 ## 嵌入式视频
 
 >[!VIDEO](https://video.tv.adobe.com/v/3427028/?quality=12&learn=on)
@@ -173,5 +181,6 @@ function greet(name) {
 
 | 第一列 | 第二列 | 栏目3 |
 | --- | --- | --- |
-| 行1，单元格1 | 行1，单元格2 | 第1行，第3单元格 |
+| [!UICONTROL Row 1]，单元格1 | 行1，单元格2 | [!DNL Row 1, cell 3] |
 | 行2，单元格1 | 行2，单元格2 | 行2，单元格3 |
+

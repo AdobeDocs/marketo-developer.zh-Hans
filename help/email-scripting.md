@@ -13,7 +13,7 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
 workflow-type: tm+mt
 source-wordcount: 1100
 ht-degree: 0%
@@ -22,7 +22,7 @@ ht-degree: 0%
 
 # 电子邮件脚本
 
-注意：强烈建议您阅读[Velocity用户指南](https://velocity.apache.org/engine/devel/user-guide.html)，以详细了解Velocity模板语言的行为。
+注意：强烈建议您阅读[Velocity用户指南](https://velocity.apadche.org/engine/devel/user-guide.html)，以详细了解Velocity模板语言的行为。
 
 [Apache Velocity](https://velocity.apache.org/)是一种基于Java构建的语言，专为模板化和编写HTML内容脚本而设计。 利用Marketo，可通过使用脚本令牌在电子邮件上下文中使用它。 通过此功能，可访问存储在Opportunity和Custom Objects中的数据，并允许在电子邮件中创建动态内容。 Velocity提供了标准的高级控制流，其中包含if/else、for和for each ，以允许对内容进行条件和迭代操作。
 
@@ -44,7 +44,7 @@ ${variable}name ##outputs 'valuename'
 
 
 
-还有静默引用表示法，其中在`$`之后有`!`包含。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
+还有静默引用表示法，其中在`$`之后包含`!`。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
 
 ```velocity
 ##Defined Reference
@@ -123,11 +123,11 @@ $date.whenIs($birthday).days ##outputs 1
 - 您可以引用连接到Lead、Contact或Account的自定义对象，但不能引用多个对象。
 - 只能通过单个连接、潜在客户、联系人或帐户引用自定义对象
 - 选中脚本编辑器中的框，以查看您正在使用的字段，或者这些字段不处理
-- 对于每个自定义对象，每个人员/联系人最近更新的10条记录在运行时可用，并且按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)增加可用的记录数。
+- 对于每个自定义对象，每个人员/联系人在运行时都可以使用最近更新的十条记录，并且这些记录按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)增加可用的记录数。
 - 如果电子邮件中包含多个电子邮件脚本，则它们将自上而下执行。 在第一个要执行的脚本中定义的变量的范围在后续脚本中可用。
 - 工具引用： [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - 有关包含换行字符“\n”或“\r\n”的令牌的注释。 通过发送示例或批量促销活动发送电子邮件时，令牌中的换行字符会被替换为空格。 通过触发器营销活动发送电子邮件时，新行字符保持不变。
-- 要确保正确解析URL，应将整个路径设置为变量并打印，且变量不应在URL引用内打印。 必须包含协议（http://或https://），并且必须与URL的其余部分分开。 该URL还必须属于完全格式化的锚点(<a>)标记。 脚本必须输出格式完整的锚点标记，才能跟踪链接。 如果链接是从for或foreach循环中输出的，则不会跟踪这些链接。
+- 要确保正确解析URL，应将整个路径设置为变量并打印，且变量不应在URL引用内打印。 协议（http://或https://）必须包含在内，并且必须与URL的其余部分分开。 该URL还必须属于完全格式化的锚点(<a>)标记。 脚本必须输出格式完整的锚点标记，才能跟踪链接。 如果链接是从for或foreach循环中输出的，则不会跟踪这些链接。
 
 ```html
 <!-- Correct -->
