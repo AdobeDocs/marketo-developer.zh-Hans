@@ -1,22 +1,20 @@
 ---
-title: MCP服务器
-description: 了解如何使用MCP服务器将AI助手连接到Marketo。 使用Marketo凭据配置Claude Desktop、Cursor、Claude Code或VS代码。
-badgeBeta: label="Beta 版" type="informative" tooltip="此功能当前处于封闭测试版本"
+title: Marketo Engage MCP服务器
+description: 了解如何使用Marketo Engage MCP服务器将AI助手连接到Marketo。 使用Marketo凭据配置Claude Desktop、Cursor、Claude Code或VS代码。
+badgeBeta: label="有限发布版" type="informative" tooltip="此功能当前为有限测试版"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-hidefromtoc: true
-hide: true
-source-git-commit: a8bf6680a212dd665841896e4550a755dcdf745d
+source-git-commit: d481dc061cbb59139edf971915b13bd0c8e861d3
 workflow-type: tm+mt
-source-wordcount: '1447'
-ht-degree: 0%
+source-wordcount: '1388'
+ht-degree: 1%
 
 ---
 
-# [!DNL Marketo] MCP服务器
+# [!DNL Marketo Engage] MCP服务器
 
->[!NOTE]
+>[!AVAILABILITY]
 >
->MCP服务器当前处于封闭测试版中。 目前并非所有用户都可使用它。
+> 此功能仅在有限范围内可用。 若要请求访问权限，请填写[此表单](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}。 确保准备好您的订阅Munchkin ID。
 
 模型上下文协议(Model Context Protocol，MCP)是一种开放标准，它使AI工具能够与外部服务进行通信。 [!DNL Marketo] MCP服务器充当您的AI助手与[!DNL Marketo]之间的桥梁。 它公开跨表单、项目、智能营销策划、潜在客户、电子邮件、代码片段、列表和文件夹的100多项操作。
 
@@ -24,8 +22,8 @@ ht-degree: 0%
 
 >[!IMPORTANT]
 >
->模型上下文协议(MCP)是一种新兴的开源标准，可能会带来安全性或可靠性风险。 Adobe MCP服务器集成和相关文档按“原样”提供，不提供任何类型的担保。
->将MCP客户端或服务器连接到Adobe产品是客户选择的配置，客户负责评估任何MCP集成的安全性和适用性。 Adobe对于因错误配置、滥用MCP、第三方实施中的漏洞或通过支持MCP的工作流执行的意外操作而产生的问题，概不负责。
+>模型上下文协议(MCP)是一种新兴的开源标准，可能会带来安全性或可靠性风险。Adobe MCP服务器集成和相关文档按“原样”提供，不提供任何类型的担保。
+>将MCP客户端或服务器连接到Adobe产品是客户选择的配置，客户负责评估任何MCP集成的安全性和适用性。Adobe对于因错误配置、滥用MCP、第三方实施中的漏洞或通过支持MCP的工作流执行的意外操作而产生的问题，概不负责。
 >为了降低风险，Adobe鼓励您在生产使用之前在沙盒环境中测试集成，并在确认或依赖集成之前，仔细审查和验证所有MCP启动的操作和响应。
 
 ## MCP基础知识
@@ -40,7 +38,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
 MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标准，向AI工具公开其数据和操作。
 
-## [!DNL Marketo] MCP执行和不执行的操作
+## [!DNL Marketo Engage] MCP执行和不执行的操作
 
 了解MCP的范围有助于在连接AI工具之前设定期望值。
 
@@ -59,6 +57,8 @@ MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标
 * 生成预测、建议或决策 — 决策是下游人工智能工具或用户的责任
 * 在请求之间存储或保留凭据、请求数据或会话状态
 * 要求您安装、部署或管理任何服务器端软件
+
+根据API使用情况，MCP可能会传输数据，包括潜在的敏感字段，但B2B数据涉及客户业务数据，而不涉及PII数据。
 
 ## 先决条件
 
