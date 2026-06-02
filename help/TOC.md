@@ -6,9 +6,9 @@ role: Admin
 feature-set: "Marketo Engage"
 index: true
 author: Donald
-source-git-commit: e71bcf289229867bc969345d79c8f014761aaaf9
+source-git-commit: b1beb8a4603c6eb6d452ad9c61b46116bc1abe42
 workflow-type: tm+mt
-source-wordcount: '288'
+source-wordcount: '291'
 ht-degree: 29%
 
 ---
@@ -168,6 +168,7 @@ ht-degree: 29%
 - [电子邮件脚本示例](examples.md)
 - [Marketo对象](marketo-objects.md)
 - {hide-from-toc}[MCP服务器](mcp-server.md)
+- {hide-from-toc}[支持的MCP操作](mcp-server-operations.md)
 - {hide-from-toc}[许可证](api-license.md)
 - [合作伙伴沙盒](partner-sandbox.md)
 - [自助服务流程步骤](self-service-flow-steps.md)
