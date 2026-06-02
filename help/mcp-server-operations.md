@@ -1,5 +1,5 @@
 ---
-title: 支持的MCP操作
+title: Marketo Engage MCP操作
 description: 了解哪些与AI助理一起使用的Marketo Engage MCP操作。
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
@@ -12,21 +12,21 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: bef569a714bfb797bcf8bb82a406ca6df26facb0
+source-git-commit: 08abe412b9750585f0b75364f20488bea767dcc2
 workflow-type: tm+mt
-source-wordcount: 234
+source-wordcount: 231
 ht-degree: 4%
 
 ---
 
 
-# 支持的[!DNL Marketo Engage] MCP操作
+# [!DNL Marketo Engage] MCP操作
 
 以下操作可通过[!DNL Marketo Engage] MCP服务器使用。 通常，只读或无损的端点可用。 `Delete`或其他破坏性操作不可用于AI系统。
 
 >[!NOTE]
 >
->此列表不是最终列表，随着我们添加工具，此列表将继续增加。
+>随着我们添加其他工具，此列表将继续增加。
 
 ## 批量导出
 
