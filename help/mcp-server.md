@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: bef569a714bfb797bcf8bb82a406ca6df26facb0
+source-git-commit: 72329b0ee08402c02604d2b6868fdef88c532548
 workflow-type: tm+mt
-source-wordcount: 1402
+source-wordcount: 1409
 ht-degree: 1%
 
 ---
@@ -37,6 +37,7 @@ ht-degree: 1%
 模型上下文协议(Model Context Protocol，MCP)是一种开放标准，它使AI工具能够与外部服务进行通信。 [!DNL Marketo] MCP服务器充当您的AI助手与[!DNL Marketo]之间的桥梁。 它公开跨表单、项目、智能营销策划、潜在客户、电子邮件、代码片段、列表和文件夹的100多项操作。
 
 当您的AI工具调用MCP服务器时，服务器会使用您在每个请求中提供的凭据，代表您执行相应的REST API调用。 您无需安装、部署或运行任何服务器端软件。
+
 
 >[!IMPORTANT]
 >
@@ -116,30 +117,37 @@ MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标
 
 ### 克劳德桌面
 
-配置文件是`claude_desktop_config.json`。 从以下位置之一打开它：
+要连接到Claude Desktop，请下载[marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip)并将其解包。 将`marketo-mcp-bridge.mjs`放置到已知位置，以便在下一步中可以参考。
 
-* **macOS**： `~/Library/Application Support/Claude/claude_desktop_config.json`
-* **Windows**： `%APPDATA%\Claude\claude_desktop_config.json`
+您还需要：
 
-如果文件已包含其他MCP服务器，请在`mcpServers`下添加`marketo`项。 以下示例显示完整的`mcpServers`块：
+* Node.js v18+
+* npm
+
+1. 打开Claude Desktop
+1. 转到&#x200B;**设置>开发人员>编辑配置**
+1. 将以下内容添加到`claude_desktop_config.json`：
 
 ```json
 {
+  "preferences": {
+    ...
+  },
   "mcpServers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
-        "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
+    "marketo-mcp": {
+      "command": "node",
+      "args": ["/path/to/marketo-bridge/bridge.mjs"],
+      "env": {
+        "MARKETO_MCP_PROD_CLIENT_ID": "<your-client-id>",
+        "MARKETO_MCP_PROD_CLIENT_SECRET": "<your-client-secret>",
+        "MARKETO_MCP_PROD_MUNCHKIN_ID": "<your-munchkin-id>"
       }
     }
   }
 }
 ```
 
-保存文件，退出Claude Desktop，然后重新打开它。
+1. 重新启动Claude Desktop
 
 ### 光标
 
