@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 72329b0ee08402c02604d2b6868fdef88c532548
+source-git-commit: e6cdee16bc2eaaec6b9741181409209586367601
 workflow-type: tm+mt
-source-wordcount: 1409
+source-wordcount: 1592
 ht-degree: 1%
 
 ---
@@ -47,15 +47,15 @@ ht-degree: 1%
 
 ## MCP基础知识
 
->将MCP想象为用于AI应用程序的USB-C端口。 正如USB-C提供了一种标准化方式将您的设备连接到各种外围设备和附件，MCP提供了一种标准化方式将AI模型连接到不同的数据源和工具。 — [模型上下文协议](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+>将MCP想象为用于AI应用程序的USB-C端口。 正如USB-C提供了一种标准化方式将您的设备连接到各种外围设备和附件，MCP提供了一种标准化方式将AI模型连接到数据源和工具。 — [模型上下文协议](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
 MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
 * 连接到文字处理器以进行AI辅助文档生成
-* 连接到3D建模应用程序（如Blender）以构建动画
-* 连接到After Effects以进行视频编辑
+* 连接到动画工具（如Blender）以构建可视化图表
+* 连接到Adobe After Effects以进行视频编辑
 
-MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标准，向AI工具公开其数据和操作。
+MCP是一种通信协议：任何应用程序都可以实施的开放标准，向AI工具公开其数据和操作。
 
 ## [!DNL Marketo Engage] MCP执行和不执行的操作
 
@@ -66,14 +66,14 @@ MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标
 * 通过标准REST API提供对[!DNL Marketo]数据和功能的访问
 * 使用您在每个请求中提供的凭据代表您执行API调用
 * 支持多个同步用户，每个用户均使用自己的凭据进行连接
-* 自动处理OAuth令牌刷新 — 您不需要管理令牌过期
+* 自动处理OAuth令牌刷新。 您不需要管理令牌过期
 * 在租户隔离的环境中操作，因此您的数据绝不会与其他用户的会话相交
 
 **MCP不是：**
 
-* 使用、托管或运行任何AI或机器学习模型 — 所有AI处理都发生在AI工具中，而不是MCP中
+* 使用、托管或运行任何AI或机器学习模型。 所有AI处理都发生在AI工具中，而不是MCP中
 * 对任何数据进行培训或从中学习，包括您的客户数据
-* 生成预测、建议或决策 — 决策是下游人工智能工具或用户的责任
+* 生成预测、建议或决策。 决策是下游人工智能工具或用户的责任
 * 在请求之间存储或保留凭据、请求数据或会话状态
 * 要求您安装、部署或管理任何服务器端软件
 
@@ -83,7 +83,7 @@ MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标
 
 * 启用了REST API访问权限的[!DNL Marketo]实例
 * 在[!DNL Marketo] LaunchPoint中创建API凭据的管理员访问权限
-* 以下AI工具之一：Claude Desktop、Cursor、Claude Code (CLI)或使用GitHub Copilot的VS代码
+* 以下AI工具之一：Claude Desktop、Cursor、Codex、Claude Code (CLI)或具有GitHub Copilot的VS Code
 * 对MCP服务器URL的网络访问： `https://marketo-mcp.adobe.io/mcp`
 
 ## 获取Marketo凭据
@@ -109,13 +109,19 @@ MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标
 
 ## 配置AI工具
 
-每个AI工具从不同的位置读取MCP服务器配置。 请在下面找到您的工具，然后按照步骤添加[!DNL Marketo] MCP服务器。
+每个AI工具的设置略有不同。 为常用工具提供了连接示例。
+
+* [克劳德桌面](#claude-desktop)
+* [光标](#cursor)
+* [克劳德代码CLI](#claude-code)
+* [OpenAI代码](#codex)
+* [带有GitHub Copilot的VSCode](#vscode)
 
 >[!TIP]
 >
->要连接到多个[!DNL Marketo]实例，请在MCP配置中添加具有唯一名称的单独条目 — 例如，`marketo-prod`和`marketo-staging` — 每个条目都具有相应的凭据。
+>若要连接到多个[!DNL Marketo]实例，请在MCP配置中添加具有唯一名称的单独条目： `marketo-prod`和`marketo-staging`，每个条目都具有相应的凭据。
 
-### 克劳德桌面
+### 克劳德桌面 {#claude-desktop}
 
 要连接到Claude Desktop，请下载[marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip)并将其解包。 将`marketo-mcp-bridge.mjs`放置到已知位置，以便在下一步中可以参考。
 
@@ -149,9 +155,13 @@ MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标
 
 1. 重新启动Claude Desktop
 
-### 光标
+### 光标 {#cursor}
 
 如果游标MCP配置已包含其他服务器，请在`mcpServers`下添加`marketo`项。 以下示例显示项目目录中&#x200B;**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
+
+>[!BEGINTABS]
+
+>[!TAB Marketo客户端凭据]
 
 ```json
 {
@@ -169,11 +179,34 @@ MCP是一种通信协议 — 任何应用程序都可以实施的一种开放标
 }
 ```
 
+>[!TAB IMS令牌]
+
+```json
+{
+  "mcpServers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR-IMS-TOKEN",
+        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
+      }
+    }
+  }
+}
+```
+
+>[!ENDTABS]
+
 重新启动光标。
 
-### 克劳德代码(CLI)
+### 克劳德代码(CLI) {#claude-code}
 
 在终端中运行以下命令，替换您的凭据：
+
+>[!BEGINTABS]
+
+>[!TAB Marketo客户端凭据]
 
 ```bash
 claude mcp add --transport http marketo \
@@ -183,9 +216,48 @@ claude mcp add --transport http marketo \
   --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
-### 使用GitHub Copilot的VS代码
+>[!TAB IMS令牌]
+
+```bash
+claude mcp add --transport http marketo \
+  https://marketo-mcp.adobe.io/mcp \
+  --header "Authorization: Bearer YOUR-IMS-TOKEN" \
+  --header "x-gw-ims-org-id: YOUR-IMS-ORG-ID"
+```
+
+>[!ENDTABS]
+
+### OpenAI代码 {#codex}
+
+1. 转到“设置”>“MCP服务器”>“添加服务器”
+1. 添加服务器URL： `https://marketo-mcp.adobe.io/mcp`
+1. 为身份验证方法添加标头：
+
+>[!BEGINTABS]
+
+>[!TAB Marketo客户端凭据]
+
+* X-Marketo-Client-Id： &quot;YOUR-CLIENT-ID&quot;
+* X-Marketo-Client-Secret： &quot;YOUR-CLIENT-SECRET&quot;
+* X-Marketo-Munchkin-Id： &quot;YOUR-MUNCHKIN-ID&quot;
+
+>[!TAB IMS令牌]
+
+* 授权：“持有者YOUR-IMS-TOKEN”
+* x-gw-ims-org-id： &quot;YOUR-IMS-ORG-ID&quot;
+
+>[!ENDTABS]
+
+1. 单击保存以完成该过程。
+
+
+### 使用GitHub Copilot的VS代码 {#vscode}
 
 按&#x200B;**[!UICONTROL Ctrl+Shift+P]**（或macOS上的&#x200B;**[!UICONTROL Cmd+Shift+P]**），键入&#x200B;**[!UICONTROL MCP: Open User Configuration]**，然后按Enter。 这将打开`mcp.json`。 在`servers`对象中添加`marketo`条目：
+
+>[!BEGINTABS]
+
+>[!TAB Marketo客户端凭据]
 
 ```json
 {
@@ -203,9 +275,28 @@ claude mcp add --transport http marketo \
 }
 ```
 
+>[!TAB IMS令牌]
+
+```json
+{
+  "servers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR-IMS-TOKEN",
+        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
+      }
+    }
+  }
+}
+```
+
+>[!ENDTABS]
+
 >[!NOTE]
 >
->为安全起见，请在配置文件中使用环境变量插值，而不是直接粘贴凭据。 您可以使用语法（如`${MARKETO_CLIENT_SECRET}`）引用变量并在环境中设置它们。 这样可以防止凭据以纯文本形式存储在可能提交到版本控制的文件中。
+>为安全起见，请在配置文件中使用环境变量插值，而不是直接粘贴凭据。 您可以使用语法（如`${MARKETO_CLIENT_SECRET}`）引用变量并在环境中设置它们。 这样可防止在版本控制文件中以纯文本形式存储凭据。
 
 ## 可用操作
 
@@ -263,7 +354,7 @@ claude mcp add --transport http marketo \
 
 ### 实例结构
 
-浏览文件夹、渠道、标记类型和活动类型以了解您的[!DNL Marketo]配置。
+要了解您的[!DNL Marketo]配置，请浏览文件夹、渠道、标记类型和活动类型。
 
 示例提示：
 
@@ -284,9 +375,10 @@ claude mcp add --transport http marketo \
 
 | 错误 | 原因 | 修复 |
 | ------- | ------- | ----- |
-| “未提供Marketo凭据” | `X-Marketo-Client-Id`、`X-Marketo-Client-Secret`或`X-Marketo-Munchkin-Id`中的一个或多个缺失。 | 验证配置中是否存在所有四个标头。 |
-| “身份验证错误” | 您的凭据无效或已过期。 | 在&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**&#x200B;中重新检查您的客户端ID和客户端密钥。 |
-| “403禁止访问” | 您的Munchkin ID不在服务器允许列表上。 | 请联系您的[!DNL Marketo] MCP管理员以添加您的Munchkin ID。 |
+| “未提供Marketo凭据” | `X-Marketo-Client-Id`、`X-Marketo-Client-Secret`或`X-Marketo-Munchkin-Id`中的一个或多个缺失。 | 验证您的配置中是否存在所有Marketo客户端凭据标头。 |
+| “401未授权” | 您的凭据缺失、无效或已过期。 使用Marketo客户端凭据时，客户端ID或客户端密钥不正确。 使用IMS令牌时，令牌无效或过期。 | 验证验证方法的凭据。 对于客户端凭据，在&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**&#x200B;中重新检查&#x200B;**[!UICONTROL Client ID]**&#x200B;和&#x200B;**[!UICONTROL Client Secret]**。 对于IMS令牌，生成新令牌并更新`Authorization`标头。 |
+| “403禁止访问” | 您的凭据有效，但您的[!DNL Marketo]实例未启用MCP访问。 | 请与您的[!DNL Marketo] MCP管理员联系，为您的Munchkin帐户ID启用MCP访问。 |
+| “请求过多”（速率限制） | 您在短时间内发送的请求过多，或同时发送的请求过多，已达到[!DNL Marketo]实例的API限制。 | 减少一次发送的请求频度和数量，并在重试之前等待一小段时间。 使用专用API用户跟踪和管理您的配额。 |
 | 连接超时或已拒绝 | 无法从您的网络访问MCP服务器。 | 确认您可以从环境访问服务器URL。 检查VPN要求（如果适用）。 |
 | 工具调用返回空结果 | API用户缺少所请求资源类型的权限。 | 要求您的[!DNL Marketo]管理员检查API用户角色和权限。 |
 
@@ -300,4 +392,4 @@ claude mcp add --transport http marketo \
 * **多租户隔离。** 每个请求都使用自己的凭据集。 您的数据不会与任何其他用户的会话相交。
 * **Munchkin ID 允许列表。** 服务器仅接受已批准[!DNL Marketo]实例的请求。 使用未经授权的Munchkin ID的请求会被拒绝，并出现403错误。
 * **API速率限制。** MCP服务器继承[!DNL Marketo]实例的API速率限制。 使用专用API用户跟踪和管理配额消耗。
-* **将凭据保留在版本控制之外。** 如果您的AI工具支持使用环境变量插值(`${MARKETO_CLIENT_SECRET}`)，因此凭据不会以纯文本形式存储在提交到存储库的文件中。
+* **将凭据保留在版本控制之外。** 如果AI工具支持使用环境变量插值(`${MARKETO_CLIENT_SECRET}`)，因此凭据不会以纯文本形式存储在存储库文件中。
