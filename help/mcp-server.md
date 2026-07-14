@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
+source-git-commit: b28708e92f44082eb247d9053d6ebf2306739b38
 workflow-type: tm+mt
-source-wordcount: 1923
+source-wordcount: 2166
 ht-degree: 1%
 
 ---
@@ -46,7 +46,7 @@ ht-degree: 1%
 
 ## MCP基础知识
 
->将MCP想象为用于AI应用程序的USB-C端口。 正如USB-C提供了一种标准化方式将您的设备连接到各种外围设备和附件，MCP提供了一种标准化方式将AI模型连接到数据源和工具。 — [模型上下文协议](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+>将MCP想象为用于AI应用程序的USB-C端口。 USB-C提供了一种标准化方式将您的设备连接到各种外围设备和附件，而MCP提供了一种标准化方式将AI模型连接到数据源和工具。 — [模型上下文协议](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
 
 MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
@@ -301,7 +301,7 @@ claude mcp add --transport http marketo \
 
 ### Glean {#glean}
 
-要将Glean连接到Marketo Engage MCP服务器，必须由[Glean支持团队](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features)配置以下自定义标头。
+要将Glean连接到Marketo Engage MCP服务器，[Glean支持团队](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features)必须配置以下自定义标头。
 
 | 标头 | 值 |
 | ------ | ----- |
@@ -311,7 +311,7 @@ claude mcp add --transport http marketo \
 
 ### 其他工具 {#other-tools}
 
-[!DNL Marketo] MCP服务器由Adobe托管，并在公共URL中公开。 任何支持通过可流式传输HTTP传输远程服务器的MCP客户端都可以连接到该客户端。您不需要工具专用的桥接器或任何本地安装的软件。 如果您的工具未在上面列出，请使用下面的连接详细信息来手动配置它。
+Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支持通过可流式传输HTTP传输远程服务器的MCP客户端都可以连接到该客户端。您不需要工具专用的桥接器或任何本地安装的软件。 如果您的工具未在上面列出，请使用下面的连接详细信息来手动配置它。
 
 **连接详细信息：**
 
@@ -440,3 +440,28 @@ claude mcp add --transport http marketo \
 * **Munchkin ID 允许列表。** 服务器仅接受已批准[!DNL Marketo]实例的请求。 使用未经授权的Munchkin ID的请求会被拒绝，并出现403错误。
 * **API速率限制。** MCP服务器继承[!DNL Marketo]实例的API速率限制。 使用专用API用户跟踪和管理配额消耗。
 * **将凭据保留在版本控制之外。** 如果AI工具支持使用环境变量插值(`${MARKETO_CLIENT_SECRET}`)，因此凭据不会以纯文本形式存储在存储库文件中。
+
+## 治理和数据保留
+
+### 凭据处理
+
+* 客户凭据不会保留在服务器端，而是由客户端根据请求提供，这有助于限制服务中的凭据泄露。
+
+### API交互模型
+
+* 代理使用：代理可以使用MCP服务器调用支持的Marketo API。
+* 身份验证模型对齐：此服务使用针对Marketo API记录的相同外部API身份验证模型。
+
+### 身份验证和授权
+
+* 最低权限：有效权限继承自分配给客户LaunchPoint服务的仅Marketo API用户，从而实现客户Marketo配置中的最低权限管理。
+* 无服务器端令牌持久性：此服务继续避免在服务器端存储客户凭据或令牌。  
+
+### 日志记录和监控
+
+* 安全日志记录：结构化JSON日志通过Fluent Bit路由到Splunk，并具有敏感数据屏蔽和额外过滤功能以支持合规性要求。
+* 审计支持：这些控制措施支持对服务可用性、安全相关事件和业务质量进行持续监测。
+* 无服务器端密钥存储：客户凭据不由MCP部署存储，必须由客户端根据请求提供。
+* 令牌处理：访问令牌的生命周期短，令牌响应标记为no-store，并且令牌通过标准授权机制而不是查询字符串传输被接受。
+* 基于角色的操作访问：管理部署访问通过Adobe基础架构角色和基于组的控件进行控制，而数据平面权限继承自客户的Marketo API用户配置。
+* 审核和可观察性：启用了安全日志记录、掩蔽、监控和警报，以支持调查、服务运行状况跟踪和运营监督。
