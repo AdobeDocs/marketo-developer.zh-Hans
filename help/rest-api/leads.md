@@ -4,21 +4,14 @@ feature: REST API
 description: 探索Marketo潜在客户REST API功能，包括描述、按ID或过滤器查询、默认字段、限制和检索ECID。
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
 TQID: https://experienceleague.adobe.com/jZ-ecWTmHwq9gvp4fMaeuuGba6cgwYx0QCCyfkrEDHQ
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 3460
-ht-degree: 2%
+source-wordcount: 2728
+ht-degree: 3%
 
 ---
 
@@ -26,19 +19,19 @@ ht-degree: 2%
 
 [潜在客户端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
-Marketo Lead的API为针对潜在客户记录的简单CRUD应用程序提供了一系列功能，并提供了修改潜在客户在静态列表和程序中的成员资格，以及启动潜在客户的Smart Campaign处理等功能。
+Marketo潜在客户API支持对潜在客户记录执行CRUD操作。 您还可以修改潜在客户在静态列表和程序中的成员资格，并启动潜在客户的Smart Campaign处理。
 
 ## 描述
 
-Leads API的关键功能之一是Describe方法。 使用描述潜在客户检索可用于通过REST API进行交互的字段的完整列表，以及每个字段的元数据：
+使用描述潜在客户检索通过REST API可用的字段以及每个字段的元数据：
 
-* 数据类型
-* REST API名称
-* 长度（如果适用）
-* 只读
-* 友好标签
+- 数据类型
+- REST API名称
+- 长度（如果适用）
+- 只读状态
+- 友好标签
 
-描述是字段是否可用以及有关这些字段的元数据的主要真实来源。
+描述是字段可用性和元数据的主要真实来源。
 
 ### 请求
 
@@ -70,13 +63,18 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-通常，响应在结果数组中包含更多字段，但出于演示目的，我们将忽略它们。 结果数组中的每一项都对应于潜在客户记录中可用的字段，并且至少具有id、displayName和数据类型。 对于给定字段，rest和soap子对象可能存在，也可能不存在，并且其存在将指示该字段在REST或SOAP API中是否有效。 `readOnly`属性通过相应的API（REST或SOAP）指示字段是否为只读。 length属性指示字段的最大长度（如果存在）。 dataType属性指示字段的数据类型。
+实际响应在结果数组中包含更多字段。 每个项目表示潜在客户记录中可用的字段，并至少包含id、displayName和数据类型。
+
+只有当字段对相应的API有效时，才会显示rest和soap子对象。 `readOnly`属性指示相应的API是否可以更新该字段。 如果存在，length属性提供最大字段长度，而dataType属性提供字段的数据类型。
 
 ## 查询
 
-商机检索的主要方法有两种：按ID获取商机，和按过滤器类型获取商机。 按ID获取潜在客户采用单个潜在客户ID作为路径参数并返回单个潜在客户记录。
+使用以下两种主要方法之一检索潜在客户：
 
-或者，您可以传递一个字段参数，其中包含要返回的以逗号分隔的字段名称列表。 如果此请求中未包含字段参数，则返回以下默认字段： `email`、`updatedAt`、`createdAt`、`lastName`、`firstName`和`id`。 在请求字段列表时，如果请求的是特定字段但未返回，则该值默认为空。
+- 按ID获取商机：使用一个商机ID作为路径参数并返回一个商机记录。
+- 按筛选器类型获取潜在客户查找选定字段与提供的值之一匹配的记录。
+
+对于Get Lead by ID，可以选择传递一个字段参数，该参数包含要返回的以逗号分隔的字段名称列表。 如果请求省略了字段，则响应将包含`email`、`updatedAt`、`createdAt`、`lastName`、`firstName`和`id`。 如果未返回请求的字段，则其值默认为空。
 
 ### 请求
 
@@ -103,15 +101,15 @@ GET /rest/v1/lead/{id}.json
 }
 ```
 
-对于此方法，在结果数组的第一个位置始终有单个记录。
+Get Lead by Id始终在结果数组的第一个位置返回一个记录。
 
-按过滤器类型获取潜在客户将返回相同类型的记录，但每页最多可能返回300条记录。 它需要`filterType`和`filterValues`查询参数。
+按筛选器类型获取潜在客户会返回相同的记录类型，并且每页最多可返回300条记录。 `filterType`和`filterValues`查询参数是必需的。
 
-`filterType`接受任何自定义字段，或大多数常用字段。 调用`Describe2`端点以获取允许在`filterType`中使用的可搜索字段的完整列表。 按自定义字段搜索时，仅支持以下数据类型： `string`、`email`、`integer`。 您可以使用上述Describe方法获取字段详细信息（描述、类型等）。
+`filterType`接受任何自定义字段和最常用的字段。 调用`Describe2`终结点以检索`filterType`允许的可搜索字段。 按自定义字段搜索时，支持的数据类型是`string`、`email`和`integer`。 使用Describe方法检索字段详细信息，如说明和类型。
 
-`filterValues`以逗号分隔格式接受最多300个值。 该调用将搜索潜在客户字段与所包含`filterValues`之一匹配的记录。 如果与商机过滤器匹配的商机数量大于1,000，则会返回错误：“1003，有太多结果与过滤器匹配”。
+`filterValues`接受最多300个逗号分隔值。 该调用会返回选定潜在客户字段与其中一个值匹配的记录。 如果超过1,000个潜在客户与过滤器匹配，则API返回“1003，有太多结果与过滤器匹配”。
 
-如果GET请求的总长度超过8 KB，则会返回HTTP错误：“414， URI过长”（根据RFC 7231）。 作为解决方法，您可以将GET更改为POST，添加_method=GET参数，并在请求正文中放置查询字符串。
+如果GET请求总数超过8 KB，则API在RFC 7231下返回“414， URI过长”。 要解决此限制，请将GET更改为POST，添加_method=GET参数，并将查询字符串放入请求正文中。
 
 ### 请求
 
@@ -146,9 +144,9 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 }
 ```
 
-此调用搜索与`filterValues`中包含的ID匹配的记录，并返回任何匹配的记录。
+此调用返回其ID与`filterValues`中的值匹配的记录。
 
-如果未找到记录，则响应将指示成功，但结果数组将为空。
+如果没有匹配的记录，则响应将指示成功，并包含空的结果数组。
 
 ### 响应
 
@@ -160,15 +158,15 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 }
 ```
 
-按ID获取潜在客户和按过滤器类型获取潜在客户都将接受字段查询参数，该参数接受以逗号分隔的API字段列表。 如果包含此字段，则响应中的每条记录都将包含这些列出的字段。  如果忽略，则将返回一组默认的字段： `id`、`email`、`updatedAt`、`createdAt`、`firstName`和`lastName`。
+按ID获取潜在顾客和按过滤器类型获取潜在顾客都接受字段查询参数，该参数包含以逗号分隔的API字段列表。 当字段存在时，每个响应记录都包括列出的字段。 如果忽略，则响应将包括`id`、`email`、`updatedAt`、`createdAt`、`firstName`和`lastName`。
 
 ## ADOBE ECID
 
-启用Adobe Experience Cloud受众共享功能后，会执行一个Cookie同步过程，以将Adobe Experience Cloud ID (ECID)与Marketo潜在客户关联。  上述商机检索方法可用于检索关联的ECID值。  通过在字段参数中指定`ecids`来执行此操作。 例如：`&fields=email,firstName,lastName,ecids`。
+启用Adobe Experience Cloud受众共享后，Cookie同步会将Adobe Experience Cloud ID (ECID)值与Marketo潜在客户关联。 若要使用前面的潜在客户检索方法检索关联的ECID值，请在字段参数中包含`ecids`。 例如：`&fields=email,firstName,lastName,ecids`。
 
 ## 创建和更新
 
-除了检索潜在客户数据之外，您还可以通过API创建、更新和删除潜在客户记录。 创建和更新潜在客户与请求中定义的操作类型共享同一端点，同时可以创建或更新多达300条记录。
+潜在客户API可以创建、更新和删除潜在客户记录。 创建和更新操作使用相同的端点，并在请求中定义操作类型。 一个请求最多可创建或更新300条记录。
 
 >[!NOTE]
 >
@@ -233,29 +231,40 @@ POST /rest/v1/leads.json
 }
 ```
 
-在此请求中，您看到两个重要字段`action`和`lookupField`。`action`指定请求的操作类型，可以是`createOrUpdate`、`createOnly`、`updateOnly`或`createDuplicate`。 如果忽略，则该操作将默认为`createOrUpdate`。  `lookupField`参数指定操作为`createOrUpdate`或`updateOnly`时要使用的键。 如果忽略`lookupField`，则默认键为`email`。
+该请求使用两个重要字段：
 
-缺省情况下，使用缺省分区。 或者，您可以指定`partitionName`参数，该参数仅在操作为`createOnly`或`createOrUpdate`时才有效。 要使`partitionName`用作其他重复数据删除条件，它必须是自定义重复数据删除规则中源类型的一部分。 在更新操作期间，如果指定的分区中不存在潜在客户，则会返回错误。 如果仅API用户没有访问指定分区的权限，则会返回错误。
+- `action`指定了操作类型： `createOrUpdate`、`createOnly`、`updateOnly`或`createDuplicate`。 如果忽略，则默认为`createOrUpdate`。
+- `lookupField`指定操作为`createOrUpdate`或`updateOnly`时的键。 如果忽略，则默认为`email`。
 
-使用`updateOnly`操作时，`id`字段只能作为参数包含，因为`id`是系统管理的唯一键。
+缺省情况下，该操作使用缺省分区。 可选`partitionName`参数仅在操作为`createOnly`或`createOrUpdate`时有效。 若要使用`partitionName`作为其他重复数据删除条件，请将其包含在自定义重复数据删除规则的源类型中。
 
-请求还必须具有`input`参数，该参数为潜在客户记录数组。 每个潜在客户记录都是一个JSON对象，其中包含任意数量的潜在客户字段。 记录中包含的键对于该记录应该是唯一的，并且所有JSON字符串都应采用UTF-8编码。 `externalCompanyId`字段可用于将潜在客户记录链接到公司记录。 `externalSalesPersonId`字段可用于将潜在客户记录链接到销售人员记录。
+在更新期间，如果指定的分区中不存在潜在客户，或者仅API用户无法访问该分区，则API会返回错误。
 
-注意：当同时或连续快速执行潜在客户更新插入请求时，如果在首次返回之前使用相同的值执行后续调用，则在使用相同的键值发出多个请求时，可能会导致出现重复记录。 可以通过使用`createOnly`或`updateOnly`来避免这种情况，或者通过将呼叫排入队列并等待您的呼叫返回，然后再使用相同的键进行后续的更新插入调用。
+由于`id`是系统管理的唯一键，因此请仅将其包含在`updateOnly`操作中。
+
+该请求必须包含包含包含潜在客户记录数组的`input`参数。 每个潜在客户记录都是一个JSON对象，其中包含任意数量的潜在客户字段。 每个记录中的键必须唯一，并且所有JSON字符串都必须使用UTF-8编码。
+
+使用`externalCompanyId`将潜在客户记录链接到公司记录。 使用`externalSalesPersonId`将潜在客户记录链接到销售人员记录。
+
+如果多个请求在第一个请求返回之前使用相同的键值，则并发或接近定时的upsert请求可能会创建重复记录。 要防止出现重复项，请根据需要使用`createOnly`或`updateOnly`。 或者，先将调用排入队列，然后等待每个调用返回，然后再使用相同的键提交另一个更新插入。
 
 ## 字段
 
-潜在客户对象包含标准字段和可选的自定义字段。 标准字段存在于每个Marketo Engage订阅中，而自定义字段由用户根据需要创建。 每个字段定义由一组描述该字段的属性组成。 属性的示例包括显示名称、API名称和数据类型。 这些属性统称为元数据。
+潜在客户对象包含标准字段和可选自定义字段。 每个Marketo Engage订阅中都存在标准字段，而用户会根据需要创建自定义字段。
 
-以下端点允许您查询、创建和更新潜在客户对象上的字段。 这些API要求拥有权限的API用户具有读写架构标准字段或读写架构自定义字段权限中的一个或两个角色。
+每个字段定义包含元数据属性，例如显示名称、API名称和数据类型。
+
+使用以下端点查询、创建和更新潜在客户对象的字段。 API用户的角色必须具有读写架构标准字段权限和/或读写架构自定义字段权限。
 
 ## 查询字段
 
-查询潜在客户字段很简单。 您可以按API名称查询单个潜在客户字段，或查询所有潜在客户字段集。 根据所使用的角色权限，可以检索标准字段和自定义字段。 还检索隐藏字段。
+按API名称查询一个潜在客户字段或查询所有潜在客户字段。 根据角色权限，响应可能包括标准字段、自定义字段和隐藏字段。
 
 ## 按名称
 
-按名称获取潜在客户字段端点可检索潜在客户对象上单个字段的元数据。 必填的fieldApiName路径参数指定字段的API名称。 响应类似于Describe Lead端点，但包含其他元数据，例如isCustom属性，该属性指示字段是否为自定义字段。
+“按名称获取潜在客户字段”端点可检索一个潜在客户字段的元数据。 必填的fieldApiName路径参数指定字段的API名称。
+
+响应类似于Describe Lead响应，但包含其他元数据。 例如，isCustom属性指示字段是否为自定义字段。
 
 ### 请求
 
@@ -287,7 +296,9 @@ GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## 浏览
 
-获取潜在客户字段端点检索潜在客户对象中所有字段的元数据，包括。 默认情况下，最多返回300条记录。 您可以使用`batchSize`查询参数来减少此数量。 如果`moreResult`属性为true，则表示有更多的结果可用。 继续调用此终结点，直到`moreResult`属性返回false，这意味着没有可用的结果。 从此API返回的`nextPageToken`应始终在此调用的下一个迭代中重用。
+获取潜在客户字段端点检索潜在客户对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
+
+如果`moreResult`为true，则有更多结果可用。 在随后的每次调用中传递返回的`nextPageToken`，直到`moreResult`为false。
 
 ### 请求
 
@@ -429,12 +440,21 @@ GET /rest/v1/leads/schema/fields.json
 
 ## 创建字段
 
-“创建潜在客户字段”端点在潜在客户对象中创建一个或多个自定义字段。 此端点提供的功能与Marketo Engage UI中提供的功能相当。 您可以使用此端点创建最多100个自定义字段。
-请仔细考虑您在使用API的Marketo Engage生产实例中创建的每个字段。  创建字段后，便无法删除它（只能隐藏它）。 未使用字段的激增是一种不良做法，会增加实例的混乱。
+“创建潜在客户字段”端点在潜在客户对象中创建一个或多个自定义字段，并提供与Marketo Engage UI类似的功能。 您可以使用此端点创建最多100个自定义字段。
 
-所需的输入参数是潜在客户字段对象的数组。 每个对象都包含一个或多个属性。 必需的属性是`displayName`、`name`和`dataType`，它们分别对应于字段的UI显示名称、字段的API名称和字段类型。  您可以选择指定`description`、`isHidden`、`isHtmlEncodingInEmail`和`isSensitive`。
+在生产实例中创建字段之前，请仔细考虑每个字段。 创建字段后，您可以隐藏该字段，但不能将其删除。 未使用的字段会为实例添加待筛选项。
 
-有一些规则与名称和`displayName`命名关联。 name属性必须是唯一的，以字母开头，并且只包含字母、数字或下划线。 `displayName`必须是唯一的，并且不能包含特殊字符。  常见的命名惯例是将驼峰式大小写应用于`displayName`以生成名称。 例如，“我的自定义字段”的`displayName`将生成“myCustomField”的名称。
+所需的输入参数是潜在客户字段对象的数组。 每个对象都需要以下属性：
+
+- `displayName`是字段的UI显示名称。
+- `name`是字段的API名称。
+- `dataType`是字段类型。
+
+可选属性为`description`、`isHidden`、`isHtmlEncodingInEmail`和`isSensitive`。
+
+name属性必须是唯一的，以字母开头，并且只包含字母、数字或下划线。 `displayName`必须是唯一的，并且不能包含特殊字符。
+
+常用惯例将驼峰式大小写应用于`displayName`以生成名称。 例如，“我的自定义字段”的`displayName`生成名称“myCustomField”。
 
 ### 请求
 
@@ -484,7 +504,7 @@ POST /rest/v1/leads/schema/fields.json
 
 ## 更新字段
 
-“更新潜在客户字段”端点更新潜在客户对象上的单个自定义字段。 大多数情况下，使用Marketo Engage UI执行的字段更新操作可通过API实现。 下表总结了几项差异。
+“更新潜在客户字段”端点会更新潜在客户对象上的一个自定义字段。 Marketo Engage UI中提供的大多数字段更新也可通过API获得。 下表总结了二者的差异。
 
 <table>
 <tbody>
@@ -565,7 +585,7 @@ POST /rest/v1/leads/schema/fields.json
 </tbody>
 </table>
 
-所需的`fieldApiName`路径参数指定要更新的字段的API名称。 所需的输入参数是一个包含单个潜在客户字段对象的数组。  字段对象包含一个或多个属性。
+所需的`fieldApiName`路径参数指定要更新的字段的API名称。 必需的输入参数是一个数组，其中包含具有一个或多个属性的一个潜在客户字段对象。
 
 ### 请求
 
@@ -604,11 +624,15 @@ POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## 将潜在客户推送到Marketo
 
-推送商机是同步到Marketo商机的一种替代方法，它的主要功能是允许比标准同步商机具有更大的触发能力（与Marketo表单的使用方式类似）。 除了同步潜在客户字段之外，此端点还允许根据传递到端点的Cookie值关联潜在客户。 此操作可通过以下方式完成：传递通过单击Marketo电子邮件生成的`mkt_tok`值，或在调用中传递项目名称。 此端点还会创建单个可触发活动，该活动与Marketo中的项目和/或营销策划相关联。 这允许触发归因于特定活动或项目的商机捕获事件，以从Marketo中启动关联的工作流。
+推送潜在客户是同步潜在客户的替代方法，它提供了更多触发选项，类似于Marketo表单。 除了同步潜在客户字段之外，端点还可以根据Cookie值关联潜在客户。 传递通过Marketo电子邮件中的点击生成的`mkt_tok`值，或者在调用中传递程序名称。
 
-Push Lead界面与Sync Lead非常相似。 所有相同的主键均有效，字段使用相同的API名称（没有操作参数，因为这始终是更新插入操作）。 `programName`和输入参数是必需的，`lookupField`、`source`和`reason`参数是可选的。 输入参数是lead对象的数组。 生成的活动将归属于相应的命名项目。 `source`和`reason`参数是任意字符串字段，可添加到请求以将这些值嵌入生成的活动。 这些限制可以用作相应触发器（将潜在客户推送到Marketo）和过滤器（将潜在客户推送到Marketo）中的约束。
+端点还会创建一个与Marketo项目、营销策划或两者关联的可触发活动。 使用此活动从归因于特定活动或项目的商机捕获事件启动工作流。
 
-有关匿名活动的注释。 如果要将以前的匿名活动与新创建的潜在客户关联，则不要在潜在客户对象中指定Cookie属性，并在推送潜在客户之后调用“关联潜在客户”。 如果要创建一个没有活动历史记录的新潜在客户，则只需在潜在客户对象中指定Cookie属性即可。
+推送潜在客户使用与同步潜在客户相同的主键和字段API名称。 它没有操作参数，因为它始终执行upsert。
+
+`programName`和输入参数是必需的。 输入参数是一个潜在客户对象数组，生成的活动将归因于指定的程序。 `lookupField`、`source`和`reason`参数是可选的。 在`source`和`reason`中添加任意字符串以在生成的活动中包括这些值。 您可以将这些值用作相应触发器（潜在客户被推送到Marketo）和过滤器（潜在客户被推送到Marketo）中的约束。
+
+要将以前的匿名活动与新创建的潜在客户关联，请在潜在客户对象中忽略Cookie属性，并在推送潜在客户后调用Associate Lead 。 要创建没有活动历史的销售线索，请在销售线索对象中指定Cookie属性。
 
 ### 请求
 
@@ -674,7 +698,7 @@ POST /rest/v1/leads/push.json
 }
 ```
 
-要传递`mkt_tok`参数，请将该值分配给输入参数中的潜在客户记录中的mktToken成员，如下所示。
+要传递`mkt_tok`参数，请将其值分配给输入参数内潜在客户记录中的mktToken成员。
 
 ### 正文
 
@@ -699,24 +723,28 @@ POST /rest/v1/leads/push.json
 
 ## 提交表单
 
-提交表单是将潜在客户同步到Marketo的替代方法，旨在提供等同于Marketo表单提交的功能。 这允许触发归因于特定活动或项目的商机捕获事件，以从Marketo中启动关联的工作流。
+提交表单是同步潜在客户的替代方法，它提供的功能等效于Marketo表单提交。 使用它从归因于特定活动或项目的商机捕获事件启动工作流。
 
 提交表单端点支持以下功能：
 
-* 使用电子邮件字段作为主键更新插入潜在客户记录
-* 创建与项目和/或营销策划关联的“填写表单”活动
-* 允许基于Cookie值的商机关联
-* 执行表单字段验证
+- 使用电子邮件字段作为主键更新插入潜在客户记录。
+- 创建与项目、营销策划或两者关联的“填写表单”活动。
+- 根据Cookie值关联潜在客户。
+- 验证表单字段。
 
-提交表单时遵循标准潜在客户数据库模式。 单个对象记录在POST请求的JSON正文的必需输入成员中传递。 所需的`formId`成员包含目标Marketo表单ID。
+使用标准商机数据库模式提交表单。 在POST请求的JSON正文的必需输入成员中传递一个对象记录。 所需的`formId`成员包含目标Marketo表单ID。
 
-可选的`programId`可用于指定要向其添加潜在客户的程序，和/或指定要向其添加程序成员自定义字段的程序。 如果提供了`programId`，则商机将添加到项目群，并且表单中存在的所有项目群成员字段也会被添加。 请注意，指定的程序必须与表单位于同一工作区中。 如果表单不包含项目群成员自定义字段并且未提供`programId`，则潜在客户不会添加到项目群。 如果表单驻留在程序中，但未提供`programId`，则当表单中存在一个或多个程序成员自定义字段时，将使用该程序。
+使用可选`programId`标识接收潜在客户和/或项目成员自定义字段的程序。 如果存在`programId`，则潜在客户将连同表单中的任何项目群成员字段一起添加到项目中。 程序必须与表单位于同一工作区中。
 
-在输入记录中，`leadFormFields`对象是必需的。 此对象包含一个或多个与要填充的表单字段对应的名称/值对。  所有指定的字段必须在指定的表单中定义。 该名称是字段的REST API名称。 请注意，`email`字段为必填项。
+如果该表单不包含项目群成员自定义字段并且省略了`programId`，则不会将潜在客户添加到项目中。 如果表单属于程序，包含一个或多个程序成员自定义字段，并省略`programId`，则端点将使用该表单的程序。
 
-`visitorData`成员对象是可选的，包含与页面访问数据（包括`pageURL`、`queryString`、`leadClientIpAddress`和`userAgentString`）对应的名称/值对。 可用于填充其他活动字段以进行筛选和触发。
+所需的`leadFormFields`对象包含一个或多个要填充的字段的名称/值对。 每个字段都必须以指定的形式定义，并且每个名称必须是字段的REST API名称。 `email`字段为必填项。
 
-Cookie成员字符串是可选的，用于将Munchkin Cookie与Marketo中的人员记录相关联。 创建新潜在客户时，任何以前的匿名活动都会与该潜在客户关联，除非该Cookie值以前曾与其他已知记录关联。 如果以前关联过Cookie值，则系统会根据记录跟踪新活动，但不会从现有已知记录迁移旧活动。 要创建没有活动历史记录的新潜在客户，只需忽略Cookie成员。
+可选的`visitorData`对象包含页面访问数据，包括`pageURL`、`queryString`、`leadClientIpAddress`和`userAgentString`。 使用它填充过滤器和触发器的其他活动字段。
+
+可选Cookie成员将Munchkin Cookie与Marketo人员记录关联。 端点创建潜在客户时，会将之前的匿名活动与该潜在客户关联，除非该Cookie之前与其他已知记录关联。
+
+如果以前关联过Cookie，则系统会根据新记录跟踪新活动，但旧活动会保留现有已知记录。 要创建没有活动历史的销售线索，请忽略Cookie成员。
 
 在窗体所在的工作区的主分区中创建新的潜在客户。
 
@@ -772,7 +800,7 @@ Content-Type: application/json
 }
 ```
 
-在这里，我们可以从Marketo Engage UI中看到相应的“填写表单”活动详细信息：
+下图显示了Marketo Engage UI中相应的“填写表单”活动详细信息：
 
 ![填写表单UI](assets/fill_out_form_activity_details.png)
 
@@ -783,7 +811,9 @@ Content-Type: application/json
 >从2026年3月31日开始，在合并潜在客户API调用的`leadIds`参数中包含超过25个ID的调用将导致1080错误代码，并且将跳过该调用。 需要将超过25条记录合并为一个的工作应该被分割成多个工作以确保这些调用成功。
 >
 
-有时候，合并重复记录是必要的，Marketo通过合并潜在客户API为此提供了便利。 合并潜在客户将合并其活动日志、项目、营销策划、列表成员资格和CRM信息，并将其所有字段值合并到单个记录中。 合并潜在客户将潜在客户ID作为路径参数，单个`leadId`作为查询参数，或者`leadIds`参数中逗号分隔的ID为25个或更少的列表
+使用合并潜在客户API将重复记录合并到一个记录中。 合并可组合活动日志、项目、营销策划和列表成员资格、CRM信息和字段值。
+
+将入选商机ID作为路径参数传递。 传递一个`leadId`作为查询参数，或在`leadIds`参数中传递最多25个逗号分隔ID。
 
 
 ### 请求
@@ -801,13 +831,15 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 }
 ```
 
-在path参数中指定的商机是入选商机，因此，如果合并的记录之间有任何字段冲突，则采用来自入选者的值，但入选记录中的字段为空且失败记录中的对应字段为空的除外。 在`leadId`或`leadIds`参数中指定的潜在客户是失败的潜在客户。
+path参数中的商机是入选商机。 当字段值冲突时，合并使用入选者的值，除非该值为空并且丢失记录的值不为空。 `leadId`或`leadIds`参数中的潜在客户是失败的潜在客户。
 
-如果您具有启用SFDC同步的订阅，则还可以在请求中使用`mergeInCRM`参数。 如果设置为true，则还会在CRM中执行相应的合并。 如果两个潜在客户都在SFDC中，其中一个是CRM潜在客户，而另一个是CRM联系人，则入选者将成为CRM联系人（无论哪个潜在客户被指定为入选者）。 如果其中一个潜在客户位于SFDC中，而另一个仅位于Marketo中，则入选者将成为SFDC潜在客户（无论将哪个潜在客户指定为入选者）。
+对于启用SFDC-sync的订阅，使用`mergeInCRM`参数也可以在CRM中执行合并。 如果两个记录都在SFDC中，并且一个记录是CRM潜在客户，而另一个记录是CRM联系人，则无论指定的入选者是谁，CRM联系人都会入选。 如果一个记录在SFDC中，而另一个记录仅存在于Marketo中，则SFDC领先优势将获胜，而不管指定的入选者是谁。
 
 ## 关联Web活动
 
-通过潜在客户跟踪(Munchkin)，Marketo记录网站和Marketo登陆页面访客的Web活动。 这些活动（访问和点击）使用与在潜在客户浏览器中设置的“_mkto_trk”Cookie对应的键进行记录，Marketo将使用此键来跟踪同一人员的活动。 通常，当潜在客户从Marketo电子邮件点击进来或填写Marketo表单时，就会发生与潜在客户记录的关联，但有时关联可能由其他类型的事件触发，为此，您可以使用关联潜在客户端点来执行。 端点将已知潜在客户记录的ID作为路径参数，并在Cookie查询参数中采用“_mkto_trk”Cookie值。
+潜在客户跟踪(Munchkin)记录访客对您的网站和Marketo登陆页面的访问次数和点击次数。 这些活动使用与潜在客户浏览器中的“_mkto_trk”Cookie对应的键，从而允许Marketo跟踪同一人员的活动。
+
+当潜在客户遵循Marketo电子邮件中的链接或提交Marketo表单时，通常会发生与潜在客户记录的关联。 要关联其他类型事件之后的潜在客户，请使用“关联潜在客户”端点。 将已知的潜在客户记录ID作为路径参数传递，并在Cookie查询参数中传递“_mkto_trk”Cookie值。
 
 ### 请求
 
@@ -824,13 +856,14 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 }
 ```
 
-如果某个Cookie已经与某个已知潜在客户记录关联，则在不同潜在客户记录上使用此API会导致根据该记录记录记录记录新的Web活动，但不会将任何现有Web活动移至新记录。
+如果该Cookie已与某个已知潜在客户关联，则对另一个潜在客户使用此API会针对新记录记录记录新的Web活动。现有Web活动未移至新记录。
 会员资格
 
-还可以根据静态列表或项目中的成员资格来检索潜在客户记录。 此外，您可以检索潜在客户所属的所有静态列表、项目或智能营销策划。
+根据静态列表或计划中的成员资格检索潜在客户记录。 您还可以检索包含特定商机的所有静态列表、项目或智能营销活动。
 
-响应结构和可选参数与Get Leads by Filter Type的响应结构和可选参数相同，但`filterType`和`filterValues`不能与此API一起使用。
-要通过Marketo UI访问列表ID，请导航到列表。 列表`id`在静态列表`https://app-**&#x200B;**.marketo.com/#ST1001A1`的URL中。 在此示例中，1001是列表的`id`。
+响应结构和可选参数与“按筛选器类型获取潜在客户”匹配，但此API不接受`filterType`或`filterValues`。
+
+要在Marketo UI中查找列表ID，请导航到列表并检查其URL。 在`https://app-****.marketo.com/#ST1001A1`中，1001是列表`id`。
 
 ## 按潜在客户ID获取计划
 
@@ -873,7 +906,7 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 
 ## 按潜在客户ID获取列表
 
-按潜在客户ID获取列表端点采用潜在客户记录`id`路径参数，并返回该潜在客户所属的所有静态列表记录。
+“按潜在客户ID获取列表”端点采用潜在客户记录`id`路径参数并返回包括潜在客户的每个静态列表。
 
 ### 请求
 
@@ -911,11 +944,13 @@ GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 
 ## 项目
 
-计划会员资格可采用与列表类似的方式检索。 在调用Get Leads by Program ID端点并传递`programId`路径参数时，可以使用相同的可选请求参数。
+检索计划成员资格的方式与列表成员资格相同。 按项目ID获取潜在客户接受相同的可选请求参数，并需要`programId`路径参数。
 
-或者，您可以传递一个字段参数，其中包含要返回的以逗号分隔的字段名称列表。 如果此请求中未包含字段参数，则将返回以下默认字段：`email`、`updatedAt`、`createdAt`、`lastName`、`firstName`、`membership`和`id`。 在请求字段列表时，如果请求的是特定字段但未返回，则该值默认为空。
+或者，传递包含以逗号分隔的字段名称列表的字段参数。 如果忽略字段，则响应将包括`email`、`updatedAt`、`createdAt`、`lastName`、`firstName`、`membership`和`id`。 如果未返回请求的字段，则其值默认为空。
 
-响应结构非常相似，因为结果数组中的每个项都是一个潜在客户，只是每个记录还具有一个名为“membership”的子对象。 此成员资格对象包括有关潜在客户与调用中指示的程序的关系的数据，始终显示其`progressionStatus`、`acquiredBy`、`reachedSuccess`和`membershipDate`。 如果父计划也是参与计划，则成员资格将具有成员`stream`、`nurtureCadence`和`isExhausted`，以指示其在参与计划中的位置和活动。
+结果数组中的每一项都是一个潜在客户，其子对象名为“membership”。 此对象描述潜在客户与所请求程序的关系，并始终包含`progressionStatus`、`acquiredBy`、`reachedSuccess`和`membershipDate`。
+
+如果父计划是参与计划，则成员资格还包括用于描述潜在客户在该计划中的位置和活动的`stream`、`nurtureCadence`和`isExhausted`。
 
 ### 请求
 
@@ -989,7 +1024,7 @@ GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 }
 ```
 
-“按潜在客户ID获取程序”端点采用潜在客户记录ID路径参数，并返回该潜在客户所属的所有程序记录。 可选的`filterType`和`filterValues`参数允许您根据程序ID进行筛选。
+“按潜在客户ID获取程序”端点采用潜在客户记录ID路径参数，并返回包括潜在客户的每个程序。 使用可选的`filterType`和`filterValues`参数根据程序ID进行筛选。
 
 ### 请求
 
@@ -1020,7 +1055,7 @@ GET /rest/v1/leads/{id}/programMembership.json
 
 ## 智能营销活动
 
-按商机ID获取智能营销活动端点采用商机记录ID路径参数，并返回该商机所属的所有智能营销活动记录。
+按商机ID获取智能营销活动端点采用商机记录ID路径参数，并返回包括商机的每个智能营销活动。
 
 ### 请求
 
@@ -1058,7 +1093,7 @@ GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 
 ## 删除
 
-使用“删除潜在客户”端点可以直接删除潜在客户。  使用正文中的id属性指定要删除的潜在客户id。  每个请求的最大商机为300个。  使用Content-Type： application/json标头。
+使用“删除潜在客户”端点可删除潜在客户记录。 在正文中通过id属性指定潜在客户id。 一个请求最多可以删除300个潜在客户。 发送Content-Type： application/json标头。
 
 ### 请求
 
@@ -1102,22 +1137,22 @@ POST /rest/v1/leads/delete.json
 
 ## 关系
 
-* 潜在客户记录中通过externalCompanyId字段列出的公司
-* 潜在客户记录上的SalesPerson through externalSalesPersonId字段
-* 通过计划成员资格的计划
-* 通过列表成员资格列出的列表
-* 通过活动中的leadId字段进行的活动
-* 通过潜在客户记录中的单个区段字段进行分段
-* 在潜在客户记录中通过leadPartitionId进行分区
+- 公司通过潜在客户记录上的externalCompanyId字段
+- 通过潜在客户记录上的externalSalesPersonId字段的SalesPerson
+- 通过计划成员资格的计划
+- 通过列表成员资格列出的列表
+- 通过活动中的leadId字段进行的活动
+- 通过潜在客户记录上的单个区段字段进行分段
+- 通过潜在客户记录上的leadPartitionId字段进行分区
 
 ## 超时
 
-潜在客户端点具有30秒的超时时间，除非在下文中说明：
+潜在客户端点的超时为30秒，以下端点除外：
 
-* 同步潜在客户：90秒
-* 关联潜在客户：60多岁
-* 合并潜在客户：180秒
-* 更新潜在客户分区： 60秒
-* 将潜在客户推送到Marketo：90多岁
-* 按筛选器类型获取潜在客户：60秒
-* 按列表ID获取潜在客户：60秒
+- 同步潜在客户：90秒
+- 关联潜在客户：60多岁
+- 合并潜在客户：180秒
+- 更新潜在客户分区： 60秒
+- 将潜在客户推送到Marketo：90多岁
+- 按筛选器类型获取潜在客户：60秒
+- 按列表ID获取潜在客户：60秒

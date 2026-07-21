@@ -4,26 +4,23 @@ feature: Email Programs
 description: 使用Velocity的Marketo电子邮件脚本示例，包括循环访问自定义对象、日期解析/格式、HTML转义和URL ID附加。
 exl-id: 7c801f1c-0ab3-49f0-8577-0c4dccc80d0b
 TQID: https://experienceleague.adobe.com/QFC8YeZV3rAZtsE-KU8kFdpG7W0nocHscDSfuTkrLIY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 67
+source-wordcount: 69
 ht-degree: 7%
 
 ---
 
 # 示例
 
-在下方，您可以找到一组演示性电子邮件脚本示例。
+以下示例演示了常见的电子邮件脚本模式。
 
 ## 事件列表
 
-此示例使用假设的Event自定义对象。
+此示例使用假定的事件自定义对象来演示排序和筛选。
 
 ```html
 ##declare an $EventsThisYear variable

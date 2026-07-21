@@ -4,13 +4,11 @@ feature: REST API, Static Lists
 description: 使用Marketo REST API查询、创建、更新和删除静态列表，以及包含ID、名称和浏览、文件夹作用域、分页和日期过滤器的端点。
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
 TQID: https://experienceleague.adobe.com/DSV9h6d4F3ZrIUT-VtqlmFAnpdxOuTf05ajCqiGegqk
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 496
+source-wordcount: 360
 ht-degree: 1%
 
 ---
@@ -19,17 +17,17 @@ ht-degree: 1%
 
 [静态列表终结点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists)
 
-Marketo提供了一组REST API，用于对静态列表执行CRUD操作。 这些API遵循资产API的标准界面模式，提供查询、创建、更新和删除选项。
+使用静态列表REST API查询、创建、更新和删除静态列表。
 
 有关列表成员的Lead数据库操作，请参阅[列表成员资格](list-membership.md)。
 
 ## 查询
 
-查询静态列表遵循[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET)的标准查询类型。
+按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET)查询静态列表[。
 
 ### 按Id
 
-[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET)进行查询，将单个静态列表`id`作为路径参数并返回单个静态列表记录。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET)进行查询，需要一个静态列表`id`路径参数并返回匹配记录。
 
 ```http
 GET /rest/asset/v1/staticList/{id}.json
@@ -58,7 +56,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### 按名称
 
-[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET)查询将静态列表`name`作为参数并返回单个静态列表记录。 对实例中的所有静态列表名称执行完全匹配的字符串，并返回与该名称匹配的静态列表的结果。
+[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET)查询采用静态列表`name`参数。 端点对静态列表名称执行精确匹配并返回匹配记录。
 
 ```http
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -87,7 +85,9 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### 浏览
 
-静态列表也可在批次[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET)中检索。 `folder`参数可用于指定将在其中执行查询的父文件夹，并将其格式化为包含`id`和`type`的JSON对象。 与其他批量资源检索端点一样，`offset`和`maxReturn`是可用于分页的可选参数。 `earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回在给定范围内创建或更新的静态列表设置低日期时间水印和高日期时间水印。 日期时间值必须是有效的ISO-8601字符串，并且不应包括毫秒。
+使用浏览终结点[在批次](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET)中检索静态列表。 可选的`folder`参数将查询范围限定为父文件夹。 将文件夹作为包含`id`和`type`的JSON对象传递。
+
+使用`offset`和`maxReturn`进行分页。 将`earliestUpdatedAt`和`latestUpdatedAt`用作低日期时间边界和高日期时间边界。 这些参数返回在该范围内创建或更新的列表。 使用不带毫秒的ISO-8601值。
 
 ```http
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
@@ -138,7 +138,9 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## 创建和更新
 
-[创建静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/createStaticListUsingPOST)是使用`application/x-www-form-urlencoded` POST和两个必需的参数执行的。 `folder`参数用于指定将在其下创建静态列表的父文件夹，并将其格式化为包含`id`和`type`的JSON对象。 `name`参数用于命名静态列表，必须是唯一的。 （可选）可以使用`description`参数描述静态列表。
+向[创建静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/createStaticListUsingPOST)发送`application/x-www-form-urlencoded`个POST请求。 `folder`和`name`参数是必需的。
+
+将`folder`作为包含`id`和`type`的JSON对象传递。 `name`必须是唯一的。 可选的`description`参数描述了列表。
 
 ```http
 POST /rest/asset/v1/staticLists.json
@@ -173,7 +175,7 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 }
 ```
 
-[使用两个可选参数通过单独的终结点更新静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/updateStaticListUsingPOST)。 `description`参数可用于更新静态列表描述。 `name`参数可用于更新静态列表名称，并且必须是唯一的。
+使用更新终结点[更改静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/updateStaticListUsingPOST)。 可选的`description`参数可更改说明。 可选的`name`参数会更改名称，并且必须是唯一的。
 
 ```http
 POST /rest/asset/v1/staticList/{id}.json
@@ -211,7 +213,7 @@ description=This is a static list used for testing
 
 ## 删除
 
-[删除静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST)需要一个静态列表`id`作为路径参数。 无法删除导入或导出操作正在使用的静态列表，或其他资产正在使用的静态列表。
+要[删除静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST)，请将其`id`作为路径参数传递。 您无法删除导入、导出或其他资源使用的列表。
 
 ```http
 POST /rest/asset/v1/staticList/{id}/delete.json

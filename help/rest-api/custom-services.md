@@ -4,46 +4,46 @@ feature: REST API
 description: 创建Marketo自定义服务，设置仅限API的角色和权限，在LaunchPoint中获取客户端ID和客户端密钥，以及获取访问令牌。
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
 TQID: https://experienceleague.adobe.com/lvT-8bYucf-K5LYxb5jQ7BHc137W71SvsGg7cWJlxEs
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1031
+source-wordcount: 872
 ht-degree: 0%
 
 ---
 
 # 自定义服务
 
-自定义服务提供用于通过Marketo进行身份验证的凭据。 需要凭据才能从Marketo [Identity服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获取访问令牌。 每个自定义服务的作用范围限定于一个仅限API的用户，从该用户获取其权限。
+自定义服务提供用于向Marketo进行身份验证和从Marketo [身份服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获取访问令牌的凭据。 每个自定义服务的作用范围仅限定于一个API专用用户，并从该用户获取其权限。
 
 ## 角色
 
-创建自定义服务的第一步是创建可应用于相关仅限API用户的角色。 此操作从&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Roles]**&#x200B;菜单完成。
+在创建自定义服务之前，请创建一个角色以分配给相关的仅限API用户。 转到 **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Roles]**。
 
-角色是单个权限的容器，允许或限制对特定功能的访问。 在启用了工作区和分区的订阅中，将按工作区授予权限。 如果用户在一个工作区中拥有权限，但在另一个工作区中没有，则他们只能在该工作区中执行允许的操作。 要创建角色，请选择&#x200B;**[!UICONTROL New Role]**。
+角色包含允许或限制访问特定功能的各个权限。 在启用了工作区和分区的订阅中，为每个工作区分配权限。 用户只能在具有这些权限的工作区中执行允许的操作。
+
+要创建角色，请选择&#x200B;**[!UICONTROL New Role]**。
 
 ![用户和角色](assets/admin-users-and-roles-roles.png)
 
-请确保为您的角色提供一个描述性名称。 仅API用户具有一组特定的权限，这些权限与正常用户权限不同且互不相同。 API权限存在于“Access API”树下的其自己的层次结构中。
+为角色提供一个描述性名称。 仅API用户具有一组与标准用户权限不同的特定权限。 API权限显示在“访问API”树下自己的层次结构中。
 
 ![新角色权限](assets/new-role-access-api-permissions.png)
 
 ### 角色权限
 
-仅“访问API”组中的权限适用于API用户，也就是说，授予所有管理员权限不会将任何API权限授予用户。
+仅“访问API”组中的权限适用于API用户。 分配所有管理员权限不会将API权限授予用户。
 
-在构建角色时，请仔细考虑您应该允许应用程序使用该角色执行哪些操作。 仅授予执行这些操作所需的最低权限集。 允许不必要地授予权限集可允许集成在您的订阅中执行不需要的操作。 您可以使用[权限工具](endpoint-reference.md)确定最小权限集。 查看[权限](#permission_list)的完整列表。
+构建角色时，请确定应用程序必须执行的操作。 仅分配这些操作所需的最低权限。 不必要的权限可能会允许集成在您的订阅中执行不需要的操作。
+
+使用[权限工具](endpoint-reference.md)确定最小权限集。 查看[权限](#permission_list)的完整列表。
 
 ## 用户
 
-创建角色后，必须创建“仅限API”用户。 仅限API用户是Marketo中的一种特殊类型的用户，因为它们由其他用户管理，并且无法用于登录到Marketo。 仅API用户可以：
+创建角色后，创建“仅限API”用户。 其他用户管理仅API用户，而仅API用户无法登录到Marketo。 他们可以：
 
 - 创建自定义服务
 - 确定这些服务的权限范围
@@ -55,35 +55,41 @@ ht-degree: 0%
 
 ![新用户信息](assets/new-user-info.png)
 
-根据用户将用于的服务和应用程序，为其提供描述性名称和电子邮件地址（不一定有效）。 填写对话框菜单中的必填字段，选中&#x200B;**[!UICONTROL API Only]**&#x200B;复选框，然后将您的某个API角色授予用户。 这会将该角色的权限集分配给用户。
+根据将使用该帐户的服务和应用程序，为用户提供一个描述性名称和电子邮件地址。 电子邮件地址不一定有效。 填写必填字段，选中&#x200B;**[!UICONTROL API Only]**&#x200B;复选框，然后将您的某个API角色分配给用户。 此操作将角色的权限集分配给用户。
 
 ![新用户权限](assets/new-user-permissions.png)
 
-最后，选择&#x200B;**[!UICONTROL Send]**&#x200B;以创建仅限API的用户。
+选择&#x200B;**[!UICONTROL Send]**&#x200B;以创建仅限API的用户。
 
-为应用程序设置凭据时，强烈考虑为该服务创建新用户，即使它与其他现有集成具有相同的权限集。 API调用使用情况统计信息和错误是按用户进行跟踪的，因此为每个应用程序预配用户可以帮助您将使用情况和问题隔离到特定应用程序。 如果您遇到与达到每日API调用限制有关的问题，或者由于集成进行的API调用而导致的错误，这将会很有用。
+为新应用程序设置凭据时，请考虑为服务创建单独的用户，即使其他集成使用相同的权限集。 按用户跟踪API调用使用情况统计信息和错误。
+
+每个应用程序的用户有助于将使用和问题隔离到特定应用程序。 当集成达到每日API调用限制或生成API错误时，此分离非常有用。
 
 ## 自定义服务
 
-自定义服务提供使用Marketo实例执行身份验证所需的实际凭据、客户端ID和客户端密钥。 要预配一个，请转到您的&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]**&#x200B;菜单，然后选择&#x200B;**[!UICONTROL New Service]**。
+自定义服务提供使用Marketo实例进行身份验证所需的客户端ID和客户端密钥。 要预配服务，请转到&#x200B;**[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]**，然后选择&#x200B;**[!UICONTROL New Service]**。
 
-为您的服务提供一个描述性名称，然后从“服务”列表中选择“自定义”。 为服务提供详细描述，并从仅API用户列表中选择适当的用户，然后选择&#x200B;**[!UICONTROL Create]**。
+为服务提供一个描述性名称。 从“服务”列表中，选择“自定义”。 输入详细说明，从“仅API用户”列表中选择适当的用户，然后选择&#x200B;**[!UICONTROL Create]**。
 
 ![新自定义服务](assets/admin-launchpoint-new-service.png)
 
-这会向LaunchPoint服务列表中添加一个新服务，以及“查看详细信息”选项。 单击“查看详细信息”，系统会为您提供身份验证所需的客户端ID和客户端密钥、拥有的用户以及获取令牌以进行短期测试的选项。 从此对话框获得的令牌与通常从[Identity服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获得的令牌的生命周期相同，在创建令牌后3,600秒内有效。
+该服务将以“查看详细信息”选项显示在LaunchPoint Services列表中。 选择“查看详细信息”以访问客户端ID、客户端密钥、所属用户和获取令牌选项。
+
+使用获取令牌进行短期测试。 令牌的生命周期与从[Identity服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获取的令牌的生命周期相同，在创建后有效期为3,600秒。
 
 ![获取令牌](assets/get-token.png)
 
 ## 工作区和分区
 
-在具有工作区和分区的订阅中，根据用户在给定工作区中的角色所具有的权限，授予访问给定记录或资产的能力。 每个工作区都可以访问“工作区和分区”菜单中的一个或多个分区，并且潜在客户属于单个分区。 如果仅API用户有权读取或写入工作区中的潜在客户记录，则它将能够访问该工作区有权访问的分区中的所有记录。
+在具有工作区和分区的订阅中，用户在工作区中的角色权限决定了对记录和资产的访问权限。 每个工作区都有权访问一个或多个分区，每个潜在客户都属于一个分区。
 
-Assets属于工作区，因此读取或写入资源的能力取决于用户在相关工作区中是否具有有权在工作区中读取或写入该类型资源记录的角色。
+如果仅限API的用户可以读取或写入工作区中的潜在客户记录，则用户可以访问该工作区可用的分区中的所有记录。
+
+Assets属于工作区。 当用户具有在资源工作区中具有所需权限的角色时，用户可以读取或写入资源。
 
 ## 权限列表
 
-以下是仅限API用户可用的所有权限列表，以及他们允许具有此权限的用户执行的操作。
+下表列出了仅限API用户可用的权限以及每个权限授予的访问权限。
 
 | 角色权限 | 授予对……的访问权限 |
 | --- | --- |

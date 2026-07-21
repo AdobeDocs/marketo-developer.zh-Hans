@@ -4,25 +4,21 @@ feature: REST API, Field Management
 description: 浏览Marketo标准潜在客户字段的完整列表，其中包含REST和SOAP名称、标签和描述，以及如何通过描述潜在客户API检索它们。
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
 TQID: https://experienceleague.adobe.com/vu2wGk36XJ243vwavhfLE7Vc9vMIJKGx6vmVqMRgEDA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 742
+source-wordcount: 745
 ht-degree: 16%
 
 ---
 
 # 标准字段
 
-以下是可通过API访问的Marketo中可用标准字段列表。
+下表列出了通过API可用的标准Marketo字段。 它包括每个字段的REST API名称、SOAP API名称、标签和描述。
 
-您可以使用REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi)端点检索潜在客户记录中可用的所有受支持字段名称的列表。
+使用REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi)端点检索潜在客户记录支持的所有字段名称。
 
 | REST API名称 | SOAP API名称 | 友好标签 | 描述 |
 | --- | --- | --- | --- |

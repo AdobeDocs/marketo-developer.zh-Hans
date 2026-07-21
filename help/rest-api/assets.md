@@ -4,28 +4,20 @@ feature: REST API
 description: Marketo Asset REST API概述，用于按ID或名称查询、使用分页进行浏览，以及创建或更新文件夹、电子邮件、表单、模板、文件和令牌。
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
 TQID: https://experienceleague.adobe.com/gRhXvFtG1FHtGJ4tFQxOyGMkEiOX0K1S0VpjcB6s6xM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 899
-ht-degree: 2%
+source-wordcount: 631
+ht-degree: 3%
 
 ---
 
 # 资产
 
-Marketo提供了可与Marketo中的大多数营销和组织资源交互的API。
+使用Marketo Asset REST API查询和管理营销和组织资源。
 
 ## 资产
 
@@ -49,9 +41,11 @@ Marketo资源包括：
 
 ## 查询
 
-Assets通常具有三种可检索模式：通过id、通过名称和通过浏览。  按ID和按名称都将检索给定参数的单个资产，而浏览将返回并允许分页查看该类型的整个资产列表。  单个类型的资产具有各种可用于对其进行过滤的参数，因此请务必查看其各个文档以了解详情。
+资产API通常支持三种检索模式：按ID、按名称和按浏览。 按ID或名称进行的查询将为指定参数检索一个资源。 浏览端点会返回该类型资产的分页列表。
 
-在某些情况下，某些资产类型的浏览端点将不会返回子资产，例如标记的可允许值，必须使用“按名称”或“按ID”端点单独检索它们，以返回完整的元数据集。  其他则可能有完全不同的端点，用于检索表单字段等依赖对象。
+筛选参数因资源类型而异。 有关支持的过滤器，请参阅有关每种资源类型的文档。
+
+某些浏览端点不返回子资产，例如标记的允许值。 按名称或ID单独检索这些资源以获取其完整的元数据。 其他资源类型为表单字段等依赖对象提供单独的端点。
 
 ### 按Id
 
@@ -94,7 +88,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 ### 按名称
 
-由于技术原因，资产API无法搜索包含逗号(，)的资产名称。  建议命名规则在所有资产类型中排除逗号。
+资源API无法搜索包含逗号的资源名称。 从资源名称中排除逗号。
 
 ```http
 GET /rest/asset/v1/file/byName.json?name=My File
@@ -127,10 +121,10 @@ GET /rest/asset/v1/file/byName.json?name=My File
 
 ### 浏览
 
-浏览资产将始终允许使用两个查询参数：
+资源浏览端点支持以下查询参数：
 
-- offset — 返回结果的起始整数偏移。
-- maxReturn — 限制返回的记录数。  如果未设置，则默认为20，最大值为200。
+- `offset` — 开始返回结果的整数偏移。
+- `maxReturn` — 要返回的最大记录数。 默认值为20，最大值为200。
 
 ```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
@@ -188,9 +182,9 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 ## 创建和更新
 
-对于文件夹、令牌和文件等简单资产类型，通常只有单个端点可供创建，然后是额外的端点，用于按ID更新记录。  创建Assets时使用的名称始终是必需的，然后创建或更新响应会返回任何元数据和ID。
+简单的资源类型（如文件夹、令牌和文件）通常会提供一个用于创建的端点，另一个用于按ID进行更新的端点。 创建资源时需要名称。 创建或更新响应将返回资源元数据和ID。
 
-例如，下面是如何创建令牌：
+以下请求创建一个令牌：
 
 ```http
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -229,7 +223,7 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 }
 ```
 
-要更新文件夹，请执行以下操作：
+以下请求更新文件夹：
 
 ```http
 POST /rest/asset/v1/folder/{id}.json
@@ -276,13 +270,13 @@ type=Folder&description=This is a test (update 01)
 }
 ```
 
-其他资源的结构更复杂，需要更新其他子部分或子对象，最终必须在使用之前获得批准。  这些资源类型包括Forms、电子邮件、电子邮件模板、登陆页面和登陆页面模板。  每个端点将有一个用于创建记录的端点，然后是其他用于更新元数据、内容和内容部分的端点。
+Forms、电子邮件、电子邮件模板、登陆页面和登陆页面模板的结构更加复杂。 每种类型都提供一个用于创建资源的端点，并提供其他端点用于更新其元数据、内容和内容部分。
 
-例如，要创建登陆页面，您必须使用模板ID调用其创建端点，然后检索其内容部分，并单独更新每个部分以添加内容，然后才能批准该内容，以便可以实时部署。
+这些资源在使用之前必须获得批准。 例如，使用模板ID创建登陆页面，检索其内容部分，更新每个所需部分，然后批准页面以进行部署。
 
 ### 复杂创建
 
-登陆页面首先需要使用父模板创建登陆页面资产。  这将创建一个新登陆页面，其中包含每个内容部分的模板默认内容。
+从父模板创建登陆页面。 新登陆页面包含模板中每个部分的默认内容。
 
 ```http
 POST rest/asset/v1/landingPages.json
@@ -331,7 +325,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 #### 获取分区
 
-要填充登陆页面的内容，您必须检索内容部分的列表，然后为任何偏离模板的部分执行个别更新。
+检索登陆页面的内容部分。 更新必须与模板不同的每个部分。
 
 ```http
 GET /rest/asset/v1/landingPage/{id}/content.json
@@ -385,7 +379,9 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 ## 审批
 
-许多资源类型具有关联的草稿和审批系统，包括电子邮件、登陆页面、代码片段、Forms及其相应的模板。  尝试批准资产时，将根据一组特定的验证规则对其进行评估，然后将其设置为已批准状态，或返回失败原因。  对于这些类型的资产，每当对特定资产的内容进行更新时，都会对资产的草稿进行更改，这不会影响批准的版本。  这样可安全地更改内容，而不会影响资产的实时版本。  然后，可以使用审批端点将更改应用于实时版本。  这也会清除资产的草稿状态，直到应用任何其他更新为止。
+电子邮件、登陆页面、代码片段、表单及其模板均使用草稿和审批系统。 内容更新会更改草稿，而不影响批准的实时版本。
+
+审批端点验证草稿。 如果验证成功，则草稿将替换实时版本并清除草稿状态。 如果验证失败，则端点将返回原因。
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
@@ -417,7 +413,9 @@ POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 
 成功的审批会将以前的实时版本替换为更新版本。
 
-也可以通过每个有效资产类型的端点放弃草稿。  在处于已批准草稿状态的资产上使用此项将放弃当前草稿及其具有的任何待处理更改。  在目前没有批准版本的资产上使用此项将不会产生任何效果并返回错误。  只能删除草稿的资源，但不能放弃它们。
+每个支持的资源类型都提供一个用于放弃草稿的端点。 对于具有草稿的已批准资产，此端点会放弃草稿及其待处理更改。
+
+如果资产没有批准的版本，则端点会返回错误。 您可以删除仅用于草稿的资产，但无法放弃其草稿。
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
@@ -447,7 +445,9 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 }
 ```
 
-如果Assets处于仅批准状态，则也可以取消批准。  这将删除资产的任何实时版本，并将资产返回到仅草稿状态，同时放弃任何关联的草稿。  只有在Marketo的任何地方均未使用时（例如发送电子邮件流程步骤中引用的电子邮件，或者电子邮件中嵌入的代码片段），才能对大多数资源执行此操作。
+您可以取消批准处于仅批准状态的资产。 取消批准会删除实时版本，将资产返回到仅草稿状态，并放弃任何关联的草稿。
+
+对于大多数资源类型，不得使用资源。 例如，无法取消批准发送电子邮件流程步骤引用的电子邮件或电子邮件中嵌入的代码片段。
 
 ```http
 POST /rest/asset/v1/email/{id}/unapprove.json
@@ -469,7 +469,9 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 ## 删除
 
-具有批准和草稿状态（表单除外）的Assets在批准时不得删除，并且在删除之前必须先获得批准。  通常，仅当资产未批准且不再使用时，以及在文件夹中为空资产时，才能执行删除。  一个值得注意的例外是程序，只要程序及其内容在程序边界之外的任何地方都未使用，这些程序可以与其所有子内容一起删除。
+除表单外，具有批准和草稿状态的资产必须在删除之前未批准。 资产通常也必须未使用。 文件夹必须为空。
+
+程序是个例外。 如果程序及其内容不在程序之外使用，则可以删除程序及其子内容。
 
 ```http
 POST /rest/asset/v1/program/{id}/delete.json
@@ -491,4 +493,4 @@ POST /rest/asset/v1/program/{id}/delete.json
 
 ## 超时
 
-资源API的超时为300秒
+资源API的超时时间为300秒。

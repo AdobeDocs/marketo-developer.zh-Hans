@@ -4,17 +4,13 @@ feature: REST API
 description: 使用Marketo批量程序成员提取REST API导出大型成员记录，以使用权限和字段元数据进行ETL、数据仓库存储和存档。
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
 TQID: https://experienceleague.adobe.com/w4qaVTKSe0EORaSiURB6WbJXi29JUdEgfkb2dnfuVFw
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1294
+source-wordcount: 1026
 ht-degree: 2%
 
 ---
@@ -23,15 +19,15 @@ ht-degree: 2%
 
 [批量程序成员提取终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members)
 
-REST API的批量程序成员提取集提供了一个用于从Marketo中检索大量程序成员记录的编程接口。 对于需要在Marketo与一个或多个外部系统之间持续交换数据的用例，这是推荐的界面，用于ETL、数据仓库存储和存档目的。
+批量程序成员提取REST API从Marketo中检索大量程序成员记录。 使用这些API可在Marketo和外部系统、ETL、数据仓库存储和归档之间持续交换数据。
 
 ## 权限
 
-批量程序成员提取API要求拥有的API用户具有只读潜在客户或读写潜在客户权限中的一个或两个角色。
+API用户必须具有具有“只读潜在客户”权限和/或“读写潜在客户”权限的角色。
 
 ## 描述
 
-[描述计划成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2)是字段是否可用以及有关这些字段的元数据的主要真实来源。 `name`属性包含REST API名称。
+使用[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2)确定哪些字段可用并检索其元数据。 `name`属性包含REST API字段名。
 
 ```http
 GET /rest/v1/programs/members/describe.json
@@ -222,7 +218,9 @@ GET /rest/v1/programs/members/describe.json
 
 ## 过滤器
 
-项目群成员支持各种筛选器选项。 可以为一个作业指定多个过滤器类型，在这种情况下，它们将“与”组合在一起。 您必须指定`programId`或`programIds`筛选器。 所有其他过滤器都是可选的。 `updatedAt`筛选器需要其他基础架构组件，这些组件尚未转出到所有订阅。
+项目成员导出支持多个筛选器选项。 当作业指定多个过滤器类型时，API会将这些类型与AND操作组合在一起。
+
+每个作业都必须指定`programId`或`programIds`。 所有其他过滤器都是可选的。 `updatedAt`筛选器需要在所有订阅中不可用的基础结构。
 
 <table>
   <tbody>
@@ -244,12 +242,12 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>isExhausted</td>
       <td>布尔值</td>
-      <td>接受一个布尔值，用于筛选已用完内容</a>的<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">人的计划成员资格记录。</td>
+      <td>接受一个布尔值，用于筛选已用完内容</a>的<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">人的计划成员资格记录。</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
       <td>字符串</td>
-      <td>接受用于筛选给定培养节奏的项目成员资格记录的字符串。允许的值包括：
+      <td>接受用于筛选给定培养节奏的项目成员资格记录的字符串。允许的值有：
         <ul>
           <li>pause — 节奏已暂停</li>
           <li>正常 — 节奏正常</li>
@@ -258,7 +256,7 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>statusName</td>
       <td>Array[String]</td>
-      <td>接受程序成员状态名称的数组。 多个状态名称会被OR组合在一起。具有此筛选器类型的作业将返回其程序成员状态与任何指定状态名匹配的所有可访问记录。 默认状态和用户定义的状态名称都可以使用。如果statusNames筛选器与“programIds”筛选器一起使用，则会检查每个程序的成员资格记录，这些记录的状态与任何状态名称相匹配。 如果在任何程序中都找不到状态名称，则会返回“1003， Invalid Data（1003数据无效）”错误。
+      <td>接受程序成员状态名称的数组。多个状态名是OR组合在一起的。具有此筛选器类型的作业将返回其程序成员状态与任何指定状态名匹配的所有可访问记录。可以使用默认状态和用户定义的状态名。如果statusNames筛选器与“programIds”筛选器一起使用，则会检查每个程序的成员资格记录，这些记录的状态与任何状态名相匹配。如果在任何程序中都找不到状态名称，则会返回“1003， Invalid Data（1003数据无效）”错误。
         <table>
           <tbody>
             <tr>
@@ -317,15 +315,15 @@ GET /rest/v1/programs/members/describe.json
   </tbody>
 </table>
 
-过滤器类型不适用于某些订阅。 如果您的订阅不可用，则在调用“创建导出程序成员作业”终结点（“1035，目标订阅的过滤器类型不受支持”）时会收到一个错误。 客户可以联系Marketo支持部门以在其订阅中启用此功能。
+某些订阅不支持此筛选器类型。 如果不可用，则创建导出程序成员作业终结点将返回`1035, Unsupported filter type for target subscription`。 联系Marketo支持以请求为您的订阅提供此功能。
 
 ## 选项
 
-创建导出程序成员作业端点提供了多个格式选项。 利用这些选项，用户能够：
+“创建导出程序成员作业”端点提供以下选项：
 
-- 指定要包含在导出文件中的字段
-- 重命名这些字段的列标题
-- 指定导出文件的格式
+- 指定要包含在导出文件中的字段。
+- 重命名导出的列标题。
+- 指定导出文件格式。
 
 | 参数 | 数据类型 | 必需 | 注释 |
 | --- | --- | --- | --- |
@@ -335,7 +333,7 @@ GET /rest/v1/programs/members/describe.json
 
 ## 创建作业
 
-作业的参数是在使用[创建导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST)终结点开始导出之前定义的。 我们必须定义包含项目ID的`filter`以及导出所需的`fields`。 或者，我们可以定义文件的`format`和`columnHeaderNames`。
+使用[创建导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST)端点定义导出作业。 指定包含程序ID和要导出的`fields`的`filter`。 您还可以指定`format`和`columnHeaderNames`。
 
 ```http
 POST /bulk/v1/program/members/export/create.json
@@ -379,7 +377,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-这将返回一个状态响应，指示作业已创建。 作业已定义和创建，但尚未开始。 为此，必须使用创建状态响应中的`exportId`调用[排入队列导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)终结点：
+响应将确认作业已创建，但导出不会自动启动。 将返回的`exportId`传递到[排入队列导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)终结点以启动作业：
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -401,13 +399,15 @@ POST /bulk/v1/program/members/export/{exportId}/enqueue.json
 }
 ```
 
-这将以初始`status`的“已排队”作出响应，之后，当存在可用的导出插槽时，它将被设置为“正在处理”。
+排入队列的响应最初返回`Queued`状态。 导出插槽可用时，状态将更改为`Processing`。
 
 ## 轮询作业状态
 
-注意：只能检索由同一API用户创建的作业的状态。
+您只能检索由同一API用户创建的作业的状态。
 
-由于这是异步端点，因此创建作业后，必须轮询其状态以确定其进度。 使用[获取导出程序成员作业状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET)终结点进行轮询。 状态仅每60秒更新一次，因此不建议使用低于此值的轮询频率，并且在几乎所有情况下，仍然会过度轮询。 状态字段可以使用以下任意一项进行响应：“已创建”、“已排队”、“正在处理”、“已取消”、“已完成”、“失败”。
+由于导出是异步运行的，请使用[获取导出程序成员作业状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET)端点轮询其进度。 状态每60秒只更新一次，因此不要更频繁地轮询。
+
+状态可以是`Created`、`Queued`、`Processing`、`Canceled`、`Completed`或`Failed`。
 
 ```http
 GET /bulk/v1/program/members/export/{exportId}/status.json
@@ -430,7 +430,7 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 }
 ```
 
-状态终结点响应指示作业仍在处理，因此文件尚不可检索。 作业`status`更改为“已完成”后，便可以下载。
+此响应显示作业仍在处理中，因此文件不可用。 当作业状态更改为`Completed`时，文件已可供下载。
 
 ```json
 {
@@ -455,9 +455,9 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成程序成员导出的文件，只需使用`exportId`调用[获取导出程序成员文件](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)终结点。
+要检索已完成的程序成员导出，请将`exportId`传递到[获取导出程序成员文件](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)终结点。
 
-响应包含以作业配置方式格式化的文件。 端点使用文件的内容进行响应。 如果请求的程序成员字段为空（不包含数据），则`null`将置于导出文件中的相应字段中。
+端点会按照为作业配置的格式返回文件。 如果请求的程序成员字段不包含数据，则相应的导出字段包含`null`。
 
 ```http
 GET /bulk/v1/program/members/export/{exportId}/file.json
@@ -479,11 +479,11 @@ Jory,Cassel,jcas@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1799,f
 Septa,Mordane,smor@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1800,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
 ```
 
-为了支持提取数据的部分检索和恢复友好检索，文件端点可以选择性地支持类型字节的HTTP标头范围。 如果未设置标头，则将返回所有内容。 您可以阅读有关将Range标头与Marketo [批量提取](bulk-extract.md)结合使用的更多信息。
+对于部分或可恢复的检索，文件终结点支持范围类型为`bytes`的可选HTTP `Range`标头。 如果不设置标头，则端点将返回整个文件。 有关详细信息，请参阅[批量提取](bulk-extract.md)。
 
 ## 取消作业
 
-如果作业配置不正确或变得不必要，可以使用[取消导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST)端点轻松取消该作业：
+要取消配置不正确或不再需要的作业，请调用[取消导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST)终结点：
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/cancel.json
@@ -504,4 +504,4 @@ POST /bulk/v1/program/members/export/{exportId}/cancel.json
 }
 ```
 
-此响应包含`status`，指示作业已取消。
+响应状态表示作业已取消。

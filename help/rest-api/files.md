@@ -4,15 +4,12 @@ feature: REST API
 description: 按ID或名称查询Marketo REST API文件、浏览文件夹和偏移、通过多部分上传创建或更新、insertOnly、MIME类型、无流
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
 TQID: https://experienceleague.adobe.com/qH8zFwjJkTWHlCj1VHNiTiLK3mNOJFS83cnjEj2qjpA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 347
+source-wordcount: 274
 ht-degree: 1%
 
 ---
@@ -21,11 +18,13 @@ ht-degree: 1%
 
 [文件终结点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Files)
 
-Marketo订阅允许存储任意文件，如图像、脚本、文档和样式表。 所有这些都可以通过REST API远程使用。 Marketo订阅中提供的存储空间未针对带宽密集型应用程序进行优化，因此应该使用其他替代空间来应用适当的音频和视频流应用程序。
+使用Files REST API管理存储在Marketo订阅中的图像、脚本、文档、样式表和其他文件。
+
+Marketo文件存储未针对带宽密集型应用程序进行优化。 使用专用的音频和视频流服务。
 
 ## 查询
 
-查询文件非常简单，并遵循id为[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET)的[的资产、名称为](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET)的以及[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET)的标准查询类型。
+按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET)查询文件[。
 
 ### 按Id
 
@@ -94,11 +93,11 @@ GET /rest/asset/v1/file/byName.json?name=foo.png
 
 ### 浏览
 
-有三个可选参数：
+浏览端点接受三个可选参数：
 
-- 文件夹 — 指定为JSON块的父文件夹，其中包含“id”和“type”属性
-- offset — 指定从何处开始检索条目的整数（默认值为0）；可以与maxReturn参数一起使用
-- maxReturn — 指定返回的最大条目数的整数（默认值为20，最大值为200）
+- `folder` — 作为包含`id`和`type`属性的JSON对象的父文件夹。
+- `offset` — 开始检索条目的位置。 默认值为0。 与`maxReturn`一起使用。
+- `maxReturn` — 要返回的最大条目数。 默认值为20，最大值为200。
 
 ```http
 GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
@@ -162,7 +161,9 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## 创建和更新
 
-[创建文件](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST)的过程是使用multipart/form-data类型的请求完成的。 最低限度，请求中需要名称、文件夹和文件，具有可选描述和insertOnly标志，这可以防止创建调用更新具有相同名称的现有文件。 对于文件参数，除了名称参数之外，Content-Disposition标头中还需要“filename”。 您还必须为文件传递Content-Type标头，它是Marketo将用于为文件提供服务的MIME类型。
+使用`multipart/form-data`请求[创建文件](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST)。 `name`、`folder`和`file`参数是必需的。 `description`和`insertOnly`参数是可选的。 为true时，`insertOnly`阻止请求更新具有相同名称的现有文件。
+
+对于`file`参数，在`Content-Disposition`标头中包括`filename`。 还包括文件的`Content-Type`标头。 Marketo在提供文件时使用此MIME类型。
 
 ```http
 POST /rest/asset/v1/files.json
@@ -215,7 +216,7 @@ This is a test file
 }
 ```
 
-[可以根据文件ID更新文件](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST)。 唯一一个参数是文件参数，其要求与创建参数相同。
+要[更新文件](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST)，请指定其ID。 `file`参数具有与文件创建相同的要求。
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

@@ -4,40 +4,36 @@ feature: Mobile Marketing
 description: 分步指南将Marketo Cordova插件与Ionic集成、启用推送通知、初始化SDK、跟踪会话并关联潜在客户。
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 TQID: https://experienceleague.adobe.com/UTNWd69NliR896RcO-XM2GG35liuLeNNhTXo9GRtB4o
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 663
+source-wordcount: 581
 ht-degree: 2%
 
 ---
 
 # 离子型
 
-本主题介绍如何集成Marketo Cordova插件。 当前不支持[!DNL Ionic]电容器。
+将Marketo Cordova插件与[!DNL Ionic]应用程序集成。[!DNL Ionic] 当前不支持电容器。
 
 ## 先决条件
 
-1. [在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取您的应用程序密钥和Munchkin ID）。
-1. 设置推送通知([iOS](push-notifications.md) | [Android](push-notifications.md) )。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. 为[iOS](push-notifications.md)或[Android](push-notifications.md)设置推送通知。
 1. 安装[[!DNL Ionic]](https://ionicframework.com/getting-started/)和[Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 
 ## 安装说明
 
 ### 设置Marketo [!DNL Ionic]插件
 
-1. 如果已安装Cordova CLI，请转到[!DNL Ionic]应用程序目录并运行以下命令以将Marketo插件添加到应用程序中：
+1. 转到[!DNL Ionic]应用程序目录并运行以下命令以添加Marketo插件：
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
-1. 要确认插件已添加到应用程序中，请运行以下命令：
+1. 运行以下命令以确认添加了插件：
 
    `$ ionic plugin list com.marketo.plugin 0.X.0 "MarketoPlugin"`
 
@@ -47,7 +43,7 @@ ht-degree: 2%
 
    `$ ionic plugin remove com.marketo.plugin`
 
-1. 要读取插件，请运行以下命令：
+1. 要再次添加插件，请运行以下命令：
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -81,9 +77,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### 初始化Marketo框架
 
-要确保在应用程序启动时启动Marketo框架，请在主JavaScript文件的`onDeviceReady`函数下添加以下代码。
+要在应用程序启动时初始化Marketo框架，请在JavaScript主文件中的`onDeviceReady`函数下添加以下代码。
 
-您必须将`ionicCordova`作为[!DNL Ionic] Cordova应用的框架类型传递。
+传递`ionicCordova`作为[!DNL Ionic] Cordova应用的框架类型。
 
 #### 句法
 
@@ -106,14 +102,14 @@ marketo.onStart(
 
 #### 参数
 
-- 成功回调：Marketo框架初始化成功时要执行的函数。
-- 失败回调：当Marketo Framework初始化失败时要执行的函数。
-- Munchkin ID ：注册时从Marketo收到的Munchkin ID。
-- 密钥：注册时从Marketo收到的密钥。
+- 成功回调：Marketo框架初始化成功时要运行的函数。
+- 失败回调：Marketo Framework初始化失败时要运行的函数。
+- Munchkin ID：注册期间从Marketo收到的Munchkin ID。
+- 密钥：注册期间从Marketo收到的密钥。
 
 ### 初始化Marketo推送通知
 
-要确保启动Marketo推送通知，请在主JavaScript文件中初始化函数后添加以下代码。
+要初始化Marketo推送通知，请在主JavaScript文件中的初始化函数后添加以下代码。
 
 #### 句法
 
@@ -128,11 +124,11 @@ marketo.initializeMarketoPush(
 
 #### 参数
 
-- 成功回调：Marketo推送通知初始化成功时要执行的函数。
-- 失败回调：当Marketo推送通知初始化失败时要执行的函数。
-- GCM_PROJECT_ID ：创建应用程序后，在[Google开发人员控制台](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard)中找到了GCM项目ID。
+- 成功回调：如果Marketo推送通知初始化成功，则要运行的函数。
+- 失败回调：Marketo推送通知初始化失败时要运行的函数。
+- GCM_PROJECT_ID：创建应用程序后，在[Google开发人员控制台](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard)中找到了GCM项目ID。
 
-注销时也可以注销令牌。
+您还可以在注销时注销令牌。
 
 ```javascript
 marketo.uninitializeMarketoPush(
@@ -143,7 +139,7 @@ marketo.uninitializeMarketoPush(
 
 ## 关联潜在客户
 
-您可以通过调用associateLead函数来创建Marketo Lead。
+调用associateLead函数以创建Marketo潜在客户。
 
 ### 句法
 
@@ -157,9 +153,9 @@ marketo.associateLead(
 
 ### 参数
 
-- Success回调：在Marketo框架成功关联潜在客户时要执行的函数。
-- 失败回调：当Marketo Framework无法关联潜在客户时要执行的函数。
-- 潜在客户数据：JSON字符串格式的潜在客户数据。
+- Success回调：在Marketo框架成功关联潜在客户时要运行的函数。
+- 失败回调：在Marketo Framework无法关联潜在客户时运行的函数。
+- 潜在客户数据：以JSON字符串格式表示的潜在客户数据。
 
 ### 示例
 
@@ -186,7 +182,7 @@ marketo.associateLead(
 
 ## 报表操作
 
-您可以通过调用`reportaction`函数来报告用户执行的任何操作。
+调用`reportaction`函数以报告用户操作。
 
 ### 句法
 
@@ -201,10 +197,10 @@ marketo.reportaction(
 
 ### 参数
 
-- 成功回调：在Marketo Framework成功报告操作时执行的函数。
-- 失败回调：Marketo Framework无法报告操作时要执行的函数。
+- 成功回调：在Marketo框架成功报告操作时要运行的函数。
+- 失败回调：Marketo框架无法报告操作时要运行的函数。
 - 操作名称：操作名称。
-- 操作数据：JSON字符串格式的操作数据。
+- 操作数据： JSON字符串格式的操作数据。
 
 ### 示例
 
@@ -227,7 +223,7 @@ marketo.reportaction(
 
 ## 会话报告
 
-绑定“暂停”和“恢复”事件类型，如下所示，以报告“开始”和“停止”事件。 用于跟踪在移动应用程序上花费的时间。 注意：这在Android中是必需的。
+绑定“暂停”和“恢复”事件类型以报告“开始”和“停止”事件。 这些事件可跟踪在移动应用程序中所花费的时间，并且在Android中是必需的。
 
 ```javascript
 //Add the following code in your www/js/index.js
@@ -258,6 +254,9 @@ onStart: function() {
 1. MARKETO REST API
 1. 表单提交
 
-根据使用的方法，新创建的潜在客户会被不同的触发器和过滤器识别。 使用MME SDK或REST API创建的潜在客户会出现在“创建的潜在客户”触发器和过滤器中。 通过提交表单创建的潜在客户显示在“填写表单”触发器和过滤器中。
+识别新商机的触发器和过滤器取决于创建方法：
 
-最佳做法是在创建潜在客户时与Web应用程序使用的方法保持一致。 如果您已有使用表单提交作为创建潜在客户机制的Web应用程序，则在混合应用程序中创建潜在客户时，请使用该相同的机制。 如果您已有使用我们的REST API作为创建潜在客户机制的Web应用程序，请在混合应用程序中创建潜在客户时使用该相同的机制。 如果您既不使用表单提交也不使用REST API作为在Web应用程序中创建潜在客户的机制，则可以考虑使用MME SDK在Marketo中创建潜在客户。
+- 使用MME SDK或REST API创建的潜在客户会出现在“创建的潜在客户”触发器和过滤器中。
+- 通过表单提交创建的潜在客户显示在“填写表单”触发器和过滤器中。
+
+在混合应用程序和Web应用程序中使用相同的潜在客户创建方法。 如果Web应用程序使用表单提交或REST API，请在混合应用程序中使用该方法。 如果Web应用程序既不使用也不使用这两种方法，请考虑使用MME SDK在Marketo中创建潜在客户。

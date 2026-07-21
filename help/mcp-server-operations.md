@@ -3,18 +3,12 @@ title: Marketo Engage MCP操作
 description: 了解哪些与AI助理一起使用的Marketo Engage MCP操作。
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: dca84292-69e9-4116-a575-667d31fa060did: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 264
+source-wordcount: 260
 ht-degree: 3%
 
 ---
@@ -22,13 +16,13 @@ ht-degree: 3%
 
 # [!DNL Marketo Engage] MCP操作
 
-以下操作可通过[!DNL Marketo Engage] MCP服务器使用。 通常，只读或无损的端点可用。 `Delete`或其他破坏性操作不可用于AI系统。
+以下操作可通过[!DNL Marketo Engage] MCP服务器使用。 服务器通常提供只读或无损端点。 AI系统无法使用`Delete`或其他破坏性操作。
 
 >[!NOTE]
 >
 >随着我们添加其他工具，此列表将继续增加。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 ## 批量导出
 

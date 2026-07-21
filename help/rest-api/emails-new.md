@@ -3,9 +3,9 @@ title: 电子邮件
 feature: REST API
 description: 使用Marketo Asset REST API查询、创建、更新、克隆、删除、批准和检查电子邮件资源的依赖项。
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '497'
+source-wordcount: '492'
 ht-degree: 5%
 
 ---
@@ -32,7 +32,7 @@ x-app-type: <app-type>
 
 ## 查询
 
-您可以按资源`id`或使用筛选器端点检索电子邮件元数据。
+按资源`id`或使用筛选器端点检索电子邮件元数据。
 
 ### 按ID
 
@@ -63,7 +63,7 @@ GET /rest/asset/v2/email/{id}
 
 ### 筛选条件
 
-过滤器端点支持在工作区中搜索，以及使用其他查询参数缩小结果范围。
+过滤器端点可在工作区中搜索并支持其他查询参数。
 
 `workspaceId`为必填项。
 

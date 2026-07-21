@@ -4,34 +4,32 @@ feature: REST API
 description: 使用Marketo Engage Activities REST API可列出活动类型、获取包含分页令牌的潜在客户活动以及处理自定义和数据值更改。
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
 TQID: https://experienceleague.adobe.com/62keaj4uNoxIPCzr9AQzKrIsfuHBvC25knYisZRUvF4
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: e71bcf289229867bc969345d79c8f014761aaaf9
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 2226
+source-wordcount: 1758
 ht-degree: 0%
 
 ---
 
 # 活动
 
-Marketo允许与潜在客户记录相关的各种活动类型。  几乎每个更改、操作或流程步骤都根据商机的活动日志进行记录，并且可以通过API检索或在智能列表以及智能营销活动过滤器和触发器中使用。  活动始终通过leadId与潜在客户记录相关联，对应于记录的Id字段，并具有其自身的唯一ID。
+Marketo支持许多与潜在客户记录相关的活动类型。 几乎每个更改、操作或流程步骤都记录在商机的活动日志中。 您可以通过API检索这些活动，或在智能列表和智能营销活动过滤器和触发器中使用它们。
 
-潜在活动类型非常多，它们可能因订阅而异，并且每种活动类型的定义都各不相同。 虽然每个活动都有自己的唯一`id`、`leadId`和`activityDate`，但`primaryAttributeValueId`和`primaryAttributeValue`值在含义上有所不同。
+每个活动都有一个唯一的`id`，并通过`leadId`连接到潜在客户记录，这与记录的ID字段相对应。 每个活动也有一个`activityDate`。
 
-Marketo还允许通过自定义活动元数据API创建自定义活动类型。 添加自定义活动通过添加自定义活动API完成。
+可用的活动类型因订阅而异，每种类型都有自己的定义。 `primaryAttributeValueId`和`primaryAttributeValue`的含义取决于活动类型。
+
+使用自定义活动元数据API创建自定义活动类型。 使用添加自定义活动API添加自定义活动记录。
 
 大多数活动将在一段时间后清除。
 
 ## 描述
 
-要检索实例的可用类型及其定义的列表，您可以使用[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)端点。
+使用[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)端点检索实例的可用活动类型及其定义。
 
 ```
 GET /rest/v1/activities/types.json
@@ -80,13 +78,20 @@ GET /rest/v1/activities/types.json
 }
 ```
 
-现实世界的应对措施包括更多定义。 在此示例中，显示的类型为“填写表单”，其主要属性为“Webform ID”，该属性是指所填写表单的Marketo ID，可用于与Marketo中的特定资源相关联。 此外，还有此类型的特定活动记录及其数据类型的每个可能属性的定义。 请注意，如果字段为空，则单个活动记录中会忽略该特定属性。
+实际响应包括更多定义。 此示例显示了“填写表单”活动类型。 其主要属性“Webform ID”是指已提交表单的Marketo ID，并将活动链接到该资源。
+
+响应还会为活动类型及其数据类型定义每个可能的属性。 如果某个字段为空，则该属性将从单个活动记录中忽略。
 
 ## 查询
 
-要从Marketo检索活动，请调用[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)端点。 您需要首先为要开始从中检索活动的日期时间检索分页令牌。 然后在`nextPageToken`查询参数中传递分页令牌。 此外，您最多可以将`activityTypeIds`查询参数中的10个活动类型ID作为逗号分隔列表传递。
+使用[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)端点检索活动。 首先，检索开始活动检索的日期时间的分页令牌。 在`nextPageToken`查询参数中传递该令牌。
 
-您可以选择包含`listId`查询参数以仅搜索特定静态列表中包含的记录，或者包含`leadIds`查询参数并仅搜索一组指定的潜在客户中的活动。 您最多可以将30个`leadIds`作为逗号分隔列表传递。
+在`activityTypeIds`查询参数中最多传递10个活动类型ID以逗号分隔的列表。
+
+（可选）使用以下参数之一缩小查询：
+
+- `listId`将结果限制为特定静态列表中的记录。
+- `leadIds`将结果限制为最多30个潜在客户的活动，以逗号分隔列表形式提供。
 
 >[!CAUTION]
 >
@@ -138,20 +143,20 @@ GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK
 }
 ```
 
-对于第一次调用，请使用获取分页令牌API获取`nextPageToken`。 对于对此端点的后续调用，请使用响应中的`nextPageToken returned`。 此终结点始终返回`the nextPageToken`。
+对于第一次调用，请使用获取分页令牌API获取`nextPageToken`。 对于每个后续调用，传递上一个响应返回的`nextPageToken`。 此终结点始终返回`nextPageToken`。
 
-如果`moreResult`属性为true，则表示有更多的结果可用。 继续调用此终结点，直到`moreResult`属性返回false，这意味着没有可用的结果。 从此API返回的`nextPageToken`应始终在此调用的下一个迭代中重用。
+如果`moreResult`为true，则有更多结果可用。 继续使用返回的`nextPageToken`调用终结点，直到`moreResult`为false。
 
-在某些情况下，此API可能会以少于300个活动项进行响应，但也会将`moreResult`属性设置为true。  这表示可以返回的活动更多，并且可以通过在后续调用中包含返回的`nextPageToken`来查询终结点以获取更新的活动。
+将`moreResult`设置为true时，API可返回的活动项少于300个。 在这种情况下，将返回的`nextPageToken`包含在另一个调用中以检索更近的活动。
 
-请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
+在每个结果数组项中，`marketoGUID`字符串属性将`id`整数属性替换为唯一标识符。
 
 ### 数据值更改
 
-对于数据值更改活动，提供了活动API的专用版本。 [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET)终结点仅返回数据值更改记录到Lead字段的活动。 该界面与Get Lead Activities API相同，但有两个区别：
+使用[获取潜在客户更改](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET)端点检索潜在客户字段的数据值更改记录。 其界面与获取潜在客户活动API在以下两个方面有所不同：
 
-* 没有`activityTypeIds`参数，因为终结点仅返回数据值更改和新潜在客户活动。
-* `fields`查询参数是必需的，您可以在其中传递以逗号分隔的字段列表，以指示您要检索哪些字段的更改。
+- 终结点没有`activityTypeIds`参数，因为它只返回数据值更改和新潜在客户活动。
+- 所需的`fields`查询参数接受要检索其更改的以逗号分隔的字段列表。
 
 >[!CAUTION]
 >
@@ -201,13 +206,13 @@ GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQG
 }
 ```
 
-响应中的每个活动都有一个字段数组，其中包括活动中的更改列表，该列表将指定更改字段的`id`和`name`，以及相对于更改的新值和旧值。
+响应中的每个活动都有一个字段数组，其中列出了其更改。 每个更改都指定字段的`id`和`name`，以及新值和旧值。
 
-请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
+在每个结果数组项中，`marketoGUID`字符串属性将`id`整数属性替换为唯一标识符。
 
 ### 已删除的潜在客户
 
-还有一个特殊的端点[获取已删除的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET)，用于从Marketo中检索已删除的活动。
+使用[获取已删除的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET)端点从Marketo中检索已删除的潜在客户活动。
 
 ```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
@@ -244,26 +249,30 @@ GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQ
 }
 ```
 
-请注意，在每个结果数组项中，`id` integer属性将替换为`marketoGUID` string属性作为唯一标识符。
+在每个结果数组项中，`marketoGUID`字符串属性将`id`整数属性替换为唯一标识符。
 
 ### 翻阅结果
 
-默认情况下，此部分中提到的端点一次返回300个活动项目。  如果`moreResult`属性为true，则有更多结果可用。 调用终结点，直到`moreResult`属性返回false，这意味着没有其他可用结果。 从此终结点返回的`nextPageToken`应始终为此调用的下一个迭代重用。
+默认情况下，此部分中的端点一次返回300个活动项目。 如果`moreResult`为true，则有更多结果可用。 在随后的每次调用中传递返回的`nextPageToken`，直到`moreResult`为false。
 
-在某些情况下，此终结点可能会以少于300个活动项进行响应，但也会将`moreResult`属性设置为true。  这表示存在可返回的其他活动，并且可以通过在后续调用中包含返回的`nextPageToken`来查询终结点以查看较新的活动。 请注意，`nextPageToken`需要在请求中进行编码。
+将`moreResult`设置为true时，终结点可以返回少于300个活动项。 在这种情况下，将返回的`nextPageToken`包含在另一个调用中以检索更近的活动。 请求中的URL编码`nextPageToken`。
 
 ## 自定义活动类型
 
-自定义活动的功能与标准活动类似，不同之处在于，架构由第三方管理，而不是由Marketo管理。 自定义活动的实例通过`leadId`与潜在客户记录关联（与标准活动一样），但主属性和辅助属性都是任意定义的。 在批准自定义活动类型后，将创建相应的智能列表触发器和过滤器，以便可以根据当前或历史自定义活动数据处理潜在客户。
+自定义活动与标准活动类似，但第三方管理其架构。 自定义活动记录通过`leadId`链接到潜在客户记录，并且其主要属性和次要属性是用户定义的属性。
 
-* 自定义活动的最大数量：10
-* 每个自定义活动的最大属性数：20
+批准自定义活动类型后，Marketo会创建相应的智能列表触发器和过滤器。 然后，您可以根据当前或历史自定义活动数据处理潜在客户。
 
-检索自定义活动数据的方式与通过[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) API执行标准活动相同。
+- 最大自定义活动数：10
+- 每个自定义活动的最大属性数：20
+
+通过[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) API检索自定义活动数据，与检索标准活动的方式相同。
 
 ## 查询类型
 
-除了标准Get Activity Types端点之外，[Get Custom Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET)和[Describe Custom Activity Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET)端点还返回有关在Marketo实例中设置的活动类型的详细信息，以及有关给定类型属性的元数据。 普通的[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)仍返回有关自定义活动的元数据，但不指示给定类型是否为自定义类型。
+使用[获取自定义活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET)来检索有关在Marketo实例中设置的类型的详细信息。 使用[Describe自定义活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET)检索特定类型的属性元数据。
+
+标准[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)终结点也返回自定义活动元数据，但无法识别类型是否为自定义类型。
 
 ### 获取类型
 
@@ -293,7 +302,7 @@ GET /rest/v1/activities/external/types.json
 
 ### 描述类型
 
-对于类型描述，必须将`apiName`作为路径参数传递。 默认情况下，您会获得该活动的批准版本。 您可以选择传递`draft=true`参数以检索活动的草稿版本。
+要描述类型，请将`apiName`作为路径参数传递。 默认情况下，端点会返回活动的批准版本。 要检索草稿版本，请传递可选的`draft=true`参数。
 
 ```http
 GET /rest/v1/activities/external/type/{apiName}/describe.json
@@ -341,25 +350,23 @@ GET /rest/v1/activities/external/type/{apiName}/describe.json
 
 ## 创建类型
 
-每个自定义活动类型都需要显示名称、API名称、触发器名称、过滤器名称和主要属性。
+每个自定义活动类型都需要显示名称、API名称、触发器名称、过滤器名称和主要属性。 请遵循以下准则来使类型与Marketo惯例保持一致，并避免命名冲突：
 
-要确保类型与Marketo惯例的一致性并避免冲突，在创建类型时请务必遵循以下准则：
+- **显示名称：**&#x200B;简要描述活动记录所代表的内容，如“发送电子邮件”或“更改数据值”。 使用无限形式，如“Attend Event”。 显示名称接受字母数字字符、空格和下划线，并且必须至少包含一个字母。
 
-**显示名称：**&#x200B;活动类型的显示名称应简要描述活动记录的含义，如“发送电子邮件”或“更改数据值”。 这些名称通常应采用不定形式，即“出席事件”。  显示名称接受字母数字字符、空格和下划线。 显示名称必须至少包含一个字母。
+- **API名称：**&#x200B;使用最大长度为255的字母数字字符。 如果您是LaunchPoint合作伙伴，请在活动类型API名称前添加一个代表性命名空间，以避免与客户配置的类型发生冲突。 使用小写或驼峰式大小写区分API名称和其他字符串。
 
-**API名称：** API名称由字母数字字符组成（最大长度为255）。 如果您是LaunchPoint合作伙伴，则应在活动类型API名称前添加一个代表性命名空间。 这是为了避免与客户配置的类型发生冲突。  使用全部小写或驼峰式大小写有助于区分其他文本字符串。
+- **描述：**&#x200B;对于行为不明显的活动，请解释该活动类型相对于潜在客户的含义。
 
-**描述：**&#x200B;对于可能具有非明显行为的活动，应包含有关该活动类型相对于潜在客户的表现的描述。
+- **触发器名称：**&#x200B;以第三人称现时提供人类可读的唯一名称，如“出席活动”。 LaunchPoint合作伙伴应包含其公司名称，如“Attends网络研讨会 — Acme公司”。
 
-**触发器名称：**&#x200B;每个活动类型都必须有一个人工可读的唯一触发器名称。 触发器名称应采用第三人称现在时，如“Attends an Event”。 LaunchPoint合作伙伴应在活动中包括他们的公司名称，如“Attends网络研讨会 — Acme公司”。
+- **筛选器名称：**&#x200B;提供一个用第三人称过去时表示的、人类可读的唯一名称，如“已参加活动”。 LaunchPoint合作伙伴应包含其公司名称，如“已参加的网络研讨会 — Acme公司”。
 
-**筛选器名称：**&#x200B;每个活动类型都必须有一个人工可读的唯一筛选器名称。 过滤器名称应采用第三人称过去式，如“Attended an Event”。 LaunchPoint合作伙伴应在活动中包括他们的公司名称，即“已参加的网络研讨会 — Acme公司”。
+- **主要属性：**&#x200B;为活动类型选择最重要的字段。 对于“已参与的事件”活动，此字段是事件名称。 默认情况下，主要属性将作为活动类型的每个触发器或过滤器中的参数显示。 其值也会显示在人员的活动日志中，而无需深入查看活动。
 
-**主要属性：**&#x200B;自定义活动的主要属性应该是该活动类型最重要的字段。 例如，对于“已参与的事件”活动，这将是事件的名称。 默认情况下，主要属性将作为参数包含在该活动类型的每个触发器或过滤器实例中，该值显示在人员记录的活动日志中，而无需向下钻取到活动。
+新的自定义活动类型已创建为草稿。 在添加该类型的活动记录之前批准该类型。 更新适用于草稿版本，并且必须先获得批准，然后才会显示在实时版本中。 在自定义活动类型获得批准并正在使用后，无法更改前面的字段。
 
-创建自定义活动时，会将它创建为草稿，必须先获得批准，然后才能使用它添加该类型的活动记录。 所有更新都隐式应用于该类型的草稿版本。 要反映该类型的实时版本中的更改，必须批准该类型。 当自定义活动类型获得批准并在使用中时，不得对上述字段进行更改。
-
-创建类型时，描述参数是可选的，而以下所有参数都是必需的： `apiName`、`name`、`triggerName`、`filterName`、`primaryAttribute`。
+创建类型时，说明参数是可选的。 必需的参数为`apiName`、`name`、`triggerName`、`filterName`和`primaryAttribute`。
 
 ```http
 POST /rest/v1/activities/external/type.json
@@ -405,7 +412,7 @@ POST /rest/v1/activities/external/type.json
 
 ## 更新类型
 
-更新类型非常相似，不同之处在于， apiName是唯一作为path参数所需的参数。
+要更新类型，请将所需的apiName作为路径参数传递。 可在请求正文中提供其他字段。
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}.json
@@ -450,23 +457,25 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 ## 批准类型
 
-可以使用批准自定义活动类型、放弃自定义活动类型草稿和删除自定义活动类型来管理类型，操作方法与标准Marketo资源类似。
+与标准Marketo资源一样，使用“批准自定义活动类型”、“放弃自定义活动类型草稿”和“删除自定义活动类型”来管理类型。
 
 ## 自定义活动类型属性
 
-每个自定义活动类型可以具有0到20个次要属性。 辅助属性可以具有Marketo字段的任何有效字段类型。 它们会从父类型中单独添加、更新和删除，但在活动类型正在使用中并随后获得批准时可以编辑。 在实时类型上编辑字段时，该类型的所有活动在批准后都将具有新的辅助属性集。 更改将不会逆向应用于共享该类型的现有活动。
+每个自定义活动类型可以具有0到20个次要属性。 辅助属性可使用任何有效的Marketo字段类型。 从父类型中单独添加、更新和删除辅助属性。
 
-请务必小心移除属性，因为这会影响它们在相应过滤器中使用的可用性。
+您可以在活动类型正在使用时编辑属性，然后批准更改。 批准后创建的活动使用新的辅助属性集。 更改不会追溯应用于该类型的现有活动。
 
-对次要属性列表所做的更新将每个属性的API名称用作主键。 属性的API名称不能更改，必须将其删除并使用所需的API名称再次添加。
+删除属性也会删除它们在相应筛选器中的可用性。
+
+对辅助属性列表的更新将每个属性的API名称用作主键。 要更改API名称，请删除属性，然后使用所需的API名称再次添加它。
 
 属性的有效数据类型是：字符串、布尔值、整数、浮点数、链接、电子邮件、货币、日期、日期时间、电话、文本。
 
-更改活动类型的主属性时，应首先将`isPrimary`设置为false，以降级任何现有的主属性。
+在更改活动类型的主属性之前，请通过将`isPrimary`设置为false来降级现有的主属性。
 
 ### 创建属性
 
-创建属性需要使用必需的`apiName`路径参数。 `name`和`dataType`参数也是必需的。`The description and` `isPrimary`参数是可选的。
+要创建属性，请传递所需的`apiName`路径参数。 `name`和`dataType`参数也是必需的。 说明和`isPrimary`参数是可选的。
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
@@ -533,7 +542,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 
 ### 更新属性
 
-执行属性更新时，属性的`apiName`是主键。 必须存在`apiName`参数才能成功更新（即，不能使用更新更改`apiName`参数）。
+更新属性时，属性`apiName`是主键，并且必须已存在。 无法使用更新更改`apiName`。
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
@@ -600,7 +609,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 
 ### 删除属性
 
-删除属性需要使用作为自定义活动API名称的必需`apiName`路径参数。  另外，还需要一个属性参数，它是一个属性对象的数组。  每个对象必须包含一个`apiName`参数，该参数是自定义活动类型API名称。
+要删除属性，请为自定义活动传递所需的`apiName`路径参数。 还将所需的属性参数作为属性对象的数组传递。 每个对象都必须包含自定义活动类型的`apiName`参数。
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
@@ -638,13 +647,17 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 
 ## 添加自定义活动
 
-自定义活动是与Marketo中的个人记录相关的历史活动的一次性写入记录。 这些活动具有由Marketo管理员管理或通过API集成远程管理的架构。 自定义活动通过[添加自定义活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST)端点添加到潜在客户记录，并通过其`leadId`字段与每个潜在客户记录相关联。 自定义活动可通过潜在客户的活动日志在用户界面中查看，或通过指定自定义活动的类型ID而通过“获取潜在客户活动”端点进行检索。
+自定义活动是个人记录历史活动的一次性写入记录。 Marketo管理员可以在Marketo中管理其架构，或者，API集成可以远程管理该架构。
 
-自定义活动适用于记录与单个人员记录相关且不需要更新或覆盖的数据。 例如，将参加活动的人记录为“已参加活动”活动。 对于与可能更改的人员相关的记录（如学生注册），应改用自定义对象，因为如果自定义活动未更新，这些对象可能会更新。
+使用[添加自定义活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST)端点将自定义活动添加到潜在客户记录。 `leadId`字段将每个活动与潜在客户关联。 在商机的活动日志中查看自定义活动，或通过指定自定义活动类型ID通过Get Lead Activities检索它们。
 
-输入成员是活动对象的数组。 一次最多可以提交300个活动记录。
+将自定义活动用于无需更新或覆盖的与某个人相关的数据。 例如，将事件出席情况记录为“已出席事件”活动。
 
-`leadId`、`activityDate`、`activityTypeId`、`primaryAttributeValue`和属性成员是必需的。 属性数组必须包含非主属性。 可以使用name（字段名称）或apiName（API名称）以及与您设置的值对应的值来指定此值。
+将自定义对象用于可更改的人员相关记录，如学生注册。 可以更新自定义对象，但不能更新自定义活动。
+
+输入成员是活动对象的数组。 一次最多可提交300条活动记录。
+
+`leadId`、`activityDate`、`activityTypeId`、`primaryAttributeValue`和属性成员是必需的。 属性数组必须包含非主属性。 请为其指定名称（字段名称）或apiName（API名称），并为要设置的值指定值。
 
 ```http
 POST /rest/v1/activities/external.json
@@ -723,7 +736,7 @@ POST /rest/v1/activities/external.json
 
 ## 超时
 
-除非下面说明，否则活动端点的超时为30秒。
+除以下端点外，活动端点的超时为30秒：
 
-* 获取分页令牌： 300秒
-* 添加自定义活动：90秒
+- 获取分页令牌： 300秒
+- 添加自定义活动：90秒

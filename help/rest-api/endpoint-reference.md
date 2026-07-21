@@ -4,30 +4,21 @@ feature: REST API
 description: 全面的Marketo REST API端点列表，其中包含方法、URI以及跨活动、批量导出、身份、潜在客户、资产和用户的所需权限。
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
 TQID: https://experienceleague.adobe.com/6A-gCvxkWibX5fi3zZw-nbdVRtszX2qoJtDTBSdxFzQ
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-subfeature_v2:
-  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 4793
+source-wordcount: 4807
 ht-degree: 8%
 
 ---
 
 # 终结点引用
 
-以下是Marketo REST API引用的链接。
+使用以下参考信息查找每个Marketo REST API组的请求参数、响应架构和示例：
 
 - [资产](https://developer.adobe.com/marketo-apis/api/asset)
 - [身份标识](https://developer.adobe.com/marketo-apis/api/identity/)
@@ -36,7 +27,7 @@ ht-degree: 8%
 
 ## 端点列表 {#endpoint_list}
 
-以下是REST API端点的完整列表。
+下表列出了REST API端点、HTTP方法、URI和所需权限。
 
 | 名称 | 组 | 方法 | URI | 所需权限 |
 | --- | --- | --- | --- | --- |
@@ -56,7 +47,7 @@ ht-degree: 8%
 | 获取分页令牌 | 活动 | GET | /rest/v1/activities/pagingtoken.json | 只读活动 |
 | 更新自定义活动类型 | 活动 | POST | /rest/v1/activities/external/type/{apiName}.json | 读写活动元数据 |
 | 更新自定义活动类型属性 | 活动 | POST | /rest/v1/activities/external/type/{apiName}/attributes/update.json | 读写活动元数据 |
-| 身份标识 | 身份验证 | GET或POST | /identity/oauth/token | None |
+| 身份标识 | 身份验证 | 获取或发布 | /identity/oauth/token | None |
 | 取消导出活动作业 | 批量导出活动 | POST | /bulk/v1/activities/export/{exportid}/cancel.json | 只读活动 |
 | 创建导出活动作业 | 批量导出活动 | POST | /bulk/v1/activities/export/create.json | 只读活动 |
 | 将导出活动作业排入队列 | 批量导出活动 | POST | /bulk/v1/activities/export/{exportid}/enqueue.json | 只读活动 |

@@ -4,17 +4,13 @@ feature: REST API
 description: 使用Marketo Companies REST API描述、查询和同步公司记录，按externalCompanyId管理字段和重复数据删除，并注意CRM同步为只读。
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
 TQID: https://experienceleague.adobe.com/LdJYN4lx9JfcE-02zTz8ktfYXm4EdPtxMYOx9gGR0sg
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 676
+source-wordcount: 582
 ht-degree: 1%
 
 ---
@@ -23,13 +19,15 @@ ht-degree: 1%
 
 [公司端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies)
 
-公司表示潜在客户记录所属的组织。 通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)或[批量潜在客户导入](bulk-lead-import.md)端点填充其对应的`externalCompanyId`字段，将潜在客户添加到公司。 将商机添加到公司后，您无法从该公司中删除该商机（除非将该商机添加到其他公司）。 链接到公司记录的潜在客户将直接继承公司记录中的值，就像值存在于潜在客户自己的记录中一样。
+公司表示潜在客户记录所属的组织。 若要向公司添加潜在客户，请使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)或[批量潜在客户导入](bulk-lead-import.md)端点填充其`externalCompanyId`字段。
 
-对于已启用[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅，公司API是只读访问权限。
+除非将商机添加到其他公司，否则无法从公司中删除商机。 链接到公司记录的潜在客户会从该记录继承值，就好像这些值存在于潜在客户记录中一样。
+
+公司API为启用了[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅提供只读访问权限。
 
 ## 描述
 
-描述公司对象会为您提供必须与之交互的所有信息。
+描述用于检索与公司记录交互所需的信息的公司对象。
 
 ```http
 GET /rest/v1/companies/describe.json
@@ -107,11 +105,16 @@ GET /rest/v1/companies/describe.json
 
 ## 查询
 
-[查询公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET)的模式紧跟潜在客户API的模式，添加了限制，`filterType`参数接受在Describe Companies调用的searchableFields数组或dedupeFields中列出的字段。
+[查询公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET)的模式非常遵循Leads API。 但是，`filterType`参数仅接受Describe Companies响应或dedupeFields的searchableFields数组中列出的字段。
 
-`filterType`和`filterValues`是必需的查询参数。  `fields`、`nextPageToken`和`batchSize`是可选参数。  这些参数的功能与Leads和Opportunities API中的相应参数类似。 在请求`fields`的列表时，如果请求了特定字段但未返回，则该值默认为null。
+查询参数包括：
 
-如果省略fields参数，则返回的默认字段集为：
+- `filterType`和`filterValues`：必需的参数。
+- `fields`、`nextPageToken`和`batchSize`：与Leads和Opportunities API中的相应参数功能相同的可选参数。
+
+当您请求`fields`的列表时，未返回的请求字段的隐含值为null。
+
+如果忽略字段参数，默认情况下响应将返回这些字段：
 
 - ID
 - 删除重复字段
@@ -145,7 +148,11 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## 创建和更新
 
-[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)终结点接受包含公司对象数组的必需`input`参数。 与机会一样，创建和更新公司有三种模式：createOnly、updateOnly和createOrUpdate。  在请求的`action`参数中指定了模式。 `dedupeBy`和`action`参数都是可选的，它们分别默认为dedupeFields和createOrUpdate模式。
+[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)终结点接受包含公司对象数组的必需`input`参数。
+
+与业务机会一样，端点支持三种创建和更新模式：createOnly、updateOnly和createOrUpdate。 在请求的`action`参数中指定模式。
+
+`dedupeBy`和`action`参数是可选的。 它们分别默认为dedupeFields和createOrUpdate。
 
 ```http
 POST /rest/v1/companies.json
@@ -193,17 +200,19 @@ Content-Type: application/json
 
 ### 字段
 
-公司对象包含一组字段。 每个字段定义由一组描述该字段的属性组成。 属性的示例包括显示名称、API名称和数据类型。 这些属性统称为元数据。
+公司对象包含由显示名称、API名称和数据类型等属性定义的字段。 这些属性统称为元数据。
 
-以下端点允许您查询公司对象上的字段。 这些API要求拥有权限的API用户必须具有具有`Read-Write Schema Standard Field`或`Read-Write Schema Custom Field`权限之一或两者的角色。
+公司对象上的以下端点查询字段。 API用户必须具有具有`Read-Write Schema Standard Field`权限和/或`Read-Write Schema Custom Field`权限的角色。
 
 ### 查询字段
 
-查询公司字段非常简单。 您可以按API名称查询单个公司字段或查询所有公司字段集。
+按API名称查询一个公司字段或检索所有公司字段。
 
 #### 按名称
 
-[按名称获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET)终结点为公司对象上的单个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。 响应类似于Describe Company端点，但包含其他元数据，例如`isCustom`属性，该属性指示字段是否为自定义字段。
+[按名称获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET)终结点为公司对象上的一个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。
+
+响应类似于“描述公司”响应，但包含其他元数据。 例如，`isCustom`属性指示字段是否为自定义字段。
 
 ```http
 GET /rest/v1/companies/schema/fields/industry.json
@@ -232,7 +241,9 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### 浏览
 
-[获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，最多返回300条记录。 您可以使用`batchSize`查询参数来减少此数量。 如果`moreResult`属性为true，则表示有更多的结果可用。 继续调用此端点，直到moreResult属性返回false，这意味着没有可用的结果。 从此API返回的`nextPageToken`应始终在此调用的下一个迭代中重用。
+[获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
+
+如果`moreResult`属性为true，则有更多结果可用。 继续使用返回的`nextPageToken`调用终结点，直到`moreResult`为false。
 
 ```http
 GET /rest/v1/companies/schema/fields.json?batchSize=5
@@ -310,7 +321,9 @@ GET /rest/v1/companies/schema/fields.json?batchSize=5
 
 ### 删除
 
-删除条件在`input`数组中指定，该数组包含搜索值列表。  在`deleteBy`参数中指定了删除方法。  允许值为：dedupeFields、idField。  默认值为dedupeFields。
+将删除条件指定为`input`数组中的搜索值列表。 在`deleteBy`参数中指定删除方法。
+
+允许的值为dedupeFields和idField。 缺省值为dedupeFields。
 
 ```text
 Content-Type: application/json
@@ -368,6 +381,6 @@ POST /rest/v1/companies/delete.json
 
 ## 超时
 
-- 除非下面说明，否则公司端点的超时为30秒
-   - 同步公司：60多岁
-   - 删除公司：60秒
+- 除非另有说明，否则公司端点的超时为30秒。
+- 同步公司的超时为60秒。
+- 删除公司的超时为60秒。

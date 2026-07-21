@@ -4,37 +4,34 @@ feature: Email Programs
 description: 了解如何使用Apache Velocity令牌、变量、Velocity工具编写动态Marketo电子邮件的脚本，以及使用“发送示例”和“电子邮件预览”进行测试。
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
 TQID: https://experienceleague.adobe.com/xFDjbGWGoWg4Ik6xqoU4L51FG5-1STZ5a0x0KpmwGd4
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1100
+source-wordcount: 916
 ht-degree: 0%
 
 ---
 
 # 电子邮件脚本
 
-注意：强烈建议您阅读[Velocity用户指南](https://velocity.apadche.org/engine/devel/user-guide.html)，以详细了解Velocity模板语言的行为。
+有关Velocity模板语言行为的详细说明，请阅读[Velocity用户指南](https://velocity.apache.org/engine/devel/user-guide.html)。
 
-[Apache Velocity](https://velocity.apache.org/)是一种基于Java构建的语言，专为模板化和编写HTML内容脚本而设计。 利用Marketo，可通过使用脚本令牌在电子邮件上下文中使用它。 通过此功能，可访问存储在Opportunity和Custom Objects中的数据，并允许在电子邮件中创建动态内容。 Velocity提供了标准的高级控制流，其中包含if/else、for和for each ，以允许对内容进行条件和迭代操作。
+[Apache Velocity](https://velocity.apache.org/)是一种基于Java的语言，用于模板化和编写HTML内容的脚本。 在Marketo电子邮件脚本令牌中使用Velocity可访问存储在商机和自定义对象中的数据并创建动态电子邮件内容。
+
+Velocity为条件内容和迭代内容提供了`if`/`else`、`for`和`foreach`控制流。
 
 ## 变量
 
-变量始终以“$”为前缀，并使用#set进行设置和更新：
+为变量添加前缀`$`。 使用`#set`创建或更新它们：
 
 ```velocity
 #set($variable = "value")
 ```
 
-随后，可以通过具有不同行为的多种不同引用类型检索其值：
+使用提供不同行为的引用类型检索变量值：
 
 ```text
 $variable ##outputs 'value'
@@ -44,7 +41,7 @@ ${variable}name ##outputs 'valuename'
 
 
 
-还有静默引用表示法，其中在`$`之后包含`!`。 通常，当velocity遇到未定义的引用时，表示该引用的字符串会保留在原处。 使用静默引用表示法，如果遇到未定义的引用，则不会发出任何值：
+`$`之后的静默引用表示法包括`!`。 默认情况下，当引用未定义时，Velocity将保留引用字符串。 静默引用未定义时不会发送任何值：
 
 ```velocity
 ##Defined Reference
@@ -65,7 +62,7 @@ $!baz ##outputs nothing
 
 ## Velocity工具
 
-Apache Velocity项目通过使用[Velocity工具](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html)使功能可用。 这些工具只是Java对象的包装器，通过可供所有脚本使用的全局变量公开其方法。
+Apache Velocity项目提供[Velocity工具](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html)。 这些包装器通过可用于所有脚本的全局变量公开Java对象方法。
 
 - [AlternatorTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/AlternatorTool.html)
 - [Comparisondatetool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html)
@@ -87,29 +84,33 @@ $date.whenIs($birthday).days ##outputs 1
 
 ## 创建脚本令牌
 
-使用电子邮件脚本令牌在电子邮件中包含Velocity脚本。 在营销文件夹或项目的营销活动中创建这些内容。 对于要在电子邮件中使用的令牌，电子邮件必须是拥有该令牌或从营销文件夹继承令牌的程序的子项。 要创建令牌，请导航到文件夹或程序，然后选择[!UICONTROL My Tokens]选项卡。 从右侧菜单中，将“Email Script”选项拖动到令牌列表中
+向带有电子邮件脚本令牌的电子邮件添加Velocity脚本。 在营销文件夹或项目的营销活动中创建令牌。
+
+要使用令牌，电子邮件必须是拥有该令牌的程序的子项，或从营销文件夹继承该令牌。 转到文件夹或项目群，然后选择[!UICONTROL My Tokens]选项卡。 将右侧菜单中的“电子邮件脚本”选项拖入令牌列表。
 
 ![脚本令牌](assets/script-token.png)
 
-在此处，您可以编辑令牌的名称，并通过[!UICONTROL Click to Edit]选项打开编辑器：
+编辑令牌名称，然后选择[!UICONTROL Click to Edit]以打开编辑器：
 
 ![编辑脚本](assets/script-edit.png)
 
-进入编辑器后，您可以创建一个脚本，以便访问可脚本访问对象中的所有变量。 要从对象获取字段引用，请将其从右侧树拖入脚本中：
+在编辑器中，创建一个脚本，用于访问可访问脚本的对象中的变量。 要添加对象字段引用，请将其从右树拖动到脚本中：
 
 ![编辑脚本令牌](assets/edit-script-token.png)
 
 ## 脚本嵌入和测试
 
-在程序“我的令牌”中定义脚本后，即可使用Marketo电子邮件编辑器在给定电子邮件中引用该脚本。
+在程序“我的令牌”中定义脚本后，从Marketo电子邮件编辑器中的电子邮件引用该脚本。
 
 ![电子邮件脚本](assets/email-script-marketo-email.png)
 
-您可以使用Marketo Email Designer中的[!UICONTROL Send Sample Email]电子邮件操作测试脚本。 要使脚本正确处理，您必须在[!UICONTROL Lead]字段中选择要表示的现有潜在客户。 如果您使用`$TriggerObject`进行测试，则可以通过[!UICONTROL Trigger]参数选择触发对象。 此进程将该类型的最近更新对象的数据用作`$TriggerObject`变量。
+在Marketo Email Designer中使用[!UICONTROL Send Sample Email]操作测试脚本。 在[!UICONTROL Lead]字段中选择现有潜在客户，以便脚本正确处理。
+
+测试`$TriggerObject`时，选择包含[!UICONTROL Trigger]参数的触发对象。 Marketo使用该类型的最近更新的对象作为`$TriggerObject`变量。
 
 ![测试电子邮件脚本](assets/velocity-test.png)
 
-您还可以使用[!UICONTROL Email Preview]来测试您的脚本。 为此，您必须选择&#x200B;**[!UICONTROL View As: Lead Detail]**，然后从可用的静态列表中选择潜在客户。 此方法还有一个好处，即输出脚本执行期间可能发生的任何异常：
+您还可以使用[!UICONTROL Email Preview]进行测试。 选择&#x200B;**[!UICONTROL View As: Lead Detail]**，然后从静态列表中选择潜在客户。 预览还会显示脚本执行的异常：
 
 ![查看电子邮件为](assets/view-as.png)
 
@@ -123,11 +124,11 @@ $date.whenIs($birthday).days ##outputs 1
 - 您可以引用连接到Lead、Contact或Account的自定义对象，但不能引用多个对象。
 - 只能通过单个连接、潜在客户、联系人或帐户引用自定义对象
 - 选中脚本编辑器中的框，以查看您正在使用的字段，或者这些字段不处理
-- 对于每个自定义对象，每个人员/联系人在运行时都可以使用最近更新的十条记录，并且这些记录按照从最近更新（在0时）到最旧更新（在9时）的顺序排列。 您可以按照说明[&#128279;](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)增加可用的记录数。
+- 对于每个自定义对象，每个人员/联系人在运行时都可以使用最近更新的10条记录。 记录按照从索引0处最近更新的到索引9处最旧的顺序排列。 您可以按照说明](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting)将可用记录数增加[。
 - 如果电子邮件中包含多个电子邮件脚本，则它们将自上而下执行。 在第一个要执行的脚本中定义的变量的范围在后续脚本中可用。
 - 工具引用： [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - 有关包含换行字符“\n”或“\r\n”的令牌的注释。 通过发送示例或批量促销活动发送电子邮件时，令牌中的换行字符会被替换为空格。 通过触发器营销活动发送电子邮件时，新行字符保持不变。
-- 要确保正确解析URL，应将整个路径设置为变量并打印，且变量不应在URL引用内打印。 协议（http://或https://）必须包含在内，并且必须与URL的其余部分分开。 该URL还必须属于完全格式化的锚点(<a>)标记。 脚本必须输出格式完整的锚点标记，才能跟踪链接。 如果链接是从for或foreach循环中输出的，则不会跟踪这些链接。
+- 要确保正确的URL解析，请将完整路径设置为变量，然后打印该变量。 请勿在URL引用内打印变量。 将协议（`http://`或`https://`）与URL的其余部分分开包含。 输出完整的锚点(`<a>`)标记，以便可以跟踪链接。 未跟踪来自`for`或`foreach`循环的链接输出。
 
 ```html
 <!-- Correct -->
