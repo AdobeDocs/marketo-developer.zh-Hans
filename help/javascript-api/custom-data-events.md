@@ -27,7 +27,7 @@ ht-degree: 3%
 
 在访客会话期间，每个自定义数据事件均会计数一次。
 
-您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
 | 参数 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |

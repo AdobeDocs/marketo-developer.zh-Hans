@@ -27,7 +27,7 @@ ht-degree: 1%
 
 除非将商机添加到其他公司，否则无法从公司中删除商机。 链接到公司记录的潜在客户会从该记录继承值，就好像这些值存在于潜在客户记录中一样。
 
-公司API为启用了[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅提供只读访问权限。
+公司API为启用了[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅提供只读访问权限。
 
 ## 描述
 

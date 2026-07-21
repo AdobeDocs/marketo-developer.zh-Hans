@@ -27,7 +27,7 @@ Marketo提供了用于读取、写入、创建和更新商机记录的API。 在
 
 API会公开这两种对象类型。 与大多数Lead Database对象类型一样，每个对象类型都有一个返回对象元数据的相应Describe调用。
 
-对于启用了[SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅，机会API提供了只读访问权限。
+对于启用了[SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅，机会API提供了只读访问权限。
 
 ## 描述
 

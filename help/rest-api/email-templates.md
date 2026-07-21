@@ -26,7 +26,7 @@ ht-degree: 1%
 
 Marketo中的每封新电子邮件最初都基于电子邮件模板。 尽管您稍后可以通过替换HTML来取消电子邮件与其模板的链接，但在创建电子邮件时必须选择一个模板。
 
-模板是包含名称和描述等元数据的HTML文档。 模板HTML必须有效，并且至少包含一个符合[可编辑部分要求](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)的可编辑部分。
+模板是包含名称和描述等元数据的HTML文档。 模板HTML必须有效，并且至少包含一个符合[可编辑部分要求](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)的可编辑部分。
 
 ## 查询
 

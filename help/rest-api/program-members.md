@@ -29,7 +29,7 @@ ht-degree: 2%
 
 Marketo提供了用于读取、创建、更新和删除程序成员记录的API。 商机ID字段将项目成员记录与商机记录相关联。
 
-每个记录包含标准字段，最多可包含20个自定义字段。 这些字段存储特定于项目的成员数据，以便在表单、筛选器、触发器和流操作中使用。 您可以在Marketo Engage UI的程序[成员选项卡](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
+每个记录包含标准字段，最多可包含20个自定义字段。 这些字段存储特定于项目的成员数据，以便在表单、筛选器、触发器和流操作中使用。 您可以在Marketo Engage UI的程序[成员选项卡](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
 
 ## 描述
 
@@ -635,9 +635,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### 创建字段
 
-[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST)端点在程序成员对象上创建自定义字段。 它提供的功能与[Marketo Engage UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)相当。 您最多可以使用此端点创建20个自定义字段。
+[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST)端点在程序成员对象上创建自定义字段。 它提供的功能与[Marketo Engage UI](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)相当。 您最多可以使用此端点创建20个自定义字段。
 
-在生产Marketo Engage实例中创建每个字段之前，请仔细考虑每个字段。 创建字段后不能将其删除；[只能隐藏它](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)。 未使用的字段会为实例添加待筛选项。
+在生产Marketo Engage实例中创建每个字段之前，请仔细考虑每个字段。 创建字段后不能将其删除；[只能隐藏它](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)。 未使用的字段会为实例添加待筛选项。
 
 所需的`input`参数是程序成员字段对象的数组。 每个对象都包含一个或多个属性。
 

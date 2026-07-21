@@ -28,7 +28,7 @@ ht-degree: 0%
 根据您的用例，使用以下迁移选项之一：
 
 * 将用于活动提取的静态列表限制为10,000个成员。 将现有列表拆分为较小的列表，以继续轮询活动的相同受众。
-* 使用批量活动提取或数据流提取活动或数据值更改。 将结果加入具有[getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1)或[批量潜在客户提取](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)的静态列表成员资格。
+* 使用批量活动提取或数据流提取活动或数据值更改。 将结果加入具有[getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1)或[批量潜在客户提取](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)的静态列表成员资格。
 
 ## 如果我什么都不做，会发生什么？
 

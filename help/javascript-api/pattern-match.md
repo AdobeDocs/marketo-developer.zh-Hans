@@ -25,7 +25,7 @@ ht-degree: 4%
 
 RTP提供了一个实用程序函数，用于检查模式是否与字符串匹配。 该实用程序会同步返回匹配结果，不能异步使用。
 
-您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
 ## 使用情况
 

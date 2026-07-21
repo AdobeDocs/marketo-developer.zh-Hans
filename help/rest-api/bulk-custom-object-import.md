@@ -40,7 +40,7 @@ ht-degree: 0%
 
 ## 自定义对象示例
 
-在使用批量API之前，请使用Marketo管理UI [创建自定义对象](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)。
+在使用批量API之前，请使用Marketo管理UI [创建自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)。
 
 此示例使用具有`Color`、`Make`、`Model`和`VIN`字段的`Car`自定义对象。 VIN字段用于去重。 管理员UI屏幕突出显示批量API端点所需的API名称。
 

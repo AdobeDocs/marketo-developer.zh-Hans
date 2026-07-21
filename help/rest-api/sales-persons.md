@@ -21,7 +21,7 @@ ht-degree: 0%
 
 [销售人员端点参考](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
-销售人员API为启用了[SFDC同步](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅提供只读访问权限。
+销售人员API为启用了[SFDC同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅提供只读访问权限。
 
 销售人员是代表潜在客户记录的销售负责人的人员记录。 每个Lead记录上的externalSalesPersonId字段将Lead与Sales Person关联。 填充此字段后，Marketo会填充潜在客户记录中相应的潜在客户所有者查找字段。 然后，您可以使用关联的筛选器和令牌。
 

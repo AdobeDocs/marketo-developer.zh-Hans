@@ -29,7 +29,7 @@ ht-degree: 0%
 
 ### 先决条件
 
-1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 1. 可选： [设置推送通知](push-notifications.md)。
 
 ### 通过CocoaPods安装框架
@@ -143,7 +143,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### 先决条件
 
-1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 1. 可选： [设置推送通知](push-notifications.md#android_setup_push)。
 1. [下载适用于Android的Marketo SDK](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 

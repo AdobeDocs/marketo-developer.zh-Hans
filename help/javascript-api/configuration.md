@@ -50,7 +50,7 @@ Munchkin.init("AAA-BBB-CCC", {
 | domainSelectorV2 | 布尔值 | 如果设置为true，则使用改进的方法来确定如何设置Cookie域属性。 |
 | httpsOnly | 布尔值 | 默认为false。 如果设置为true，则在通过https提供跟踪的页面时，会将Cookie设置为使用安全设置。 |
 | useBeaconAPI | 布尔值 | 默认为false。 当设置为true时，使用[Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)发送非阻止请求，而不是[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。 如果浏览器不支持信标API，Munchkin会使用XMLHttpRequest。 |
-| wsInfo | 字符串 | 定位工作区。 通过在管理员>集成> Munchkin菜单中选择工作区，获取工作区ID。<br><br>此设置仅在最初创建匿名潜在客户记录时适用。 为该潜在客户记录建立Munchkin Cookie值后，wsInfo参数无法更改其分区。<br><br>由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
+| wsInfo | 字符串 | 定位工作区。 通过在管理员>集成> Munchkin菜单中选择工作区，获取工作区ID。<br><br>此设置仅在最初创建匿名潜在客户记录时适用。 为该潜在客户记录建立Munchkin Cookie值后，wsInfo参数无法更改其分区。<br><br>由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
 
 ## 示例
 

@@ -31,9 +31,9 @@ Marketo webhook与第三方Web服务进行通信。 webhook使用GET或POST HTTP
 
 有关创建webhook并将其添加到Smart Campaign的说明，请参阅：
 
-- [创建 Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [调用 Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [在智能营销活动中使用 Webhook](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [创建 Webhook](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [调用 Webhook](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [在智能营销活动中使用 Webhook](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 使用以下属性配置每个webhook：
 
@@ -52,9 +52,9 @@ Marketo webhook与第三方Web服务进行通信。 webhook使用GET或POST HTTP
 
 商机和系统令牌始终可用。 触发器、营销策划和项目令牌在其各自的范围中可用。 有关更多信息，请参阅：
 
-- [令牌概述](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
-- [系统令牌术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [有趣时刻的令牌](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [令牌概述](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
+- [系统令牌术语表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
+- [有趣时刻的令牌](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
 例如，当项目或营销策划映射到第三方资源时，请在项目级别将ID设置为`My Token`。 然后，将ID作为令牌传递到webhook请求中。
 

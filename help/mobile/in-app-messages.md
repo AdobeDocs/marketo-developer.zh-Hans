@@ -22,7 +22,7 @@ ht-degree: 2%
 完成以下步骤以使用Marketo应用程序内消息传送：
 
 1. 按照[Mobile Installation](installation.md)中的说明安装Marketo Mobile SDK。
-1. 将您的移动应用程序添加到Marketo，如[添加移动应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)中所述。
+1. 将您的移动应用程序添加到Marketo，如[添加移动应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)中所述。
 1. 可选：向移动应用添加代码以捕获[自定义操作](custom-actions.md)。
 
 安装Marketo Mobile SDK并将您的应用程序添加到Marketo后，您可以发送在用户打开您的应用程序时显示的应用程序内消息。
@@ -43,4 +43,4 @@ ht-degree: 2%
 
 要跟踪点按活动并根据点按次数确定显示频率，请将“关闭”以外的操作分配给主按钮或辅助按钮。
 
-有关详细信息，请参阅产品文档中的[应用程序内消息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message)。
+有关详细信息，请参阅产品文档中的[应用程序内消息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message)。

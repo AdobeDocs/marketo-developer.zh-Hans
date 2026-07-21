@@ -38,7 +38,7 @@ ht-degree: 1%
 
 当您的AI工具调用MCP服务器时，服务器使用该请求中的凭据执行相应的REST API调用。 您无需安装、部署或运行服务器端软件。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 >[!IMPORTANT]
 >

@@ -29,7 +29,7 @@ ht-degree: 5%
 
 该API还提供了用于将数据和事件发送到RTP后端以进行分段和个性化的自定义变量。 查看相关的[触发器](../javascript-api/triggers.md)和[模式匹配](../javascript-api/pattern-match.md)功能。
 
-- 您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)。
+- 您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)。
 - 您必须请求Marketo支持来启用用户上下文API。 启用后，userContext对象将在RTP全局对象下显示。
 
 ## 用户上下文属性

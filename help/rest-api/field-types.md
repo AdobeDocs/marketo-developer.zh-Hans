@@ -25,7 +25,7 @@ ht-degree: 8%
 
 # 字段类型
 
-下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型[&#128279;](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的Marketo字段限制。
+下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型[&#128279;](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的Marketo字段限制。
 
 | 字段类型 | 描述 | 示例 |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ ht-degree: 8%
 | 电子邮件 | 接受电子邮件地址的字符串字段 | <example@example.com> |
 | 浮点值 | 一个数字字段，包含实数并且可以使用小数位。 | 10.4 |
 | 整数 | 整数 | 10 |
-| 公式 | 其值通过处理潜在客户记录上存在的其他字段的数据而生成的字段。 它们不会导出，并且无法在Smart Campaigns中使用。 | 查看此[文章](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| 公式 | 其值通过处理潜在客户记录上存在的其他字段的数据而生成的字段。 它们不会导出，并且无法在Smart Campaigns中使用。 | 查看此[文章](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | 百分比 | 以整数表示的百分比 | 30 |
 | URL | 一个文本字段，用于限制对URL的输入，包括URL的协议。 | <http://example.com/> |
 | 电话 | 电话号码 | 111-111-1111 |

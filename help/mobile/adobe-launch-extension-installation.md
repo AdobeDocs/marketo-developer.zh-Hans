@@ -26,7 +26,7 @@ ht-degree: 1%
 
 ## 先决条件
 
-1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 1. [在 [!DNL Adobe Launch] 门户](https://experience.adobe.com/#/@amc/data-collection/home)中配置属性。
 1. 在[!DNL Adobe Launch]门户中为该属性配置应用程序密钥和Munchkin ID。
 1. 可选： [设置推送通知](push-notifications.md)。

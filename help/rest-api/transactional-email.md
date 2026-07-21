@@ -26,7 +26,7 @@ ht-degree: 1%
 - 在Marketo实例中创建和批准事务型电子邮件。
 - 激活使用“Campaign is Requested， 1”的触发器营销活动。 Source： Web服务API”并发送电子邮件。
 
-首先，[创建和批准电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html)。 如果电子邮件在法律上符合操作条件，请在“电子邮件操作”>“电子邮件设置”下将其配置为可操作：
+首先，[创建和批准电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 如果电子邮件在法律上符合操作条件，请在“电子邮件操作”>“电子邮件设置”下将其配置为可操作：
 
 ![Request-Campaign-Email-Settings](assets/request-campaign-email-settings.png)
 
@@ -36,7 +36,7 @@ ht-degree: 1%
 
 ![RequestCampaign-Prove-Draft](assets/request-campaign-approve-draft.png)
 
-如果需要，请参阅[创建新的Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html)。 使用Campaign is Requested触发器配置活动的智能列表：
+如果需要，请参阅[创建新的Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=zh-Hans)。 使用Campaign is Requested触发器配置活动的智能列表：
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -192,7 +192,7 @@ public class RequestCampaign {
 
 ### 构建电子邮件
 
-若要自定义我们的内容，我们必须首先在Marketo中配置[程序](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html)和[电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html)。 要生成自定义内容，我们必须在程序中创建令牌，然后将它们放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以替换电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中任何内容的任何数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。
+若要自定义我们的内容，我们必须首先在Marketo中配置[程序](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=zh-Hans)和[电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 要生成自定义内容，我们必须在程序中创建令牌，然后将它们放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以替换电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中任何内容的任何数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。
 
 ![新令牌](assets/New-Token.png)
 

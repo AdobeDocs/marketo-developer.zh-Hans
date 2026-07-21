@@ -21,7 +21,7 @@ ht-degree: 2%
 
 [命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[指定帐户列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists)是Marketo中的指定帐户的集合。 可使用它们进行分类、数据扩充和智能营销活动筛选。
+[指定帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)是Marketo中的指定帐户的集合。 可使用它们进行分类、数据扩充和智能营销活动筛选。
 
 通过指定帐户列表API，可远程管理列表资产及其成员资格。
 `Content`

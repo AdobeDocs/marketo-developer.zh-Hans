@@ -28,7 +28,7 @@ ht-degree: 4%
 1. 在页面正文中：
    1. 将模板标记（div类）放置在要显示模板的位置。
 
-有关详细信息，请参阅[为Web富媒体启用预测内容](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)。
+有关详细信息，请参阅[为Web富媒体启用预测内容](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)。
 
 ## 模板标记
 

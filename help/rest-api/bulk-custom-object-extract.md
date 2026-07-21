@@ -27,7 +27,7 @@ ht-degree: 1%
 
 API可导出直接链接到潜在客户的第一级Marketo自定义对象记录。 指定自定义对象名称和链接潜在客户列表。 对于每个潜在客户，API会将匹配的链接自定义对象记录作为行写入导出文件中。
 
-您可以在Marketo UI中商机的详细信息页面的[自定义对象选项卡中查看自定义对象数据](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)。
+您可以在Marketo UI中商机的详细信息页面的[自定义对象选项卡中查看自定义对象数据](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects)。
 
 ## 权限
 
