@@ -4,11 +4,19 @@ feature: REST API, Forms
 description: Marketo Forms REST API指南，用于创建和管理表单、按id或名称检索、使用状态过滤器浏览以及管理字段、字段集和规则。
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
 TQID: https://experienceleague.adobe.com/56tc1a14d8okxweS7TK7SzfGB8G03WAI2KBlFKQbSdM
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2:
+  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 1494
@@ -910,7 +918,7 @@ Content-Type: text/html
 
 表单中的字段必须唯一。 同一字段不能同时出现在表单的父字段列表和子字段集中。
 
-添加具有[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST)终结点的字段集。 然后，该字段集将显示在表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET)响应的[获取字段中。 若要向字段集添加字段，请使用[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)以将其移动到其`fieldList`中。
+添加具有[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST)终结点的字段集。 然后，该字段集将显示在表单[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET)响应的获取字段中。 若要向字段集添加字段，请使用[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)以将其移动到其`fieldList`中。
 
 对于这些端点，将数据作为`application/x-www-form-urlencoded`的POST发送，而不是作为JSON发送。
 

@@ -4,9 +4,12 @@ feature: REST API, Landing Pages
 description: 使用Marketo Asset REST API创建、查询、更新和删除登陆页面重定向规则，这些规则包含过滤器、分页、主机名选项以及非Marketo目标。
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
 TQID: https://experienceleague.adobe.com/2gePbKA3xeoRdnL8mNnObN-GPTX00Ii4-zcM0lBjs-o
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 626
@@ -24,7 +27,7 @@ ht-degree: 3%
 
 ## 查询
 
-按ID](#by_id)或[浏览](#browse)查询登陆页面重定向规则[。
+按ID[&#128279;](#by_id)或[浏览](#browse)查询登陆页面重定向规则。
 
 ### 按Id
 

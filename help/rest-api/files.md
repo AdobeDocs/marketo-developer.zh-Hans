@@ -4,9 +4,12 @@ feature: REST API
 description: 按ID或名称查询Marketo REST API文件、浏览文件夹和偏移、通过多部分上传创建或更新、insertOnly、MIME类型、无流
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
 TQID: https://experienceleague.adobe.com/qH8zFwjJkTWHlCj1VHNiTiLK3mNOJFS83cnjEj2qjpA
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 274
@@ -24,7 +27,7 @@ Marketo文件存储未针对带宽密集型应用程序进行优化。 使用专
 
 ## 查询
 
-按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET)查询文件[。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET)查询文件。
 
 ### 按Id
 

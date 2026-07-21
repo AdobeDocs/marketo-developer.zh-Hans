@@ -4,9 +4,15 @@ feature: REST API
 description: Marketo REST API指南，适用于包含创建、更新、删除、按ID和名称查询、使用根批量浏览、工作区、maxDepth和分页的文件夹。
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
 TQID: https://experienceleague.adobe.com/OxCNdy8qW6jwq8u57RF9mqVKPVvH99UmuiOBjFprHCM
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 806
@@ -80,7 +86,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 ### 按名称
 
-按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET)进行的[查询端点需要`name`，它将对文件夹名称执行完全匹配并返回每个匹配的文件夹。
+按名称[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET)进行的查询端点需要`name`，它将对文件夹名称执行完全匹配并返回每个匹配的文件夹。
 
 端点还接受以下可选参数：
 

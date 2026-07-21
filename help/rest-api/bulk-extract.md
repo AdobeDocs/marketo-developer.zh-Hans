@@ -4,9 +4,12 @@ feature: REST API
 description: 了解如何使用Marketo批量提取REST API导出潜在客户、活动、项目成员和自定义对象，OAuth、作业队列和每日限制为500 MB。
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
 TQID: https://experienceleague.adobe.com/ECSchsjqp8fyxXbUGl5DgXHUkXuN0sIUc3yJfVaIe1E
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 1549

@@ -4,11 +4,18 @@ feature: REST API
 description: 包含定义、示例和格式的Marketo字段类型的完整列表，包括ISO 8601日期时间、文本区域限制、货币和布尔值。
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
 TQID: https://experienceleague.adobe.com/Q-L1NCCS1caYip-niSrBAkp6k37ErzmsLCFvn7fRJW0
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-subfeature_v2: id: ad89fb33-8541-4339-afe7-bb13d1633714
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: a7170d27-32ab-462b-a333-269abc654483
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2:
+  - id: ad89fb33-8541-4339-afe7-bb13d1633714
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 371
@@ -18,7 +25,7 @@ ht-degree: 8%
 
 # 字段类型
 
-下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的[Marketo字段限制。
+下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型[&#128279;](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的Marketo字段限制。
 
 | 字段类型 | 描述 | 示例 |
 | --- | --- | --- |
