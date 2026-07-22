@@ -10,9 +10,9 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 746
+source-wordcount: 686
 ht-degree: 2%
 
 ---
@@ -21,16 +21,23 @@ ht-degree: 2%
 
 [命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)表示命名帐户的集合。 它们可用于多种情况，包括分类、数据扩充和智能营销活动过滤。 命名帐户列表API允许远程管理这些列表资源及其成员资格。
+[指定帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)是Marketo中的指定帐户的集合。 可使用它们进行分类、数据扩充和智能营销活动筛选。
+
+通过指定帐户列表API，可远程管理列表资产及其成员资格。
 `Content`
 
 ## 权限
 
-要查询指定帐户列表，需要只读指定帐户列表或读写指定帐户列表权限。 要创建、更新或删除列表，需要读写指定帐户列表权限。 查询列表成员资格需要只读命名帐户或读写命名帐户权限，而管理成员资格需要读写命名帐户权限。
+所需的权限取决于操作：
+
+- 查询指定帐户列表：只读指定帐户列表或读写指定帐户列表。
+- 创建、更新或删除列表：读写指定帐户列表。
+- 查询列表成员资格：只读指定帐户或读写指定帐户。
+- 管理列表成员资格：读写指定帐户。
 
 ## 模型
 
-指定帐户列表的标准字段数量有限，并且不能与自定义字段一起扩展。
+指定帐户列表具有一组有限的标准字段，不支持自定义字段。
 `Named Account List Field`
 
 | 名称 | 数据类型 | 可更新 | 注释 |
@@ -43,7 +50,9 @@ Marketo中的[命名帐户列表](https://experienceleague.adobe.com/zh-hans/doc
 
 ## 查询
 
-查询帐户列表简单方便。 目前，查询指定帐户列表时只有两个有效的filterTypes：“dedupeFields”和“idField”。 要筛选的字段在查询的`filterType`参数中设置，值在`filterValues as`中以逗号分隔的列表中设置。 `nextPageToken`和`batchSize`筛选器也是可选参数。
+命名帐户列表查询支持两种filterTypes：“dedupeFields”和“idField”。 在`filterType`查询参数中设置该字段，并在`filterValues as`中以逗号分隔的列表中提供值。
+
+`nextPageToken`和`batchSize`筛选器是可选的。
 
 ```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
@@ -78,11 +87,13 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 ## 创建和更新
 
-创建和更新指定帐户列表记录遵循其他Lead Database创建和更新操作的已建立模式。 请记住，指定帐户列表只有一个可更新的字段`name`。
+使用标准Lead Database模式创建和更新指定帐户列表记录。 命名帐户列表只有一个可更新的字段： `name`。
 
-端点允许使用两种标准操作类型：“createOnly”和“updateOnly”。  `action defaults`设置为“createOnly”。
+端点支持两种标准操作类型：“createOnly”和“updateOnly”。 `action defaults`设置为“createOnly”。
 
-如果操作为`updateOnly`，则可以指定可选`dedupeBy parameter`。  允许的值为“dedupeFields”（对应于“name”）或“idField”（对应于“marketoGUID”）。  在`createOnly`模式中，仅允许“name”作为`dedupeBy`字段。 一次最多可以提交300条记录。
+当操作为`updateOnly`时，您可以指定可选的`dedupeBy parameter`。 允许的值为“dedupeFields”（对应于“name”）和“idField”（对应于“marketoGUID”）。
+
+在`createOnly`模式中，仅允许“name”作为`dedupeBy`字段。 一次最多可以提交300条记录。
 
 ```http
 POST /rest/v1/namedAccountLists.json
@@ -124,7 +135,9 @@ POST /rest/v1/namedAccountLists.json
 
 ## 删除
 
-删除指定帐户列表非常简单，可以根据列表的`name`或`marketoGUID`完成。 要选择要使用的键，请在请求的`deleteB`成员中为name传递“dedupeFields”，为marketoGUID传递“idField”。 如果未设置，则默认为dedupeFields。 一次最多可以删除300条记录。
+使用列表的`name`或`marketoGUID`删除命名帐户列表。 要选择该键，请在请求的`deleteB`成员中为name传递“dedupeFields”，为marketoGUID传递“idField”。
+
+如果未设置，该值默认为dedupeFields。 一次最多可以删除300条记录。
 
 ```http
 POST /rest/v1/namedAccountLists/delete.json
@@ -176,13 +189,13 @@ POST /rest/v1/namedAccountLists/delete.json
 }
 ```
 
-在找不到给定键的记录的情况下，相应的结果项将具有`status`个“已跳过”，并且会有一个原因和一个代码和消息描述失败，如上面的示例所示。
+如果找不到键的记录，则相应的结果项具有`status`个“已跳过”。 它还包含原因以及描述失败的代码和消息。
 
 ## 管理成员资格
 
 ### 查询成员资格
 
-查询指定帐户列表的成员资格非常简单，只需要帐户列表的`i`。 可选参数包括：
+通过提供帐户列表的`i`查询命名帐户列表成员资格。 可选参数包括：
 
 -`field` — 要包含在响应记录中的以逗号分隔的字段列表
 -`nextPageToke` — 对结果集进行分页
@@ -219,7 +232,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### 添加成员
 
-可以轻松地将指定帐户添加到指定帐户列表。 只能使用其marketoGUID添加帐户。 一次最多可以添加300条记录。
+使用命名帐户的marketoGUID将其添加到命名帐户列表。 一次最多可以添加300条记录。
 
 ```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
@@ -259,7 +272,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### 删除成员
 
-从帐户列表中删除记录的路径不同，但接口相同，需要为要删除的每个记录使用`marketoGUI`。 一次最多可以删除300条记录。
+从帐户列表中删除记录使用不同的路径但界面相同。 为要删除的每个记录提供`marketoGUI`。 一次最多可以删除300条记录。
 
 ```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
@@ -299,10 +312,10 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 
 ## 超时
 
-- 除非下面说明，否则命名帐户列表端点的超时为30秒
-   - 同步指定帐户列表： 60秒
-   - 删除指定帐户列表：60秒
-   - 获取指定帐户列表：60秒
-   - 添加指定帐户列表成员：60秒
-   - 删除指定帐户列表成员：60秒
-   - 获取指定帐户列表成员：60秒
+- 除非另有说明，否则命名帐户列表端点的超时为30秒。
+- 同步指定帐户列表的超时为60秒。
+- 删除指定帐户列表的超时时间为60秒。
+- 获取指定帐户列表的超时时间为60秒。
+- 添加指定帐户列表成员的超时为60秒。
+- 删除指定帐户列表成员的超时为60秒。
+- 获取指定帐户列表成员的超时为60秒。

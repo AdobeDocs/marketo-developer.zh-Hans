@@ -1,6 +1,6 @@
 ---
 title: 富媒体推荐
-description: 使用Marketo预测内容RTP标记、template1 template2 template3 div、GET来设置富媒体推荐，使用SET来配置类别。
+description: 使用Marketo预测内容RTP标记、template1 template2 template3 div、GET要填充、SET要配置类别来设置富媒体推荐。
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
 TQID: https://experienceleague.adobe.com/ygm5h1FJZZW4mC318-fRR3VAcO6j1sitcAeqIUjDTbI
@@ -10,54 +10,54 @@ feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 854
-ht-degree: 3%
+source-wordcount: 814
+ht-degree: 4%
 
 ---
 
 # 富媒体推荐
 
-必须在要显示富媒体推荐模板的页面上设置以下标记和API调用。
+要显示富媒体推荐模板，请向页面添加所需的标记和API调用。
 
-1. 在页眉中
-   1. 已安装RTP标记
-   1. 将GET调用添加到页面以填充推荐
-   1. 添加SET调用以配置模板
-1. 在页面正文中
-   1. 将模板标记（div类）放置在要显示该模板的位置
+1. 在页眉中：
+   1. 安装RTP标记。
+   1. 添加用于填充推荐的GET调用。
+   1. 添加用于配置模板的SET调用。
+1. 在页面正文中：
+   1. 将模板标记（div类）放置在要显示模板的位置。
 
-[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)提供了详细信息。
+有关详细信息，请参阅[为Web富媒体启用预测内容](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)。
 
 ## 模板标记
 
 | 属性 | 可选/必填 | 描述 |
 | --- | --- | --- |
-| 类 | 必需 | 指定此div HTML元素为RTP推荐div。 |
-| data-rtp-template-id | 必需 | 模板id。 这会确定推荐的对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行仅包含标题和描述的垂直对齐。 该脚本将匹配的模板注入此`div.Permissible`值：template1、template2、template3。 |
+| 类 | 必需 | 将div HTML元素标识为RTP推荐div。 |
+| data-rtp-template-id | 必需 | 确定推荐对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行垂直对齐，其中只包含标题和描述。 脚本将匹配模板注入此`div`。 允许值：template1、template2、template3。 |
 
 ### 示例
 
-要以水平对齐方式显示推荐，请使用“template1”。
+使用“template1”可水平显示推荐。
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template1"></div>
 ```
 
-要以垂直对齐方式显示推荐，请使用“template2”。
+使用“template2”可垂直显示推荐。
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template2"></div>
 ```
 
-要以仅与标题和描述垂直对齐的方式显示推荐，请使用“template3”。
+使用“template3”可垂直显示推荐，其中仅包含标题和描述。
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-在[此处](#example_of_rich_media_recommendation_template_1)查看模板对齐的屏幕截图。
+查看[模板对齐示例](#example_of_rich_media_recommendation_template_1)。
 
 ## 填充推荐
 
@@ -75,9 +75,9 @@ ht-degree: 3%
 
 ## 更改模板配置
 
-此方法会更改模板的默认配置。
+此方法会更改默认模板配置。
 
-注意：使用此方法时，必须在调用rtp(&#39;get&#39;，&#39;rcmd&#39;， &#39;richmedia&#39;)之前调用它；
+在调用rtp(&#39;get&#39;，&#39;rcmd&#39;， &#39;richmedia&#39;)之前调用此方法；
 
 ### 使用情况
 
@@ -93,7 +93,7 @@ ht-degree: 3%
 
 ### 示例
 
-此代码片段会更改模板的标题文本。
+此示例更改了模板的标题文本。
 
 ```javascript
 rtp("set", "rcmd", "richmedia","template1",
@@ -103,7 +103,7 @@ rtp("set", "rcmd", "richmedia","template1",
 );
 ```
 
-此代码片段显示了如何为一个模板设置具有多个配置的类别。
+此示例为模板设置类别和多个配置属性。
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -124,9 +124,11 @@ rtp("set", "rcmd", "richmedia",
 );
 ```
 
-注意：使用“类别”可筛选在预测内容推荐结果中显示的内容。 要将预测内容应用于所有启用的内容片段，请将“类别”留空。 如果只想为富媒体模板中的输出推荐特定内容，请在设置内容页面中为内容添加类别，并在推荐模板代码中关联该类别。 根据网站区域（产品或解决方案）对相关内容进行分类。
+使用“类别”可筛选预测内容推荐中显示的内容。 要将预测内容用于所有启用的内容，请将“类别”留空。
 
-此代码片段显示了如何为一个模板设置多个模板配置。
+要仅推荐富媒体模板中的特定内容，请在设置内容页面上添加该内容的类别。 然后将该类别与推荐模板代码关联。 例如，按网站的产品或解决方案部分对相关内容进行分类。
+
+此示例为模板设置多个配置属性。
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -156,11 +158,11 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; ：&quot;推送&quot; | 更改按钮文本。 所有按钮的文本都相同。 |
 | 类别 | &quot;category&quot; ： [&quot;one category&quot;] | 更改此模板支持的推荐类别。 模板仅显示具有此配置设置的某个类别的推荐。 |
 
-注意：每个模板的配置支持可能会发生更改。
+配置支持可能因模板而异。
 
 #### 基本示例
 
-此示例有一个包含三个推荐的模板。 将此示例复制到HTML页面，然后将RTP标记替换为您的标记。
+此示例在一个模板中显示三个推荐。 将示例复制到HTML页面，然后将RTP标记替换为您的标记。
 
 ```html
 <!DOCTYPE>
@@ -192,7 +194,7 @@ rtp('get','rcmd', 'richmedia');
 
 #### 高级示例
 
-此示例有一个包含三个推荐的模板。 模板标题为“推荐的内容”，按钮文本将为“了解更多”。 将此示例复制到HTML页面，然后将RTP标记替换为您的标记。
+此示例在一个模板中显示三个推荐。 模板标题为“推荐的内容”，按钮文本为“了解更多”。 将示例复制到HTML页面，然后将RTP标记替换为您的标记。
 
 ```html
 <!DOCTYPE>
@@ -236,16 +238,24 @@ rtp('get','rcmd', 'richmedia');
 
 #### 富媒体推荐模板#1示例
 
-**名称**： template1 **描述**：包含图像、标题和描述的水平内容以及call to action按钮。
+**名称**： template1
+
+**描述**：包含图像、标题、描述和call-to-action按钮的水平内容。
 
 ![富媒体模板](assets/rich-media-template1.png)
 
 #### 富媒体推荐模板#2示例
 
-**名称**： template2 **描述**：垂直内容（包括图像、标题和描述）以及call to action按钮。
+**名称**： template2
+
+**描述**：包含图像、标题、描述和call-to-action按钮的垂直内容。
 
 ![富媒体模板](assets/rich-media-template2.png)
 
 #### 富媒体推荐模板#3示例
 
-**名称**：模板3 **描述**：仅包含标题和描述的垂直内容。 鼠标悬停时，标题会更改颜色并超链接到内容URL。 描述还链接到不发生颜色更改的内容。 ![富媒体模板](assets/rich-media-template3.png)
+**名称**： template3
+
+**描述**：仅包含标题和描述的垂直内容。 鼠标悬停时，标题会更改颜色并链接到内容URL。 该描述还链接到内容而不更改颜色。
+
+![富媒体模板](assets/rich-media-template3.png)

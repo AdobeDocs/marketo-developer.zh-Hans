@@ -10,20 +10,24 @@ feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 426
+source-wordcount: 414
 ht-degree: 7%
 
 ---
 
 # Munchkin API参考
 
-Munchkin提供了几种可通过Javascript手动调用的函数。 这些功能允许对浏览器事件进行自定义跟踪，例如视频播放或非链接上的点击次数。
+Munchkin提供了JavaScript功能，可用于对浏览器事件进行自定义跟踪。 例如，您可以跟踪非链接元素的视频播放或单击情况。
 
 ## 功能
 
-Munchkin API包含以下函数： `init`、`createTrackingCookie`、`munchkinFunction`。
+Munchkin API包含以下函数：
+
+- `init`
+- `createTrackingCookie`
+- `munchkinFunction`
 
 <a name="munchkin_init"></a>
 
@@ -42,7 +46,9 @@ Munchkin.init('299-BYM-827');
 
 ### Munchkin.createTrackingCookie()
 
-调用时，将检查浏览器中是否存在`_mkto_trk` Cookie，如果不存在，将创建一个。 如果`cookieAnon`设置为false，则这对于在特定操作期间跟踪用户很有用，例如注册或下载资源。
+`Munchkin.createTrackingCookie()`检查浏览器中是否存在`_mkto_trk` Cookie。 如果该Cookie不存在，则函数将创建一个。
+
+当`cookieAnon`设置为false时，使用此函数在特定操作（如注册或下载资源）期间跟踪用户。
 
 | 参数名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -54,7 +60,7 @@ Munchkin.createTrackingCookie(true);
 
 ### Munchkin.munchkinFunction()
 
-用于生成自定义跟踪行为，如视频播放器播放和暂停，或生成非标准导航的页面访问次数，如哈希代码。
+使用`Munchkin.munchkinFunction()`创建自定义跟踪行为。 例如，跟踪视频播放器活动或来自非标准导航（如哈希更改）的页面访问。
 
 | 参数名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -63,7 +69,7 @@ Munchkin.createTrackingCookie(true);
 
 #### visitWebPage
 
-使用`visitWebPage`调用`munchkinFunction()`会将当前用户的“访问”活动发送到Marketo。 您可以自定义与第二个参数中的数据对象一起发送的URL和`querystring`。
+使用`visitWebPage`调用`munchkinFunction()`会将当前用户的“访问”活动发送到Marketo。 使用第二个参数中的数据对象自定义URL和`querystring`。
 
 | 数据属性名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -82,7 +88,7 @@ Munchkin.munchkinFunction('visitWebPage', {
 
 #### clickLink
 
-使用`clickLink`调用`munchkinFunction()`会将当前用户的点击活动发送至Marketo。 您可以使用数据对象中的`href`属性自定义点击URL。
+使用`clickLink`调用`munchkinFunction()`会将当前用户的点击活动发送至Marketo。 使用数据对象中的`href`属性自定义点击URL。
 
 | 数据属性名称 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |

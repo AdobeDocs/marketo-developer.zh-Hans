@@ -12,10 +12,10 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 703
-ht-degree: 1%
+source-wordcount: 519
+ht-degree: 2%
 
 ---
 
@@ -23,19 +23,23 @@ ht-degree: 1%
 
 [登陆页面模板端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates)
 
-登陆页面模板是父资源，依赖于各个Marketo登陆页面。 登陆页面从父模板派生其内容的骨架。
+登陆页面模板是Marketo登陆页面的父资源。 每个登陆页面都从其父模板派生其初始内容结构。
 
 ## 模板类型
 
-Marketo提供两种类型的登陆页面模板：自由表单和引导式。 自由表单登陆页面模板为从这些模板派生的页面提供松散结构的编辑体验。 引导式模板提供了一个结构化的体验，其中可在模板级别限制元素类型和位置。 有关差异的详细信息，请参阅[此文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages)。
+Marketo提供自由格式和引导式登陆页面模板。 自由格式模板提供了结构松散的编辑体验。 引导式模板可以在模板级别限制元素类型和位置。
+
+有关详细的比较，请参阅[了解自由表单与引导式登陆页面](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages)。
 
 ## 查询
 
-登陆页面模板支持[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET)的资产标准查询类型。 这些端点返回模板的元数据。 必须通过模板的ID基于每个模板检索HTML内容。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET)查询登陆页面模板。 这些端点返回模板元数据。 按ID分别检索每个模板的HTML内容。
 
 ## 创建和更新
 
-模板将创建为具有关联元数据的空资源。 创建模板时，必须包括名称和文件夹，以及可选描述、templateType和enableMunchkin参数。 templateType可以是自由格式或引导格式，默认为freeForm。 有关这些类型之间的差异，请参阅引导式表单与自由式表单一节。 enableMunchkin默认为false，启用时将阻止在模板的任何子登陆页面上执行Munchkin跟踪。
+模板将创建为带元数据的空资源。 `name`和`folder`参数是必需的。 `description`、`templateType`和`enableMunchkin`参数是可选的。
+
+`templateType`值可以是`freeform`或`guided`，默认为`freeForm`。 `enableMunchkin`值默认为`false`。 启用后，它会阻止对模板的子登陆页面进行Munchkin跟踪。
 
 ```http
 POST /rest/asset/v1/landingPageTemplates.json
@@ -75,15 +79,15 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-必须通过[更新登陆页面模板内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST)端点单独填充模板的内容。
+使用[更新登陆页面模板内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST)端点单独添加模板内容。
 
 ### 更新元数据
 
-可以通过[更新登陆页面模板元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST)端点更新登陆页面模板的元数据。 名称、描述和enableMunchkin设置可按此方式更新。
+使用[更新登陆页面模板元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST)端点更改名称、描述或`enableMunchkin`设置。
 
 ### 更新内容
 
-登陆页面模板中的内容是对整个HTML内容的破坏性更新。 内容必须以multipart/form-data形式传递，唯一参数为content。
+更新模板内容将替换所有现有HTML内容。 在`content`参数中传递替换为`multipart/form-data`。
 
 ```http
 POST /rest/asset/v1/landingPageTemplate/286/content.json
@@ -121,15 +125,15 @@ Content-Type: text/plain
 
 ## 克隆
 
-Marketo提供了一种克隆登陆页面模板的简单方法。 这是application/x-www-url-formencoded POST请求。
+克隆包含`application/x-www-url-formencoded` POST请求的登陆页面模板。
 
-`id`路径参数指定要克隆的源登陆页面模板的ID。
+`id`路径参数指定源登陆页面模板。
 
-`name`参数用于指定新登陆页面模板的名称。
+`name`参数指定新登陆页面模板的名称。
 
-`folder`参数用于指定新登陆页面模板将驻留的父文件夹。 这是包含`id`和`type`的嵌入式JSON对象的形式。
+`folder`参数指定新模板的父文件夹。 将其作为包含`id`和`type`的嵌入式JSON对象传递。
 
-可选的`description`参数用于描述新的登陆页面模板。
+可选的`description`参数描述了新模板。
 
 ```http
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
@@ -172,9 +176,9 @@ name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 
 ## 审批
 
-登陆页面模板遵循标准草稿批准模型，其中可以包含草稿版本和/或批准版本。 每当将更新应用于模板时，都会先将更新应用于草稿版本，并且仅在模板获得批准后才可实时查看。
+登陆页面模板使用标准草稿和已批准的模型。 更新首先应用于草稿，并在模板获得批准后才生效。
 
-要批准模板，该模板必须符合其类型的规则，无论是在自由格式的引导下。 有关创建和批准相应类型模板要求的更多信息，请参阅各自的创建文档：
+在批准之前，模板必须满足其引导式或自由格式表单类型的要求。 请参阅以下资源：
 
 - [自由格式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
 - [引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
@@ -182,4 +186,4 @@ name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 
 ## 删除
 
-要删除模板，该模板必须已停用且未批准，这意味着任何子登陆页面都不能引用该模板。  不能使用此API删除嵌入了社交按钮的登陆页面模板。
+要删除模板，请确保该模板未获得批准且没有子登陆页面引用它。 无法使用此API删除嵌入了社交按钮的登陆页面模板。

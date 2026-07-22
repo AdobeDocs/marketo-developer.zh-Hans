@@ -14,9 +14,9 @@ subfeature_v2:
   - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1196
+source-wordcount: 1009
 ht-degree: 1%
 
 ---
@@ -27,11 +27,11 @@ ht-degree: 1%
 
 [营销活动端点引用（潜在客户）](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns)
 
-Marketo提供了一组REST API用于对智能营销活动执行操作。 这些API遵循资产API的标准界面模式，提供查询、创建、克隆和删除选项。 此外，您还可以通过计划批量营销活动或请求触发营销活动来管理智能营销活动执行。
+使用Smart Campaign REST API查询、创建、克隆和删除智能营销活动。 您还可以计划批量营销活动、请求触发营销活动和管理营销活动激活。
 
 ## 查询
 
-查询智能营销活动遵循[按ID](#by_id)、[按名称](#by_name)和[浏览](#browse)的标准查询类型。
+按ID[&#128279;](#by_id)、[名称](#by_name)或[浏览](#browse)查询智能营销活动。
 
 ### 按Id
 
@@ -73,7 +73,7 @@ GET /rest/asset/v1/smartCampaign/{id}.json
 }
 ```
 
-使用此终结点，`result`数组的第一个位置将始终有一个记录。
+终结点在`result`数组的第一个位置返回一个记录。
 
 ### 按名称
 
@@ -119,21 +119,21 @@ GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
 }
 ```
 
-使用此终结点，`result`数组的第一个位置将始终有一个记录。
+终结点在`result`数组的第一个位置返回一个记录。
 
 ### 浏览
 
-[获取智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET)终结点的工作方式与其他资产API浏览终结点类似，并且允许多个可选查询参数指定筛选条件。
+[获取智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET)端点支持用于筛选和分页的可选查询参数。
 
 `earliestUpdatedAt`和`latestUpdatedAt`参数接受ISO-8601格式的`datetimes`（不含毫秒）。 如果同时设置了两者，则learestUpdatedAt必须在latestUpdatedAt之前。
 
-`folder`参数指定要在其中浏览的父文件夹。 格式为包含`id`和`type`特性的JSON块。
+`folder`参数指定要浏览的父文件夹。 将其作为包含`id`和`type`的JSON对象传递。
 
-`maxReturn`参数是一个整数，它指定要返回的最大条目数。 默认值为20。 最大值为200。
+`maxReturn`整数指定最大条目数。 默认值为20，最大值为200。
 
-`offset`参数是一个整数，它指定从何处开始检索条目。 可以与`maxReturn`一起使用。 默认值为0。
+`offset`整数指定开始检索条目的位置。 将它与`maxReturn`一起使用。 默认值为0。
 
-`isActive`参数是一个布尔值，指定仅返回活动的触发器营销活动。
+设置`isActive`布尔值参数以仅返回活动的触发器营销活动。
 
 ```http
 GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:00&latestUpdatedAt=2016-09-10T23:17:00-00:00
@@ -192,11 +192,11 @@ GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:
 }
 ```
 
-使用此终结点，`result`数组中将显示一个或多个记录。
+终结点在`result`数组中返回一个或多个记录。
 
 ## 创建
 
-使用application/x-www-form-urlencoded POST以及两个必需的参数执行[创建Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)终结点。 `name`参数指定要创建的智能营销活动的名称。 `folder`参数指定创建智能营销活动的父文件夹。 格式为包含`id`和`type`特性的JSON块。
+向[创建Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)终结点发送`application/x-www-form-urlencoded`个POST请求。 `name`和`folder`参数是必需的。 将`folder`作为包含`id`和`type`的JSON对象传递。
 
 或者，您可以使用`description`参数（最多2,000个字符）描述智能营销活动。
 
@@ -250,7 +250,7 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 
 ## 更新
 
-使用application/x-www-form-urlencoded POST执行[Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset)终结点。 它将单个智能营销活动`id`作为路径参数。 您可以使用`name`参数更新智能营销活动的名称，或者使用`description`参数更新智能营销活动的描述。
+向[更新Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset)终结点发送`application/x-www-form-urlencoded`个POST请求。 smart-campaign `id`路径参数是必需的。 使用`name`更改名称，或使用`description`更改描述。
 
 ```http
 POST /rest/asset/v1/smartCampaign/{id}.json
@@ -302,7 +302,7 @@ name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 
 ## 克隆
 
-使用application/x-www-form-urlencoded POST以及三个必需的参数执行[克隆智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)终结点。 它需要指定要克隆的智能营销活动的`id`参数、指定新智能营销活动名称的`name`参数以及指定创建新智能营销活动所在的父文件夹的`folder`参数。 格式为包含`id`和`type`特性的JSON块。
+向[克隆智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)端点发送`application/x-www-form-urlencoded`个POST请求。 `id`、`name`和`folder`参数是必需的。 它们指定源营销活动、新营销活动名称和父文件夹。 将`folder`作为包含`id`和`type`的JSON对象传递。
 
 或者，您可以使用`description`参数（最多2,000个字符）描述智能营销活动。
 
@@ -378,15 +378,15 @@ POST /rest/asset/v1/smartCampaign/{id}/delete.json
 
 ## 批次
 
-在特定时间批量启动智能营销活动，并一次影响一组特定的潜在客户。
+在指定的时间批量运行智能营销活动，并将定义的潜在客户集一起处理。
 
 ## 计划
 
-使用[计划营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST)端点计划立即运行或在将来日期运行的批处理营销活动。 营销活动`id`是必需的路径参数。 可选参数为`tokens`、`runAt`和`cloneToProgram`，它们作为application/json在请求正文中传递。
+使用[计划营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST)来计划批次营销活动。 活动`id`路径参数是必需的。 在JSON请求正文中传递可选的`tokens`、`runAt`和`cloneToProgram`参数。
 
-令牌数组参数是“我的令牌”的数组，用于覆盖现有程序令牌。 营销活动运行后，令牌将被丢弃。  每个令牌数组项都包含名称/值对。 令牌的名称必须格式化为“`{{my.name}}`”。
+`tokens`数组将覆盖此运行的现有程序“我的令牌”。 在营销策划运行后，Marketo会放弃覆盖。 每个项目都包含一个名称/值对，并且令牌名称必须使用`{{my.name}}`格式。
 
-runAt日期时间参数指定运行营销活动的时间。 如果未指定，则营销活动将在调用终结点后5分钟运行。 日期时间值在以后不能超过两年。
+`runAt`日期时间参数指定运行营销活动的时间。 如果忽略，则营销活动将在请求后五分钟运行。 该值以后不能超过两年。
 
 通过此API计划的营销活动始终在运行时至少等待五分钟。
 
@@ -429,17 +429,17 @@ POST /rest/v1/campaigns/{id}/schedule.json
 
 ## 触发器
 
-触发智能营销活动根据触发的事件一次影响一个人。
+触发智能营销活动每次处理一个人以响应事件。
 
 ### 请求
 
-使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST)端点向要通过营销活动流程的触发器营销活动传递一组潜在客户。 营销活动必须具有“已请求营销活动”触发器，并将“Web服务API”作为源。
+使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST)通过触发器营销活动流程传递潜在客户。 营销活动必须使用将Web服务API用作其源的Campaign is Requested触发器。
 
-此端点需要营销活动`id`作为路径参数，以及包含潜在客户ID的`leads`整数数组参数。 每次调用最多允许100个潜在客户。
+市场活动`id`路径参数和`leads`商机ID的整数数组是必需的。 每个调用最多接受100个潜在客户。
 
 （可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“`{{my.name}}`”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
 
-`leads`和`tokens`参数在请求正文中作为application/json传递。
+在JSON请求正文中传递`leads`和`tokens`参数。
 
 ```http
 POST /rest/v1/campaigns/{id}/trigger.json
@@ -487,9 +487,9 @@ POST /rest/v1/campaigns/{id}/trigger.json
 
 [激活Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST)终结点很简单。 `id`路径参数是必需的。 要使激活成功，营销活动必须满足以下条件：
 
-- 必须停用
-- 必须具有至少一个触发器和一个流步骤
-- 必须具有无错误的触发器、过滤器和流程步骤
+- 营销活动已停用。
+- 营销活动至少具有一个触发器和一个流程步骤。
+- 营销活动具有无错误的触发器、过滤器和流程步骤。
 
 ```http
 POST /rest/asset/v1/smartCampaign/{id}/activate.json

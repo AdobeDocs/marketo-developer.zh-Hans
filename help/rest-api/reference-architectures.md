@@ -11,16 +11,16 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 44
+source-wordcount: 45
 ht-degree: 0%
 
 ---
 
 # 参考架构
 
-描述将Marketo数据与外部系统同步的最佳实践的技术文档。
+以下技术文档描述了将Marketo数据与外部系统同步的最佳实践：
 
 - [CRM同步架构](../sync-architecture-whitepaper.pdf)
 - [数据库/Data Warehouse集成架构](../reference_architecture.pdf)

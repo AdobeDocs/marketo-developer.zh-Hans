@@ -13,16 +13,16 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 614
-ht-degree: 4%
+source-wordcount: 541
+ht-degree: 5%
 
 ---
 
 # 配置
 
-Munchkin可以接受各种配置设置以自定义行为。 配置设置是在调用[Munchkin.init()](api-reference.md#munchkin_init)时作为第二个参数传递的JavaScript对象的属性
+Munchkin接受用于自定义其行为的配置设置。 将设置作为JavaScript对象的属性传递到[Munchkin.init()](api-reference.md#munchkin_init)的第二个参数。
 
 ```json
 Munchkin.init("AAA-BBB-CCC", {
@@ -38,19 +38,19 @@ Munchkin.init("AAA-BBB-CCC", {
 
 | 名称 | 数据类型 | 描述 |
 | --- | --- | --- |
-| altIds | 数组 | 接受Munchkin ID字符串的数组。 启用后，会根据定向订阅的Munchkin ID将所有Web活动复制到定向订阅。 |
+| altIds | 数组 | 接受Munchkin ID字符串的数组。 启用后，会将所有Web活动复制到其Munchkin ID标识的订阅。 |
 | anonymizeip | 布尔值 | 将Marketo中记录的新访客的IP地址匿名化。 |
 | apiOnly | 布尔值 | 如果设置为true，则`Munchkin.Init()`函数将不会调用`visitsWebPage`。 这对于需要完全控制每`visitsWebPage`个事件的单页Web应用程序非常有用。 |
-| asyncOnly | 布尔值 | 如果设置为true，则异步发送XMLHttpRequest的。 默认值为false。 |
-| clickTime | 整数 | 设置单击后要阻止的时间以允许点击跟踪请求（以毫秒为单位）。 减少此项会降低点击跟踪的准确性。 默认值为350毫秒。 |
-| cookieAnon | 布尔值 | 如果设置为false，则阻止跟踪和Cookie创建新的匿名潜在客户。 商机具有Cookie，在填写Marketo表单或通过从Marketo电子邮件点进来进行跟踪。 默认值为true。 |
+| asyncOnly | 布尔值 | 如果设置为true，则异步发送XMLHttpRequests。 默认值为false。 |
+| clickTime | 整数 | 设置单击后要阻止的时间（以毫秒为单位），以便完成点击跟踪请求。 减小此值会降低点击跟踪准确性。 默认值为350毫秒。 |
+| cookieAnon | 布尔值 | 如果设置为false，则阻止为新匿名潜在客户跟踪和Cookie创建。 在提交Marketo表单或从Marketo电子邮件点进之后，潜在客户会收到Cookie并受到跟踪。 默认值为true。 |
 | cookieLifeDays | 整数 | 将任何新创建的Munchkin跟踪Cookie的过期日期设置为将来的此天数。 默认值为730天（2年）。 |
 | customname | 字符串 | 自定义页面名称。 仅供系统使用。 |
-| <a name="domainlevel"></a>域级别 | 整数 | 设置设置Cookie的域属性时要使用的页面域部分数。例如，假设当前页面域为“www.example.com”。domainLevel： 2将Cookie域属性设置为“.example.com”domainLevel： 3将Cookie域属性设置为“。www.example.com”。Background:Munchkin将自动管理某些两个字母的顶级域。 在正常情况下，如果顶级域是三个字母，则默认使用两部分。 例如，“www.example.com”，最右侧的两个部分用于设置Cookie“.example.com”。对于两个字母的国家代码（例如“.jp”、“.us”、“.cn”和“.uk”），代码默认为三个部分。 例如，“www.example.co.jp”将使用三个最右边的域部分“.example.co.jp”。如果域模式需要不同的行为，则必须使用`domainLevel`参数指定此行为。 |
+| <a name="domainlevel"></a>域级别 | 整数 | 设置要用于Cookie的域属性的页面域部分数。<br><br>对于“www.example.com”，`domainLevel: 2`将Cookie域设置为“.example.com”，而`domainLevel: 3`将其设置为“。www.example.com”。<br><br>默认情况下，当顶级域包含三个字母时，Munchkin使用两个部分。 例如，“www.example.com”使用“.example.com”。<br><br>对于双字母国家/地区代码（例如“.jp”、“.us”、“.cn”和“.uk”），Munchkin使用三个部分。 例如，“www.example.co.jp”使用“.example.co.jp”。<br><br>当域模式需要不同的行为时，请使用`domainLevel`参数。 |
 | domainSelectorV2 | 布尔值 | 如果设置为true，则使用改进的方法来确定如何设置Cookie域属性。 |
 | httpsOnly | 布尔值 | 默认为false。 如果设置为true，则在通过https提供跟踪的页面时，会将Cookie设置为使用安全设置。 |
-| useBeaconAPI | 布尔值 | 默认为false。 当设置为true时，使用[Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)发送非阻止请求，而不是[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。 如果浏览器不支持此API，Munchkin将回退为使用XMLHttpRequest。 |
-| wsInfo | 字符串 | 采用字符串来定位工作区。 此工作区ID可通过在管理员>集成> Munchkin菜单中选择Workspace来获取。 此设置仅适用于匿名潜在客户记录的初始创建。 一旦为该潜在客户记录建立了Munchkin Cookie值，将无法使用wsInfo参数更改其分区。 由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
+| useBeaconAPI | 布尔值 | 默认为false。 当设置为true时，使用[Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API)发送非阻止请求，而不是[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest)。 如果浏览器不支持信标API，Munchkin会使用XMLHttpRequest。 |
+| wsInfo | 字符串 | 定位工作区。 通过在管理员>集成> Munchkin菜单中选择工作区，获取工作区ID。<br><br>此设置仅在最初创建匿名潜在客户记录时适用。 为该潜在客户记录建立Munchkin Cookie值后，wsInfo参数无法更改其分区。<br><br>由于此设置仅影响匿名潜在客户，因此它仅与Web报表中特定于分区的[匿名访客](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports)相关。 |
 
 ## 示例
 
@@ -86,7 +86,7 @@ Munchkin.init("AAA-BBB-CCC", {
 
 ### 将跟踪设置为异步
 
-此示例强制从主线程异步发送所有XMLHttpRequest。
+此示例强制从主线程异步发送所有XMLHttpRequests。
 
 ```javascript
 <script type="text/javascript">

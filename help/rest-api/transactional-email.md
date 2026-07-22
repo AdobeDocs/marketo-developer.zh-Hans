@@ -11,50 +11,52 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1092
+source-wordcount: 897
 ht-degree: 1%
 
 ---
 
 # 事务性电子邮件
 
-Marketo API的常见用例是通过[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST) API调用触发向特定记录发送事务性电子邮件。 Marketo中有一些配置要求使用Marketo REST API执行所需的调用。
+使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST) API向特定Marketo记录发送事务性电子邮件。 在发出请求之前，配置电子邮件并触发营销活动。
 
-- 收件人必须在Marketo中拥有记录
-- 您的Marketo实例中必须已创建和批准事务型电子邮件。
-- 必须有一个活动触发器营销活动，其名称为“Campaign is Requested， 1. Source： Web服务API”，设置为发送电子邮件
+- 确保收件人具有Marketo记录。
+- 在Marketo实例中创建和批准事务型电子邮件。
+- 激活使用“Campaign is Requested， 1”的触发器营销活动。 Source： Web服务API”并发送电子邮件。
 
-首先[创建并批准您的电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 如果电子邮件确实是事务性的，则您可能必须将其设置为可操作，但请确保它符合可操作的合法资格。 可使用电子邮件操作>电子邮件设置下的编辑屏幕对此进行配置：
+首先，[创建和批准电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 如果电子邮件在法律上符合操作条件，请在“电子邮件操作”>“电子邮件设置”下将其配置为可操作：
 
 ![Request-Campaign-Email-Settings](assets/request-campaign-email-settings.png)
 
 ![Request-Campaign-Operational](assets/request-campaign-operational.png)
 
-批准它，我们便可以创建我们的营销活动：
+在创建营销活动之前批准电子邮件：
 
 ![RequestCampaign-Prove-Draft](assets/request-campaign-approve-draft.png)
 
-如果您是创建营销活动的新手，请查看[新建Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=zh-Hans)文章。 创建活动后，我们必须完成这些步骤。 使用Campaign is Requested触发器配置智能列表：
+如果需要，请参阅[创建新的Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=zh-Hans)。 使用Campaign is Requested触发器配置活动的智能列表：
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
-现在，我们必须配置流程以将“发送电子邮件”步骤指向我们的电子邮件：
+配置引用事务型电子邮件的发送电子邮件流程步骤：
 
 ![Request-Campaign-Flow](assets/request-campaign-flow.png)
 
-在激活之前，您必须在“计划”选项卡中决定某些设置。 如果此特定电子邮件只应发送给给定记录一次，则保留资格设置。 但是，如果要求他们多次收到电子邮件，则您需要将此调整为每次或其中一个可用频率：
+在激活之前，请在“计划”选项卡上配置资格设置。 如果每个记录只接收一次电子邮件，则保留默认设置。 否则，将允许收件人每次或以可用节奏获得资格。
 
-现在，我们准备激活：
+激活营销活动：
 
 ![Request-Campaign-Schedule](assets/request-campaign-schedule.png)
 
 ## 发送API调用
 
-**注意：**&#x200B;在下面的Java示例中，我们使用[minimal-json包](https://github.com/ralfstx/minimal-json)处理代码中的JSON呈现。
+Java示例使用[minimal-json包](https://github.com/ralfstx/minimal-json)来处理JSON呈现。
 
-通过API发送事务型电子邮件的第一部分是，确保您的Marketo实例中存在具有相应电子邮件地址的记录，并且我们有权访问其商机ID。 出于本文的目的，我们假设电子邮件地址已在Marketo中，因此我们只能检索记录的ID。 为此，我们使用[按筛选器类型获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)调用。 下面我们看一下用于请求营销活动的主要方法：
+在发送电子邮件之前，确认该电子邮件地址存在Marketo记录并检索其潜在客户ID。 此示例假定电子邮件地址已存在。
+
+使用[按筛选器类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)获取潜在客户，以检索ID。 然后，以下主要方法请求营销活动：
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -88,14 +90,14 @@ public class App
 }
 ```
 
-要通过leadsRequest的JsonObject响应得到这些结果，必须编写一些代码。 要检索Array中的第一个结果，我们必须从JsonObject中提取Array，并获取在0处索引的对象：
+从`JsonObject`响应中提取结果数组，并在索引0处检索对象：
 
 ```java
 JsonArray leadsResult = leadsRequest.getData().get("result").asArray();
 int leadId = leadsResult.get(0).asObject().get("id").asInt();
 ```
 
-从现在开始，我们必须执行的是“请求营销活动”调用。 为此，需要参数：请求URL中的ID，以及包含一个成员“id”的JSON对象数组。 让我们看一下针对此的代码：
+使用请求URL中的促销活动ID调用请求促销活动。 请求正文包含具有`id`成员的JSON对象数组：
 
 ```java
 package dev.marketo.blog_request_campaign;

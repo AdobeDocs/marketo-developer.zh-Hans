@@ -10,10 +10,10 @@ feature_v2:
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 776
-ht-degree: 2%
+source-wordcount: 626
+ht-degree: 3%
 
 ---
 
@@ -21,17 +21,17 @@ ht-degree: 2%
 
 [登陆页面重定向规则端点参考](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules)
 
-Marketo提供了一组REST API，用于对登陆页面重定向URL执行CRUD操作。 这些API遵循资产API的标准界面模式，提供查询、创建、更新和删除选项。
+使用登陆页面重定向规则REST API查询、创建、更新和删除登陆页面重定向URL。
 
-利用登陆页面重定向规则，可将登陆页面URL重定向到其他页面URL。 您可以重定向Marketo登陆页面、非Marketo登陆页面或其组合。 可在[此处](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)找到有关重定向登陆页面规则的其他信息。
+重定向规则将一个登陆页面URL发送到另一个页面URL。 源和目标可以是Marketo页面或非Marketo页面。 有关相关产品文档，请参阅[Marketo Engage文档](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。
 
 ## 查询
 
-查询登陆页面重定向规则遵循[按ID](#by_id)和[浏览](#browse)的标准查询类型。
+按ID[&#128279;](#by_id)或[浏览](#browse)查询登陆页面重定向规则。
 
 ### 按Id
 
-[按ID获取登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET)端点采用单个登陆页面规则重定向`id`路径参数并返回单个登陆页面重定向规则记录。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET)获取登陆页面重定向规则端点采用一个重定向规则`id`路径参数并返回匹配记录。
 
 ```http
 GET /rest/asset/v1/redirectRule/{id}.json
@@ -66,17 +66,17 @@ GET /rest/asset/v1/redirectRule/{id}.json
 
 ### 浏览
 
-[获取登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET)端点返回登陆页面重定向规则记录的列表。
+[获取登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET)端点返回登陆页面重定向规则记录。
 
-可以通过传递多个可选查询参数来筛选结果。
+使用可选的查询参数筛选结果。
 
 `offset`参数是一个整数，它指定要返回的最大条目数（默认值为20）。 最大值为200。 `maxReturn`参数是一个整数，它指定从何处开始检索条目。 可以与offset一起使用（默认值为0）。
 
-`hostname`参数可用于根据登陆页的主机名进行筛选。
+`hostname`参数按登陆页主机名进行筛选。
 
-`redirectToLandingPageId`是一个整数，可用于过滤要重定向到的登陆页面的ID。 `redirectToPath`可用于过滤要重定向到的登陆页面的路径。
+`redirectToLandingPageId`整数按目标登陆页面ID进行筛选。 `redirectToPath`参数按目标登陆页面路径进行筛选。
 
-`earliestUpdatedAt`和`latestUpdatedAt`参数允许您为返回登陆页面重定向规则（在给定范围内已更新或最初创建）设置低日期和高日期时间水印。
+`earliestUpdatedAt`和`latestUpdatedAt`参数设置低日期时间边界和高日期时间边界。 端点返回在该范围内创建或更新的规则。
 
 ```http
 GET /rest/asset/v1/redirectRules.json&maxReturn=3
@@ -143,11 +143,11 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## 创建
 
-使用application/x-www-form-urlencoded POST执行[创建登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST)端点，该POST具有以下三个必需参数。
+使用`application/x-www-form-urlencoded` POST请求调用[创建登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST)端点。 请求具有三个必需的参数。
 
-`hostname`参数指定登陆页的主机名。 这应该属于品牌策略域或别名。 最大长度为255个字符。
+`hostname`参数指定登陆页面主机名。 它必须属于品牌策略域或别名，且不能超过255个字符。
 
-`redirectFrom`参数指定源登陆页面。 这是一个JSON对象，其中包含类型/值对，可确定源是Marketo登陆页面，还是非Marketo登陆页面。 `type`属性可以是“landingPageId”或“path”。
+`redirectFrom`参数将源登陆页面指定为具有类型/值对的JSON对象。 对于Marketo登录页面，`type`属性可以是`landingPageId`，对于非Marketo页面可以是`path`。
 
 | 参数 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -155,14 +155,14 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 | &#39;访客&#39; | 必需 | 字符串 | 方法名称。 |
 | callback | 必需 | 函数 | 要为每个返回的营销活动触发的回调函数。 |
 
-`redirectTo`参数指定目标登陆页面。 这是一个JSON对象，其中包含类型/值对，可确定源是Marketo登陆页面，还是非Marketo登陆页面。 `type`属性可以是“landingPageId”或“url”。
+`redirectTo`参数将目标指定为具有类型/值对的JSON对象。 对于Marketo登录页面，`type`属性可以是`landingPageId`，对于非Marketo页面可以是`url`。
 
 | 登陆页面类型 | redirectTo类型 | 示例 |
 | --- | --- | --- |
 | Marketo | landingPageId | {&quot;type&quot;：&quot;landingPageId&quot;，&quot;value&quot;：&quot;1774&quot;} |
 | 非Marketo | url | {&quot;type&quot;：&quot;url&quot;，&quot;value&quot;：&quot;www.contactLogs.com&quot;} |
 
-有关创建登陆页面重定向规则的更多信息，请访问[此处](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
+有关详细信息，请参阅[将Marketo登录页面重定向到其他页面](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
 
 ```http
 POST /rest/asset/v1/redirectRules.json
@@ -205,11 +205,11 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## 更新
 
-[更新登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST)端点采用单个登陆页面重定向规则`id`路径参数。 此端点使用application/x-www-form-urlencoded POST执行。
+[更新登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST)终结点采用一个重定向规则`id`路径参数。 将更新作为`application/x-www-form-urlencoded` POST请求发送。
 
-与上述创建调用一样，传递了以下一个或多个查询参数以指定要更新的规则属性： `hostname`、`redirectFrom`、`redirectTo`。
+传递一个或多个这些参数以选择要更新的属性： `hostname`、`redirectFrom`或`redirectTo`。
 
-更新的登陆页面重定向规则记录将在响应中返回。
+响应将返回更新的重定向规则记录。
 
 ```http
 POST /rest/asset/v1/redirectRule/{id}.json
@@ -252,7 +252,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## 删除
 
-[按Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST)端点删除登陆页面重定向规则采用单个登陆页面规则重定向`id`路径参数。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST)端点删除登陆页面重定向规则采用一个重定向规则`id`路径参数。
 
 ```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
@@ -274,9 +274,9 @@ POST /rest/asset/v1/redirectRule/{id}/delete.json
 
 ## 浏览登陆页面域
 
-[获取登陆页面域](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET)端点返回登陆页面域记录的列表。
+[获取登陆页面域](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET)终结点返回登陆页面域记录。
 
-有两个可选的查询参数可以传递以筛选结果。
+使用两个可选查询参数筛选结果。
 
 `offset`参数是一个整数，它指定要返回的最大条目数（默认值为20，最大值为200）。
 

@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 962
+source-wordcount: 771
 ht-degree: 0%
 
 ---
@@ -23,34 +23,47 @@ ht-degree: 0%
 
 [批量程序成员导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members)
 
-对于大量程序成员记录，可以使用[批量API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members)异步导入程序成员。 这样，您就可以使用带有分隔符（逗号、制表符或分号）的平面文件，将一系列记录导入Marketo。 文件可以包含任意数量的记录，只要文件总计小于10MB即可。 记录操作仅限“插入或更新”。
+使用[批量API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members)异步导入大量程序成员记录。 以逗号、制表符或分号分隔的平面文件提供小于10 MB的记录。
+
+批量程序成员导入仅支持“插入或更新”记录操作。
 
 ## 处理限制
 
-您可以提交多个批量导入请求，但存在限制。 每个请求都将作为作业添加到要处理的FIFO队列。 最多可同时处理两个作业。 在任意给定时间（包括当前正在处理的2个），队列中最多允许10个作业。 如果超过十个作业的最大值，则会返回“1016，导入次数过多”错误。
+每个批量导入请求都将作为作业添加到先进先出(FIFO)队列。 以下限制适用：
+
+- 最多可同时处理两个作业。
+- 队列中最多可以有10个作业，包括正在处理的两个作业。
+
+如果超过10个作业的最大值，则API返回`1016, Too many imports`错误。
 
 ## 导入文件
 
-文件的第一行必须是标头，该标头将相应的REST API名称作为字段列出，以便将每行的值映射到其中。 可以使用[Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2)和/或[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeProgramMemberUsingGET)端点检索REST API名称。 记录可以包含潜在客户字段、自定义潜在客户字段和自定义计划成员字段。
+文件的第一行必须是标头，该标头列出了每行中的值所映射到的REST API字段名称。 使用[Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2)和[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeProgramMemberUsingGET)端点检索这些名称。
 
-典型的文件将遵循以下基本模式：
+记录可以包含潜在客户字段、自定义潜在客户字段和自定义计划成员字段。
+
+典型文件遵循以下模式：
 
 ```text
 email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-调用本身是使用`multipart/form-data`内容类型进行的。
-
-此请求类型可能难以实施，因此强烈建议您使用现有的库实施。
+使用`multipart/form-data`内容类型发送请求。 使用现有的库实现来构造多部分请求。
 
 ## 创建作业
 
-[导入程序成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST)终结点读取包含程序成员记录的文件，并将它们添加到具有给定状态的程序中。 记录可以同时包含潜在客户字段和项目群成员自定义字段。 所有记录都必须包含email字段，该字段用于重复数据删除目的。
+[导入程序成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST)终结点从文件中读取程序成员记录，并将其添加到具有指定状态的程序中。 记录可以包含潜在客户字段和自定义项目群成员字段。
+
+每个记录都必须包含用于重复数据删除的email字段。
 
 `programId` path参数指定向其中添加成员的程序。
 
-有三个必需的查询参数。 `format`参数指定导入文件格式（CSV、TSV或SSV），`programMemberStatus`参数为要添加到程序中的成员指定程序状态，而`file`参数包含包含包含程序成员记录的导入文件的名称。
+该请求需要三个查询参数：
+
+- `format`：导入文件格式（`CSV`、`TSV`或`SSV`）。
+- `programMemberStatus`：分配给导入成员的项目群状态。
+- `file`：包含程序成员记录的文件的名称。
 
 ```http
 POST /bulk/v1/program/{programId}/members/import.json?format=csv&programMemberStatus=On List
@@ -94,15 +107,17 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 }
 ```
 
-请注意，在响应我们的调用时，结果数组中的记录有`batchId`和`status`字段。 由于此端点是异步的，因此它可以返回“已排队”、“正在导入”或“失败”状态。 您必须保留`batchId`才能获取导入作业的状态，并在完成时检索失败和/或警告。 `batchId`的有效期为七天。
+由于终结点是异步的，响应包含`batchId`和`status`字段。 状态可以是`Queued`、`Importing`或`Failed`。
 
-使用上面的示例，调用端点的简单方法是从命令行使用cURL：
+保留`batchId`以检查导入状态并在完成之后检索失败或警告。 `batchId`的有效期为七天。
+
+以下命令行cURL请求提交示例作业：
 
 ```bash
 curl -i -F format='csv' -F programMemberStatus='On List' -F file='@Lead-House-Lannister.csv' -F access_token='<Access Token>' <REST API Endpoint Base URL>/bulk/v1/program/{programId}/members/import.json
 ```
 
-其中，导入文件“Lead-House-Lannister.csv”包含以下内容：
+在此示例中，`Lead-House-Lannister.csv`导入文件包含以下数据：
 
 ```text
 firstName,lastName,email,title,company,leadScore
@@ -118,7 +133,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## 轮询作业状态
 
-创建导入作业后，必须查询其状态。 最佳实践是每5-30秒轮询一次导入作业。 为此，请将`batchId`路径参数传递到[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)终结点。
+创建导入作业后，每5-30秒轮询一次。 将`batchId`路径参数传递到[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)终结点。
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -142,21 +157,21 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 }
 ```
 
-此响应显示已完成的导入。 状态可以是：“完成”、“已排队”、“导入”、“失败”之一。
+此响应显示已完成的导入。 状态可以是`Complete`、`Queued`、`Importing`或`Failed`。
 
-如果作业已完成，则会列出已处理、失败或出现警告的行数。 如果状态为“失败”，则消息参数可能也会给出失败消息。
+作业完成后，响应将列出已处理、失败和已处理但出现警告的行数。 当状态为`Failed`时，`message`参数也可以提供失败消息。
 
 ## 故障
 
-[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败。 如果numOfRowsFailed大于零，则该值表示发生的失败次数。
+[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败的行数。 值大于零表示发生故障。
 
-使用“获取导入程序成员失败”端点通过传递`batchId`路径参数来检索失败行的记录和原因。
+将`batchId`路径参数传递到“获取导入程序成员失败”终结点，以检索失败记录及其原因。
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/failures.json
 ```
 
-终结点以一个文件作出响应，该文件指示哪些行失败，同时显示一条消息，指示记录失败的原因。 文件格式与作业创建期间在`format`参数中指定的格式相同。 附加字段将附加到每个记录中并包含失败描述。
+端点返回一个标识每个失败行的文件，并解释记录失败的原因。 该文件在创建作业期间使用`format`参数指定的格式。 每个记录上的附加字段描述了失败。
 
 例如，假设您导入的以下文件具有无效商机分数：
 
@@ -165,7 +180,7 @@ firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD
 ```
 
-当您检查作业状态时，您看到`numOfRowsFailed`为1，这表示发生了故障：
+作业状态返回`numOfRowsFailed`为1，表示发生了故障：
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -189,7 +204,7 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 }
 ```
 
-然后，检索故障文件以获取有关故障的其他详细信息：
+检索故障文件以了解更多信息：
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/failures.json
@@ -202,15 +217,15 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## 警告
 
-[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsWithWarning`属性指示警告。 如果`numOfRowsWithWarning`大于零，则该值表示发生的警告数。
+[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsWithWarning`属性指示带有警告的行数。 值大于零表示出现警告。
 
-使用[获取导入程序成员警告](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET)终结点通过传递`batchId`路径参数来检索记录以及警告行的原因。
+将`batchId`路径参数传递到[获取导入程序成员警告](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET)终结点，以检索受影响的记录及其原因。
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json
 ```
 
-终结点以一个文件作出响应，该文件指示哪些行生成了警告，同时还会显示一条消息，指示记录生成警告的原因。 文件格式与作业创建期间在`format`参数中指定的格式相同。 附加字段将附加到每个记录并附有警告说明。
+端点返回一个文件，该文件用警告标识每一行并解释警告发生的原因。 该文件在创建作业期间使用`format`参数指定的格式。 每个记录上的附加字段都描述了警告。
 
 例如，假设您导入的以下文件具有无效的电子邮件地址：
 
@@ -219,7 +234,7 @@ firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0
 ```
 
-当您检查作业状态时，您看到`numOfRowsWithWarning`为1，这表示出现了警告：
+作业状态返回`numOfRowsWithWarning`为1，表示出现警告：
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -243,7 +258,7 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 }
 ```
 
-然后，可检索警告文件以获取有关警告的其他详细信息：
+检索警告文件以了解更多信息：
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json

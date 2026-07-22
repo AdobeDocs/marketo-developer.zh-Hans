@@ -12,20 +12,20 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1373
+source-wordcount: 1058
 ht-degree: 1%
 
 ---
 
 # 潜在客户数据库
 
-Marketo Lead Database API是Marketo提供的最常用的API，因为它们允许来自Marketo的人员和人员相关数据（如活动、商机和公司）的数据交换。
+Marketo潜在客户数据库API与Marketo交换人员和人员相关数据。 此数据包括活动、机会和公司。
 
 ## 对象
 
-潜在客户数据库对象包括：
+Lead数据库包括以下对象：
 
 - 潜在客户
 - 公司/帐户
@@ -37,13 +37,15 @@ Marketo Lead Database API是Marketo提供的最常用的API，因为它们允许
 - 活动
 - 列表和计划成员资格
 
-这些对象中的大多数至少包括Create、Read、Update和Delete方法。 其中还包括一个“描述”方法，该方法提供了每种类型的可用字段列表，用于重复数据消除的字段列表（对于非Lead对象），以及可搜索哪些字段以检索记录。 我们为潜在客户提供的功能集最丰富，因为他们在Marketo应用程序中拥有的功能种类最多。
+大多数Lead Database对象都支持Create、Read、Update和Delete方法。 Describe方法提供了每种对象类型的可用字段。 对于非Lead对象，它还标识用于重复数据消除的字段以及在检索记录时可搜索的字段。
+
+潜在客户对象支持最广泛的功能集，因为潜在客户在Marketo应用程序中的用途最多。
 
 ## API
 
-有关Lead数据库API端点的完整列表，包括参数和建模信息，请参阅[Lead数据库API端点参考](https://developer.adobe.com/marketo-apis/api/mapi)。
+有关Lead数据库API端点、参数和建模信息的完整列表，请参阅[Lead数据库API端点参考](https://developer.adobe.com/marketo-apis/api/mapi)。
 
-对于启用了本机CRM集成（Microsoft Dynamics或Salesforce.com）的实例，将禁用Company、Opportunity、Opportunity Role和Sales Person API。 记录在启用时通过CRM进行管理，并且无法通过Marketo的API访问或更新。
+当实例具有本机Microsoft Dynamics或Salesforce.com CRM集成时， Company 、 Opportunity 、 Opportunity Role和Sales Person API将被禁用。 CRM将管理这些记录，因此您无法通过Marketo API访问或更新它们。
 
 - 最大批次大小（标准）：300条记录
 - 最大批次大小（批量）：10MB文件
@@ -53,7 +55,12 @@ Marketo Lead Database API是Marketo提供的最常用的API，因为它们允许
 
 ## 描述
 
-对于Lead 、 Companies 、 Opportunity 、 Roles 、 SalesPerson和Custom Objects ，提供了一个描述API。 调用此项将检索对象的元数据，以及可用于更新和查询的字段列表。 描述是设计与Marketo的正确集成的重要组成部分。 它提供了丰富的元数据，介绍了如何与对象进行交互和无法与对象进行交互，以及如何创建、更新和查询对象。 除了描述潜在客户之外，每个潜在客户都在`dedupeFields`响应参数中返回可用于`deduplication`的键列表。 字段列表可用作在`searchableFields`响应参数中进行查询的键。
+Describe API适用于Leads、Companies、Opportunity、Roles、SalesPerson和Custom Object。 使用它检索对象元数据和可用于更新和查询的字段。
+
+除Describe Lead外，每个Describe端点都将返回：
+
+- `dedupeFields`：可用于重复数据删除的键。
+- `searchableFields`：可用于查询的键。
 
 ```http
 GET /rest/v1/opportunities/roles/describe.json
@@ -137,26 +144,36 @@ GET /rest/v1/opportunities/roles/describe.json
 }
 ```
 
-在此示例中，`dedupeFields`实际上是一个复合键。 这意味着，在将来的更新和创建中，在使用`dedupeFields`模式时，您必须为每个角色包含`externalOpportunityId`、`leadId`和`role`的所有三个。 `searchableFields`数组还提供了可用于查询角色记录的字段列表。 这还包括`externalOpportunityId`、`leadId`和`role`的复合键。
+在此示例中，`dedupeFields`是复合键。 当您使用`dedupeFields`模式进行以后的创建和更新时，请为每个角色包含`externalOpportunityId`、`leadId`和`role`。
 
-还有一个字段响应参数，该参数将提供每个字段的名称、显示在Marketo UI中的`displayName`、字段的数据类型、创建后是否可以更新以及字段的长度（如果适用）。
+`searchableFields`数组列出了可用于查询角色记录的字段。 此列表包括`externalOpportunityId`、`leadId`和`role`的复合键。
+
+`fields`响应参数为每个字段提供以下信息：
+
+- 名称。
+- `displayName`，如Marketo UI中所示。
+- 数据类型。
+- 字段在创建后是否可以更新。
+- 字段长度（如果适用）。
 
 ## 查询
 
-Lead Database对象都共享用于查询简单键的基本模式，其中仅引用一个字段。
+Lead Database对象共享引用一个字段的简单键的基本查询模式。
 
 ```http
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
-对于除潜在客户之外的所有对象，您可以从相应的describe调用的searchableFields中选择{field to query}，并撰写最多300个值的逗号分隔列表。 还有以下可选查询参数：
+对于除潜在客户之外的所有对象，从对应的Describe响应中的`searchableFields`中选择`{field to query}`。 提供最多300个值的逗号分隔列表。
 
-- `batchSize` — 要返回的结果数的整数计数。 默认值和最大值是300。
-- `nextPageToken` — 从上一次分页调用返回的令牌。 有关详细信息，请参阅[分页令牌](paging-tokens.md)。
-- `fields` — 要为每个记录返回的以逗号分隔的字段名称列表。 有关有效字段列表，请参阅相应的描述。 如果请求了某个特定字段但未返回，则该值将默认为空。
-- `_method` — 用于使用POST HTTP方法提交查询。 请参阅下面的_method=GET部分以了解用法。
+您还可以包含以下可选查询参数：
 
-下面是一个快速示例，我们来了解一下查询销售机会：
+- `batchSize`：一个整数，它指定要返回的结果数。 缺省值和最大值是300。
+- `nextPageToken`：从上一调用返回的分页令牌。 有关详细信息，请参阅[分页令牌](paging-tokens.md)。
+- `fields`：要为每个记录返回的以逗号分隔的字段名称列表。 查看有效字段的相应描述。 如果请求未返回的字段，则其值默认为空。
+- `_method`：使用POST HTTP方法提交查询。 请参阅_method=GET部分以了解用法。
+
+以下示例查询业务机会：
 
 ```http
 GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
@@ -189,13 +206,17 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 }
 ```
 
-此调用中指定的`filterType`是“idField”，而不是“marketoGUID”。 这和“dedupeFields”都是特殊情况，在这种情况下，对应于idField或dedupeFields的字段可以按此方式进行别名。 “marketoGUID”仍然是调用中生成的查找字段，但它未在调用中显式设置。 对象描述的`idField`和`dedupeFields`指示的字段和/或字段集对于查询始终有效`filterTypes`。 此调用将搜索与filterValues中包含的GUID匹配的记录，并返回任何匹配的记录。 如果没有使用此方法找到记录，响应仍指示成功，但结果数组将为空，因为搜索已成功执行，但没有要返回的记录。
+此调用中的`filterType`是“idField”，而不是“marketoGUID”。 “idField”和“dedupeFields”都是特殊情况，允许您为相应一个或多个字段使用别名。 尽管调用没有明确设置“marketoGUID”，但它仍然是查找字段。
 
-如果查询中的记录集超过300或指定的`batchSize`（以较小者为准），则响应将具有一个值为true的成员`moreResult`和一个可包含在后续调用中以检索更多集合的`nextPageToken`。 有关详细信息，请参阅[分页令牌](paging-tokens.md)。
+对象描述中由`idField`和`dedupeFields`标识的字段或字段集对于查询始终有效`filterTypes`。 此调用返回与filterValues中的GUID匹配的记录。 如果没有匹配的记录，则响应将指示success并返回空的结果数组。
+
+如果匹配的记录集超过300或指定的`batchSize`（取较小者），则响应将包含值为true的`moreResult`和`nextPageToken`。 在后续调用中包含该令牌以检索更多记录。 有关详细信息，请参阅[分页令牌](paging-tokens.md)。
 
 ### 长URI
 
-有时，例如通过GUID进行查询时，您的URI可能会很长，并且超过REST服务所允许的8KB。 在这种情况下，您必须使用HTTP POST方法而不是GET，并添加查询参数`_method=GET`。 此外，其余查询参数必须作为“application/x-www-form-urlencoded”字符串传递到POST正文中，并传递关联的Content-type标头。
+URI可以超过REST服务的8KB限制，例如，当您按GUID进行查询时。 在这种情况下，请使用HTTP POST方法而不是GET并添加`_method=GET`查询参数。
+
+将其余查询参数作为“application/x-www-form-urlencoded”字符串传递到POST正文中。 同时传递关联的Content-type标头。
 
 ```http
 POST /rest/v1/opportunities.json?_method=GET
@@ -209,11 +230,13 @@ Content-Type: application/x-www-form-urlencoded
 filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb,544fb7f5-2ddf-4fca-ae32-7e6ef1415e9f,f1ba41a2-69d1-4a35-9807-0e159d66f2c9,f7521272-3331-4a89-a768-222baff2f894
 ```
 
-除了长URI外，查询复合键时也需要此参数。
+查询复合键时还需要`_method=GET`参数。
 
 ### 复合键
 
-查询复合键的模式与简单键不同，因为它需要提交带有JSON主体的POST。 这并非在所有情况下都需要，仅当使用具有多个字段的`dedupeFields`选项作为`filterType`时才需要。 目前，复合键仅由Opportunity角色和一些自定义对象使用。 让我们看一下使用`dedupeFields`中的复合键查询Opportunity Roles的示例：
+要查询复合键，请提交带有JSON正文的POST请求。 仅当`filterType`是具有多个字段的`dedupeFields`选项时才使用此模式。
+
+复合键当前仅由Opportunity Roles和一些自定义对象使用。 以下示例使用复合键从`dedupeFields`查询机会角色：
 
 ```http
 POST /rest/v1/opportunities/roles.json?_method=GET
@@ -248,15 +271,26 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-JSON对象的结构大部分是平面的，具有简单键的查询的所有查询参数都是有效成员，`filterValues`除外。 有一个JSON对象的“输入”数组，而不是筛选器值，对于每个对象，复合键中的每个字段都必须有一个成员；在这种情况下，它们是`externalOpportunityId`、`leadId`和`role`。 这将对提供的输入执行`roles`的查询并返回匹配结果。 如果响应返回带有`moreResult=true`和`nextPageToken`的参数，则必须包括所有原始输入和`nextPageToken`，查询才能正确执行。
+JSON对象接受用于简单键查询的所有查询参数，但`filterValues`除外。 提供JSON对象的“输入”数组而不是`filterValues`。 每个对象必须包含复合键中的每个字段。 在此示例中，字段为`externalOpportunityId`、`leadId`和`role`。
+
+请求根据提供的输入查询`roles`并返回匹配结果。 如果响应包含`moreResult=true`和`nextPageToken`，请在下一个请求中包含所有原始输入和`nextPageToken`。
 
 ## 创建和更新
 
-为潜在客户数据库记录创建和更新，均通过带有JSON主体的POST执行。 Opportunity 、 Roles 、 Custom Objects 、 Company和SalesPerson的界面是相同的。 Lead的界面稍有不同，您可以在此处详细了解它。
+通过发送带有JSON主体的POST请求创建和更新Lead Database记录。 Opportunity 、 Roles 、 Custom Objects 、 Company和SalesPerson使用相同的界面。 潜在客户使用不同的界面，有关该界面的说明，请参见Leads文档。
 
-唯一必需的参数是一个名为`input`的数组，它最多包含300个对象，每个对象具有要作为成员插入/更新的字段。 您还可以选择包含`action`参数，该参数可以是： `createOnly`、`updateOnly`或`createOrUpdate`之一。 如果省略该操作，则模式默认为`createOrUpdate`。 `dedupeBy`是另一个可选参数，可在操作设置为createOnly或`createOrUpdate`时使用。 `dedupeBy`可以是`idField`或`dedupeFields`。 如果选择`idField`，则说明中列出的`idField`将用于重复数据删除，并且必须包含在每个记录中。 `idField`模式与`createOnly`模式不兼容。 如果选择`dedupeFields` ，则在使用的对象描述中列出`dedupeFields`，并且每个记录中都必须包含每个描述。 如果省略`dedupeBy`参数，则模式默认为`dedupeFields`。
+唯一需要的参数是`input`，一个最多包含300个对象的数组。 每个对象都包含要插入或更新的字段。
 
-传递字段值列表时，`null`的值或空字符串将作为`null`写入数据库。
+您还可以包含以下可选参数：
+
+- `action`：接受`createOnly`、`updateOnly`或`createOrUpdate`。 如果忽略，则模式默认为`createOrUpdate`。
+- `dedupeBy`：当操作设置为createOnly或`createOrUpdate`时，接受`idField`或`dedupeFields`。 如果忽略，则模式默认为`dedupeFields`。
+
+当`dedupeBy`为`idField`时，描述中列出的`idField`用于重复数据删除，必须包含在每个记录中。 `idField`模式与`createOnly`模式不兼容。
+
+当`dedupeBy`为`dedupeFields`时，在每个记录中包括对象描述中列出的每个`dedupeFields`字段。
+
+传递字段值时，数据库将值`null`或空字符串写入为`null`。
 
 ```http
 POST /rest/v1/opportunities.json
@@ -304,11 +338,15 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-除潜在客户API外，创建或更新潜在客户数据库对象的调用在`result`数组中的每个对象中返回`seq`字段。 列出的编号对应于在请求中更新记录的顺序。 每个项都返回对象类型的`idField`值和`status`。 状态字段指示“已创建”、“已更新”或“已跳过”之一。  如果跳过状态，则还会有相应的“原因”数组，其中一个或多个原因对象包括代码和消息，指示跳过记录的原因。 有关其他详细信息，请参阅[错误代码](error-codes.md)。
+除潜在客户API外，创建和更新调用在`result`数组中的每个对象中返回`seq`字段。 编号对应于请求中已更新记录的位置。
+
+每个结果还返回对象类型的`idField`值和`status`的“已创建”、“已更新”或“已跳过”。 如果跳过状态，结果将包含“原因”数组。 每个原因对象都包含一个代码和消息，用于解释跳过记录的原因。 有关详细信息，请参阅[错误代码](error-codes.md)。
 
 ### 删除
 
-除潜在客户外，删除界面是Lead数据库对象的标准界面。 除输入外，只有一个必需的参数`deleteBy,`可以具有idField或dedupeFields值。 让我们看一下删除一些自定义对象。
+除潜在客户外，Lead Database对象使用标准的删除界面。 除了输入之外，唯一必需的参数是接受idField或dedupeFields的`deleteBy,`。
+
+以下示例删除自定义对象：
 
 ```http
 POST /rest/v1/customobjects/{name}/delete.json
@@ -360,6 +398,6 @@ POST /rest/v1/customobjects/{name}/delete.json
 }
 ```
 
-您现在应该已经熟悉`seq`、`status`、`marketoGUID`和`reasons`。
+响应包括`seq`、`status`和`marketoGUID`。 对于跳过的记录，它还包括`reasons`。
 
-有关使用每种对象类型的CRUD操作的更多详细信息，请查看其各自的页面。
+有关特定对象类型的CRUD操作的详细信息，请参阅有关该对象的文档。

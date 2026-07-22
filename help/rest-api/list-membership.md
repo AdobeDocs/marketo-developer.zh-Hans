@@ -3,10 +3,10 @@ title: 列表成员资格（静态列表）
 feature: REST API, Static Lists
 description: 使用Marketo潜在客户数据库REST API向静态列表添加潜在客户、删除潜在客户、检索列表成员和检查列表成员资格。
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '482'
-ht-degree: 4%
+source-wordcount: '427'
+ht-degree: 5%
 
 ---
 
@@ -14,7 +14,12 @@ ht-degree: 4%
 
 [列表成员资格端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists)
 
-List Membership API提供了用于处理静态列表成员的Lead Database端点。 这些端点可用于向列表添加潜在客户、从列表中删除潜在客户、检索列表的成员以及确定一个或多个潜在客户是否是列表的成员。
+List Membership API提供了用于管理静态列表成员的Lead Database端点。 使用这些端点可以：
+
+- 将潜在客户添加到列表。
+- 从列表中删除潜在客户。
+- 检索列表的成员。
+- 确定潜在客户是否为列表的成员。
 
 ## 端点
 
@@ -27,9 +32,9 @@ List Membership API提供了用于处理静态列表成员的Lead Database端点
 
 ## 添加到列表
 
-[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST)终结点用于将一个或多个成员添加到列表。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
+使用[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST)终结点向列表添加一个或多个成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
 
-响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
+响应包含一个`result`数组，请求中每个潜在客户ID的状态均为该数组。
 
 ```http
 POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
@@ -60,9 +65,9 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## 从列表中移除
 
-[从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE)终结点用于从列表中删除一个或多个成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
+使用[从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE)终结点从列表中删除一个或多个成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
 
-响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
+响应包含一个`result`数组，请求中每个潜在客户ID的状态均为该数组。
 
 ```http
 DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
@@ -97,15 +102,15 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## 按列表ID获取潜在客户
 
-[按列表ID &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET)获取潜在客户端点用于检索列表的成员。 终结点采用必需的`listId`路径参数，并允许多个可选查询参数指定筛选条件。
+使用[按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET)端点检索列表的成员。 传递所需的`listId`路径参数。 您还可以传递可选的查询参数以指定筛选条件。
 
-`batchSize`参数用于指定在单个调用中返回的潜在客户记录数。 默认值和最大值是300。
+可选的查询参数包括：
 
-`nextPageToken`参数用于在大型结果集中分页。 此参数不是在第一次调用中传递，而是仅在后续分页调用中传递。
+- `batchSize`：指定在一次调用中返回的潜在客户记录数。 缺省值和最大值是300。
+- `nextPageToken`：对大型结果集进行分页。 在第一次调用中省略此参数，并将其包含在后续调用中。
+- `fields`：指定要返回的以逗号分隔的字段名称列表。 如果忽略此参数，则响应将包括`email`、`updatedAt`、`createdAt`、`lastName`、`firstName`和`id`。
 
-`fields`参数包含响应中要返回的以逗号分隔的字段名称列表。 如果此请求中未包含`fields`参数，则返回以下默认字段： `email`、`updatedAt`、`createdAt`、`lastName`、`firstName`和`id`。
-
-响应包含一个`result`数组，该数组由包含请求中指定的潜在客户字段的JSON对象组成。
+响应包含具有在请求中指定的潜在客户字段的`result`数组。
 
 ```http
 GET /rest/v1/lists/{listId}/leads.json?batchSize=3
@@ -147,9 +152,9 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## List 会员
 
-List[&#128279;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)终结点的成员用于查看一个或多个潜在客户是否为列表的成员。 终结点采用必需的`listId`路径参数，以及一个或多个`id`查询参数，这些参数包含潜在客户ID（允许的最大值为300）。
+使用[Member of List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)端点确定一个或多个潜在客户是否为列表的成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
 
-响应包含由JSON对象组成的`result`数组，每个潜在客户ID的状态在请求中指定。
+响应包含一个`result`数组，请求中每个潜在客户ID的状态均为该数组。
 
 ```http
 GET /rest/v1/lists/{listId}/leads/ismember.json?id=309901&id=318603&id=999999

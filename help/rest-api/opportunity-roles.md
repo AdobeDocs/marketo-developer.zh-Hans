@@ -10,9 +10,9 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 279
+source-wordcount: 254
 ht-degree: 0%
 
 ---
@@ -21,13 +21,13 @@ ht-degree: 0%
 
 [机会角色端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
-潜在客户通过中间`opportunityRole`对象链接到商机。
+中间`opportunityRole`对象链接指向商机。
 
-机会角色API仅对未启用本机CRM同步的订阅公开。
+机会角色API仅适用于未启用本机CRM同步的订阅。
 
 ## 描述
 
-与机会一样，会向机会角色显示描述性呼叫和CRUD操作。
+与机会一样，API为机会角色提供了Describe调用和CRUD操作。
 
 ```http
 GET /rest/v1/opportunities/roles/describe.json
@@ -113,7 +113,9 @@ GET /rest/v1/opportunities/roles/describe.json
 
 ## 查询
 
-请注意，`dedupeFields`和`searchableFields`都与机会稍有不同。 `dedupeFields`实际上提供了一个复合键，其中`externalOpportunityId`、`leadId`和`role`的所有三个都是必需的。 目标实例中必须同时存在按ID字段排列的商机和商机链接，才能成功创建记录。 对于`searchableFields`、`marketoGUID`、`leadId`和`externalOpportunityId`，它们都自己对查询有效，并且使用的模式与“机会”相同，但有一个附加选项，即使用复合键进行查询，该选项要求通过POST提交JSON对象，并使用附加查询参数`_method=GET`。
+`dedupeFields`和`searchableFields`值与机会不同。 `dedupeFields`提供了一个需要`externalOpportunityId`、`leadId`和`role`的复合键。 要成功创建记录，目标实例中必须存在由ID字段引用的机会和商机。
+
+`searchableFields`值`marketoGUID`、`leadId`和`externalOpportunityId`对于与机会使用相同模式的单个查询有效。 您还可以通过复合键进行查询。 此查询需要使用`_method=GET`查询参数通过POST提交的JSON对象。
 
 ```http
 POST /rest/v1/opportunities/roles.json?_method=GET
@@ -148,11 +150,11 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-这将生成与标准GET查询相同的响应类型，只是它有不同的界面来发出请求。
+此请求生成与标准GET查询相同的响应类型，但使用不同的请求接口。
 
 ## 创建和更新
 
-Opportunity角色与创建和更新记录的Opportunity界面相同。
+使用与业务机会相同的界面创建和更新业务机会角色。
 
 ```http
 POST /rest/v1/opportunities/roles.json
@@ -200,7 +202,9 @@ POST /rest/v1/opportunities/roles.json
 
 ## 删除
 
-您可以按重复数据消除字段或ID字段删除机会角色。 使用值为dedupeFields或idField的deleteBy参数指定。 如果未指定，则缺省值为dedupeFields。 请求正文包含一个要删除的商机角色的输入数组。 每个调用最多允许300个机会角色。
+按重复数据消除字段或ID字段删除机会角色。 将deleteBy参数设置为dedupeFields或idField。 缺省值为dedupeFields。
+
+请求正文包含一个要删除的商机角色的输入数组。 每个呼叫最多允许300个机会角色。
 
 ```http
 POST /rest/v1/opportunities/roles/delete.json
@@ -235,6 +239,6 @@ POST /rest/v1/opportunities/roles/delete.json
 
 ## 超时
 
-- 除非下面说明，否则机会角色端点的超时为30秒
-   - 同步机会角色：60秒
-   - 删除机会角色：60秒
+- 除非另有说明，否则机会角色端点的超时为30秒。
+- 同步机会角色的超时为60秒。
+- 删除机会角色的超时为60秒。

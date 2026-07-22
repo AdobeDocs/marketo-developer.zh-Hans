@@ -15,21 +15,21 @@ role_v2:
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 223
+source-wordcount: 214
 ht-degree: 4%
 
 ---
 
 # 获取访客数据
 
-该方法用于实时获取访客身份识别数据。
+使用此方法可实时获取访客识别数据。
 
-- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
-如果发生错误，响应JSON中将出现一条错误消息。 如果返回了500代码，请与支持人员联系以告知您提出的请求。
+如果发生错误，响应JSON将包含错误消息。 如果API返回500代码，请联系支持并提供导致错误的请求。
 
 | 参数 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ ht-degree: 4%
 
 ## 示例
 
-获取访客识别数据：
+以下示例获取访客识别数据。
 
 ```javascript
 function callbackFunction() {
@@ -50,7 +50,7 @@ rtp('get', 'visitor', callbackFunction);
 
 具有区段匹配的响应：
 
-下面是一个示例响应，如果访客在获取访客数据API调用之前与实时区段匹配，则会返回此响应。
+以下响应包含`matchedSegments`，因为访客在获取访客数据API调用之前匹配了实时区段。
 
 ```json
 {
@@ -88,7 +88,7 @@ rtp('get', 'visitor', callbackFunction);
 
 无区段匹配的响应：
 
-下面是一个示例响应，当访客在获取访客数据API调用之前不匹配任何实时区段时会返回该响应。
+以下响应不包含`matchedSegments`，因为访客在获取访客数据API调用之前不匹配任何实时区段。
 
 ```json
 {

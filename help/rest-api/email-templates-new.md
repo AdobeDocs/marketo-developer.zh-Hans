@@ -3,9 +3,9 @@ title: 电子邮件模板
 feature: REST API
 description: 使用Marketo Asset REST API查询、创建、更新、克隆、删除、批准和检查电子邮件模板的依赖项。
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '292'
+source-wordcount: '307'
 ht-degree: 9%
 
 ---
@@ -63,9 +63,18 @@ GET /rest/asset/v2/emailtemplate/{id}
 
 ### 筛选条件
 
-过滤器端点支持在工作区中搜索，以及使用其他查询参数缩小结果范围。 `workspaceId`为必填项。
+过滤器端点可在工作区中搜索。 `workspaceId`参数是必需的。
 
-支持的筛选器包括`folderId`、重复`folderIds`、重复`status`、`pageIndex`、`pageSize`、`createdBy`、`createdAtStart`、`createdAtEnd`、`modifiedBy`、`modifiedAtStart`、`modifiedAtEnd`、`name`、`sortKey`、`sortOrder`、`isCreatedByMe`、`isModifiedByMe`、`scriptEngine`、`isValueNonNullable`和`includeArchived`。
+使用这些可选参数来缩小或组织结果：
+
+- 文件夹： `folderId`或重复的`folderIds`
+- 状态：重复`status`
+- 分页： `pageIndex`和`pageSize`
+- 创建： `createdBy`、`createdAtStart`、`createdAtEnd`和`isCreatedByMe`
+- 修改： `modifiedBy`、`modifiedAtStart`、`modifiedAtEnd`和`isModifiedByMe`
+- 模板属性： `name`、`scriptEngine`和`isValueNonNullable`
+- 排序： `sortKey`和`sortOrder`
+- 存档的内容： `includeArchived`
 
 #### 请求
 

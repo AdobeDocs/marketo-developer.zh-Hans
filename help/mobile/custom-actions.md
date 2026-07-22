@@ -14,16 +14,16 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: c1579802-ddd4-4214-8a91-97b2066abe11
   - id: d095671a-1355-40aa-8b5f-06c33c68080b
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 336
-ht-degree: 1%
+source-wordcount: 259
+ht-degree: 2%
 
 ---
 
 # 自定义操作
 
-您可以通过发送自定义操作来跟踪用户交互。 当移动设备应用程序调用Marketo SDK以发送自定义操作时，自定义操作最初保存到设备。 Marketo SDK随后在发送自定义操作之前检查是否存在足够的Internet连接。 因此，发送自定义操作与Marketo接收自定义操作之间可能存在延迟。
+自定义操作可跟踪移动应用程序中的用户交互。 当应用程序调用Marketo SDK以发送自定义操作时，SDK会先将该操作保存到设备。 SDK在检测到足够的Internet连接后发送操作，因此Marketo可能会在延迟后收到操作。
 
 自定义操作可用作智能营销活动中的触发器和过滤器。 有关详细信息，请参阅[移动设备应用程序活动](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns)。
 
@@ -78,7 +78,7 @@ sharedInstance.reportAction("Bought Shirt", withMetaData:meta);
 
 >[!ENDTABS]
 
-立即报告所有操作（发送所有保存的操作）。
+立即报告所有已保存的操作。
 
 >[!BEGINTABS]
 
@@ -116,7 +116,7 @@ sharedInstance.reportAll();
    Marketo.reportAction("Bought Shirt", meta);
    ```
 
-1. 立即报告所有自定义操作（发送所有保存的操作）。
+1. 立即报告所有已保存的自定义操作。
 
    ```
    Marketo.reportAll();
@@ -124,6 +124,8 @@ sharedInstance.reportAll();
 
 ## 对自定义操作进行故障排除
 
-设置移动设备自定义操作很简单，但您可以从Mobile SDK发送到Marketo的字符数存在限制。 确保通过移动设备SDK报告回Marketo的所有自定义操作的长度少于20个字符。
+从Mobile SDK发送到Marketo的自定义操作名称必须少于20个字符。
 
-**有关共享设备上的多用户用例的注意事项：**&#x200B;当用户登录到与Marketo SDK集成的移动应用程序时，将进行第一次调用以将潜在客户与应用程序安装关联起来。 成功完成此调用后，可在商机的活动日志中查看应用程序中的其他用户活动。 注意，由于这是异步调用，如果在登录后立即记录任何自定义操作，则这些操作可能会与之前登录的用户相关联，直到关联调用成功。
+**共享设备上的多用户用例：**&#x200B;当用户登录到使用Marketo SDK的移动应用程序时，第一次调用会将潜在客户与应用程序安装关联。 调用成功后，后续用户活动将显示在商机的活动日志中。
+
+关联调用是异步调用。 在调用成功之前，登录后立即记录的自定义操作可能与之前登录的用户相关联。

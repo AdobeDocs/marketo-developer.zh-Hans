@@ -16,16 +16,16 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 373
+source-wordcount: 371
 ht-degree: 8%
 
 ---
 
 # 字段类型
 
-以下是Marketo中字段类型的描述。 有关字段类型的其他信息可在[此处](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)找到。 有关字段类型限制的其他信息可在[此处](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)找到。
+下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型[&#128279;](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的Marketo字段限制。
 
 | 字段类型 | 描述 | 示例 |
 | --- | --- | --- |

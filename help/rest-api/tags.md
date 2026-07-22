@@ -12,10 +12,10 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 258
-ht-degree: 1%
+source-wordcount: 227
+ht-degree: 2%
 
 ---
 
@@ -23,11 +23,11 @@ ht-degree: 1%
 
 [标记端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags)
 
-标记是用户为项目定义的字段。 每个标记可能适用于一个或多个程序类型，并且可以是必需或可选的，具体取决于标记的定义方式。 标记还可以提供必须从中选择以供使用的允许值的列表。
+标记是用户为项目定义的字段。 标记可以应用于一个或多个程序类型，可以是必需或可选的。 标记还可以定义用户必须从中进行选择的允许值列表。
 
 ## 查询
 
-标记使用标准资源模式进行查询，但没有按ID的端点。 仅当按名称查询标记时，才会返回标记的可允许值列表。
+使用标准资源模式查询标记。 标记没有“按ID”端点。 要检索标记的允许值，请按名称查询标记。
 
 ### 获取标记
 
@@ -86,7 +86,11 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## 更新
 
-[更新程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)终结点允许您更新给定标记类型的值。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要更新的标记类型。 `tagValue`查询参数用于指定标记类型的新值。 所有参数都是必需的。
+使用[更新程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)端点更新标记类型的值。 所有参数都是必需的：
+
+- `id`路径参数指定程序ID。
+- `tagType`路径参数指定要更新的标记类型。
+- `tagValue`查询参数指定新值。
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -106,11 +110,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-可以使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)端点集体更新标记。 [程序更新部分](programs.md#update)中提供了示例。
+要更新多个标记，请使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)端点。 请参阅[程序更新部分](programs.md#update)中的示例。
 
 ## 删除
 
-[删除程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST)终结点允许您删除非必需的标记类型。 终结点采用指定程序ID的`id`和`tagType`路径参数以及要删除的标记类型。
+使用[删除程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST)端点删除非必需的标记类型。 `id` path参数指定程序ID，`tagType` path参数指定要删除的标记类型。
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

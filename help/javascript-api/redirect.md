@@ -15,18 +15,18 @@ topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: cdd65e7e-8839-44a2-bc21-0e03623b5dd1
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 502
-ht-degree: 7%
+source-wordcount: 473
+ht-degree: 8%
 
 ---
 
 # 重定向
 
-RTP重定向API允许您将分段受众重定向到目标URL。
+使用RTP重定向API将分段受众发送到目标URL。
 
-- 您必须成为Web Personalization客户，并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+- 您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 - RTP不支持基于帐户的营销指定帐户列表。 ABM列表和代码仅与在RTP中管理的已上传帐户列表（CSV文件）相关。
 
 ## 使用情况
@@ -42,7 +42,7 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 | redirect_url | 必需 | 字符串 | 用于重定向符合条件的访客的目标URL。 |
 | redirect_matched_visitors | 可选 | 布尔值 | 如果为true，则将重定向条件匹配的访客。 如果为false，则将重定向不匹配的条件访客。 默认值： true。 |
 
-组织、行业、 ABM列表、位置、 ISP 、匹配的区段
+重定向条件可以使用组织、行业、ABM列表、位置、ISP或匹配的区段。
 
 | 条件 | 数据层次结构 | 示例 |
 | --- | --- | --- |
@@ -59,10 +59,10 @@ RTP重定向API允许您将分段受众重定向到目标URL。
 
 ## 注释
 
-- 如果重定向规则/条件基于Firmographics（公司、行业、位置），则可以在rtp(&#39;send&#39;、&#39;view&#39;)和rtp(&#39;get&#39;、&#39;campaign&#39;)之前插入重定向代码以减少延迟。
-- 通过JavaScript重定向是浏览器端重定向，它取决于网站的加载和优化以达到最大速度。
-- 最佳实践是在rtp标记之后设置重定向代码，并将其放在页眉处。
-- 确保您未运行自重定向（rtp中存在安全网以阻止循环重定向调用）。
+- 要减少基于固件（如公司、行业或位置）的重定向的延迟，请在rtp(&#39;send&#39;、&#39;view&#39;)和rtp(&#39;get&#39;、&#39;campaign&#39;)之前插入重定向代码。
+- 将重定向代码紧跟在页眉中的rtp标记之后。
+- 优化网站加载以提高浏览器端JavaScript重定向的速度。
+- 避免自行重定向。 rtp包含阻止循环重定向调用的安全机制。
 
 ```html
 <!DOCTYPE html>
@@ -98,15 +98,15 @@ rtp('get','campaign');
 
 ## 如何重定向跟踪的访客
 
-1. 在目标URL的末尾附加一个参数：即&lt;www.marketo.com？rtp=redirect>
-1. 创建名为“由RTP重定向”的区段
-1. 使用“特定页面”参数，通过下面显示的参数定位查看任何页面的访客。
+1. 将参数附加到目标URL，例如&lt;www.marketo.com？rtp=redirect>。
+1. 创建名为“由RTP重定向”的区段。
+1. 使用“特定页面”参数定位查看包含该参数的页面的访客。
 
 ![跟踪重定向的访客](assets/tracking-redirected-vistors.png)
 
 ## 如何使用不同的目标URL定义多个条件
 
-重定向调用支持多个调用。 这使得使用多个字段进行重定向成为可能，并且还使用不同的URL和值创建复杂的条件。
+重定向调用支持多个调用。 使用多个调用可组合字段并创建包含不同URL和值的条件。
 
 ### 使用情况
 

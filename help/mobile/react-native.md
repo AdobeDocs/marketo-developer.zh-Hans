@@ -14,20 +14,20 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: d095671a-1355-40aa-8b5f-06c33c68080b
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 857
+source-wordcount: 580
 ht-degree: 1%
 
 ---
 
 # React Native
 
-本文介绍了如何安装和设置Marketo的本机SDK，以便将您的移动应用程序与我们的平台集成。
+安装并配置Marketo本机SDK以将React Native移动应用程序与Marketo集成。
 
 ## 先决条件
 
-[在Marketo Admin中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)（获取您的应用程序密钥和Munchkin ID）。
+[在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 
 ## SDK集成
 
@@ -35,7 +35,7 @@ ht-degree: 1%
 
 **使用Gradle进行设置**
 
-使用最新版本添加Marketo SDK依赖项：在应用程序级别`build.gradle`文件的“依赖项”部分下，添加（包括相应版本的Marketo SDK）
+在应用程序级别`build.gradle`文件的依赖项部分下添加最新的Marketo SDK依赖项。 包含相应的SDK版本。
 
 ```groovy
 implementation 'com.marketo:MarketoSDK:0.x.x'
@@ -43,7 +43,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 **添加mavencentral存储库**
 
-Marketo SDK在[maven中央存储库](https://mvnrepository.com/)上可用。 要同步这些文件，请将`mavencentral`存储库添加到根`build.gradle`
+Marketo SDK在[Maven Central存储库](https://mvnrepository.com/)中可用。 将`mavencentral`存储库添加到根`build.gradle`文件。
 
 ```groovy
 build script {
@@ -54,25 +54,21 @@ build script {
 }
 ```
 
-然后，将您的项目与Gradle文件同步。
+将项目与Gradle文件同步。
 
 #### iOS SDK集成
 
-在为React Native项目创建Bridge之前，务必要在Xcode项目中设置我们的SDK。
+在为React Native项目创建桥接之前，请在Xcode项目中设置SDK。
 
 **SDK集成 — 使用CocoaPods**
 
-在您的应用程序中使用我们的iOS SDK非常轻松。 执行以下步骤，使用CocoaPods在应用程序的Xcode项目中设置插件，以便将我们的平台与应用程序集成。
-
-下载[CocoaPods](https://cocoapods.org/) — 作为Ruby gem分发，它是Objective-C和Swift的依赖项管理器，简化了代码中使用第三方库（如iOS SDK）的过程。
-
-要下载并安装该软件，请在Mac上启动命令行终端，然后对其运行以下命令：
+使用[CocoaPods](https://cocoapods.org/)将iOS SDK添加到应用程序的Xcode项目。 CocoaPods是Objective-C和Swift的Ruby依赖关系经理。
 
 1. 安装CocoaPods。
 
 `$ sudo gem install cocoapods`
 
-1. 打开您的Podfile。 （在ReactNative项目的iOS文件夹中）
+1. 在ReactNative项目的iOS文件夹中打开Podfile。
 
 `$ open -a Xcode Podfile`
 
@@ -92,15 +88,13 @@ build script {
 
 ## 本机模块安装说明
 
-有时，React Native应用程序需要访问JavaScript中默认不可用的本机平台API，例如用于访问Apple或Google Pay的本机API。 您可能希望重用一些现有的Objective-C、Swift、Java或C++库，而无需在JavaScript中重新实施它，或编写一些高性能、多线程代码用于图像处理等。
+当React Native应用程序必须访问JavaScript未公开的平台API或本机库时，请使用本机模块。 NativeModule系统将Java、Objective-C或C++类公开为JavaScript对象。
 
-NativeModule系统向JavaScript (JS)公开Java/Objective-C/C++ （本机）类的实例作为JS对象，从而允许您从JS内执行任意本机代码。 虽然我们不期望此功能成为常规开发过程的一部分，但必须具备此功能。 如果React Native未导出JS应用程序所需的本机API，您应该能够自行导出！
-
-React Native bridge用于JSX和本机应用程序层之间的通信。 在本例中，主机应用程序将能够编写可以调用Marketo SDK方法的JSX代码。
+React Native桥用于连接JSX和本机应用程序层。 主机应用程序可以使用JSX代码通过此桥接器调用Marketo SDK方法。
 
 ### Android
 
-此文件包含可以使用您提供的参数在内部调用Marketo SDK方法的包装器方法。
+创建一个文件，其中包含使用提供的参数调用Marketo SDK的包装方法。
 
 ```java
 public class RNMarketoModule extends ReactContextBaseJavaModule {
@@ -188,7 +182,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
 
 **注册包**
 
-告知react-native了解Marketo包。
+在React Native中注册Marketo包。
 
 ```java
 public class MarketoPluginPackage implements ReactPackage {
@@ -211,7 +205,7 @@ public class MarketoPluginPackage implements ReactPackage {
 }
 ```
 
-要完成包注册，请将MarketoPluginPackage添加到Application类的React包列表中：
+将MarketoPluginPackage添加到Application类的React包列表中。
 
 ```java
 public class MainApplication extends Application implements ReactApplication {
@@ -236,11 +230,11 @@ public class MainApplication extends Application implements ReactApplication {
 
 ### iOS
 
-在以下指南中，您将创建一个本机模块&#x200B;_RNMarketoModule_，该模块将允许您从JavaScript访问Marketo的API。
+创建本机模块&#x200B;_RNMarketoModule_&#x200B;以从JavaScript访问Marketo API。
 
-要开始配置，请在Xcode的React Native应用程序中打开iOS项目。 您可以在React Native应用程序中在此处找到您的iOS项目。 我们建议使用Xcode来编写您的本机代码。 Xcode是为iOS开发而构建的，使用它有助于快速解决较小的错误，如代码语法。
+在Xcode中为React Native应用程序打开iOS项目。 使用Xcode编写本机代码并识别语法错误。
 
-创建主自定义原生模块标头和实施文件。 创建一个名为`MktoBridge.h`的新文件并在其中添加以下内容：
+创建自定义本机模块标头和实施文件。 创建`MktoBridge.h`并添加以下内容。
 
 ```objectivec
 //
@@ -261,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 ```
 
-在同一文件夹中创建相应的实施文件`MktoBridge.m`，并包含以下内容：
+在同一文件夹中创建`MktoBridge.m`并添加以下内容。
 
 ```objectivec
 //
@@ -373,7 +367,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications) {
 
 #### 初始化Marketo SDK
 
-在应用程序中查找要向本机模块的createCalendarEvent()方法添加调用的位置。 以下是您可以在应用程序中添加的组件NewModuleButton的示例。 您可以在NewModuleButton的onPress()函数中调用本机模块。
+向本机模块的createCalendarEvent()方法添加调用。 以下示例添加一个NewModuleButton组件并在其onPress()函数中调用本机模块。
 
 ```javascript
 import React from 'react';
@@ -392,7 +386,7 @@ const NewModuleButton = () => {
 export default NewModuleButton;
 ```
 
-此JavaScript文件将本机模块加载到JavaScript层。
+将本机模块加载到JavaScript层。
 
 ```javascript
 import React from 'react';
@@ -402,9 +396,9 @@ import { NativeModules } from 'react-native';
 const { RNMarketoModule } = NativeModules;
 ```
 
-正确放置上述文件后，我们可以导入任意js类中的js模块，并直接调用其方法。 例如：
+放置文件后，将JavaScript模块导入JavaScript类并直接调用其方法。
 
-请注意，我们必须将“reactNative”作为React本机应用程序的框架类型传递。
+将“reactNative”作为React Native应用程序的框架类型传递。
 
 ```javascript
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
@@ -428,13 +422,13 @@ RNMarketoModule.uninitializeMarketoPush()
 
 #### 配置推送通知
 
-使用项目ID和渠道名称初始化推送
+使用项目ID和渠道名称初始化推送通知。
 
 ```javascript
 RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
-将以下服务添加到`AndroidManifest.xml`
+将以下服务添加到`AndroidManifest.xml`。
 
 ```xml
 <service android:exported="true" android:name=".MyFirebaseMessagingService" android:stopWithTask="true">
@@ -447,7 +441,7 @@ RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 </activity/>
 ```
 
-创建名为`FirebaseMessagingService.java`的类并添加以下代码
+创建名为`FirebaseMessagingService.java`的类并添加以下代码。
 
 ```java
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -471,12 +465,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 }
 ```
 
-必须在Xcode项目中启用权限，才能将推送通知发送到用户的设备。
+在Xcode项目中启用将推送通知发送到用户设备的权限。
 
 若要发送推送通知，[添加推送通知](push-notifications.md)。
 
-设置iOS推送通知，
-创建PushNotifications.tsx文件并添加以下内容：
+要设置iOS推送通知，请创建PushNotifications.tsx并添加以下代码。
 
 ```javascript
 import { NativeModules } from 'react-native';
@@ -501,7 +494,7 @@ RNMarketoModule.registerForRemoteNotifications();
 export { requestPermission, registerForRemoteNotifications };
 ```
 
-添加`App.tsx`以允许推送通知
+将以下代码添加到`App.tsx`以允许推送通知。
 
 ```javascript
 import React, { useEffect } from 'react';
@@ -515,7 +508,7 @@ registerForRemoteNotifications();
 }, []);
 ```
 
-使用APNS委托方法更新`AppDelegate.mm`：
+使用APNS委托方法更新`AppDelegate.mm`。
 
 ```objectivec
 #import "AppDelegate.h"
@@ -582,7 +575,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 **Android**
 
-将“MarketoActivity”添加到应用程序标记内的`AndroidManifest.xml`文件中。
+将“MarketoActivity”添加到应用程序标记中的`AndroidManifest.xml`。
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity" android:configChanges="orientation|screenSize" android:exported="true">
@@ -599,11 +592,11 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 1. 选择项目>目标>信息> URL类型。
 
-1. 添加标识符： ${PRODUCT_NAME}
+1. 添加标识符${PRODUCT_NAME}。
 
-1. 设置URL方案： `mkto-<S_ecret Key_>`
+1. 将URL方案设置为`mkto-<S_ecret Key_>`。
 
-1. 包含`application:openURL:sourceApplication:annotation:`到`AppDelegate.m`文件(Objective-C)
+1. 将`application:openURL:sourceApplication:annotation:`添加到Objective-C的`AppDelegate.m`文件中。
 
 **iOS — 处理AppDelegate中的自定义Url类型/深层链接**
 
@@ -618,7 +611,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 }
 ```
 
-从javascript调用API时，将使用这些常量。 您必须创建常量文件并添加以下内容。
+创建常量文件并为JavaScript API调用添加以下常量。
 
 ```objectivec
 // Lead attributes.
@@ -650,7 +643,7 @@ static NSString *const KEY_SIGNATURE = @"signature";
 static NSString *const KEY_TIMESTAMP = @"timeStamp";
 ```
 
-使用示例
+使用如下例所示的常量。
 
 ```javascript
 //You can create a Marketo Lead by calling the associateLead function.

@@ -8,20 +8,24 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 1a8345909b679b5651c94a68f8d29950ed47f6ed
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 2191
+source-wordcount: 2151
 ht-degree: 14%
 
 ---
 
 # 数据摄取API
 
-数据摄取API是一种高容量、低延迟、高度可用的服务，旨在以最小的延迟有效处理大量与人员和人员相关的数据摄取。
+数据摄取API是一项高容量、低延迟、高度可用的服务。 使用它可在最短时间内摄取大量人员和人员相关数据。
 
-通过提交异步执行的请求来摄取数据。 通过订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup)中的事件，可以检索请求状态。
+数据摄取请求以异步方式执行。 要检索请求状态，请订阅[Marketo可观察性数据流](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup)中的事件。
 
-界面提供五种对象类型：人员、自定义对象、公司、程序成员和列表（静态列表）。 该记录操作仅限“插入或更新”，但同时支持删除的程序成员和支持添加和删除操作的列表除外。
+API为五种对象类型提供接口：
+
+- 人员、自定义对象和公司支持“插入或更新”操作。
+- 程序成员支持“插入或更新”和删除操作。
+- 列表（静态列表）支持添加和删除操作。
 
 阅读[数据摄取API文档](https://developer.adobe.com/marketo-apis/api/data-ingestion)。
 
@@ -31,15 +35,15 @@ ht-degree: 14%
 
 ## 身份验证
 
-数据摄取API使用与Marketo REST API相同的OAuth 2.0身份验证方法来生成访问令牌，但必须通过HTTP标头`X-Mkto-User-Token`传递访问令牌。 您不能通过查询参数传递访问令牌。
+数据摄取API使用与Marketo REST API相同的OAuth 2.0身份验证方法来生成访问令牌。 在`X-Mkto-User-Token` HTTP标头中传递访问令牌。 不能将其作为查询参数传递。
 
-通过标头访问令牌示例：
+以下示例在标头中传递访问令牌：
 
 `X-Mkto-User-Token: 11606815-aa7a-405a-80a1-f9683efa528b:ab`
 
 ## 权限
 
-数据摄取使用与Marketo REST API相同的权限模型，无需任何其他特殊权限即可使用，不过每个端点需要特定权限。
+数据摄取使用Marketo REST API权限模型，不需要其他权限。 每个端点都需要特定的现有权限，如下表所示。
 
 | 终结点 | 权限 |
 | --- | --- |
@@ -61,7 +65,7 @@ ht-degree: 14%
 
 ## 标头
 
-数据摄取使用以下自定义HTTP标头。
+数据摄取支持以下自定义HTTP标头。
 
 ### 请求
 
@@ -80,11 +84,11 @@ ht-degree: 14%
 
 使用HTTP POST方法将数据发送到服务器。
 
-数据表示以application/json形式包含在请求正文中。
+将数据作为application/json包含在请求正文中。
 
-域名是： `mkto-ingestion-api.adobe.io`
+使用域`mkto-ingestion-api.adobe.io`。
 
-路径以`/subscriptions/MunchkinId`开头，其中MunchkinId特定于您的Marketo实例。 您可以在Marketo Engage UI中的&#x200B;**管理员** > **我的帐户** > **支持信息**&#x200B;下找到您的Munchkin ID。  路径的其余部分用于指定感兴趣的资源。
+路径以`/subscriptions/MunchkinId`开头，其中MunchkinId特定于您的Marketo实例。 在Marketo Engage UI中的&#x200B;**管理员** > **我的帐户** > **支持信息**&#x200B;下查找您的Munchkin ID。 路径的其余部分指定资源。
 
 人员示例URL：
 
@@ -108,7 +112,7 @@ ht-degree: 14%
 
 ### 响应
 
-所有响应都通过`X-Request-Id`标头返回唯一的请求ID。
+每个响应都在`X-Request-Id`标头中返回一个唯一的请求ID。
 
 通过标头发送的请求ID示例：
 
@@ -116,7 +120,7 @@ ht-degree: 14%
 
 ### 成功
 
-呼叫成功后，将返回202状态。  未返回响应正文。
+成功的调用返回状态202，但没有响应正文。
 
 成功响应示例：
 
@@ -129,9 +133,9 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### 错误
 
-当调用产生错误时，会返回非202状态以及包含其他错误详细信息的响应正文。 响应正文为`application/json`，且包含具有成员`error_code`和`message`的单个对象。
+当调用失败时，它会返回非202状态和包含错误详细信息的响应正文。 `application/json`响应正文包含一个具有`error_code`和`message`成员的对象。
 
-以下是Adobe Developer Gateway中可重复使用的错误代码。
+从Adobe Developer Gateway重用以下错误代码。
 
 | HTTP状态代码 | error_code | 条消息 |
 | --- | --- | --- |
@@ -140,7 +144,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 | 404 | 404040 | 未找到资源 |
 | 429 | 429001 | 达到服务使用限制 |
 
-以下是数据摄取API特有的错误代码，由3个区段组成。  前三位是状态（由Adobe Developer Gateway返回），后跟零“0”，后跟三位。
+特定于数据摄取API的错误代码包含三个区段：Adobe Developer网关返回的三位数状态、零“0”和三个其他数字。
 
 | HTTP状态代码 | error_code | 条消息 |
 | --- | --- | --- |
@@ -152,24 +156,24 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ## 重试
 
-检测到临时错误时，服务将重试该操作。 重试有多种原因，主要是在从属服务超时或暂时不可用时。
+当服务检测到临时错误时，它会重试该操作。 重试主要发生在从属服务超时或暂时不可用时。
 
-重试间隔：
+该服务使用以下重试间隔：
 
-* 初始操作和第一次重试：5分钟
-* 第1和第2:15分钟
-* 第2和第3:20分钟
-* 第3和第4:20分钟
-* 第4和第5:2小时
-* 第5次重试后 — > 3小时
+- 首次重试的初始操作：5分钟
+- 首次重试到第二次重试： 15分钟
+- 第二次重试第三次重试：20分钟
+- 第三次重试到第四次重试：20分钟
+- 第四次重试到第五次重试：2小时
+- 第五次重试后：3小时
 
 ## 端点
 
-摄取端点适用于人员、自定义对象、公司、项目成员和列表。
+摄取端点适用于人员、自定义对象、公司、项目成员和列表。 每个端点部分定义请求并提供一个示例。
 
 ### 人员
 
-用于更新插入人员记录的端点。
+使用此端点更新人员记录。
 
 | 方法 | 路径 |
 | --- | --- |
@@ -238,7 +242,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### 自定义对象
 
-用于更新插入自定义对象记录的端点。
+使用此端点可更新插入自定义对象记录。
 
 | 方法 | 路径 |
 | --- | --- |
@@ -306,7 +310,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### 公司
 
-用于同步公司记录的端点。 支持根据外部公司ID或Marketo内部ID执行重复数据删除的创建、更新和更新插入操作。
+使用此端点同步公司记录。 它支持根据外部公司ID或Marketo内部ID执行重复数据删除的创建、更新和更新插入操作。
 
 | 方法 | 路径 |
 | --- | --- |
@@ -756,23 +760,23 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ## 限制
 
-以下是护栏的更新列表：
+数据摄取API具有以下防护：
 
-* 最大请求大小：1 MB
-* 每种对象类型每个请求的最大对象数：1,000
-* 每个客户端每秒最大请求数ID：5,000
-* 每天最大对象数：10,000,000
+- 最大请求大小：1 MB
+- 每种对象类型的每个请求的最大对象数：1,000
+- 每个客户端ID每秒的最大请求数：5,000
+- 每天最大对象数：10,000,000
 
 这些限制统一适用于人员、自定义对象、公司、项目群成员和列表。 对于项目群成员，“每个请求的对象”是单个请求中所有项目的潜在客户引用总数。 对于Lists，“每个请求的对象数”是输入数组中的潜在客户引用数。
 
 ## 数据摄取API与REST API
 
-以下是数据摄取API与其他Marketo REST API之间的差异列表：
+数据摄取API与其他Marketo REST API在以下方面有所不同：
 
-* 若要进行身份验证，必须使用`X-Mkto-User-Token`标头传递访问令牌
-* URL域名是`mkto-ingestion-api.adobe.io`
-* URL路径以`/subscriptions/MunchkinId`开头
-* 没有查询参数
-* 如果调用成功，将返回202状态，并且响应正文为空
-* 如果调用失败，则返回非202状态，并且响应正文包含`{ "error_code" : "Error Code", "message" : "Message" }`
-* 请求ID通过`X-Request-Id`标头返回
+- 在`X-Mkto-User-Token`标头中传递访问令牌。
+- 使用`mkto-ingestion-api.adobe.io`域。
+- URL路径以`/subscriptions/MunchkinId`开头。
+- 请勿使用查询参数。
+- 成功的调用返回状态202和空响应正文。
+- 失败的调用返回非202状态和包含`{ "error_code" : "Error Code", "message" : "Message" }`的响应正文。
+- `X-Request-Id`标头返回请求ID。

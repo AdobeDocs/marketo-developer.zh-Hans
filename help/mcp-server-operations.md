@@ -12,9 +12,9 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 264
+source-wordcount: 260
 ht-degree: 3%
 
 ---
@@ -22,7 +22,7 @@ ht-degree: 3%
 
 # [!DNL Marketo Engage] MCP操作
 
-以下操作可通过[!DNL Marketo Engage] MCP服务器使用。 通常，只读或无损的端点可用。 `Delete`或其他破坏性操作不可用于AI系统。
+以下操作可通过[!DNL Marketo Engage] MCP服务器使用。 服务器通常提供只读或无损端点。 AI系统无法使用`Delete`或其他破坏性操作。
 
 >[!NOTE]
 >

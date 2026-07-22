@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 953
+source-wordcount: 736
 ht-degree: 0%
 
 ---
@@ -23,15 +23,26 @@ ht-degree: 0%
 
 [批量自定义对象导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects)
 
-如果要导入许多自定义对象记录，最佳做法是使用批量API异步导入这些记录。 此操作可通过导入包含分隔记录（逗号、制表符或分号）的平面文件来完成。 文件可以包含任意数量的记录，但大小必须小于10MB（否则返回HTTP 413状态代码）。 文件的内容取决于您的自定义对象定义。 第一行始终包含标题，其中列出了要将每行的值映射到的字段。 标头中的所有字段名称必须匹配一个API名称（如下所述）。 其余行包含要导入的数据，每行一个记录。 记录操作仅限“插入或更新”。
+使用批量API异步导入大量自定义对象记录。 以逗号、制表符或分号分隔的平面文件提供小于10 MB的记录。 如果文件较大，则API返回HTTP 413状态代码。
+
+文件内容取决于自定义对象定义。 第一行必须为标头，并且每个标头字段都必须匹配一个API名称。 其余每一行都包含一个记录。
+
+批量自定义对象导入仅支持“插入或更新”记录操作。
 
 ## 处理限制
 
-您可以在限制内提交多个批量导入请求。 每个请求都将作为作业添加到要处理的FIFO队列。 最多可同时处理两个作业。 在任意给定时间（包括当前正在处理的2个），队列中最多允许10个作业。 如果超过十个作业的最大值，则会返回“1016，导入次数过多”错误。
+每个批量导入请求都将作为作业添加到先进先出(FIFO)队列。 以下限制适用：
+
+- 最多可同时处理两个作业。
+- 队列中最多可以有10个作业，包括正在处理的两个作业。
+
+如果超过10个作业的最大值，则API返回`1016, Too many imports`错误。
 
 ## 自定义对象示例
 
-在使用批量API之前，必须首先使用Marketo管理UI [创建自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)。 例如，假设我们创建了一个具有“Color”、“Make”、“Model”和“VIN”字段的“Car”自定义对象。 以下是显示自定义对象的管理员UI屏幕。 您可以看到我们使用了VIN字段删除重复项。 API名称会突出显示，因为调用与批量API相关的端点时必须使用这些名称。
+在使用批量API之前，请使用Marketo管理UI [创建自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)。
+
+此示例使用具有`Color`、`Make`、`Model`和`VIN`字段的`Car`自定义对象。 VIN字段用于去重。 管理员UI屏幕突出显示批量API端点所需的API名称。
 
 ![插入自定义对象](assets/bulk-insert-co-car-1.png)
 
@@ -41,7 +52,7 @@ ht-degree: 0%
 
 ### API名称
 
-通过将自定义对象API名称传递到[描述自定义对象](#describe)端点，您可以以编程方式检索API名称。
+若要以编程方式检索API名称，请将自定义对象API名称传递给[描述自定义对象](#describe)端点。
 
 ```text
 /rest/v1/customobjects/{apiName}/describe.json
@@ -126,7 +137,7 @@ ht-degree: 0%
 
 ### 导入文件
 
-现在，假设您要导入三条“Car”自定义对象记录。 使用逗号分隔格式(CSV)，文件可能如下所示：
+以下CSV文件包含三个`Car`自定义对象记录：
 
 ```text
 color,make,model,vin
@@ -135,11 +146,14 @@ yellow,bmw,320i,WBA4R7C30HK896061
 blue,bmw,325i,WBS3U9C52HP970604
 ```
 
-第1行是标题，第2-4行是自定义对象数据记录。
+第一行是标题。 第2-4行包含自定义对象数据记录。
 
 ## 创建作业
 
-要进行批量导入请求，必须在[导入自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST)端点的路径中包含自定义对象的API名称。 您还必须包括引用导入文件名称的“file”参数，以及指定导入文件分隔方式的“format”参数（“csv”、“tsv”或“ssv”）。
+要创建批量导入作业，请在[导入自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST)端点的路径中包含自定义对象API名称。 包括以下参数：
+
+- `file`：导入文件的名称。
+- `format`：文件分隔符格式（`csv`、`tsv`或`ssv`）。
 
 ```http
 POST /bulk/v1/customobjects/{apiName}/import.json?format=csv
@@ -178,17 +192,19 @@ blue,bmw,325i,WBS3U9C52HP970604
 }
 ```
 
-在此示例中，我们指定了“csv”格式并将导入文件命名为“custom_object_import.csv”。
+此示例指定`csv`格式并命名导入文件`custom_object_import.csv`。
 
-请注意，在响应我们的调用时，此处没有成功或失败列表，就像从同步自定义对象端点返回一样。 您而是会收到`batchId`。 这是因为调用是异步调用，可能会返回`status`的“已排队”、“正在导入”或“失败”。 您应该保留batchId，以便获取导入作业的状态，或者在完成时检索失败和/或警告。 batchId的有效期为7天。
+由于调用是异步调用，因此响应包含`batchId`，而不是同步自定义对象端点返回的单个成功和失败。 `status`可以是`Queued`、`Importing`或`Failed`。
 
-复制批量导入请求的简单方法是使用命令行中的curl：
+保留`batchId`以检查导入状态并在完成之后检索失败或警告。 `batchId`的有效期为七天。
+
+以下命令行cURL请求提交示例作业：
 
 ```bash
 curl -X POST -i -F format='csv' -F file='@custom_object_import.csv' -F access_token='<Access Token>' <REST API Endpoint URL>/bulk/v1/customobjects/car_c/import.json
 ```
 
-其中，导入文件“custom_object_import.csv”包含以下内容：
+在此示例中，`custom_object_import.csv`文件包含以下数据：
 
 ```text
 color,make,model,vin
@@ -199,7 +215,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## 轮询作业状态
 
-创建导入作业后，必须查询其状态。 最佳实践是每5-30秒轮询一次导入作业。 为此，请在指向[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)端点的路径中传递自定义对象的API名称和`batchId`。
+创建导入作业后，每5-30秒轮询一次。 在指向[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)端点的路径中传递自定义对象API名称和`batchId`。
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -225,19 +241,23 @@ GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 }
 ```
 
-此响应显示已完成的导入，但`status`可以是：“完成”、“已排队”、“正在导入”、“失败”之一。 如果作业已完成，则会列出已处理的行数、失败行数和警告行数。 消息属性也是查找其他作业信息的好地方。
+此响应显示已完成的导入。 `status`可以是`Complete`、`Queued`、`Importing`或`Failed`。
+
+作业完成后，响应将列出已处理、失败和已处理但出现警告的行数。 `message`属性可以提供其他作业信息。
 
 ## 故障
 
-[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败。 如果numOfRowsFailed大于零，则该值表示发生的失败次数。 调用[获取导入自定义对象失败](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET)终结点，以获取包含失败详细信息的文件。 同样，您必须在路径中传递自定义对象API名称和`batchId`。 如果不存在失败文件，则会返回HTTP 404状态代码。
+[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败的行数。 值大于零表示发生故障。
 
-继续示例，我们可以通过修改标题并将“vin”更改为“vin”（通过在逗号和“vin”之间添加空格）来强制失败。
+在指向[获取导入自定义对象失败](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET)端点的路径中传递自定义对象API名称和`batchId`。 终结点返回一个包含失败详细信息的文件。 如果不存在失败文件，则会返回HTTP 404状态代码。
+
+要演示失败，请通过将标头`vin`更改为` vin`并在逗号和`vin`之间添加空格来修改标头。
 
 ```text
 color,make,model, vin
 ```
 
-当我们重新导入并检查状态时，我们会看到包含`numRowsFailed`的此响应： 3。 这表示出现三次故障。
+重新导入文件后，状态响应显示`numRowsFailed`： 3，表示有三次失败。
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
@@ -263,7 +283,7 @@ GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
 }
 ```
 
-现在，我们进行“获取导入自定义对象失败”端点调用以获取更多失败详细信息：
+有关详细信息，请调用Get Import Custom Object Failures端点：
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/failures.json
@@ -276,11 +296,13 @@ yellow,bmw,320i,WBA4R7C30HK896061,missing.dedupe.fields
 blue,bmw,325i,WBS3U9C52HP970604,missing.dedupe.fields
 ```
 
-我们可以看到缺少重复数据删除字段`vin`。
+响应显示缺少重复数据删除字段`vin`。
 
 ## 警告
 
-获取导入自定义对象状态响应中的`numOfRowsWithWarning`属性指示警告。 如果numOfRowsWithWarning大于零，则该值表示发生的警告数。 调用[获取导入自定义对象警告](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET)终结点以获取带有警告详细信息的文件。 同样，您必须在路径中传递自定义对象API名称和`batchId`。 如果不存在警告文件，则会返回HTTP 404状态代码。
+获取导入自定义对象状态响应中的`numOfRowsWithWarning`属性指示带有警告的行数。 值大于零表示出现警告。
+
+在指向[获取导入自定义对象警告](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET)端点的路径中传递自定义对象API名称和`batchId`。 端点返回一个包含警告详细信息的文件。 如果不存在警告文件，则会返回HTTP 404状态代码。
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

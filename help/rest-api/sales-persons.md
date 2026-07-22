@@ -10,9 +10,9 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 396
+source-wordcount: 369
 ht-degree: 0%
 
 ---
@@ -21,19 +21,21 @@ ht-degree: 0%
 
 [销售人员端点参考](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
-对于已启用[SFDC同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅，销售人员API是只读访问权限。 销售人员是销售线索记录的销售负责人的人员记录类型。 它们按每个Lead记录上的externalSalesPersonId字段与Lead记录相关。 当Lead通过填充的externalSalesPersonId字段与Sales Person关联时，将在Marketo中为该商机记录填充相应的Lead Owner查找字段，从而允许使用相应的过滤器和令牌。
+销售人员API为启用了[SFDC同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync)的订阅提供只读访问权限。
 
-通过使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)终结点并传递externalSalesPersonId属性，销售人员与潜在客户记录相关联。
+销售人员是代表潜在客户记录的销售负责人的人员记录。 每个Lead记录上的externalSalesPersonId字段将Lead与Sales Person关联。 填充此字段后，Marketo会填充潜在客户记录中相应的潜在客户所有者查找字段。 然后，您可以使用关联的筛选器和令牌。
 
-通过使用[Sync Opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST)端点并传递externalSalesPersonId属性，销售人员与机会记录相关联。
+通过将externalSalesPersonId属性传递给相应的端点，使销售人员与其他记录相关联：
 
-通过使用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)端点并传递externalSalesPersonId属性，销售人员与公司记录相关联。
+- 潜在客户记录：[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)。
+- 机会记录： [同步机会](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST)。
+- 公司记录：[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)。
 
 销售人员记录只能通过API进行编辑。
 
 ## 描述
 
-描述销售人员记录遵循销售线索数据库对象的标准模式。
+使用Lead Database对象的标准模式描述销售人员记录。
 
 ```http
 GET /rest/v1/salespersons/describe.json
@@ -102,11 +104,13 @@ GET /rest/v1/salespersons/describe.json
 }
 ```
 
-默认情况下，销售人员的`idField`是“id”，`dedupeFields`只是“externalSalesPersonId”。
+默认情况下，销售人员`idField`为“id”，`dedupeFields`为“externalSalesPersonId”。
 
 ## 查询
 
-使用简单键的标准查询模式的销售人员。 此示例显示用户电子邮件用作externalSalesPersonId。 默认情况下，查询会返回为返回记录填充的所有字段。
+使用简单键的标准查询模式查询销售人员。 以下示例使用用户的电子邮件作为externalSalesPersonId。
+
+默认情况下，查询会返回匹配记录的所有填充字段。
 
 ```http
 GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.com,sam@test.com
@@ -137,7 +141,7 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 
 ## 创建和更新
 
-更新模式是标准模式。
+使用标准更新模式创建或更新销售人员。
 
 ```http
 POST /rest/v1/salespersons.json
@@ -185,12 +189,12 @@ POST /rest/v1/salespersons.json
 
 ## 删除
 
-删除的模式是标准的。
+使用标准删除模式删除销售人员。
 
-“使用中”时不允许删除销售人员。 在这种情况下，将跳过Sales Person。 示例：
+不能删除“正在使用”的销售人员。 在以下情况下，请求会跳过销售人员：
 
-- 当销售人员与有效潜在客户关联时
-- 当销售人员与已删除的公司关联时
+- 销售人员与有效销售线索关联。
+- 销售人员与已删除的公司相关联。
 
 ```http
 POST /rest/v1/salespersons/delete.json
@@ -244,6 +248,6 @@ POST /rest/v1/salespersons/delete.json
 
 ## 超时
 
-- 除非下面说明，否则销售人员端点的超时为30秒
-   - 同步销售人员：60多岁
-   - 删除销售人员：60岁
+- 除非另有说明，否则销售人员端点的超时为30秒。
+- 同步销售人员的超时为60秒。
+- 删除销售人员的超时为60秒。

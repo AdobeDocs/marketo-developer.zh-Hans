@@ -3,9 +3,9 @@ title: 使用量
 feature: REST API
 description: 使用每日和最近7天的统计信息端点监测Marketo REST API的使用情况和错误，包括每用户计数和错误代码总数。
 exl-id: 935a00a4-1e1e-4b48-ae9c-72c5e578312a
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '393'
+source-wordcount: '382'
 ht-degree: 8%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 8%
 
 [使用终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Usage)
 
-使用API为您的订阅提供REST API使用情况和错误活动的摘要。 这些端点有助于监控集成、跟踪每日呼叫量和确定一段时间内的错误趋势。
+使用API汇总了您的订阅的REST API使用情况和错误活动。 使用这些端点监控集成、跟踪每日呼叫量以及识别错误趋势。
 
 使用情况数据包括API调用总计数和每个用户的细分。 错误数据包括错误总数和按错误代码细分。
 
@@ -153,4 +153,4 @@ GET /rest/v1/stats/errors/last7days.json
 
 ## 注释
 
-在使用情况响应中会单独报告每个API用户。 通过跨单独的API用户拆分集成，可以更轻松地识别哪个服务占用配额并产生错误。
+使用情况响应会单独报告每个API用户。 通过将集成分配给单独的API用户，可以更轻松地识别哪些服务占用配额并产生错误。

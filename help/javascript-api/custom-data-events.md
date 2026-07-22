@@ -14,18 +14,20 @@ role_v2:
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 263
+source-wordcount: 241
 ht-degree: 3%
 
 ---
 
 # 自定义数据事件
 
-此方法会发送用于跟踪和实时个性化的自定义事件。 此类数据可用于发送第三方数据，或根据访客行为触发您自己的自定义事件。 自定义数据事件在访客的会话中会计为一次。
+使用此方法可发送用于跟踪和实时个性化的自定义事件。 您可以发送第三方数据，或触发基于访客行为的自定义事件。
 
-您必须成为Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
+在访客会话期间，每个自定义数据事件均会计数一次。
+
+您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
 | 参数 | 可选/必填 | 类型 | 描述 |
 | --- | --- | --- | --- |
@@ -44,7 +46,7 @@ rtp('send', 'event', customData);
 
 ### 使用自定义数据的字符串数组发送事件
 
-自定义数据数组最多可包含四个元素。  如果必须发送四个以上的元素，请重复调用发送事件API（最多包含四个项目），直到发送所有项目为止。
+自定义数据数组最多可以包含四个元素。 要发送四个以上的元素，请重复调用发送事件API，每次调用不超过4个项目。
 
 ```javascript
 var customData = {value: ['MyEvent', 'download - example whitepaper']};
@@ -53,7 +55,9 @@ rtp('send', 'event', customData);
 
 ### 根据按钮点击发送事件
 
-Marketo会向下载特定白皮书的Web访客个性化其网站上的内容。 他们通过捕获访客的点击白皮书下载按钮来做到这一点，该按钮会发送自定义数据事件。 RTP实时细分所有点击了下载白皮书按钮的访客，为每位访客显示一个个性化促销活动，可提供2次点击。 这是通过显示与下载的白皮书相关的另一段内容来实现的。
+此示例会在访客选择按钮下载特定白皮书时发送自定义数据事件。 RTP可以使用事件实时细分这些访客。
+
+然后，网站可以在再点击两次后显示个性化促销活动。 例如，营销策划可以展示与下载的白皮书相关的另一段内容。
 
 ```html
 <button id="download-whitepaper" onclick="rtp('send', 'event', {value :'download - example whitepaper'})">Download</button>

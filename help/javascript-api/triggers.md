@@ -14,16 +14,16 @@ role_v2:
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 116
+source-wordcount: 117
 ht-degree: 8%
 
 ---
 
 # 触发器
 
-添加在全局rtp对象的某些状态上触发函数的功能。
+全局`rtp`对象达到指定状态时会触发运行函数。
 
 您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)，然后才能使用用户上下文API。
 
@@ -38,7 +38,7 @@ ht-degree: 8%
 
 ### 用户上下文就绪触发器
 
-根据用户位置设置自定义变量。 当“rtpUserContext”全局对象就绪时，将调用此函数。
+全局`rtpUserContext`对象就绪后，`userContextReady`触发器将调用函数。 以下示例根据用户的位置设置自定义变量。
 
 ```javascript
 rtp('userContextReady', function() {

@@ -10,16 +10,18 @@ feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1352
+source-wordcount: 1337
 ht-degree: 1%
 
 ---
 
 # Forms API参考
 
-您将使用Forms 2.0 API与以下两个主要对象进行交互。 `MktoForms2`对象和`Form`对象。 `MktoForms2`对象是Forms2功能的顶级公开可见命名空间，包含用于创建、加载和提取表单对象的函数。
+Forms 2.0 API提供两个主要对象： `MktoForms2`和`Form`。
+
+`MktoForms2`是Forms2功能的顶级公共命名空间。 它包含创建、加载和检索`Form`对象的函数。
 
 ## MktoForms2方法
 

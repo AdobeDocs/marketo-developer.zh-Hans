@@ -8,20 +8,20 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 252
-ht-degree: 1%
+source-wordcount: 210
+ht-degree: 2%
 
 ---
 
 # 错误数
 
-本页列出了Marketo中Webhook的错误响应代码。
+本页介绍了Marketo Webhook的错误响应代码并说明了如何处理Webhook错误。
 
-1000和1001由Marketo生成，2xx到5xx是从Marketo webhook调用的系统返回的错误。
+Marketo生成错误代码1000和1001。 Marketo webhook调用的系统返回2xx到5xx响应代码。
 
-要使Marketo将值映射回字段，webhook响应代码必须为2xx类型。 如果webhook的意图是通过响应更改Marketo潜在客户记录中的值，那么调用的Web服务必须返回2xx，则所有其他响应代码都会导致webhook被忽略以便更新潜在客户记录值。
+仅当Web服务返回2xx响应代码时，Marketo才会将响应值映射到字段。 如果webhook响应旨在更改Marketo潜在客户记录中的值，则所有其他响应代码会导致Marketo忽略字段更新的响应。
 
 | 响应代码 | 描述 |
 | --- | --- |
@@ -30,11 +30,11 @@ ht-degree: 1%
 
 ## 捕获Webhook错误
 
-来自Webhook的错误可由&#x200B;**[!UICONTROL Webhook is Called]**&#x200B;触发器捕获和处理：
+使用&#x200B;**[!UICONTROL Webhook is Called]**&#x200B;触发器捕获和处理webhook错误：
 
 ![已调用Webhook](assets/webhook-called.png)
 
-* **Response** - Response是请求收到的文字响应有效负载。
-* **错误类型** — 这对应于HTTP状态消息的原因短语。
+* **响应** — 请求接收的文本响应有效负载。
+* **错误类型** - HTTP状态消息的原因短语。
 
-这些资源可用于处理和响应可预测的错误和异常。 根据您与集成的服务的不同，可能会自动恢复某些类别的错误，同时还可以创建警报以通知用户发生意外错误。
+使用这些值可响应可预测的错误和异常。 根据集成的服务，您可以自动从某些错误类中恢复，并为意外错误创建警报。
