@@ -4,13 +4,11 @@ feature: REST API
 description: 使用2条腿的OAuth 2.0验证Marketo REST API，创建和使用访问令牌，切换到授权标头，管理过期，处理601和602错误。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
 TQID: https://experienceleague.adobe.com/cIeI0m61CyIWq4HEosZ-QAsxzZb0WcrQRpCud2qysfY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 6d9408d07557d4b7426ad72d2a886220d622fb78
 workflow-type: tm+mt
-source-wordcount: 519
+source-wordcount: 517
 ht-degree: 0%
 
 ---
@@ -61,7 +59,7 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 >[!IMPORTANT]
 >
->2026年8月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
+>2026年8月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
 
 ### 切换到授权标头
 
@@ -83,7 +81,7 @@ curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/
 
 存储来自身份响应的访问令牌和过期期限。 管理令牌过期有助于防止在正常操作期间出现意外的身份验证错误。
 
-在进行REST调用之前，请检查令牌的剩余生命周期。 如果令牌已过期，请通过调用[Identity](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)终结点来续订该令牌。 主动续订可防止令牌过期导致的故障，并提高REST调用延迟的可预测性，这对于面向最终用户的应用程序非常重要。
+在进行REST调用之前，请检查令牌的剩余生命周期。 如果令牌已过期，请通过调用[Identity](https://developer.adobe.com/marketo-apis/api/identity#tag/Identity)终结点来续订该令牌。 主动续订可防止令牌过期导致的故障，并提高REST调用延迟的可预测性，这对于面向最终用户的应用程序非常重要。
 
 身份验证错误返回以下代码：
 
