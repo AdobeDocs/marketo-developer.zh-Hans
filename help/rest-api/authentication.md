@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: 6d9408d07557d4b7426ad72d2a886220d622fb78
 workflow-type: tm+mt
-source-wordcount: 519
+source-wordcount: 517
 ht-degree: 0%
 
 ---
@@ -83,7 +83,7 @@ curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/
 
 存储来自身份响应的访问令牌和过期期限。 管理令牌过期有助于防止在正常操作期间出现意外的身份验证错误。
 
-在进行REST调用之前，请检查令牌的剩余生命周期。 如果令牌已过期，请通过调用[Identity](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)终结点来续订该令牌。 主动续订可防止令牌过期导致的故障，并提高REST调用延迟的可预测性，这对于面向最终用户的应用程序非常重要。
+在进行REST调用之前，请检查令牌的剩余生命周期。 如果令牌已过期，请通过调用[Identity](https://developer.adobe.com/marketo-apis/api/identity#tag/Identity)终结点来续订该令牌。 主动续订可防止令牌过期导致的故障，并提高REST调用延迟的可预测性，这对于面向最终用户的应用程序非常重要。
 
 身份验证错误返回以下代码：
 
