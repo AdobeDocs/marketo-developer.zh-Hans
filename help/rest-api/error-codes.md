@@ -17,9 +17,9 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: cc72dcf1-72e1-48cc-b434-e7c27d62d67c
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2255
+source-wordcount: 2332
 ht-degree: 3%
 
 ---
@@ -232,7 +232,7 @@ Marketo REST API在正常操作期间可能会返回三种类型的错误：
     <tr>
       <td><a name="709"></a>709</td>
       <td>违反业务规则</td>
-      <td>调用无法完成，因为它违反了创建或更新资产的要求，例如，尝试在没有模板的情况下创建电子邮件。尝试以下操作时也可能出现此错误：
+      <td>调用无法完成，因为它违反了创建或更新资产的要求，例如，尝试在没有模板的情况下创建电子邮件。 尝试以下操作时也可能出现此错误：
         <ul>
           <li>检索包含社交内容的登陆页面的内容。</li>
           <li>克隆包含特定资产类型的程序（有关详细信息，请参阅<a href="programs.md#clone">程序克隆</a>）。</li>
@@ -384,8 +384,8 @@ Marketo REST API在正常操作期间可能会返回三种类型的错误：
 >    <tr>
 >      <td><a name="1012"></a>1012</td>
 >      <td>无效的Cookie值“%s”</td>
->      <td>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST">关联潜在客户</a>时，可能会发生这种情况，因为该潜在客户的“cookie”参数值无效。
->        当使用“filterType=cookies”和“filterValues”参数的无效值通过筛选类型</a>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET">获取潜在客户时，也会发生这种情况。</td>
+>      <td>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/associateLeadUsingPOST">关联潜在客户</a>时，可能会发生这种情况，因为该潜在客户的“cookie”参数值无效。
+>        当使用“filterType=cookies”和“filterValues”参数的无效值通过筛选类型</a>调用<a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET">获取潜在客户时，也会发生这种情况。</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1013"></a>1013</td>
@@ -503,24 +503,24 @@ Marketo REST API在正常操作期间可能会返回三种类型的错误：
 >    </tr>
 >    <tr>
 >      <td><a name="1076"></a>1076</td>
->      <td>使用mergeInCRM标志的<a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用为4。</td>
->      <td>您正在创建重复记录。建议您改用现有记录。
+>      <td>使用mergeInCRM标志的<a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">合并潜在客户</a>调用为4。</td>
+>      <td>您正在创建重复记录。 建议您改用现有记录。
 >        这是Marketo在Salesforce中合并时收到的错误消息。</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1077"></a>1077</td>
->      <td>由于“SFDC字段”长度，<a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
+>      <td>由于“SFDC字段”长度，<a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
 >      <td>由于“SFDC字段”超出允许的字符限制，mergeInCRM设置为true的合并潜在客户调用失败。 要更正此问题，请缩短“SFDC字段”的长度，或将mergeInCRM设置为false。</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1078"></a>1078</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败，因为实体已删除，不是潜在客户/联系人，或者字段筛选条件不匹配。</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败，因为实体已删除，不是潜在客户/联系人，或者字段筛选条件不匹配。</td>
 >      <td>合并失败，无法在本地同步的CRM中执行合并操作
 >        这是Marketo在Salesforce中合并时收到的错误消息。</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1079"></a>1079</td>
->      <td>由于重复记录中存在个性化URL冲突，<a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
+>      <td>由于重复记录中存在个性化URL冲突，<a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">合并潜在客户</a>调用失败</td>
 >      <td>合并潜在客户调用指定了具有相同个性化URL的多个潜在客户。 要解决此问题，请使用Marketo Engage用户界面合并这些记录。</td>
 >    </tr>
 >  </tbody>

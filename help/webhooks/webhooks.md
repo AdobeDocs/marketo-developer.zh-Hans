@@ -18,9 +18,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: bcf56d2102f2f60eac5ad3318d348fd020391e6b
 workflow-type: tm+mt
-source-wordcount: 590
+source-wordcount: 589
 ht-degree: 3%
 
 ---
@@ -39,7 +39,7 @@ Marketo webhook与第三方Web服务进行通信。 webhook使用GET或POST HTTP
 
 - **[!UICONTROL URL]** — 您向其提交Web服务请求的URL。
 - **[!UICONTROL Request Type]** - HTTP方法。
-- **[!UICONTROL Payload Template]** - POST正文中发送的信息模板。 使用支持HTTP POST的任何数据格式，包括XML、JSON或SOAP。 序列化格式必须允许在字符串周围使用双引号。 要插入令牌，请选择&#x200B;**[!UICONTROL Insert Token]**。 Marketo会自动将字符串类型的令牌用双引号引住。
+- **[!UICONTROL Payload Template]** - POST正文中发送的信息模板。 使用支持HTTP POST的任何数据格式，包括XML和JSON。 序列化格式必须允许在字符串周围使用双引号。 要插入令牌，请选择&#x200B;**[!UICONTROL Insert Token]**。 Marketo会自动将字符串类型的令牌用双引号引住。
 - **[!UICONTROL Request Token Encoding]** — 请求格式JSON或表单/URL，用于对包含特殊字符（如&amp;符号、&#39;&amp;&#39;）的令牌值进行编码。 选择正确的主体编码，以便webhook正确与Web服务通信。
 - **[!UICONTROL Response Type]** — 响应格式，JSON或XML。 选择正确的类型以将响应属性映射到Marketo中的潜在客户字段。
 - **[!UICONTROL Custom Headers]** — 通过&#x200B;**[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]**&#x200B;添加为HTTP标头的键值对。 您可以添加任意数量的自定义标头。

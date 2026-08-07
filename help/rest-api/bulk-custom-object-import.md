@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 736
+source-wordcount: 714
 ht-degree: 0%
 
 ---
@@ -150,7 +150,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## 创建作业
 
-要创建批量导入作业，请在[导入自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST)端点的路径中包含自定义对象API名称。 包括以下参数：
+要创建批量导入作业，请在[导入自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST)端点的路径中包含自定义对象API名称。 包括以下参数：
 
 - `file`：导入文件的名称。
 - `format`：文件分隔符格式（`csv`、`tsv`或`ssv`）。
@@ -215,7 +215,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## 轮询作业状态
 
-创建导入作业后，每5-30秒轮询一次。 在指向[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)端点的路径中传递自定义对象API名称和`batchId`。
+创建导入作业后，每5-30秒轮询一次。 在指向[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET)端点的路径中传递自定义对象API名称和`batchId`。
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -247,9 +247,9 @@ GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 
 ## 故障
 
-[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败的行数。 值大于零表示发生故障。
+[获取导入自定义对象状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败的行数。 值大于零表示发生故障。
 
-在指向[获取导入自定义对象失败](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET)端点的路径中传递自定义对象API名称和`batchId`。 终结点返回一个包含失败详细信息的文件。 如果不存在失败文件，则会返回HTTP 404状态代码。
+在指向[获取导入自定义对象失败](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectFailuresUsingGET)端点的路径中传递自定义对象API名称和`batchId`。 终结点返回一个包含失败详细信息的文件。 如果不存在失败文件，则会返回HTTP 404状态代码。
 
 要演示失败，请通过将标头`vin`更改为` vin`并在逗号和`vin`之间添加空格来修改标头。
 
@@ -302,7 +302,7 @@ blue,bmw,325i,WBS3U9C52HP970604,missing.dedupe.fields
 
 获取导入自定义对象状态响应中的`numOfRowsWithWarning`属性指示带有警告的行数。 值大于零表示出现警告。
 
-在指向[获取导入自定义对象警告](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET)端点的路径中传递自定义对象API名称和`batchId`。 端点返回一个包含警告详细信息的文件。 如果不存在警告文件，则会返回HTTP 404状态代码。
+在指向[获取导入自定义对象警告](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectWarningsUsingGET)端点的路径中传递自定义对象API名称和`batchId`。 端点返回一个包含警告详细信息的文件。 如果不存在警告文件，则会返回HTTP 404状态代码。
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

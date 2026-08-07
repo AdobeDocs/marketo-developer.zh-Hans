@@ -15,9 +15,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2728
+source-wordcount: 2733
 ht-degree: 3%
 
 ---
@@ -72,7 +72,7 @@ GET /rest/v1/leads/describe.json
 
 实际响应在结果数组中包含更多字段。 每个项目表示潜在客户记录中可用的字段，并至少包含id、displayName和数据类型。
 
-只有当字段对相应的API有效时，才会显示rest和soap子对象。 `readOnly`属性指示相应的API是否可以更新该字段。 如果存在，length属性提供最大字段长度，而dataType属性提供字段的数据类型。
+仅当字段对相应的API有效时，才会显示REST子对象。 `readOnly`属性指示相应的API是否可以更新该字段。 如果存在，length属性提供最大字段长度，而dataType属性提供字段的数据类型。
 
 ## 查询
 
@@ -177,7 +177,7 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 
 >[!NOTE]
 >
-> 不支持使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)终结点更新公司字段。 请改用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)终结点。
+> 不支持使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST)终结点更新公司字段。 请改用[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST)终结点。
 
 >[!NOTE]
 >
@@ -863,7 +863,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 }
 ```
 
-如果该Cookie已与某个已知潜在客户关联，则对另一个潜在客户使用此API会针对新记录记录记录新的Web活动。现有Web活动未移至新记录。
+如果该Cookie已与某个已知潜在客户关联，则对另一个潜在客户使用此API会针对新记录记录记录新的Web活动。 现有Web活动未移至新记录。
 会员资格
 
 根据静态列表或计划中的成员资格检索潜在客户记录。 您还可以检索包含特定商机的所有静态列表、项目或智能营销活动。

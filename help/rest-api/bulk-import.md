@@ -10,9 +10,9 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 538
+source-wordcount: 526
 ht-degree: 2%
 
 ---
@@ -57,7 +57,7 @@ ht-degree: 2%
 
 ## 创建作业
 
-通过调用[导入潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)终结点来创建潜在客户导入作业。 此终结点使用[multipart/form-data作为content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)。
+通过调用[导入潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST)终结点来创建潜在客户导入作业。 此终结点使用[multipart/form-data作为content-type](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)。
 
 为首选语言使用HTTP支持库来构建多部分请求。 您还可以使用[curl](https://curl.se/)开始。
 
@@ -112,7 +112,7 @@ Easy,Fox,easyfox@marketo.com
 
 ## 轮询作业状态
 
-将`batchId`传递给[获取导入商机状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET)终结点，以检索作业状态。
+将`batchId`传递给[获取导入商机状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadStatusUsingGET)终结点，以检索作业状态。
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -144,7 +144,7 @@ GET /bulk/v1/leads/batch/{batchId}.json
 
 获取导入商机状态响应中的`numOfRowsFailed`属性指示失败的行数。 值大于零表示发生故障。
 
-要检索失败的记录及其原因，请使用[获取导入潜在客户失败](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET)端点。
+要检索失败的记录及其原因，请使用[获取导入潜在客户失败](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadFailuresUsingGET)端点。
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json

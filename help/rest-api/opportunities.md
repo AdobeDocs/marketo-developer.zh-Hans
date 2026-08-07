@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 708
+source-wordcount: 702
 ht-degree: 0%
 
 ---
@@ -100,7 +100,7 @@ GET /rest/v1/opportunities/describe.json
 
 ## 查询
 
-[查询商机](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET)的模式非常遵循Leads API。 但是，`filterType`参数仅接受在相应Describe响应或dedupeFields的`searchableFields`数组中列出的字段。
+[查询商机](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunitiesUsingGET)的模式非常遵循Leads API。 但是，`filterType`参数仅接受在相应Describe响应或dedupeFields的`searchableFields`数组中列出的字段。
 
 对于自定义机会字段，可搜索的Fields数组中只显示String或Integer类型的字段。
 
@@ -221,7 +221,7 @@ POST /rest/v1/opportunities.json
 
 #### 按名称
 
-[按名称获取机会字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET)终结点为公司对象上的一个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。
+[按名称获取机会字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldByNameUsingGET)终结点为公司对象上的一个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。
 
 响应类似于Describe Opportunity响应，但包含其他元数据。 例如，`isCustom`属性指示字段是否为自定义字段。
 
@@ -252,7 +252,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### 浏览
 
-[获取机会字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
+[获取机会字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
 
 如果`moreResult`属性为true，则有更多结果可用。 继续使用返回的`nextPageToken`调用终结点，直到moreResult为false。
 

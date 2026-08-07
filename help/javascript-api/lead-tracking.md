@@ -16,9 +16,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 718
+source-wordcount: 716
 ht-degree: 0%
 
 ---
@@ -93,7 +93,7 @@ Marketo会将该浏览器中后续的Web活动记录到匿名记录中。 要将
 
 - 潜在客户必须通过跟踪的Munchkin电子邮件链接访问查询字符串中包含`mkt_tok`参数的Marketo跟踪页面。
 - 潜在客户必须填写Marketo表单。
-- 必须发送REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST)调用。
+- 必须发送REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/associateLeadUsingPOST)调用。
 
 当发生这些事件之一时，Marketo会将Cookie和所有相关Web活动与已知商机关联。
 

@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 623
+source-wordcount: 619
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 0%
 
 [批量潜在客户导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-使用[批量API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)异步导入大量潜在客户记录。 以逗号、制表符或分号分隔的平面文件提供小于10 MB的记录。
+使用[批量API](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST)异步导入大量潜在客户记录。 以逗号、制表符或分号分隔的平面文件提供小于10 MB的记录。
 
 批量商机导入仅支持“插入或更新”记录操作。
 

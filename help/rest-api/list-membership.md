@@ -3,9 +3,9 @@ title: 列表成员资格（静态列表）
 feature: REST API, Static Lists
 description: 使用Marketo潜在客户数据库REST API向静态列表添加潜在客户、删除潜在客户、检索列表成员和检查列表成员资格。
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: '427'
+source-wordcount: '415'
 ht-degree: 5%
 
 ---
@@ -32,7 +32,7 @@ List Membership API提供了用于管理静态列表成员的Lead Database端点
 
 ## 添加到列表
 
-使用[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST)终结点向列表添加一个或多个成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
+使用[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi#operation/addLeadsToListUsingPOST)终结点向列表添加一个或多个成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
 
 响应包含一个`result`数组，请求中每个潜在客户ID的状态均为该数组。
 
@@ -65,7 +65,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## 从列表中移除
 
-使用[从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE)终结点从列表中删除一个或多个成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
+使用[从列表中删除](https://developer.adobe.com/marketo-apis/api/mapi#operation/removeLeadsFromListUsingDELETE)终结点从列表中删除一个或多个成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
 
 响应包含一个`result`数组，请求中每个潜在客户ID的状态均为该数组。
 
@@ -102,7 +102,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## 按列表ID获取潜在客户
 
-使用[按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET)端点检索列表的成员。 传递所需的`listId`路径参数。 您还可以传递可选的查询参数以指定筛选条件。
+使用[按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET)端点检索列表的成员。 传递所需的`listId`路径参数。 您还可以传递可选的查询参数以指定筛选条件。
 
 可选的查询参数包括：
 
@@ -152,7 +152,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## List 会员
 
-使用[Member of List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)端点确定一个或多个潜在客户是否为列表的成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
+使用[Member of List](https://developer.adobe.com/marketo-apis/api/mapi#operation/areLeadsMemberOfListUsingGET)端点确定一个或多个潜在客户是否为列表的成员。 传递所需的`listId`路径参数以及一个或多个包含潜在客户ID的`id`查询参数。 商机ID的最大数量为300。
 
 响应包含一个`result`数组，请求中每个潜在客户ID的状态均为该数组。
 

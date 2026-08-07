@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 290
+source-wordcount: 284
 ht-degree: 3%
 
 ---
@@ -40,7 +40,7 @@ ht-degree: 3%
 
 ## 查询
 
-[按文件夹ID获取令牌](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/getTokensByFolderIdUsingGET)将程序或文件夹的ID作为路径参数。 使用`folderType`参数指定类型。
+[按文件夹ID获取令牌](https://developer.adobe.com/marketo-apis/api/asset#operation/getTokensByFolderIdUsingGET)将程序或文件夹的ID作为路径参数。 使用`folderType`参数指定类型。
 
 ```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
@@ -73,7 +73,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## 创建和更新
 
-[创建令牌](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/addTokenTOFolderUsingPOST)端点创建令牌或使用提交的值更新现有令牌。 令牌属于文件夹或程序。
+[创建令牌](https://developer.adobe.com/marketo-apis/api/asset#operation/addTokenTOFolderUsingPOST)端点创建令牌或使用提交的值更新现有令牌。 令牌属于文件夹或程序。
 
 `id`路径参数标识父文件夹。 需要`name`、`type`、`value`和`folderType`参数。 将数据作为POST `x-www-form-urlencoded`传递，而不是作为JSON传递。 令牌`name`不能超过50个字符。
 
@@ -116,7 +116,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## 删除
 
-[按名称删除令牌](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/deleteTokenByNameUsingPOST)将程序或文件夹的ID作为路径参数。 使用`folderType`指定类型。
+[按名称删除令牌](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteTokenByNameUsingPOST)将程序或文件夹的ID作为路径参数。 使用`folderType`指定类型。
 
 需要父文件夹、令牌`name`和令牌`type`。 将数据作为POST `x-www-form-urlencoded`传递，而不是作为JSON传递。
 

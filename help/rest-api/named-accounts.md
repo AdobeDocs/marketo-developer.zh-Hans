@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 590
+source-wordcount: 584
 ht-degree: 1%
 
 ---
@@ -243,7 +243,7 @@ Content-Type: application/json
 
 #### 按名称
 
-[按名称获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点为命名帐户对象上的一个字段检索元数据。 必填的fieldApiName路径参数指定字段的API名称。
+[按名称获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET)终结点为命名帐户对象上的一个字段检索元数据。 必填的fieldApiName路径参数指定字段的API名称。
 
 响应类似于“描述命名帐户”响应，但包含其他元数据。 例如，isCustom属性指示字段是否为自定义字段。
 
@@ -273,7 +273,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### 浏览
 
-[获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET)终结点检索命名帐户对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用batchSize查询参数减少此数量。
+[获取命名帐户字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET)终结点检索命名帐户对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用batchSize查询参数减少此数量。
 
 如果moreResult属性为true，则有更多结果可用。 使用返回的nextPageToken继续调用端点，直到moreResult为false。
 

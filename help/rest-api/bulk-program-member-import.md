@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 771
+source-wordcount: 742
 ht-degree: 0%
 
 ---
@@ -38,7 +38,7 @@ ht-degree: 0%
 
 ## 导入文件
 
-文件的第一行必须是标头，该标头列出了每行中的值所映射到的REST API字段名称。 使用[Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2)和[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeProgramMemberUsingGET)端点检索这些名称。
+文件的第一行必须是标头，该标头列出了每行中的值所映射到的REST API字段名称。 使用[Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2)和[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET)端点检索这些名称。
 
 记录可以包含潜在客户字段、自定义潜在客户字段和自定义计划成员字段。
 
@@ -53,7 +53,7 @@ test@example.com,John,Doe
 
 ## 创建作业
 
-[导入程序成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST)终结点从文件中读取程序成员记录，并将其添加到具有指定状态的程序中。 记录可以包含潜在客户字段和自定义项目群成员字段。
+[导入程序成员](https://developer.adobe.com/marketo-apis/api/mapi#operation/importProgramMemberUsingPOST)终结点从文件中读取程序成员记录，并将其添加到具有指定状态的程序中。 记录可以包含潜在客户字段和自定义项目群成员字段。
 
 每个记录都必须包含用于重复数据删除的email字段。
 
@@ -133,7 +133,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## 轮询作业状态
 
-创建导入作业后，每5-30秒轮询一次。 将`batchId`路径参数传递到[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)终结点。
+创建导入作业后，每5-30秒轮询一次。 将`batchId`路径参数传递到[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)终结点。
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -163,7 +163,7 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 
 ## 故障
 
-[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败的行数。 值大于零表示发生故障。
+[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsFailed`属性指示失败的行数。 值大于零表示发生故障。
 
 将`batchId`路径参数传递到“获取导入程序成员失败”终结点，以检索失败记录及其原因。
 
@@ -217,9 +217,9 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## 警告
 
-[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsWithWarning`属性指示带有警告的行数。 值大于零表示出现警告。
+[获取导入程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)响应中的`numOfRowsWithWarning`属性指示带有警告的行数。 值大于零表示出现警告。
 
-将`batchId`路径参数传递到[获取导入程序成员警告](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET)终结点，以检索受影响的记录及其原因。
+将`batchId`路径参数传递到[获取导入程序成员警告](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberWarningsUsingGET)终结点，以检索受影响的记录及其原因。
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json

@@ -16,9 +16,9 @@ role_v2:
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1225
+source-wordcount: 1198
 ht-degree: 2%
 
 ---
@@ -31,8 +31,7 @@ Marketo Engage是一个营销自动化平台，用于为潜在客户和客户管
 
 >[!NOTE]
 >
->SOAP API已被弃用，在2026年7月31日后将不再可用。 将Marketo [REST API](./rest-api/rest-api.md)用于所有新开发。 在此日期之前迁移现有服务以避免服务中断。 如果服务使用SOAP API，请参阅SOAP API [迁移指南](./soap-api/migration.md)。
->
+>SOAP API已于2026年7月31日弃用，不再可用。 将Marketo [REST API](./rest-api/rest-api.md)用于所有新开发。
 
 在Marketo Engage实例上启用本机SFDC或MS Dynamics CRM连接后，这些对象为只读：
 
@@ -144,6 +143,6 @@ Marketo自定义对象可在Marketo潜在客户与自定义对象记录之间创
 
 在未启用本机CRM集成时，您可以在Marketo中管理销售人员记录及其潜在客户关系。 这些记录包含名称、电子邮件和职务等信息。 当销售人员拥有商机时，您可以使用此信息进行筛选和标记。
 
-通过“externalSalesPersonId”字段在潜在客户级别管理与销售人员的关系。 通过[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) API更新此字段。
+通过“externalSalesPersonId”字段在潜在客户级别管理与销售人员的关系。 通过[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST) API更新此字段。
 
 相关API： [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)

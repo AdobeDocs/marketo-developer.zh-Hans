@@ -10,9 +10,9 @@ feature_v2:
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 274
+source-wordcount: 263
 ht-degree: 1%
 
 ---
@@ -27,7 +27,7 @@ Marketo文件存储未针对带宽密集型应用程序进行优化。 使用专
 
 ## 查询
 
-按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET)查询文件。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getFilesUsingGET)查询文件。
 
 ### 按Id
 
@@ -164,7 +164,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## 创建和更新
 
-使用`multipart/form-data`请求[创建文件](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST)。 `name`、`folder`和`file`参数是必需的。 `description`和`insertOnly`参数是可选的。 为true时，`insertOnly`阻止请求更新具有相同名称的现有文件。
+使用`multipart/form-data`请求[创建文件](https://developer.adobe.com/marketo-apis/api/asset#operation/createFileUsingPOST)。 `name`、`folder`和`file`参数是必需的。 `description`和`insertOnly`参数是可选的。 为true时，`insertOnly`阻止请求更新具有相同名称的现有文件。
 
 对于`file`参数，在`Content-Disposition`标头中包括`filename`。 还包括文件的`Content-Type`标头。 Marketo在提供文件时使用此MIME类型。
 
@@ -219,7 +219,7 @@ This is a test file
 }
 ```
 
-要[更新文件](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST)，请指定其ID。 `file`参数具有与文件创建相同的要求。
+要[更新文件](https://developer.adobe.com/marketo-apis/api/asset#operation/updateContentUsingPOST)，请指定其ID。 `file`参数具有与文件创建相同的要求。
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

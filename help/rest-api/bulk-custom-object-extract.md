@@ -12,10 +12,10 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1231
-ht-degree: 1%
+source-wordcount: 1186
+ht-degree: 2%
 
 ---
 
@@ -51,7 +51,7 @@ API用户必须具有具有“只读自定义对象”权限和/或“读写自�
 
 ## 选项
 
-[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)终结点提供以下选项：
+[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportCustomObjectsUsingPOST)终结点提供以下选项：
 
 - 指定要包含在导出文件中的字段。
 - 重命名导出的列标题。
@@ -65,11 +65,11 @@ API用户必须具有具有“只读自定义对象”权限和/或“读写自�
 
 ## 创建作业
 
-使用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)端点定义导出作业。
+使用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportCustomObjectsUsingPOST)端点定义导出作业。
 
 请求使用以下参数：
 
-- `apiName`：必需的路径参数。 使用[Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1)终结点返回的名称，指定要导出的Marketo自定义对象。 不允许CRM自定义对象。
+- `apiName`：必需的路径参数。 使用[Describe Custom Object](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1)终结点返回的名称，指定要导出的Marketo自定义对象。 不允许CRM自定义对象。
 - `filter`：必需。 通过引用静态列表或智能列表指定链接的潜在客户。
 - `fields`：必需。 指定要包含在导出文件中的自定义对象属性的API名称。
 - `format`：可选。 指定导出文件格式。
@@ -85,7 +85,7 @@ API用户必须具有具有“只读自定义对象”权限和/或“读写自�
 
 ![自定义对象字段](assets/custom-object-car-fields.png)
 
-调用[Describe自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1)以编程方式检查自定义对象属性。 响应返回`fields`中的属性。
+调用[Describe自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1)以编程方式检查自定义对象属性。 响应返回`fields`中的属性。
 
 ```http
 GET /rest/v1/customobjects/car_c/describe.json
@@ -195,7 +195,7 @@ GET /rest/v1/customobjects/car_c/describe.json
 }
 ```
 
-使用[同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)端点创建自定义对象记录并将每个记录链接到潜在客户。 商机可以链接到多个自定义对象记录，从而创建一对多关系。
+使用[同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST)端点创建自定义对象记录并将每个记录链接到潜在客户。 商机可以链接到多个自定义对象记录，从而创建一对多关系。
 
 ```http
 POST /rest/v1/customobjects/car_c.json
@@ -254,7 +254,7 @@ POST /rest/v1/customobjects/car_c.json
 }
 ```
 
-此示例中的三个潜在客户属于`Car Buyers`静态列表，该列表的`id`为1081。 调用[按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1)端点以检索列表成员。
+此示例中的三个潜在客户属于`Car Buyers`静态列表，该列表的`id`为1081。 调用[按列表ID获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1)端点以检索列表成员。
 
 ```http
 GET /rest/v1/lists/1081/leads.json
@@ -293,7 +293,7 @@ GET /rest/v1/lists/1081/leads.json
 }
 ```
 
-要检索这些记录，请调用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST)端点。 在`fields`中指定自定义对象属性，在`filter`中指定静态列表ID。
+要检索这些记录，请调用[创建导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportCustomObjectsUsingPOST)端点。 在`fields`中指定自定义对象属性，在`filter`中指定静态列表ID。
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/create.json
@@ -329,7 +329,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-响应将确认作业已创建，但导出不会自动启动。 将`apiName`和返回的`exportId`传递到[排入队列导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST)终结点，以启动该作业。
+响应将确认作业已创建，但导出不会自动启动。 将`apiName`和返回的`exportId`传递到[排入队列导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportCustomObjectsUsingPOST)终结点，以启动该作业。
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -357,7 +357,7 @@ POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/en
 
 您只能检索由同一API用户创建的作业的状态。
 
-由于导出是异步运行的，因此请使用[获取导出自定义对象作业状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET)端点轮询其进度。 状态每60秒只更新一次，因此不要更频繁地轮询。
+由于导出是异步运行的，因此请使用[获取导出自定义对象作业状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportCustomObjectsStatusUsingGET)端点轮询其进度。 状态每60秒只更新一次，因此不要更频繁地轮询。
 
 状态可以是`Created`、`Queued`、`Processing`、`Canceled`、`Completed`或`Failed`。
 
@@ -407,7 +407,7 @@ GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成的自定义对象导出，请将`apiName`和`exportId`传递到[获取导出自定义对象文件](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET)终结点。
+要检索已完成的自定义对象导出，请将`apiName`和`exportId`传递到[获取导出自定义对象文件](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportCustomObjectsFileUsingGET)终结点。
 
 端点会按照为作业配置的格式返回文件。 如果请求的自定义对象属性不包含任何数据，则相应的导出字段将包含`null`。
 
@@ -426,7 +426,7 @@ leadId,color,make,model,vIN
 
 ## 取消作业
 
-要取消配置不正确或不再需要的作业，请调用[取消导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST)终结点。 响应状态表示作业已取消。
+要取消配置不正确或不再需要的作业，请调用[取消导出自定义对象作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportCustomObjectsUsingPOST)终结点。 响应状态表示作业已取消。
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/cancel.json

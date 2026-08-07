@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1758
+source-wordcount: 1740
 ht-degree: 0%
 
 ---
@@ -33,7 +33,7 @@ Marketo支持许多与潜在客户记录相关的活动类型。 几乎每个更
 
 ## 描述
 
-使用[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)端点检索实例的可用活动类型及其定义。
+使用[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)端点检索实例的可用活动类型及其定义。
 
 ```
 GET /rest/v1/activities/types.json
@@ -88,7 +88,7 @@ GET /rest/v1/activities/types.json
 
 ## 查询
 
-使用[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)端点检索活动。 首先，检索开始活动检索的日期时间的分页令牌。 在`nextPageToken`查询参数中传递该令牌。
+使用[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET)端点检索活动。 首先，检索开始活动检索的日期时间的分页令牌。 在`nextPageToken`查询参数中传递该令牌。
 
 在`activityTypeIds`查询参数中最多传递10个活动类型ID以逗号分隔的列表。
 
@@ -157,7 +157,7 @@ GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK
 
 ### 数据值更改
 
-使用[获取潜在客户更改](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET)端点检索潜在客户字段的数据值更改记录。 其界面与获取潜在客户活动API在以下两个方面有所不同：
+使用[获取潜在客户更改](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET)端点检索潜在客户字段的数据值更改记录。 其界面与获取潜在客户活动API在以下两个方面有所不同：
 
 - 终结点没有`activityTypeIds`参数，因为它只返回数据值更改和新潜在客户活动。
 - 所需的`fields`查询参数接受要检索其更改的以逗号分隔的字段列表。
@@ -216,7 +216,7 @@ GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQG
 
 ### 已删除的潜在客户
 
-使用[获取已删除的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET)端点从Marketo中检索已删除的潜在客户活动。
+使用[获取已删除的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/getDeletedLeadsUsingGET)端点从Marketo中检索已删除的潜在客户活动。
 
 ```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
@@ -270,13 +270,13 @@ GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQ
 - 最大自定义活动数：10
 - 每个自定义活动的最大属性数：20
 
-通过[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) API检索自定义活动数据，与检索标准活动的方式相同。
+通过[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET) API检索自定义活动数据，与检索标准活动的方式相同。
 
 ## 查询类型
 
-使用[获取自定义活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET)来检索有关在Marketo实例中设置的类型的详细信息。 使用[Describe自定义活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET)检索特定类型的属性元数据。
+使用[获取自定义活动类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomActivityTypeUsingGET)来检索有关在Marketo实例中设置的类型的详细信息。 使用[Describe自定义活动类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeCustomActivityTypeUsingGET)检索特定类型的属性元数据。
 
-标准[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)终结点也返回自定义活动元数据，但无法识别类型是否为自定义类型。
+标准[获取活动类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)终结点也返回自定义活动元数据，但无法识别类型是否为自定义类型。
 
 ### 获取类型
 
@@ -653,7 +653,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 
 自定义活动是个人记录历史活动的一次性写入记录。 Marketo管理员可以在Marketo中管理其架构，或者，API集成可以远程管理该架构。
 
-使用[添加自定义活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST)端点将自定义活动添加到潜在客户记录。 `leadId`字段将每个活动与潜在客户关联。 在商机的活动日志中查看自定义活动，或通过指定自定义活动类型ID通过Get Lead Activities检索它们。
+使用[添加自定义活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/addCustomActivityUsingPOST)端点将自定义活动添加到潜在客户记录。 `leadId`字段将每个活动与潜在客户关联。 在商机的活动日志中查看自定义活动，或通过指定自定义活动类型ID通过Get Lead Activities检索它们。
 
 将自定义活动用于无需更新或覆盖的与某个人相关的数据。 例如，将事件出席情况记录为“已出席事件”活动。
 

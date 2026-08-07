@@ -13,9 +13,9 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 386
+source-wordcount: 376
 ht-degree: 2%
 
 ---
@@ -28,7 +28,7 @@ ht-degree: 2%
 
 ## 查询
 
-按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET)查询代码片段。 该API不提供按名称查询方法。 两个端点都接受`status`字段以检索批准版本或草稿版本。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetUsingGET)查询代码片段。 该API不提供按名称查询方法。 两个端点都接受`status`字段以检索批准版本或草稿版本。
 
 ### 按Id
 
@@ -153,7 +153,7 @@ GET /rest/asset/v1/snippet/{id}/content.json
 
 ## 创建和更新
 
-分别创建代码片段资源及其内容。 首先，调用[创建代码片段](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST)端点。 说明是可选的。 将数据作为`x-www-form-urlencoded`传递，而不是作为JSON传递。
+分别创建代码片段资源及其内容。 首先，调用[创建代码片段](https://developer.adobe.com/marketo-apis/api/asset#operation/createSnippetUsingPOST)端点。 说明是可选的。 将数据作为`x-www-form-urlencoded`传递，而不是作为JSON传递。
 
 ```http
 POST /rest/asset/v1/snippets.json
@@ -225,7 +225,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-要[更新元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST)，请指定代码片段ID。 只能更新名称和描述。
+要[更新元数据](https://developer.adobe.com/marketo-apis/api/asset#operation/updateSnippetUsingPOST)，请指定代码片段ID。 只能更新名称和描述。
 
 ```http
 POST /rest/asset/v1/snippet/{id}.json
@@ -416,7 +416,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## 克隆
 
-要[克隆片段](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST)，请提供名称、源片段ID和文件夹。 说明是可选的。 如果源没有批准的版本，则端点将克隆其草稿。
+要[克隆片段](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneSnippetUsingPOST)，请提供名称、源片段ID和文件夹。 说明是可选的。 如果源没有批准的版本，则端点将克隆其草稿。
 
 ```http
 POST /rest/asset/v1/snippet/{id}/clone.json

@@ -11,16 +11,16 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 897
+source-wordcount: 891
 ht-degree: 1%
 
 ---
 
 # 事务性电子邮件
 
-使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST) API向特定Marketo记录发送事务性电子邮件。 在发出请求之前，配置电子邮件并触发营销活动。
+使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST) API向特定Marketo记录发送事务性电子邮件。 在发出请求之前，配置电子邮件并触发营销活动。
 
 - 确保收件人具有Marketo记录。
 - 在Marketo实例中创建和批准事务型电子邮件。
@@ -56,7 +56,7 @@ Java示例使用[minimal-json包](https://github.com/ralfstx/minimal-json)来处
 
 在发送电子邮件之前，确认该电子邮件地址存在Marketo记录并检索其潜在客户ID。 此示例假定电子邮件地址已存在。
 
-使用[按筛选器类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)获取潜在客户，以检索ID。 然后，以下主要方法请求营销活动：
+使用[按筛选器类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET)获取潜在客户，以检索ID。 然后，以下主要方法请求营销活动：
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -274,4 +274,4 @@ Result:
 
 ## 正在结束
 
-此方法可通过多种方式扩展，可更改单个布局分区内电子邮件中的内容或外部电子邮件中的内容，从而将自定义值传递到任务或有趣的时间点。 通过此方法，可以在程序中使用令牌的任何位置进行自定义。 [计划营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST)调用也提供了类似功能，可让您处理整个批次营销活动中的令牌。 无法基于每个潜在客户自定义这些内容，但可用于在广泛的潜在客户集中自定义内容。
+此方法可通过多种方式扩展，可更改单个布局分区内电子邮件中的内容或外部电子邮件中的内容，从而将自定义值传递到任务或有趣的时间点。 通过此方法，可以在程序中使用令牌的任何位置进行自定义。 [计划营销活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/scheduleCampaignUsingPOST)调用也提供了类似功能，可让您处理整个批次营销活动中的令牌。 无法基于每个潜在客户自定义这些内容，但可用于在广泛的潜在客户集中自定义内容。

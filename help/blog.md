@@ -2,9 +2,9 @@
 title: 博客档案
 description: Marketo开发人员博客档案2014-2023提供了有关Forms 2.0、Zapier、API更新、SOAP弃用和迁移到REST的历史文章。
 exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: '65268'
+source-wordcount: '65289'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->SOAP API已被弃用，在2026年7月31日后将不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
+>SOAP API已于2026年7月31日弃用，不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
 >
 
 >[!IMPORTANT]
@@ -45,8 +45,8 @@ Forms 2.0使营销人员能够在无需编程知识的情况下创建美观、�
 
 ### SOAP API版本2_3现已可用
 
-* [getLeadChanges：](/help/soap-api/getleadchanges.md)引入的请求字段`activityNameFilter`
-* [ListOperation：](/help/soap-api/listoperation.md)已删除请求字段`skipActivityLog`
+* getLeadChanges：引入请求字段`activityNameFilter`
+* ListOperation：已删除请求字段`skipActivityLog`
 
 **注意：** SOAP API修订版向后兼容
 
@@ -288,7 +288,7 @@ public class GetMultipleLeads {
 
 ### SOAP API更新
 
-* [syncMObjects](/help/soap-api/syncmobjects.md)：您现在可以为现有程序添加和更新标记和渠道。
+* syncMObjects：您现在可以为现有程序添加和更新标记和渠道。
 
 更新已合并到[2_3 WSDL](http://app.marketo.com/soap/mktows/2_3?WSDL)中。
 
@@ -298,7 +298,7 @@ public class GetMultipleLeads {
 
 ### SOAP API更新
 
-* 对[syncLead](/help/soap-api/synclead.md)和[syncMultipleLeads](/help/soap-api/syncmultipleleads.md)的性能改进
+* syncLead和syncMultipleLeads的性能改进
 
 更新已合并到[2_3 WSDL](http://app.marketo.com/soap/mktows/2_3?WSDL)中。
 
@@ -600,7 +600,7 @@ $(function(){
 
 ## 在Workspace中创建潜在客户
 
-假设您的公司有两个部门：北美和欧洲。 您希望根据Marketo中的公司部门对潜在客户进行细分。 您可以使用工作区完成此操作，工作区是Marketo中的一项功能，允许您限制对潜在客户的访问。 为此，您需要为北美创建一个工作区，为欧洲创建一个工作区。 然后，您可以使用[syncLead API](/help/soap-api/synclead.md)在特定工作区中创建潜在客户。 如果贵组织具有以下特征，则应考虑使用工作区和潜在客户分区：
+假设您的公司有两个部门：北美和欧洲。 您希望根据Marketo中的公司部门对潜在客户进行细分。 您可以使用工作区完成此操作，工作区是Marketo中的一项功能，允许您限制对潜在客户的访问。 为此，您需要为北美创建一个工作区，为欧洲创建一个工作区。 然后，您可以使用syncLead API在特定工作区中创建潜在客户。 如果贵组织具有以下特征，则应考虑使用工作区和潜在客户分区：
 
 1. 为多个产品线划分营销团队
 1. 针对不同的地区或国家/地区建立独立的营销团队
@@ -613,7 +613,7 @@ $(function(){
 1. 限制对组织中资产的访问
 1. 在营销团队之间共享资产
 
-我们首先向您说明如何通过UI在Marketo中创建工作区，然后介绍如何使用[syncLead API](/help/soap-api/synclead.md)向该工作区写入潜在客户。 **创建Workspace**&#x200B;工作区是一组潜在客户和Marketo资源。 在工作区中，您只能看到来自该工作区的商机和资产（电子邮件、营销活动、列表等） 在那个工作区中。 该工作区中的智能营销活动只会影响该工作区中的潜在客户。 要查看帐户中的工作区，请执行以下操作：
+我们首先介绍如何通过UI在Marketo中创建工作区，然后介绍如何使用syncLead API向该工作区写入销售线索。 **创建Workspace**&#x200B;工作区是一组潜在客户和Marketo资源。 在工作区中，您只能看到来自该工作区的商机和资产（电子邮件、营销活动、列表等） 在那个工作区中。 该工作区中的智能营销活动只会影响该工作区中的潜在客户。 要查看帐户中的工作区，请执行以下操作：
 
 1. 转到“管理员”部分的“工作区和潜在客户分区”页。 您的工作区将显示在“工作区”选项卡中。 1.要创建新工作区，请单击“工作区”选项卡菜单栏中的“新建Workspace”按钮。
 1. 在对话框中，您需要添加一些有关新工作区的信息：
@@ -774,13 +774,13 @@ Marketo实时Personalization (RTP) JavaScript API扩展了平台的自动个性�
 
 ## 在Marketo中存储外键
 
-在诸如专有CRM或数据仓库等系统之间同步联系和潜在客户记录时，通常要求将潜在客户记录与唯一的系统标识符相关联。 在Marketo中，您可以使用唯一的系统标识符通过[syncMultipleLeads API](/help/soap-api/syncmultipleleads.md)调用创建或更新潜在客户记录。 要完成此操作，您需要将唯一的系统标识符（主键）存储为Marketo中的外键。 Marketo中用于存储外键的此字段的名称是foreignSysPersonId。 以下是需要注意的三项重要事项：
+在诸如专有CRM或数据仓库等系统之间同步联系和潜在客户记录时，通常要求将潜在客户记录与唯一的系统标识符相关联。 在Marketo中，您可以使用唯一的系统标识符通过syncMultipleLeads API调用创建或更新潜在客户记录。 要完成此操作，您需要将唯一的系统标识符（主键）存储为Marketo中的外键。 Marketo中用于存储外键的此字段的名称是foreignSysPersonId。 以下是需要注意的三项重要事项：
 
 1. foreignSysPersonId在Marketo UI中不可见。 因此，最佳实践是也使用此值填充自定义属性字段。
 1. foreignSysPersonId对于潜在客户是唯一的，但一个潜在客户可以有多个foreignSysPersonId。
 1. 无法更新或删除foreignSysPersonId，但可以将其重新分配给其他记录。
 
-我们演示了如何调用[syncMultipleLeads API](/help/soap-api/syncmultipleleads.md)以将foreignSysPersonId值写入Marketo中的两个现有潜在客户记录。 **如何使用syncMultipleLeads API编写foreignSysPersonId**&#x200B;您可以插入新的潜在客户记录并指定foreignSysPersonId。 您还可以通过指定Marketo ID和foreignSysPersonId将其添加到现有潜在客户。 我们将向您介绍后一种情况。 **请求syncMultipleLeads SOAP API调用的XML**
+我们演示了如何调用syncMultipleLeads API以将foreignSysPersonId值写入Marketo中的两个现有潜在客户记录。 **如何使用syncMultipleLeads API编写foreignSysPersonId**&#x200B;您可以插入新的潜在客户记录并指定foreignSysPersonId。 您还可以通过指定Marketo ID和foreignSysPersonId将其添加到现有潜在客户。 我们将向您介绍后一种情况。 **请求syncMultipleLeads SOAP API调用的XML**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -926,7 +926,7 @@ puts response
 
 ## 更新潜在客户的电子邮件地址
 
-假设一位用户填写了您网站上的Marketo表单。 会发生什么？ Marketo对用户进行Cookie，并将其与用户提供的电子邮件关联。 如果用户下次访问您的网站时，再次使用不同的电子邮件填写相同的表单，该怎么办？ 接下来会发生什么？ Marketo将创建新的潜在客户记录，并覆盖用户浏览器上的第一个Cookie。 用户现在是Marketo中的新/其他潜在客户。 我们为您介绍了四种在Marketo中更新商机电子邮件地址的方法，包括[syncLead API方法](/help/soap-api/synclead.md)、表单方法中的自定义字段、Marketo UI以及导入列表。 **通过syncLead API**&#x200B;您可以使用[syncLead API](/help/soap-api/synclead.md)使用其Marketo ID和新电子邮件地址更新潜在客户记录。 请求`syncMultipleLeads`SOAP API调用的XML
+假设一位用户填写了您网站上的Marketo表单。 会发生什么？ Marketo对用户进行Cookie，并将其与用户提供的电子邮件关联。 如果用户下次访问您的网站时，再次使用不同的电子邮件填写相同的表单，该怎么办？ 接下来会发生什么？ Marketo将创建新的潜在客户记录，并覆盖用户浏览器上的第一个Cookie。 用户现在是Marketo中的新/其他潜在客户。 我们为您介绍了四种在Marketo中更新商机电子邮件地址的方法，包括syncLead API方法、表单方法中的自定义字段、Marketo UI以及通过导入列表。 **通过syncLead API**&#x200B;您可以使用syncLead API使用其Marketo ID和新电子邮件地址更新潜在客户记录。 请求`syncMultipleLeads`SOAP API调用的XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1370,8 +1370,8 @@ Marketo中的自定义服务允许您描述和定义应用程序有权访问的�
 **答案：**&#x200B;不能直接回答。 但是，下面介绍的解决方法允许您执行此操作。
 
 1. 在Marketo中创建一个名为“Fullname”的自定义字段。
-1. 使用[getMultipleLeads](/help/soap-api/getmultipleleads.md) SOAP API或[按筛选器类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadByIdUsingGET)获取多个潜在客户以查询您的潜在客户数据库。 在对REST或SOAP API的请求中将您的名字和姓氏作为属性包含。
-1. 查询潜在客户数据库后，将每个潜在客户的“名字”和“姓氏”连接起来，并将这些数据存储在“全名”列中。 1.使用[syncMultipleLeads](/help/soap-api/syncmultipleleads.md) SOAP API将此数据推送到“Fullname”自定义字段。 或者，您可以使用[Import Lead](/help/rest-api/leads.md) API，或使用Marketo UI导入CSV或XLS。
+1. 使用getMultipleLeads SOAP API或[按筛选器类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadByIdUsingGET)获取多个潜在客户以查询您的潜在客户数据库。 在对REST或SOAP API的请求中将您的名字和姓氏作为属性包含。
+1. 查询潜在客户数据库后，将每个潜在客户的“名字”和“姓氏”连接起来，并将这些数据存储在“全名”列中。 1.使用syncMultipleLeads SOAP API将此数据推送到“全名”自定义字段。 或者，您可以使用[Import Lead](/help/rest-api/leads.md) API，或使用Marketo UI导入CSV或XLS。
 1. 现在，您可以使用[按筛选器类型API获取多个潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET)来按全名查询，以搜索此自定义字段。 指定“Fullname”为“filterType”，“filterValue”将为“Joe Johnson”，其中包含“按过滤器类型获取多个潜在客户”REST API调用。
 
 由&#x200B;_Murta_&#x200B;发布于&#x200B;_2014-09-09_
@@ -1487,7 +1487,7 @@ MktoForms2.whenReady( function(form) {
 
 ## Marketo REST与SOAP API常见问题解答
 
-**更新日期： 2016年3月**&#x200B;以下是有关Marketo [REST](/help/rest-api/rest-api.md)和[SOAP](/help/soap-api/soap-api.md) API的最常见问题解答。 **问：Marketo REST与SOAP API之间有何主要区别？** 答：虽然通过REST和SOAP API推送/拉取特定数据的功能通常会重叠，但某些功能仅存在于REST或SOAP API中。 在性能方面，REST API比SOAP API具有更好的[吞吐量](https://en.wikipedia.org/wiki/Throughput)。 在身份验证模型方面，REST API具有一个使用过期令牌的身份验证模型。 我们的REST API还提供了对Marketo [资源](https://developer.adobe.com/marketo-apis/api/asset)的访问权限。   **问：REST API中有哪些功能在SOAP API中不可用？** A：[列表API](/help/rest-api/list-of-standard-fields.md)、[从列表API中删除潜在客户](/help/rest-api/lead-database.md)、[使用情况API](/help/rest-api/rest-api.md)和[错误API](/help/rest-api/rest-api.md)仅在REST API中可用。 **问：是否有计划增加可用于SOAP API的API数量？** 答：不行。 **问：是否有计划增加可用于REST API的API数量？** 答：是的。 REST目前是Marketo API开发的主要重点。
+**更新日期： 2016年3月**&#x200B;以下是有关Marketo [REST](/help/rest-api/rest-api.md)和SOAP API的最常见问题解答。 **问：Marketo REST与SOAP API之间有何主要区别？** 答：虽然通过REST和SOAP API推送/拉取特定数据的功能通常会重叠，但某些功能仅存在于REST或SOAP API中。 在性能方面，REST API比SOAP API具有更好的[吞吐量](https://en.wikipedia.org/wiki/Throughput)。 在身份验证模型方面，REST API具有一个使用过期令牌的身份验证模型。 我们的REST API还提供了对Marketo [资源](https://developer.adobe.com/marketo-apis/api/asset)的访问权限。   **问：REST API中有哪些功能在SOAP API中不可用？** A：[列表API](/help/rest-api/list-of-standard-fields.md)、[从列表API中删除潜在客户](/help/rest-api/lead-database.md)、[使用情况API](/help/rest-api/rest-api.md)和[错误API](/help/rest-api/rest-api.md)仅在REST API中可用。 **问：是否有计划增加可用于SOAP API的API数量？** 答：不行。 **问：是否有计划增加可用于REST API的API数量？** 答：是的。 REST目前是Marketo API开发的主要重点。
 
 由&#x200B;_Murta_&#x200B;发布于&#x200B;_2014-09-20_
 
@@ -1509,7 +1509,7 @@ MktoForms2.whenReady( function(form) {
 
 ## 查找在特定日期范围内更新的潜在客户
 
-假设您要通过[Marketo API](/help/soap-api/soap-api.md)查找在特定日期更新的潜在客户。 使用[getMultipleLeads SOAP API](/help/soap-api/getmultipleleads.md)可以做到这一点。 对于您请求的日期范围，此方法会返回在Marketo中发生数据值更改或新活动的任何潜在客户。 对于`leadSelector`，应指定`LastUpdateAtSelector`。 然后，您将定义时间范围分别为`oldestUpdatedAt`和`latestUpdatedAt`的日期范围。 请参阅下面的请求XML示例，其中显示如何查找在2014年6月6日上午12:00到2011年6月7日上午12:00之间更新的潜在客户。 注意：日期范围不得超过30天。
+假设您希望查找通过Marketo API在特定日期更新的潜在客户。 getMultipleLeads SOAP API可做到这一点。 对于您请求的日期范围，此方法会返回在Marketo中发生数据值更改或新活动的任何潜在客户。 对于`leadSelector`，应指定`LastUpdateAtSelector`。 然后，您将定义时间范围分别为`oldestUpdatedAt`和`latestUpdatedAt`的日期范围。 请参阅下面的请求XML示例，其中显示如何查找在2014年6月6日上午12:00到2011年6月7日上午12:00之间更新的潜在客户。 注意：日期范围不得超过30天。
 
 **用于查找在日期**&#x200B;之前更新的潜在客户的示例请求XML
 
@@ -1567,7 +1567,7 @@ Marketo已对Bash漏洞(也称为[Shellshock (CVE-2014-6271)](https://nvd.nist.g
 
 ## 如何更新SOAP API凭据
 
-最佳实践是定期更新您的[SOAP API](/help/soap-api/soap-api.md)凭据。 目前，无法通过Marketo API以编程方式实现这一点。 以下说明将向您展示如何通过Marketo UI更新SOAP API凭据。
+最佳实践是定期更新SOAP API凭据。 目前，无法通过Marketo API以编程方式实现这一点。 以下说明将向您展示如何通过Marketo UI更新SOAP API凭据。
 
 1. 转到“管理员”部分，然后单击“Web服务”。
 1. 设置至少10个字符的加密密钥，单击“保存更改”。
@@ -1745,7 +1745,7 @@ puts response
 
 在[LaunchPoint市场](https://exchange.adobe.com/apps/browse/ec?product=MRKTO)中查看这些类别中的几个类别： - [分析工具](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) - [数据附加](https://exchange.adobe.com/apps/browse/ec?product=MRKTO) - [内容管理系统](https://exchange.adobe.com/apps/browse/ec?product=MRKTO)某些第三方应用程序在平台内提供直观的控制面板和设置工具(GoToWebinar)。 这些是“本机”集成，您最需要做的就是设置登录，然后在Marketo中使用它。 但是，其他扩展需要使用必须更直接编程的更复杂的API。
 
-**Marketo的集成选项** - LaunchPoint集成 — 通常是登录或轻松设置。 - API集成 — 需要设置API和编程： (1) [REST API](/help/rest-api/rest-api.md) (2) [SOAP API](/help/soap-api/soap-api.md) (3) [Webhook集成](/help/webhooks/webhooks.md) — 需要设置特殊代码，但相当容易。 (4) [电子邮件脚本](./email-scripting.md) (Velocity) - JavaScript和jQuery： (1) [Forms 2.0](/help/javascript-api/forms-api-reference.md) (2) [潜在客户跟踪(Munchkin)](/help/javascript-api/lead-tracking.md) (3) [RTP JS](/help/javascript-api/web-personalization.md)以下是一些使用开发人员扩展Marketo平台功能的用例。 您有这些用例之一吗？ 如果是这样的话，也许该和开发人员对话了。 [访问LaunchPoint](https://exchange.adobe.com/apps/browse/ec?product=MRKTO)上的服务合作伙伴部分。
+**Marketo的集成选项** - LaunchPoint集成 — 通常是登录或轻松设置。 - API集成 — 需要设置API和编程： (1) [REST API](/help/rest-api/rest-api.md) (2) SOAP API (3) [Webhook集成](/help/webhooks/webhooks.md) — 需要设置特殊代码，但相当容易。 (4) [电子邮件脚本](./email-scripting.md) (Velocity) - JavaScript和jQuery： (1) [Forms 2.0](/help/javascript-api/forms-api-reference.md) (2) [潜在客户跟踪(Munchkin)](/help/javascript-api/lead-tracking.md) (3) [RTP JS](/help/javascript-api/web-personalization.md)以下是一些使用开发人员扩展Marketo平台功能的用例。 您有这些用例之一吗？ 如果是这样的话，也许该和开发人员对话了。 [访问LaunchPoint](https://exchange.adobe.com/apps/browse/ec?product=MRKTO)上的服务合作伙伴部分。
 
 由&#x200B;_Josh_&#x200B;发布于&#x200B;_2014-11-06_
 
@@ -2259,7 +2259,7 @@ end
 ## 性能调整API请求
 
 本文讨论在从Marketo API请求数据时提高性能的策略。 但是，您必须根据Marketo API的每日限制操作限制来权衡这些策略的好处。
-**策略1 — 在每个API调用中请求更少的数据**&#x200B;通常，当您在API调用中请求更多数据时，Marketo服务器在数据库中查找数据所花费的时间会增加。 如果您使用日期范围进行API调用（例如[getMultipleLeads SOAP API](/help/soap-api/getmultipleleads.md)），请缩短每次调用的时间范围并使用更多调用进行补偿。 例如，不要请求6月1日至7月1日的数据，而是一次请求一天的数据，如6月1日至2日的一个呼叫，然后是6月2日至1日的另一个呼叫。 如果您进行API调用以从Marketo潜在客户字段中返回数据，则仅请求这些必需的字段。 每增加一个潜在客户字段，API调用所花费的时间就会递增。 另一种方法是减少批次大小，或减少每次调用请求的潜在客户数。
+**策略1 — 在每个API调用中请求更少的数据**&#x200B;通常，当您在API调用中请求更多数据时，Marketo服务器在数据库中查找数据所花费的时间会增加。 如果您使用日期范围进行API调用（例如getMultipleLeads SOAP API），请缩短每次调用的时间范围并使用更多调用进行补偿。 例如，不要请求6月1日至7月1日的数据，而是一次请求一天的数据，如6月1日至2日的一个呼叫，然后是6月2日至1日的另一个呼叫。 如果您进行API调用以从Marketo潜在客户字段中返回数据，则仅请求这些必需的字段。 每增加一个潜在客户字段，API调用所花费的时间就会递增。 另一种方法是减少批次大小，或减少每次调用请求的潜在客户数。
 **策略2 — 发出并发请求**&#x200B;以提高性能并一次提取更多数据。 您可以对API发出并发请求。 此方法可减少合计花费在线API请求上的时间。 例如，假设您向“按过滤器类型获取多个潜在客户”发出请求。 您可以并发请求一个请求查询潜在客户1至300，另一个请求查询潜在客户301 - 600。
 **策略3 — 缓存数据** Marketo中某些数据（如潜在客户字段列表）的更改频率低于其他数据（如潜在客户活动数据）。 如果您缓存的数据更新频率较低，则可以减少必须发出的API调用数。 您还可以获得更好的性能，因为本地查找数据通常比从远程Web服务访问数据更快。
 
@@ -2916,18 +2916,18 @@ break;
 
 ## Marketo SOAP API提示和技巧
 
-注意：这是访客博客帖子。 [&#128279;](https://exchange.adobe.com/apps/browse/ec?product=MRKTO)Ed Blachman是[TIBCO Software的高级架构师](https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fprofile%2Fview%3Fid%3D2777965)，该公司是企业软件的知名供应商。 Ed正在开发一些产品，这些产品允许Gartner所谓的“公民开发人员”整合他们使用的云服务，而无需自己进行任何编程。 [Marketo的SOAP API](/help/soap-api/soap-api.md)是一个功能强大的工具，开发人员可以借助它来利用Marketo的强大功能并将其与我们自己的应用程序集成。 在[正式文档](./getting-started.md)和[社区资源](https://nation.marketo.com/)之间，提供了许多有关如何使用它的信息。 刚开始使用时，我严重依赖这些信息，并发现它们非常有价值。 但是，在这个过程中，我积累了一些我在这些地方从未见过的技巧和窍门。 下面是我发现的一些问题。
+注意：这是访客博客帖子。 [&#128279;](https://exchange.adobe.com/apps/browse/ec?product=MRKTO)Ed Blachman是[TIBCO Software的高级架构师](https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fprofile%2Fview%3Fid%3D2777965)，该公司是企业软件的知名供应商。 Ed正在开发一些产品，这些产品允许Gartner所谓的“公民开发人员”整合他们使用的云服务，而无需自己进行任何编程。 Marketo的SOAP API是一款功能强大的工具，通过它，开发人员可以利用Marketo的强大功能并将其与我们自己的应用程序集成。 在[正式文档](./getting-started.md)和[社区资源](https://nation.marketo.com/)之间，提供了许多有关如何使用它的信息。 刚开始使用时，我严重依赖这些信息，并发现它们非常有价值。 但是，在这个过程中，我积累了一些我在这些地方从未见过的技巧和窍门。 下面是我发现的一些问题。
 
 **开发人员的沙盒**&#x200B;沙盒当然是面向API开发人员的绝佳资源：您可以在此安全的地方试验Marketo功能，添加和删除对象而不会干扰组织的实际Marketo用户进行的真实营销活动。 但是，沙盒并非万能药。
 例如，我需要和另一个开发团队共享我们的沙盒，这需要一些时间，因为他们已经习惯了他们拥有沙盒的概念。 最终，我们提出了几个共享的最佳实践： — 请勿编写依赖于对沙盒内容的完全了解的测试。 作为共享资源，架构可能会随时更改，恕不另行通知，潜在客户数据库或程序或其他实体中的完整条目也可能随时更改。 如果您的测试假定您完全了解沙盒，则开发周期将为您共享沙盒的组创建封锁期。 由于它们的开发周期通常与您的周期不一致，因此这相当于占用了资源，而不是很酷。 如果你仔细想一想，也没必要。  — 使用惯例来标记您所有的东西 — 您的商机、您的商机架构字段、您的程序，等等。 如果您每个人都可以识别自己的对象，并且如果您同意您的共同租户的意见，即每个人都将保留其他人的对象，那么您应该为共享奠定坚实的基础。 对于潜在客户，您可以创建一个自定义字段，然后使用此自定义字段创建一个约定，以将这些潜在客户识别为测试潜在客户。 对于列表或程序，可以使用某些字符串来开始对象名称，这些字符串将对象标识为您所属的对象。  — 考虑编写测试来清理自身 — 首先创建您感兴趣的对象，然后访问、更新或选择性地删除这些对象，最后删除这些对象。 (请注意，在SOAP API中不能百分之百地实现此目标，因为并非沙盒或这方面的实际实例中的所有内容都可以通过SOAP API进行管理。 即使如此，还是值得尽可能多地这样做。)
 
 **实际实例**&#x200B;沙盒的问题在于它未在生产中使用，因此很难了解在Marketo实例中的实际使用情况。 现在，如果您幸运地拥有团队中的Marketo高级用户，或者您正在为Marketo内部用户执行定制开发，则这并不是问题。 但就我的团队而言，这确实是一笔大买卖。 我们谁也不是Marketo专家，由于要求我们了解大量云服务，我们只是没有足够的人手来成为任何方面的专家。 我们从访问真实实例中收集到的一些见解如下： — 大型潜在客户架构。 我们访问的生产实例中的潜在客户架构具有200多个字段。 这使我们的UI设计人员非常清楚，他们设计的UI必须适应该大小（或更大）的架构。  — 突发使用。 我们看到，最高使用时间和低使用时间之间存在两个数量级的差异（就创建或更新的潜在客户数量而言）。 这会影响我们从API调用中返回的数据量（显而易见），以及API调用做出响应所需的时间（可能不太明显）。
 
-**API调用响应时间**&#x200B;根据一天中的时间、API调用的详细信息和实例的内容，您可能会发现SOAP API的响应时间比平均时间长。 有时，我们的API调用需要一分钟半的时间才能做出响应。 您需要了解处理它的可能性： — 测试。 也许这对您的使用情况没有影响。 但不要只是假设，做一些测试。  — 调整您的用法。 在本例中，最大的问题是我们将[getMultipleLeads](/help/soap-api/getmultipleleads.md)调用的页面大小设置为API允许的最大。 在我们的环境中，这有一定意义，因为我们的目标是尽可能高效地利用客户的API配额。 但在您的上下文中，您可能不需要如此强烈地担心用户的API调用配额，在这种情况下，通过请求更小的数据页面，您一定会获得更好的响应时间。
+**API调用响应时间**&#x200B;根据一天中的时间、API调用的详细信息和实例的内容，您可能会发现SOAP API的响应时间比平均时间长。 有时，我们的API调用需要一分钟半的时间才能做出响应。 您需要了解处理它的可能性： — 测试。 也许这对您的使用情况没有影响。 但不要只是假设，做一些测试。  — 调整您的用法。 在本例中，最大的问题是，我们将getMultipleLeads调用的页面大小设置为API允许的最大。 在我们的环境中，这有一定意义，因为我们的目标是尽可能高效地利用客户的API配额。 但在您的上下文中，您可能不需要如此强烈地担心用户的API调用配额，在这种情况下，通过请求更小的数据页面，您一定会获得更好的响应时间。
 
 **潜在客户分区** Marketo提供了功能强大的工具 — 分区和工作区 — 允许多个营销组共享单个Marketo实例。 但是，这些工具不会直接反映在SOAP API中。 例如，当您使用getMultipleLeads来获取自某个日期时间以来已更新或创建的所有潜在客户时，您将获取实例中所有与此情况相同的潜在客户，而不考虑（且无需指示）哪个分区或工作区包含任何给定潜在客户。 潜在客户创建和向列表中添加潜在客户是其他上下文，在这些上下文中，潜在客户分区可能会影响您的API调用的实际操作。 请注意，这意味着分区和工作区可能不是上面讨论的沙盒共享问题所需的解决方案。 那么，你如何判断这是否对你而言是个问题？ 我发现所有这些都很有帮助：开发人员宣传员致力于帮助我们成功使用API，并且在存在问题的地方，他们非常善于寻找答案。 - [API文档](./getting-started.md)。 宣传人员已经将此问题纳入了一些文档中，并且作为他们致力于我们成功的一部分，他们对更新文档真的很在行。  — 您自己的测试用例。 虽然使用分区和工作区共享沙盒可能不是个好主意，但沙盒是一个与分区和工作区一起玩以了解它们是否对您的预期用途构成挑战的好地方。 （这也是缩小你向福音派人士提问的一个好方法，这始终是个好主意。 ）
 
-**TIMTOWTDI和测试**“有多种方法可以做到这一点” — Perl编程准则在某些上下文中实际应用于Marketo SOAP API。 例如，我想将更新一组潜在客户与将这些潜在客户添加到某个列表结合使用。 SOAP API为您提供了两种实现此目标的方法：1. [importToList](/help/soap-api/importtolist.md) + [getImportToListStatus](/help/soap-api/getimporttoliststatus.md)。 在阅读相关文档时，这显然是“正常的”方法。 但是，您必须轮询导入操作的状态这一事实为我带来了一个黄色标记。 这真的是我想以这种方式实施导入吗？ 1. [syncMultipleLeads](/help/soap-api/syncmultipleleads.md) + [listOperation](/help/soap-api/listoperation.md)。 这看起来远不如单一importToList调用优雅，但它不依赖轮询。 这是一个可行的选择吗？ 像这样的案例对于福音传教士来说很难处理，因为它们真的取决于你所处理的案例的性质，以及你试图做的事情。 幸运的是，如果您已经建立了一个强大的单元测试环境，那么您应该能够用它来探索类似这样的问题。 在此特定用例中，发现选项2比选项1更适合我的用例 — 不是因为轮询，而是因为我在importToList上遇到了面向字段的限制，并且也是因为我在尝试编写可以在我无法控制的上下文和实例中使用的代码。 但您的用例可能不同，测试是您发现的唯一方法。
+**TIMTOWTDI和测试**“有多种方法可以做到这一点” — Perl编程准则在某些上下文中实际应用于Marketo SOAP API。 例如，我想将更新一组潜在客户与将这些潜在客户添加到某个列表结合使用。 SOAP API为您提供了两种实现此目标的方法：1. importToList + getImportToListStatus。 在阅读相关文档时，这显然是“正常的”方法。 但是，您必须轮询导入操作的状态这一事实为我带来了一个黄色标记。 这真的是我想以这种方式实施导入吗？ 1. syncMultipleLeads + listOperation。 这看起来远不如单一importToList调用优雅，但它不依赖轮询。 这是一个可行的选择吗？ 像这样的案例对于福音传教士来说很难处理，因为它们真的取决于你所处理的案例的性质，以及你试图做的事情。 幸运的是，如果您已经建立了一个强大的单元测试环境，那么您应该能够用它来探索类似这样的问题。 在此特定用例中，发现选项2比选项1更适合我的用例 — 不是因为轮询，而是因为我在importToList上遇到了面向字段的限制，并且也是因为我在尝试编写可以在我无法控制的上下文和实例中使用的代码。 但您的用例可能不同，测试是您发现的唯一方法。
 
 **结论**&#x200B;我认为这些都不是大秘密。 另一方面，如果在开始之前就知道这些的话，我早就领先了。 我希望你能觉得它有用。
 
@@ -5574,7 +5574,7 @@ Marketo REST API可能会返回异常或错误，为了方便起见，我们将�
 
 1. 注册DataDirect云登录
 1. 单击“数据源”，然后单击“+新建数据Source”按钮
-1. 选择“Marketo”并输入连接信息。 您可以咨询Marketo管理员或登录名以查找[SOAP集成的连接信息](/help/soap-api/soap-api.md)。
+1. 选择“Marketo”并输入连接信息。 您可以咨询Marketo管理员或登录名以查找SOAP集成的连接信息。
 1. 单击“测试连接”按钮。 请注意，有一个OData选项卡可从Marketo生成OData，我们将在未来的博客帖子中讨论。
 1. 如果要检查Marketo架构是否公开或从UI中发出基本SQL查询，请单击“SQL测试”。
 1. 单击左侧的“下载”，并为要安装的应用程序和平台选择DataDirect Cloud ODBC或JDBC驱动程序。
@@ -6582,7 +6582,7 @@ public class SyncMultipleLeadsExample {
 
 ## 使用API从Marketo发送事务型电子邮件
 
-它要求使用Marketo UI创建现有的Smart Campaign。 它还需要电子邮件收件人存在于Marketo中。 因此，在调用requestCampaign API之前，请使用[getLead API]&#x200B;(/help/soap-api/getlead.md)来验证电子邮件是否存在于Marketo中。 在通过requestCampaign API进行调用后，您可以通过检查以查看Smart Campaign是否已在Marketo中运行来进行确认。 我们将向您展示如何创建智能营销活动，如何设置触发器以通过API发送营销活动，如何定义电子邮件作为流操作的一部分，以及第四个用于执行此营销活动的代码示例。
+它要求使用Marketo UI创建现有的Smart Campaign。 它还需要电子邮件收件人存在于Marketo中。 因此，在调用requestCampaign API之前，请使用getLead API验证电子邮件是否存在于Marketo中。 在通过requestCampaign API进行调用后，您可以通过检查以查看Smart Campaign是否已在Marketo中运行来进行确认。 我们将向您展示如何创建智能营销活动，如何设置触发器以通过API发送营销活动，如何定义电子邮件作为流操作的一部分，以及第四个用于执行此营销活动的代码示例。
 **如何在Marketo中创建新的Smart Campaign** Marketo中的Smart Campaigns执行您的所有营销活动。 您可以设置一系列对智能联系人列表执行的自动操作。 在发送事务性电子邮件时，可在营销活动中设置触发器（如下所示）以使用API发送电子邮件。 首先，让我们设置Smart Campaign。 1.在“营销活动”中，选择一个项目，然后在“新建”下拉列表下，单击“新建本地资产”。
 
 1. 单击Smart Campaign
@@ -6595,7 +6595,7 @@ public class SyncMultipleLeadsExample {
 **如何在营销活动中创建电子邮件流操作**&#x200B;将电子邮件与Smart Campaign关联后，营销人员可以管理他们希望电子邮件呈现的外观，并允许第三方应用程序确定接收者和接收时间。 将电子邮件创建为新本地资产后，可将其设置为营销活动中的流量操作。  查找并选择您要发送的电子邮件。
 
 **调用requestCampaign API的代码示例**&#x200B;在Marketo界面中设置活动和触发器后，我们将向您说明如何使用API发送电子邮件。 第一个示例是XML请求，第二个示例是XML响应，最后一个示例是可用于生成XML请求的Java代码示例。 我们还将向您说明如何查找在调用`requestCampaign` API时使用的促销活动ID。
-API调用还要求您预先知道Marketo促销活动的ID。 您可以使用以下任一方法确定促销活动ID： 1. 使用[getCampaignsForSource](/help/soap-api/getcampaignsforsource.md) API 1。 在浏览器中打开Marketo营销活动，并查看URL地址栏。 营销活动ID（以4位整数表示）可在“SC”之后立即找到。 例如：`<https://app-stage.marketo.com/#SC**1025**A1>`。 粗体部分是营销活动ID - &quot;1025&quot;。 针对`requestCampaign`的SOAP请求
+API调用还要求您预先知道Marketo促销活动的ID。 您可以使用以下任一方法确定促销活动ID： 1. 使用getCampaignsForSource API 1. 在浏览器中打开Marketo营销活动，并查看URL地址栏。 营销活动ID（以4位整数表示）可在“SC”之后立即找到。 例如：`<https://app-stage.marketo.com/#SC**1025**A1>`。 粗体部分是营销活动ID - &quot;1025&quot;。 针对`requestCampaign`的SOAP请求
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -6733,7 +6733,7 @@ public class RequestCampaign {
 
 ## 使用AP从Marketo发送包含动态内容的电子邮件 — 
 
-假设您要自动处理呼叫中心跟进电子邮件。 在您的支持代表与客户交谈后，您想自动发送一封电子邮件，感谢他们联系您的公司。 让我们更进一步地说，您希望包括与您在CRM中跟踪的客户讨论的特定对话主题。 您可以在Marketo中使用requestCampaign SOAP API执行此操作，以发送包含动态内容的电子邮件。 requestCampaign API允许您传入潜在客户。 它还允许您传入可与现有Campaign一起使用的项目令牌以发送动态内容。 requestCampaign SOAP API要求电子邮件收件人存在于Marketo中。 因此，在调用requestCampaign API之前，请使用[getLead API](/help/soap-api/getlead.md)验证该电子邮件是否存在于Marketo中。 我们将向您展示如何创建智能营销活动，如何设置触发器以通过API发送营销活动，如何创建通过项目令牌接受动态内容的电子邮件，如何定义电子邮件作为流操作的一部分，以及第五个用于执行此营销活动的代码示例。 **如何在Marketo中创建新的Smart Campaign** Marketo中的Smart Campaigns执行您的所有营销活动。 您可以设置一系列对智能联系人列表执行的自动操作。 在发送事务性电子邮件时，可在营销活动中设置触发器（如下所示）以使用API发送电子邮件。 首先，让我们设置Smart Campaign。 1.在“营销活动”中，选择一个项目，然后在“新建”下拉列表下，单击“新建本地资产”
+假设您要自动处理呼叫中心跟进电子邮件。 在您的支持代表与客户交谈后，您想自动发送一封电子邮件，感谢他们联系您的公司。 让我们更进一步地说，您希望包括与您在CRM中跟踪的客户讨论的特定对话主题。 您可以在Marketo中使用requestCampaign SOAP API执行此操作，以发送包含动态内容的电子邮件。 requestCampaign API允许您传入潜在客户。 它还允许您传入可与现有Campaign一起使用的项目令牌以发送动态内容。 requestCampaign SOAP API要求电子邮件收件人存在于Marketo中。 因此，在调用requestCampaign API之前，请使用getLead API验证电子邮件是否存在于Marketo中。 我们将向您展示如何创建智能营销活动，如何设置触发器以通过API发送营销活动，如何创建通过项目令牌接受动态内容的电子邮件，如何定义电子邮件作为流操作的一部分，以及第五个用于执行此营销活动的代码示例。 **如何在Marketo中创建新的Smart Campaign** Marketo中的Smart Campaigns执行您的所有营销活动。 您可以设置一系列对智能联系人列表执行的自动操作。 在发送事务性电子邮件时，可在营销活动中设置触发器（如下所示）以使用API发送电子邮件。 首先，让我们设置Smart Campaign。 1.在“营销活动”中，选择一个项目，然后在“新建”下拉列表下，单击“新建本地资产”
 
 1. 单击Smart Campaign
 1. 输入智能营销活动名称，然后单击创建&#x200B;**将触发器添加到Smart Campaign**&#x200B;将触发器添加到Smart Campaign允许您根据实时事件（在此例中为通过[requestCampaign API](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST)发出的请求）逐个对一个人运行Smart Campaign。
@@ -6744,7 +6744,7 @@ public class RequestCampaign {
 
 下面是操作方法。 1.从“营销活动”树中，选择要创建令牌的Campaign文件夹或项目。 从顶部菜单栏中选择我的令牌。 随后将显示“我的令牌”画布。 从右侧树中，将令牌类型拖到画布上，在本例中为“文本”。 在“令牌名称”字段中，突出显示“我的令牌”，然后输入唯一的令牌名称，在本例中为“my.conversationtopic”。 在值字段中，为令牌输入相关的值，在本例中为“感谢您今天给我们打电话”。 请注意，通过使用API，我们将覆盖默认的“我的令牌”值。 单击“保存”以保存自定义令牌。 1. 通过单击“新建”创建新电子邮件。 然后单击新建本地Assets并选择电子邮件。 接下来，填写相关字段以命名电子邮件。 起草电子邮件时，单击令牌图标以在电子邮件中包含令牌。 现在，您已使用令牌创建模板电子邮件，我们将在后续步骤中将电子邮件添加为Campaign的流操作。 因此，当您通过API调用营销活动时，将会发送电子邮件。
 **如何在营销活动中创建电子邮件流操作**&#x200B;将电子邮件与Smart Campaign关联后，营销人员可以管理他们希望电子邮件呈现的外观，并允许第三方应用程序确定接收者和接收时间。 将电子邮件创建为新本地资产后，可将其设置为营销活动中的流量操作。 查找并选择您要发送的电子邮件。
-**调用requestCampaign API的代码示例**&#x200B;在Marketo界面中设置活动和触发器后，我们将向您说明如何使用API发送电子邮件。 第一个示例是XML请求，第二个示例是XML响应，最后一个示例是可用于生成XML请求的Java代码示例。 我们还将向您说明如何查找在调用requestCampaign API时使用的促销活动ID。 API调用还要求您预先知道Marketo促销活动的ID。 您可以使用以下任一方法确定促销活动ID： 1. 使用[getCampaignsForSource](/help/soap-api/getcampaignsforsource.md) API 1。 在浏览器中打开Marketo营销活动，并查看URL地址栏。 营销活动ID（以4位整数表示）可在“SC”之后立即找到。 例如：`<https://app-stage.marketo.com/#SC**1025**A1>`。 粗体部分是营销活动ID - &quot;1025&quot;。 SOAP的requestCampaign
+**调用requestCampaign API的代码示例**&#x200B;在Marketo界面中设置活动和触发器后，我们将向您说明如何使用API发送电子邮件。 第一个示例是XML请求，第二个示例是XML响应，最后一个示例是可用于生成XML请求的Java代码示例。 我们还将向您说明如何查找在调用requestCampaign API时使用的促销活动ID。 API调用还要求您预先知道Marketo促销活动的ID。 您可以使用以下任一方法确定促销活动ID： 1. 使用getCampaignsForSource API 1. 在浏览器中打开Marketo营销活动，并查看URL地址栏。 营销活动ID（以4位整数表示）可在“SC”之后立即找到。 例如：`<https://app-stage.marketo.com/#SC**1025**A1>`。 粗体部分是营销活动ID - &quot;1025&quot;。 SOAP的requestCampaign
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -8066,7 +8066,7 @@ in
 
 ### 资源API
 
-* [**电子邮件**](https://developer.adobe.com/marketo-apis/api/asset#operation/describeUsingGET_5)
+* [**电子邮件**](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails)
   * 用于处理电子邮件v2变量的新端点
   * 用于操作电子邮件v2模块的新端点
   * 已知问题：
@@ -8279,7 +8279,7 @@ in
 
 SOAP
 
-[getLeadActivity](/help/soap-api/getleadactivity.md)，[getLeadChanges](/help/soap-api/getleadchanges.md)
+getLeadActivity， getLeadChanges
 
 不再保证由这些端点返回的记录中包含的整数“id”字段是唯一的。 这将影响活动、数据值更改和潜在客户删除记录类型。 为避免检索这些记录类型的集成服务中断，应将id字段视为可选字段。
 
@@ -9773,7 +9773,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 ### 缺陷分辨率
 
-* 修复了[用户管理](/help/rest-api/user-management.md) API的问题。 属于配置为与[Sales Insight](https://business.adobe.com/cn/products/marketo/sales-insight.html)一起使用的Marketo用户。 这些用户现在由[获取用户](https://developer.adobe.com/marketo-apis/api/user/#operation/getUsersUsingGET)端点返回，这些用户现在可以使用[删除用户](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST)端点删除。 [LM-155864]
+* 修复了[用户管理](/help/rest-api/user-management.md) API的问题。 属于配置为与[Sales Insight](https://business.adobe.com/cn/products/marketo/sales-insight.html)一起使用的Marketo用户。 这些用户现在由[获取用户](https://developer.adobe.com/marketo-apis/api/user#)端点返回，这些用户现在可以使用[删除用户](https://developer.adobe.com/marketo-apis/api/user#)端点删除。 [LM-155864]
 * 修复了添加[富文本字段](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/addRichTextFieldUsingPOST)终结点的问题。 向电子邮件、登陆页面、代码片段或表单添加长度超过6.5万个字符的富文本字段时，会返回“611，系统错误”。 它现在返回错误“701，无法完成操作。 “content”超过了最大长度65,535字节”。
 
 由&#x200B;_David_&#x200B;发布于&#x200B;_2021-10-25_
@@ -9794,7 +9794,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 * 修复了调用[创建潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/createLeadFieldUsingPOST)端点的时间与新创建的潜在客户字段在智能列表中可用的时间之间的延迟问题。 [LM-152838]
 * 修复了[创建潜在客户字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/createLeadFieldUsingPOST)端点的问题，该问题导致在Marketo Engage UI中用于[将字段添加到表单](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/add-a-field-to-a-form)的表单字段下拉列表中创建的字段不可用。 [LM-158243]
 * 修复了在指定isTriggerable=true参数时未返回可触发营销活动的[Get Campaigns](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCampaignsUsingGET)端点的问题。 [LM-158283]
-* 修复了在某些情况下[按列表ID](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteTokenByNameUsingPOST)获取潜在客户端点将返回错误“611，系统错误”的问题。 [LM-157214]
+* 修复了在某些情况下[按列表ID](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET)获取潜在客户端点将返回错误“611，系统错误”的问题。 [LM-157214]
 * 已清除[更新潜在客户字段](/help/rest-api/leads.md)终结点返回的若干错误消息。 [LM-151886、LM-151888、LM-151889]
 
 由&#x200B;_David_&#x200B;发布于&#x200B;_2022-01-27_
@@ -9816,7 +9816,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 ### Adobe IMS集成
 
-* 已登记到[Adobe IMS](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)的用户无法使用所有[Marketo用户管理API](/help/rest-api/user-management.md)。 在调用与Adobe IMS集成的Marketo实例时，以下端点将返回错误：[邀请用户](https://developer.adobe.com/marketo-apis/api/user/#operation/inviteUserUsingPOST)、[按Id获取受邀请用户](https://developer.adobe.com/marketo-apis/api/user/#operation/getInvitedUserUsingGET)、[更新用户属性](https://developer.adobe.com/marketo-apis/api/user/#operation/updateUserAttributeUsingPOST)、[删除用户](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteUserUsingPOST)和[删除受邀请用户](https://developer.adobe.com/marketo-apis/api/user/#operation/deleteInvitedUserUsingPOST)。 作为替代，应使用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
+* 已登记到[Adobe IMS](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)的用户无法使用所有[Marketo用户管理API](/help/rest-api/user-management.md)。 在调用与Adobe IMS集成的Marketo实例时，以下端点将返回错误：[邀请用户](https://developer.adobe.com/marketo-apis/api/user#)、[按Id获取受邀请用户](https://developer.adobe.com/marketo-apis/api/user#)、[更新用户属性](https://developer.adobe.com/marketo-apis/api/user#)、[删除用户](https://developer.adobe.com/marketo-apis/api/user#)和[删除受邀请用户](https://developer.adobe.com/marketo-apis/api/user#)。 作为替代，应使用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
 
 由&#x200B;_David_&#x200B;发布于&#x200B;_2022-03-14_
 
@@ -9853,7 +9853,7 @@ Marketo Engage合作伙伴社区支持是我们客户成功的支柱之一。 �
 
 ### 公告
 
-* [标识](https://developer.adobe.com/marketo-apis/api/identity/#operation/identityUsingGET)终结点的行为已更改。 当您调用终结点并且不包含&#x200B;**access_token**&#x200B;参数时，将返回“603，访问被拒绝”错误。 以前，返回“600，空访问令牌”错误。 请注意，“600，空访问令牌”错误已被弃用。
+* [标识](https://developer.adobe.com/marketo-apis/api/identity#)终结点的行为已更改。 当您调用终结点并且不包含&#x200B;**access_token**&#x200B;参数时，将返回“603，访问被拒绝”错误。 以前，返回“600，空访问令牌”错误。 请注意，“600，空访问令牌”错误已被弃用。
 
 由&#x200B;_David_&#x200B;发布于&#x200B;_2022-09-03_
 

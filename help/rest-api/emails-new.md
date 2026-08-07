@@ -3,16 +3,16 @@ title: 电子邮件
 feature: REST API
 description: 使用Marketo Asset REST API查询、创建、更新、克隆、删除、批准和检查电子邮件资源的依赖项。
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: '492'
+source-wordcount: '490'
 ht-degree: 5%
 
 ---
 
 # 电子邮件
 
-[电子邮件端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails_New)
+[电子邮件端点引用](https://developer.adobe.com/marketo-apis/api/asset)
 
 电子邮件是定义消息元数据、内容配置、设置和审批状态的资产记录。
 

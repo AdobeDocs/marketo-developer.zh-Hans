@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1037
+source-wordcount: 1017
 ht-degree: 2%
 
 ---
@@ -56,7 +56,7 @@ Bulk Lead Extract REST API从Marketo中检索大量商机/人员记录。 您还
 
 ## 创建作业
 
-使用[创建导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST)端点定义导出作业。 指定要导出的`fields`、一个`filter`类型及其参数、文件`format`以及任何自定义列标题名称。
+使用[创建导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportLeadsUsingPOST)端点定义导出作业。 指定要导出的`fields`、一个`filter`类型及其参数、文件`format`以及任何自定义列标题名称。
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -104,7 +104,7 @@ POST /bulk/v1/leads/export/create.json
 }
 ```
 
-响应将确认作业已创建但未启动。 要启动作业，请从创建响应中使用`exportId`调用[Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST)终结点。
+响应将确认作业已创建但未启动。 要启动作业，请从创建响应中使用`exportId`调用[Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportLeadsUsingPOST)终结点。
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -132,7 +132,7 @@ POST /bulk/v1/leads/export/{exportId}/enqueue.json
 
 您只能检索同一API用户创建的作业的状态。
 
-商机导出作业异步运行。 轮询[获取导出潜在客户作业状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET)终结点以跟踪作业的进度。
+商机导出作业异步运行。 轮询[获取导出潜在客户作业状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET)终结点以跟踪作业的进度。
 
 状态每60秒只更新一次。 不要更频繁地轮询；在几乎所有情况下，该间隔仍然过大。
 
@@ -169,7 +169,7 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成的潜在客户导出，请使用`exportId`调用[获取导出潜在客户文件](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET)终结点。
+要检索已完成的潜在客户导出，请使用`exportId`调用[获取导出潜在客户文件](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsFileUsingGET)终结点。
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -188,7 +188,7 @@ Russell,Wilson,null,_mch-localhost-1536605780000-12105
 
 ## 取消作业
 
-要取消配置不正确或不必要的作业，请调用[取消导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST)终结点。
+要取消配置不正确或不必要的作业，请调用[取消导出潜在客户作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportLeadsUsingPOST)终结点。
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json

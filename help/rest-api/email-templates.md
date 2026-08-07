@@ -13,10 +13,10 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 570
-ht-degree: 1%
+source-wordcount: 543
+ht-degree: 2%
 
 ---
 
@@ -30,7 +30,7 @@ Marketo中的每封新电子邮件最初都基于电子邮件模板。 尽管您
 
 ## 查询
 
-电子邮件模板支持标准资源查询模式：[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getTemplateByNameUsingGET)以及[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplatesUsingGET)文件夹。
+电子邮件模板支持标准资源查询模式：[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getTemplateByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getTemplateByNameUsingGET)以及[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplatesUsingGET)文件夹。
 
 ### 按Id
 
@@ -204,7 +204,7 @@ GET /rest/asset/v1/emailTemplates.json
 
 ## 创建和更新
 
-要[创建](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/createEmailTemplateUsingPOST)或[更新](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST)模板，请在`multipart/form-data` POST请求中发送HTML文档。 `Content-Type`标头必须包括[multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)和[multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt)的RFC中所述的边界。
+要[创建](https://developer.adobe.com/marketo-apis/api/asset#operation/createEmailTemplateUsingPOST)或[更新](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST)模板，请在`multipart/form-data` POST请求中发送HTML文档。 `Content-Type`标头必须包括[multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html)和[multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt)的RFC中所述的边界。
 
 创建模板需要以下参数：
 
@@ -275,7 +275,7 @@ Create email template using API
 }
 ```
 
-要更新模板内容，请使用电子邮件模板ID调用[内容端点](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST)。 请求正文仅接受`content`参数。
+要更新模板内容，请使用电子邮件模板ID调用[内容端点](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST)。 请求正文仅接受`content`参数。
 
 提交的内容将完全替换现有模板内容。 更新批准的版本将创建新草稿。 更新仅草稿资源将替换当前草稿。
 
@@ -319,7 +319,7 @@ Content-Type: text/html
 
 ## 更新元数据
 
-要[更新模板的元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/updateEmailTemplateUsingPOST)，请使用`name`和`description`参数发送`application/x-www-form-urlencoded`个POST请求。
+要[更新模板的元数据](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateUsingPOST)，请使用`name`和`description`参数发送`application/x-www-form-urlencoded`个POST请求。
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}.json
@@ -479,7 +479,7 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 ## 克隆
 
-要[克隆电子邮件模板](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/cloneTemplateUsingPOST)，请使用以下参数发送`application/x-www-form-urlencoded` POST请求：
+要[克隆电子邮件模板](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneTemplateUsingPOST)，请使用以下参数发送`application/x-www-form-urlencoded` POST请求：
 
 - `name`：必需。 克隆的模板名称。
 - `folder`：必需。 包含`id`和`type`的嵌入式JSON对象。
@@ -525,7 +525,7 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## 查询电子邮件依赖关系
 
-使用[获取](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET)端点使用的电子邮件模板来检索依赖于模板的电子邮件。 `id`路径参数标识父电子邮件模板。
+使用[获取](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailTemplateUsedByUsingGET)端点使用的电子邮件模板来检索依赖于模板的电子邮件。 `id`路径参数标识父电子邮件模板。
 
 端点支持两个可选的分页参数：
 

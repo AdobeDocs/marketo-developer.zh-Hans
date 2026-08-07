@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: af0a3c77654f74d7cb5d2077518d764468a53ae0
+source-git-commit: 2019d398e32790d76735ef672e9ca4b48b8dd2bb
 workflow-type: tm+mt
-source-wordcount: 1985
+source-wordcount: 2183
 ht-degree: 1%
 
 ---
@@ -34,6 +34,10 @@ ht-degree: 1%
 >
 > 此功能仅在有限范围内可用。 若要请求访问权限，请填写[此表单](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}。 确保准备好您的订阅Munchkin ID。
 
+>[!NOTE]
+>
+>MCP服务器团队正在努力启用智能列表和智能营销活动资产API，以便与MCP服务器配合使用。 这项工作的大部分内容，包括列入允许列表活动、行动和规则，预计将于2026年第三季度完成。
+
 模型上下文协议(Model Context Protocol， MCP)是一种将AI工具连接到外部服务的开放标准。 [!DNL Marketo] MCP服务器将您的AI助手连接到[!DNL Marketo]。 它为表单、程序、智能营销活动、潜在客户、电子邮件、代码片段、列表和文件夹提供了100多项操作。
 
 当您的AI工具调用MCP服务器时，服务器使用该请求中的凭据执行相应的REST API调用。 您无需安装、部署或运行服务器端软件。
@@ -42,8 +46,8 @@ ht-degree: 1%
 
 >[!IMPORTANT]
 >
->模型上下文协议(MCP)是一种新兴的开源标准，可能会带来安全性或可靠性风险。Adobe MCP服务器集成和相关文档按“原样”提供，不提供任何类型的担保。
->将MCP客户端或服务器连接到Adobe产品是客户选择的配置，客户负责评估任何MCP集成的安全性和适用性。Adobe对于因错误配置、滥用MCP、第三方实施中的漏洞或通过支持MCP的工作流执行的意外操作而产生的问题，概不负责。
+>模型上下文协议(MCP)是一种新兴的开源标准，可能会带来安全性或可靠性风险。 Adobe MCP服务器集成和相关文档按“原样”提供，不提供任何类型的担保。
+>将MCP客户端或服务器连接到Adobe产品是客户选择的配置，客户负责评估任何MCP集成的安全性和适用性。 Adobe对于因错误配置、滥用MCP、第三方实施中的漏洞或通过支持MCP的工作流执行的意外操作而产生的问题，概不负责。
 >为了降低风险，Adobe鼓励您在生产使用之前在沙盒环境中测试集成，并在确认或依赖集成之前，仔细审查和验证所有MCP启动的操作和响应。
 
 ## MCP基础知识
@@ -314,8 +318,8 @@ claude mcp add --transport http marketo \
 
 ### 其他工具 {#other-tools}
 
-Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。任何支持通过可流式传输HTTP传输远程服务器的MCP客户端都可以连接到该客户端。
-您不需要工具专用的桥接器或任何本地安装的软件。如果您的工具未在上面列出，请使用下面的连接详细信息来手动配置它。
+Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支持通过可流式传输HTTP传输远程服务器的MCP客户端都可以连接到该客户端。
+您不需要工具专用的桥接器或任何本地安装的软件。 如果您的工具未在上面列出，请使用下面的连接详细信息来手动配置它。
 
 **连接详细信息：**
 

@@ -12,16 +12,16 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 872
+source-wordcount: 868
 ht-degree: 0%
 
 ---
 
 # 自定义服务
 
-自定义服务提供用于向Marketo进行身份验证和从Marketo [身份服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获取访问令牌的凭据。 每个自定义服务的作用范围仅限定于一个API专用用户，并从该用户获取其权限。
+自定义服务提供用于向Marketo进行身份验证和从Marketo [身份服务](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET)获取访问令牌的凭据。 每个自定义服务的作用范围仅限定于一个API专用用户，并从该用户获取其权限。
 
 ## 角色
 
@@ -79,7 +79,7 @@ ht-degree: 0%
 
 该服务将以“查看详细信息”选项显示在LaunchPoint Services列表中。 选择“查看详细信息”以访问客户端ID、客户端密钥、所属用户和获取令牌选项。
 
-使用获取令牌进行短期测试。 令牌的生命周期与从[Identity服务](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)获取的令牌的生命周期相同，在创建后有效期为3,600秒。
+使用获取令牌进行短期测试。 令牌的生命周期与从[Identity服务](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET)获取的令牌的生命周期相同，在创建后有效期为3,600秒。
 
 ![获取令牌](assets/get-token.png)
 

@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 131
+source-wordcount: 129
 ht-degree: 1%
 
 ---
@@ -39,7 +39,7 @@ Marketo REST API压缩响应正文并包含以下标头：
 Content-Encoding: gzip
 ```
 
-以下cURL示例调用[按筛选器类型获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)端点以检索五个潜在客户：
+以下cURL示例调用[按筛选器类型获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET)端点以检索五个潜在客户：
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

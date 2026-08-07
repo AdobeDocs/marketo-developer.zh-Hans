@@ -15,9 +15,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 882
+source-wordcount: 866
 ht-degree: 0%
 
 ---
@@ -34,7 +34,6 @@ ht-degree: 0%
 - **批次大小：**&#x200B;潜在客户数据库支持300条记录；资产查询支持200条记录。
 - **REST API有效负载大小：** 1 MB。
 - **批量导入文件大小：** 10 MB。
-- **SOAP最大批次大小：** 300条记录。
 - **批量提取作业：**&#x200B;两个正在执行，10个已排队，包括。
 
 ## 快速提示
@@ -66,15 +65,15 @@ ht-degree: 0%
 
 容量由实例中的所有API服务和用户共享。 尽可能减少多余的呼叫和将记录批量记录到最少呼叫中。
 
-最有效的调用导入方法是Marketo批量导入API，可用于[潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)和[自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST)。 Marketo还为[潜在客户](bulk-lead-extract.md)和[活动](bulk-activity-extract.md)提供批量提取。
+最有效的调用导入方法是Marketo批量导入API，可用于[潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST)和[自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST)。 Marketo还为[潜在客户](bulk-lead-extract.md)和[活动](bulk-activity-extract.md)提供批量提取。
 
 ### 缓存
 
 以下操作的结果通常可以在客户端缓存一天或更长时间，因为它们很少更改：
 
 - Describe操作的结果
-- [活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [分区](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [活动类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)
+- [分区](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadPartitionsUsingGET)
 
 对于潜在客户或活动数据扩充等用例，您还可以缓存资源类型，如程序、电子邮件和文件夹。
 

@@ -12,9 +12,9 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 765
+source-wordcount: 726
 ht-degree: 2%
 
 ---
@@ -30,7 +30,7 @@ REST API分为两大类：
 
 >[!NOTE]
 >
->SOAP API已被弃用，在2026年7月31日后将不再可用。 所有新的开发应使用Marketo [REST API](./rest-api.md)完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅SOAP API [迁移指南](../soap-api/migration.md)以了解有关如何迁移的信息。
+>SOAP API已于2026年7月31日弃用，不再可用。 所有新的开发应使用Marketo [REST API](./rest-api.md)完成。
 >
 
 >[!IMPORTANT]
@@ -100,7 +100,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 >
 >2025年6月30日，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
 
-打开新的浏览器选项卡并输入以下URL。 将占位符替换为实例的终结点和电子邮件地址，以按筛选器类型调用[获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET)。
+打开新的浏览器选项卡并输入以下URL。 将占位符替换为实例的终结点和电子邮件地址，以按筛选器类型调用[获取潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET)。
 
 ```text
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>

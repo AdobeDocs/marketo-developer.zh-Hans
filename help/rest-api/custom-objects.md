@@ -17,9 +17,9 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2938
+source-wordcount: 2844
 ht-degree: 0%
 
 ---
@@ -34,7 +34,7 @@ Marketo自定义对象可以与Marketo标准对象（如潜在客户和公司）
 
 ## 列表
 
-除了Lead数据库对象的标准Describe、Query、Update和Delete调用之外，Custom Objects还提供[列表调用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET)。 端点返回目标实例中可用的自定义对象以及有关每个对象的元数据。
+除了Lead数据库对象的标准Describe、Query、Update和Delete调用之外，Custom Objects还提供[列表调用](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectsUsingGET)。 端点返回目标实例中可用的自定义对象以及有关每个对象的元数据。
 
 ```http
 GET /rest/v1/customobjects.json
@@ -81,7 +81,7 @@ GET /rest/v1/customobjects.json
 
 ## 描述
 
-自定义对象的[Describe调用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1)遵循与“机会”和“公司”相同的模式，添加了两个内容：
+自定义对象的[Describe调用](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1)遵循与“机会”和“公司”相同的模式，添加了两个内容：
 
 - `apiName`路径参数指定要描述的自定义对象类型的API名称。
 - 响应包含列出了自定义对象类型可用关系的`relationships`数组。
@@ -191,7 +191,7 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 
 ## 查询
 
-[查询自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET)与查询其他Lead数据库对象略有不同。 与Describe一样，请求采用`apiName`路径参数。
+[查询自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectsUsingGET)与查询其他Lead数据库对象略有不同。 与Describe一样，请求采用`apiName`路径参数。
 
 对于普通filterType，发送带有所需`filterType`和`filterValues`参数的GET请求。 您还可以包括可选的`**fields**`、`batchSize`和`nextPageToken`参数。
 
@@ -292,9 +292,9 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 
 ## 创建和更新
 
-使用[同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)端点创建或更新自定义对象。 使用`action`参数指定操作。 每个调用最多可创建或更新300条记录。
+使用[同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST)端点创建或更新自定义对象。 使用`action`参数指定操作。 每个调用最多可创建或更新300条记录。
 
-根据[Describe Custom Objects](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/endpoint-reference#!/Custom_Objects/describeUsingGET_1)终结点返回的信息确定`input`数组中的值。 在示例car对象中，唯一的重复数据删除字段是`vin`。 使用dedupeFields模式创建或更新记录时，在输入数组的每个对象中至少包含一个`vin`字段。
+根据[Describe Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1)终结点返回的信息确定`input`数组中的值。 在示例car对象中，唯一的重复数据删除字段是`vin`。 使用dedupeFields模式创建或更新记录时，在输入数组的每个对象中至少包含一个`vin`字段。
 
 ```http
 POST /rest/v1/customobjects/{apiName}.json
@@ -365,7 +365,7 @@ POST /rest/v1/customobjects/{apiName}.json
 
 ## 删除
 
-要[删除记录](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)，请选择`idField`或`dedupeFields`的`deleteBy`模式。 在`input`数组的每个记录中包含相应的字段。 每个调用最多允许300条记录。
+要[删除记录](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectsUsingPOST)，请选择`idField`或`dedupeFields`的`deleteBy`模式。 在`input`数组的每个记录中包含相应的字段。 每个调用最多允许300条记录。
 
 ```http
 POST /rest/v1/customobjects/{apiName}/delete.json
@@ -437,7 +437,7 @@ POST /rest/v1/customobjects/{apiName}/delete.json
 
 ### 描述类型
 
-[Describe自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1)终结点返回一个自定义对象类型的元数据。 所需的`apiName`路径参数指定要描述的类型的API名称。
+[Describe自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1)终结点返回一个自定义对象类型的元数据。 所需的`apiName`路径参数指定要描述的类型的API名称。
 
 如果存在批准的版本，则端点会返回该版本。 否则，将返回草稿版本。 使用可选的`state`参数请求`draft`、`approved`或`approvedWithDraft`。
 
@@ -558,7 +558,7 @@ GET /rest/v1/customobjects/schema/{apiName}/describe.json?state=approved
 
 ### 列表类型
 
-[列出自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET)终结点返回目标实例中所有可用自定义对象类型的元数据。 它类似于[列出自定义对象](https://experienceleague.adobe.com/docs/marketo-developer/marketo/soap/custom-objects/custom-objects.html?lang=zh-Hans)，但包含其他元数据，如状态、关系和字段。
+[列出自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/listCustomObjectTypesUsingGET)终结点返回目标实例中所有可用自定义对象类型的元数据。
 
 如果存在批准的版本，则端点会返回该版本。 否则，将返回草稿版本。
 
@@ -744,7 +744,7 @@ GET /rest/v1/customobjects/schema.json?names=purchaseHistory
 
 #### 创建类型
 
-使用[同步自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)端点创建或更新自定义对象类型。
+使用[同步自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST)端点创建或更新自定义对象类型。
 
 这些属性包括：
 
@@ -865,7 +865,7 @@ POST /rest/v1/customobjects/schema.json
 
 ## 批准类型
 
-在使用自定义对象类型之前，请批准它们。 当您使用[同步自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectTypeUsingPOST)端点创建类型时，Marketo会创建一个草稿版本。 添加自定义字段后，批准草稿。 批准创建批准的版本并删除草稿。
+在使用自定义对象类型之前，请批准它们。 当您使用[同步自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectTypeUsingPOST)端点创建类型时，Marketo会创建一个草稿版本。 添加自定义字段后，批准草稿。 批准创建批准的版本并删除草稿。
 
 当您使用“同步自定义对象类型”或“添加/更新/删除自定义对象类型字段”端点修改现有类型时，Marketo会创建一个草稿。 对类型或其字段的更改仅影响草稿版本。 进行更改后，批准草稿。 批准会将批准的版本替换为草稿，并删除草稿。
 
@@ -881,7 +881,7 @@ POST /rest/v1/customobjects/schema.json
 
 ### 批准类型
 
-使用[批准自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/approveCustomObjectTypeUsingPOST)端点将草稿作为新批准的版本发布。 唯一必需的参数是&#x200B;**apiName**&#x200B;路径参数。
+使用[批准自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/approveCustomObjectTypeUsingPOST)端点将草稿作为新批准的版本发布。 唯一必需的参数是&#x200B;**apiName**&#x200B;路径参数。
 
 仅当类型处于草稿状态并满足记录的[验证规则](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object)时，才能批准该类型。
 
@@ -899,7 +899,7 @@ POST /rest/v1/customobjects/schema/{apiName}/approve.json
 
 ### 放弃类型
 
-使用[放弃自定义对象类型草稿](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/discardCustomObjectTypeUsingPOST)端点删除草稿版本。 唯一必需的参数是`apiName`路径参数。
+使用[放弃自定义对象类型草稿](https://developer.adobe.com/marketo-apis/api/mapi#operation/discardCustomObjectTypeUsingPOST)端点删除草稿版本。 唯一必需的参数是`apiName`路径参数。
 
 您只能丢弃处于草稿状态的类型。 不能放弃已批准的类型。
 
@@ -917,7 +917,7 @@ POST /rest/v1/customobjects/schema/{apiName}/discardDraft.json
 
 ### 删除类型
 
-使用[删除自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)端点删除批准的版本。 唯一必需的参数是`apiName`路径参数。
+使用[删除自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectsUsingPOST)端点删除批准的版本。 唯一必需的参数是`apiName`路径参数。
 
 此操作具有破坏性，无法撤消。 在删除类型之前，请从资源（如触发器和过滤器）中删除该类型。 使用获取依赖自定义对象的Assets端点可检索某种类型的依赖资源。
 
@@ -950,18 +950,18 @@ POST /rest/v1/customobjects/schema/{apiName}/delete.json
 
 ### 添加字段
 
-使用[添加自定义对象类型字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/addCustomObjectTypeFieldsUsingPOST)端点向自定义对象添加一个或多个字段。 请求正文包含具有一个或多个元素的`input`数组。 每个元素都是一个JSON对象，其属性用于描述字段。
+使用[添加自定义对象类型字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/addCustomObjectTypeFieldsUsingPOST)端点向自定义对象添加一个或多个字段。 请求正文包含具有一个或多个元素的`input`数组。 每个元素都是一个JSON对象，其属性用于描述字段。
 
 字段属性包括：
 
 - `name`：必需。 字段的API名称，该名称对于自定义对象必须是唯一的。 使用小写或驼峰式大小写区分名称与其他文本字符串。
 - `displayName`：必需。 易于用户识别的字段名称，该名称对于自定义对象必须是唯一的。
-- `dataType`：必需。 字段的数据类型。 使用[获取自定义对象类型字段数据类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET)终结点检索允许的数据类型。
+- `dataType`：必需。 字段的数据类型。 使用[获取自定义对象类型字段数据类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeFieldDataTypesUsingGET)终结点检索允许的数据类型。
 - `description`：可选。 字段描述。
 - `isDedupeField`：可选布尔值，指定在自定义对象更新操作期间是否将该字段用于去重。 默认值为false。 一对多关系需要重复数据删除字段。
 - `relatedTo`：指定链接字段的可选对象。 对于一对多关系，`name`标识“链接对象”或父对象，`field`标识父对象中的“链接字段”或键字段。
 
-自定义对象可以包含数据类型为“link”的字段。 链接字段在自定义对象和其他对象类型（如商机和公司）之间建立关系。 有关链接字段的详细信息，请参阅[自定义对象字段文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。 使用[获取自定义对象可链接对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET)端点检索允许的链接对象。
+自定义对象可以包含数据类型为“link”的字段。 链接字段在自定义对象和其他对象类型（如商机和公司）之间建立关系。 有关链接字段的详细信息，请参阅[自定义对象字段文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。 使用[获取自定义对象可链接对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET)端点检索允许的链接对象。
 
 自定义对象无法链接到具有现有链接字段的其他自定义对象。 有关详细信息，请参阅[链接字段文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。
 
@@ -1263,7 +1263,7 @@ POST /rest/v1/customobjects/schema/enrollment/approve.json
 
 ## 更新字段
 
-使用[更新自定义对象类型字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/updateCustomObjectTypeFieldUsingPOST)端点更新草稿自定义对象中的字段。
+使用[更新自定义对象类型字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/updateCustomObjectTypeFieldUsingPOST)端点更新草稿自定义对象中的字段。
 
 所需的路径参数包括：
 
@@ -1293,7 +1293,7 @@ POST /rest/v1/customobjects/schema/{apiName}/{fieldApiName}/updateField.json
 
 ## 删除字段
 
-使用[删除自定义对象类型字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectTypeFieldsUsingPOST)端点从自定义对象中删除一个或多个字段。 所需的`apiName`路径参数指定自定义对象类型的API名称。
+使用[删除自定义对象类型字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectTypeFieldsUsingPOST)端点从自定义对象中删除一个或多个字段。 所需的`apiName`路径参数指定自定义对象类型的API名称。
 
 请求正文包含一个JSON对象，该对象具有一个或多个元素的`input`数组。 每个元素都是一个JSON对象，其`name`属性指定要删除的字段的API名称。
 
@@ -1325,7 +1325,7 @@ POST /rest/v1/customobjects/schema/{apiName}/deleteField.json
 
 ## 列表字段数据类型
 
-[获取自定义对象类型字段数据类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET)终结点返回所有允许的字段数据类型。 使用此端点可标识在为自定义对象类型建模时可用的自定义字段数据类型。
+[获取自定义对象类型字段数据类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeFieldDataTypesUsingGET)终结点返回所有允许的字段数据类型。 使用此端点可标识在为自定义对象类型建模时可用的自定义字段数据类型。
 
 ```http
 GET /rest/v1/customobjects/schema/fieldDataTypes.json
@@ -1353,7 +1353,7 @@ GET /rest/v1/customobjects/schema/fieldDataTypes.json
 
 ## 列出可链接自定义对象
 
-[获取自定义对象可链接对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET)端点返回所有允许的链接对象及其链接字段。 响应包括“标准对象”（如“潜在客户”和“公司”）以及在实例中创建的任何自定义对象。
+[获取自定义对象可链接对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET)端点返回所有允许的链接对象及其链接字段。 响应包括“标准对象”（如“潜在客户”和“公司”）以及在实例中创建的任何自定义对象。
 
 ```http
 GET /rest/v1/customobjects/schema/linkableObjects.json
@@ -1543,7 +1543,7 @@ GET /rest/v1/customobjects/schema/linkableObjects.json
 
 ## 获取依赖于自定义对象的Assets
 
-[Get Custom Object Dependent Assets](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeDependentAssetsUsingGET)端点返回自定义对象类型的依赖资源及其在实例中的位置。 在删除集成时，使用该插件可识别正在使用自定义对象类型的任意位置。
+[Get Custom Object Dependent Assets](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeDependentAssetsUsingGET)端点返回自定义对象类型的依赖资源及其在实例中的位置。 在删除集成时，使用该插件可识别正在使用自定义对象类型的任意位置。
 
 ```http
 GET /rest/v1/customobjects/schema/{apiName}/dependentAssets.json
