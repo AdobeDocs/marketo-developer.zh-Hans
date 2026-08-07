@@ -4,17 +4,13 @@ feature: REST API
 description: 使用Marketo批量程序成员提取REST API导出大型成员记录，以使用权限和字段元数据进行ETL、数据仓库存储和存档。
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
 TQID: https://experienceleague.adobe.com/w4qaVTKSe0EORaSiURB6WbJXi29JUdEgfkb2dnfuVFw
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1026
+source-wordcount: 1081
 ht-degree: 2%
 
 ---
@@ -31,7 +27,7 @@ API用户必须具有具有“只读潜在客户”权限和/或“读写潜在�
 
 ## 描述
 
-使用[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2)确定哪些字段可用并检索其元数据。 `name`属性包含REST API字段名。
+使用[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2)确定哪些字段可用并检索其元数据。 `name`属性包含REST API字段名。
 
 ```http
 GET /rest/v1/programs/members/describe.json
@@ -246,12 +242,12 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>isExhausted</td>
       <td>布尔值</td>
-      <td>接受一个布尔值，用于筛选已用完内容</a>的<a href="https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">人的计划成员资格记录。</td>
+      <td>接受一个布尔值，用于筛选已用完内容</a>的<a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">人的计划成员资格记录。</td>
     </tr>
     <tr>
       <td>nurtureCadence</td>
       <td>字符串</td>
-      <td>接受用于筛选给定培养节奏的项目成员资格记录的字符串。允许的值有：
+      <td>接受用于筛选给定培养节奏的项目成员资格记录的字符串。允许的值包括：
         <ul>
           <li>pause — 节奏已暂停</li>
           <li>正常 — 节奏正常</li>
@@ -260,7 +256,7 @@ GET /rest/v1/programs/members/describe.json
     <tr>
       <td>statusName</td>
       <td>Array[String]</td>
-      <td>接受程序成员状态名称的数组。多个状态名是OR组合在一起的。具有此筛选器类型的作业将返回其程序成员状态与任何指定状态名匹配的所有可访问记录。可以使用默认状态和用户定义的状态名。如果statusNames筛选器与“programIds”筛选器一起使用，则会检查每个程序的成员资格记录，这些记录的状态与任何状态名相匹配。如果在任何程序中都找不到状态名称，则会返回“1003， Invalid Data（1003数据无效）”错误。
+      <td>接受程序成员状态名称的数组。 多个状态名称会被OR组合在一起。具有此筛选器类型的作业将返回其程序成员状态与任何指定状态名匹配的所有可访问记录。 默认状态和用户定义的状态名称都可以使用。如果statusNames筛选器与“programIds”筛选器一起使用，则会检查每个程序的成员资格记录，这些记录的状态与任何状态名称相匹配。 如果在任何程序中都找不到状态名称，则会返回“1003， Invalid Data（1003数据无效）”错误。
         <table>
           <tbody>
             <tr>
@@ -337,7 +333,7 @@ GET /rest/v1/programs/members/describe.json
 
 ## 创建作业
 
-使用[创建导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST)端点定义导出作业。 指定包含程序ID和要导出的`fields`的`filter`。 您还可以指定`format`和`columnHeaderNames`。
+使用[创建导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportProgramMembersUsingPOST)端点定义导出作业。 指定包含程序ID和要导出的`fields`的`filter`。 您还可以指定`format`和`columnHeaderNames`。
 
 ```http
 POST /bulk/v1/program/members/export/create.json
@@ -381,7 +377,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-响应将确认作业已创建，但导出不会自动启动。 将返回的`exportId`传递到[排入队列导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)终结点以启动作业：
+响应将确认作业已创建，但导出不会自动启动。 将返回的`exportId`传递到[排入队列导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportProgramMembersUsingPOST)终结点以启动作业：
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -409,7 +405,7 @@ POST /bulk/v1/program/members/export/{exportId}/enqueue.json
 
 您只能检索由同一API用户创建的作业的状态。
 
-由于导出是异步运行的，请使用[获取导出程序成员作业状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET)端点轮询其进度。 状态每60秒只更新一次，因此不要更频繁地轮询。
+由于导出是异步运行的，请使用[获取导出程序成员作业状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET)端点轮询其进度。 状态每60秒只更新一次，因此不要更频繁地轮询。
 
 状态可以是`Created`、`Queued`、`Processing`、`Canceled`、`Completed`或`Failed`。
 
@@ -459,7 +455,7 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 
 ## 检索数据
 
-要检索已完成的程序成员导出，请将`exportId`传递到[获取导出程序成员文件](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)终结点。
+要检索已完成的程序成员导出，请将`exportId`传递到[获取导出程序成员文件](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportProgramMembersFileUsingGET)终结点。
 
 端点会按照为作业配置的格式返回文件。 如果请求的程序成员字段不包含数据，则相应的导出字段包含`null`。
 
@@ -487,7 +483,7 @@ Septa,Mordane,smor@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1800
 
 ## 取消作业
 
-要取消配置不正确或不再需要的作业，请调用[取消导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST)终结点：
+要取消配置不正确或不再需要的作业，请调用[取消导出程序成员作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportProgramMembersUsingPOST)终结点：
 
 ```http
 POST /bulk/v1/program/members/export/{exportId}/cancel.json

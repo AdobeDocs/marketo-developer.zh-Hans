@@ -4,17 +4,13 @@ feature: REST API
 description: 使用Marketo Companies REST API描述、查询和同步公司记录，按externalCompanyId管理字段和重复数据删除，并注意CRM同步为只读。
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
 TQID: https://experienceleague.adobe.com/LdJYN4lx9JfcE-02zTz8ktfYXm4EdPtxMYOx9gGR0sg
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 582
+source-wordcount: 572
 ht-degree: 1%
 
 ---
@@ -23,11 +19,11 @@ ht-degree: 1%
 
 [公司端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies)
 
-公司表示潜在客户记录所属的组织。 若要向公司添加潜在客户，请使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)或[批量潜在客户导入](bulk-lead-import.md)端点填充其`externalCompanyId`字段。
+公司表示潜在客户记录所属的组织。 若要向公司添加潜在客户，请使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST)或[批量潜在客户导入](bulk-lead-import.md)端点填充其`externalCompanyId`字段。
 
 除非将商机添加到其他公司，否则无法从公司中删除商机。 链接到公司记录的潜在客户会从该记录继承值，就好像这些值存在于潜在客户记录中一样。
 
-公司API为启用了[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=zh-Hans)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=zh-Hans)的订阅提供只读访问权限。
+公司API为启用了[SFDC同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en)或[Microsoft Dynamics同步](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en)的订阅提供只读访问权限。
 
 ## 描述
 
@@ -109,7 +105,7 @@ GET /rest/v1/companies/describe.json
 
 ## 查询
 
-[查询公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET)的模式非常遵循Leads API。 但是，`filterType`参数仅接受Describe Companies响应或dedupeFields的searchableFields数组中列出的字段。
+[查询公司](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCompaniesUsingGET)的模式非常遵循Leads API。 但是，`filterType`参数仅接受Describe Companies响应或dedupeFields的searchableFields数组中列出的字段。
 
 查询参数包括：
 
@@ -152,7 +148,7 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## 创建和更新
 
-[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)终结点接受包含公司对象数组的必需`input`参数。
+[同步公司](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST)终结点接受包含公司对象数组的必需`input`参数。
 
 与业务机会一样，端点支持三种创建和更新模式：createOnly、updateOnly和createOrUpdate。 在请求的`action`参数中指定模式。
 
@@ -214,7 +210,7 @@ Content-Type: application/json
 
 #### 按名称
 
-[按名称获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET)终结点为公司对象上的一个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。
+[按名称获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCompanyFieldByNameUsingGET)终结点为公司对象上的一个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。
 
 响应类似于“描述公司”响应，但包含其他元数据。 例如，`isCustom`属性指示字段是否为自定义字段。
 
@@ -245,7 +241,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### 浏览
 
-[获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
+[获取公司字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCompanyFieldsUsingGET)终结点检索公司对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
 
 如果`moreResult`属性为true，则有更多结果可用。 继续使用返回的`nextPageToken`调用终结点，直到`moreResult`为false。
 

@@ -4,18 +4,13 @@ feature: REST API, Landing Pages
 description: 使用Marketo REST API查询元数据和内容，创建、更新、批准、删除和克隆登陆页面，包括引导式和自由格式类型。
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
 TQID: https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 917
+source-wordcount: 864
 ht-degree: 2%
 
 ---
@@ -28,7 +23,7 @@ ht-degree: 2%
 
 ## 查询
 
-按名称[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET)、[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET)查询登陆页面。 这些查询仅返回元数据。 按页面ID单独查询登陆页面的内容部分。
+按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByNameUsingGET)、[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/browseLandingPagesUsingGET)查询登陆页面[。 这些查询仅返回元数据。 按页面ID单独查询登陆页面的内容部分。
 
 查询登陆页面内容将返回其可用的内容部分。 必须先在此列表中显示一个节，然后才能更新它。
 
@@ -68,7 +63,7 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 ## 创建和更新
 
-[从模板创建登陆页面](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/createLandingPageUsingPOST)。 需要页面名称、模板ID和目标文件夹。 请参阅可选元数据的端点引用。
+[从模板创建登陆页面](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageUsingPOST)。 需要页面名称、模板ID和目标文件夹。 请参阅可选元数据的端点引用。
 
 [登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content)端点支持这些内容类型： `richText`、`HTML`、`Form`、`Image`、`Rectangle`和`Snippet`。
 
@@ -117,7 +112,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-可以使用[更新登陆页面元数据终结点](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST)来更新登陆页面元数据。
+可以使用[更新登陆页面元数据终结点](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageUsingPOST)来更新登陆页面元数据。
 
 ## 审批
 
@@ -125,7 +120,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 ## 删除
 
-在删除登陆页面之前，请确保该页面未获得批准，并且没有其他Marketo资源引用它。 使用[删除登陆页面](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST)端点单独删除页面。 无法使用此API删除嵌入了社交按钮的页面。
+在删除登陆页面之前，请确保该页面未获得批准，并且没有其他Marketo资源引用它。 使用[删除登陆页面](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageByIdUsingPOST)端点单独删除页面。 无法使用此API删除嵌入了社交按钮的页面。
 
 ## 克隆
 
@@ -185,7 +180,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## 管理内容部分
 
-内容部分按其`index`属性排序，并根据客户端的CSS规则显示。 使用[添加](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST)、[更新](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST)和[删除](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST)端点管理节。 使用[获取登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET)来查询这些内容。
+内容部分按其`index`属性排序，并根据客户端的CSS规则显示。 使用[添加](https://developer.adobe.com/marketo-apis/api/asset#operation/addLandingPageContentUsingPOST)、[更新](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST)和[删除](https://developer.adobe.com/marketo-apis/api/asset#operation/removeLandingPageContentUsingPOST)端点管理节。 使用[获取登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageContentUsingGET)来查询这些内容。
 
 每个部分都有`type`和`value`参数。 `type`确定预期的`value`。 将数据作为POST `x-www-form-urlencoded`而不是作为JSON传递给这些端点。
 
@@ -205,11 +200,11 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 对于自由格式页面，添加每个所需的内容部分。 Marketo将它们嵌入到ID为`mktoContent`的`div`元素中。
 
-引导式页面可以包含由[获取登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET)返回的预定义元素。 使用相应的端点添加元素或[更新其内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST)。
+引导式页面可以包含由[获取登陆页面内容](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageContentUsingGET)返回的预定义元素。 使用相应的端点添加元素或[更新其内容](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST)。
 
 ### 动态内容
 
-要使某个部分成为动态部分，请首先确保它显示在登陆页面的内容列表中。 然后使用[更新登陆页面内容部分](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST)将其类型设置为`DynamicContent`。
+要使某个部分成为动态部分，请首先确保它显示在登陆页面的内容列表中。 然后使用[更新登陆页面内容部分](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST)将其类型设置为`DynamicContent`。
 
 Marketo会创建基础动态部分，这些部分继承已转换元素的基本类型和内容。
 
@@ -247,7 +242,7 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 }
 ```
 
-[根据区段ID为每个区段更新内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST)。
+[根据区段ID为每个区段更新内容](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageDynamicContentUsingPOST)。
 
 ```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
@@ -292,7 +287,7 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 
@@ -356,7 +351,7 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 
 ## 预览登陆页面
 
-使用[获取登陆页面完整内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET)检索浏览器渲染的预览。 登陆页面`id`路径参数是必需的。 端点还接受两个可选的查询参数：
+使用[获取登陆页面完整内容](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageFullContentUsingGET)检索浏览器渲染的预览。 登陆页面`id`路径参数是必需的。 端点还接受两个可选的查询参数：
 
 - `segmentation`：包含`segmentationId`和`segmentId`的JSON对象数组。 预览表示与这些区段匹配的潜在客户。
 - `leadId`：整数潜在客户ID。 预览表示指定的潜在客户。

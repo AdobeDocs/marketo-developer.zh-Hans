@@ -4,20 +4,13 @@ feature: REST API, Programs
 description: Marketo针对Asset REST API的程序指南，涵盖了类型、渠道、标记、成员状态和端点，可按ID或名称获取、浏览和按状态筛选。
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
 TQID: https://experienceleague.adobe.com/5ILyahSn3Pp-lF6YPogVnkXjXP-QLtEmyLm7iKMIgo0
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: ebde5b41-29c9-4f5e-9ef6-1197e85409e3
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: ebde5b41-29c9-4f5e-9ef6-1197e85409e3
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 741
+source-wordcount: 718
 ht-degree: 1%
 
 ---
@@ -46,11 +39,11 @@ Marketo中有五种核心类型的程序：
 
 ## 查询
 
-按ID、名称、浏览或标记类型和值查询程序。 使用[获取标记类型](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags/operation/getTagTypesUsingGET)检索可用的标记和值。
+按ID、名称、浏览或标记类型和值查询程序。 使用[获取标记类型](https://developer.adobe.com/marketo-apis/api/asset#operation/getTagTypesUsingGET)检索可用的标记和值。
 
 ### 按Id
 
-[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)获取程序终结点需要`id`路径参数。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByIdUsingGET)获取程序终结点需要`id`路径参数。
 
 您可以从其UI URL获取程序ID，如`https://app-\*\*\*.marketo.com/#PG1001A1`。 在此示例中，ID是`1001`，介于第一组字母和第二组字母之间。
 
@@ -140,13 +133,13 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### 浏览
 
-使用[获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)端点浏览程序。
+使用[获取程序](https://developer.adobe.com/marketo-apis/api/asset#operation/browseProgramsUsingGET)端点浏览程序。
 
 可选的`status`参数按状态筛选参与和电子邮件程序。 参与计划的有效值为`on`和`off`，电子邮件计划的有效值为`unlocked`。
 
 可选的`maxReturn`参数控制返回的程序数。 默认值为20，最大值为200。 使用可选`offset`参数分页；其默认值为0。
 
-此端点未返回程序标记。 使用[按ID获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET)或[按名称获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET)检索标记。
+此端点未返回程序标记。 使用[按ID获取程序](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByIdUsingGET)或[按名称获取程序](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByNameUsingGET)检索标记。
 
 ```http
 GET /rest/asset/v1/programs.json
@@ -201,7 +194,7 @@ GET /rest/asset/v1/programs.json
 
 ### 按日期范围
 
-使用带有[获取程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)的`earliestUpdatedAt`和`latestUpdatedAt`参数设置低日期时间和高日期时间边界。 端点返回在该范围内创建或更新的程序。
+使用带有[获取程序](https://developer.adobe.com/marketo-apis/api/asset#operation/browseProgramsUsingGET)的`earliestUpdatedAt`和`latestUpdatedAt`参数设置低日期时间和高日期时间边界。 端点返回在该范围内创建或更新的程序。
 
 ```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
@@ -292,7 +285,7 @@ GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&lat
 
 ### 按标记类型
 
-[Get Programs by Tag](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramListByTagUsingGET)终结点返回与指定的标记类型和值匹配的程序。
+[Get Programs by Tag](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramListByTagUsingGET)终结点返回与指定的标记类型和值匹配的程序。
 
 `tagType`和`tagValue`参数是必需的。 可选整数`maxReturn`控制返回的程序数；默认值为20，最大值为200。 使用可选的整数`offset`进行分页；其默认值为0。 结果以随机顺序返回。
 
@@ -334,9 +327,9 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## 创建和更新
 
-[创建](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/createProgramUsingPOST)项目需要`folder`、`name`、`type`和`channel`。 可选参数为`description`、`costs`和`tags`。 某些订阅需要针对特定程序类型的标记。 使用Get Tags检查实例要求。
+[创建](https://developer.adobe.com/marketo-apis/api/asset#operation/createProgramUsingPOST)项目需要`folder`、`name`、`type`和`channel`。 可选参数为`description`、`costs`和`tags`。 某些订阅需要针对特定程序类型的标记。 使用Get Tags检查实例要求。
 
-当[更新](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)时，您只能更改描述、名称、`tags`和`costs`。 您只能在创建期间设置渠道和类型。 将`costsDestructiveUpdate`设置为`true`将清除所有现有成本，并将它们替换为请求中包含的成本。
+当[更新](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST)时，您只能更改描述、名称、`tags`和`costs`。 您只能在创建期间设置渠道和类型。 将`costsDestructiveUpdate`设置为`true`将清除所有现有成本，并将它们替换为请求中包含的成本。
 
 创建或更新电子邮件程序时，`startDate`和`endDate`也可能作为UTC日期/时间传递：
 
@@ -503,7 +496,7 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 ## 克隆
 
-[克隆程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/cloneProgramUsingPOST)需要新名称和父文件夹。 说明是可选的。 `name`必须是全局唯一的，不能超过255个字符。
+[克隆程序](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneProgramUsingPOST)需要新名称和父文件夹。 说明是可选的。 `name`必须是全局唯一的，不能超过255个字符。
 
 将`folder`参数的类型属性设置为`Folder`。 目标文件夹必须与源程序位于同一工作区中。
 

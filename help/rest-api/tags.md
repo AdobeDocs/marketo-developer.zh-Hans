@@ -4,17 +4,13 @@ feature: REST API, Tags
 description: 查询标记类型、按名称获取允许的值、通过REST Asset API更新或删除Marketo中的程序标记，以及请求示例。
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
 TQID: https://experienceleague.adobe.com/zjdyfoofVWytE0Q-K4lk598jmleTSFOD7tSRqeAHsjk
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 227
+source-wordcount: 221
 ht-degree: 2%
 
 ---
@@ -86,7 +82,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## 更新
 
-使用[更新程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)端点更新标记类型的值。 所有参数都是必需的：
+使用[更新程序标记](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST)端点更新标记类型的值。 所有参数都是必需的：
 
 - `id`路径参数指定程序ID。
 - `tagType`路径参数指定要更新的标记类型。
@@ -110,11 +106,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-要更新多个标记，请使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST)端点。 请参阅[程序更新部分](programs.md#update)中的示例。
+要更新多个标记，请使用[更新程序元数据](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST)端点。 请参阅[程序更新部分](programs.md#update)中的示例。
 
 ## 删除
 
-使用[删除程序标记](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST)端点删除非必需的标记类型。 `id` path参数指定程序ID，`tagType` path参数指定要删除的标记类型。
+使用[删除程序标记](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteProgramUsingPOST)端点删除非必需的标记类型。 `id` path参数指定程序ID，`tagType` path参数指定要删除的标记类型。
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

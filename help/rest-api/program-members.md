@@ -4,21 +4,13 @@ feature: REST API
 description: 使用Marketo REST API读取、创建、更新和删除程序成员，管理标准和自定义字段，以及使用可搜索字段进行查询。
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
 TQID: https://experienceleague.adobe.com/scEHyXYq9C7cCS1kIX810wG7ahT9fsa448NwIfBmzQM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1670
+source-wordcount: 1632
 ht-degree: 2%
 
 ---
@@ -29,11 +21,11 @@ ht-degree: 2%
 
 Marketo提供了用于读取、创建、更新和删除程序成员记录的API。 商机ID字段将项目成员记录与商机记录相关联。
 
-每个记录包含标准字段，最多可包含20个自定义字段。 这些字段存储特定于项目的成员数据，以便在表单、筛选器、触发器和流操作中使用。 您可以在Marketo Engage UI的程序[成员选项卡](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
+每个记录包含标准字段，最多可包含20个自定义字段。 这些字段存储特定于项目的成员数据，以便在表单、筛选器、触发器和流操作中使用。 您可以在Marketo Engage UI的程序[成员选项卡](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
 
 ## 描述
 
-[Describe程序成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2)终结点遵循Lead数据库对象的标准模式。
+[Describe程序成员](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2)终结点遵循Lead数据库对象的标准模式。
 
 - `searchableFields`数组标识对查询有效的字段。
 - `fields`数组包含元数据，如REST API名称、显示名称以及字段是否可更新。
@@ -227,11 +219,11 @@ GET /rest/v1/programs/members/describe.json
 
 ## 查询
 
-使用[获取程序成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMembersUsingGET)端点检索程序的成员。 该请求需要`programId`路径参数以及`filterType`和`filterValues`查询参数。
+使用[获取程序成员](https://developer.adobe.com/marketo-apis/api/mapi#operation/getProgramMembersUsingGET)端点检索程序的成员。 该请求需要`programId`路径参数以及`filterType`和`filterValues`查询参数。
 
 `programId`指定要搜索的程序。
 
-`filterType`指定要用作搜索筛选器的字段。 它接受[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2)端点返回的“searchableFields”列表中的任何字段。 对于自定义字段，dataType必须为“字符串”或“整数”。
+`filterType`指定要用作搜索筛选器的字段。 它接受[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2)端点返回的“searchableFields”列表中的任何字段。 对于自定义字段，dataType必须为“字符串”或“整数”。
 
 当filterType不是“leadId”时，请求最多可以处理100,000个项目成员记录。 根据您的Marketo实例配置，您会收到以下错误之一：
 
@@ -244,7 +236,7 @@ GET /rest/v1/programs/members/describe.json
 
 或者，通过将`updatedAt`指定为filterType并提供`startAt`和`endAt`日期时间参数来按日期范围过滤。 范围必须等于或少于7天。 对于日期时间值，请使用不带毫秒的ISO-8601格式。
 
-可选的`fields`查询参数接受[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2)终结点返回的以逗号分隔的字段API名称列表。 包括时，每个响应记录都包含指定字段。 如果忽略，则默认情况下响应返回`acquiredBy`、`leadId`、`membershipDate`、`programId`和`reachedSuccess`。
+可选的`fields`查询参数接受[Describe Program Member](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2)终结点返回的以逗号分隔的字段API名称列表。 包括时，每个响应记录都包含指定字段。 如果忽略，则默认情况下响应返回`acquiredBy`、`leadId`、`membershipDate`、`programId`和`reachedSuccess`。
 
 默认情况下，端点最多返回300条记录。 使用`batchSize`查询参数减少此数量。
 
@@ -373,12 +365,12 @@ GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValue
 
 ### 项目群成员状态
 
-使用[同步程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST)终结点为一个或多个成员创建或更新程序状态。
+使用[同步程序成员状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncProgramMemberStatusUsingPOST)终结点为一个或多个成员创建或更新程序状态。
 
 必需的参数包括：
 
 - `programId`：指定包含要创建或更新的成员的程序的路径参数。
-- `statusName`：指定要应用于潜在客户列表的程序状态。 statusName必须与项目频道的可用状态匹配。 使用[Get Channels](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels/operation/getAllChannelsUsingGET)终结点检索有效状态。 如果商机的状态比指定的statusName具有更大的步骤值，则请求将跳过该商机。
+- `statusName`：指定要应用于潜在客户列表的程序状态。 statusName必须与项目频道的可用状态匹配。 使用[Get Channels](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllChannelsUsingGET)终结点检索有效状态。 如果商机的状态比指定的statusName具有更大的步骤值，则请求将跳过该商机。
 - `input`：与项目群成员相对应的`leadId`值的数组。 每个调用最多可提交300个潜在客户ID。
 
 端点对每个记录执行更新插入。 如果leadId与项目群成员关联，则端点会更新其成员资格状态。 否则，它将创建一个项目群成员记录，将该记录与leadId相关联，并分配成员资格状态。
@@ -443,7 +435,7 @@ Content-Type: application/json
 
 ### 项目群成员数据
 
-使用[同步程序成员数据](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberDataUsingPOST)终结点更新一个或多个成员的程序成员字段数据。 您可以修改任何自定义字段或任何由[描述程序成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2)端点标记为“可更新”的标准字段。
+使用[同步程序成员数据](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncProgramMemberDataUsingPOST)终结点更新一个或多个成员的程序成员字段数据。 您可以修改任何自定义字段或任何由[描述程序成员](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeProgramMemberUsingGET2)端点标记为“可更新”的标准字段。
 
 必需的参数包括：
 
@@ -526,7 +518,7 @@ Content-Type: application/json
 
 #### 按名称
 
-[按名称获取项目群成员字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET)终结点为项目群成员对象上的一个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。
+[按名称获取项目群成员字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getProgramMemberFieldByNameUsingGET)终结点为项目群成员对象上的一个字段检索元数据。 所需的`fieldApiName`路径参数指定字段的API名称。
 
 响应类似于“描述项目群成员”响应，但包含其他元数据。 例如，`isCustom`属性指示字段是否为自定义字段。
 
@@ -557,7 +549,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 #### 浏览
 
-[获取程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldsUsingGET)终结点检索程序成员对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
+[获取程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/getProgramMemberFieldsUsingGET)终结点检索程序成员对象中所有字段的元数据。 默认情况下，它最多返回300条记录。 使用`batchSize`查询参数减少此数量。
 
 如果`moreResult`属性为true，则有更多结果可用。 继续使用返回的`nextPageToken`调用终结点，直到moreResult为false。
 
@@ -635,9 +627,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### 创建字段
 
-[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST)端点在程序成员对象上创建自定义字段。 它提供的功能与[Marketo Engage UI](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)相当。 您最多可以使用此端点创建20个自定义字段。
+[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/createProgramMemberFieldUsingPOST)端点在程序成员对象上创建自定义字段。 它提供的功能与[Marketo Engage UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)相当。 您最多可以使用此端点创建20个自定义字段。
 
-在生产Marketo Engage实例中创建每个字段之前，请仔细考虑每个字段。 创建字段后不能将其删除；[只能隐藏它](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)。 未使用的字段会为实例添加待筛选项。
+在生产Marketo Engage实例中创建每个字段之前，请仔细考虑每个字段。 创建字段后不能将其删除；[只能隐藏它](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)。 未使用的字段会为实例添加待筛选项。
 
 所需的`input`参数是程序成员字段对象的数组。 每个对象都包含一个或多个属性。
 
@@ -683,7 +675,7 @@ POST /rest/v1/programs/members/schema/fields.json
 
 ### 更新字段
 
-[更新程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST)终结点更新了程序成员对象上的一个自定义字段。 Marketo Engage UI中提供的大多数字段更新也可通过API获得。 下表总结了二者的差异。
+[更新程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/updateProgramMemberFieldUsingPOST)终结点更新了程序成员对象上的一个自定义字段。 Marketo Engage UI中提供的大多数字段更新也可通过API获得。 下表总结了二者的差异。
 
 | 属性 | 可由API更新？ | 可通过UI更新？ | 可由API更新？ | 可通过UI更新？ |
 | --- | --- | --- | --- | --- |
@@ -733,7 +725,7 @@ POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
 
 ## 删除
 
-使用[删除程序成员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/deleteProgramMemberUsingPOST)终结点删除程序成员记录。 所需的`programId`路径参数指定包含要删除成员的程序。
+使用[删除程序成员](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteProgramMemberUsingPOST)终结点删除程序成员记录。 所需的`programId`路径参数指定包含要删除成员的程序。
 
 请求正文包含`input`个潜在客户ID数组。 每个调用最多允许300个潜在客户ID。
 

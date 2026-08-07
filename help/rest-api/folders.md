@@ -4,18 +4,12 @@ feature: REST API
 description: Marketo REST API指南，适用于包含创建、更新、删除、按ID和名称查询、使用根批量浏览、工作区、maxDepth和分页的文件夹。
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
 TQID: https://experienceleague.adobe.com/OxCNdy8qW6jwq8u57RF9mqVKPVvH99UmuiOBjFprHCM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 806
+source-wordcount: 792
 ht-degree: 1%
 
 ---
@@ -30,7 +24,7 @@ ht-degree: 1%
 
 ## 查询
 
-文件夹支持标准资源查询模式：[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET)。
+文件夹支持标准资源查询模式：[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET)。
 
 ### 按Id
 
@@ -86,7 +80,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 ### 按名称
 
-按名称[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET)进行的查询端点需要`name`，它将对文件夹名称执行完全匹配并返回每个匹配的文件夹。
+按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET)进行的[查询端点需要`name`，它将对文件夹名称执行完全匹配并返回每个匹配的文件夹。
 
 端点还接受以下可选参数：
 
@@ -135,12 +129,12 @@ GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 
 ### 浏览
 
-您也可以[批量检索文件夹](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET)。 使用`root`参数指定要查询的父文件夹。 将`root`作为具有两个成员的嵌入JSON对象传递：
+您也可以[批量检索文件夹](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET)。 使用`root`参数指定要查询的父文件夹。 将`root`作为具有两个成员的嵌入JSON对象传递：
 
 1. `id`：文件夹或项目群的ID。
 1. `type`： `Folder`或`Program`，具体取决于根文件夹类型。
 
-如果您不知道根文件夹或者希望检索某个区域中的所有文件夹，请使用Marketing Activities、Design Studio或Lead Database根目录。 通过将区域名称传递到[按名称获取文件夹](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) API来检索根ID。
+如果您不知道根文件夹或者希望检索某个区域中的所有文件夹，请使用Marketing Activities、Design Studio或Lead Database根目录。 通过将区域名称传递到[按名称获取文件夹](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) API来检索根ID。
 
 与其他批量资源检索端点一样，请使用可选的`offset`和`maxReturn`参数进行分页。 其他可选参数包括：
 
@@ -237,7 +231,7 @@ GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 
 ## 创建和更新
 
-要[创建文件夹](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST)，请使用以下参数发送`application/x-www-form-urlencoded` POST请求：
+要[创建文件夹](https://developer.adobe.com/marketo-apis/api/asset#operation/createFolderUsingPOST)，请使用以下参数发送`application/x-www-form-urlencoded` POST请求：
 
 - `name`：包含文件夹名称的必需字符串。
 - `parent`：包含`id`和`type`的必需嵌入JSON对象。 类型是`Folder`或`Program`，具体取决于父级。

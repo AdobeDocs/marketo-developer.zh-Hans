@@ -4,19 +4,13 @@ feature: REST API
 description: Marketo批量活动提取REST API以使用31天日期范围、活动和主要属性过滤器来导出ETL和CRM的大量活动数据。
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
 TQID: https://experienceleague.adobe.com/lIlXNjatN-F77Dv3xsVkQ3hAWwLZ4wlSW0zKNkFJFMA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1268
+source-wordcount: 1212
 ht-degree: 4%
 
 ---
@@ -36,20 +30,20 @@ API用户必须具有“只读活动”或“读写活动”权限。
 | 筛选器类型 | 数据类型 | 必需 | 注释 |
 | --- | --- | --- | --- |
 | `createdAt` | Date Range | 是 | 包含`startAt`和`endAt`的JSON对象。 `startAt`是低水位线日期时间，`endAt`是高水位线日期时间。 范围必须为31天或更少。 作业将返回在日期范围内创建的所有可访问记录。 使用不带毫秒的ISO-8601日期时间值。 |
-| `activityTypeIds` | 数组\[整数\] | 否 | 所请求活动类型的整数数组。 不支持“删除潜在客户”活动。 请改用[Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET)终结点。 使用[获取活动类型终结点](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)检索活动类型ID。 |
-| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | 数组\[整数\] | 否 | 一个数组，主属性最多接受50个ID。 每个id唯一标识一个商机字段或资产。 通过调用相应的REST API端点检索ID。 例如，要筛选“填写表单”活动的特定表单，请将表单名称传递到[按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET)端点以检索表单ID。 有关支持的活动类型，请参阅[primaryAttributeValueIds选项](#primaryattributevalueids-options)。 |
-| [`primaryAttributeValues`](#primaryattributevalues-options) | 数组\[字符串\] | 否 | 一个数组，它最多接受主属性的50个名称。 每个名称唯一标识潜在客户字段或资产。 通过调用相应的REST API端点检索名称。 例如，要筛选“填写表单”活动的特定表单，请将表单ID传递给[按ID获取表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET)端点以检索表单名称。 有关支持的活动类型，请参阅[primaryAttributeValues选项](#primaryattributevalues-options)。 |
+| `activityTypeIds` | 数组\[整数\] | 否 | 所请求活动类型的整数数组。 不支持“删除潜在客户”活动。 请改用[Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#operation/getDeletedLeadsUsingGET)终结点。 使用[获取活动类型终结点](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)检索活动类型ID。 |
+| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | 数组\[整数\] | 否 | 一个数组，主属性最多接受50个ID。 每个id唯一标识一个商机字段或资产。 通过调用相应的REST API端点检索ID。 例如，要筛选“填写表单”活动的特定表单，请将表单名称传递到[按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET)端点以检索表单ID。 有关支持的活动类型，请参阅[primaryAttributeValueIds选项](#primaryattributevalueids-options)。 |
+| [`primaryAttributeValues`](#primaryattributevalues-options) | 数组\[字符串\] | 否 | 一个数组，它最多接受主属性的50个名称。 每个名称唯一标识潜在客户字段或资产。 通过调用相应的REST API端点检索名称。 例如，要筛选“填写表单”活动的特定表单，请将表单ID传递给[按ID获取表单](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET)端点以检索表单名称。 有关支持的活动类型，请参阅[primaryAttributeValues选项](#primaryattributevalues-options)。 |
 
 ### primaryAttributeValueIds选项 {#primaryattributevalueids-options}
 
 | 活动类型 | 主要属性值ID | 检索端点 | 资产组 |
 | --- | --- | --- | --- |
-| 更改数据值 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
-| 更改评分 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
-| 进程中的更改状态 | 项目ID | [按名称获取计划](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET) | 营销计划 |
-| 添加到列表 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
-| 从列表中移除 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | 静态列表 |
-| 填写表单 | 表单ID | [按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) | Web窗体 |
+| 更改数据值 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | 属性名称 |
+| 更改评分 | 商机字段ID | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | 属性名称 |
+| 进程中的更改状态 | 项目ID | [按名称获取计划](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByNameUsingGET) | 营销计划 |
+| 添加到列表 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByNameUsingGET) | 静态列表 |
+| 从列表中移除 | 静态列表ID | [按名称获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByNameUsingGET) | 静态列表 |
+| 填写表单 | 表单ID | [按名称获取表单](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET) | Web窗体 |
 
 使用`primaryAttributeValueIds`时，还必须包含`activityTypeIds`筛选器。 此过滤器只能包含与相应资产组匹配的活动ID。 例如，在筛选Web窗体资源时，`activityTypeIds`只能包含“填写窗体”活动类型ID。
 
@@ -78,12 +72,12 @@ API用户必须具有“只读活动”或“读写活动”权限。
 
 | 活动类型 | 主要属性值 | 检索端点 | 资产组 |
 | --- | --- | --- | --- |
-| 更改数据值 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
-| 更改评分 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | 属性名称 |
-| 进程中的更改状态 | 项目名称 | [按Id获取计划](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) | 营销计划 |
-| 添加到列表 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
-| 从列表中移除 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | 静态列表 |
-| 填写表单 | 表单名称 | [按Id获取表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) | Web窗体 |
+| 更改数据值 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | 属性名称 |
+| 更改评分 | 潜在客户字段displayName | [描述潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | 属性名称 |
+| 进程中的更改状态 | 项目名称 | [按Id获取计划](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByIdUsingGET) | 营销计划 |
+| 添加到列表 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByIdUsingGET) | 静态列表 |
+| 从列表中移除 | 静态列表名称 | [按Id获取静态列表](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByIdUsingGET) | 静态列表 |
+| 填写表单 | 表单名称 | [按Id获取表单](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET) | Web窗体 |
 
 使用`&lt;program&gt;.&lt;asset&gt;`表示法指定营销计划、静态列表和Web窗体资产组的名称。 例如，将“GL_OP_ALL_2021”程序中的“MPS出站”表单指定为“GL_OP_ALL_2021.MPS出站”。
 
@@ -121,7 +115,7 @@ API用户必须具有“只读活动”或“读写活动”权限。
 
 ## 创建作业
 
-创建导出作业以定义要检索的记录。 使用[创建导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST)终结点。
+创建导出作业以定义要检索的记录。 使用[创建导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportActivitiesUsingPOST)终结点。
 
 每个作业都需要一个`createdAt`筛选器。 其`startAt`和`endAt`日期时间参数定义允许的最早和最晚的活动创建日期。 要排除不相关的活动类型，请同时包括可选的`activityTypeIds`过滤器。
 
@@ -166,7 +160,7 @@ POST /bulk/v1/activities/export/create.json
 
 响应返回`exportId`和状态“已创建”。 创建的作业尚未在处理队列中。
 
-要将作业添加到队列，请从创建响应调用[队列导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST)终结点（包含`exportId`）。
+要将作业添加到队列，请从创建响应调用[队列导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportActivitiesUsingPOST)终结点（包含`exportId`）。
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -194,7 +188,7 @@ POST /bulk/v1/activities/export/{exportId}/enqueue.json
 
 只能检索同一API用户创建的作业的作业状态。
 
-“批量活动提取”以异步方式处理作业。 轮询[获取导出活动作业状态](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET)终结点以确定作业何时完成：
+“批量活动提取”以异步方式处理作业。 轮询[获取导出活动作业状态](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportActivitiesStatusUsingGET)终结点以确定作业何时完成：
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -232,7 +226,7 @@ GET /bulk/v1/activities/export/{exportId}/status.json
 
 ## 检索数据
 
-当作业状态为“已完成”时，使用[获取导出活动文件](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET)端点检索导出的数据：
+当作业状态为“已完成”时，使用[获取导出活动文件](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportActivitiesFileUsingGET)端点检索导出的数据：
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -254,7 +248,7 @@ marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueI
 
 ## 取消作业
 
-要停止配置不正确或不必要的作业，请调用[取消导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST)终结点：
+要停止配置不正确或不必要的作业，请调用[取消导出活动作业](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportActivitiesUsingPOST)终结点：
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json

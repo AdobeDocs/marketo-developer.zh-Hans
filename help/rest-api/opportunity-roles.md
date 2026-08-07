@@ -4,22 +4,19 @@ feature: REST API
 description: 通过REST API管理Marketo机会角色，包括描述、使用复合重复数据删除字段查询、创建更新删除、超时以及无CRM同步。
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
 TQID: https://experienceleague.adobe.com/aE27mBhsrn-0SO41M-pV5NFjoMq--1Lp-L2TQGL7-8Y
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 254
+source-wordcount: 252
 ht-degree: 0%
 
 ---
 
 # 机会角色
 
-[机会角色端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[机会角色端点引用](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityRolesUsingGET)
 
 中间`opportunityRole`对象链接指向商机。
 

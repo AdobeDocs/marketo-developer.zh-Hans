@@ -4,19 +4,13 @@ feature: REST API
 description: 了解如何使用Marketo Asset REST API按ID、名称或文件夹浏览来查询和管理电子邮件资源，并包含有关预测内容和A/B测试限制的注释。
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
 TQID: https://experienceleague.adobe.com/t2FyPbwS836MvOe5rL0rVS7ibtzzZMmXwmgHBDZEr8Q
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1813
+source-wordcount: 1763
 ht-degree: 1%
 
 ---
@@ -27,21 +21,21 @@ ht-degree: 1%
 
 使用电子邮件REST端点查询和管理电子邮件资产。
 
-如果电子邮件包含[Marketo预测内容](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content)，则以下端点将失败，并出现错误代码709和相应的错误消息：
+如果电子邮件包含[Marketo预测内容](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content)，则以下端点将失败，并出现错误代码709和相应的错误消息：
 
-- [获取电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET)
-- [更新电子邮件内容部分](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST)
-- [批准电子邮件草稿](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/approveDraftUsingPOST)
+- [获取电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET)
+- [更新电子邮件内容部分](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailComponentContentUsingPOST)
+- [批准电子邮件草稿](https://developer.adobe.com/marketo-apis/api/asset#operation/approveDraftUsingPOST)
 
 ## 查询
 
-电子邮件支持与模板相同的查询模式：[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET)。 by-name和浏览端点还支持文件夹过滤。
+电子邮件支持与模板相同的查询模式：[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailUsingGET)。 by-name和浏览端点还支持文件夹过滤。
 
-如果电子邮件属于使用[A/B测试](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test)的电子邮件程序，则以下端点不会返回该电子邮件：
+如果电子邮件属于使用[A/B测试](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test)的电子邮件程序，则以下端点不会返回该电子邮件：
 
-- [按ID获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET)
-- [按名称获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET)
-- [获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET)
+- [按ID获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByIdUsingGET)
+- [按名称获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByNameUsingGET)
+- [获取电子邮件](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailUsingGET)
 
 该调用指示成功，但包含警告`No assets found for the given search criteria.`
 
@@ -247,7 +241,7 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 ## 查询内容
 
-要[检索电子邮件的可编辑部分](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET)，请查询其内容。 （可选）按状态筛选，以从“已批准”或“草稿”版本返回部分。
+要[检索电子邮件的可编辑部分](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET)，请查询其内容。 （可选）按状态筛选，以从“已批准”或“草稿”版本返回部分。
 
 ```http
 GET /rest/asset/v1/email/1356/content.json
@@ -282,7 +276,7 @@ GET /rest/asset/v1/email/1356/content.json
 
 ## 查询抄送字段
 
-调用[获取电子邮件抄送字段](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailCCFieldsUsingGET)端点以检索目标实例中为电子邮件抄送启用的字段。
+调用[获取电子邮件抄送字段](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailCCFieldsUsingGET)端点以检索目标实例中为电子邮件抄送启用的字段。
 
 ```http
 GET /rest/asset/v1/email/ccFields.json
@@ -313,7 +307,7 @@ GET /rest/asset/v1/email/ccFields.json
 
 ## 创建和更新
 
-[从源模板创建电子邮件](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/createEmailUsingPOST)。 电子邮件的可编辑部分来自模板的HTML元素，这些元素具有`mktEditable`类以及唯一的`id`属性。
+[从源模板创建电子邮件](https://developer.adobe.com/marketo-apis/api/asset#operation/createEmailUsingPOST)。 电子邮件的可编辑部分来自模板的HTML元素，这些元素具有`mktEditable`类以及唯一的`id`属性。
 
 创建电子邮件调用需要以下参数：
 
@@ -393,7 +387,7 @@ name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&d
 }
 ```
 
-要[更新电子邮件](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailContentUsingPOST)，请传递其ID并更新电子邮件的描述或名称。
+要[更新电子邮件](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailContentUsingPOST)，请传递其ID并更新电子邮件的描述或名称。
 
 ```http
 POST /rest/asset/v1/email/{id}.json
@@ -461,7 +455,7 @@ description=This is an Email&name=Updated Email
 
 ### 内容区域、类型和更新
 
-分别更新每个电子邮件内容部分。 使用[更新电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailContentUsingPOST)端点更新`subject`、`fromName`、`fromEmail`和`replyEmail`。 此端点还允许您设置这些值，以使用动态内容而不是静态内容。
+分别更新每个电子邮件内容部分。 使用[更新电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailContentUsingPOST)端点更新`subject`、`fromName`、`fromEmail`和`replyEmail`。 此端点还允许您设置这些值，以使用动态内容而不是静态内容。
 
 每个参数都是一个类型/值JSON对象。 类型为`Text`或`DynamicContent`。 该值是用于动态内容的分段的相应文本或ID。 将数据作为POST与`application/x-www-form-urlencoded`一起发送，而不是作为JSON发送。 您还可以设置`isOpenTrackingDisabled`以更新电子邮件内容。
 
@@ -535,17 +529,17 @@ type=Text&value=<h1>Hello World!</h1>&textValue=Hello World!
 
 ## 模块
 
-在电子邮件编辑器1.0中，模块是模板中定义的电子邮件部分。 模块可以包含元素、变量和其他HTML内容，如[电子邮件模板语法](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules)中所述。
+在电子邮件编辑器1.0中，模块是模板中定义的电子邮件部分。 模块可以包含元素、变量和其他HTML内容，如[电子邮件模板语法](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules)中所述。
 
 使用模块API管理电子邮件中的模块。 对于使用HTTP POST的模块端点，将请求正文格式设置为`application/x-www-form-urlencoded`，而不是JSON。
 
-大多数模块端点都需要`moduleId`作为路径参数。 [获取电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET)终结点返回`htmlId`属性中的模块ID。 请参阅[查询](#modules_query)。
+大多数模块端点都需要`moduleId`作为路径参数。 [获取电子邮件内容](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET)终结点返回`htmlId`属性中的模块ID。 请参阅[查询](#modules_query)。
 
 ### 查询
 
 要使用模块，请指定唯一标识该模块的`moduleId`。 您可能还需要整数模块索引，该索引描述模块在电子邮件中的顺序。
 
-要[检索模块ID及其索引](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET)，请将电子邮件ID指定为路径参数。
+要[检索模块ID及其索引](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET)，请将电子邮件ID指定为路径参数。
 
 以下示例在模板选取器UI的Starter Templates部分中基于`Skeleton`模板查询1.0电子邮件。
 
@@ -775,7 +769,7 @@ GET /rest/asset/v1/email/{moduleId}/content.json
 
 #### Add
 
-要[添加模块](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/addModuleUsingPOST)，请从电子邮件的模板中选择现有模块。 将电子邮件ID和`moduleId`指定为路径参数。 所需的`index`查询参数确定模块的位置。 如果`index`超过了最大现有索引，则API会将模块附加到电子邮件。
+要[添加模块](https://developer.adobe.com/marketo-apis/api/asset#operation/addModuleUsingPOST)，请从电子邮件的模板中选择现有模块。 将电子邮件ID和`moduleId`指定为路径参数。 所需的`index`查询参数确定模块的位置。 如果`index`超过了最大现有索引，则API会将模块附加到电子邮件。
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/add.json
@@ -805,7 +799,7 @@ index=10
 
 #### 删除
 
-要[删除模块](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/deleteModuleUsingPOST)，请指定电子邮件ID和`moduleId`作为路径参数。
+要[删除模块](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteModuleUsingPOST)，请指定电子邮件ID和`moduleId`作为路径参数。
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
@@ -827,7 +821,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 
 #### 复制
 
-要[复制模块](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/duplicateModuleUsingPOST)，请指定电子邮件ID和`moduleId`作为路径参数。 API将重复项放置在原始模块下方，并将剩余模块向下移动。
+要[复制模块](https://developer.adobe.com/marketo-apis/api/asset#operation/duplicateModuleUsingPOST)，请指定电子邮件ID和`moduleId`作为路径参数。 API将重复项放置在原始模块下方，并将剩余模块向下移动。
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
@@ -849,7 +843,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### 重新排列
 
-要[重新排列模块](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/rearrangeModulesUsingPOST)，请提交包含每个模块及其所需位置的数组。 每个数组元素都是格式为`{ "index": <_index_>, "moduleId": "<_moduleId_>" }`的JSON对象，其中`<_index_>`是从零开始的模块位置，`<_moduleId_>`是模块ID。
+要[重新排列模块](https://developer.adobe.com/marketo-apis/api/asset#operation/rearrangeModulesUsingPOST)，请提交包含每个模块及其所需位置的数组。 每个数组元素都是格式为`{ "index": <_index_>, "moduleId": "<_moduleId_>" }`的JSON对象，其中`<_index_>`是从零开始的模块位置，`<_moduleId_>`是模块ID。
 
 ```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json
@@ -879,7 +873,7 @@ positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "ti
 
 #### 重命名
 
-要[重命名模块](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/renameUsingPOST)，请在`name`参数中传递新名称。 将电子邮件ID和现有`moduleId`指定为路径参数。
+要[重命名模块](https://developer.adobe.com/marketo-apis/api/asset#operation/renameUsingPOST)，请在`name`参数中传递新名称。 将电子邮件ID和现有`moduleId`指定为路径参数。
 
 ```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/rename.json
@@ -909,11 +903,11 @@ name=MarketoVideo
 
 ## 变量
 
-在Email Editor 1.0中，变量存储电子邮件元素的值。 通过向HTML添加特定于Marketo的语法来定义每个变量，如[Email template syntax](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables)中所述。 使用变量API管理电子邮件中的变量。
+在Email Editor 1.0中，变量存储电子邮件元素的值。 通过向HTML添加特定于Marketo的语法来定义每个变量，如[Email template syntax](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables)中所述。 使用变量API管理电子邮件中的变量。
 
 ### 查询
 
-要[检索变量](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailVariablesUsingGET)，请将电子邮件ID指定为路径参数。
+要[检索变量](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailVariablesUsingGET)，请将电子邮件ID指定为路径参数。
 
 以下示例在模板选取器UI的Starter Templates部分中基于`Skeleton`模板查询1.0电子邮件。
 
@@ -1133,7 +1127,7 @@ GET /rest/asset/v1/email/{id}/variables.json
 
 #### 更新
 
-要[更新变量](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateVariableUsingPOST)，请在`value`参数中传递新值。 将电子邮件ID和变量名称指定为路径参数。 在更新模块变量时，也传递`moduleId`以标识关联的模块。
+要[更新变量](https://developer.adobe.com/marketo-apis/api/asset#operation/updateVariableUsingPOST)，请在`value`参数中传递新值。 将电子邮件ID和变量名称指定为路径参数。 在更新模块变量时，也传递`moduleId`以标识关联的模块。
 
 以下示例更新全局变量`hrBorderSize`。
 
@@ -1391,7 +1385,7 @@ emailAddress=abe@testmail.com&textOnly=true
 
 ## 预览电子邮件
 
-使用[获取电子邮件完整内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailFullContentUsingGET)端点检索电子邮件的实时预览，因为收件人会收到该电子邮件。 此端点仅支持1.0版本的电子邮件。
+使用[获取电子邮件完整内容](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailFullContentUsingGET)端点检索电子邮件的实时预览，因为收件人会收到该电子邮件。 此端点仅支持1.0版本的电子邮件。
 
 所需的`id`路径参数标识要预览的电子邮件。 端点还接受三个可选的查询参数：
 
@@ -1421,7 +1415,7 @@ GET /rest/asset/v1/email/{id}/fullContent.json
 
 ## 替换HTML
 
-使用[更新电子邮件完整内容](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/createEmailFullContentUsingPOST)端点替换电子邮件资源中的所有内容。 此端点仅支持已在UI中使用编辑代码功能且不再链接到其父模板的1.0版本电子邮件。
+使用[更新电子邮件完整内容](https://developer.adobe.com/marketo-apis/api/asset#operation/createEmailFullContentUsingPOST)端点替换电子邮件资源中的所有内容。 此端点仅支持已在UI中使用编辑代码功能且不再链接到其父模板的1.0版本电子邮件。
 
 端点主要适用于作为项目的一部分克隆的资产，这些资产不能通过标准内容端点进行更改。 它不支持包含动态内容的电子邮件。 如果电子邮件仍然链接到其模板，则端点返回错误。
 

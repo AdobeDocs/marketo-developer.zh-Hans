@@ -4,15 +4,12 @@ feature: REST API, Dynamic Content
 description: 使用分段通过REST API配置部分级别的Marketo动态内容，以个性化包含端点和示例的电子邮件、登陆页和代码片段
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
 TQID: https://experienceleague.adobe.com/MwfPxu74qk0bPZMr6yuxQi--e3gMvP1tXQZ5iMil02o
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 329
+source-wordcount: 325
 ht-degree: 3%
 
 ---
@@ -35,7 +32,7 @@ ht-degree: 3%
 
 此示例使用区域(US)分段来显示针对西南区段中的潜在客户的事件促销。 该区段包括来自加利福尼亚州、内华达州、犹他州、科罗拉多州、亚利桑那州和新墨西哥州的潜在客户。
 
-使用[更新电子邮件内容节](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST)端点将ID为`Q1-promotion-banner`的可编辑节更改为`DynamicContent`节。 `value`参数指定分段ID。
+使用[更新电子邮件内容节](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailComponentContentUsingPOST)端点将ID为`Q1-promotion-banner`的可编辑节更改为`DynamicContent`节。 `value`参数指定分段ID。
 
 电子邮件和登陆页面遵循此模式。 代码片段使用代码片段API文档中描述的不同模式。
 
@@ -63,7 +60,7 @@ type=DynamicContent&value=1001
 }
 ```
 
-调用[更新电子邮件动态内容节](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST)端点为特定节中的区段添加内容。
+调用[更新电子邮件动态内容节](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailDynamicContentUsingPOST)端点为特定节中的区段添加内容。
 
 以下请求显示一个特殊横幅，而不是西南区段中商机的默认内容。 要创建更多变体，请调用每个区段和部分的端点。
 

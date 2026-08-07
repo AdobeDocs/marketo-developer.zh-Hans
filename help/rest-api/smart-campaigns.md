@@ -4,19 +4,13 @@ feature: REST API, Smart Campaigns
 description: 了解如何将Marketo REST API用于Smart Campaigns，包括按ID或名称查询、浏览筛选器、创建克隆删除以及计划或请求触发器
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
 TQID: https://experienceleague.adobe.com/iysRjtqd9plkreyIMuNjAF3YVFHtDUIrc-GInB4V8mg
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-subfeature_v2:
-  - id: ad89fb33-8541-4339-afe7-bb13d1633714
-  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2: id: ad89fb33-8541-4339-afe7-bb13d1633714id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1009
+source-wordcount: 978
 ht-degree: 1%
 
 ---
@@ -31,11 +25,11 @@ ht-degree: 1%
 
 ## 查询
 
-按ID[&#128279;](#by_id)、[名称](#by_name)或[浏览](#browse)查询智能营销活动。
+按ID](#by_id)、[名称](#by_name)或[浏览](#browse)查询智能营销活动[。
 
 ### 按Id
 
-[按ID获取Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET)端点将单个Smart Campaign `id`作为路径参数并返回单个Smart Campaign记录。
+[按ID获取Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartCampaignByIdUsingGET)端点将单个Smart Campaign `id`作为路径参数并返回单个Smart Campaign记录。
 
 ```http
 GET /rest/asset/v1/smartCampaign/{id}.json
@@ -77,7 +71,7 @@ GET /rest/asset/v1/smartCampaign/{id}.json
 
 ### 按名称
 
-[按名称获取Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET)端点将单个智能营销活动`name`作为参数并返回单个智能营销活动记录。
+[按名称获取Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartCampaignByNameUsingGET)端点将单个智能营销活动`name`作为参数并返回单个智能营销活动记录。
 
 ```http
 GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
@@ -123,7 +117,7 @@ GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
 
 ### 浏览
 
-[获取智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET)端点支持用于筛选和分页的可选查询参数。
+[获取智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllSmartCampaignsGET)端点支持用于筛选和分页的可选查询参数。
 
 `earliestUpdatedAt`和`latestUpdatedAt`参数接受ISO-8601格式的`datetimes`（不含毫秒）。 如果同时设置了两者，则learestUpdatedAt必须在latestUpdatedAt之前。
 
@@ -196,7 +190,7 @@ GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:
 
 ## 创建
 
-向[创建Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)终结点发送`application/x-www-form-urlencoded`个POST请求。 `name`和`folder`参数是必需的。 将`folder`作为包含`id`和`type`的JSON对象传递。
+向[创建Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#operation/createSmartCampaignUsingPOST)终结点发送`application/x-www-form-urlencoded`个POST请求。 `name`和`folder`参数是必需的。 将`folder`作为包含`id`和`type`的JSON对象传递。
 
 或者，您可以使用`description`参数（最多2,000个字符）描述智能营销活动。
 
@@ -302,7 +296,7 @@ name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 
 ## 克隆
 
-向[克隆智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)端点发送`application/x-www-form-urlencoded`个POST请求。 `id`、`name`和`folder`参数是必需的。 它们指定源营销活动、新营销活动名称和父文件夹。 将`folder`作为包含`id`和`type`的JSON对象传递。
+向[克隆智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneSmartCampaignUsingPOST)端点发送`application/x-www-form-urlencoded`个POST请求。 `id`、`name`和`folder`参数是必需的。 它们指定源营销活动、新营销活动名称和父文件夹。 将`folder`作为包含`id`和`type`的JSON对象传递。
 
 或者，您可以使用`description`参数（最多2,000个字符）描述智能营销活动。
 
@@ -356,7 +350,7 @@ name=Test Trigger Campaign Clone&folder={"type": "folder","id": 640}&description
 
 ## 删除
 
-[删除Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST)终结点将单个Smart Campaign `id`作为路径参数。
+[删除Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteSmartCampaignUsingPOST)终结点将单个Smart Campaign `id`作为路径参数。
 
 ```http
 POST /rest/asset/v1/smartCampaign/{id}/delete.json
@@ -382,7 +376,7 @@ POST /rest/asset/v1/smartCampaign/{id}/delete.json
 
 ## 计划
 
-使用[计划营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST)来计划批次营销活动。 活动`id`路径参数是必需的。 在JSON请求正文中传递可选的`tokens`、`runAt`和`cloneToProgram`参数。
+使用[计划营销活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/scheduleCampaignUsingPOST)来计划批次营销活动。 活动`id`路径参数是必需的。 在JSON请求正文中传递可选的`tokens`、`runAt`和`cloneToProgram`参数。
 
 `tokens`数组将覆盖此运行的现有程序“我的令牌”。 在营销策划运行后，Marketo会放弃覆盖。 每个项目都包含一个名称/值对，并且令牌名称必须使用`{{my.name}}`格式。
 
@@ -390,7 +384,7 @@ POST /rest/asset/v1/smartCampaign/{id}/delete.json
 
 通过此API计划的营销活动始终在运行时至少等待五分钟。
 
-`cloneToProgram`字符串参数包含生成程序的名称。  设置后，这将导致使用生成的新名称创建营销活动、父项目及其所有资产。 克隆了父项目，并将计划新创建的营销策划。 生成的项目将在父项目下创建。 包含代码片段、推送通知、应用程序内消息、静态列表、报表和社交资产的程序可能无法以这种方式克隆。 在使用时，此端点限制每天最多20次调用。 [克隆程序](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)端点是推荐的替代项。
+`cloneToProgram`字符串参数包含生成程序的名称。  设置后，这将导致使用生成的新名称创建营销活动、父项目及其所有资产。 克隆了父项目，并将计划新创建的营销策划。 生成的项目将在父项目下创建。 包含代码片段、推送通知、应用程序内消息、静态列表、报表和社交资产的程序可能无法以这种方式克隆。 在使用时，此端点限制每天最多20次调用。 [克隆程序](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneProgramUsingPOST)端点是推荐的替代项。
 
 ```http
 POST /rest/v1/campaigns/{id}/schedule.json
@@ -433,11 +427,11 @@ POST /rest/v1/campaigns/{id}/schedule.json
 
 ### 请求
 
-使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST)通过触发器营销活动流程传递潜在客户。 营销活动必须使用将Web服务API用作其源的Campaign is Requested触发器。
+使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST)通过触发器营销活动流程传递潜在客户。 营销活动必须使用将Web服务API用作其源的Campaign is Requested触发器。
 
 市场活动`id`路径参数和`leads`商机ID的整数数组是必需的。 每个调用最多接受100个潜在客户。
 
-（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“`{{my.name}}`”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
+（可选）可以使用`tokens`数组参数覆盖营销活动父项目本地的“我的令牌”。 `tokens`最多接受100个令牌。 每个`tokens`数组项都包含一个名称/值对。 令牌的名称必须格式化为“`{{my.name}}`”。 如果您使用[添加系统令牌作为电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email)方法中的链接来添加“viewAsWebPageLink”系统令牌，则无法使用`tokens`覆盖它。 请改为使用[将视图作为网页链接添加到电子邮件](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email)方法，此方法允许您使用`tokens`覆盖“viewAsWebPageLink”。
 
 在JSON请求正文中传递`leads`和`tokens`参数。
 
@@ -485,7 +479,7 @@ POST /rest/v1/campaigns/{id}/trigger.json
 
 ### 激活
 
-[激活Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST)终结点很简单。 `id`路径参数是必需的。 要使激活成功，营销活动必须满足以下条件：
+[激活Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset#operation/activateSmartCampaignUsingPOST)终结点很简单。 `id`路径参数是必需的。 要使激活成功，营销活动必须满足以下条件：
 
 - 营销活动已停用。
 - 营销活动至少具有一个触发器和一个流程步骤。
@@ -510,7 +504,7 @@ POST /rest/asset/v1/smartCampaign/{id}/activate.json
 
 ### 停用
 
-[停用智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST)很简单。 `id`路径参数是必需的。 要成功停用，必须激活营销活动。
+[停用智能营销活动](https://developer.adobe.com/marketo-apis/api/asset#operation/deactivateSmartCampaignUsingPOST)很简单。 `id`路径参数是必需的。 要成功停用，必须激活营销活动。
 
 ```http
 POST /rest/asset/v1/smartCampaign/{id}/deactivate.json

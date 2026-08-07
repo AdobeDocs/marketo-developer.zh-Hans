@@ -4,22 +4,14 @@ feature: REST API, Forms
 description: Marketo Forms REST API指南，用于创建和管理表单、按id或名称检索、使用状态过滤器浏览以及管理字段、字段集和规则。
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
 TQID: https://experienceleague.adobe.com/56tc1a14d8okxweS7TK7SzfGB8G03WAI2KBlFKQbSdM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-subfeature_v2:
-  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1494
+source-wordcount: 1447
 ht-degree: 2%
 
 ---
@@ -40,11 +32,11 @@ ht-degree: 2%
 
 ## 查询
 
-Forms支持标准资源检索方法：[按id](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET)。 表单响应包含除字段列表之外的每个表单属性。
+Forms支持标准资源检索方法：[按id](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET)、[按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET)和[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/browseForms2UsingGET)。 表单响应包含除字段列表之外的每个表单属性。
 
 ### 按ID
 
-将表单`id`作为路径参数传递给[按ID获取表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET)。 端点返回匹配的表单记录。
+将表单`id`作为路径参数传递给[按ID获取表单](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET)。 端点返回匹配的表单记录。
 
 ```http
 GET /rest/asset/v1/form/{id}.json
@@ -98,7 +90,7 @@ GET /rest/asset/v1/form/{id}.json
 
 ### 按名称
 
-将表单`name`传递给[按名称](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET)获取表单。 端点返回匹配的表单记录。
+将表单`name`传递给[按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET)获取表单。 端点返回匹配的表单记录。
 
 ```http
 GET /rest/asset/v1/form/byName.json?name=newForm
@@ -152,7 +144,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 ### 浏览
 
-[获取Forms](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET)遵循标准Asset API浏览模式。 它支持以下可选过滤器：
+[获取Forms](https://developer.adobe.com/marketo-apis/api/asset#operation/browseForms2UsingGET)遵循标准Asset API浏览模式。 它支持以下可选过滤器：
 
 - `status`：按`approved`、`approved with draft`或`draft`筛选条件。
 - `maxReturn`：限制返回的记录数。
@@ -332,7 +324,7 @@ GET /rest/asset/v1/form/{id}/fields.json
 
 ### 依赖关系
 
-将表单`id`作为路径参数传递给[获取](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getFormUsedByUsingGET)使用的表单。 端点会返回依赖于表单的资源。
+将表单`id`作为路径参数传递给[获取](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormUsedByUsingGET)使用的表单。 端点会返回依赖于表单的资源。
 
 以下资源类型可以使用表单：
 
@@ -366,7 +358,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## 创建和更新
 
-要[创建表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/createLpFormsUsingPOST)，请提供两个必填字段：
+要[创建表单](https://developer.adobe.com/marketo-apis/api/asset#operation/createLpFormsUsingPOST)，请提供两个必填字段：
 
 - 表单的父文件夹。
 - 表单名称。
@@ -431,7 +423,7 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 }
 ```
 
-要[更新表单](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormsUsingPOST)，请传递其ID。 在创建或更新过程中，您可以设置基本样式参数，用于控制向用户显示表单的方式。
+要[更新表单](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFormsUsingPOST)，请传递其ID。 在创建或更新过程中，您可以设置基本样式参数，用于控制向用户显示表单的方式。
 
 ```http
 POST /rest/asset/v1/form/736.json
@@ -496,7 +488,7 @@ name=updated name&description=This is a test for updateapi&language=English&prog
 
 在添加或编辑表单字段之前，请检索目标实例的有效字段。 字段操作使用针对每个字段返回的`id`属性。
 
-对于潜在客户字段，请使用[获取可用的表单字段](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllFieldsUsingGET)终结点。 响应包括每个字段的数据类型以及在将字段添加到表单时应用的默认元数据。
+对于潜在客户字段，请使用[获取可用的表单字段](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllFieldsUsingGET)终结点。 响应包括每个字段的数据类型以及在将字段添加到表单时应用的默认元数据。
 
 ```http
 GET /rest/asset/v1/form/fields.json
@@ -628,7 +620,7 @@ GET /rest/asset/v1/form/fields.json
 }
 ```
 
-对于程序成员自定义字段，请调用[获取可用的表单程序成员字段](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)端点。 响应包括程序成员自定义字段数据类型和默认元数据。
+对于程序成员自定义字段，请调用[获取可用的表单程序成员字段](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllProgramMemberFieldsUsingGET)端点。 响应包括程序成员自定义字段数据类型和默认元数据。
 
 要使用这些字段，表单必须位于程序下，而不是在Design Studio中。 包含具有这些字段的表单的登陆页面也必须位于项目下。 不能在Design Studio中或将其克隆到其中。
 
@@ -669,7 +661,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 每个表单都有一个可编辑的字段列表，在加载表单时向用户显示。 使用相应的端点一次添加、更新或删除一个字段。
 
-要[添加字段](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldToAFormUsingPOST)，请提供父表单ID和字段`fieldId`。 所有其他属性为空，或使用基于字段数据类型和元数据的默认值。
+要[添加字段](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldToAFormUsingPOST)，请提供父表单ID和字段`fieldId`。 所有其他属性为空，或使用基于字段数据类型和元数据的默认值。
 
 将数据作为POST与`application/x-www-form-urlencoded`一起发送，而不是作为JSON发送。
 
@@ -835,7 +827,7 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
 
 ### 重新排列字段
 
-使用[更改表单字段位置](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)端点将所有表单字段重新排列为一个单元。 终结点需要`positions`，即具有三个成员的JSON对象数组：
+使用[更改表单字段位置](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST)端点将所有表单字段重新排列为一个单元。 终结点需要`positions`，即具有三个成员的JSON对象数组：
 
 - `columnNumber`
 - `rowNumber`
@@ -875,7 +867,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### 富文本
 
-使用[单独的终结点](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addRichTextFieldUsingPOST)添加RTF字段。 在`multipart/form-data`请求中将内容作为HTML传递。 HTML不得包含脚本、元标记或链接标记。
+使用[单独的终结点](https://developer.adobe.com/marketo-apis/api/asset#operation/addRichTextFieldUsingPOST)添加RTF字段。 在`multipart/form-data`请求中将内容作为HTML传递。 HTML不得包含脚本、元标记或链接标记。
 
 ```http
 POST /rest/asset/v1/form/{id}/richText.json
@@ -918,7 +910,7 @@ Content-Type: text/html
 
 表单中的字段必须唯一。 同一字段不能同时出现在表单的父字段列表和子字段集中。
 
-添加具有[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST)终结点的字段集。 然后，该字段集将显示在表单[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET)响应的获取字段中。 若要向字段集添加字段，请使用[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST)以将其移动到其`fieldList`中。
+添加具有[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldSetUsingPOST)终结点的字段集。 然后，该字段集将显示在表单](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormFieldByFormVidUsingGET)响应的[获取字段中。 若要向字段集添加字段，请使用[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST)以将其移动到其`fieldList`中。
 
 对于这些端点，将数据作为`application/x-www-form-urlencoded`的POST发送，而不是作为JSON发送。
 
@@ -965,7 +957,7 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 }
 ```
 
-有关运算符的完整列表，请参阅[添加表单字段可见性规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST)。
+有关运算符的完整列表，请参阅[添加表单字段可见性规则](https://developer.adobe.com/marketo-apis/api/asset#operation/addFormFieldVisibilityRuleUsingPOST)。
 
 ## 跟进
 
@@ -977,7 +969,7 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 
 ## 提交按钮
 
-使用[更新提交按钮](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormSubmitButtonUsingPOST)端点修改提交按钮样式。 您可以更新`buttonPosition`、`buttonStyle`、`label`和`waitingLabel`。 提交待处理时显示`waitingLabel`。
+使用[更新提交按钮](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFormSubmitButtonUsingPOST)端点修改提交按钮样式。 您可以更新`buttonPosition`、`buttonStyle`、`label`和`waitingLabel`。 提交待处理时显示`waitingLabel`。
 
 这是破坏性更新。
 

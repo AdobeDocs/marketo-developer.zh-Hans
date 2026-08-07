@@ -4,15 +4,12 @@ feature: REST API, Landing Pages
 description: 使用Marketo Asset REST API创建、查询、更新和删除登陆页面重定向规则，这些规则包含过滤器、分页、主机名选项以及非Marketo目标。
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
 TQID: https://experienceleague.adobe.com/2gePbKA3xeoRdnL8mNnObN-GPTX00Ii4-zcM0lBjs-o
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 626
+source-wordcount: 596
 ht-degree: 3%
 
 ---
@@ -23,15 +20,15 @@ ht-degree: 3%
 
 使用登陆页面重定向规则REST API查询、创建、更新和删除登陆页面重定向URL。
 
-重定向规则将一个登陆页面URL发送到另一个页面URL。 源和目标可以是Marketo页面或非Marketo页面。 有关相关产品文档，请参阅[Marketo Engage文档](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。
+重定向规则将一个登陆页面URL发送到另一个页面URL。 源和目标可以是Marketo页面或非Marketo页面。 有关相关产品文档，请参阅[Marketo Engage文档](https://experienceleague.adobe.com/docs/marketo/using/home.html)。
 
 ## 查询
 
-按ID[&#128279;](#by_id)或[浏览](#browse)查询登陆页面重定向规则。
+按ID](#by_id)或[浏览](#browse)查询登陆页面重定向规则[。
 
 ### 按Id
 
-[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET)获取登陆页面重定向规则端点采用一个重定向规则`id`路径参数并返回匹配记录。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRuleByIdUsingGET)获取登陆页面重定向规则端点采用一个重定向规则`id`路径参数并返回匹配记录。
 
 ```http
 GET /rest/asset/v1/redirectRule/{id}.json
@@ -66,7 +63,7 @@ GET /rest/asset/v1/redirectRule/{id}.json
 
 ### 浏览
 
-[获取登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET)端点返回登陆页面重定向规则记录。
+[获取登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRulesUsingGET)端点返回登陆页面重定向规则记录。
 
 使用可选的查询参数筛选结果。
 
@@ -143,7 +140,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## 创建
 
-使用`application/x-www-form-urlencoded` POST请求调用[创建登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST)端点。 请求具有三个必需的参数。
+使用`application/x-www-form-urlencoded` POST请求调用[创建登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageRedirectRuleUsingPOST)端点。 请求具有三个必需的参数。
 
 `hostname`参数指定登陆页面主机名。 它必须属于品牌策略域或别名，且不能超过255个字符。
 
@@ -162,7 +159,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 | Marketo | landingPageId | {&quot;type&quot;：&quot;landingPageId&quot;，&quot;value&quot;：&quot;1774&quot;} |
 | 非Marketo | url | {&quot;type&quot;：&quot;url&quot;，&quot;value&quot;：&quot;www.contactLogs.com&quot;} |
 
-有关详细信息，请参阅[将Marketo登录页面重定向到其他页面](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
+有关详细信息，请参阅[将Marketo登录页面重定向到其他页面](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html)。
 
 ```http
 POST /rest/asset/v1/redirectRules.json
@@ -205,7 +202,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## 更新
 
-[更新登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST)终结点采用一个重定向规则`id`路径参数。 将更新作为`application/x-www-form-urlencoded` POST请求发送。
+[更新登陆页面重定向规则](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageRedirectRuleUsingPOST)终结点采用一个重定向规则`id`路径参数。 将更新作为`application/x-www-form-urlencoded` POST请求发送。
 
 传递一个或多个这些参数以选择要更新的属性： `hostname`、`redirectFrom`或`redirectTo`。
 
@@ -252,7 +249,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## 删除
 
-[按ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST)端点删除登陆页面重定向规则采用一个重定向规则`id`路径参数。
+[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageRedirectRuleUsingPOST)端点删除登陆页面重定向规则采用一个重定向规则`id`路径参数。
 
 ```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
@@ -274,7 +271,7 @@ POST /rest/asset/v1/redirectRule/{id}/delete.json
 
 ## 浏览登陆页面域
 
-[获取登陆页面域](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET)终结点返回登陆页面域记录。
+[获取登陆页面域](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageDomainsUsingGET)终结点返回登陆页面域记录。
 
 使用两个可选查询参数筛选结果。
 

@@ -4,20 +4,13 @@ feature: REST API
 description: Marketo API集成的最佳实践涵盖配额、速率和并发限制、批处理、批量导入和导出、缓存和延迟计划。
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
 TQID: https://experienceleague.adobe.com/Ld-rmFCwKSx-0W2-ceYICu0FQHK8BKAC1QgqtiOWDn4
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 882
+source-wordcount: 866
 ht-degree: 0%
 
 ---
@@ -34,7 +27,6 @@ ht-degree: 0%
 - **批次大小：**&#x200B;潜在客户数据库支持300条记录；资产查询支持200条记录。
 - **REST API有效负载大小：** 1 MB。
 - **批量导入文件大小：** 10 MB。
-- **SOAP最大批次大小：** 300条记录。
 - **批量提取作业：**&#x200B;两个正在执行，10个已排队，包括。
 
 ## 快速提示
@@ -66,15 +58,15 @@ ht-degree: 0%
 
 容量由实例中的所有API服务和用户共享。 尽可能减少多余的呼叫和将记录批量记录到最少呼叫中。
 
-最有效的调用导入方法是Marketo批量导入API，可用于[潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST)和[自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST)。 Marketo还为[潜在客户](bulk-lead-extract.md)和[活动](bulk-activity-extract.md)提供批量提取。
+最有效的调用导入方法是Marketo批量导入API，可用于[潜在客户/人员](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST)和[自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST)。 Marketo还为[潜在客户](bulk-lead-extract.md)和[活动](bulk-activity-extract.md)提供批量提取。
 
 ### 缓存
 
 以下操作的结果通常可以在客户端缓存一天或更长时间，因为它们很少更改：
 
 - Describe操作的结果
-- [活动类型](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [分区](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [活动类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)
+- [分区](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadPartitionsUsingGET)
 
 对于潜在客户或活动数据扩充等用例，您还可以缓存资源类型，如程序、电子邮件和文件夹。
 

@@ -4,21 +4,14 @@ description: 了解如何嵌入Marketo Munchkin JavaScript、跟踪访问和点�
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
 TQID: https://experienceleague.adobe.com/nGUcLLgL9X7PBKf2E5IzppDj8e-SyEtxmkQaESd90mE
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-subfeature_v2:
-  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 718
+source-wordcount: 716
 ht-degree: 0%
 
 ---
@@ -93,7 +86,7 @@ Marketo会将该浏览器中后续的Web活动记录到匿名记录中。 要将
 
 - 潜在客户必须通过跟踪的Munchkin电子邮件链接访问查询字符串中包含`mkt_tok`参数的Marketo跟踪页面。
 - 潜在客户必须填写Marketo表单。
-- 必须发送REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST)调用。
+- 必须发送REST [关联潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/associateLeadUsingPOST)调用。
 
 当发生这些事件之一时，Marketo会将Cookie和所有相关Web活动与已知商机关联。
 
@@ -123,7 +116,7 @@ Munchkin Cookie特定于每个二级域，如`example.com`。 默认的Cookie生
 
 ## Beta 版
 
-要选择启用登陆页面的Munchkin测试版渠道，请转到[管理员 — > Treasure Chest](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)并启用“登陆页面上的Munchkin Beta”设置。
+要选择启用登陆页面的Munchkin测试版渠道，请转到[管理员 — > Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)并启用“登陆页面上的Munchkin Beta”设置。
 
 此设置将代码段添加到&#x200B;**[!UICONTROL Admin]** -> **[!UICONTROL Munchkin]**&#x200B;菜单。 使用这些代码片段在外部网站上运行测试版。
 
