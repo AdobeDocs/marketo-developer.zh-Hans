@@ -23,7 +23,7 @@ ht-degree: 3%
 
 使用登陆页面重定向规则REST API查询、创建、更新和删除登陆页面重定向URL。
 
-重定向规则将一个登陆页面URL发送到另一个页面URL。 源和目标可以是Marketo页面或非Marketo页面。 有关相关产品文档，请参阅[Marketo Engage文档](https://experienceleague.adobe.com/docs/marketo/using/home.html)。
+重定向规则将一个登陆页面URL发送到另一个页面URL。 源和目标可以是Marketo页面或非Marketo页面。 有关相关产品文档，请参阅[Marketo Engage文档](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。
 
 ## 查询
 
@@ -162,7 +162,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 | Marketo | landingPageId | {&quot;type&quot;：&quot;landingPageId&quot;，&quot;value&quot;：&quot;1774&quot;} |
 | 非Marketo | url | {&quot;type&quot;：&quot;url&quot;，&quot;value&quot;：&quot;www.contactLogs.com&quot;} |
 
-有关详细信息，请参阅[将Marketo登录页面重定向到其他页面](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html)。
+有关详细信息，请参阅[将Marketo登录页面重定向到其他页面](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
 
 ```http
 POST /rest/asset/v1/redirectRules.json

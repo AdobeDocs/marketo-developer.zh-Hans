@@ -28,7 +28,7 @@ ht-degree: 3%
 >
 >MCP服务器团队正在努力启用智能列表和智能营销活动资产API，以便与MCP服务器配合使用。 这项工作，包括列入允许列表项目，预计将于2026年第三季度完成。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 ## 批量导出
 

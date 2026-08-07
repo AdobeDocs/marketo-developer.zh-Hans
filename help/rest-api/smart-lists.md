@@ -26,7 +26,7 @@ ht-degree: 1%
 
 使用智能列表REST API查询、克隆和删除智能列表。
 
-这些API仅支持用户创建的智能列表。 它们不支持[内置或系统智能列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists)。
+这些API仅支持用户创建的智能列表。 它们不支持[内置或系统智能列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists)。
 
 ## 查询
 

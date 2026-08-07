@@ -58,7 +58,7 @@ Marketo通过id字段唯一标识潜在客户。 必须在系统外强制实施�
 
 活动始终与按leadId排列的潜在客户相关。
 
-您还可以定义自定义活动。 创建和发布自定义活动后，可以通过Marketo API添加其实例。 有关详细信息，请参阅[了解自定义活动](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities)。
+您还可以定义自定义活动。 创建和发布自定义活动后，可以通过Marketo API添加其实例。 有关详细信息，请参阅[了解自定义活动](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities)。
 
 相关API： [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities)，[JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -78,7 +78,7 @@ Marketo通过id字段唯一标识潜在客户。 必须在系统外强制实施�
 
 作为Marketo管理员，您可以创建用户创建项目时选择的必需和可选标记类型。 您可以根据公司的报告要求定义每种标记类型的可能值。
 
-例如，使用值（如Northeast和Southeast）创建自定义“区域”标记类型，以分析哪个区域产生的商机最多。 创建“所有者”标记类型，比较哪些项目所有者（如Maria、David或John）对创建潜在客户和机会的影响最大。 有关详细信息，请参阅[了解标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags)。
+例如，使用值（如Northeast和Southeast）创建自定义“区域”标记类型，以分析哪个区域产生的商机最多。 创建“所有者”标记类型，比较哪些项目所有者（如Maria、David或John）对创建潜在客户和机会的影响最大。 有关详细信息，请参阅[了解标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags)。
 
 相关API： [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
@@ -127,7 +127,7 @@ Assets包括项目中使用的登陆页面、电子邮件、表单和图像。 �
 - 继承：在营销活动文件夹级别创建，可用于该文件夹中的所有项目。
 - 已覆盖：使用项目群级别的自定义值修改了该值，而没有在项目群文件夹级别更改父“我的令牌”值。
 
-我的令牌使用命名约定`{{my.My Token}}`，令牌名称的开头包含“my”一词。 例如，名为EventDate的日期类型“我的令牌”的令牌名称为`{{my.EventDate}}`。 有关详细信息，请参阅[了解程序中的我的令牌](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program)。
+我的令牌使用命名约定`{{my.My Token}}`，令牌名称的开头包含“my”一词。 例如，名为EventDate的日期类型“我的令牌”的令牌名称为`{{my.EventDate}}`。 有关详细信息，请参阅[了解程序中的我的令牌](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program)。
 
 相关API： [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 
