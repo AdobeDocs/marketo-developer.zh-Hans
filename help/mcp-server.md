@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 2019d398e32790d76735ef672e9ca4b48b8dd2bb
+source-git-commit: 4d690179b0ff8da03b6eb7d11566f511d491f369
 workflow-type: tm+mt
-source-wordcount: 2183
+source-wordcount: 2181
 ht-degree: 1%
 
 ---
@@ -379,7 +379,7 @@ Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支�
 
 ### 潜在客户和列表
 
-按电子邮件地址查找潜在客户，创建或更新潜在客户记录，以及管理静态列表成员资格。
+按电子邮件地址查找潜在客户、创建潜在客户记录和管理静态列表成员资格。
 
 示例提示：
 
