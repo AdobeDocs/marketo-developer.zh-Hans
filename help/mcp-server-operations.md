@@ -28,7 +28,7 @@ ht-degree: 25%
 >
 >智能列表和智能营销活动`create`和`update`工具的目标发布日期为2026年9月版。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 ## 批量导出
 
