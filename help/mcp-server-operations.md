@@ -12,10 +12,10 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+source-git-commit: c631b7c3d571f29083673f9b97d22230d109abfc
 workflow-type: tm+mt
-source-wordcount: 280
-ht-degree: 3%
+source-wordcount: 1228
+ht-degree: 25%
 
 ---
 
@@ -26,7 +26,7 @@ ht-degree: 3%
 
 >[!NOTE]
 >
->MCP服务器团队正在努力启用智能列表和智能营销活动资产API，以便与MCP服务器配合使用。 这项工作，包括列入允许列表项目，预计将于2026年第三季度完成。
+>智能列表和智能营销活动`create`和`update`工具的目标发布日期为2026年9月版。
 
 有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
@@ -222,3 +222,20 @@ ht-degree: 3%
 - `delete_token`
 - `get_calendar_tokens`
 - `get_tokens_by_folder`
+
+## 已启用MCP流程步骤工具
+
+<table style="table-layout:auto">
+<tr>
+<th>流程步骤</th>
+<th>触发器</th>
+<th>过滤器（活动）</th>
+<th>过滤器（属性）</th>
+</tr>
+<tr>
+<td valign="top"><ul><li>添加到字段集</li><li>添加到列表</li><li>添加到 Microsoft 营销活动</li><li>添加到培养</li><li>添加到 SFDC 营销活动</li><li>调用 Webhook</li><li>更改数据值</li><li>更改潜在客户分区</li><li>更改培养节奏</li><li>更改培养轨迹</li><li>更改所有者</li><li>更改 Microsoft 中的所有者</li><li>更改项目数据</li><li>更改项目成员数据</li><li>更改收入阶段</li><li>更改评分</li><li>更改区段</li><li>进程中的更改状态</li><li>更改 SFDC 营销活动中的状态</li><li>转化商机</li><li>创建任务</li><li>在 Microsoft 中创建任务</li><li>删除潜在客户</li><li>从Microsoft中删除潜在客户</li><li>从SFDC中删除潜在客户</li><li>执行营销活动</li><li>重要时刻</li><li>从字段集中删除</li><li>从流程中移除</li><li>从列表中移除</li><li>从 Microsoft 营销活动中移除</li><li>从 SFDC 营销活动中移除</li><li>请求营销活动</li><li>发送警报</li><li>发送电子邮件</li><li>将潜在客户同步到Microsoft</li><li>将潜在客户同步到SFDC</li><li>等待</li></ul></td>
+<td valign="top"><ul><li>活动已记录</li><li>活动已更新</li><li>已添加到列表</li><li>已添加到Microsoft Campaign</li><li>已添加到Nurture</li><li>已添加到机会</li><li>已添加到机会（帐户）</li><li>已添加到机会（联系人）</li><li>已添加到SFDC Campaign</li><li>在活动期间提出问题</li><li>出席活动</li><li>已请求营销活动</li><li>点击链接</li><li>单击电子邮件中的链接</li><li>点击销售电子邮件中的链接</li><li>点击短信消息中的链接</li><li>链接点击次数</li><li>数据值更改</li><li>下载资产</li><li>电子邮件退回</li><li>电子邮件软退回</li><li>电子邮件已投放</li><li>采用对话流程</li><li>使用对话框</li><li>在对话流中与座席接洽</li><li>在对话框中与代理接洽</li><li>填写表单</li><li>具有有趣的时刻</li><li>在对话流中与文档交互</li><li>在对话框中与文档交互</li><li>已发送销售电子邮件</li><li>商机已转化</li><li>商机已创建</li><li>从Microsoft中删除潜在客户</li><li>从SFDC中删除潜在客户</li><li>潜在客户推送到Marketo</li><li>商机已同步到Microsoft</li><li>商机已同步到SFDC</li><li>潜在客户分区更改</li><li>手动阶段更改</li><li>培养节奏变化</li><li>Nurture跟踪更改</li><li>打开电子邮件</li><li>打开销售电子邮件</li><li>机会（帐户）已更新</li><li>机会（联系人）已更新</li><li>机会已更新</li><li>所有者更改</li><li>Microsoft中的所有者更改</li><li>项目群成员数据已更改</li><li>进度状态已更改</li><li>实现对话框目标</li><li>在会话流中实现目标</li><li>已接收转发给朋友的电子邮件</li><li>已从列表中删除</li><li>已从 Microsoft 营销活动中移除</li><li>已从机会中移除</li><li>从机会（帐户）中移除</li><li>已从机会中移除（联系人）</li><li>从SFDC Campaign中移除</li><li>对销售电子邮件的回复</li><li>响应投票</li><li>回复调查</li><li>收入阶段已更改</li><li>销售电子邮件退回</li><li>已收到销售电子邮件</li><li>在对话流中安排会议</li><li>安排对话中的会议</li><li>分数已更改</li><li>区段更改</li><li>已发送警报</li><li>转发给朋友的电子邮件</li><li>短信消息退回</li><li>短信消息已投放</li><li>SFDC Campaign中的状态已更改</li><li>取消订阅电子邮件</li><li>访问网页</li><li>已调用Webhook</li></ul></td>
+<td valign="top"><ul><li>活动已记录</li><li>活动已更新</li><li>已发送警报</li><li>已执行营销活动</li><li>已请求营销活动</li><li>单击链接</li><li>电子邮件中的已单击链接</li><li>已单击销售电子邮件中的链接</li><li>短信消息中的点击链接</li><li>已单击链接</li><li>数据值已更改</li><li>下载了资源</li><li>电子邮件已退回</li><li>电子邮件软退回</li><li>已参与会话流</li><li>参与了对话</li><li>在会话流中与座席接洽</li><li>在对话中与代理进行了互动</li><li>已填写表单</li><li>具有有趣的时刻</li><li>已在活动期间提出问题</li><li>已参与活动</li><li>在对话流中与文档交互</li><li>在对话中与文档交互</li><li>潜在客户分区已更改</li><li>商机已转化</li><li>潜在客户已创建</li><li>潜在客户已从Microsoft中删除</li><li>潜在客户已从SFDC中删除</li><li>潜在客户已推送到Marketo</li><li>商机已同步到Microsoft</li><li>商机已同步到SFDC</li><li>培养节奏已更改</li><li>Nurture Track已更改</li><li>已打开的电子邮件</li><li>已打开的销售电子邮件</li><li>机会（帐户）已更新</li><li>机会（联系人）已更新</li><li>机会已更新</li><li>所有者已更改</li><li>在Microsoft中更改了所有者</li><li>项目群成员数据已更改</li><li>进度状态已更改</li><li>达成了对话目标</li><li>会话流中已实现的目标</li><li>已接收转发给朋友的电子邮件</li><li>已回复销售电子邮件</li><li>回复了投票</li><li>已回复一项调查</li><li>收入阶段已更改</li><li>销售电子邮件已退回</li><li>已收到销售电子邮件</li><li>会话流中的已计划会议</li><li>在对话中安排了会议</li><li>分数已更改</li><li>区段已更改</li><li>转发给朋友的电子邮件</li><li>短信消息退回</li><li>已取消订阅电子邮件</li><li>已访问网页</li><li>已添加到列表</li><li>已添加到Nurture</li><li>已添加到机会</li><li>已添加到机会（帐户）</li><li>已添加到机会（联系人）</li><li>已送达电子邮件</li><li>已投放的短信消息</li><li>已从列表中删除</li><li>已从机会中删除</li><li>已从机会（帐户）中删除</li><li>已从机会（联系人）中删除</li><li>已发送电子邮件</li><li>已发送销售电子邮件</li><li>已调用Webhook</li></ul></td>
+<td valign="top"><ul><li>帐户所有者电子邮件地址</li><li>帐户所有者名字</li><li>帐户所有者姓氏</li><li>获取日期</li><li>客户获取计划</li><li>客户获取计划名称</li><li>地址</li><li>年营业额</li><li>匿名IP</li><li>帐单寄送地址</li><li>帐单寄送城市</li><li>帐单寄送国家</li><li>帐单邮政编码</li><li>帐单寄送州</li><li>已列入阻止列表</li><li>城市</li><li>公司 Microsoft 类型</li><li>公司名称</li><li>国家/地区</li><li>创建时间</li><li>出生日期</li><li>部门</li><li>请勿来电</li><li>请勿来电的理由</li><li>重复字段</li><li>电子邮件地址</li><li>电子邮件无效</li><li>电子邮件无效原因</li><li>电子邮件暂停</li><li>电子邮件暂停时间</li><li>电子邮件暂停原因</li><li>传真号码</li><li>名字</li><li>全名</li><li>具有机会</li><li>行业</li><li>推断的城市</li><li>推断公司</li><li>推断国家</li><li>推断的都市区</li><li>推断的电话区号</li><li>推断的邮政编码</li><li>推断的状态区域</li><li>是客户</li><li>是合作伙伴</li><li>职务</li><li>姓</li><li>潜在客户所有者电子邮件地址</li><li>潜在客户所有者名字</li><li>潜在客户所有者职务</li><li>潜在客户所有者姓氏</li><li>潜在客户所有者电话号码</li><li>潜在客户分区名称</li><li>销售线索评级</li><li>销售线索分数</li><li>潜在客户来源</li><li>潜在客户状态</li><li>主要电话</li><li>营销暂停</li><li>字段集成员</li><li>List 会员</li><li>Nurture会员</li><li>项目会员</li><li>收入模型会员</li><li>收入阶段成员</li><li>SFDC 营销活动会员</li><li>Smart Campaign 会员</li><li>Smart List 会员</li><li>Microsoft 帐号</li><li>Microsoft 创建日期</li><li>已删除 Microsoft</li><li>Microsoft 类型</li><li>中间名称</li><li>手机号码</li><li>注释</li><li>员工数</li><li>机会数</li><li>原始反向链接</li><li>原始搜索引擎</li><li>原始搜索短语</li><li>原始来源信息</li><li>原始来源类型</li><li>母公司名称</li><li>人员时区</li><li>电话号码</li><li>邮政编码</li><li>随机抽样</li><li>注册Source信息</li><li>注册Source类型</li><li>角色</li><li>称谓</li><li>SFDC帐户编号</li><li>SFDC创建日期</li><li>已删除 SFDC</li><li>SFDC 类型</li><li>标准产业分类(SIC)代码</li><li>现场</li><li>State</li><li>机会总金额</li><li>总机会预期收入</li><li>取消订阅</li><li>退订原因</li><li>更新时间</li><li>网站</li></ul></td>
+</tr>
+</table>

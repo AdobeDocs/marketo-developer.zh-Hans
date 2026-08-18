@@ -1,7 +1,6 @@
 ---
 title: Marketo Engage MCP 服务器
 description: 了解如何使用Marketo Engage MCP服务器将AI助手连接到Marketo。 使用Marketo凭据配置Claude Desktop、Cursor、Claude Code或VS代码。
-badgeBeta: label="有限发布版" type="informative" tooltip="此功能当前为有限测试版"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
@@ -21,22 +20,19 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 4d690179b0ff8da03b6eb7d11566f511d491f369
+source-git-commit: 8fc4e9a161decdc0b39a7e98bdb17de035538a6a
 workflow-type: tm+mt
-source-wordcount: 2181
-ht-degree: 1%
+source-wordcount: 2111
+ht-degree: 0%
 
 ---
 
-# [!DNL Marketo Engage] MCP服务器
 
->[!AVAILABILITY]
->
-> 此功能仅在有限范围内可用。 若要请求访问权限，请填写[此表单](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"}。 确保准备好您的订阅Munchkin ID。
+# [!DNL Marketo Engage] MCP服务器
 
 >[!NOTE]
 >
->MCP服务器团队正在努力启用智能列表和智能营销活动资产API，以便与MCP服务器配合使用。 这项工作的大部分内容，包括列入允许列表活动、行动和规则，预计将于2026年第三季度完成。
+>智能列表和智能营销活动`create`和`update`工具的目标发布日期为2026年9月版。
 
 模型上下文协议(Model Context Protocol， MCP)是一种将AI工具连接到外部服务的开放标准。 [!DNL Marketo] MCP服务器将您的AI助手连接到[!DNL Marketo]。 它为表单、程序、智能营销活动、潜在客户、电子邮件、代码片段、列表和文件夹提供了100多项操作。
 
