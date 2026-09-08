@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 6d9408d07557d4b7426ad72d2a886220d622fb78
+source-git-commit: 1a442b6008fbb8f05ad346f1b7185a5b2e22f0e4
 workflow-type: tm+mt
-source-wordcount: 517
+source-wordcount: 478
 ht-degree: 0%
 
 ---
@@ -61,7 +61,7 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 
 >[!IMPORTANT]
 >
->2026年8月31日，将移除对使用`access_token`查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用[授权标头](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)。 新开发应仅使用`Authorization`标头。
+>对使用`access_token`查询参数的身份验证的支持已于2026年8月31日删除。 新开发应仅使用`Authorization`标头。
 
 ### 切换到授权标头
 

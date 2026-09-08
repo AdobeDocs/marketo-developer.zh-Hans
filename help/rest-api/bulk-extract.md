@@ -10,9 +10,9 @@ feature_v2:
   - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: 1a442b6008fbb8f05ad346f1b7185a5b2e22f0e4
 workflow-type: tm+mt
-source-wordcount: 1549
+source-wordcount: 1525
 ht-degree: 0%
 
 ---
@@ -43,14 +43,14 @@ Marketo批量提取提供用于检索大量人员和人员相关数据的界面�
 
 >[!IMPORTANT]
 >
->2026年8月31日，将移除对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持。 如果您的项目使用查询参数来传递访问令牌，则应尽快更新以使用&#x200B;**Authorization**&#x200B;标头。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
+>对使用&#x200B;**access_token**&#x200B;查询参数的身份验证的支持已于2026年8月31日删除。 新开发应仅使用&#x200B;**Authorization**&#x200B;标头。
 
 ## 限制
 
 - 最大并发导出作业数：2
 - 已排队导出作业的最大数量（包括当前正在导出的作业）：10
 - 文件保留期：7天
-- 默认每日导出分配：500MB。 该分配在每日中午12:00 CST重置。 增加部分可购买。
+- 该分配每天在凌晨12:00 CST/CDT重置，具体取决于夏令时。 增加部分可购买。
 - 日期范围筛选器（`createdAt`或`updatedAt`）的最大时间范围：31天
 
 对于某些订阅类型，UpdatedAt和智能列表的批量潜在客户提取过滤器不可用。 如果这些过滤器不可用，则创建导出潜在客户作业端点返回错误“1035，目标订阅的过滤器类型不受支持”。 请联系Marketo支持，为您的订阅启用此功能。
