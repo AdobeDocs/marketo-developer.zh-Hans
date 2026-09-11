@@ -4,13 +4,11 @@ feature: REST API
 description: 使用2条腿的OAuth 2.0验证Marketo REST API，创建和使用访问令牌，切换到授权标头，管理过期，处理601和602错误。
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
 TQID: https://experienceleague.adobe.com/cIeI0m61CyIWq4HEosZ-QAsxzZb0WcrQRpCud2qysfY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 1a442b6008fbb8f05ad346f1b7185a5b2e22f0e4
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: eb4e99aff94f3106b96f999fc56a6db7c5598b1f
 workflow-type: tm+mt
-source-wordcount: 478
+source-wordcount: 554
 ht-degree: 0%
 
 ---
@@ -62,6 +60,8 @@ GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client I
 >[!IMPORTANT]
 >
 >对使用`access_token`查询参数的身份验证的支持已于2026年8月31日删除。 新开发应仅使用`Authorization`标头。
+>此更改是符合行业和OAuth 2.0安全最佳实践的安全修正，其中建议不要在URL中传输访问令牌。  以此方式进行身份验证的现有工作流可能已遇到603（访问被拒绝）错误。
+>优先更新您的集成，以便在2026年9月15日之前使用基于标头的身份验证。  如果您需要更多时间，请联系Adobe支持以讨论可用的选项
 
 ### 切换到授权标头
 
