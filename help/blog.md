@@ -6,9 +6,7 @@ source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
 source-wordcount: '65289'
 ht-degree: 0%
-
 ---
-
 # 博客档案
 
 >[!INFO]
@@ -18,7 +16,7 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->SOAP API已于2026年7月31日弃用，不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
+>SOAP API已于2026年7月31日弃用，不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
 >
 
 >[!IMPORTANT]
@@ -326,7 +324,7 @@ public class GetMultipleLeads {
 
 ### Marketo Forms安全更新
 
-我们对来自单个IP地址的表单帖子提交数量和频率进行了限制。 现在，该限制强制为每分钟30个帖子，以保护我们的客户免受恶意使用程序化表单提交的攻击。 [syncLead API](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/leads/synclead)是推荐的集成工具，用于在Marketo中以编程方式提交新联系人。
+我们对来自单个IP地址的表单帖子提交数量和频率进行了限制。 现在，该限制强制为每分钟30个帖子，以保护我们的客户免受恶意使用程序化表单提交的攻击。 [syncLead API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead)是推荐的集成工具，用于在Marketo中以编程方式提交新联系人。
 
 由&#x200B;_Travis Kaufman_&#x200B;发布于&#x200B;_2014-04-29_
 
@@ -1048,7 +1046,7 @@ puts response
 
 ## 在Marketo中创建自定义字段，并通过AP更新此字段
 
-假设您拥有其他不符合Marketo标准字段的销售线索数据。 例如，此自定义字段可以是第三方得分。 您可以在Marketo中创建用于计算第三方得分的自定义字段，然后通过Marketo [REST API](https://developer.adobe.com/marketo-apis/)或[SOAP API](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/activity-type-filters)更新此字段的值。 我们首先介绍如何在Marketo中创建自定义字段，然后介绍如何使用REST API更新此字段。
+假设您拥有其他不符合Marketo标准字段的销售线索数据。 例如，此自定义字段可以是第三方得分。 您可以在Marketo中创建用于计算第三方得分的自定义字段，然后通过Marketo [REST API](https://developer.adobe.com/marketo-apis/)或[SOAP API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/activity-type-filters)更新此字段的值。 我们首先介绍如何在Marketo中创建自定义字段，然后介绍如何使用REST API更新此字段。
 
 ### 如何在Marketo中创建自定义字段
 
