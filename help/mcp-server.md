@@ -6,27 +6,37 @@ autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
   - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
   - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+    internal-label: Implementation
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
 role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+    internal-label: Developer
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 8fc4e9a161decdc0b39a7e98bdb17de035538a6a
+    internal-label: Artificial intelligence
+source-git-commit: b12faeb0cb1a3680f6e0e7a522c54931b3de2c5d
 workflow-type: tm+mt
-source-wordcount: 2111
+source-wordcount: '2066'
 ht-degree: 0%
-
 ---
-
 
 # [!DNL Marketo Engage] MCP服务器
 
@@ -38,7 +48,7 @@ ht-degree: 0%
 
 当您的AI工具调用MCP服务器时，服务器使用该请求中的凭据执行相应的REST API调用。 您无需安装、部署或运行服务器端软件。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 >[!IMPORTANT]
 >
@@ -161,28 +171,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 ### 光标 {#cursor}
 
 如果游标MCP配置已包含其他服务器，请在`mcpServers`下添加`marketo`项。
-以下示例显示项目目录中&#x200B;**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
-
->[!BEGINTABS]
-
->[!TAB IMS令牌]
-
-```json
-{
-  "mcpServers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR-IMS-TOKEN",
-        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
-      }
-    }
-  }
-}
-```
-
->[!TAB Marketo客户端凭据]
+以下示例显示项目目录中**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
 
 ```json
 {
@@ -200,26 +189,11 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 }
 ```
 
->[!ENDTABS]
-
 重新启动光标。
 
 ### 克劳德代码(CLI) {#claude-code}
 
 在终端中运行以下命令，替换您的凭据：
-
->[!BEGINTABS]
-
->[!TAB IMS令牌]
-
-```bash
-claude mcp add --transport http marketo \
-  https://marketo-mcp.adobe.io/mcp \
-  --header "Authorization: Bearer YOUR-IMS-TOKEN" \
-  --header "x-gw-ims-org-id: YOUR-IMS-ORG-ID"
-```
-
->[!TAB Marketo客户端凭据]
 
 ```bash
 claude mcp add --transport http marketo \
@@ -229,28 +203,15 @@ claude mcp add --transport http marketo \
   --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
->[!ENDTABS]
-
 ### OpenAI代码 {#codex}
 
 1. 转到“设置”>“MCP服务器”>“添加服务器”。
 1. 添加服务器URL： `https://marketo-mcp.adobe.io/mcp`。
 1. 为身份验证方法添加标头：
 
->[!BEGINTABS]
-
->[!TAB IMS令牌]
-
-* 授权：“持有者YOUR-IMS-TOKEN”
-* x-gw-ims-org-id： &quot;YOUR-IMS-ORG-ID&quot;
-
->[!TAB Marketo客户端凭据]
-
 * X-Marketo-Client-Id： &quot;YOUR-CLIENT-ID&quot;
 * X-Marketo-Client-Secret： &quot;YOUR-CLIENT-SECRET&quot;
 * X-Marketo-Munchkin-Id： &quot;YOUR-MUNCHKIN-ID&quot;
-
->[!ENDTABS]
 
 1. 选择保存以完成该过程。
 
@@ -258,27 +219,6 @@ claude mcp add --transport http marketo \
 ### 使用GitHub Copilot的VS代码 {#vscode}
 
 按&#x200B;**[!UICONTROL Ctrl+Shift+P]**（或macOS上的&#x200B;**[!UICONTROL Cmd+Shift+P]**），键入&#x200B;**[!UICONTROL MCP: Open User Configuration]**，然后按Enter。 这将打开`mcp.json`。 在`servers`对象中添加`marketo`条目：
-
->[!BEGINTABS]
-
->[!TAB IMS令牌]
-
-```json
-{
-  "servers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR-IMS-TOKEN",
-        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
-      }
-    }
-  }
-}
-```
-
->[!TAB Marketo客户端凭据]
 
 ```json
 {
@@ -295,8 +235,6 @@ claude mcp add --transport http marketo \
   }
 }
 ```
-
->[!ENDTABS]
 
 >[!NOTE]
 >
@@ -328,24 +266,11 @@ Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支�
 
 通过每个请求发送以下身份验证方法之一的标头。 在何处输入服务器URL和标头取决于您的工具，因此请查阅其MCP文档。
 
->[!BEGINTABS]
-
->[!TAB IMS令牌]
-
-| 标头 | 值 |
-| ------ | ----- |
-| `Authorization` | `Bearer YOUR-IMS-TOKEN` |
-| `x-gw-ims-org-id` | 您的IMS组织ID |
-
->[!TAB Marketo客户端凭据]
-
 | 标头 | 值 |
 | ------ | ----- |
 | `X-Marketo-Client-Id` | 您的客户端ID |
 | `X-Marketo-Client-Secret` | 您的客户端密码 |
 | `X-Marketo-Munchkin-Id` | 您的Munchkin帐户ID |
-
->[!ENDTABS]
 
 如果您的工具接受JSON配置，请从[Cursor](#cursor)或[VS代码](#vscode)示例开始，并调整键(`mcpServers`、`servers`)以匹配您工具的架构。
 
