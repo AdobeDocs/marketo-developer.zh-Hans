@@ -171,7 +171,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 ### 光标 {#cursor}
 
 如果游标MCP配置已包含其他服务器，请在`mcpServers`下添加`marketo`项。
-以下示例显示项目目录中**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
+以下示例显示项目目录中&#x200B;**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
 
 ```json
 {
