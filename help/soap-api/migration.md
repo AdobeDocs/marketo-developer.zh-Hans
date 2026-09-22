@@ -34,9 +34,9 @@ Marketo Engage SOAP API将于2026年3月31日后停用。 应在此日期之前�
 
 ## 迁移
 
-与[REST AP](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/rest-api)I相比，SOAP API支持的用例范围有限。 在确定要映射用例的端点时，您应遵循[Marketo集成最佳实践](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/marketo-integration-best-practices)
+与[REST AP](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/rest-api)I相比，SOAP API支持的用例范围有限。 在确定要映射用例的端点时，您应遵循[Marketo集成最佳实践](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/marketo-integration-best-practices)
 
-[参考体系结构](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/reference-architectures)可用于[CRM同步](https://experienceleague.adobe.com/docs/marketo-developer/assets/sync-architecture-whitepaper.pdf?lang=en)和[Data Warehouse导出](https://experienceleague.adobe.com/docs/marketo-developer/assets/reference_architecture.pdf?lang=en)用例。
+[参考体系结构](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/reference-architectures)可用于[CRM同步](https://experienceleague.adobe.com/docs/marketo-developer/assets/sync-architecture-whitepaper.pdf?lang=zh-Hans)和[Data Warehouse导出](https://experienceleague.adobe.com/docs/marketo-developer/assets/reference_architecture.pdf?lang=zh-Hans)用例。
 
 ## 身份验证
 
@@ -46,14 +46,14 @@ Marketo REST API使用基于OAuth 2.0的身份验证以及客户端凭据授权�
 
 ## 潜在客户
 
-[潜在客户API文档](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/leads)
+[潜在客户API文档](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/lead-database/leads)
 
 SOAP API支持潜在客户数据同步、[Munchkin Cookie关联](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/javascriptapi/leadtracking/lead-tracking)以及潜在客户合并。 如果您的应用程序调用SOAP syncLead方法并设置`marketoCookie`参数，则可以通过以下任一方式进行迁移：
 
 1. 使用[同步潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST) REST方法，后跟[关联的潜在客户](https://developer.adobe.com/marketo-apis/api/mapi#operation/associateLeadUsingPOST)
-2. 您可以调用[提交表单](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/leads)，但需要配置一些Marketing Assets以及与[Forms API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/forms)进行交互
+2. 您可以调用[提交表单](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/lead-database/leads)，但需要配置一些Marketing Assets以及与[Forms API](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/assets/forms)进行交互
 
-使用`foreignSysPersonId`键类型的应用程序应使用自定义潜在客户字段来表示此外部标识符，并使用[同步潜在客户](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/leads#create-and-update)或[批量潜在客户导入](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-import/bulk-lead-import) REST方法。
+使用`foreignSysPersonId`键类型的应用程序应使用自定义潜在客户字段来表示此外部标识符，并使用[同步潜在客户](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/lead-database/leads#create-and-update)或[批量潜在客户导入](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/bulk-import/bulk-lead-import) REST方法。
 
 | SOAP方法 | REST方法 |
 | --- | --- |
@@ -69,9 +69,9 @@ M Objects是一个通用概念，用于支持导出Opportunity Attribution数据
 
 REST文档：
 
-- [机会](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/opportunities)
-- [角色](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/opportunity-roles)
-- [项目](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/programs)
+- [机会](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/lead-database/opportunities)
+- [角色](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/lead-database/opportunity-roles)
+- [项目](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/assets/programs)
 
 | SOAP方法 | REST方法 |
 | --- | --- |
@@ -85,7 +85,7 @@ REST文档：
 
 ## 静态列表
 
-SOAP API中的静态列表用例仅限于摄取成员资格和潜在客户数据，以及可以通过[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi#operation/addLeadsToListUsingPOST)、[批量导入潜在客户](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-import/bulk-lead-import)或[从列表](https://developer.adobe.com/marketo-apis/api/mapi#operation/removeLeadsFromListUsingDELETE) REST方法删除成员资格来删除成员资格。
+SOAP API中的静态列表用例仅限于摄取成员资格和潜在客户数据，以及可以通过[添加到列表](https://developer.adobe.com/marketo-apis/api/mapi#operation/addLeadsToListUsingPOST)、[批量导入潜在客户](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/bulk-import/bulk-lead-import)或[从列表](https://developer.adobe.com/marketo-apis/api/mapi#operation/removeLeadsFromListUsingDELETE) REST方法删除成员资格来删除成员资格。
 
 | SOAP方法 | REST方法 |
 | --- | --- |
@@ -99,8 +99,8 @@ SOAP API仅支持检索活动。
 
 REST文档：
 
-- [同步活动](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/activities)
-- [批量活动提取](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-activity-extract)
+- [同步活动](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/lead-database/activities)
+- [批量活动提取](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/bulk-extract/bulk-activity-extract)
 
 | SOAP方法 | REST方法 |
 | --- | --- |
@@ -111,9 +111,9 @@ REST文档：
 
 REST文档：
 
-- [智能营销活动](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns)
+- [智能营销活动](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/assets/smart-campaigns)
 
-SOAP API仅支持智能营销活动的三个用例：[触发潜在客户以符合可请求的Smart Campaign](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns#trigger)、检索这些可请求的营销活动和[计划将来运行Smart Campaign](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/assets/smart-campaigns#schedule)。
+SOAP API仅支持智能营销活动的三个用例：[触发潜在客户以符合可请求的Smart Campaign](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/assets/smart-campaigns#trigger)、检索这些可请求的营销活动和[计划将来运行Smart Campaign](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/assets/smart-campaigns#schedule)。
 
 | SOAP方法 | REST方法 |
 | --- | --- |
@@ -125,7 +125,7 @@ SOAP API仅支持智能营销活动的三个用例：[触发潜在客户以符�
 
 REST文档：
 
-- [自定义对象](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/lead-database/custom-objects)
+- [自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/lead-database/custom-objects)
 
 SOAP API仅支持对自定义对象执行CRUD操作。
 
@@ -133,4 +133,4 @@ SOAP API仅支持对自定义对象执行CRUD操作。
 | --- | --- |
 | [deleteCustomObjects](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/custom-objects/deletecustomobjects) | [删除自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectsUsingPOST) |
 | [getCustomObjects](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/custom-objects/getcustomobjects) | [获取自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectsUsingGET) |
-| [syncCustomObjects](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/custom-objects/synccustomobjects) | [同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST) [批量导入自定义对象](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import) |
+| [syncCustomObjects](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/custom-objects/synccustomobjects) | [同步自定义对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST) [批量导入自定义对象](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import) |
