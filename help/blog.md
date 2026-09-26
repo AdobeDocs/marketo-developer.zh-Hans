@@ -16,7 +16,7 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->SOAP API已于2026年7月31日弃用，不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
+>SOAP API已于2026年7月31日弃用，不再可用。 所有新的开发应使用Marketo REST API完成，并且现有服务应在该日期之前迁移以避免服务中断。 如果您的服务使用SOAP API，请参阅[SOAP API迁移指南](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/soap/migration)以了解如何迁移的信息。
 >
 
 >[!IMPORTANT]
