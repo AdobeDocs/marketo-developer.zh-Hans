@@ -36,7 +36,7 @@ ht-degree: 2%
 
 ## 查询
 
-按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET)查询智能列表[。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET)查询智能列表。
 
 ### 按Id
 
