@@ -5,30 +5,30 @@ autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: c631b7c3d571f29083673f9b97d22230d109abfc
+    internal-label: Artificial intelligence
+source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
 workflow-type: tm+mt
-source-wordcount: 1228
+source-wordcount: '1214'
 ht-degree: 25%
-
 ---
-
 
 # [!DNL Marketo Engage] MCP操作
 
 以下操作可通过[!DNL Marketo Engage] MCP服务器使用。 服务器提供只读或无损端点。 AI系统无法使用`Delete`或其他破坏性操作。
 
->[!NOTE]
->
->智能列表和智能营销活动`create`和`update`工具的目标发布日期为2026年9月版。
-
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 ## 批量导出
 

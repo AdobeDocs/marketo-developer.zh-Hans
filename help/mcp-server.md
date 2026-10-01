@@ -32,23 +32,19 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: b12faeb0cb1a3680f6e0e7a522c54931b3de2c5d
+source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
 workflow-type: tm+mt
-source-wordcount: '2066'
+source-wordcount: '2052'
 ht-degree: 0%
 ---
 
 # [!DNL Marketo Engage] MCP服务器
 
->[!NOTE]
->
->智能列表和智能营销活动`create`和`update`工具的目标发布日期为2026年9月版。
-
 模型上下文协议(Model Context Protocol， MCP)是一种将AI工具连接到外部服务的开放标准。 [!DNL Marketo] MCP服务器将您的AI助手连接到[!DNL Marketo]。 它为表单、程序、智能营销活动、潜在客户、电子邮件、代码片段、列表和文件夹提供了100多项操作。
 
 当您的AI工具调用MCP服务器时，服务器使用该请求中的凭据执行相应的REST API调用。 您无需安装、部署或运行服务器端软件。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 >[!IMPORTANT]
 >
@@ -171,7 +167,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 ### 光标 {#cursor}
 
 如果游标MCP配置已包含其他服务器，请在`mcpServers`下添加`marketo`项。
-以下示例显示项目目录中&#x200B;**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
+以下示例显示项目目录中**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
 
 ```json
 {
