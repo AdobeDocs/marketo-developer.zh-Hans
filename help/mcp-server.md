@@ -32,9 +32,9 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
+source-git-commit: 6bbf9fa5b8192e02d7a465a652346545ae216450
 workflow-type: tm+mt
-source-wordcount: '2052'
+source-wordcount: '2176'
 ht-degree: 0%
 ---
 
@@ -90,7 +90,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
 * 启用了REST API访问权限的[!DNL Marketo]实例
 * 在[!DNL Marketo] LaunchPoint中创建API凭据的管理员访问权限
-* 以下AI工具之一：Claude Desktop、Cursor、Codex、Claude Code (CLI)或具有GitHub Copilot的VS Code
+* 以下AI工具之一：Claude Desktop、Cursor、Codex、Claude Code (CLI)、带有GitHub Copilot的VS Code，或其他兼容的MCP客户端，如Gemini CLI
 * 对MCP服务器URL的网络访问： `https://marketo-mcp.adobe.io/mcp`
 
 ## 获取Marketo凭据
@@ -122,6 +122,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 * [光标](#cursor)
 * [克劳德代码CLI](#claude-code)
 * [OpenAI代码](#codex)
+* [Gemini CLI](#gemini-cli)
 * [带有GitHub Copilot的VSCode](#vscode)
 * [Glean](#glean)
 * [其他工具](#other-tools)
@@ -211,6 +212,35 @@ claude mcp add --transport http marketo \
 
 1. 选择保存以完成该过程。
 
+### Gemini CLI
+
+要将Marketo Engage MCP服务器添加到Gemini CLI，请将以下内容添加到项目目录中的`.gemini/mcp.json`。
+
+```json
+{
+  "mcpServers": {
+    "marketo": {
+      "httpUrl": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "X-Marketo-Client-Id": "$MARKETO_CLIENT_ID",
+        "X-Marketo-Client-Secret": "$MARKETO_CLIENT_SECRET",
+        "X-Marketo-Munchkin-Id": "$MARKETO_MUNCHKIN_ID"
+      }
+    }
+  }
+}
+```
+
+或者通过命令行：
+
+```bash
+gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp \
+  -H "X-Marketo-Client-Id: $MARKETO_CLIENT_ID" \
+  -H "X-Marketo-Client-Secret: $MARKETO_CLIENT_SECRET" \
+  -H "X-Marketo-Munchkin-Id: $MARKETO_MUNCHKIN_ID"
+```
+
+重新启动会话以选取新的MCP服务器配置。
 
 ### 使用GitHub Copilot的VS代码 {#vscode}
 
@@ -269,6 +299,10 @@ Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支�
 | `X-Marketo-Munchkin-Id` | 您的Munchkin帐户ID |
 
 如果您的工具接受JSON配置，请从[Cursor](#cursor)或[VS代码](#vscode)示例开始，并调整键(`mcpServers`、`servers`)以匹配您工具的架构。
+
+>[!NOTE]
+>
+>Gemini CLI支持通过可流式HTTP和自定义身份验证标头来远程MCP服务器。 若要将其连接到[!DNL Marketo] MCP服务器，请使用上述连接详细信息，并按照[Gemini CLI MCP配置文档](https://geminicli.com/docs/tools/mcp-server/){target="_blank"}中的说明进行操作。 在`settings.json`中的`mcpServers`下添加一个服务器条目，将`httpUrl`设置为`https://marketo-mcp.adobe.io/mcp`，并在`headers`中提供三个Marketo身份验证标头。 使用Gemini CLI用于SSE传输的`httpUrl`，而不是`url`。 本指导适用于Gemini CLI，而不适用于Gemini Web或移动设备应用程序。
 
 ## 可用操作
 
