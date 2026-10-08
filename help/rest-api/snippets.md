@@ -40,7 +40,7 @@ ht-degree: 2%
 
 ## 查询
 
-按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetUsingGET)查询代码片段[。 该API不提供按名称查询方法。 两个端点都接受`status`字段以检索批准版本或草稿版本。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetUsingGET)查询代码片段。 该API不提供按名称查询方法。 两个端点都接受`status`字段以检索批准版本或草稿版本。
 
 ### 按Id
 

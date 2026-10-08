@@ -980,7 +980,7 @@ POST /rest/v1/customobjects/schema/{apiName}/delete.json
 对于一对多自定义对象结构，请使用链接字段将自定义对象连接到标准Lead或Company对象。 以下工作流使用[车主示例](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure)创建存储车信息并连接到潜在客户的自定义对象。
 
 1. 创建&#x200B;**Car**&#x200B;对象。
-1. 向&#x200B;**Car**&#x200B;对象添加字段：**VIN**&#x200B;上的重复数据删除以及指向&#x200B;**潜在客户****/潜在客户ID**的链接。
+1. 向&#x200B;**Car**&#x200B;对象添加字段：**VIN**&#x200B;上的重复数据删除以及指向&#x200B;**潜在客户**&#x200B;**/潜在客户ID**&#x200B;的链接。
 1. 批准&#x200B;**Car**&#x200B;对象。
 
 首先，创建包含汽车特定信息的自定义对象类型。
@@ -1090,7 +1090,7 @@ bridge对象解析与两个链接字段的关系。 一个字段指向父级标�
 1. 向&#x200B;**课程：**&#x200B;添加字段，以便对&#x200B;**课程ID**&#x200B;进行重复数据删除。
 1. 批准&#x200B;**课程**。
 1. 创建&#x200B;**注册**&#x200B;桥接对象。
-1. 向&#x200B;**注册：**&#x200B;注册ID **上的重复数据删除**&#x200B;添加字段，链接到&#x200B;**课程****/课程ID**&#x200B;字段，以及链接到**潜在客户****/潜在客户ID**。
+1. 向&#x200B;**注册：**&#x200B;注册ID **上的重复数据删除**&#x200B;添加字段，链接到&#x200B;**课程**&#x200B;**/课程ID**&#x200B;字段，以及链接到&#x200B;**潜在客户**&#x200B;**/潜在客户ID**。
 1. 批准&#x200B;**注册**。
 
 首先，创建包含课程特定信息的边缘对象类型：

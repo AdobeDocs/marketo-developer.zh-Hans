@@ -95,7 +95,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 ### 按名称
 
-按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET)进行的[查询端点需要`name`，它将对文件夹名称执行完全匹配并返回每个匹配的文件夹。
+按名称[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET)进行的查询端点需要`name`，它将对文件夹名称执行完全匹配并返回每个匹配的文件夹。
 
 端点还接受以下可选参数：
 

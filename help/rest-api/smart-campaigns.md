@@ -39,7 +39,7 @@ ht-degree: 1%
 
 ## 查询
 
-按ID](#by_id)、[名称](#by_name)或[浏览](#browse)查询智能营销活动[。
+按ID[&#128279;](#by_id)、[名称](#by_name)或[浏览](#browse)查询智能营销活动。
 
 ### 按Id
 
