@@ -2,13 +2,23 @@
 title: 获取潜在客户API更新
 feature: REST API
 description: 了解“获取潜在客户活动”和“获取潜在客户更改端点”的限制更改。
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '311'
 ht-degree: 0%
-
 ---
-
 # 获取潜在客户API更新
 
 从2026年9月30日开始，如果目标列表包含10,000个或更多潜在客户，对[获取潜在客户活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET)或[获取潜在客户更改](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET)端点（包含`listId`参数）的调用将失败。 端点将返回1003错误代码，指示目标静态列表具有过多记录。
@@ -28,7 +38,7 @@ ht-degree: 0%
 根据您的用例，使用以下迁移选项之一：
 
 * 将用于活动提取的静态列表限制为10,000个成员。 将现有列表拆分为较小的列表，以继续轮询活动的相同受众。
-* 使用批量活动提取或数据流提取活动或数据值更改。 将结果加入具有[getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1)或[批量潜在客户提取](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)的静态列表成员资格。
+* 使用批量活动提取或数据流提取活动或数据值更改。 将结果加入具有[getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1)或[批量潜在客户提取](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)的静态列表成员资格。
 
 ## 如果我什么都不做，会发生什么？
 

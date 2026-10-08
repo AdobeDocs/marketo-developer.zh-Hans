@@ -3,24 +3,33 @@ title: 用户管理
 feature: REST API
 description: 适用于CRUD的Marketo用户管理API指南，内容涉及用户、基于标题的身份验证、角色和工作区、状态代码处理、日期时间格式和查询端点。
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-TQID: https://experienceleague.adobe.com/V1NzpIl-peHBi9rqy8YwdJDh3O-dViIdF0cBsDSI-w8
+TQID: 'https://experienceleague.adobe.com/V1NzpIl-peHBi9rqy8YwdJDh3O-dViIdF0cBsDSI-w8'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
   - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
+    internal-label: Design Studio
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1404
+source-wordcount: '1404'
 ht-degree: 6%
-
 ---
-
 # 用户管理
 
 [用户管理终结点引用](https://developer.adobe.com/marketo-apis/api/user/)
@@ -30,9 +39,9 @@ Marketo用户管理端点对用户记录执行CRUD操作。 要创建用户，�
 与其他Marketo REST API不同，在使用用户管理API时：
 
 - 以HTTP标头发送访问令牌。 您不能将访问令牌作为查询字符串参数传递。 请参阅[身份验证指南](authentication.md)。
-- 创建REST API [自定义服务](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)的用户角色时，从以下每个组中选择权限：
-  1. 来自[访问管理员](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组的“访问用户”权限
-  1. 从[Access API](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组访问“Access User Management Api”
+- 创建REST API [自定义服务](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)的用户角色时，从以下每个组中选择权限：
+  1. 来自[访问管理员](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组的“访问用户”权限
+  1. 从[Access API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)组访问“Access User Management Api”
 - 评估HTTP响应状态代码，因为响应正文不包含“success”布尔属性。 成功的调用返回状态代码200。 失败的调用返回非200状态代码和标准“错误”数组，其中含有错误代码和描述性消息。
 - 将日期时间字符串格式设置为`yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`。 此格式适用于`createdAt`、`updatedAt`和`expiresAt`。
 - 请勿为用户管理API端点添加“/rest”前缀。
@@ -312,11 +321,11 @@ GET /userservice/management/v1/users/workspaces.json
 
 ## 邀请用户
 
-在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持[仅API用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的邀请。 要邀请[标准用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
+在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持[仅API用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的邀请。 要邀请[标准用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
 
 [邀请用户](https://developer.adobe.com/marketo-apis/api/user#operation/inviteUserUsingPOST)端点向新用户发送“欢迎使用Marketo”电子邮件邀请。 该电子邮件包含“登录到Marketo”链接。 收件人将选择链接、创建密码并获得对Marketo的访问权限。
 
-在收件人接受邀请之前，其状态为“待处理”，无法编辑用户记录。 待处理的邀请将在发送七天后过期。 有关详细信息，请参阅[Marketo用户管理文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)。
+在收件人接受邀请之前，其状态为“待处理”，无法编辑用户记录。 待处理的邀请将在发送七天后过期。 有关详细信息，请参阅[Marketo用户管理文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)。
 
 以`application/json`格式传递请求正文中的参数。
 
@@ -324,7 +333,7 @@ GET /userservice/management/v1/users/workspaces.json
 
 `userid`参数是用于登录的唯一用户标识符，必须格式化为电子邮件地址。 如果请求省略`userid`，则其值默认为`emailAddress`的值。
 
-布尔`apiOnly`参数指定用户是否为[仅限API的用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 `expiresAt`参数指定用户登录过期的时间，并使用W3C ISO-8601格式，不带毫秒。 如果请求省略`expiresAt`，则用户永不过期。 `reason`参数描述了邀请的原因。
+布尔`apiOnly`参数指定用户是否为[仅限API的用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 `expiresAt`参数指定用户登录过期的时间，并使用W3C ISO-8601格式，不带毫秒。 如果请求省略`expiresAt`，则用户永不过期。 `reason`参数描述了邀请的原因。
 
 邀请成功时，端点会返回“true”。 否则，它会返回一条错误消息。
 
@@ -356,7 +365,7 @@ Content-Type: application/json
 true
 ```
 
-下图显示了发送给新用户的“欢迎使用Marketo”电子邮件。 主题是“Marketo登录信息”。 发件人是与[REST API自定义服务](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)关联的仅API用户的电子邮件地址。 firstName、lastName和emailAddress参数指定收件人。
+下图显示了发送给新用户的“欢迎使用Marketo”电子邮件。 主题是“Marketo登录信息”。 发件人是与[REST API自定义服务](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)关联的仅API用户的电子邮件地址。 firstName、lastName和emailAddress参数指定收件人。
 
 ![邀请用户电子邮件](assets/invite-user-email.png)
 
@@ -368,7 +377,7 @@ true
 
 ### 更新用户属性
 
-在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持更新[仅限API的用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的属性。 要更新[标准用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)的属性，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
+在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此终结点仅支持更新[仅限API的用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)的属性。 要更新[标准用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)的属性，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
 
 [更新用户属性](https://developer.adobe.com/marketo-apis/api/user#operation/updateUserAttributeUsingPOST)终结点采用单个`userid`路径参数并返回单个用户记录。 请求正文包含一个或多个要更新的用户属性： `emailAddress`、`firstName`、`lastName`、`expiresAt`。
 
@@ -423,7 +432,7 @@ Content-Type: application/json
 
 #### 删除用户
 
-在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此端点仅支持删除[仅限API的用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 要删除[标准用户](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
+在[Adobe IMS集成订阅](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview)上，此端点仅支持删除[仅限API的用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user)。 要删除[标准用户](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users)，请改用[Adobe用户管理API](https://developer.adobe.com/umapi/)。
 
 [删除用户](https://developer.adobe.com/marketo-apis/api/user#operation/deleteUserUsingPOST)终结点采用单个`userid`路径参数并从实例中删除相应的用户。 这是破坏性删除，无法撤消。 如果成功，则返回200状态代码，否则返回错误消息。
 

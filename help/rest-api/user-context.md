@@ -3,33 +3,42 @@ title: 用户上下文
 feature: REST API
 description: 了解如何启用并使用Marketo RTP User Context API来设置自定义变量、跨访问读取用户数据以及跟踪查看和单击的营销活动。
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
-TQID: https://experienceleague.adobe.com/Ph0Tw-C9jzWaR4bYyUIXyzzoa2yjHQk2gt6tNA8H2mA
+TQID: 'https://experienceleague.adobe.com/Ph0Tw-C9jzWaR4bYyUIXyzzoa2yjHQk2gt6tNA8H2mA'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+    internal-label: Implementation
   - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
 subfeature_v2:
   - id: a1d50dda-6d94-4e16-8c30-5eb7181c4650
+    internal-label: Segmentation
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+    internal-label: Implementation
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Personalization
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 273
+source-wordcount: '273'
 ht-degree: 5%
-
 ---
-
 # 用户上下文
 
 用户上下文JavaScript API跨多个会话公开用户级别和访客级别的数据。 使用历史行为和数据创建高级个性化。
 
 该API还提供了用于将数据和事件发送到RTP后端以进行分段和个性化的自定义变量。 查看相关的[触发器](../javascript-api/triggers.md)和[模式匹配](../javascript-api/pattern-match.md)功能。
 
-- 您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)。
+- 您必须是Web Personalization客户并在您的网站上部署[RTP标记](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)。
 - 您必须请求Marketo支持来启用用户上下文API。 启用后，userContext对象将在RTP全局对象下显示。
 
 ## 用户上下文属性
@@ -52,7 +61,7 @@ ht-degree: 5%
 | --- | --- | --- | --- |
 | `'set'` | 必需 | 字符串 | 方法操作。 |
 | `customVar` | 必需 | 字符串 | 自定义变量名称。 |
-| `my_custom_value` | 必需 | 字符串 | 要保存在索引1-5中的自定义变量上的自定义值。 |
+| `my_custom_value` | 必填 | 字符串 | 要保存在索引1-5中的自定义变量上的自定义值。 |
 
 自定义变量仅在视图调用中发送到RTP。 在视图调用之前设置自定义变量。 否则，将在下次视图调用中发送变量。
 

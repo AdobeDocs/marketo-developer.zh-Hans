@@ -3,20 +3,23 @@ title: 富媒体推荐
 description: 使用Marketo预测内容RTP标记、template1 template2 template3 div、GET要填充、SET要配置类别来设置富媒体推荐。
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-TQID: https://experienceleague.adobe.com/ygm5h1FJZZW4mC318-fRR3VAcO6j1sitcAeqIUjDTbI
+TQID: 'https://experienceleague.adobe.com/ygm5h1FJZZW4mC318-fRR3VAcO6j1sitcAeqIUjDTbI'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
+  - id: dda1332a-c3e0-583f-9d9b-15f1934e0ad3
+    internal-label: Javascript
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 814
-ht-degree: 4%
-
+source-wordcount: '814'
+ht-degree: 3%
 ---
-
 # 富媒体推荐
 
 要显示富媒体推荐模板，请向页面添加所需的标记和API调用。
@@ -28,14 +31,14 @@ ht-degree: 4%
 1. 在页面正文中：
    1. 将模板标记（div类）放置在要显示模板的位置。
 
-有关详细信息，请参阅[为Web富媒体启用预测内容](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)。
+有关详细信息，请参阅[为Web富媒体启用预测内容](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media)。
 
 ## 模板标记
 
 | 属性 | 可选/必填 | 描述 |
 | --- | --- | --- |
-| 类 | 必需 | 将div HTML元素标识为RTP推荐div。 |
-| data-rtp-template-id | 必需 | 确定推荐对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行垂直对齐，其中只包含标题和描述。 脚本将匹配模板注入此`div`。 允许值：template1、template2、template3。 |
+| 类 | 必填 | 将div HTML元素标识为RTP推荐div。 |
+| data-rtp-template-id | 必填 | 确定推荐对齐方式。 使用“template1”进行水平对齐，“template2”进行垂直对齐，或“template3”进行垂直对齐，其中只包含标题和描述。 脚本将匹配模板注入此`div`。 允许值：template1、template2、template3。 |
 
 ### 示例
 

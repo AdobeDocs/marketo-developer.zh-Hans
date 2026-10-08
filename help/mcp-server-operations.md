@@ -15,10 +15,13 @@ feature_v2:
     internal-label: APIs
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
     internal-label: Programs
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '1214'
 ht-degree: 25%
@@ -28,7 +31,7 @@ ht-degree: 25%
 
 以下操作可通过[!DNL Marketo Engage] MCP服务器使用。 服务器提供只读或无损端点。 AI系统无法使用`Delete`或其他破坏性操作。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 ## 批量导出
 

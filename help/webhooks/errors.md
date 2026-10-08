@@ -3,18 +3,24 @@ title: 错误数
 feature: Webhooks
 description: 了解Marketo webhook错误代码，为什么更新潜在客户字段需要2xx响应，以及如何使用Webhook捕获和处理错误。
 exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
-TQID: https://experienceleague.adobe.com/N2jNA4EUMMTUFL9uJHZhOor6Tlz4-EXWciwoXrPml48
+TQID: 'https://experienceleague.adobe.com/N2jNA4EUMMTUFL9uJHZhOor6Tlz4-EXWciwoXrPml48'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
+subfeature_v2:
+  - id: fc9b09fe-b844-4544-887b-e420c3b82065
+    internal-label: Webhooks
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 210
+source-wordcount: '210'
 ht-degree: 2%
-
 ---
-
 # 错误数
 
 本页介绍了Marketo Webhook的错误响应代码并说明了如何处理Webhook错误。

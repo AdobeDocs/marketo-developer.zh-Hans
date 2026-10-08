@@ -3,29 +3,38 @@ title: 字段类型
 feature: REST API
 description: 包含定义、示例和格式的Marketo字段类型的完整列表，包括ISO 8601日期时间、文本区域限制、货币和布尔值。
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-TQID: https://experienceleague.adobe.com/Q-L1NCCS1caYip-niSrBAkp6k37ErzmsLCFvn7fRJW0
+TQID: 'https://experienceleague.adobe.com/Q-L1NCCS1caYip-niSrBAkp6k37ErzmsLCFvn7fRJW0'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
 subfeature_v2:
   - id: ad89fb33-8541-4339-afe7-bb13d1633714
+    internal-label: Flow Step
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 371
+source-wordcount: '371'
 ht-degree: 8%
-
 ---
-
 # 字段类型
 
-下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型[&#128279;](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的Marketo字段限制。
+下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的[Marketo字段限制。
 
 | 字段类型 | 描述 | 示例 |
 | --- | --- | --- |
@@ -33,7 +42,7 @@ ht-degree: 8%
 | 电子邮件 | 接受电子邮件地址的字符串字段 | <example@example.com> |
 | 浮点值 | 一个数字字段，包含实数并且可以使用小数位。 | 10.4 |
 | 整数 | 整数 | 10 |
-| 公式 | 其值通过处理潜在客户记录上存在的其他字段的数据而生成的字段。 它们不会导出，并且无法在Smart Campaigns中使用。 | 查看此[文章](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| 公式 | 其值通过处理潜在客户记录上存在的其他字段的数据而生成的字段。 它们不会导出，并且无法在Smart Campaigns中使用。 | 查看此[文章](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | 百分比 | 以整数表示的百分比 | 30 |
 | URL | 一个文本字段，用于限制对URL的输入，包括URL的协议。 | <http://example.com/> |
 | 电话 | 电话号码 | 111-111-1111 |

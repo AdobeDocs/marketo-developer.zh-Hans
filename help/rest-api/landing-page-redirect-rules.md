@@ -3,31 +3,41 @@ title: 登陆页面重定向规则
 feature: REST API, Landing Pages
 description: 使用Marketo Asset REST API创建、查询、更新和删除登陆页面重定向规则，这些规则包含过滤器、分页、主机名选项以及非Marketo目标。
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-TQID: https://experienceleague.adobe.com/2gePbKA3xeoRdnL8mNnObN-GPTX00Ii4-zcM0lBjs-o
+TQID: 'https://experienceleague.adobe.com/2gePbKA3xeoRdnL8mNnObN-GPTX00Ii4-zcM0lBjs-o'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: edda586e-0147-48f2-b791-992622a00783
+    internal-label: Landing pages
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 596
+source-wordcount: '596'
 ht-degree: 3%
-
 ---
-
 # 登陆页面重定向规则
 
 [登陆页面重定向规则端点参考](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules)
 
 使用登陆页面重定向规则REST API查询、创建、更新和删除登陆页面重定向URL。
 
-重定向规则将一个登陆页面URL发送到另一个页面URL。 源和目标可以是Marketo页面或非Marketo页面。 有关相关产品文档，请参阅[Marketo Engage文档](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。
+重定向规则将一个登陆页面URL发送到另一个页面URL。 源和目标可以是Marketo页面或非Marketo页面。 有关相关产品文档，请参阅[Marketo Engage文档](https://experienceleague.adobe.com/docs/marketo/using/home.html)。
 
 ## 查询
 
-按ID[&#128279;](#by_id)或[浏览](#browse)查询登陆页面重定向规则。
+按ID](#by_id)或[浏览](#browse)查询登陆页面重定向规则[。
 
 ### 按Id
 
@@ -162,7 +172,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 | Marketo | landingPageId | {&quot;type&quot;：&quot;landingPageId&quot;，&quot;value&quot;：&quot;1774&quot;} |
 | 非Marketo | url | {&quot;type&quot;：&quot;url&quot;，&quot;value&quot;：&quot;www.contactLogs.com&quot;} |
 
-有关详细信息，请参阅[将Marketo登录页面重定向到其他页面](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=zh-Hans)。
+有关详细信息，请参阅[将Marketo登录页面重定向到其他页面](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html)。
 
 ```http
 POST /rest/asset/v1/redirectRules.json

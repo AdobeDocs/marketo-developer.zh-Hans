@@ -3,26 +3,30 @@ title: 应用程序内消息
 feature: Mobile Marketing
 description: 使用Mobile SDK设置Marketo应用程序内消息，配置自定义事件触发器，跟踪点按活动，以及修复第一个应用程序打开初始化问题。
 exl-id: 73c9f862-d154-4b37-94ce-92311aa756e8
-TQID: https://experienceleague.adobe.com/RVkEUBaFb-PHd0gE9ngzYc5zOojINwSI7ic2TmcU7-8
+TQID: 'https://experienceleague.adobe.com/RVkEUBaFb-PHd0gE9ngzYc5zOojINwSI7ic2TmcU7-8'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: c1579802-ddd4-4214-8a91-97b2066abe11
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Troubleshooting
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 321
+source-wordcount: '321'
 ht-degree: 2%
-
 ---
-
 # 应用程序内消息
 
 完成以下步骤以使用Marketo应用程序内消息传送：
 
 1. 按照[Mobile Installation](installation.md)中的说明安装Marketo Mobile SDK。
-1. 将您的移动应用程序添加到Marketo，如[添加移动应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)中所述。
+1. 将您的移动应用程序添加到Marketo，如[添加移动应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)中所述。
 1. 可选：向移动应用添加代码以捕获[自定义操作](custom-actions.md)。
 
 安装Marketo Mobile SDK并将您的应用程序添加到Marketo后，您可以发送在用户打开您的应用程序时显示的应用程序内消息。
@@ -43,4 +47,4 @@ ht-degree: 2%
 
 要跟踪点按活动并根据点按次数确定显示频率，请将“关闭”以外的操作分配给主按钮或辅助按钮。
 
-有关详细信息，请参阅产品文档中的[应用程序内消息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message)。
+有关详细信息，请参阅产品文档中的[应用程序内消息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message)。

@@ -3,20 +3,24 @@ title: 高级安全访问模式
 feature: Mobile Marketing
 description: 通过HMAC签名生成、服务器端设置、设备ID使用以及Marketo和Android示例，了解iOS Mobile SDK的高级安全访问模式
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
-TQID: https://experienceleague.adobe.com/F6lH1aGbCakK-E6IU4wLwYw58BG2-CRE-Ras2bMHeO8
+TQID: 'https://experienceleague.adobe.com/F6lH1aGbCakK-E6IU4wLwYw58BG2-CRE-Ras2bMHeO8'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: d095671a-1355-40aa-8b5f-06c33c68080b
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Security
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 217
+source-wordcount: '217'
 ht-degree: 1%
-
 ---
-
 # 高级安全访问模式
 
 高级安全访问模式要求Marketo SDK检索和设置安全签名。 SDK提供了设置和删除签名的方法，以及检索设备ID的实用程序方法。

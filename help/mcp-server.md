@@ -29,10 +29,12 @@ feature_v2:
 role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
     internal-label: Developer
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 6bbf9fa5b8192e02d7a465a652346545ae216450
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '2176'
 ht-degree: 0%
@@ -44,7 +46,7 @@ ht-degree: 0%
 
 当您的AI工具调用MCP服务器时，服务器使用该请求中的凭据执行相应的REST API调用。 您无需安装、部署或运行服务器端软件。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 >[!IMPORTANT]
 >
@@ -168,7 +170,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 ### 光标 {#cursor}
 
 如果游标MCP配置已包含其他服务器，请在`mcpServers`下添加`marketo`项。
-以下示例显示项目目录中&#x200B;**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
+以下示例显示项目目录中**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
 
 ```json
 {

@@ -3,33 +3,44 @@ title: 计划成员
 feature: REST API
 description: 使用Marketo REST API读取、创建、更新和删除程序成员，管理标准和自定义字段，以及使用可搜索字段进行查询。
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
-TQID: https://experienceleague.adobe.com/scEHyXYq9C7cCS1kIX810wG7ahT9fsa448NwIfBmzQM
+TQID: 'https://experienceleague.adobe.com/scEHyXYq9C7cCS1kIX810wG7ahT9fsa448NwIfBmzQM'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+    internal-label: Metadata
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1632
+source-wordcount: '1632'
 ht-degree: 2%
-
 ---
-
 # 计划成员
 
 [程序成员终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members)
 
 Marketo提供了用于读取、创建、更新和删除程序成员记录的API。 商机ID字段将项目成员记录与商机记录相关联。
 
-每个记录包含标准字段，最多可包含20个自定义字段。 这些字段存储特定于项目的成员数据，以便在表单、筛选器、触发器和流操作中使用。 您可以在Marketo Engage UI的程序[成员选项卡](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
+每个记录包含标准字段，最多可包含20个自定义字段。 这些字段存储特定于项目的成员数据，以便在表单、筛选器、触发器和流操作中使用。 您可以在Marketo Engage UI的程序[成员选项卡](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members)中查看此数据。
 
 ## 描述
 
@@ -635,9 +646,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### 创建字段
 
-[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/createProgramMemberFieldUsingPOST)端点在程序成员对象上创建自定义字段。 它提供的功能与[Marketo Engage UI](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)相当。 您最多可以使用此端点创建20个自定义字段。
+[创建程序成员字段](https://developer.adobe.com/marketo-apis/api/mapi#operation/createProgramMemberFieldUsingPOST)端点在程序成员对象上创建自定义字段。 它提供的功能与[Marketo Engage UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields)相当。 您最多可以使用此端点创建20个自定义字段。
 
-在生产Marketo Engage实例中创建每个字段之前，请仔细考虑每个字段。 创建字段后不能将其删除；[只能隐藏它](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)。 未使用的字段会为实例添加待筛选项。
+在生产Marketo Engage实例中创建每个字段之前，请仔细考虑每个字段。 创建字段后不能将其删除；[只能隐藏它](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)。 未使用的字段会为实例添加待筛选项。
 
 所需的`input`参数是程序成员字段对象的数组。 每个对象都包含一个或多个属性。
 

@@ -3,32 +3,42 @@ title: 自定义对象
 feature: REST API, Custom Objects
 description: 了解如何通过REST API创建和管理Marketo自定义对象，包括列出和描述端点、元数据、关系、字段和查询。
 exl-id: 88e8829b-f8f1-46d7-a753-5aa6e20e2c40
-TQID: https://experienceleague.adobe.com/NWm9CjFVqQdVDJRrnE4nA299-Lg53-JR7xvY-82dUqY
+TQID: 'https://experienceleague.adobe.com/NWm9CjFVqQdVDJRrnE4nA299-Lg53-JR7xvY-82dUqY'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
 subfeature_v2:
   - id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
+    internal-label: Custom objects
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+    internal-label: Metadata
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 2844
+source-wordcount: '2844'
 ht-degree: 0%
-
 ---
-
 # 自定义对象
 
 [**自定义对象终结点引用**](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects)
 
-Marketo自定义对象可以与Marketo标准对象（如潜在客户和公司）相关联，也可以与其他Marketo自定义对象相关联。 在[Marketo UI](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)中创建Marketo自定义对象，或者使用本文档中所述的自定义对象元数据API创建自定义对象。
+Marketo自定义对象可以与Marketo标准对象（如潜在客户和公司）相关联，也可以与其他Marketo自定义对象相关联。 在[Marketo UI](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)中创建Marketo自定义对象，或者使用本文档中所述的自定义对象元数据API创建自定义对象。
 
 访问自定义对象元数据API需要适当的Marketo订阅类型。 有关详细信息，请与您的CSM联系。
 
@@ -869,7 +879,7 @@ POST /rest/v1/customobjects/schema.json
 
 当您使用“同步自定义对象类型”或“添加/更新/删除自定义对象类型字段”端点修改现有类型时，Marketo会创建一个草稿。 对类型或其字段的更改仅影响草稿版本。 进行更改后，批准草稿。 批准会将批准的版本替换为草稿，并删除草稿。
 
-有关详细信息，请参阅[自定义对象审批文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object)。
+有关详细信息，请参阅[自定义对象审批文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object)。
 
 自定义对象类型获得批准后，您无法：
 
@@ -883,7 +893,7 @@ POST /rest/v1/customobjects/schema.json
 
 使用[批准自定义对象类型](https://developer.adobe.com/marketo-apis/api/mapi#operation/approveCustomObjectTypeUsingPOST)端点将草稿作为新批准的版本发布。 唯一必需的参数是&#x200B;**apiName**&#x200B;路径参数。
 
-仅当类型处于草稿状态并满足记录的[验证规则](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object)时，才能批准该类型。
+仅当类型处于草稿状态并满足记录的[验证规则](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object)时，才能批准该类型。
 
 ```http
 POST /rest/v1/customobjects/schema/{apiName}/approve.json
@@ -946,7 +956,7 @@ POST /rest/v1/customobjects/schema/{apiName}/delete.json
 - 至少需要一个重复数据删除字段。 最多允许三个重复数据消除字段。
 - 字段API名称和显示名称可以包含字母数字字符和下划线字符“_”。
 
-有关详细信息，请参阅[自定义对象字段文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。
+有关详细信息，请参阅[自定义对象字段文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。
 
 ### 添加字段
 
@@ -961,16 +971,16 @@ POST /rest/v1/customobjects/schema/{apiName}/delete.json
 - `isDedupeField`：可选布尔值，指定在自定义对象更新操作期间是否将该字段用于去重。 默认值为false。 一对多关系需要重复数据删除字段。
 - `relatedTo`：指定链接字段的可选对象。 对于一对多关系，`name`标识“链接对象”或父对象，`field`标识父对象中的“链接字段”或键字段。
 
-自定义对象可以包含数据类型为“link”的字段。 链接字段在自定义对象和其他对象类型（如商机和公司）之间建立关系。 有关链接字段的详细信息，请参阅[自定义对象字段文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。 使用[获取自定义对象可链接对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET)端点检索允许的链接对象。
+自定义对象可以包含数据类型为“link”的字段。 链接字段在自定义对象和其他对象类型（如商机和公司）之间建立关系。 有关链接字段的详细信息，请参阅[自定义对象字段文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。 使用[获取自定义对象可链接对象](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET)端点检索允许的链接对象。
 
-自定义对象无法链接到具有现有链接字段的其他自定义对象。 有关详细信息，请参阅[链接字段文档](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。
+自定义对象无法链接到具有现有链接字段的其他自定义对象。 有关详细信息，请参阅[链接字段文档](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields)。
 
 ### 一对多关系
 
-对于一对多自定义对象结构，请使用链接字段将自定义对象连接到标准Lead或Company对象。 以下工作流使用[车主示例](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure)创建存储车信息并连接到潜在客户的自定义对象。
+对于一对多自定义对象结构，请使用链接字段将自定义对象连接到标准Lead或Company对象。 以下工作流使用[车主示例](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure)创建存储车信息并连接到潜在客户的自定义对象。
 
 1. 创建&#x200B;**Car**&#x200B;对象。
-1. 向&#x200B;**Car**&#x200B;对象添加字段：**VIN**&#x200B;上的重复数据删除以及指向&#x200B;**潜在客户**&#x200B;**/潜在客户ID**&#x200B;的链接。
+1. 向&#x200B;**Car**&#x200B;对象添加字段：**VIN**&#x200B;上的重复数据删除以及指向&#x200B;**潜在客户****/潜在客户ID**的链接。
 1. 批准&#x200B;**Car**&#x200B;对象。
 
 首先，创建包含汽车特定信息的自定义对象类型。
@@ -1074,13 +1084,13 @@ POST /rest/v1/customobjects/schema/course/approve.json
 
 bridge对象解析与两个链接字段的关系。 一个字段指向父级标准对象，如一对多关系。 另一个指向边缘对象，该对象是没有链接的自定义对象。 桥接对象还可以包含描述性字段。
 
-以下工作流使用[大学课程注册示例](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure)。 它会创建一个Course Edge对象和一个Enrollment bridge对象，用于将课程与潜在客户连接起来。
+以下工作流使用[大学课程注册示例](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure)。 它会创建一个Course Edge对象和一个Enrollment bridge对象，用于将课程与潜在客户连接起来。
 
 1. 创建&#x200B;**课程**&#x200B;边缘对象。
 1. 向&#x200B;**课程：**&#x200B;添加字段，以便对&#x200B;**课程ID**&#x200B;进行重复数据删除。
 1. 批准&#x200B;**课程**。
 1. 创建&#x200B;**注册**&#x200B;桥接对象。
-1. 向&#x200B;**注册：**&#x200B;注册ID **上的重复数据删除**&#x200B;添加字段，链接到&#x200B;**课程**&#x200B;**/课程ID**&#x200B;字段，以及链接到&#x200B;**潜在客户**&#x200B;**/潜在客户ID**。
+1. 向&#x200B;**注册：**&#x200B;注册ID **上的重复数据删除**&#x200B;添加字段，链接到&#x200B;**课程****/课程ID**&#x200B;字段，以及链接到**潜在客户****/潜在客户ID**。
 1. 批准&#x200B;**注册**。
 
 首先，创建包含课程特定信息的边缘对象类型：
@@ -1259,7 +1269,7 @@ POST /rest/v1/customobjects/schema/enrollment/approve.json
 }
 ```
 
-使用[同步自定义对象](#create_and_update)或[批量自定义对象导入](https://experienceleague.adobe.com/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import.html?lang=zh-Hans)，以编程方式填充自定义对象记录。 或者，在Marketo UI中使用[导入自定义对象数据](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/marketo-custom-objects/import-custom-object-data)。
+使用[同步自定义对象](#create_and_update)或[批量自定义对象导入](https://experienceleague.adobe.com/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import.html?lang=en)，以编程方式填充自定义对象记录。 或者，在Marketo UI中使用[导入自定义对象数据](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/import-custom-object-data)。
 
 ## 更新字段
 

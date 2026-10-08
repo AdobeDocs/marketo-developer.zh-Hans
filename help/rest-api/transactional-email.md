@@ -3,21 +3,28 @@ title: 事务性电子邮件
 feature: REST API
 description: 了解如何为Marketo配置事务性电子邮件，并通过REST API请求营销活动触发这些电子邮件，以及设置步骤和Java代码示例。
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-TQID: https://experienceleague.adobe.com/eUw2THnwDdIuEO3MsuG4cSaoPnKVvdZ0ZTV-gxP-pJQ
+TQID: 'https://experienceleague.adobe.com/eUw2THnwDdIuEO3MsuG4cSaoPnKVvdZ0ZTV-gxP-pJQ'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 891
+source-wordcount: '891'
 ht-degree: 1%
-
 ---
-
 # 事务性电子邮件
 
 使用[请求营销活动](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST) API向特定Marketo记录发送事务性电子邮件。 在发出请求之前，配置电子邮件并触发营销活动。
@@ -26,7 +33,7 @@ ht-degree: 1%
 - 在Marketo实例中创建和批准事务型电子邮件。
 - 激活使用“Campaign is Requested， 1”的触发器营销活动。 Source： Web服务API”并发送电子邮件。
 
-首先，[创建和批准电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 如果电子邮件在法律上符合操作条件，请在“电子邮件操作”>“电子邮件设置”下将其配置为可操作：
+首先，[创建和批准电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html)。 如果电子邮件在法律上符合操作条件，请在“电子邮件操作”>“电子邮件设置”下将其配置为可操作：
 
 ![Request-Campaign-Email-Settings](assets/request-campaign-email-settings.png)
 
@@ -36,7 +43,7 @@ ht-degree: 1%
 
 ![RequestCampaign-Prove-Draft](assets/request-campaign-approve-draft.png)
 
-如果需要，请参阅[创建新的Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=zh-Hans)。 使用Campaign is Requested触发器配置活动的智能列表：
+如果需要，请参阅[创建新的Smart Campaign](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html)。 使用Campaign is Requested触发器配置活动的智能列表：
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -192,7 +199,7 @@ public class RequestCampaign {
 
 ### 构建电子邮件
 
-若要自定义我们的内容，我们必须首先在Marketo中配置[程序](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=zh-Hans)和[电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=zh-Hans)。 要生成自定义内容，我们必须在程序中创建令牌，然后将它们放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以替换电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中任何内容的任何数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。
+若要自定义我们的内容，我们必须首先在Marketo中配置[程序](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html)和[电子邮件](https://experienceleague.adobe.com/docs/marketo/using/home.html)。 要生成自定义内容，我们必须在程序中创建令牌，然后将它们放入要发送的电子邮件中。 为了方便起见，在本例中，我们仅使用一个令牌，但您可以替换电子邮件、发件人电子邮件、发件人姓名、回复或电子邮件中任何内容的任何数量的令牌。 因此，让我们创建一个用于替换的令牌富文本，并将其称为“bodyReplacement”。 富文本允许我们将令牌中的任何内容替换为我们要输入的任意HTML。
 
 ![新令牌](assets/New-Token.png)
 

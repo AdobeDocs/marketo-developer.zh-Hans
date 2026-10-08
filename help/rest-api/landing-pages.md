@@ -3,23 +3,35 @@ title: 登陆页面
 feature: REST API, Landing Pages
 description: 使用Marketo REST API查询元数据和内容，创建、更新、批准、删除和克隆登陆页面，包括引导式和自由格式类型。
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-TQID: https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE
+TQID: 'https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: edda586e-0147-48f2-b791-992622a00783
+    internal-label: Landing pages
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 864
+source-wordcount: '864'
 ht-degree: 2%
-
 ---
-
 # 登陆页面
 
 [登陆页面端点引用](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages)
@@ -28,7 +40,7 @@ ht-degree: 2%
 
 ## 查询
 
-按名称[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByNameUsingGET)、[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/browseLandingPagesUsingGET)查询登陆页面。 这些查询仅返回元数据。 按页面ID单独查询登陆页面的内容部分。
+按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByNameUsingGET)、[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/browseLandingPagesUsingGET)查询登陆页面[。 这些查询仅返回元数据。 按页面ID单独查询登陆页面的内容部分。
 
 查询登陆页面内容将返回其可用的内容部分。 必须先在此列表中显示一个节，然后才能更新它。
 
@@ -292,7 +304,7 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 

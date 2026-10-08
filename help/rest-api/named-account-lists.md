@@ -3,25 +3,31 @@ title: 指定帐户列表
 feature: REST API
 description: 了解如何使用REST API管理Marketo指定帐户列表，包括权限、字段、筛选以及用于查询、创建、更新和删除的端点。
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-TQID: https://experienceleague.adobe.com/18lMhheW21Gz1-3TMHwleHhmLTOqJsZSQ5aqkbbchhM
+TQID: 'https://experienceleague.adobe.com/18lMhheW21Gz1-3TMHwleHhmLTOqJsZSQ5aqkbbchhM'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 686
+source-wordcount: '686'
 ht-degree: 2%
-
 ---
-
 # 指定帐户列表
 
 [命名帐户列出终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[指定帐户列表](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/target-account-management/target/account-lists)是Marketo中的指定帐户的集合。 可使用它们进行分类、数据扩充和智能营销活动筛选。
+[指定帐户列表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists)是Marketo中的指定帐户的集合。 可使用它们进行分类、数据扩充和智能营销活动筛选。
 
 通过指定帐户列表API，可远程管理列表资产及其成员资格。
 `Content`

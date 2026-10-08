@@ -3,26 +3,35 @@ title: 商机跟踪
 description: 了解如何嵌入Marketo Munchkin JavaScript、跟踪访问和点击量、管理已知和匿名潜在客户、跨域Cookie以及选择退出智能营销活动。
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-TQID: https://experienceleague.adobe.com/nGUcLLgL9X7PBKf2E5IzppDj8e-SyEtxmkQaESd90mE
+TQID: 'https://experienceleague.adobe.com/nGUcLLgL9X7PBKf2E5IzppDj8e-SyEtxmkQaESd90mE'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+  - id: 1c1a93b2-f024-5627-9905-6faf6fcc22be
+    internal-label: Munchkin Tracking Code
+  - id: dda1332a-c3e0-583f-9d9b-15f1934e0ad3
+    internal-label: Javascript
 subfeature_v2:
   - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+    internal-label: Smart lists
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 716
+source-wordcount: '716'
 ht-degree: 0%
-
 ---
-
 # 商机跟踪API
 
 Marketo的Munchkin JavaScript跟踪Marketo登陆页面和外部网页上的页面访问次数和链接点击次数。 Marketo将这些交互记录为“访问网页”和“已单击网页上的链接”活动。
@@ -123,7 +132,7 @@ Munchkin Cookie特定于每个二级域，如`example.com`。 默认的Cookie生
 
 ## Beta 版
 
-要选择启用登陆页面的Munchkin测试版渠道，请转到[管理员 — > Treasure Chest](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)并启用“登陆页面上的Munchkin Beta”设置。
+要选择启用登陆页面的Munchkin测试版渠道，请转到[管理员 — > Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features)并启用“登陆页面上的Munchkin Beta”设置。
 
 此设置将代码段添加到&#x200B;**[!UICONTROL Admin]** -> **[!UICONTROL Munchkin]**&#x200B;菜单。 使用这些代码片段在外部网站上运行测试版。
 
