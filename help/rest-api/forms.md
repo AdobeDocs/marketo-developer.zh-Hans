@@ -928,7 +928,7 @@ Content-Type: text/html
 
 表单中的字段必须唯一。 同一字段不能同时出现在表单的父字段列表和子字段集中。
 
-添加具有[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldSetUsingPOST)终结点的字段集。 然后，该字段集将显示在表单[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormFieldByFormVidUsingGET)响应的获取字段中。 若要向字段集添加字段，请使用[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST)以将其移动到其`fieldList`中。
+添加具有[将字段集添加到Form](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldSetUsingPOST)终结点的字段集。 然后，该字段集将显示在表单](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormFieldByFormVidUsingGET)响应的[获取字段中。 若要向字段集添加字段，请使用[更新字段位置](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST)以将其移动到其`fieldList`中。
 
 对于这些端点，将数据作为`application/x-www-form-urlencoded`的POST发送，而不是作为JSON发送。
 

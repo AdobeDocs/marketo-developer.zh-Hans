@@ -35,7 +35,7 @@ ht-degree: 0%
 
 ### 先决条件
 
-1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 1. 可选： [设置推送通知](push-notifications.md)。
 
 ### 通过CocoaPods安装框架
@@ -149,7 +149,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### 先决条件
 
-1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 1. 可选： [设置推送通知](push-notifications.md#android_setup_push)。
 1. [下载适用于Android的Marketo SDK](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
@@ -223,7 +223,7 @@ MME SDK for Android支持直接使用Google的[Firebase Cloud Messaging](https:/
 
 1. 将最新的Marketo Android SDK集成到Android应用程序。 查看[GitHub](https://github.com/Marketo/android-sdk)上的步骤。
 1. 在Firebase控制台中配置Firebase应用程序。
-   1. 在[&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
+   1. 在[](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase控制台上创建/添加项目。
       1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)中选择`Add Project`。
       1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择`Add Firebase`。
       1. 在Firebase欢迎屏幕中，选择`Add Firebase to your Android App`。

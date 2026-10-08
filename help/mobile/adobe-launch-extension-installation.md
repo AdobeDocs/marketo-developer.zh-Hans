@@ -31,7 +31,7 @@ ht-degree: 1%
 
 ## 先决条件
 
-1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 1. [在 [!DNL Adobe Launch] 门户](https://experience.adobe.com/#/@amc/data-collection/home)中配置属性。
 1. 在[!DNL Adobe Launch]门户中为该属性配置应用程序密钥和Munchkin ID。
 1. 可选： [设置推送通知](push-notifications.md)。
@@ -173,7 +173,7 @@ MME SDK for Android支持直接使用Google的[Firebase Cloud Messaging](https:/
 
 1. 将最新的Marketo Android SDK集成到Android应用程序。 查看[GitHub](https://github.com/Marketo/android-sdk)上的步骤。
 1. 在Firebase控制台中配置Firebase应用程序。
-   1. 在[&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase控制台中创建或添加项目。
+   1. 在[](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase控制台中创建或添加项目。
       1. 在[Firebase控制台](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
       1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
       1. 在Firebase欢迎屏幕中，选择&#x200B;**[!UICONTROL Add Firebase to your Android App]**。

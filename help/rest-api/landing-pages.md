@@ -40,7 +40,7 @@ ht-degree: 2%
 
 ## 查询
 
-按名称[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByNameUsingGET)、[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/browseLandingPagesUsingGET)查询登陆页面。 这些查询仅返回元数据。 按页面ID单独查询登陆页面的内容部分。
+按名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByNameUsingGET)、[按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByIdUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/browseLandingPagesUsingGET)查询登陆页面[。 这些查询仅返回元数据。 按页面ID单独查询登陆页面的内容部分。
 
 查询登陆页面内容将返回其可用的内容部分。 必须先在此列表中显示一个节，然后才能更新它。
 
@@ -304,7 +304,7 @@ segment=New Segment&value=New Content
 </head>
 ```
 
-有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
+有关详细信息，请参阅[创建引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)文档中的“可编辑变量”部分。
 
 ### 查询
 

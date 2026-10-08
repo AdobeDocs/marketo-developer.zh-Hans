@@ -40,11 +40,11 @@ ht-degree: 2%
 
 Marketo提供自由格式和引导式登陆页面模板。 自由格式模板提供了结构松散的编辑体验。 引导式模板可以在模板级别限制元素类型和位置。
 
-有关详细的比较，请参阅[了解自由表单与引导式登陆页面](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages)。
+有关详细的比较，请参阅[了解自由表单与引导式登陆页面](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages)。
 
 ## 查询
 
-按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplatesUsingGET)查询登陆页面模板。 这些端点返回模板元数据。 按ID分别检索每个模板的HTML内容。
+按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplatesUsingGET)查询登陆页面模板[。 这些端点返回模板元数据。 按ID分别检索每个模板的HTML内容。
 
 ## 创建和更新
 
@@ -191,9 +191,9 @@ name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 
 在批准之前，模板必须满足其引导式或自由格式表单类型的要求。 请参阅以下资源：
 
-- [自由格式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [引导式登陆页面模板](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [引导式模板示例](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [自由格式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [引导式登陆页面模板](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [引导式模板示例](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## 删除
 

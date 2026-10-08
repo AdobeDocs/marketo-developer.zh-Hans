@@ -31,7 +31,7 @@ ht-degree: 2%
 
 ## 先决条件
 
-1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
+1. [在Marketo管理员中添加应用程序](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app)并获取该应用程序的密钥和Munchkin ID。
 1. 为[iOS](push-notifications.md)或[Android](push-notifications.md)设置推送通知。
 1. [安装PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/)。
 
@@ -81,7 +81,7 @@ repositories{
 1. Firebase Cloud Messaging支持
 
 1. 在Firebase控制台中配置Firebase应用程序。
-   1. 在[&#128279;](https://console.firebase.google.com/)Firebase控制台中创建或添加项目。
+   1. 在[](https://console.firebase.google.com/)Firebase控制台中创建或添加项目。
       1. 在[Firebase控制台](https://console.firebase.google.com/)中选择&#x200B;**[!UICONTROL Add Project]**。
       1. 从现有Google Cloud项目列表中选择您的GCM项目，然后选择&#x200B;**[!UICONTROL Add Firebase]**。
       1. 在Firebase欢迎屏幕中，选择“将Firebase添加到Android应用程序”。
