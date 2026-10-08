@@ -44,7 +44,7 @@ Marketo提供自由格式和引导式登陆页面模板。 自由格式模板提
 
 ## 查询
 
-按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplatesUsingGET)查询登陆页面模板[。 这些端点返回模板元数据。 按ID分别检索每个模板的HTML内容。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplatesUsingGET)查询登陆页面模板。 这些端点返回模板元数据。 按ID分别检索每个模板的HTML内容。
 
 ## 创建和更新
 

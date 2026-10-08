@@ -33,7 +33,7 @@ Marketo文件存储未针对带宽密集型应用程序进行优化。 使用专
 
 ## 查询
 
-按ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getFilesUsingGET)查询文件[。
+按ID[&#128279;](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByIdUsingGET)、[名称](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByNameUsingGET)或[浏览](https://developer.adobe.com/marketo-apis/api/asset#operation/getFilesUsingGET)查询文件。
 
 ### 按Id
 

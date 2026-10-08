@@ -34,7 +34,7 @@ ht-degree: 8%
 ---
 # 字段类型
 
-下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的[Marketo字段限制。
+下表介绍了Marketo中可用的字段类型。 有关详细信息，请参阅[自定义字段类型术语表](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary)和按字段类型[&#128279;](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613)列出的Marketo字段限制。
 
 | 字段类型 | 描述 | 示例 |
 | --- | --- | --- |
