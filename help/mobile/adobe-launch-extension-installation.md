@@ -3,23 +3,28 @@ title: '[!DNL Adobe Launch]扩展安装'
 feature: Mobile Marketing
 description: 安装适用于移动设备的Adobe Launch Marketo扩展。 请按照iOS和Android的设置、测试设备、权限以及FCM步骤执行推送和应用程序内操作。
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-TQID: https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U
+TQID: 'https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Personalization
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 696
+source-wordcount: '696'
 ht-degree: 1%
-
 ---
-
 # [!DNL Adobe Launch]扩展安装
 
 安装[!DNL Adobe Launch] Marketo扩展以发送推送通知、应用程序内消息或同时发送这两者。

@@ -3,20 +3,26 @@ title: 响应映射
 feature: Webhooks
 description: Marketo Webhook会生成JSON和XML的响应映射，将属性映射到潜在客户字段、点和数组表示法以及类型兼容性。
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-TQID: https://experienceleague.adobe.com/-OGDeKLPS1KmWGIKj6BGq5DGXoCSj5ip-dVr7-kKDro
+TQID: 'https://experienceleague.adobe.com/-OGDeKLPS1KmWGIKj6BGq5DGXoCSj5ip-dVr7-kKDro'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
+subfeature_v2:
+  - id: fc9b09fe-b844-4544-887b-e420c3b82065
+    internal-label: Webhooks
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: bcf56d2102f2f60eac5ad3318d348fd020391e6b
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 369
+source-wordcount: '369'
 ht-degree: 0%
-
 ---
-
 # 响应映射
 
 Marketo可以从JSON或XML翻译webhook数据，并将值写入潜在客户字段。 Marketo字段参数始终使用字段的SOAP API名称。

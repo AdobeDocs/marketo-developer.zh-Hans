@@ -3,20 +3,23 @@ title: 启用深层链接
 feature: Mobile Marketing
 description: 了解如何使用自定义URI方案以及iOS、Android和PhoneGap指导和最佳实践，在您的应用程序中为Marketo推送消息启用深层链接。
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
-TQID: https://experienceleague.adobe.com/UswOvHXGlfTrTUqr4Gsf3j2Z7Xpv2FF2luXeygT4qE0
+TQID: 'https://experienceleague.adobe.com/UswOvHXGlfTrTUqr4Gsf3j2Z7Xpv2FF2luXeygT4qE0'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+    internal-label: Resources
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 363
+source-wordcount: '363'
 ht-degree: 1%
-
 ---
-
 # 启用深层链接
 
 深层链接会将用户定向到您的应用程序中的特定内容。 例如，当人员选择一条展示紫色T恤的移动推送消息时，应用程序可以打开紫色T恤内容而不是主页。

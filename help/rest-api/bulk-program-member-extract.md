@@ -3,22 +3,29 @@ title: 批量程序成员提取
 feature: REST API
 description: 使用Marketo批量程序成员提取REST API导出大型成员记录，以使用权限和字段元数据进行ETL、数据仓库存储和存档。
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-TQID: https://experienceleague.adobe.com/w4qaVTKSe0EORaSiURB6WbJXi29JUdEgfkb2dnfuVFw
+TQID: 'https://experienceleague.adobe.com/w4qaVTKSe0EORaSiURB6WbJXi29JUdEgfkb2dnfuVFw'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1081
+source-wordcount: '1081'
 ht-degree: 2%
-
 ---
-
 # 批量程序成员提取
 
 [批量程序成员提取终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members)

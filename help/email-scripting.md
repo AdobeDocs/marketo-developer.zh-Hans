@@ -3,23 +3,31 @@ title: 电子邮件脚本
 feature: Email Programs
 description: 了解如何使用Apache Velocity令牌、变量、Velocity工具编写动态Marketo电子邮件的脚本，以及使用“发送示例”和“电子邮件预览”进行测试。
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-TQID: https://experienceleague.adobe.com/xFDjbGWGoWg4Ik6xqoU4L51FG5-1STZ5a0x0KpmwGd4
+TQID: 'https://experienceleague.adobe.com/xFDjbGWGoWg4Ik6xqoU4L51FG5-1STZ5a0x0KpmwGd4'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
+subfeature_v2:
+  - id: c0f0afc1-a5a8-4b01-8b43-cc38f9169499
+    internal-label: Email programs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 916
+source-wordcount: '916'
 ht-degree: 0%
-
 ---
-
 # 电子邮件脚本
 
 有关Velocity模板语言行为的详细说明，请阅读[Velocity用户指南](https://velocity.apache.org/engine/devel/user-guide.html)。

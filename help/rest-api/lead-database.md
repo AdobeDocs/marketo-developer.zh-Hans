@@ -3,22 +3,29 @@ title: 潜在客户数据库
 feature: REST API, Database
 description: Marketo Lead Database API指南，涵盖对象、CRUD和Describe方法、查询模式、批量限制和CRM集成限制。
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-TQID: https://experienceleague.adobe.com/7lGbhE92lvIE-XkMyUIaK9GrreZVRdM-WVZTpHARhxE
+TQID: 'https://experienceleague.adobe.com/7lGbhE92lvIE-XkMyUIaK9GrreZVRdM-WVZTpHARhxE'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1058
+source-wordcount: '1058'
 ht-degree: 1%
-
 ---
-
 # 潜在客户数据库
 
 Marketo潜在客户数据库API与Marketo交换人员和人员相关数据。 此数据包括活动、机会和公司。

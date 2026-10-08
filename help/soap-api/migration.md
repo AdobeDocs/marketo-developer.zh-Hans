@@ -3,7 +3,7 @@ title: 迁移到REST API
 feature: SOAP
 description: 使用端点映射、OAuth、潜在客户同步方法和参考体系结构，在2026年1月31日之前将Marketo Engage从SOAP迁移到REST的分步指南。
 exl-id: c2956db3-defe-4163-99f3-58654ce8ee2b
-TQID: https://experienceleague.adobe.com/pEtAxdR8gw0XQ9YFM8kEIxhQvK8LbHSFXBYPcXRGUjs
+TQID: 'https://experienceleague.adobe.com/pEtAxdR8gw0XQ9YFM8kEIxhQvK8LbHSFXBYPcXRGUjs'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
     internal-label: Marketo Engage
@@ -20,10 +20,15 @@ feature_v2:
     internal-label: Database
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
     internal-label: Programs
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: 567da6d8-7120-5e34-b91b-392b2d1402ff
+    internal-label: SOAP
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
     internal-label: Admin
-source-git-commit: 4dffbef0e0ea16393a9e30f5f8e1021331ca9a37
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '1418'
 ht-degree: 4%
@@ -36,7 +41,7 @@ Marketo Engage SOAP API将于2026年3月31日后停用。 应在此日期之前�
 
 与[REST AP](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/rest-api)I相比，SOAP API支持的用例范围有限。 在确定要映射用例的端点时，您应遵循[Marketo集成最佳实践](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/marketo-integration-best-practices)
 
-[参考体系结构](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/reference-architectures)可用于[CRM同步](https://experienceleague.adobe.com/docs/marketo-developer/assets/sync-architecture-whitepaper.pdf?lang=zh-Hans)和[Data Warehouse导出](https://experienceleague.adobe.com/docs/marketo-developer/assets/reference_architecture.pdf?lang=zh-Hans)用例。
+[参考体系结构](https://experienceleague.adobe.com/zh-hans/docs/marketo-developer/marketo/rest/reference-architectures)可用于[CRM同步](https://experienceleague.adobe.com/docs/marketo-developer/assets/sync-architecture-whitepaper.pdf?lang=en)和[Data Warehouse导出](https://experienceleague.adobe.com/docs/marketo-developer/assets/reference_architecture.pdf?lang=en)用例。
 
 ## 身份验证
 

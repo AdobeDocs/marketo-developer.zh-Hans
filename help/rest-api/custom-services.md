@@ -3,22 +3,29 @@ title: 自定义服务
 feature: REST API
 description: 创建Marketo自定义服务，设置仅限API的角色和权限，在LaunchPoint中获取客户端ID和客户端密钥，以及获取访问令牌。
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-TQID: https://experienceleague.adobe.com/lvT-8bYucf-K5LYxb5jQ7BHc137W71SvsGg7cWJlxEs
+TQID: 'https://experienceleague.adobe.com/lvT-8bYucf-K5LYxb5jQ7BHc137W71SvsGg7cWJlxEs'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 868
+source-wordcount: '868'
 ht-degree: 0%
-
 ---
-
 # 自定义服务
 
 自定义服务提供用于向Marketo进行身份验证和从Marketo [身份服务](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET)获取访问令牌的凭据。 每个自定义服务的作用范围仅限定于一个API专用用户，并从该用户获取其权限。

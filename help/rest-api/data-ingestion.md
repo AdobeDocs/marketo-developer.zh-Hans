@@ -3,18 +3,30 @@ title: 数据摄取
 feature: REST API, Dynamic Content, Static Lists
 description: 使用Marketo数据摄取API可大容量、低延迟地摄取人员、自定义对象、公司、项目成员和列表。
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
+TQID: 'https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: c56e5f8f-221f-55c2-8170-b1a9e10687cb
+    internal-label: Static Lists
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: cdd4e0f6-e87e-453f-88ee-2ee54a7de272
+    internal-label: Dynamic content
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 2151
+source-wordcount: '2153'
 ht-degree: 14%
-
 ---
-
 # 数据摄取API
 
 数据摄取API是一项高容量、低延迟、高度可用的服务。 使用它可在最短时间内摄取大量人员和人员相关数据。
@@ -76,7 +88,7 @@ API为五种对象类型提供接口：
 
 ### 响应
 
-| 键 | 值 | 必需 |
+| 键 | 值 | 必填 |
 | --- | --- | --- |
 | `X-Request-Id` | 唯一请求ID。 | 是 |
 
@@ -318,7 +330,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 #### 标头
 
-| 键 | 值 | 必需 |
+| 键 | 值 | 必填 |
 | --- | --- | --- |
 | `Content-Type` | application/json | 是 |
 | `X-Mkto-User-Token` | {accessToken} | 是 |
@@ -615,7 +627,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 #### 标头
 
-| 键 | 值 | 必需 |
+| 键 | 值 | 必填 |
 | --- | --- | --- |
 | `Content-Type` | application/json | 是 |
 | `X-Mkto-User-Token` | {accessToken} | 是 |
@@ -695,7 +707,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 #### 标头
 
-| 键 | 值 | 必需 |
+| 键 | 值 | 必填 |
 | --- | --- | --- |
 | `Content-Type` | application/json | 是 |
 | `X-Mkto-User-Token` | {accessToken} | 是 |

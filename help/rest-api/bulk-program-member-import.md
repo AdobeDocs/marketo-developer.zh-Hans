@@ -3,22 +3,29 @@ title: 批量程序成员导入
 feature: REST API
 description: 了解如何使用小于10MB、队列限制、所需参数和轮询作业状态的CSV TSV或SSV文件，通过Marketo REST API批量导入项目成员。
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-TQID: https://experienceleague.adobe.com/T1PAzLN1mnp38kJ0jwh6kPv6r1Uvxc7-o9zeTHetIV0
+TQID: 'https://experienceleague.adobe.com/T1PAzLN1mnp38kJ0jwh6kPv6r1Uvxc7-o9zeTHetIV0'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+    internal-label: Implementation
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Implementation
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 742
+source-wordcount: '742'
 ht-degree: 0%
-
 ---
-
 # 批量程序成员导入
 
 [批量程序成员导入终结点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members)
