@@ -34,19 +34,19 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 5c356507ac2551edfbb1c60dba7b167d7ef0b4c0
+source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
 workflow-type: tm+mt
-source-wordcount: '2104'
+source-wordcount: '2556'
 ht-degree: 0%
 ---
 
 # [!DNL Marketo Engage] MCP服务器
 
-模型上下文协议(Model Context Protocol， MCP)是一种将AI工具连接到外部服务的开放标准。 [!DNL Marketo] MCP服务器将您的AI助手连接到[!DNL Marketo]。 它为表单、程序、智能营销活动、潜在客户、电子邮件、代码片段、列表和文件夹提供了100多项操作。
+模型上下文协议(Model Context Protocol， MCP)是一种将AI工具连接到外部服务的开放标准。 [!DNL Marketo] MCP服务器将您的AI助手连接到[!DNL Marketo]。 它支持跨资产管理、潜在客户数据和营销活动自动化的操作。 有关异常和可用性要求，请参阅[支持的MCP操作](mcp-server-operations.md)。
 
 当您的AI工具调用MCP服务器时，服务器使用该请求中的凭据执行相应的REST API调用。 您无需安装、部署或运行服务器端软件。
 
-有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/zh-hans/docs/marketo/using/product-docs/marketo-ai/data-information)页。
+有关如何使用Marketo AI和Marketo Engage MCP服务器处理数据的更多信息，请参阅[数据信息](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information)页。
 
 >[!IMPORTANT]
 >
@@ -117,7 +117,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
 ## 配置AI工具
 
-配置会因工具而略有不同。 下面提供了常用工具的连接示例。
+根据工具的不同，配置会略有不同。 本节提供常用工具的连接示例。
 
 >[!TIP]
 >
@@ -129,26 +129,20 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
 ### 克劳德桌面 {#claude-desktop}
 
-要连接到Claude Desktop，请下载[marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip)并将其解包。 将`marketo-mcp-bridge.mjs`放置到已知位置，以便在下一步中可以参考。
+要连接到Claude Desktop，请下载[marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip)并将其解包。 将`marketo-mcp-bridge.mjs`放置到已知位置，并在下面的配置中使用其绝对路径。
 
-您还需要：
-
-* Node.js v18+
-* npm
+您还需要在计算机上安装受支持的LTS版本的Node.js。 桥不需要额外的npm包。
 
 1. 打开Claude Desktop。
-1. 转到&#x200B;**设置>开发人员>编辑配置**。
-1. 将以下内容添加到`claude_desktop_config.json`：
+1. 打开`claude_desktop_config.json`。 在macOS上，文件位于`~/Library/Application Support/Claude/`中。 在Windows上，它在`%APPDATA%\Claude\`中。 在开发人员设置菜单的版本中，选择&#x200B;**[!UICONTROL Settings]** > **[!UICONTROL Developer]** > **[!UICONTROL Edit Config]**&#x200B;以将其打开。
+1. 在`mcpServers`下添加以下条目，并保留任何现有设置。 将路径和凭据占位符替换为您的值：
 
 ```json
 {
-  "preferences": {
-    ...
-  },
   "mcpServers": {
     "marketo-mcp": {
       "command": "node",
-      "args": ["/path/to/marketo-bridge/bridge.mjs"],
+      "args": ["/path/to/marketo-bridge/marketo-mcp-bridge.mjs"],
       "env": {
         "MARKETO_MCP_PROD_CLIENT_ID": "<your-client-id>",
         "MARKETO_MCP_PROD_CLIENT_SECRET": "<your-client-secret>",
@@ -161,18 +155,18 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 
 1. 重新启动Claude Desktop。
 
+如果Claude Desktop找不到Node.js，请将`command`中的`node`替换为Node.js可执行文件的绝对路径。 有关详细信息，请参阅[连接到本地MCP服务器](https://modelcontextprotocol.io/docs/develop/connect-local-servers){target="_blank"}。
+
 >[!TAB 游标]
 
 ### 光标 {#cursor}
 
-如果游标MCP配置已包含其他服务器，请在`mcpServers`下添加`marketo`项。
-以下示例显示项目目录中&#x200B;**[!UICONTROL Settings]** > **[!UICONTROL MCP]**&#x200B;或`.cursor/mcp.json`中的完整`mcpServers`块：
+在`~/.cursor/mcp.json`中的`mcpServers`下为您的用户帐户添加`marketo`条目，或在您的项目目录中添加`.cursor/mcp.json`。 保留所有现有服务器并将凭据占位符替换为您的值：
 
 ```json
 {
   "mcpServers": {
     "marketo": {
-      "type": "http",
       "url": "https://marketo-mcp.adobe.io/mcp",
       "headers": {
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
@@ -184,7 +178,7 @@ MCP允许AI工具同时连接到多个外部服务。 例如，AI助手可以：
 }
 ```
 
-重新启动光标。
+在光标中打开&#x200B;**[!UICONTROL Customize]**&#x200B;并确认服务器已打开。 有关详细信息，请参阅[Cursor MCP配置](https://cursor.com/docs/context/mcp){target="_blank"}。
 
 >[!TAB 克劳德代码CLI]
 
@@ -200,64 +194,39 @@ claude mcp add --transport http marketo \
   --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
+该命令会为当前项目添加服务器和您的用户帐户。 要使其在项目间可用，请添加`--scope user`。 在Claude Code中，运行`/mcp`以检查连接。 有关详细信息，请参阅[克劳德代码MCP配置](https://code.claude.com/docs/en/mcp){target="_blank"}。
+
 >[!TAB OpenAI代码]
 
 ### OpenAI代码 {#codex}
 
-1. 转到“设置”>“MCP服务器”>“添加服务器”。
-1. 添加服务器URL： `https://marketo-mcp.adobe.io/mcp`。
-1. 为身份验证方法添加标头：
+将以下内容添加到`~/.codex/config.toml`，并保留任何现有配置：
 
-* X-Marketo-Client-Id： &quot;YOUR-CLIENT-ID&quot;
-* X-Marketo-Client-Secret： &quot;YOUR-CLIENT-SECRET&quot;
-* X-Marketo-Munchkin-Id： &quot;YOUR-MUNCHKIN-ID&quot;
+```toml
+[mcp_servers.marketo]
+url = "https://marketo-mcp.adobe.io/mcp"
 
-1. 选择保存以完成该过程。
+[mcp_servers.marketo.env_http_headers]
+X-Marketo-Client-Id = "MARKETO_CLIENT_ID"
+X-Marketo-Client-Secret = "MARKETO_CLIENT_SECRET"
+X-Marketo-Munchkin-Id = "MARKETO_MUNCHKIN_ID"
+```
+
+在运行代码库的进程环境中设置`MARKETO_CLIENT_ID`、`MARKETO_CLIENT_SECRET`和`MARKETO_MUNCHKIN_ID`。 `env_http_headers`中的值是环境变量名称，而不是凭据。
+
+启动新的Codex会话并运行`/mcp`以检查连接。 有关详细信息，请参阅[代码MCP配置](https://developers.openai.com/codex/mcp){target="_blank"}。
 
 >[!TAB Gemini CLI]
 
 ### Gemini CLI
 
-要将Marketo Engage MCP服务器添加到Gemini CLI，请将以下内容添加到项目目录中的`.gemini/mcp.json`。
+若要将[!DNL Marketo Engage] MCP服务器添加到Gemini CLI，请将以下`mcpServers`条目添加到项目目录中的`.gemini/settings.json`或用户帐户的`~/.gemini/settings.json`。 保留所有现有设置并将凭据占位符替换为您的值。
 
 ```json
 {
   "mcpServers": {
     "marketo": {
       "httpUrl": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "X-Marketo-Client-Id": "$MARKETO_CLIENT_ID",
-        "X-Marketo-Client-Secret": "$MARKETO_CLIENT_SECRET",
-        "X-Marketo-Munchkin-Id": "$MARKETO_MUNCHKIN_ID"
-      }
-    }
-  }
-}
-```
-
-或者通过命令行：
-
-```bash
-gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp \
-  -H "X-Marketo-Client-Id: $MARKETO_CLIENT_ID" \
-  -H "X-Marketo-Client-Secret: $MARKETO_CLIENT_SECRET" \
-  -H "X-Marketo-Munchkin-Id: $MARKETO_MUNCHKIN_ID"
-```
-
-重新启动会话以选取新的MCP服务器配置。
-
->[!TAB 使用GitHub Copilot的 VS代码]
-
-### 使用GitHub Copilot的VS代码 {#vscode}
-
-按&#x200B;**[!UICONTROL Ctrl+Shift+P]**（或macOS上的&#x200B;**[!UICONTROL Cmd+Shift+P]**），键入&#x200B;**[!UICONTROL MCP: Open User Configuration]**，然后按Enter。 这将打开`mcp.json`。 在`servers`对象中添加`marketo`条目：
-
-```json
-{
-  "servers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
       "headers": {
         "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
         "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
@@ -268,13 +237,52 @@ gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp
 }
 ```
 
+或者，在外壳环境中设置`MARKETO_CLIENT_ID`、`MARKETO_CLIENT_SECRET`和`MARKETO_MUNCHKIN_ID`并运行以下命令。 shell在CLI将标头值存储在用户配置中之前扩展变量：
+
+```bash
+gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp \
+  -H "X-Marketo-Client-Id: $MARKETO_CLIENT_ID" \
+  -H "X-Marketo-Client-Secret: $MARKETO_CLIENT_SECRET" \
+  -H "X-Marketo-Munchkin-Id: $MARKETO_MUNCHKIN_ID"
+```
+
+重新启动会话并运行`/mcp`以检查连接。 有关详细信息，请参阅[Gemini CLI MCP配置](https://geminicli.com/docs/tools/mcp-server/){target="_blank"}。
+
+>使用GitHub Copilot的[!TAB VS代码]
+
+### 使用GitHub Copilot的VS代码 {#vscode}
+
+对最新版本的VS代码使用便携式Copilot配置。 在`~/.copilot/mcp-config.json`中的`mcpServers`下添加以下条目，如果设置`COPILOT_HOME`，则在`$COPILOT_HOME/mcp-config.json`下添加以下条目。 保留任何现有服务器：
+
+```json
+{
+  "mcpServers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "X-Marketo-Client-Id": "${MARKETO_CLIENT_ID}",
+        "X-Marketo-Client-Secret": "${MARKETO_CLIENT_SECRET}",
+        "X-Marketo-Munchkin-Id": "${MARKETO_MUNCHKIN_ID}"
+      }
+    }
+  }
+}
+```
+
+在运行VS Code或连接到服务器的远程主机的环境中设置三个环境变量。 启动新的Copilot会话并查看任何服务器信任提示。
+
+若要改用引导式安装，请运行&#x200B;**[!UICONTROL MCP: Add Server]**，选择&#x200B;**[!UICONTROL HTTP (HTTP or Server-Sent Events)]**，输入服务器URL，然后选择&#x200B;**[!UICONTROL Global]** > **[!UICONTROL Copilot Global]**。 然后，将标头添加到保存的配置。
+
+旧版本还支持&#x200B;**[!UICONTROL MCP: Open User Configuration]**&#x200B;或`.vscode/mcp.json`。 这些文件使用`servers`而不是环境变量的`mcpServers`和`${env:MARKETO_CLIENT_ID}`语法。 不要将这两种格式混用。 有关详细信息，请参阅[VS代码MCP配置](https://code.visualstudio.com/docs/agents/reference/mcp-configuration){target="_blank"}。
+
 >[!TAB Copilot Studio]
 
 ### Copilot Studio
 
-Copilot Studio的工作方式略有不同。 创建一个YAML定义文件，然后Copilot Studio从中构建连接器UI。 您可以在此处定义自定义标头。
+在添加MCP工具之前，为代理启用创新型编排。 使用自定义连接器定义所有三个必需的[!DNL Marketo]标头。
 
-创建新连接器时，打开“Swagger编辑器”并粘贴以下代码：
+在代理的&#x200B;**[!UICONTROL Tools]**&#x200B;页面上，选择&#x200B;**[!UICONTROL Add a tool]** > **[!UICONTROL New tool]** > **[!UICONTROL Custom connector]**。 在Power Apps中，创建一个自定义连接器并使用&#x200B;**[!UICONTROL Swagger editor]**&#x200B;输入以下定义：
 
 ```yaml
 swagger: '2.0'
@@ -294,17 +302,17 @@ paths:
       operationId: InvokeServer
       x-ms-agentic-protocol: mcp-streamable-1.0
       parameters:
-        - name: MARKETO_MCP_PROD_CLIENT_ID
+        - name: X-Marketo-Client-Id
           in: header
           description: Client ID.
           type: string
           required: true
-        - name: MARKETO_MCP_PROD_CLIENT_SECRET
+        - name: X-Marketo-Client-Secret
           in: header
           description: Client secret.
           type: string
           required: true
-        - name: MARKETO_MCP_PROD_MUNCHKIN_ID
+        - name: X-Marketo-Munchkin-Id
           in: header
           description: Munchkin ID.
           type: string
@@ -316,14 +324,15 @@ securityDefinitions: {}
 security: []
 ```
 
-更新连接器，然后关闭并重新打开它。
-您现在可以按照连接流程并填写标头值。
+保存或更新连接器，返回到Copilot Studio，然后将其添加到您的代理。 创建连接并在出现提示时提供三个标头值。 将凭据保留在OpenAPI定义和代理说明之外。 有关详细信息，请参阅[将代理连接到现有的MCP服务器](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent){target="_blank"}。
 
 >[!TAB Grean]
 
 ### Glean {#glean}
 
-要将Glean连接到Marketo Engage MCP服务器，[Glean支持团队](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features)必须配置以下自定义标头。
+要将Glean连接到[!DNL Marketo Engage] MCP服务器，请按照[Glean的远程MCP设置说明](https://docs.glean.com/administration/tools/connect-remote-mcp-servers-to-glean){target="_blank"}添加`https://marketo-mcp.adobe.io/mcp`。 首先检查&#x200B;**[!UICONTROL Connectors]**&#x200B;目录。 对于自定义或未列出的服务器，请使用&#x200B;**[!UICONTROL Admin console]** > **[!UICONTROL Platform]** > **[!UICONTROL Tools]** > **[!UICONTROL Import tools from MCP server]**。
+
+[Glean支持团队必须配置下面的自定义标头](https://docs.glean.com/administration/tools/mcp-custom-headers){target="_blank"}。 在支持请求中包含服务器名称、URL和所需的标头名称，并协调凭据值的安全处理。 仅标准API密钥连接不提供所有三个标头。
 
 | 标头 | 值 |
 | ------ | ----- |
@@ -331,12 +340,14 @@ security: []
 | `X-Marketo-Client-Secret` | 您的客户端密码 |
 | `X-Marketo-Munchkin-Id` | 您的Munchkin帐户ID |
 
+在Glean确认标头处于活动状态后，请先通过只读请求测试连接，然后再将这些工具提供给其他用户。
+
 >[!TAB 其他工具]
 
 ### 其他工具 {#other-tools}
 
 Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支持通过可流式传输HTTP传输远程服务器的MCP客户端都可以连接到该客户端。
-您不需要工具专用的桥接器或任何本地安装的软件。 如果您的工具未在上面列出，请使用下面的连接详细信息来手动配置它。
+支持直接远程HTTP连接的客户端不需要桥接器或本地安装的服务器软件。 如果您的工具未在上面列出，请使用下面的连接详细信息来手动配置它。
 
 **连接详细信息：**
 
@@ -347,7 +358,7 @@ Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支�
 
 **身份验证标头：**
 
-通过每个请求发送以下身份验证方法之一的标头。 在何处输入服务器URL和标头取决于您的工具，因此请查阅其MCP文档。
+随每个请求发送所有三个标头。 在何处输入服务器URL和标头取决于您的工具，因此请查阅其MCP文档。
 
 | 标头 | 值 |
 | ------ | ----- |
@@ -355,13 +366,15 @@ Adobe承载[!DNL Marketo] MCP服务器并在公共URL上公开它。 任何支�
 | `X-Marketo-Client-Secret` | 您的客户端密码 |
 | `X-Marketo-Munchkin-Id` | 您的Munchkin帐户ID |
 
-如果您的工具接受JSON配置，请从[Cursor](#cursor)或[VS代码](#vscode)示例开始，并调整键(`mcpServers`、`servers`)以匹配您工具的架构。
+如果您的工具接受JSON配置，请从[Cursor](#cursor)或[VS代码](#vscode)示例开始，并调整键和环境变量语法以匹配您的工具的架构。
 
 >[!ENDTABS]
 
+连接后，请要求AI助手使用[!DNL Marketo] MCP服务器列出可用通道，而不更改任何数据。 检查工具调用及其响应，以确认请求使用了预期的服务器，并在没有连接或身份验证错误的情况下返回数据。
+
 ## 可用操作
 
-连接后，您可以要求AI助手跨以下类别执行操作。 有关包含API引用的支持的操作的完整列表，请参阅[支持的MCP操作](mcp-server-operations.md)。
+连接后，您可以要求AI助手跨以下类别执行操作。 有关例外情况和可用性要求，请参阅[支持的MCP操作](mcp-server-operations.md)。
 
 ### 表单
 
