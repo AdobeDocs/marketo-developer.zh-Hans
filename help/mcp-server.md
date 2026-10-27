@@ -248,7 +248,7 @@ gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp
 
 重新启动会话并运行`/mcp`以检查连接。 有关详细信息，请参阅[Gemini CLI MCP配置](https://geminicli.com/docs/tools/mcp-server/){target="_blank"}。
 
->使用GitHub Copilot的[!TAB VS代码]
+>[!TAB 使用GitHub Copilot的 VS代码]
 
 ### 使用GitHub Copilot的VS代码 {#vscode}
 
