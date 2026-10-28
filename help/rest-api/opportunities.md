@@ -21,14 +21,14 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
     internal-label: Metadata
-source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
+source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
 workflow-type: tm+mt
 source-wordcount: '702'
 ht-degree: 0%
 ---
 # 商机
 
-[机会端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities)
+[机会端点引用](https://developer.adobe.com/marketo-apis/api/mapi#tag/Oppofrtunities)
 
 Marketo提供了用于读取、写入、创建和更新商机记录的API。 在Marketo中，中间的Opportunity Role对象将机会记录链接到潜在客户和联系人记录。 因此，一个机会可以关联到许多单个潜在客户。
 

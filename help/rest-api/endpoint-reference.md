@@ -31,7 +31,7 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
     internal-label: Metadata
-source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
+source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
 workflow-type: tm+mt
 source-wordcount: '4807'
 ht-degree: 8%
@@ -41,9 +41,9 @@ ht-degree: 8%
 使用以下参考信息查找每个Marketo REST API组的请求参数、响应架构和示例：
 
 - [资产](https://developer.adobe.com/marketo-apis/api/asset)
-- [身份标识](https://developer.adobe.com/marketo-apis/api/identity/)
+- [身份标识](https://developer.adobe.com/marketo-apis/api/identity)
 - [潜在客户数据库](https://developer.adobe.com/marketo-apis/api/mapi)
-- [用户管理](https://developer.adobe.com/marketo-apis/api/user/)
+- [用户管理](https://developer.adobe.com/marketo-apis/api/user)
 
 ## 端点列表 {#endpoint_list}
 
